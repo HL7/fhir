@@ -40,7 +40,6 @@ public class ResourceDefn  {
    private List<RegisteredProfile> profiles = new ArrayList<RegisteredProfile>();
    private Map<String, Operation> operations = new HashMap<String, Operation>();
       
-   private boolean sandbox;
    private String status;
      
    private String name = null;
@@ -126,14 +125,6 @@ public class ResourceDefn  {
    
   public List<Example> getExamples() {
     return examples;
-  }
-
-  public boolean isSandbox() {
-    return sandbox;
-  }
-
-  public void setSandbox(boolean sandbox) {
-    this.sandbox = sandbox;
   }
 
   public Map<String, SearchParameter> getSearchParams() {

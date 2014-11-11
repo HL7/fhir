@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
-public class OralHealthClaim extends Resource {
+public class OralHealthClaim extends DomainResource {
 
     public enum UseLink {
         COMPLETE, // The treatment is complete and this represents a Claim for the services.
@@ -272,6 +272,7 @@ public class OralHealthClaim extends Resource {
 
       public PayeeComponent copy() {
         PayeeComponent dst = new PayeeComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
@@ -359,6 +360,7 @@ public class OralHealthClaim extends Resource {
 
       public DiagnosisComponent copy() {
         DiagnosisComponent dst = new DiagnosisComponent();
+        copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.diagnosis = diagnosis == null ? null : diagnosis.copy();
         return dst;
@@ -577,7 +579,7 @@ public class OralHealthClaim extends Resource {
          * @return {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
     // syntactic sugar
-        public StringType addPreauthrefElement() { 
+        public StringType addPreauthrefElement() {//2 
           StringType t = new StringType();
           this.preauthref.add(t);
           return t;
@@ -586,7 +588,7 @@ public class OralHealthClaim extends Resource {
         /**
          * @param value {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
-        public CoverageComponent addPreauthref(String value) { 
+        public CoverageComponent addPreauthref(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
           this.preauthref.add(t);
@@ -631,6 +633,7 @@ public class OralHealthClaim extends Resource {
 
       public CoverageComponent copy() {
         CoverageComponent dst = new CoverageComponent();
+        copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.focal = focal == null ? null : focal.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
@@ -747,6 +750,7 @@ public class OralHealthClaim extends Resource {
 
       public MissingTeethComponent copy() {
         MissingTeethComponent dst = new MissingTeethComponent();
+        copyValues(dst);
         dst.tooth = tooth == null ? null : tooth.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.extractiondate = extractiondate == null ? null : extractiondate.copy();
@@ -978,6 +982,7 @@ public class OralHealthClaim extends Resource {
 
       public OrthodonticPlanComponent copy() {
         OrthodonticPlanComponent dst = new OrthodonticPlanComponent();
+        copyValues(dst);
         dst.start = start == null ? null : start.copy();
         dst.examFee = examFee == null ? null : examFee.copy();
         dst.diagnosticFee = diagnosticFee == null ? null : diagnosticFee.copy();
@@ -1293,7 +1298,7 @@ public class OralHealthClaim extends Resource {
          * @return {@link #subsite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
     // syntactic sugar
-        public Coding addSubsite() { 
+        public Coding addSubsite() { //3
           Coding t = new Coding();
           this.subsite.add(t);
           return t;
@@ -1310,7 +1315,7 @@ public class OralHealthClaim extends Resource {
          * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
          */
     // syntactic sugar
-        public Coding addModifier() { 
+        public Coding addModifier() { //3
           Coding t = new Coding();
           this.modifier.add(t);
           return t;
@@ -1327,7 +1332,7 @@ public class OralHealthClaim extends Resource {
          * @return {@link #detail} (Second tier of goods and services.)
          */
     // syntactic sugar
-        public DetailComponent addDetail() { 
+        public DetailComponent addDetail() { //3
           DetailComponent t = new DetailComponent();
           this.detail.add(t);
           return t;
@@ -1368,6 +1373,7 @@ public class OralHealthClaim extends Resource {
 
       public ItemsComponent copy() {
         ItemsComponent dst = new ItemsComponent();
+        copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
@@ -1580,7 +1586,7 @@ public class OralHealthClaim extends Resource {
          * @return {@link #subDetail} (Third tier of goods and services.)
          */
     // syntactic sugar
-        public SubDetailComponent addSubDetail() { 
+        public SubDetailComponent addSubDetail() { //3
           SubDetailComponent t = new SubDetailComponent();
           this.subDetail.add(t);
           return t;
@@ -1600,6 +1606,7 @@ public class OralHealthClaim extends Resource {
 
       public DetailComponent copy() {
         DetailComponent dst = new DetailComponent();
+        copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
@@ -1799,6 +1806,7 @@ public class OralHealthClaim extends Resource {
 
       public SubDetailComponent copy() {
         SubDetailComponent dst = new SubDetailComponent();
+        copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
@@ -1929,6 +1937,7 @@ public class OralHealthClaim extends Resource {
 
       public ProsthesisComponent copy() {
         ProsthesisComponent dst = new ProsthesisComponent();
+        copyValues(dst);
         dst.initial = initial == null ? null : initial.copy();
         dst.priorDate = priorDate == null ? null : priorDate.copy();
         dst.priorMaterial = priorMaterial == null ? null : priorMaterial.copy();
@@ -2431,7 +2440,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
      */
     // syntactic sugar
-    public DiagnosisComponent addDiagnosis() { 
+    public DiagnosisComponent addDiagnosis() { //3
       DiagnosisComponent t = new DiagnosisComponent();
       this.diagnosis.add(t);
       return t;
@@ -2448,7 +2457,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #condition} (List of patient conditions for which care is sought.)
      */
     // syntactic sugar
-    public Coding addCondition() { 
+    public Coding addCondition() { //3
       Coding t = new Coding();
       this.condition.add(t);
       return t;
@@ -2495,7 +2504,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #coverage} (Financial instrument by which payment information for health care.)
      */
     // syntactic sugar
-    public CoverageComponent addCoverage() { 
+    public CoverageComponent addCoverage() { //3
       CoverageComponent t = new CoverageComponent();
       this.coverage.add(t);
       return t;
@@ -2512,7 +2521,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #exception} (Factors which may influence the applicability of coverage.)
      */
     // syntactic sugar
-    public Coding addException() { 
+    public Coding addException() { //3
       Coding t = new Coding();
       this.exception.add(t);
       return t;
@@ -2616,7 +2625,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #interventionException} (A list of intervention and exception codes which may influence the adjudication of the claim.)
      */
     // syntactic sugar
-    public Coding addInterventionException() { 
+    public Coding addInterventionException() { //3
       Coding t = new Coding();
       this.interventionException.add(t);
       return t;
@@ -2633,7 +2642,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #missingteeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
     // syntactic sugar
-    public MissingTeethComponent addMissingteeth() { 
+    public MissingTeethComponent addMissingteeth() { //3
       MissingTeethComponent t = new MissingTeethComponent();
       this.missingteeth.add(t);
       return t;
@@ -2665,7 +2674,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #item} (First tier of goods and services.)
      */
     // syntactic sugar
-    public ItemsComponent addItem() { 
+    public ItemsComponent addItem() { //3
       ItemsComponent t = new ItemsComponent();
       this.item.add(t);
       return t;
@@ -2682,7 +2691,7 @@ public class OralHealthClaim extends Resource {
      * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
     // syntactic sugar
-    public Coding addAdditionalMaterials() { 
+    public Coding addAdditionalMaterials() { //3
       Coding t = new Coding();
       this.additionalMaterials.add(t);
       return t;
@@ -2720,6 +2729,7 @@ public class OralHealthClaim extends Resource {
 
       public OralHealthClaim copy() {
         OralHealthClaim dst = new OralHealthClaim();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.use = use == null ? null : use.copy();
         dst.fundsReserve = fundsReserve == null ? null : fundsReserve.copy();

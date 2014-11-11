@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A scheduled healthcare event for a patient and/or practitioner(s) where a service may take place at a specific date/time.
  */
-public class Appointment extends Resource {
+public class Appointment extends DomainResource {
 
     public enum Participantrequired {
         REQUIRED, // The participant is required to attend the appointment.
@@ -249,7 +249,7 @@ public class Appointment extends Resource {
          * @return {@link #type} (Role of participant in the appointment.)
          */
     // syntactic sugar
-        public CodeableConcept addType() { 
+        public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
           this.type.add(t);
           return t;
@@ -363,6 +363,7 @@ public class Appointment extends Resource {
 
       public AppointmentParticipantComponent copy() {
         AppointmentParticipantComponent dst = new AppointmentParticipantComponent();
+        copyValues(dst);
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
           dst.type.add(i.copy());
@@ -492,7 +493,7 @@ public class Appointment extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -711,7 +712,7 @@ public class Appointment extends Resource {
      * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
     // syntactic sugar
-    public Reference addSlot() { 
+    public Reference addSlot() { //3
       Reference t = new Reference();
       this.slot.add(t);
       return t;
@@ -841,7 +842,7 @@ public class Appointment extends Resource {
      * @return {@link #participant} (List of participants involved in the appointment.)
      */
     // syntactic sugar
-    public AppointmentParticipantComponent addParticipant() { 
+    public AppointmentParticipantComponent addParticipant() { //3
       AppointmentParticipantComponent t = new AppointmentParticipantComponent();
       this.participant.add(t);
       return t;
@@ -934,6 +935,7 @@ public class Appointment extends Resource {
 
       public Appointment copy() {
         Appointment dst = new Appointment();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

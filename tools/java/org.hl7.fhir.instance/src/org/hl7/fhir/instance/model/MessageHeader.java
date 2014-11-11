@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
-public class MessageHeader extends Resource {
+public class MessageHeader extends DomainResource {
 
     public enum ResponseCode {
         OK, // The message was accepted and processed without error.
@@ -241,6 +241,7 @@ public class MessageHeader extends Resource {
 
       public MessageHeaderResponseComponent copy() {
         MessageHeaderResponseComponent dst = new MessageHeaderResponseComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.code = code == null ? null : code.copy();
         dst.details = details == null ? null : details.copy();
@@ -452,6 +453,7 @@ public class MessageHeader extends Resource {
 
       public MessageSourceComponent copy() {
         MessageSourceComponent dst = new MessageSourceComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.software = software == null ? null : software.copy();
         dst.version = version == null ? null : version.copy();
@@ -601,6 +603,7 @@ public class MessageHeader extends Resource {
 
       public MessageDestinationComponent copy() {
         MessageDestinationComponent dst = new MessageDestinationComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.target = target == null ? null : target.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
@@ -828,7 +831,7 @@ public class MessageHeader extends Resource {
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
     // syntactic sugar
-    public MessageDestinationComponent addDestination() { 
+    public MessageDestinationComponent addDestination() { //3
       MessageDestinationComponent t = new MessageDestinationComponent();
       this.destination.add(t);
       return t;
@@ -980,7 +983,7 @@ public class MessageHeader extends Resource {
      * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
      */
     // syntactic sugar
-    public Reference addData() { 
+    public Reference addData() { //3
       Reference t = new Reference();
       this.data.add(t);
       return t;
@@ -1011,6 +1014,7 @@ public class MessageHeader extends Resource {
 
       public MessageHeader copy() {
         MessageHeader dst = new MessageHeader();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.event = event == null ? null : event.copy();

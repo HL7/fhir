@@ -1,6 +1,7 @@
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <text>
+ <id value="3141"/>
+   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>
@@ -19,7 +20,8 @@
     </div>
   </text>
   <contained>
-    <ValueSet id="yesno">
+    <ValueSet>
+      <id value="yesno"/>
       <!-- In practice you could (should?) use boolean for this sort of circumstance.  However, the reality is
         that many systems treat booleans as coded data -->
       <name value="Example YesNo"/>

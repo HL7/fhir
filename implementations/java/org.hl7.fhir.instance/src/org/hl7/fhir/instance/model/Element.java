@@ -38,7 +38,7 @@ POSSIBILITY OF SUCH DAMAGE.
  * The base element as defined in FHIR: an id attribute or property, and extensions. 
  * All FHIR classes that represent resource content inherit from this 
  */
-public abstract class Element implements Serializable {
+public abstract class Element extends Base {
 
 	/**
 	 * 
@@ -53,12 +53,11 @@ public abstract class Element implements Serializable {
 	/**
 	 * Extensions on this element
 	 */
-  private List<Extension> extensions = new ArrayList<Extension>();
+  private List<Extension> extension = new ArrayList<Extension>();
   
   /** extensions for convenience **/
   
   private List<String> xmlComments; // used to allow rough round-tripping of content
-  private Map<String, Object> tags; // allow users to add extra information to the class
  
   /**
    * @return xml:id (or "id" in json) - the target id for internal references
@@ -77,15 +76,15 @@ public abstract class Element implements Serializable {
 	/**
 	 * @return Extensions on this element
 	 */
-  public List<Extension> getExtensions() {
-    return extensions;
+  public List<Extension> getExtension() {
+    return extension;
   }
   
   /**
    * @return true if there are extensions on this element
    */
   public boolean hasExtensions() {
-    return extensions.size() > 0;
+    return extension.size() > 0;
   }
 	
   /**
@@ -95,7 +94,7 @@ public abstract class Element implements Serializable {
   public boolean hasExtension(String name) {
     if (name == null)
       return false;
-    for (Extension e : extensions) {
+    for (Extension e : extension) {
       if (name.equals(e.getUrl()))
         return true;
     }
@@ -109,7 +108,7 @@ public abstract class Element implements Serializable {
   public Extension getExtension(String name) {
     if (name == null)
       return null;
-    for (Extension e : extensions) {
+    for (Extension e : extension) {
       if (name.equals(e.getUrl()))
         return e;
     }
@@ -121,65 +120,39 @@ public abstract class Element implements Serializable {
     if (ext != null)
       ext.setValue(new StringType(value));
     else
-      extensions.add(new Extension(new UriType(uri)).setValue(new StringType(value)));
-  }
-  /**
-   * Supports iterating the children elements in some generic processor or browser
-   * All defined children will be listed, even if they have no value on this instance
-   * 
-   * Note that the actual content of primitive or xhtml elements is not iterated explicitly.
-   * To find these, the processing code must recognise the element as a primitive, typecast
-   * the value to a {@link Type}, and examine the value
-   *  
-   * @return a list of all the children defined for this element
-   */
-  public List<Property> children() {
-  	List<Property> result = new ArrayList<Property>();
-  	listChildren(result);
-  	return result;
+      extension.add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
   /**
    * used internally when collecting the defined children for this element. overridden in descendent classes
    */
+  @Override
 	protected void listChildren(List<Property> result) {
 	// not an element  result.add(new Property("xml:id", "XML Identifier - target for an id ref", 0, 1, )))
-		result.add(new Property("extension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, extensions));	  
+		result.add(new Property("extension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, extension));	  
   }
 
-  public Property getChildByName(String name) {
-    List<Property> children = new ArrayList<Property>();
-    listChildren(children);
-    for (Property c : children)
-      if (c.getName().equals(name))
-        return c;
-    return null;
-  }  
-  
-  public List<Element> listChildrenByName(String name) {
-    List<Property> children = new ArrayList<Property>();
-    listChildren(children);
-    for (Property c : children)
-      if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
-        return c.values;
-    return new ArrayList<Element>();
-  }  
-  
+ 
   public List<String> getXmlComments() {
     if (xmlComments == null)
       xmlComments = new ArrayList<String>();
     return xmlComments;
   }  
 
-  public Object getTag(String name) {
-    if (tags == null)
-      return null;
-    return tags.get(name);
+
+  public void copyValues(Element dst) {
+  	dst.xmlId = xmlId;
+  	
+    dst.extension = new ArrayList<Extension>();
+    for (Extension i : extension)
+      dst.extension.add(i.copy());
+    
+    if (xmlComments == null || xmlComments.isEmpty())
+    	dst.xmlComments = null;
+    else { 
+      dst.xmlComments = new ArrayList<String>();
+      dst.xmlComments.addAll(xmlComments);    	
+    }
   }
-  
-  public void setTag(String name, Object value) {
-    if (tags == null)
-      tags = new HashMap<String, Object>();
-    tags.put(name, value);
-  }
+
 }

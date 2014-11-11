@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Financial instrument which may be used to pay for or reimburse for health care products and services.
  */
-public class Coverage extends Resource {
+public class Coverage extends DomainResource {
 
     /**
      * The program or plan underwriter or payor.
@@ -431,7 +431,7 @@ public class Coverage extends Resource {
      * @return {@link #contract} (The policy(s) which constitute this insurance coverage.)
      */
     // syntactic sugar
-    public Reference addContract() { 
+    public Reference addContract() { //3
       Reference t = new Reference();
       this.contract.add(t);
       return t;
@@ -472,6 +472,7 @@ public class Coverage extends Resource {
 
       public Coverage copy() {
         Coverage dst = new Coverage();
+        copyValues(dst);
         dst.issuer = issuer == null ? null : issuer.copy();
         dst.period = period == null ? null : period.copy();
         dst.type = type == null ? null : type.copy();

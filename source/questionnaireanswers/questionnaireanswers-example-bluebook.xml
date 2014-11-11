@@ -2,7 +2,8 @@
   xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaireanswers.xsd">
   <!-- Please not that in this questionnaire, the questions are mostly unnamed, that is, the questions are not identified using the <name> element. It will therefore
     be hard to extract useful information in an automated way from this questionnaire. This is, however, quite often the case when modelling existing questionnaires -->
-  <text>
+ <id value="bb"/>
+   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>

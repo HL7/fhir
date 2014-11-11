@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
  */
-public class Organization extends Resource {
+public class Organization extends DomainResource {
 
     public enum AdministrativeGender {
         MALE, // Male
@@ -188,7 +188,7 @@ public class Organization extends Resource {
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
     // syntactic sugar
-        public ContactPoint addTelecom() { 
+        public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
@@ -256,6 +256,7 @@ public class Organization extends Resource {
 
       public OrganizationContactComponent copy() {
         OrganizationContactComponent dst = new OrganizationContactComponent();
+        copyValues(dst);
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<ContactPoint>();
@@ -340,7 +341,7 @@ public class Organization extends Resource {
      * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -408,7 +409,7 @@ public class Organization extends Resource {
      * @return {@link #telecom} (A contact detail for the organization.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -425,7 +426,7 @@ public class Organization extends Resource {
      * @return {@link #address} (An address for the organization.)
      */
     // syntactic sugar
-    public Address addAddress() { 
+    public Address addAddress() { //3
       Address t = new Address();
       this.address.add(t);
       return t;
@@ -472,7 +473,7 @@ public class Organization extends Resource {
      * @return {@link #contact} (Contact for the organization for a certain purpose.)
      */
     // syntactic sugar
-    public OrganizationContactComponent addContact() { 
+    public OrganizationContactComponent addContact() { //3
       OrganizationContactComponent t = new OrganizationContactComponent();
       this.contact.add(t);
       return t;
@@ -489,7 +490,7 @@ public class Organization extends Resource {
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
     // syntactic sugar
-    public Reference addLocation() { 
+    public Reference addLocation() { //3
       Reference t = new Reference();
       this.location.add(t);
       return t;
@@ -563,6 +564,7 @@ public class Organization extends Resource {
 
       public Organization copy() {
         Organization dst = new Organization();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

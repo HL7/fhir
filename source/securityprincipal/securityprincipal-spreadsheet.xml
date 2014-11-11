@@ -960,7 +960,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4118,7 +4118,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">resource</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">SecurityPrincipal.resource</Data></Cell>
     <Cell ss:StyleID="s118"/>
@@ -4399,7 +4399,7 @@
    <Row ss:Height="45">
     <Cell ss:StyleID="s113"><Data ss:Type="String">hash</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>

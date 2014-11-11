@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
  */
-public class ConceptMap extends Resource {
+public class ConceptMap extends DomainResource {
 
     public enum ValuesetStatus {
         DRAFT, // This valueset is still under development.
@@ -341,7 +341,7 @@ public class ConceptMap extends Resource {
          * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.)
          */
     // syntactic sugar
-        public OtherElementComponent addDependsOn() { 
+        public OtherElementComponent addDependsOn() { //3
           OtherElementComponent t = new OtherElementComponent();
           this.dependsOn.add(t);
           return t;
@@ -358,7 +358,7 @@ public class ConceptMap extends Resource {
          * @return {@link #map} (A concept from the target value set that this concept maps to.)
          */
     // syntactic sugar
-        public ConceptMapElementMapComponent addMap() { 
+        public ConceptMapElementMapComponent addMap() { //3
           ConceptMapElementMapComponent t = new ConceptMapElementMapComponent();
           this.map.add(t);
           return t;
@@ -374,6 +374,7 @@ public class ConceptMap extends Resource {
 
       public ConceptMapElementComponent copy() {
         ConceptMapElementComponent dst = new ConceptMapElementComponent();
+        copyValues(dst);
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
         dst.dependsOn = new ArrayList<OtherElementComponent>();
@@ -521,6 +522,7 @@ public class ConceptMap extends Resource {
 
       public OtherElementComponent copy() {
         OtherElementComponent dst = new OtherElementComponent();
+        copyValues(dst);
         dst.element = element == null ? null : element.copy();
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
@@ -717,7 +719,7 @@ public class ConceptMap extends Resource {
          * @return {@link #product} (A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
     // syntactic sugar
-        public OtherElementComponent addProduct() { 
+        public OtherElementComponent addProduct() { //3
           OtherElementComponent t = new OtherElementComponent();
           this.product.add(t);
           return t;
@@ -734,6 +736,7 @@ public class ConceptMap extends Resource {
 
       public ConceptMapElementMapComponent copy() {
         ConceptMapElementMapComponent dst = new ConceptMapElementMapComponent();
+        copyValues(dst);
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
         dst.equivalence = equivalence == null ? null : equivalence.copy();
@@ -979,7 +982,7 @@ public class ConceptMap extends Resource {
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -1202,7 +1205,7 @@ public class ConceptMap extends Resource {
      * @return {@link #element} (Mappings for an individual concept in the source to one or more concepts in the target.)
      */
     // syntactic sugar
-    public ConceptMapElementComponent addElement() { 
+    public ConceptMapElementComponent addElement() { //3
       ConceptMapElementComponent t = new ConceptMapElementComponent();
       this.element.add(t);
       return t;
@@ -1227,6 +1230,7 @@ public class ConceptMap extends Resource {
 
       public ConceptMap copy() {
         ConceptMap dst = new ConceptMap();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();

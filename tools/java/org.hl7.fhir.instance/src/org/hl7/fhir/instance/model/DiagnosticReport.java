@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
  */
-public class DiagnosticReport extends Resource {
+public class DiagnosticReport extends DomainResource {
 
     public enum DiagnosticReportStatus {
         REGISTERED, // The existence of the report is registered, but there is nothing yet available.
@@ -256,6 +256,7 @@ public class DiagnosticReport extends Resource {
 
       public DiagnosticReportImageComponent copy() {
         DiagnosticReportImageComponent dst = new DiagnosticReportImageComponent();
+        copyValues(dst);
         dst.comment = comment == null ? null : comment.copy();
         dst.link = link == null ? null : link.copy();
         return dst;
@@ -554,7 +555,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #requestDetail} (Details concerning a test requested.)
      */
     // syntactic sugar
-    public Reference addRequestDetail() { 
+    public Reference addRequestDetail() { //3
       Reference t = new Reference();
       this.requestDetail.add(t);
       return t;
@@ -618,7 +619,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
      */
     // syntactic sugar
-    public Reference addSpecimen() { 
+    public Reference addSpecimen() { //3
       Reference t = new Reference();
       this.specimen.add(t);
       return t;
@@ -652,7 +653,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
     // syntactic sugar
-    public Reference addResult() { 
+    public Reference addResult() { //3
       Reference t = new Reference();
       this.result.add(t);
       return t;
@@ -686,7 +687,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
     // syntactic sugar
-    public Reference addImagingStudy() { 
+    public Reference addImagingStudy() { //3
       Reference t = new Reference();
       this.imagingStudy.add(t);
       return t;
@@ -720,7 +721,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
      */
     // syntactic sugar
-    public DiagnosticReportImageComponent addImage() { 
+    public DiagnosticReportImageComponent addImage() { //3
       DiagnosticReportImageComponent t = new DiagnosticReportImageComponent();
       this.image.add(t);
       return t;
@@ -773,7 +774,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #codedDiagnosis} (Codes for the conclusion.)
      */
     // syntactic sugar
-    public CodeableConcept addCodedDiagnosis() { 
+    public CodeableConcept addCodedDiagnosis() { //3
       CodeableConcept t = new CodeableConcept();
       this.codedDiagnosis.add(t);
       return t;
@@ -790,7 +791,7 @@ public class DiagnosticReport extends Resource {
      * @return {@link #presentedForm} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
      */
     // syntactic sugar
-    public Attachment addPresentedForm() { 
+    public Attachment addPresentedForm() { //3
       Attachment t = new Attachment();
       this.presentedForm.add(t);
       return t;
@@ -818,6 +819,7 @@ public class DiagnosticReport extends Resource {
 
       public DiagnosticReport copy() {
         DiagnosticReport dst = new DiagnosticReport();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.status = status == null ? null : status.copy();
         dst.issued = issued == null ? null : issued.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
  */
-public class ClaimResponse extends Resource {
+public class ClaimResponse extends DomainResource {
 
     public enum RSLink {
         COMPLETE, // The processing completed without errors.
@@ -171,7 +171,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #noteNumber} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public IntegerType addNoteNumberElement() { 
+        public IntegerType addNoteNumberElement() {//2 
           IntegerType t = new IntegerType();
           this.noteNumber.add(t);
           return t;
@@ -180,7 +180,7 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
          */
-        public ItemsComponent addNoteNumber(int value) { 
+        public ItemsComponent addNoteNumber(int value) { //1
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.noteNumber.add(t);
@@ -208,7 +208,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #adjudication} (The adjudications results.)
          */
     // syntactic sugar
-        public ItemAdjudicationComponent addAdjudication() { 
+        public ItemAdjudicationComponent addAdjudication() { //3
           ItemAdjudicationComponent t = new ItemAdjudicationComponent();
           this.adjudication.add(t);
           return t;
@@ -225,7 +225,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #detail} (The second tier service adjudications for submitted services.)
          */
     // syntactic sugar
-        public ItemDetailComponent addDetail() { 
+        public ItemDetailComponent addDetail() { //3
           ItemDetailComponent t = new ItemDetailComponent();
           this.detail.add(t);
           return t;
@@ -241,6 +241,7 @@ public class ClaimResponse extends Resource {
 
       public ItemsComponent copy() {
         ItemsComponent dst = new ItemsComponent();
+        copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         dst.noteNumber = new ArrayList<IntegerType>();
         for (IntegerType i : noteNumber)
@@ -358,6 +359,7 @@ public class ClaimResponse extends Resource {
 
       public ItemAdjudicationComponent copy() {
         ItemAdjudicationComponent dst = new ItemAdjudicationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
@@ -436,7 +438,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #adjudication} (The adjudications results.)
          */
     // syntactic sugar
-        public DetailAdjudicationComponent addAdjudication() { 
+        public DetailAdjudicationComponent addAdjudication() { //3
           DetailAdjudicationComponent t = new DetailAdjudicationComponent();
           this.adjudication.add(t);
           return t;
@@ -453,7 +455,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #subdetail} (The third tier service adjudications for submitted services.)
          */
     // syntactic sugar
-        public ItemSubdetailComponent addSubdetail() { 
+        public ItemSubdetailComponent addSubdetail() { //3
           ItemSubdetailComponent t = new ItemSubdetailComponent();
           this.subdetail.add(t);
           return t;
@@ -468,6 +470,7 @@ public class ClaimResponse extends Resource {
 
       public ItemDetailComponent copy() {
         ItemDetailComponent dst = new ItemDetailComponent();
+        copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         dst.adjudication = new ArrayList<DetailAdjudicationComponent>();
         for (DetailAdjudicationComponent i : adjudication)
@@ -582,6 +585,7 @@ public class ClaimResponse extends Resource {
 
       public DetailAdjudicationComponent copy() {
         DetailAdjudicationComponent dst = new DetailAdjudicationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
@@ -655,7 +659,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #adjudication} (The adjudications results.)
          */
     // syntactic sugar
-        public SubdetailAdjudicationComponent addAdjudication() { 
+        public SubdetailAdjudicationComponent addAdjudication() { //3
           SubdetailAdjudicationComponent t = new SubdetailAdjudicationComponent();
           this.adjudication.add(t);
           return t;
@@ -669,6 +673,7 @@ public class ClaimResponse extends Resource {
 
       public ItemSubdetailComponent copy() {
         ItemSubdetailComponent dst = new ItemSubdetailComponent();
+        copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         dst.adjudication = new ArrayList<SubdetailAdjudicationComponent>();
         for (SubdetailAdjudicationComponent i : adjudication)
@@ -780,6 +785,7 @@ public class ClaimResponse extends Resource {
 
       public SubdetailAdjudicationComponent copy() {
         SubdetailAdjudicationComponent dst = new SubdetailAdjudicationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
@@ -841,7 +847,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
     // syntactic sugar
-        public IntegerType addSsequenceLinkIdElement() { 
+        public IntegerType addSsequenceLinkIdElement() {//2 
           IntegerType t = new IntegerType();
           this.ssequenceLinkId.add(t);
           return t;
@@ -850,7 +856,7 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public AddedItemComponent addSsequenceLinkId(int value) { 
+        public AddedItemComponent addSsequenceLinkId(int value) { //1
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.ssequenceLinkId.add(t);
@@ -908,7 +914,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
     // syntactic sugar
-        public IntegerType addNoteNumberLinkIdElement() { 
+        public IntegerType addNoteNumberLinkIdElement() {//2 
           IntegerType t = new IntegerType();
           this.noteNumberLinkId.add(t);
           return t;
@@ -917,7 +923,7 @@ public class ClaimResponse extends Resource {
         /**
          * @param value {@link #noteNumberLinkId} (A list of note references to the notes provided below.)
          */
-        public AddedItemComponent addNoteNumberLinkId(int value) { 
+        public AddedItemComponent addNoteNumberLinkId(int value) { //1
           IntegerType t = new IntegerType();
           t.setValue(value);
           this.noteNumberLinkId.add(t);
@@ -945,7 +951,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #ajudication} (The adjudications results.)
          */
     // syntactic sugar
-        public AddedItemAdjudicationComponent addAjudication() { 
+        public AddedItemAdjudicationComponent addAjudication() { //3
           AddedItemAdjudicationComponent t = new AddedItemAdjudicationComponent();
           this.ajudication.add(t);
           return t;
@@ -962,7 +968,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #detail} (The second tier service adjudications for payor added services.)
          */
     // syntactic sugar
-        public AddedItemsDetailComponent addDetail() { 
+        public AddedItemsDetailComponent addDetail() { //3
           AddedItemsDetailComponent t = new AddedItemsDetailComponent();
           this.detail.add(t);
           return t;
@@ -980,6 +986,7 @@ public class ClaimResponse extends Resource {
 
       public AddedItemComponent copy() {
         AddedItemComponent dst = new AddedItemComponent();
+        copyValues(dst);
         dst.ssequenceLinkId = new ArrayList<IntegerType>();
         for (IntegerType i : ssequenceLinkId)
           dst.ssequenceLinkId.add(i.copy());
@@ -1101,6 +1108,7 @@ public class ClaimResponse extends Resource {
 
       public AddedItemAdjudicationComponent copy() {
         AddedItemAdjudicationComponent dst = new AddedItemAdjudicationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
@@ -1177,7 +1185,7 @@ public class ClaimResponse extends Resource {
          * @return {@link #ajudication} (The adjudications results.)
          */
     // syntactic sugar
-        public AddedItemDetailAdjudicationComponent addAjudication() { 
+        public AddedItemDetailAdjudicationComponent addAjudication() { //3
           AddedItemDetailAdjudicationComponent t = new AddedItemDetailAdjudicationComponent();
           this.ajudication.add(t);
           return t;
@@ -1192,6 +1200,7 @@ public class ClaimResponse extends Resource {
 
       public AddedItemsDetailComponent copy() {
         AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
+        copyValues(dst);
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
         dst.ajudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
@@ -1304,6 +1313,7 @@ public class ClaimResponse extends Resource {
 
       public AddedItemDetailAdjudicationComponent copy() {
         AddedItemDetailAdjudicationComponent dst = new AddedItemDetailAdjudicationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
@@ -1477,6 +1487,7 @@ public class ClaimResponse extends Resource {
 
       public ErrorsComponent copy() {
         ErrorsComponent dst = new ErrorsComponent();
+        copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         dst.detailSequenceLinkId = detailSequenceLinkId == null ? null : detailSequenceLinkId.copy();
         dst.subdetailSequenceLinkId = subdetailSequenceLinkId == null ? null : subdetailSequenceLinkId.copy();
@@ -1604,6 +1615,7 @@ public class ClaimResponse extends Resource {
 
       public NotesComponent copy() {
         NotesComponent dst = new NotesComponent();
+        copyValues(dst);
         dst.number = number == null ? null : number.copy();
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
@@ -1613,7 +1625,7 @@ public class ClaimResponse extends Resource {
   }
 
     /**
-     * The Response Reference Number.
+     * The Response Business Identifier.
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -1628,7 +1640,7 @@ public class ClaimResponse extends Resource {
     protected OralHealthClaim requestTarget;
 
     /**
-     * Original request identifer.
+     * Original request Business Identifer.
      */
     protected List<Identifier> requestIdentifier = new ArrayList<Identifier>();
 
@@ -1769,17 +1781,17 @@ public class ClaimResponse extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (The Response Reference Number.)
+     * @return {@link #identifier} (The Response Business Identifier.)
      */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     /**
-     * @return {@link #identifier} (The Response Reference Number.)
+     * @return {@link #identifier} (The Response Business Identifier.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1816,17 +1828,17 @@ public class ClaimResponse extends Resource {
     }
 
     /**
-     * @return {@link #requestIdentifier} (Original request identifer.)
+     * @return {@link #requestIdentifier} (Original request Business Identifer.)
      */
     public List<Identifier> getRequestIdentifier() { 
       return this.requestIdentifier;
     }
 
     /**
-     * @return {@link #requestIdentifier} (Original request identifer.)
+     * @return {@link #requestIdentifier} (Original request Business Identifer.)
      */
     // syntactic sugar
-    public Identifier addRequestIdentifier() { 
+    public Identifier addRequestIdentifier() { //3
       Identifier t = new Identifier();
       this.requestIdentifier.add(t);
       return t;
@@ -2086,7 +2098,7 @@ public class ClaimResponse extends Resource {
      * @return {@link #item} (The first tier service adjudications for submitted services.)
      */
     // syntactic sugar
-    public ItemsComponent addItem() { 
+    public ItemsComponent addItem() { //3
       ItemsComponent t = new ItemsComponent();
       this.item.add(t);
       return t;
@@ -2103,7 +2115,7 @@ public class ClaimResponse extends Resource {
      * @return {@link #additem} (The first tier service adjudications for payor added services.)
      */
     // syntactic sugar
-    public AddedItemComponent addAdditem() { 
+    public AddedItemComponent addAdditem() { //3
       AddedItemComponent t = new AddedItemComponent();
       this.additem.add(t);
       return t;
@@ -2120,7 +2132,7 @@ public class ClaimResponse extends Resource {
      * @return {@link #error} (Mutually exclusive with Services Provided (Item).)
      */
     // syntactic sugar
-    public ErrorsComponent addError() { 
+    public ErrorsComponent addError() { //3
       ErrorsComponent t = new ErrorsComponent();
       this.error.add(t);
       return t;
@@ -2308,7 +2320,7 @@ public class ClaimResponse extends Resource {
      * @return {@link #note} (Note text.)
      */
     // syntactic sugar
-    public NotesComponent addNote() { 
+    public NotesComponent addNote() { //3
       NotesComponent t = new NotesComponent();
       this.note.add(t);
       return t;
@@ -2316,9 +2328,9 @@ public class ClaimResponse extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "The Response Reference Number.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("request", "Reference(OralHealthClaim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("requestIdentifier", "Identifier", "Original request identifer.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
+        childrenList.add(new Property("requestIdentifier", "Identifier", "Original request Business Identifer.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
@@ -2346,6 +2358,7 @@ public class ClaimResponse extends Resource {
 
       public ClaimResponse copy() {
         ClaimResponse dst = new ClaimResponse();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

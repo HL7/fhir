@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
@@ -40,6 +40,7 @@ public class Money extends Quantity {
 
       public Money copy() {
         Money dst = new Money();
+        copyValues(dst);
         dst.value = value == null ? null : value.copy();
         dst.comparator = comparator == null ? null : comparator.copy();
         dst.units = units == null ? null : units.copy();

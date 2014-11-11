@@ -4,6 +4,7 @@ unlikely anyone would ever use FHIR to do this.  (XMI isn't *that* unpleasant :>
 how somewhat esoteric requirements that won't ever be supported by the core FHIR specification can still
 be managed in a conformant manner.-->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
+  <id value="classModel"/>
   <extension url="http://example.org/do-not-use/fhir-extensions/UML#class">
     <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.name">
       <valueString value="Class1"/>

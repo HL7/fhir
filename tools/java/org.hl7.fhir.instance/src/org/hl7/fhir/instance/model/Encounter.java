@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
  */
-public class Encounter extends Resource {
+public class Encounter extends DomainResource {
 
     public enum EncounterState {
         PLANNED, // The Encounter has not yet started.
@@ -274,7 +274,7 @@ public class Encounter extends Resource {
          * @return {@link #type} (Role of participant in encounter.)
          */
     // syntactic sugar
-        public CodeableConcept addType() { 
+        public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
           this.type.add(t);
           return t;
@@ -318,6 +318,7 @@ public class Encounter extends Resource {
 
       public EncounterParticipantComponent copy() {
         EncounterParticipantComponent dst = new EncounterParticipantComponent();
+        copyValues(dst);
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
           dst.type.add(i.copy());
@@ -495,7 +496,7 @@ public class Encounter extends Resource {
          * @return {@link #accomodation} (Where the patient stays during this encounter.)
          */
     // syntactic sugar
-        public EncounterHospitalizationAccomodationComponent addAccomodation() { 
+        public EncounterHospitalizationAccomodationComponent addAccomodation() { //3
           EncounterHospitalizationAccomodationComponent t = new EncounterHospitalizationAccomodationComponent();
           this.accomodation.add(t);
           return t;
@@ -527,7 +528,7 @@ public class Encounter extends Resource {
          * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
          */
     // syntactic sugar
-        public CodeableConcept addSpecialCourtesy() { 
+        public CodeableConcept addSpecialCourtesy() { //3
           CodeableConcept t = new CodeableConcept();
           this.specialCourtesy.add(t);
           return t;
@@ -544,7 +545,7 @@ public class Encounter extends Resource {
          * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
          */
     // syntactic sugar
-        public CodeableConcept addSpecialArrangement() { 
+        public CodeableConcept addSpecialArrangement() { //3
           CodeableConcept t = new CodeableConcept();
           this.specialArrangement.add(t);
           return t;
@@ -679,6 +680,7 @@ public class Encounter extends Resource {
 
       public EncounterHospitalizationComponent copy() {
         EncounterHospitalizationComponent dst = new EncounterHospitalizationComponent();
+        copyValues(dst);
         dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
         dst.origin = origin == null ? null : origin.copy();
         dst.admitSource = admitSource == null ? null : admitSource.copy();
@@ -777,6 +779,7 @@ public class Encounter extends Resource {
 
       public EncounterHospitalizationAccomodationComponent copy() {
         EncounterHospitalizationAccomodationComponent dst = new EncounterHospitalizationAccomodationComponent();
+        copyValues(dst);
         dst.bed = bed == null ? null : bed.copy();
         dst.period = period == null ? null : period.copy();
         return dst;
@@ -864,6 +867,7 @@ public class Encounter extends Resource {
 
       public EncounterLocationComponent copy() {
         EncounterLocationComponent dst = new EncounterLocationComponent();
+        copyValues(dst);
         dst.location = location == null ? null : location.copy();
         dst.period = period == null ? null : period.copy();
         return dst;
@@ -999,7 +1003,7 @@ public class Encounter extends Resource {
      * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1080,7 +1084,7 @@ public class Encounter extends Resource {
      * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
      */
     // syntactic sugar
-    public CodeableConcept addType() { 
+    public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);
       return t;
@@ -1127,7 +1131,7 @@ public class Encounter extends Resource {
      * @return {@link #participant} (The main practitioner responsible for providing the service.)
      */
     // syntactic sugar
-    public EncounterParticipantComponent addParticipant() { 
+    public EncounterParticipantComponent addParticipant() { //3
       EncounterParticipantComponent t = new EncounterParticipantComponent();
       this.participant.add(t);
       return t;
@@ -1279,7 +1283,7 @@ public class Encounter extends Resource {
      * @return {@link #location} (List of locations at which the patient has been.)
      */
     // syntactic sugar
-    public EncounterLocationComponent addLocation() { 
+    public EncounterLocationComponent addLocation() { //3
       EncounterLocationComponent t = new EncounterLocationComponent();
       this.location.add(t);
       return t;
@@ -1367,6 +1371,7 @@ public class Encounter extends Resource {
 
       public Encounter copy() {
         Encounter dst = new Encounter();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

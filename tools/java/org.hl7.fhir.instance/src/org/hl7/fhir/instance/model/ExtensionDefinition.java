@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Defines an extension that can be used in resources.
  */
-public class ExtensionDefinition extends Resource {
+public class ExtensionDefinition extends DomainResource {
 
     public enum ResourceProfileStatus {
         DRAFT, // This profile is still under development.
@@ -363,6 +363,7 @@ public class ExtensionDefinition extends Resource {
 
       public ExtensionDefinitionMappingComponent copy() {
         ExtensionDefinitionMappingComponent dst = new ExtensionDefinitionMappingComponent();
+        copyValues(dst);
         dst.identity = identity == null ? null : identity.copy();
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
@@ -509,7 +510,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats (e.g. ISO 11179(, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -630,7 +631,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -683,7 +684,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of extension definitions.)
      */
     // syntactic sugar
-    public Coding addCode() { 
+    public Coding addCode() { //3
       Coding t = new Coding();
       this.code.add(t);
       return t;
@@ -840,7 +841,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #mapping} (An external specification that the content is mapped to.)
      */
     // syntactic sugar
-    public ExtensionDefinitionMappingComponent addMapping() { 
+    public ExtensionDefinitionMappingComponent addMapping() { //3
       ExtensionDefinitionMappingComponent t = new ExtensionDefinitionMappingComponent();
       this.mapping.add(t);
       return t;
@@ -889,7 +890,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
      */
     // syntactic sugar
-    public StringType addContextElement() { 
+    public StringType addContextElement() {//2 
       StringType t = new StringType();
       this.context.add(t);
       return t;
@@ -898,7 +899,7 @@ public class ExtensionDefinition extends Resource {
     /**
      * @param value {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
      */
-    public ExtensionDefinition addContext(String value) { 
+    public ExtensionDefinition addContext(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.context.add(t);
@@ -926,7 +927,7 @@ public class ExtensionDefinition extends Resource {
      * @return {@link #element} (Definition of the elements that are defined to be in the extension.)
      */
     // syntactic sugar
-    public ElementDefinition addElement() { 
+    public ElementDefinition addElement() { //3
       ElementDefinition t = new ElementDefinition();
       this.element.add(t);
       return t;
@@ -954,6 +955,7 @@ public class ExtensionDefinition extends Resource {
 
       public ExtensionDefinition copy() {
         ExtensionDefinition dst = new ExtensionDefinition();
+        copyValues(dst);
         dst.url = url == null ? null : url.copy();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
-public class Media extends Resource {
+public class Media extends DomainResource {
 
     public enum MediaType {
         PHOTO, // The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents.
@@ -250,7 +250,7 @@ public class Media extends Resource {
      * @return {@link #identifier} (Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -581,6 +581,7 @@ public class Media extends Resource {
 
       public Media copy() {
         Media dst = new Media();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.subtype = subtype == null ? null : subtype.copy();
         dst.identifier = new ArrayList<Identifier>();

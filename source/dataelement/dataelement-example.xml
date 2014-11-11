@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
+  <id value="gender"/>
   <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
     <valueInteger value="1"/>
   </extension>
@@ -46,7 +47,8 @@
     </div>
   </text>
   <contained>
-    <ValueSet id="2179414">
+    <ValueSet>
+      <id value="2179414"/>
       <identifier value="2179414"/>
       <version value="1.0"/>
       <name value="Gender Code"/>
@@ -80,7 +82,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="2179414-permitted">
+    <ValueSet>
+      <id value="2179414-permitted"/>
       <status value="active"/>
       <define>
         <system value="http://example.org/fhir/2179414"/>
@@ -100,7 +103,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ConceptMap id="2179414-cm">
+    <ConceptMap>
+      <id value="2179414-cm"/>
       <status value="active"/>
       <sourceReference>
         <reference value="#2179414"/>

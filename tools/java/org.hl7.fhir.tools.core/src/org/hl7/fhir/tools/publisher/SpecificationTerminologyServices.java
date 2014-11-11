@@ -27,10 +27,11 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -42,6 +43,7 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
+import org.tmatesoft.sqljet.core.internal.lang.SqlParser.operation_conflict_clause_return;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -295,11 +297,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     String hash = Integer.toString(new String(b.toByteArray()).hashCode());
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
-      ResourceOrFeed r = new JsonParser().parseGeneral(new FileInputStream(fn));
-      if (r.getResource() != null)
-        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetails());
+      Resource r = new JsonParser().parse(new FileInputStream(fn));
+      if (r instanceof OperationOutcome)
+        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((ValueSet) r.getFeed().getEntryList().get(0).getResource()).getExpansion().getContains();
+        return ((ValueSet) ((Bundle)r).getItem().get(0)).getExpansion().getContains();
     }
     vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
     
@@ -315,10 +317,10 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "expand");
         params.put("limit", "500");
-        AtomFeed result = client.searchPost(ValueSet.class, vs, params);
+        Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), result, false);
-        return ((ValueSet) result.getEntryList().get(0).getResource()).getExpansion().getContains();
+        return ((ValueSet) result.getItem().get(0)).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
@@ -354,11 +356,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     String hash = Integer.toString(new String(b.toByteArray()).hashCode())+"-vs-check";
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
-      ResourceOrFeed r = new JsonParser().parseGeneral(new FileInputStream(fn));
-      if (r.getResource() != null)
-        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetails());
+      Resource r = new JsonParser().parse(new FileInputStream(fn));
+      if (r instanceof OperationOutcome)
+        throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((OperationOutcome) r.getFeed().getEntryList().get(0).getResource());
+        return ((OperationOutcome) ((Bundle) r).getItem().get(0));
     }
     vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
         
@@ -374,10 +376,10 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         params.put("_query", "validate");
         params.put("system", system);
         params.put("code", code);
-        AtomFeed result = client.searchPost(ValueSet.class, vs, params);
+        Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), result, false);
-        return ((OperationOutcome) result.getEntryList().get(0).getResource());
+        return ((OperationOutcome) result.getItem().get(0));
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);

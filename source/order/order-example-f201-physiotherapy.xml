@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Order xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/order.xsd">
+  <id value="f201"/>
  <date value="2013-03-05T12:00:00+01:00"/>
  <subject><!--Order was sent to Juri van Gelder for Roel by Dokter Bronsig.-->
     <reference value="Patient/f201"/>

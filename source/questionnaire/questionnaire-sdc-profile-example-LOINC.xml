@@ -1,5 +1,6 @@
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+ <id value="sdc-loinc"/>
+   <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
     <valueCodeableConcept>
       <coding>
         <code value="Acute Care Hospitals"/>
@@ -11,7 +12,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
   </text>
   <contained>
-    <ValueSet id="ll2655-0">
+    <ValueSet>
+      <id value="ll2655-0"/>
       <name value="AHRQ_Medication_Q2"/>
       <description value="The answer list for question 2 on the AHRQ &quot;Medication or Other Substance&quot; form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -38,7 +40,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2657-6">
+    <ValueSet>
+      <id value="ll2657-6"/>
       <name value="AHRQ_Medication_Q4"/>
       <description value="The answer list for question 4 on the AHRQ &quot;Medication or Other Substance&quot; form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -57,7 +60,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2659-2">
+    <ValueSet>
+      <id value="ll2659-2"/>
       <name value="AHRQ_Medication_Q6"/>
       <description value="The answer list for question 6 on the AHRQ &quot;Medication or Other Substance&quot; form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -88,7 +92,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2660-0">
+    <ValueSet>
+      <id value="ll2660-0"/>
       <name value="AHRQ_Medication_Q7"/>
       <description value="The answer list for question 7 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -117,7 +122,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2661-8">
+    <ValueSet>
+      <id value="ll2661-8"/>
       <name value="AHRQ_Medication_Q8"/>
       <description value="The answer list for question 8 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -189,7 +195,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2662-6">
+    <ValueSet>
+      <id value="ll2662-6"/>
       <name value="AHRQ_Medication_Q9"/>
       <description value="The answer list for question 9 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -220,7 +227,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2663-4">
+    <ValueSet>
+      <id value="ll2663-4"/>
       <name value="AHRQ_Medication_Q10"/>
       <description value="The answer list for question 10 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -243,7 +251,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2664-2">
+    <ValueSet>
+      <id value="ll2664-2"/>
       <name value="AHRQ_Medication_Q11"/>
       <description value="The answer list for question 11 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -266,7 +275,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2665-9">
+    <ValueSet>
+      <id value="ll2665-9"/>
       <name value="AHRQ_Medication_Q12"/>
       <description value="The answer list for question 12 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -289,7 +299,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2817-6">
+    <ValueSet>
+      <id value="ll2817-6"/>
       <name value="AHRQ_Y/N/UNK"/>
       <description value="AHRQ Common Format Answer list for Yes (A15), No (A18), Unknown (UNK)"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -312,7 +323,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2668-3">
+    <ValueSet>
+      <id value="ll2668-3"/>
       <name value="AHRQ_Medication_Q15"/>
       <description value="The answer list for question 15 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -339,7 +351,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2669-1">
+    <ValueSet>
+      <id value="ll2669-1"/>
       <name value="AHRQ_Medication_Q16"/>
       <description value="The answer list for question 16 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -390,7 +403,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2828-3">
+    <ValueSet>
+      <id value="ll2828-3"/>
       <name value="AHRQ_Y/N"/>
       <description value="AHRQ Common Format Answer list for Yes (A15) and No (A18)"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
@@ -409,7 +423,8 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="ll2682-4">
+    <ValueSet>
+      <id value="ll2682-4"/>
       <name value="AHRQ_Medication_Q28_Q29"/>
       <description value="The answer list for questions 28 and 29 on the AHRQ 'Medication or Other Substance' form"/>
       <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>

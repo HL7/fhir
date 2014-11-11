@@ -119,7 +119,7 @@ public class ValidationMessage
     issue.setSeverity(level);
     issue.setDetails(message);
     if (source != null) {
-      issue.getExtensions().add(ToolingExtensions.makeIssueSource(source));      
+      issue.getExtension().add(ToolingExtensions.makeIssueSource(source));      
     }
     return issue;
   }

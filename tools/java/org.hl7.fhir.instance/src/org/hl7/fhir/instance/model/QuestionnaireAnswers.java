@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
-public class QuestionnaireAnswers extends Resource {
+public class QuestionnaireAnswers extends DomainResource {
 
     public enum QuestionnaireAnswersStatus {
         INPROGRESS, // This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.
@@ -296,7 +296,7 @@ public class QuestionnaireAnswers extends Resource {
          * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
     // syntactic sugar
-        public GroupComponent addGroup() { 
+        public GroupComponent addGroup() { //3
           GroupComponent t = new GroupComponent();
           this.group.add(t);
           return t;
@@ -313,7 +313,7 @@ public class QuestionnaireAnswers extends Resource {
          * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
     // syntactic sugar
-        public QuestionComponent addQuestion() { 
+        public QuestionComponent addQuestion() { //3
           QuestionComponent t = new QuestionComponent();
           this.question.add(t);
           return t;
@@ -331,6 +331,7 @@ public class QuestionnaireAnswers extends Resource {
 
       public GroupComponent copy() {
         GroupComponent dst = new GroupComponent();
+        copyValues(dst);
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.title = title == null ? null : title.copy();
         dst.text = text == null ? null : text.copy();
@@ -456,7 +457,7 @@ public class QuestionnaireAnswers extends Resource {
          * @return {@link #answer} (The respondent's answer(s) to the question.)
          */
     // syntactic sugar
-        public QuestionAnswerComponent addAnswer() { 
+        public QuestionAnswerComponent addAnswer() { //3
           QuestionAnswerComponent t = new QuestionAnswerComponent();
           this.answer.add(t);
           return t;
@@ -473,7 +474,7 @@ public class QuestionnaireAnswers extends Resource {
          * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
     // syntactic sugar
-        public GroupComponent addGroup() { 
+        public GroupComponent addGroup() { //3
           GroupComponent t = new GroupComponent();
           this.group.add(t);
           return t;
@@ -489,6 +490,7 @@ public class QuestionnaireAnswers extends Resource {
 
       public QuestionComponent copy() {
         QuestionComponent dst = new QuestionComponent();
+        copyValues(dst);
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.text = text == null ? null : text.copy();
         dst.answer = new ArrayList<QuestionAnswerComponent>();
@@ -536,6 +538,7 @@ public class QuestionnaireAnswers extends Resource {
 
       public QuestionAnswerComponent copy() {
         QuestionAnswerComponent dst = new QuestionAnswerComponent();
+        copyValues(dst);
         dst.value = value == null ? null : value.copy();
         return dst;
       }
@@ -883,6 +886,7 @@ public class QuestionnaireAnswers extends Resource {
 
       public QuestionnaireAnswers copy() {
         QuestionnaireAnswers dst = new QuestionnaireAnswers();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.questionnaire = questionnaire == null ? null : questionnaire.copy();
         dst.status = status == null ? null : status.copy();

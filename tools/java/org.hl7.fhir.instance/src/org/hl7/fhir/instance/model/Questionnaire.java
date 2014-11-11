@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
-public class Questionnaire extends Resource {
+public class Questionnaire extends DomainResource {
 
     public enum QuestionnaireStatus {
         DRAFT, // This Questionnaire is not ready for official use.
@@ -411,7 +411,7 @@ public class Questionnaire extends Resource {
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
          */
     // syntactic sugar
-        public Coding addConcept() { 
+        public Coding addConcept() { //3
           Coding t = new Coding();
           this.concept.add(t);
           return t;
@@ -536,7 +536,7 @@ public class Questionnaire extends Resource {
          * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
     // syntactic sugar
-        public GroupComponent addGroup() { 
+        public GroupComponent addGroup() { //3
           GroupComponent t = new GroupComponent();
           this.group.add(t);
           return t;
@@ -553,7 +553,7 @@ public class Questionnaire extends Resource {
          * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
     // syntactic sugar
-        public QuestionComponent addQuestion() { 
+        public QuestionComponent addQuestion() { //3
           QuestionComponent t = new QuestionComponent();
           this.question.add(t);
           return t;
@@ -573,6 +573,7 @@ public class Questionnaire extends Resource {
 
       public GroupComponent copy() {
         GroupComponent dst = new GroupComponent();
+        copyValues(dst);
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.title = title == null ? null : title.copy();
         dst.concept = new ArrayList<Coding>();
@@ -691,7 +692,7 @@ public class Questionnaire extends Resource {
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
          */
     // syntactic sugar
-        public Coding addConcept() { 
+        public Coding addConcept() { //3
           Coding t = new Coding();
           this.concept.add(t);
           return t;
@@ -882,7 +883,7 @@ public class Questionnaire extends Resource {
          * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
     // syntactic sugar
-        public GroupComponent addGroup() { 
+        public GroupComponent addGroup() { //3
           GroupComponent t = new GroupComponent();
           this.group.add(t);
           return t;
@@ -902,6 +903,7 @@ public class Questionnaire extends Resource {
 
       public QuestionComponent copy() {
         QuestionComponent dst = new QuestionComponent();
+        copyValues(dst);
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.concept = new ArrayList<Coding>();
         for (Coding i : concept)
@@ -972,7 +974,7 @@ public class Questionnaire extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1145,6 +1147,7 @@ public class Questionnaire extends Resource {
 
       public Questionnaire copy() {
         Questionnaire dst = new Questionnaire();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

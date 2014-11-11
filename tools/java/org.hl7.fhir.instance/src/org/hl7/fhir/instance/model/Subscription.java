@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Todo.
  */
-public class Subscription extends Resource {
+public class Subscription extends DomainResource {
 
     public enum SubscriptionStatus {
         REQUESTED, // The client has requested the subscription, and the server has not yet set it up.
@@ -380,6 +380,7 @@ public class Subscription extends Resource {
 
       public SubscriptionChannelComponent copy() {
         SubscriptionChannelComponent dst = new SubscriptionChannelComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.url = url == null ? null : url.copy();
         dst.payload = payload == null ? null : payload.copy();
@@ -526,6 +527,7 @@ public class Subscription extends Resource {
 
       public SubscriptionTagComponent copy() {
         SubscriptionTagComponent dst = new SubscriptionTagComponent();
+        copyValues(dst);
         dst.term = term == null ? null : term.copy();
         dst.scheme = scheme == null ? null : scheme.copy();
         dst.description = description == null ? null : description.copy();
@@ -631,7 +633,7 @@ public class Subscription extends Resource {
      * @return {@link #contact} (Todo.)
      */
     // syntactic sugar
-    public ContactPoint addContact() { 
+    public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
       this.contact.add(t);
       return t;
@@ -799,7 +801,7 @@ public class Subscription extends Resource {
      * @return {@link #tag} (Todo.)
      */
     // syntactic sugar
-    public SubscriptionTagComponent addTag() { 
+    public SubscriptionTagComponent addTag() { //3
       SubscriptionTagComponent t = new SubscriptionTagComponent();
       this.tag.add(t);
       return t;
@@ -819,6 +821,7 @@ public class Subscription extends Resource {
 
       public Subscription copy() {
         Subscription dst = new Subscription();
+        copyValues(dst);
         dst.criteria = criteria == null ? null : criteria.copy();
         dst.contact = new ArrayList<ContactPoint>();
         for (ContactPoint i : contact)

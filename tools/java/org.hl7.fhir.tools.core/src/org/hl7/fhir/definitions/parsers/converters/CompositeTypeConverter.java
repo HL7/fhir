@@ -109,7 +109,6 @@ public class CompositeTypeConverter {
 			newResource = (ResourceDefn) buildCompositeTypeFromFhirModel(
 					resource.getRoot(), true, null, base);
 			newResource.setAbstract(resource.isAbstract());
-			newResource.setSandbox(resource.isSandbox());
 			newResource.setBaseType(base);
 			newResource.getExample().addAll(
 					ExampleConverter.buildExamplesFromFhirModel(resource

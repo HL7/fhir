@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
  */
-public class NutritionOrder extends Resource {
+public class NutritionOrder extends DomainResource {
 
     public enum NutritionOrderStatus {
         REQUESTED, // TODO.
@@ -265,6 +265,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrderItemComponent copy() {
         NutritionOrderItemComponent dst = new NutritionOrderItemComponent();
+        copyValues(dst);
         dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.isInEffect = isInEffect == null ? null : isInEffect.copy();
         dst.oralDiet = oralDiet == null ? null : oralDiet.copy();
@@ -328,7 +329,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #code} (A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth).)
          */
     // syntactic sugar
-        public CodeableConcept addCode() { 
+        public CodeableConcept addCode() { //3
           CodeableConcept t = new CodeableConcept();
           this.code.add(t);
           return t;
@@ -345,7 +346,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #nutrientModifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
          */
     // syntactic sugar
-        public CodeableConcept addNutrientModifier() { 
+        public CodeableConcept addNutrientModifier() { //3
           CodeableConcept t = new CodeableConcept();
           this.nutrientModifier.add(t);
           return t;
@@ -377,7 +378,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #textureModifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
          */
     // syntactic sugar
-        public CodeableConcept addTextureModifier() { 
+        public CodeableConcept addTextureModifier() { //3
           CodeableConcept t = new CodeableConcept();
           this.textureModifier.add(t);
           return t;
@@ -394,7 +395,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
          */
     // syntactic sugar
-        public CodeableConcept addFoodType() { 
+        public CodeableConcept addFoodType() { //3
           CodeableConcept t = new CodeableConcept();
           this.foodType.add(t);
           return t;
@@ -411,7 +412,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #fluidConsistencyType} (Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
          */
     // syntactic sugar
-        public CodeableConcept addFluidConsistencyType() { 
+        public CodeableConcept addFluidConsistencyType() { //3
           CodeableConcept t = new CodeableConcept();
           this.fluidConsistencyType.add(t);
           return t;
@@ -466,6 +467,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrderItemOralDietComponent copy() {
         NutritionOrderItemOralDietComponent dst = new NutritionOrderItemOralDietComponent();
+        copyValues(dst);
         dst.code = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : code)
           dst.code.add(i.copy());
@@ -521,7 +523,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #type} (Indicates the type of nutritional supplement product required such as high protein or pediatric clear liquid supplement.)
          */
     // syntactic sugar
-        public CodeableConcept addType() { 
+        public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
           this.type.add(t);
           return t;
@@ -587,6 +589,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrderItemSupplementComponent copy() {
         NutritionOrderItemSupplementComponent dst = new NutritionOrderItemSupplementComponent();
+        copyValues(dst);
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
           dst.type.add(i.copy());
@@ -660,7 +663,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #additiveType} (Indicates the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula.)
          */
     // syntactic sugar
-        public CodeableConcept addAdditiveType() { 
+        public CodeableConcept addAdditiveType() { //3
           CodeableConcept t = new CodeableConcept();
           this.additiveType.add(t);
           return t;
@@ -677,7 +680,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #caloricDensity} (TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***.)
          */
     // syntactic sugar
-        public Quantity addCaloricDensity() { 
+        public Quantity addCaloricDensity() { //3
           Quantity t = new Quantity();
           this.caloricDensity.add(t);
           return t;
@@ -694,7 +697,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #routeofAdministration} (***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***administration details including rate (ml per hour), route of adminstration, total volume.)
          */
     // syntactic sugar
-        public CodeableConcept addRouteofAdministration() { 
+        public CodeableConcept addRouteofAdministration() { //3
           CodeableConcept t = new CodeableConcept();
           this.routeofAdministration.add(t);
           return t;
@@ -711,7 +714,7 @@ public class NutritionOrder extends Resource {
          * @return {@link #rate} (TODO ***CARD AND TYPE ARE PLACEHOLDERS TO COMPLETE BUILD.  Need to discuss***.)
          */
     // syntactic sugar
-        public Quantity addRate() { 
+        public Quantity addRate() { //3
           Quantity t = new Quantity();
           this.rate.add(t);
           return t;
@@ -765,6 +768,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrderItemEnteralFormulaComponent copy() {
         NutritionOrderItemEnteralFormulaComponent dst = new NutritionOrderItemEnteralFormulaComponent();
+        copyValues(dst);
         dst.baseFormulaType = baseFormulaType == null ? null : baseFormulaType.copy();
         dst.additiveType = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : additiveType)
@@ -937,7 +941,7 @@ public class NutritionOrder extends Resource {
      * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1016,7 +1020,7 @@ public class NutritionOrder extends Resource {
      * @return {@link #allergyIntolerance} (The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.)
      */
     // syntactic sugar
-    public Reference addAllergyIntolerance() { 
+    public Reference addAllergyIntolerance() { //3
       Reference t = new Reference();
       this.allergyIntolerance.add(t);
       return t;
@@ -1050,7 +1054,7 @@ public class NutritionOrder extends Resource {
      * @return {@link #foodPreferenceModifier} (This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
      */
     // syntactic sugar
-    public CodeableConcept addFoodPreferenceModifier() { 
+    public CodeableConcept addFoodPreferenceModifier() { //3
       CodeableConcept t = new CodeableConcept();
       this.foodPreferenceModifier.add(t);
       return t;
@@ -1067,7 +1071,7 @@ public class NutritionOrder extends Resource {
      * @return {@link #excludeFoodModifier} (This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
      */
     // syntactic sugar
-    public CodeableConcept addExcludeFoodModifier() { 
+    public CodeableConcept addExcludeFoodModifier() { //3
       CodeableConcept t = new CodeableConcept();
       this.excludeFoodModifier.add(t);
       return t;
@@ -1084,7 +1088,7 @@ public class NutritionOrder extends Resource {
      * @return {@link #item} (Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.)
      */
     // syntactic sugar
-    public NutritionOrderItemComponent addItem() { 
+    public NutritionOrderItemComponent addItem() { //3
       NutritionOrderItemComponent t = new NutritionOrderItemComponent();
       this.item.add(t);
       return t;
@@ -1142,6 +1146,7 @@ public class NutritionOrder extends Resource {
 
       public NutritionOrder copy() {
         NutritionOrder dst = new NutritionOrder();
+        copyValues(dst);
         dst.subject = subject == null ? null : subject.copy();
         dst.orderer = orderer == null ? null : orderer.copy();
         dst.identifier = new ArrayList<Identifier>();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A supply - a  request for something, and provision of what is supplied.
  */
-public class Supply extends Resource {
+public class Supply extends DomainResource {
 
     public enum ValuesetSupplyStatus {
         REQUESTED, // Supply has been requested, but not dispensed.
@@ -480,7 +480,7 @@ public class Supply extends Resource {
          * @return {@link #receiver} (Identifies the person who picked up the Supply.)
          */
     // syntactic sugar
-        public Reference addReceiver() { 
+        public Reference addReceiver() { //3
           Reference t = new Reference();
           this.receiver.add(t);
           return t;
@@ -519,6 +519,7 @@ public class Supply extends Resource {
 
       public SupplyDispenseComponent copy() {
         SupplyDispenseComponent dst = new SupplyDispenseComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
@@ -719,7 +720,7 @@ public class Supply extends Resource {
      * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.)
      */
     // syntactic sugar
-    public SupplyDispenseComponent addDispense() { 
+    public SupplyDispenseComponent addDispense() { //3
       SupplyDispenseComponent t = new SupplyDispenseComponent();
       this.dispense.add(t);
       return t;
@@ -737,6 +738,7 @@ public class Supply extends Resource {
 
       public Supply copy() {
         Supply dst = new Supply();
+        copyValues(dst);
         dst.kind = kind == null ? null : kind.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();

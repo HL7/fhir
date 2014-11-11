@@ -1,5 +1,6 @@
 
 <Patient xmlns="http://hl7.org/fhir">
+  <id value="glossy"/>
   <extension url="http://example.org/consent#trials">
     <valueCode value="renal"/>
   </extension>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+  <id value="f201"/>
 
   <contained>
-    <Observation id="height">
+    <Observation>
+      <id value="height"/>
       <name>
         <coding>   
             <system value="http://snomed.info/sct"/>
@@ -21,7 +23,8 @@
     </Observation>
   </contained>
   <contained>
-    <Observation id="weight">
+    <Observation>
+      <id value="weight"/>
       <name>
         <coding>
             <system value="http://snomed.info/sct"/>

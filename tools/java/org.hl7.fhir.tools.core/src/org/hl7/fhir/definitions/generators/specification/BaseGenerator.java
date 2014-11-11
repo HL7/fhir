@@ -6,7 +6,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -28,11 +27,13 @@ public class BaseGenerator {
         return bs.getReference()+".html";            
       else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
         if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-          AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-          return vs.getLinks().get("path").replace(File.separatorChar, '/');
+          ValueSet vs = page.getValueSets().get(bs.getReference());
+          String path = (String) vs.getTag("path");
+          return path.replace(File.separatorChar, '/');
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-            AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-            return vs.getLinks().get("path").replace(File.separatorChar, '/');
+            ValueSet vs = page.getValueSets().get(bs.getReference());
+            String path = (String) vs.getTag("path");
+            return path.replace(File.separatorChar, '/');
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
           BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
           if (bs1 != null)

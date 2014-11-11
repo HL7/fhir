@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Measurements and simple assertions made about a patient, device or other subject.
  */
-public class Observation extends Resource {
+public class Observation extends DomainResource {
 
     public enum DataAbsentReason {
         UNKNOWN, // The value is not known
@@ -602,6 +602,7 @@ public class Observation extends Resource {
 
       public ObservationReferenceRangeComponent copy() {
         ObservationReferenceRangeComponent dst = new ObservationReferenceRangeComponent();
+        copyValues(dst);
         dst.low = low == null ? null : low.copy();
         dst.high = high == null ? null : high.copy();
         dst.meaning = meaning == null ? null : meaning.copy();
@@ -713,6 +714,7 @@ public class Observation extends Resource {
 
       public ObservationRelatedComponent copy() {
         ObservationRelatedComponent dst = new ObservationRelatedComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
@@ -1194,7 +1196,7 @@ public class Observation extends Resource {
      * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
      */
     // syntactic sugar
-    public Reference addPerformer() { 
+    public Reference addPerformer() { //3
       Reference t = new Reference();
       this.performer.add(t);
       return t;
@@ -1248,7 +1250,7 @@ public class Observation extends Resource {
      * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
      */
     // syntactic sugar
-    public ObservationReferenceRangeComponent addReferenceRange() { 
+    public ObservationReferenceRangeComponent addReferenceRange() { //3
       ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
       this.referenceRange.add(t);
       return t;
@@ -1265,7 +1267,7 @@ public class Observation extends Resource {
      * @return {@link #related} (Related observations - either components, or previous observations, or statements of derivation.)
      */
     // syntactic sugar
-    public ObservationRelatedComponent addRelated() { 
+    public ObservationRelatedComponent addRelated() { //3
       ObservationRelatedComponent t = new ObservationRelatedComponent();
       this.related.add(t);
       return t;
@@ -1295,6 +1297,7 @@ public class Observation extends Resource {
 
       public Observation copy() {
         Observation dst = new Observation();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
         dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();

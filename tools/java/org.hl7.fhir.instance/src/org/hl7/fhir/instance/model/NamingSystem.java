@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
-public class NamingSystem extends Resource {
+public class NamingSystem extends DomainResource {
 
     public enum NamingsystemType {
         CODESYSTEM, // The namingsystem is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.
@@ -405,6 +405,7 @@ public class NamingSystem extends Resource {
 
       public NamingSystemUniqueIdComponent copy() {
         NamingSystemUniqueIdComponent dst = new NamingSystemUniqueIdComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         dst.preferred = preferred == null ? null : preferred.copy();
@@ -457,7 +458,7 @@ public class NamingSystem extends Resource {
          * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
          */
     // syntactic sugar
-        public ContactPoint addTelecom() { 
+        public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
@@ -471,6 +472,7 @@ public class NamingSystem extends Resource {
 
       public NamingSystemContactComponent copy() {
         NamingSystemContactComponent dst = new NamingSystemContactComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<ContactPoint>();
         for (ContactPoint i : telecom)
@@ -819,7 +821,7 @@ public class NamingSystem extends Resource {
      * @return {@link #uniqueId} (Indicates how the system may be identified when referenced in electronic exchange.)
      */
     // syntactic sugar
-    public NamingSystemUniqueIdComponent addUniqueId() { 
+    public NamingSystemUniqueIdComponent addUniqueId() { //3
       NamingSystemUniqueIdComponent t = new NamingSystemUniqueIdComponent();
       this.uniqueId.add(t);
       return t;
@@ -887,6 +889,7 @@ public class NamingSystem extends Resource {
 
       public NamingSystem copy() {
         NamingSystem dst = new NamingSystem();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.name = name == null ? null : name.copy();
         dst.status = status == null ? null : status.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A request for a diagnostic investigation service to be performed.
  */
-public class DiagnosticOrder extends Resource {
+public class DiagnosticOrder extends DomainResource {
 
     public enum DiagnosticOrderStatus {
         REQUESTED, // The request has been placed.
@@ -398,6 +398,7 @@ public class DiagnosticOrder extends Resource {
 
       public DiagnosticOrderEventComponent copy() {
         DiagnosticOrderEventComponent dst = new DiagnosticOrderEventComponent();
+        copyValues(dst);
         dst.status = status == null ? null : status.copy();
         dst.description = description == null ? null : description.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
@@ -475,7 +476,7 @@ public class DiagnosticOrder extends Resource {
          * @return {@link #specimen} (If the item is related to a specific speciment.)
          */
     // syntactic sugar
-        public Reference addSpecimen() { 
+        public Reference addSpecimen() { //3
           Reference t = new Reference();
           this.specimen.add(t);
           return t;
@@ -560,7 +561,7 @@ public class DiagnosticOrder extends Resource {
          * @return {@link #event} (A summary of the events of interest that have occurred as this item of the request is processed.)
          */
     // syntactic sugar
-        public DiagnosticOrderEventComponent addEvent() { 
+        public DiagnosticOrderEventComponent addEvent() { //3
           DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
           this.event.add(t);
           return t;
@@ -577,6 +578,7 @@ public class DiagnosticOrder extends Resource {
 
       public DiagnosticOrderItemComponent copy() {
         DiagnosticOrderItemComponent dst = new DiagnosticOrderItemComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.specimen = new ArrayList<Reference>();
         for (Reference i : specimen)
@@ -753,7 +755,7 @@ public class DiagnosticOrder extends Resource {
      * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -836,7 +838,7 @@ public class DiagnosticOrder extends Resource {
      * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.)
      */
     // syntactic sugar
-    public Reference addSupportingInformation() { 
+    public Reference addSupportingInformation() { //3
       Reference t = new Reference();
       this.supportingInformation.add(t);
       return t;
@@ -860,7 +862,7 @@ public class DiagnosticOrder extends Resource {
      * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
      */
     // syntactic sugar
-    public Reference addSpecimen() { 
+    public Reference addSpecimen() { //3
       Reference t = new Reference();
       this.specimen.add(t);
       return t;
@@ -966,7 +968,7 @@ public class DiagnosticOrder extends Resource {
      * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
     // syntactic sugar
-    public DiagnosticOrderEventComponent addEvent() { 
+    public DiagnosticOrderEventComponent addEvent() { //3
       DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
       this.event.add(t);
       return t;
@@ -983,7 +985,7 @@ public class DiagnosticOrder extends Resource {
      * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
      */
     // syntactic sugar
-    public DiagnosticOrderItemComponent addItem() { 
+    public DiagnosticOrderItemComponent addItem() { //3
       DiagnosticOrderItemComponent t = new DiagnosticOrderItemComponent();
       this.item.add(t);
       return t;
@@ -1006,6 +1008,7 @@ public class DiagnosticOrder extends Resource {
 
       public DiagnosticOrder copy() {
         DiagnosticOrder dst = new DiagnosticOrder();
+        copyValues(dst);
         dst.subject = subject == null ? null : subject.copy();
         dst.orderer = orderer == null ? null : orderer.copy();
         dst.identifier = new ArrayList<Identifier>();

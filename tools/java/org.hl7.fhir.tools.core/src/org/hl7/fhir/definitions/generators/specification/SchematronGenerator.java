@@ -90,7 +90,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	}
 	
   private void generateResourceInvariants(String path, Definitions definitions) throws Exception {
-    ElementDefn ed = definitions.getBaseReference().getRoot();
+    ElementDefn ed = definitions.getBaseResources().get("DomainResource").getRoot();
     //logger.log("generate: "+path+" ("+parents.toString()+")");
     String name = ed.getName();
     if (name.contains("("))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized.  I.e. A collection of entities that isn't an Organization.
  */
-public class Group extends Resource {
+public class Group extends DomainResource {
 
     public enum GroupType {
         PERSON, // Group contains "person" Patient resources.
@@ -235,6 +235,7 @@ public class Group extends Resource {
 
       public GroupCharacteristicComponent copy() {
         GroupCharacteristicComponent dst = new GroupCharacteristicComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         dst.exclude = exclude == null ? null : exclude.copy();
@@ -477,7 +478,7 @@ public class Group extends Resource {
      * @return {@link #characteristic} (Identifies the traits shared by members of the group.)
      */
     // syntactic sugar
-    public GroupCharacteristicComponent addCharacteristic() { 
+    public GroupCharacteristicComponent addCharacteristic() { //3
       GroupCharacteristicComponent t = new GroupCharacteristicComponent();
       this.characteristic.add(t);
       return t;
@@ -494,7 +495,7 @@ public class Group extends Resource {
      * @return {@link #member} (Identifies the resource instances that are members of the group.)
      */
     // syntactic sugar
-    public Reference addMember() { 
+    public Reference addMember() { //3
       Reference t = new Reference();
       this.member.add(t);
       return t;
@@ -521,6 +522,7 @@ public class Group extends Resource {
 
       public Group copy() {
         Group dst = new Group();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
         dst.actual = actual == null ? null : actual.copy();

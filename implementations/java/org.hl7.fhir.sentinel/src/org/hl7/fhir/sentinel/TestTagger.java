@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Random;
 
 import org.hl7.fhir.instance.client.FHIRClient;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 
 public class TestTagger implements Tagger {
 
@@ -18,12 +18,12 @@ public class TestTagger implements Tagger {
 	}
 
 	@Override
-	public void process(AtomEntry<? extends Resource> entry, List<AtomCategory> tags, List<AtomCategory> added, List<AtomCategory> deleted) throws Exception {
-		if (tags.isEmpty()) {
-			AtomCategory cat = new AtomCategory("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tools/tag/test", "Test Tag");
-			added.add(cat);
+	public void process(Resource entry, ResourceMetaComponent current, ResourceMetaComponent added, ResourceMetaComponent deleted) throws Exception {
+		if (current.getTag().isEmpty()) {
+			Coding cat = new Coding(); // todo-bundle "http://hl7.org/fhir/tag", "http://hl7.org/fhir/tools/tag/test", "Test Tag");
+			added.getTag().add(cat);
 		} else {
-			deleted.addAll(tags);
+			// todo-bundle deleted.copyValues(current);
 		}
 	}
 

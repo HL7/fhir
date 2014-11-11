@@ -7,8 +7,8 @@ import java.io.InputStream;
 import org.hl7.fhir.instance.formats.Composer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.ResourceOrFeed;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Resource;
 import org.junit.Test;
 
 public class MessageTest {
@@ -16,7 +16,7 @@ public class MessageTest {
 	@Test
 	public void test() throws Exception {
 		// Create new Atom Feed
-		AtomFeed feed = new AtomFeed();
+		Bundle feed = new Bundle();
 		
 		// Serialize Atom Feed
 		Composer comp = new JsonComposer();
@@ -27,9 +27,9 @@ public class MessageTest {
 		// Deserialize Atom Feed
 		JsonParser parser = new JsonParser();
 		InputStream is = new ByteArrayInputStream(json.getBytes("UTF-8"));
-		ResourceOrFeed result = parser.parseGeneral(is);
-		if (result.getFeed() == null)
-			throw new Exception("Feed was null");
+		Resource result = parser.parse(is);
+		if (result == null)
+			throw new Exception("Bundle was null");
 	}
 
 }

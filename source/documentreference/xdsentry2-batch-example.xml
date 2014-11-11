@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
-	<title>FHIR Batch Examnple</title>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
 	<!-- 
     Batches are the most difficult part of FHIR to implement for a general purpose server. 
     This example shows a batch - it demonstrates several advanced concepts. 
@@ -13,11 +12,7 @@
 	<!-- for a batch, the difference between id and link doesn't matter -->
 	<id>urn:uuid:29372688-d46e-4b32-aafe-4808b333f781</id>
 	<link rel="self" href="urn:uuid:29372688-d46e-4b32-aafe-4808b333f781"/>
-	<updated>2013-01-07T01:15:36Z</updated>
-	<author>
-		<name>FHIR Project Team</name>
-		<uri>http://hl7.org/fhir</uri>
-	</author>
+	<lastUpdated value="2013-01-07T01:15:36Z"/>
 	<!-- 
     now, the actual document, as a binary
 
@@ -29,8 +24,7 @@
     to the FHIR server as part of the batch, even though its got nothing
     to do with FHIR itself.
   -->
-	<entry>
-		<title>binary document</title>
+	<item>
 		<!-- 
      a cid: - this has no identity other than what the server chooses to 
      assign to it. That's what cid: identities mean in this context. We'll
@@ -41,14 +35,14 @@
      in fhir.hl7.org
     -->
 		<id>cid:20130107011536-1@fhir.hl7.org</id>
-		<updated>2013-01-07T01:15:36Z</updated>
+		<lastUpdated value="2013-01-07T01:15:36Z"/>
 		<category term="Binary" scheme="http://hl7.org/fhir/resource-types"/>
 		<!-- and the actual content -->
-		<content type="text/xml">
+		
 			<Binary xmlns="http://hl7.org/fhir" contentType="text/plain">YXNkYXNkYXNkYXNkYXNk</Binary>
-		</content>
+		
 		<!-- no summary for a binary resource (what would you say?) -->
-	</entry>
+	</item>
 	<!-- 
     now, a patient resource.
     
@@ -62,8 +56,7 @@
     search, it will use that in place of this resource. (if it finds >one match,
     that's an error)
   -->
-	<entry>
-		<title>patient record</title>
+	<item>
 		<id>cid:20130107011536-2@fhir.hl7.org</id>
 		<!-- 
       http://localhost means a search of the batch processor's own resources.
@@ -71,9 +64,9 @@
       organization's identifiers are in.
      -->
 		<link rel="search" href="http://localhost/patient/search?identifier=http://example.org/patients#89765a87b"/>
-		<updated>2013-01-07T01:15:36Z</updated>
+		<lastUpdated value="2013-01-07T01:15:36Z"/>
 		<category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
-		<content type="text/xml">
+		
 			<Patient xmlns="http://hl7.org/fhir">
 			  <text>
           <status value="generated"/>
@@ -106,23 +99,22 @@
 					<reference value="Organization/1"/>
 				</provider>
 			</Patient>
-		</content>
+		
 		<summary type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">Patient John Doe, #89765a87b</div>
 		</summary>
-	</entry>
+	</item>
 	
 	<!-- now, the Document Registry Entry -->
-  <entry>
-    <title>XDS Entry</title>
+  <item>
     <!-- again, we don't care what the end id 
      of this document registry entry is. And even if 
      did care, the server may not care to let a client 
      identify it anyway -->
     <id>cid:20130107011536-3@fhir.hl7.org</id>
-    <updated>2013-01-07T01:15:36Z</updated>
+    <lastUpdated value="2013-01-07T01:15:36Z"/>
     <category term="XdsEntry2" scheme="http://hl7.org/fhir/resource-types"/>
-    <content type="text/xml">
+    
       <XdsEntry2 xmlns="http://hl7.org/fhir">
         <text>
           <status value="generated"/>
@@ -147,7 +139,8 @@
             does it mean to change that name? - nothing. So it's a
             contained resource
            -->
-          <Provider id="a1">
+          <Provider>
+            <id value="a1"/>
             <!-- no text for contained resources -->
             <text>
               <status value="empty"/>
@@ -209,9 +202,9 @@
           <!-- another link the server has to replace -->
           <url value="cid:20130107011536-1@fhir.hl7.org"/>
           <size value="36"/>
-        </content>
+        
       </XdsEntry2>
-    </content>
+    
     <summary type="xhtml">
       <div xmlns="http://www.w3.org/1999/xhtml">
         <a href="cid:20130107011536-1@fhir.hl7.org">
@@ -219,5 +212,5 @@
         Physical, created 2005-12-24
       </div>
     </summary>
-  </entry>	
-</feed>
+  </item>	
+</Bundle>

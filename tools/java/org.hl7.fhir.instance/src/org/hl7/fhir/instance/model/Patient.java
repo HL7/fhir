@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Demographics and other administrative information about a person or animal receiving care or other health-related services.
  */
-public class Patient extends Resource {
+public class Patient extends DomainResource {
 
     public enum AdministrativeGender {
         MALE, // Male
@@ -239,7 +239,7 @@ public class Patient extends Resource {
          * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
          */
     // syntactic sugar
-        public CodeableConcept addRelationship() { 
+        public CodeableConcept addRelationship() { //3
           CodeableConcept t = new CodeableConcept();
           this.relationship.add(t);
           return t;
@@ -271,7 +271,7 @@ public class Patient extends Resource {
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
     // syntactic sugar
-        public ContactPoint addTelecom() { 
+        public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
           this.telecom.add(t);
           return t;
@@ -386,6 +386,7 @@ public class Patient extends Resource {
 
       public ContactComponent copy() {
         ContactComponent dst = new ContactComponent();
+        copyValues(dst);
         dst.relationship = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : relationship)
           dst.relationship.add(i.copy());
@@ -483,6 +484,7 @@ public class Patient extends Resource {
 
       public AnimalComponent copy() {
         AnimalComponent dst = new AnimalComponent();
+        copyValues(dst);
         dst.species = species == null ? null : species.copy();
         dst.breed = breed == null ? null : breed.copy();
         dst.genderStatus = genderStatus == null ? null : genderStatus.copy();
@@ -589,6 +591,7 @@ public class Patient extends Resource {
 
       public PatientLinkComponent copy() {
         PatientLinkComponent dst = new PatientLinkComponent();
+        copyValues(dst);
         dst.other = other == null ? null : other.copy();
         dst.type = type == null ? null : type.copy();
         return dst;
@@ -708,7 +711,7 @@ public class Patient extends Resource {
      * @return {@link #identifier} (An identifier that applies to this person as a patient.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -725,7 +728,7 @@ public class Patient extends Resource {
      * @return {@link #name} (A name associated with the individual.)
      */
     // syntactic sugar
-    public HumanName addName() { 
+    public HumanName addName() { //3
       HumanName t = new HumanName();
       this.name.add(t);
       return t;
@@ -742,7 +745,7 @@ public class Patient extends Resource {
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -846,7 +849,7 @@ public class Patient extends Resource {
      * @return {@link #address} (Addresses for the individual.)
      */
     // syntactic sugar
-    public Address addAddress() { 
+    public Address addAddress() { //3
       Address t = new Address();
       this.address.add(t);
       return t;
@@ -893,7 +896,7 @@ public class Patient extends Resource {
      * @return {@link #photo} (Image of the person.)
      */
     // syntactic sugar
-    public Attachment addPhoto() { 
+    public Attachment addPhoto() { //3
       Attachment t = new Attachment();
       this.photo.add(t);
       return t;
@@ -910,7 +913,7 @@ public class Patient extends Resource {
      * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
      */
     // syntactic sugar
-    public ContactComponent addContact() { 
+    public ContactComponent addContact() { //3
       ContactComponent t = new ContactComponent();
       this.contact.add(t);
       return t;
@@ -942,7 +945,7 @@ public class Patient extends Resource {
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
     // syntactic sugar
-    public CodeableConcept addCommunication() { 
+    public CodeableConcept addCommunication() { //3
       CodeableConcept t = new CodeableConcept();
       this.communication.add(t);
       return t;
@@ -959,7 +962,7 @@ public class Patient extends Resource {
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
     // syntactic sugar
-    public Reference addCareProvider() { 
+    public Reference addCareProvider() { //3
       Reference t = new Reference();
       this.careProvider.add(t);
       return t;
@@ -1013,7 +1016,7 @@ public class Patient extends Resource {
      * @return {@link #link} (Link to another patient resource that concerns the same actual person.)
      */
     // syntactic sugar
-    public PatientLinkComponent addLink() { 
+    public PatientLinkComponent addLink() { //3
       PatientLinkComponent t = new PatientLinkComponent();
       this.link.add(t);
       return t;
@@ -1078,6 +1081,7 @@ public class Patient extends Resource {
 
       public Patient copy() {
         Patient dst = new Patient();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

@@ -49,10 +49,10 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.StrucResult;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -115,15 +115,15 @@ public class ToolsHelper {
     		throw new Exception("Unable to understand address of profile");
     	FHIRClient client = new FHIRSimpleClient();
     	client.initialize(parts[0]);
-    	AtomEntry<Profile> ae = client.read(Profile.class, parts[1]);
-			ProfileStructureComponent derived = ae.getResource().getStructure().get(0);
+    	Profile ae = client.read(Profile.class, parts[1]);
+			ProfileStructureComponent derived = ae.getStructure().get(0);
 			ProfileUtilities utils = new ProfileUtilities(context);
-    	StrucResult sr = utils.getStructure(ae.getResource(), derived.getBase());
+    	StrucResult sr = utils.getStructure(ae, derived.getBase());
 			if (sr == null)
 				throw new Exception("Unable to resolve profile "+derived.getBase());
 			ProfileStructureComponent base = sr.getStructure();
-			utils.generateSnapshot(base, derived, address, ae.getResource().getName());
-			client.update(Profile.class, ae.getResource(), parts[1]);
+			utils.generateSnapshot(base, derived, address, ae.getName());
+			client.update(Profile.class, ae, parts[1]);
     } else {
     	throw new Exception("not done yet (address = "+address+")");
     }
@@ -261,17 +261,11 @@ public class ToolsHelper {
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
     JsonParser pj = new JsonParser();
-    ResourceOrFeed rf = p.parseGeneral(in);
+    Resource rf = p.parse(in);
     ByteArrayOutputStream json = new ByteArrayOutputStream();
-    if (rf.getFeed() != null) {
-      new JsonComposer().compose(json, rf.getFeed(), true);
-      rf = pj.parseGeneral(new ByteArrayInputStream(json.toByteArray()));
-      new XmlComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
-    } else {
-      new JsonComposer().compose(json, rf.getResource(), true);
-      rf = pj.parseGeneral(new ByteArrayInputStream(json.toByteArray()));
-      new XmlComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
-    }
+    new JsonComposer().compose(json, rf, true);
+    rf = pj.parse(new ByteArrayInputStream(json.toByteArray()));
+    new XmlComposer().compose(new FileOutputStream(dest), rf, true);
   }
 
   public String executeJson(String[] args) throws Exception {
@@ -285,23 +279,14 @@ public class ToolsHelper {
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
-    ResourceOrFeed rf = p.parseGeneral(in);
+    Resource rf = p.parse(in);
     JsonComposer json = new JsonComposer();
-    if (rf.getFeed() != null) {
-      json.compose(new FileOutputStream(dest), rf.getFeed(), true);
+    json.compose(new FileOutputStream(dest), rf, true);
       json.setCanonical(true);
-      json.compose(new FileOutputStream(destc), rf.getFeed(), false);
+    json.compose(new FileOutputStream(destc), rf, false);
       json.setSuppressXhtml("Snipped for Brevity");
       json.setCanonical(false);
-      json.compose(new FileOutputStream(destt), rf.getFeed(), true);
-    } else {
-      json.compose(new FileOutputStream(dest), rf.getResource(), true);
-      json.setCanonical(true);
-      json.compose(new FileOutputStream(destc), rf.getResource(), false);
-      json.setSuppressXhtml("Snipped for Brevity");
-      json.setCanonical(false);
-      json.compose(new FileOutputStream(destt), rf.getResource(), true);
-    }
+    json.compose(new FileOutputStream(destt), rf, true);
     return TextFile.fileToString(destt.getAbsolutePath());
   }
 
@@ -314,15 +299,10 @@ public class ToolsHelper {
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
-    ResourceOrFeed rf = p.parseGeneral(in);
+    Resource rf = p.parse(in);
     XmlComposer cxml = new XmlComposer();
-    if (rf.getFeed() != null) {
       cxml.setCanonical(true);
-      cxml.compose(new FileOutputStream(dest), rf.getFeed(), false);
-    } else {
-      cxml.setCanonical(true);
-      cxml.compose(new FileOutputStream(dest), rf.getResource(), false);
-    }
+    cxml.compose(new FileOutputStream(dest), rf, false);
   }
 
   private void executeVersion(String[] args) throws Exception {

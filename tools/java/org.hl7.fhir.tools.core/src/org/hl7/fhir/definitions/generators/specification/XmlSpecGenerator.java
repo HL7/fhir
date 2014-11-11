@@ -46,7 +46,6 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlComposer;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -497,11 +496,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-				        write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
+				        ValueSet vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
+	              String pp = (String) vs.getTag("path");
+				        write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-	                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-	                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
+	                ValueSet vs = page.getValueSets().get(bs.getReference());
+	                String pp = (String) vs.getTag("path");
+	                write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
 				        BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
 				        if (bs1 != null)

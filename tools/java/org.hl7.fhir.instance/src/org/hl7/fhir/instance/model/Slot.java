@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * (informative) A slot of time on a schedule that may be available for booking appointments.
  */
-public class Slot extends Resource {
+public class Slot extends DomainResource {
 
     public enum Slotstatus {
         BUSY, // Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
@@ -190,7 +190,7 @@ public class Slot extends Resource {
      * @return {@link #identifier} (External Ids for this item.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -460,6 +460,7 @@ public class Slot extends Resource {
 
       public Slot copy() {
         Slot dst = new Slot();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

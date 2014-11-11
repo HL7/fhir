@@ -34,11 +34,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.List;
-
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
@@ -86,39 +85,11 @@ public abstract class JsonComposerBase extends ComposerBase {
   }
 
 	/**
-	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	@Override
-  public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
-		checkCanBePretty(pretty);
-		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-    JsonCreator writer;
-    if (canonical)
-      writer = new JsonCreatorCanonical(osw);
-    else
-      writer = new JsonCreatorGson(osw);
-    writer.setIndent(pretty ? "  ":"");
-		writer.beginObject();
-		compose(writer, feed);
-		writer.endObject();
-    writer.finish();
-		osw.flush();
-	}
-
-	/**
 	 * Compose a resource using a pre-existing JsonWriter
 	 */
 	public void compose(JsonCreator writer, Resource resource) throws Exception {
 		json = writer;
 		composeResource(resource);
-	}
-
-	/**
-	 * Compose a bundle using a pre-existing JsonWriter
-	 */
-	public void compose(JsonCreator writer, AtomFeed feed) throws Exception {
-		json = writer;
-		composeFeed(feed);
 	}
 	
 	/**
@@ -126,122 +97,8 @@ public abstract class JsonComposerBase extends ComposerBase {
 	 * 
 	 */
 	@Override
-  public void compose(OutputStream writer, List<AtomCategory> tags, boolean pretty) throws Exception {
+  public void compose(OutputStream writer, List<Coding> tags, boolean pretty) throws Exception {
 		checkCanBePretty(pretty);
-
-	}
-
-  // standard order for round-tripping examples succesfully:
-  // title, id, links, updated, published, authors
-	private void composeFeed(AtomFeed feed) throws Exception {
-
-	  prop("resourceType", "Bundle");
-	  prop("title", feed.getTitle());
-    prop("id", feed.getId());
-    if (feed.getLinks().size() > 0) {
-      openArray("link");
-      for (String n : feed.getLinks().keySet()) {
-        json.beginObject();
-        prop("rel", n);
-        prop("href", feed.getLinks().get(n));
-        json.endObject();
-      }
-      closeArray();
-    }
-    if (feed.getTotalResults() != null) {
-	prop("totalResults", feed.getTotalResults());
-    }
-
-		if (feed.getUpdated() != null)
-			prop("updated", feed.getUpdated().toString());
-		if (feed.getTags().size() > 0) {
-			openArray("category");
-			for (AtomCategory cat : feed.getTags()) {
-				json.beginObject();
-				prop("scheme", cat.getScheme());
-				prop("term", cat.getTerm());
-				if (!Utilities.noString(cat.getLabel()))
-					prop("label", cat.getLabel());
-				json.endObject();
-			}
-			closeArray();
-		}
-
-
-		if (feed.getAuthorName() != null || feed.getAuthorUri() != null) {
-		  openArray("author");
-		  json.beginObject();
-		  if (feed.getAuthorName() != null)
-		    prop("name", feed.getAuthorName());
-		  if (feed.getAuthorUri() != null)
-		    prop("uri", feed.getAuthorUri());
-		  json.endObject();
-		  closeArray();
-		}
-
-		if (feed.getEntryList().size() > 0) {
-			openArray("entry");
-			for (AtomEntry<? extends Resource> e : feed.getEntryList())
-				composeEntry(e);
-			closeArray();
-		}
-	}
-
-  // standard order for round-tripping examples succesfully:
-  // title, id, links, updated, published, authors 
-	private <T extends Resource> void composeEntry(AtomEntry<T> e) throws Exception {
-		json.beginObject();
-		prop("title", e.getTitle());
-		prop("id", e.getId());
-		if (e.getLinks().size() > 0) {
-		  openArray("link");
-		  for (String n : e.getLinks().keySet()) {
-		    json.beginObject();
-		    prop("rel", n);
-		    prop("href", e.getLinks().get(n));
-		    json.endObject();
-		  }
-		  closeArray();
-		}
-
-		if (e.getUpdated() != null)
-			prop("updated", e.getUpdated().toString());
-		if (e.getPublished() != null) 
-			prop("published", e.getPublished().toString());
-
-    if (e.getAuthorName() != null || e.getAuthorUri() != null) {
-      openArray("author");
-      json.beginObject();
-      if (e.getAuthorName() != null)
-        prop("name", e.getAuthorName());
-      if (e.getAuthorUri() != null)
-        prop("uri", e.getAuthorUri());
-      json.endObject();
-      closeArray();
-    }
-
-
-		if (e.getTags().size() > 0) {
-			openArray("category");
-			for (AtomCategory cat : e.getTags()) {
-				json.beginObject();
-				prop("scheme", cat.getScheme());
-				prop("term", cat.getTerm());
-				if (!Utilities.noString(cat.getLabel()))
-					prop("label", cat.getLabel());
-				json.endObject();
-			}
-			closeArray();
-		}
-
-		open("content");
-		composeResource(e.getResource());
-		close();
-		if (e.getSummary() != null) {
-		  composeXhtml("summary", e.getSummary());
-		}
-		json.endObject();  
-
 	}
 
   public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
@@ -358,5 +215,12 @@ public abstract class JsonComposerBase extends ComposerBase {
 		return !canonical && !element.getXmlComments().isEmpty();
 	}
 	
+  protected void composeDomainResource(String name, DomainResource e) throws Exception {
+	  openObject(name);
+	  composeResource(e);
+	  close();
+	  
+  }
+
 
 }

@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
  * A request to perform an action.
  */
-public class Order extends Resource {
+public class Order extends DomainResource {
 
     public static class OrderWhenComponent extends BackboneElement {
         /**
@@ -93,6 +93,7 @@ public class Order extends Resource {
 
       public OrderWhenComponent copy() {
         OrderWhenComponent dst = new OrderWhenComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
         return dst;
@@ -187,7 +188,7 @@ public class Order extends Resource {
      * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -390,7 +391,7 @@ public class Order extends Resource {
      * @return {@link #detail} (What action is being ordered.)
      */
     // syntactic sugar
-    public Reference addDetail() { 
+    public Reference addDetail() { //3
       Reference t = new Reference();
       this.detail.add(t);
       return t;
@@ -418,6 +419,7 @@ public class Order extends Resource {
 
       public Order copy() {
         Order dst = new Order();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

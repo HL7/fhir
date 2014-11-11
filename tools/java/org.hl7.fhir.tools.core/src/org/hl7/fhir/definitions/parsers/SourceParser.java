@@ -74,7 +74,8 @@ import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
@@ -222,22 +223,18 @@ public class SourceParser {
 		
 		eCoreParseResults.getType().addAll( sortTypes(allFhirComposites) );
 		
+		// basic infrastructure
+    for (String n : ini.getPropertyNames("resource-infrastructure"))
+      definitions.getBaseResources().put(ini.getStringProperty("resource-infrastructure", n), loadResource(n, null, "resource", true));
+		
     logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))
-			loadResource(n, definitions.getResources(), false);
+			loadResource(n, definitions.getResources(), null, false);
 		
-    ResourceDefn baseResourceBase = loadResource("resourcebase", null, false);
-    baseResourceBase.setAbstract(true);
-    definitions.setBaseReferenceBase(baseResourceBase);
-    
-    ResourceDefn baseResource = loadResource("resource", null, false);
-    baseResource.setAbstract(true);
-    definitions.setBaseReference(baseResource);
-
 		loadCompartments();
 		loadStatusCodes();
 		
-		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource = CompositeTypeConverter.buildResourceFromFhirModel(baseResource, null);
+		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource = CompositeTypeConverter.buildResourceFromFhirModel(definitions.getBaseResources().get("Resource"), null);
 		eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
 		eCoreParseResults.getType().add( eCoreBaseResource );
 		eCoreParseResults.getType().addAll(sortTypes(CompositeTypeConverter.buildResourcesFromFhirModel(definitions.getResources().values() )));
@@ -268,7 +265,7 @@ public class SourceParser {
 		for (ResourceDefn r : definitions.getResources().values()) {
 		  for (RegisteredProfile p : r.getProfiles()) {
 		    if (p.getType() == ProfileInputType.Spreadsheet) {
-  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry, version, context, genDate);
+  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
 	  	    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
 		      p.setProfile(sparser.parseProfile(definitions));
 		    } else if (p.getType() == ProfileInputType.Profile) {
@@ -356,6 +353,7 @@ public class SourceParser {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
     vs.setIdentifier("http://hl7.org/fhir/vs/"+n);
+    vs.setId(n);
     definitions.getExtraValuesets().put(n, vs);
   }
 
@@ -377,7 +375,7 @@ public class SourceParser {
 			throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate);
+	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
 	    try {
 	      ProfileDefn profile = sparser.parseProfile(definitions);
 	      definitions.getProfiles().put(n, profile);
@@ -387,19 +385,19 @@ public class SourceParser {
 	  } else {
 	    ProfileDefn profile = new ProfileDefn();
       try {
-        ResourceOrFeed rf = new XmlParser().parseGeneral(new FileInputStream(spreadsheet));
-        if (rf.getFeed() != null) {
-          for (AtomEntry<? extends Resource> ae : rf.getFeed().getEntryList()) {
-            if (ae.getResource() instanceof Profile)
-              profile.setSource((Profile) ae.getResource());
-            else if (ae.getResource() instanceof ExtensionDefinition) {
-              AtomEntry<ExtensionDefinition> ed = (AtomEntry<ExtensionDefinition>) ae;
+        Resource rf = new XmlParser().parse(new FileInputStream(spreadsheet));
+        if (rf instanceof Bundle) {
+          for (Resource ae : ((Bundle) rf).getItem()) {
+            if (ae instanceof Profile)
+              profile.setSource((Profile) ae);
+            else if (ae instanceof ExtensionDefinition) {
+              ExtensionDefinition ed = (ExtensionDefinition) ae;
               context.seeExtensionDefinition(ed);
-              profile.getExtensions().add(ed.getResource().getUrl());
+              profile.getExtensions().add(ed.getUrl());
             }
           }
         } else {
-          profile.setSource((Profile) rf.getResource());          
+          profile.setSource((Profile) rf);          
         }
   	    profile.addMetadata("id", n);
         definitions.getProfiles().put(n, profile);
@@ -448,6 +446,8 @@ public class SourceParser {
 		      cd.setReferredValueSet((ValueSet) p.parse(input));
 		    } else
 		      throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
+		    if (cd.getReferredValueSet().getId() == null)
+		      cd.getReferredValueSet().setId(cd.getBinding().name()); 
 		  }
 		}
 	}
@@ -503,7 +503,7 @@ public class SourceParser {
 		  TypeRef t = ts.get(0);
 		  File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
 		  if (csv.exists()) {
-		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate);
+		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
 		    org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
 		    map.put(t.getName(), el);
 		    el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -543,14 +543,13 @@ public class SourceParser {
 		}
 	}
 
-	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean sandbox) throws Exception {
-		String src = sandbox ? sndBoxDir : srcDir;
-		File spreadsheet = new CSFile((sandbox ? sndBoxDir : srcDir) + n + File.separatorChar + n + "-spreadsheet.xml");
-		if (!spreadsheet.exists())
-			spreadsheet = new CSFile((sandbox ? sndBoxDir : srcDir) + n + File.separatorChar + n + "-def.xml");
+	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, String folder, boolean isAbstract) throws Exception {
+	  if (folder == null)
+	    folder = n;
+		File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
 		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(
-				spreadsheet), spreadsheet.getName(), definitions, src, logger, registry, version, context, genDate);
+				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract);
 		ResourceDefn root;
 		try {
 		  root = sparser.parseResource();
@@ -558,7 +557,6 @@ public class SourceParser {
 		  throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
 		}
 
-		root.setSandbox(sandbox);
 		for (EventDefn e : sparser.getEvents())
 			processEvent(e, root.getRoot());
 

@@ -946,7 +946,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7974,7 +7974,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s136"><Data ss:Type="String">resource</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s147"/>

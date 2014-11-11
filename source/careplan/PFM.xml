@@ -16,7 +16,8 @@
     </text>
     <contained>
         <!-- This is the reason for the encounter. It is referenced by the concern -->
-        <Condition id="p1">
+        <Condition>
+          <id value="p1"/>
             <subject>
                 <reference value="Patient/100"/>
                 <display value="Peter James Chalmers"/>

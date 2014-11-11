@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+   <id value="f202"/>
    <contained>
-      <Medication id="tpf"><!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
+      <Medication>
+        <id value="tpf"/><!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
          <contained>
             <Medication id="doce">
                <name value="Docetaxel"/>
@@ -15,7 +17,8 @@
             </Medication>
          </contained>
          <contained>
-            <Medication id="cisp">
+            <Medication>
+              <id value="cisp"/>
                <name value="Cisplatin"/>
                <code>
                   <coding>
@@ -26,7 +29,8 @@
             </Medication>
          </contained>
          <contained>
-            <Medication id="fluo">
+            <Medication>
+              <id value="fluo"/>
                <name value="5-Fluorouracil"/>
                <code>
                   <coding>

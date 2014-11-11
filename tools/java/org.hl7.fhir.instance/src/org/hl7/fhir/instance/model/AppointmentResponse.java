@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
-public class AppointmentResponse extends Resource {
+public class AppointmentResponse extends DomainResource {
 
     public enum Participantstatus {
         ACCEPTED, // The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
@@ -223,7 +223,7 @@ public class AppointmentResponse extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -270,7 +270,7 @@ public class AppointmentResponse extends Resource {
      * @return {@link #participantType} (Role of participant in the appointment.)
      */
     // syntactic sugar
-    public CodeableConcept addParticipantType() { 
+    public CodeableConcept addParticipantType() { //3
       CodeableConcept t = new CodeableConcept();
       this.participantType.add(t);
       return t;
@@ -287,7 +287,7 @@ public class AppointmentResponse extends Resource {
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
     // syntactic sugar
-    public Reference addIndividual() { 
+    public Reference addIndividual() { //3
       Reference t = new Reference();
       this.individual.add(t);
       return t;
@@ -522,6 +522,7 @@ public class AppointmentResponse extends Resource {
 
       public AppointmentResponse copy() {
         AppointmentResponse dst = new AppointmentResponse();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

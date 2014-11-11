@@ -30,7 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 
-{!Wrapper uses Classes,FHIRBase,FHIRResources,FHIRResources_Wrapper, FHIRTypes_Wrapper, FHIRTypes, FHIRAtomFeed}
+{!Wrapper uses Classes,FHIRBase,FHIRResources,FHIRResources_Wrapper, FHIRTypes_Wrapper, FHIRTypes}
 
 interface
 
@@ -40,9 +40,9 @@ uses
   IdGlobal, IdSoapMime,
   Parsemap, TextUtilities,
   StringSupport, DecimalSupport, GuidSupport,
-  AdvObjects, AdvBuffers, AdvStringLists,
+  AdvObjects, AdvBuffers, AdvStringLists, AdvStringMatches,
   DateAndTime, JWT, SCIMObjects,
-  FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes, FHIRAtomFeed;
+  FHirBase, FHirResources, FHIRConstants, FHIRComponents, FHIRTypes;
 
 Const
    HTTP_OK_200 = 200;
@@ -211,7 +211,6 @@ Type
     FResourceType: TFhirResourceType;
     FFormat: TFHIRFormat;
     FResource: TFhirResource;
-    FFeed: TFHIRAtomFeed;
     FUrl: String;
     FBaseUrl: String;
     ForiginalId: String;
@@ -223,7 +222,7 @@ Type
     FDefaultSearch: boolean;
     FLang: String;
     FSession: TFhirSession;
-    FCategories : TFHIRAtomCategoryList;
+    FCategories : TFHIRCodingList;
     FContent : TAdvBuffer;
     FIp: string;
     FCompartments: String;
@@ -231,7 +230,6 @@ Type
     FForm: TIdSoapMimeMessage;
     FOperationName: String;
     procedure SetResource(const Value: TFhirResource);
-    procedure SetFeed(const Value: TFHIRAtomFeed);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
   Public
@@ -318,15 +316,11 @@ Type
     }
     Property Resource : TFhirResource read FResource write SetResource;
 
-    {@member Bundle
-      the request bnndle (i.e. atom feed), if a resource was submitted as part of the request.
-    }
-    Property Feed : TFHIRAtomFeed read FFeed write SetFeed;
 
     {@member categories
       Tags on the request - if it's a resource directly
     }
-    property categories : TFHIRAtomCategoryList read Fcategories;
+    property categories : TFHIRCodingList read Fcategories;
 
     {@member originalId
       The specified originalId of the resource in the request (if present) (i.e. in a transaction)
@@ -387,7 +381,6 @@ Type
     FHTTPCode: Integer;
     FBody: String;
     FMessage: String;
-    FFeed: TFHIRAtomFeed;
     FResource: TFhirResource;
     FversionId: String;
     ForiginalId: String;
@@ -396,11 +389,10 @@ Type
     FFormat: TFHIRFormat;
     FContentLocation: String;
     FLocation: String;
-    FCategories : TFHIRAtomCategoryList;
-    FLinks : TFHIRAtomLinkList;
+    FCategories : TFHIRCodingList;
+    FLinks : TAdvStringMatch;
     FOrigin: String;
     FId: String;
-    procedure SetFeed(const Value: TFHIRAtomFeed);
     procedure SetResource(const Value: TFhirResource);
   public
     Constructor Create; Override;
@@ -445,11 +437,6 @@ Type
       part of the FHIR specification
     }
     Property Resource : TFhirResource read FResource write SetResource;
-
-    {@member Feed
-      the feed resulting from the transaction
-    }
-    Property Feed : TFHIRAtomFeed read FFeed write SetFeed;
 
     {@member Format
       The format for the response, if known and identified (xml, or json). Derived
@@ -497,12 +484,12 @@ Type
     {@member categories
       Tags for the response
     }
-    property categories : TFHIRAtomCategoryList read Fcategories;
+    property categories : TFHIRCodingList read Fcategories;
 
     {@member links
       Links for the response
     }
-    property links : TFHIRAtomLinkList read FLinks;
+    property links : TAdvStringMatch read FLinks;
 
     {@member Origin
       HTTP Origin header - see http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
@@ -668,12 +655,6 @@ Type
     }
     function parseHTML(source : String; policy : TFHIRXhtmlParserPolicy) : TFhirXHtmlNode;
 
-    {@member makeBundle
-      create a new bundle (i.e. atom feed)
-    }
-    {!script nolink}
-    function makeBundle : TFHIRAtomFeed;
-
     {@member makeBinary
       make a new Binary resource
     }
@@ -728,10 +709,7 @@ begin
   try
     comp := TFHIRXmlComposer.create(lang);
     try
-      if Feed <> nil then
-        comp.Compose(stream, Feed, true)
-      else if Resource <> nil then
-        comp.Compose(stream, CODES_TFHIRResourceType[ResourceType], id, subId, resource, true, nil)
+      comp.Compose(stream, CODES_TFHIRResourceType[ResourceType], id, subId, resource, true, nil);
     finally
       comp.free;
     end;
@@ -758,7 +736,7 @@ end;
 constructor TFHIRRequest.Create;
 begin
   inherited;
-  FCategories := TFHIRAtomCategoryList.create;
+  FCategories := TFHIRCodingList.create;
 end;
 
 destructor TFHIRRequest.Destroy;
@@ -767,7 +745,6 @@ begin
   FCategories.free;
   FSession.Free;
   FSource.Free;
-  FFeed.Free;
   FResource.Free;
   inherited;
 end;
@@ -806,12 +783,6 @@ begin
   result := CODES_TFHIRCommandType[CommandType]+'\('+CODES_TFHIRFormat[PostFormat]+')'+CODES_TFhirResourceType[ResourceType]+'\'+Id;
   if SubId <> '' then
     result := result + '\'+SubId;
-end;
-
-procedure TFHIRRequest.SetFeed(const Value: TFHIRAtomFeed);
-begin
-  FFeed.Free;
-  FFeed := Value;
 end;
 
 procedure TFHIRRequest.SetResource(const Value: TFhirResource);
@@ -854,7 +825,7 @@ begin
   addValue('Content-Location', FcontentLocation, FcontentLocation <> '');
   addValue('defaultSearch', BooleanToString(FDefaultSearch), CommandType = fcmdSearch);
   addValue('Language', FLang, FLang <> '');
-  addValue('Category', FCategories.AsHeader, FCategories.count > 0);
+  addValue('Category', FCategories.ToString, FCategories.count > 0);
   addValue('ip', FIp, FIp <> '');
   addValue('compartments', FCompartments, FCompartments <> '');
   addValue('compartmentId', FCompartmentId, FCompartmentId <> '');
@@ -865,15 +836,14 @@ end;
 constructor TFHIRResponse.Create;
 begin
   inherited;
-  FCategories := TFHIRAtomCategoryList.create;
-  FLinks := TFHIRAtomLinkList.create;
+  FCategories := TFHIRCodingList.create;
+  FLinks := TAdvStringMatch.create;
 end;
 
 destructor TFHIRResponse.Destroy;
 begin
   FLinks.Free;
   FCategories.free;
-  FFeed.Free;
   FResource.Free;
   inherited;
 end;
@@ -881,13 +851,6 @@ end;
 function TFHIRResponse.Link: TFHIRResponse;
 begin
   result := TFHIRResponse(Inherited Link);
-end;
-
-procedure TFHIRResponse.SetFeed(const Value: TFHIRAtomFeed);
-begin
-  FFeed.Free;
-  FFeed := nil;
-  FFeed := Value;
 end;
 
 procedure TFHIRResponse.SetResource(const Value: TFhirResource);
@@ -1206,11 +1169,6 @@ begin
   finally
     result.free;
   end;
-end;
-
-function TFHIRFactory.makeBundle: TFHIRAtomFeed;
-begin
-  result := TFHIRAtomFeed.create;
 end;
 
 function TFHIRFactory.makeRequest: TFhirRequest;

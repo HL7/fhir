@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
  * Describes the data produced by a device at a point in time.
  */
-public class DeviceObservationReport extends Resource {
+public class DeviceObservationReport extends DomainResource {
 
     public static class DeviceObservationReportVirtualDeviceComponent extends BackboneElement {
         /**
@@ -81,7 +81,7 @@ public class DeviceObservationReport extends Resource {
          * @return {@link #channel} (Groups together physiological measurement data and derived data.)
          */
     // syntactic sugar
-        public DeviceObservationReportVirtualDeviceChannelComponent addChannel() { 
+        public DeviceObservationReportVirtualDeviceChannelComponent addChannel() { //3
           DeviceObservationReportVirtualDeviceChannelComponent t = new DeviceObservationReportVirtualDeviceChannelComponent();
           this.channel.add(t);
           return t;
@@ -95,6 +95,7 @@ public class DeviceObservationReport extends Resource {
 
       public DeviceObservationReportVirtualDeviceComponent copy() {
         DeviceObservationReportVirtualDeviceComponent dst = new DeviceObservationReportVirtualDeviceComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.channel = new ArrayList<DeviceObservationReportVirtualDeviceChannelComponent>();
         for (DeviceObservationReportVirtualDeviceChannelComponent i : channel)
@@ -147,7 +148,7 @@ public class DeviceObservationReport extends Resource {
          * @return {@link #metric} (A piece of measured or derived data that is reported by the machine.)
          */
     // syntactic sugar
-        public DeviceObservationReportVirtualDeviceChannelMetricComponent addMetric() { 
+        public DeviceObservationReportVirtualDeviceChannelMetricComponent addMetric() { //3
           DeviceObservationReportVirtualDeviceChannelMetricComponent t = new DeviceObservationReportVirtualDeviceChannelMetricComponent();
           this.metric.add(t);
           return t;
@@ -161,6 +162,7 @@ public class DeviceObservationReport extends Resource {
 
       public DeviceObservationReportVirtualDeviceChannelComponent copy() {
         DeviceObservationReportVirtualDeviceChannelComponent dst = new DeviceObservationReportVirtualDeviceChannelComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.metric = new ArrayList<DeviceObservationReportVirtualDeviceChannelMetricComponent>();
         for (DeviceObservationReportVirtualDeviceChannelMetricComponent i : metric)
@@ -229,6 +231,7 @@ public class DeviceObservationReport extends Resource {
 
       public DeviceObservationReportVirtualDeviceChannelMetricComponent copy() {
         DeviceObservationReportVirtualDeviceChannelMetricComponent dst = new DeviceObservationReportVirtualDeviceChannelMetricComponent();
+        copyValues(dst);
         dst.observation = observation == null ? null : observation.copy();
         return dst;
       }
@@ -400,7 +403,7 @@ public class DeviceObservationReport extends Resource {
      * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
      */
     // syntactic sugar
-    public DeviceObservationReportVirtualDeviceComponent addVirtualDevice() { 
+    public DeviceObservationReportVirtualDeviceComponent addVirtualDevice() { //3
       DeviceObservationReportVirtualDeviceComponent t = new DeviceObservationReportVirtualDeviceComponent();
       this.virtualDevice.add(t);
       return t;
@@ -417,6 +420,7 @@ public class DeviceObservationReport extends Resource {
 
       public DeviceObservationReport copy() {
         DeviceObservationReport dst = new DeviceObservationReport();
+        copyValues(dst);
         dst.instant = instant == null ? null : instant.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.source = source == null ? null : source.copy();

@@ -3,6 +3,7 @@
 <!-- lab report example: a Lipid Profile that conforms to the defined profile -->
 
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <id value="lipids"/>
   <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml"> 
@@ -30,7 +31,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 	  topic page -->
 	  <!-- for users steeped in v2, each observation roughly corresponds with an 
 	    OBX, and the Diagnostic Report with an ORU_R01 message -->
-      <Observation id="cholesterol">
+      <Observation>
+        <id value="cholesterol"/>
         <name>
           <coding>
             <system value="http://loinc.org"/>
@@ -57,7 +59,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </Observation>
     </contained> 
     <contained>  
-      <Observation id="triglyceride">
+      <Observation>
+        <id value="triglyceride"/>
         <name>
           <coding>
             <system value="http://loinc.org"/>
@@ -84,7 +87,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </Observation>
     </contained> 
     <contained>  
-      <Observation id="hdlcholesterol">
+      <Observation>
+        <id value="hdlcholesterol"/>
         <name>
           <coding>
             <system value="http://loinc.org"/>
@@ -111,7 +115,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </Observation>
     </contained> 
     <contained>  
-      <Observation id="ldlcholesterol">
+      <Observation>
+        <id value="ldlcholesterol"/>
         <name>
           <coding>
             <system value="http://loinc.org"/>

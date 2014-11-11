@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DeviceObservationReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/deviceobservationreport.xsd">
+ <id value="example"/>
 
 <!--
 
@@ -46,7 +47,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
     <!-- OBX|1|NM|147842^MDC_ECG_HEART_RATE^MDC|1.6.1.1|60|/min^/min^UCUM|||||R||||||||| -->
-    <Observation id="o1">
+    <Observation>
+      <id value="o1"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -67,7 +69,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|2|NM|148065^MDC_ECG_V_P_C_CNT^MDC|1.6.1.2|0|/min^/min^UCUM|||||R||||||||| -->
-    <Observation id="o2">
+    <Observation>
+      <id value="o2"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -88,7 +91,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|3|NM|150035^MDC_PRESS_BLD_ART_MEAN^MDC|1.3.1.1|92|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o3">
+    <Observation>
+      <id value="o3"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -109,7 +113,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|4|NM|150033^MDC_PRESS_BLD_ART_SYS^MDC|1.3.1.2|120|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o4">
+    <Observation>
+      <id value="o4"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -130,7 +135,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|5|NM|150034^MDC_PRESS_BLD_ART_DIA^MDC|1.3.1.3|80|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o5">
+    <Observation>
+      <id value="o5"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -151,7 +157,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|6|NM|149522^MDC_BLD_PULS_RATE_INV^MDC|1.2.1.1|60|/min^/min^UCUM|||||R||||||||| -->
-    <Observation id="o6">
+    <Observation>
+      <id value="o6"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -172,7 +179,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|7|NM|150047^MDC_PRESS_BLD_ART_PULM_MEAN^MDC|1.4.2.1|14|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o7">
+    <Observation>
+      <id value="o7"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -193,7 +201,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|8|NM|150045^MDC_PRESS_BLD_ART_PULM_SYS^MDC|1.4.2.2|25|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o8">
+    <Observation>
+      <id value="o8"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -214,7 +223,8 @@ contained ones (even though this is easier for the sender)
 
   <contained>
 <!-- OBX|9|NM|150046^MDC_PRESS_BLD_ART_PULM_DIA^MDC|1.4.2.3|10|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
-    <Observation id="o9">
+    <Observation>
+      <id value="o9"/>
       <name>
         <coding>
           <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
@@ -233,7 +243,8 @@ contained ones (even though this is easier for the sender)
     </Observation>
   </contained>
   <contained>
-    <Device id="d1">
+    <Device>
+      <id value="d1"/>
       <identifier>
         <system value="http://goodcare.org/devices/id"/>
         <value value="A23-352"/>

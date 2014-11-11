@@ -32,11 +32,11 @@ import java.io.InputStream;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Binary;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
@@ -75,10 +75,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     JsonObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
-    String rt = json.get("resourceType").getAsString();
-		if ("Bundle".equals(rt))
-      r.setFeed(parseAtom(json));
-    else  
+//    String rt = json.get("resourceType").getAsString();
     r.setResource(parseResource(json));
     return r;    
   }
@@ -112,8 +109,6 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
       }
     }
   }
-
-  protected abstract void parseResourceProperties(JsonObject json, Resource r) throws Exception;
   
   protected XhtmlNode parseXhtml(String value) throws Exception {
     XhtmlParser prsr = new XhtmlParser();
@@ -128,86 +123,11 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 //    return res;
 //  }
 
-  private AtomFeed parseAtom(JsonObject json) throws Exception {
-    AtomFeed res = new AtomFeed();
-    if (json.has("title") && !json.get("title").isJsonNull())
-      res.setTitle(json.get("title").getAsString());
-    if (json.has("id") && !json.get("id").isJsonNull())
-      res.setId(json.get("id").getAsString());
-    if (json.has("updated") && !json.get("updated").isJsonNull())
-      res.setUpdated(new DateAndTime(json.get("updated").getAsString()));
-    if (json.has("author") && !json.get("author").isJsonNull()) {
-      JsonObject author = json.getAsJsonArray("author").get(0).getAsJsonObject();
-      if (author.has("name"))
-        res.setAuthorName(author.get("name").getAsString());
-      if (author.has("uri"))
-        res.setAuthorUri(author.get("uri").getAsString());
-    }
-    if (json.has("link") && !json.get("link").isJsonNull()) {
-      JsonArray array = json.getAsJsonArray("link");
-      for (int i = 0; i < array.size(); i++) {
-        parseLink(res.getLinks(), array.get(i).getAsJsonObject());
-      }
-    }
-    if (json.has("category") && !json.get("category").isJsonNull()) {
-      for (JsonElement t : json.getAsJsonArray("category")) {
-        JsonObject cat = t.getAsJsonObject();
-      if (cat.has("term") && cat.has("scheme"))
-        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
-    }
-    }
-    JsonArray array = json.getAsJsonArray("entry");
-    if (array != null) {
-    	for (int i = 0; i < array.size(); i++) {
-    		res.getEntryList().add(parseEntry(array.get(i).getAsJsonObject()));
-    	}
-    }
-    return res;  
-  }
-
   private void parseLink(Map<String, String> links, JsonObject json) throws Exception {
     if (json.has("href") && json.has("rel"))
     links.put(json.get("rel").getAsString(), json.get("href").getAsString());    
   }
 
-  @SuppressWarnings("unchecked")
-  private <T extends Resource> AtomEntry<T> parseEntry(JsonObject json) throws Exception {
-    AtomEntry<T> res = new AtomEntry<T>();
-    if (json.has("title") && !json.get("title").isJsonNull())
-      res.setTitle(json.get("title").getAsString());
-    if (json.has("id") && !json.get("id").isJsonNull())
-      res.setId(json.get("id").getAsString());
-    if (json.has("updated") && !json.get("updated").isJsonNull())
-      res.setUpdated(new DateAndTime(json.get("updated").getAsString()));
-    if (json.has("published") && !json.get("published").isJsonNull())
-      res.setPublished(new DateAndTime(json.get("published").getAsString()));
-    if (json.has("link") && !json.get("link").isJsonNull()) {
-      JsonArray array = json.getAsJsonArray("link");
-      for (int i = 0; i < array.size(); i++) {
-        parseLink(res.getLinks(), array.get(i).getAsJsonObject());
-      }
-    }
-    if (json.has("author") && !json.get("author").isJsonNull()) {
-      JsonObject author = json.getAsJsonArray("author").get(0).getAsJsonObject();
-      if (author.has("name") && !author.get("name").isJsonNull())
-        res.setAuthorName(author.get("name").getAsString());
-      if (author.has("uri") && !author.get("uri").isJsonNull())
-        res.setAuthorUri(author.get("uri").getAsString());
-    }
-    if (json.has("category") && !json.get("category").isJsonNull()) {
-      for (JsonElement t : json.getAsJsonArray("category")) {
-        JsonObject cat = t.getAsJsonObject();
-      if (cat.has("term") && cat.has("scheme") && !cat.get("term").isJsonNull() && !cat.get("scheme").isJsonNull())
-        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
-      }
-    }
-    if (json.has("summary") && !json.get("summary").isJsonNull())
-      res.setSummary(new XhtmlParser().parse(json.get("summary").getAsString(), "div").getChildNodes().get(0));
-    if (json.has("content") && !json.get("content").isJsonNull())
-      res.setResource((T)new JsonParser().parse(json.getAsJsonObject("content")));//TODO Architecture needs to be refactor to prevent this unsafe cast and better support generics
-    return res;
-  }
-  
   public Type parseType(String source, String type) throws Exception {
     JsonObject json = loadJson(source);
     return parseType(json, type);
@@ -215,4 +135,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 
   protected abstract Type parseType(JsonObject json, String type) throws Exception;
   
+  protected DomainResource parseDomainResource(JsonObject json) throws Exception {
+	  return (DomainResource) parseResource(json);
+  }
+
 }

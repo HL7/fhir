@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Dispensing a medication to a named patient.  This includes a description of the supply provided and the instructions for administering the medication.
  */
-public class MedicationDispense extends Resource {
+public class MedicationDispense extends DomainResource {
 
     public enum MedicationDispenseStatus {
         INPROGRESS, // The dispense has started but has not yet completed.
@@ -421,7 +421,7 @@ public class MedicationDispense extends Resource {
          * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
     // syntactic sugar
-        public Reference addReceiver() { 
+        public Reference addReceiver() { //3
           Reference t = new Reference();
           this.receiver.add(t);
           return t;
@@ -445,7 +445,7 @@ public class MedicationDispense extends Resource {
          * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
          */
     // syntactic sugar
-        public MedicationDispenseDispenseDosageComponent addDosage() { 
+        public MedicationDispenseDispenseDosageComponent addDosage() { //3
           MedicationDispenseDispenseDosageComponent t = new MedicationDispenseDispenseDosageComponent();
           this.dosage.add(t);
           return t;
@@ -467,6 +467,7 @@ public class MedicationDispense extends Resource {
 
       public MedicationDispenseDispenseComponent copy() {
         MedicationDispenseDispenseComponent dst = new MedicationDispenseDispenseComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
@@ -694,6 +695,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationDispenseDispenseDosageComponent copy() {
         MedicationDispenseDispenseDosageComponent dst = new MedicationDispenseDispenseDosageComponent();
+        copyValues(dst);
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
@@ -766,7 +768,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
          */
     // syntactic sugar
-        public CodeableConcept addReason() { 
+        public CodeableConcept addReason() { //3
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
           return t;
@@ -783,7 +785,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
     // syntactic sugar
-        public Reference addResponsibleParty() { 
+        public Reference addResponsibleParty() { //3
           Reference t = new Reference();
           this.responsibleParty.add(t);
           return t;
@@ -815,6 +817,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationDispenseSubstitutionComponent copy() {
         MedicationDispenseSubstitutionComponent dst = new MedicationDispenseSubstitutionComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.reason = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reason)
@@ -1005,7 +1008,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
      */
     // syntactic sugar
-    public Reference addAuthorizingPrescription() { 
+    public Reference addAuthorizingPrescription() { //3
       Reference t = new Reference();
       this.authorizingPrescription.add(t);
       return t;
@@ -1039,7 +1042,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.)
      */
     // syntactic sugar
-    public MedicationDispenseDispenseComponent addDispense() { 
+    public MedicationDispenseDispenseComponent addDispense() { //3
       MedicationDispenseDispenseComponent t = new MedicationDispenseDispenseComponent();
       this.dispense.add(t);
       return t;
@@ -1073,6 +1076,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationDispense copy() {
         MedicationDispense dst = new MedicationDispense();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();

@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005"
+<Bundle xmlns="http://hl7.org/fhir" xmlns:gd="http://schemas.google.com/g/2005"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
-  <title>Standard Patient Examples</title>
-  <id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
-  <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml"/>
-  <updated>2012-05-29T23:45:32Z</updated>
-  <entry>
-    <title>healthcare practitioner</title>
-    <id>http://hl7.org/fhir/Practitioner/13</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/13/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+  <id value="b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+  <meta>
+    <lastUpdated value="2012-05-29T23:45:32Z"/>
+  </meta>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="13"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Seven, Henry. SSN:
@@ -48,21 +45,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Seven, Henry. SSN: 333333333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>assigned practitioner</title>
-    <id>http://hl7.org/fhir/Practitioner/14</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/14/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="14"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Assigned, Amanda. SSN:
@@ -95,22 +86,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Assigned, Amanda. SSN:
-        33344444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>physician</title>
-    <id>http://hl7.org/fhir/Practitioner/15</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/15/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="15"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hippocrates, Harold. SSN:
@@ -143,22 +127,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hippocrates, Harold. SSN:
-        444444444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>primary care physician</title>
-    <id>http://hl7.org/fhir/Practitioner/16</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/16/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="16"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Primary, Patricia. SSN:
@@ -191,22 +168,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Primary, Patricia. SSN:
-        555555555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>admitting physician</title>
-    <id>http://hl7.org/fhir/Practitioner/17</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/17/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="17"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Admit, Alan. SSN:
@@ -239,21 +209,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Admit, Alan. SSN: 666666666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>attending physician</title>
-    <id>http://hl7.org/fhir/Practitioner/18</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/18/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="18"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Attend, Aaron. SSN:
@@ -286,22 +250,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Attend, Aaron. SSN:
-        777777777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>referring physician</title>
-    <id>http://hl7.org/fhir/Practitioner/19</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/19/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="19"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sender, Sam. SSN:
@@ -334,21 +291,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sender, Sam. SSN: 888888888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>intern</title>
-    <id>http://hl7.org/fhir/Practitioner/20</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/20/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="20"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Intern, Irving. SSN:
@@ -381,22 +332,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Intern, Irving. SSN:
-        888222222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>resident</title>
-    <id>http://hl7.org/fhir/Practitioner/21</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/21/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="21"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Resident, Rachel. SSN:
@@ -429,22 +373,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Resident, Rachel. SSN:
-        888333333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>chief of staff</title>
-    <id>http://hl7.org/fhir/Practitioner/22</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/22/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="22"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Leader, Linda. SSN:
@@ -477,22 +415,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Leader, Linda. SSN:
-        888444444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>authenticator</title>
-    <id>http://hl7.org/fhir/Practitioner/23</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/23/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="23"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Verify, Virgil. SSN:
@@ -525,22 +457,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Verify, Virgil. SSN:
-        999999999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>specialist</title>
-    <id>http://hl7.org/fhir/Practitioner/24</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/24/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="24"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specialize, Sara. SSN:
@@ -573,22 +499,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specialize, Sara. SSN:
-        222333333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>allergist/immunologist</title>
-    <id>http://hl7.org/fhir/Practitioner/25</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/25/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="25"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Reaction, Ramsey. SSN:
@@ -621,22 +541,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Reaction, Ramsey. SSN:
-        222223333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>anesthesiologist</title>
-    <id>http://hl7.org/fhir/Practitioner/26</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/26/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="26"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sleeper, Sally. SSN:
@@ -669,22 +583,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sleeper, Sally. SSN:
-        222666666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>cardiologist</title>
-    <id>http://hl7.org/fhir/Practitioner/27</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/27/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="27"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pump, Patrick. SSN:
@@ -717,22 +625,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pump, Patrick. SSN:
-        222334444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>cardiovascular surgeon</title>
-    <id>http://hl7.org/fhir/Practitioner/28</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/28/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="28"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Valve, Vera. SSN:
@@ -765,21 +667,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Valve, Vera. SSN: 222335555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>dermatologist</title>
-    <id>http://hl7.org/fhir/Practitioner/29</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/29/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="29"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Scratch, Sophie. SSN:
@@ -812,22 +708,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Scratch, Sophie. SSN:
-        222336666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>emergency medicine specialist</title>
-    <id>http://hl7.org/fhir/Practitioner/30</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/30/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="30"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Emergency, Eric. SSN:
@@ -860,22 +750,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Emergency, Eric. SSN:
-        222337777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>endocrinologist</title>
-    <id>http://hl7.org/fhir/Practitioner/31</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/31/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="31"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hormone, Horace. SSN:
@@ -908,22 +792,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hormone, Horace. SSN:
-        222338888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>family practitioner</title>
-    <id>http://hl7.org/fhir/Practitioner/32</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/32/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="32"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Family, Fay. SSN:
@@ -956,21 +834,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Family, Fay. SSN: 222339999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>gastroenterologist</title>
-    <id>http://hl7.org/fhir/Practitioner/33</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/33/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="33"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tum, Tony. SSN:
@@ -1003,21 +875,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tum, Tony. SSN: 222442222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>geriatrician</title>
-    <id>http://hl7.org/fhir/Practitioner/34</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/34/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="34"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sage, Stanley. SSN:
@@ -1050,22 +916,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sage, Stanley. SSN:
-        222443333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>hematologist</title>
-    <id>http://hl7.org/fhir/Practitioner/35</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/35/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="35"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bleeder, Boris. SSN:
@@ -1098,22 +958,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bleeder, Boris. SSN:
-        222443344</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>infectious disease specialist</title>
-    <id>http://hl7.org/fhir/Practitioner/36</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/36/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="36"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pasteur, Paula. SSN:
@@ -1146,22 +1000,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pasteur, Paula. SSN:
-        222445555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>internist</title>
-    <id>http://hl7.org/fhir/Practitioner/37</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/37/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="37"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Osler, Otto. SSN:
@@ -1194,21 +1042,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Osler, Otto. SSN: 222446666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>nephrologist</title>
-    <id>http://hl7.org/fhir/Practitioner/38</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/38/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="38"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Renal, Rory. SSN:
@@ -1241,21 +1083,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Renal, Rory. SSN: 222447777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>neurologist</title>
-    <id>http://hl7.org/fhir/Practitioner/39</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/39/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="39"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brain, Barry. SSN:
@@ -1288,21 +1124,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brain, Barry. SSN: 222448888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>neurosurgeon</title>
-    <id>http://hl7.org/fhir/Practitioner/40</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/40/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="40"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cranium, Carol. SSN:
@@ -1335,22 +1165,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cranium, Carol. SSN:
-        222449999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>OB/GYN</title>
-    <id>http://hl7.org/fhir/Practitioner/41</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/41/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="41"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Fem, Flora. SSN:
@@ -1383,21 +1207,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Fem, Flora. SSN: 222552222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>oncologist</title>
-    <id>http://hl7.org/fhir/Practitioner/42</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/42/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="42"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tumor, Trudy. SSN:
@@ -1430,21 +1248,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tumor, Trudy. SSN: 222553333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>ophthalmologist</title>
-    <id>http://hl7.org/fhir/Practitioner/43</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/43/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="43"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Vision, Victor. SSN:
@@ -1477,22 +1289,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Vision, Victor. SSN:
-        222554444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>orthopedic surgeon</title>
-    <id>http://hl7.org/fhir/Practitioner/44</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/44/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="44"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Carpenter, Calvin. SSN:
@@ -1525,22 +1331,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Carpenter, Calvin. SSN:
-        222555545</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>otolaryngologist (ENT)</title>
-    <id>http://hl7.org/fhir/Practitioner/45</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/45/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="45"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Rhino, Rick. SSN:
@@ -1573,21 +1373,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Rhino, Rick. SSN: 222556666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>pathologist</title>
-    <id>http://hl7.org/fhir/Practitioner/46</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/46/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="46"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Slide, Stan. SSN:
@@ -1620,21 +1414,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Slide, Stan. SSN: 222444444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>pediatrician</title>
-    <id>http://hl7.org/fhir/Practitioner/47</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/47/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="47"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Kidder, Karen. SSN:
@@ -1667,22 +1455,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Kidder, Karen. SSN:
-        222557777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>plastic surgeon</title>
-    <id>http://hl7.org/fhir/Practitioner/48</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/48/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="48"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hollywood, Heddie. SSN:
@@ -1715,22 +1497,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hollywood, Heddie. SSN:
-        222558888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>psychiatrist</title>
-    <id>http://hl7.org/fhir/Practitioner/49</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/49/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="49"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Shrink, Serena. SSN:
@@ -1763,22 +1539,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Shrink, Serena. SSN:
-        222559999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>pulmonologist</title>
-    <id>http://hl7.org/fhir/Practitioner/50</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/50/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="50"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Puffer, Penny. SSN:
@@ -1811,22 +1581,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Puffer, Penny. SSN:
-        222662222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>radiologist</title>
-    <id>http://hl7.org/fhir/Practitioner/51</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/51/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="51"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Curie, Christine. SSN:
@@ -1859,22 +1623,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Curie, Christine. SSN:
-        222555555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>rheumatologist</title>
-    <id>http://hl7.org/fhir/Practitioner/52</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/52/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="52"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Joint, Jeffrey. SSN:
@@ -1907,22 +1665,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Joint, Jeffrey. SSN:
-        222663333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>surgeon</title>
-    <id>http://hl7.org/fhir/Practitioner/53</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/53/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="53"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cutter, Carl. SSN:
@@ -1955,21 +1707,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cutter, Carl. SSN: 222777777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>urologist</title>
-    <id>http://hl7.org/fhir/Practitioner/54</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/54/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="54"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Plumber, Peter. SSN:
@@ -2002,22 +1748,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Plumber, Peter. SSN:
-        222664444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>physician assistant</title>
-    <id>http://hl7.org/fhir/Practitioner/55</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/55/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="55"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Helper, Horace. SSN:
@@ -2050,22 +1790,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Helper, Horace. SSN:
-        222665555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>registered nurse</title>
-    <id>http://hl7.org/fhir/Practitioner/56</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/56/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="56"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nightingale, Nancy. SSN:
@@ -2098,22 +1832,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nightingale, Nancy. SSN:
-        222888888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>nursing assistant</title>
-    <id>http://hl7.org/fhir/Practitioner/57</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/57/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="57"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Barton, Clarence. SSN:
@@ -2146,22 +1874,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Barton, Clarence. SSN:
-        222999999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>chiropractor</title>
-    <id>http://hl7.org/fhir/Practitioner/58</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/58/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="58"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bender, Bob. SSN:
@@ -2194,21 +1916,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bender, Bob. SSN: 222666666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>dentist</title>
-    <id>http://hl7.org/fhir/Practitioner/59</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/59/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="59"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chopper, Charlie. SSN:
@@ -2241,22 +1957,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chopper, Charlie. SSN:
-        222667777</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>orthodontist</title>
-    <id>http://hl7.org/fhir/Practitioner/60</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/60/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="60"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brace, Ben. SSN:
@@ -2289,21 +1999,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brace, Ben. SSN: 222668888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>optometrist</title>
-    <id>http://hl7.org/fhir/Practitioner/61</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/61/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="61"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specs, Sylvia. SSN:
@@ -2336,22 +2040,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specs, Sylvia. SSN:
-        222669999</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>pharmacist</title>
-    <id>http://hl7.org/fhir/Practitioner/62</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/62/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="62"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Script, Susan. SSN:
@@ -2382,22 +2080,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Script, Susan. SSN:
-        333222222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>podiatrist</title>
-    <id>http://hl7.org/fhir/Practitioner/63</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/63/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="63"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bunion, Paul. SSN:
@@ -2430,21 +2122,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bunion, Paul. SSN: 222772222</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>psychologist</title>
-    <id>http://hl7.org/fhir/Practitioner/64</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/64/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="64"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Listener, Larry. SSN:
@@ -2477,22 +2163,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Listener, Larry. SSN:
-        222773333</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>lab technician</title>
-    <id>http://hl7.org/fhir/Practitioner/65</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/65/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="65"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Beaker, Bill. SSN:
@@ -2525,21 +2205,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Beaker, Bill. SSN: 333444444</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>dietician</title>
-    <id>http://hl7.org/fhir/Practitioner/66</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/66/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="66"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chow, Connie. SSN:
@@ -2571,21 +2245,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chow, Connie. SSN: 333555555</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>social worker</title>
-    <id>http://hl7.org/fhir/Practitioner/67</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/67/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="67"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">teHelper. SSN: 000111111</xhtml:div>
@@ -2616,21 +2284,15 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">teHelper. SSN: 000111111</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>occupational therapist</title>
-    <id>http://hl7.org/fhir/Practitioner/68</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/68/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="68"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Player, Pamela. SSN:
@@ -2663,22 +2325,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Player, Pamela. SSN:
-        222776666</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>physical therapist</title>
-    <id>http://hl7.org/fhir/Practitioner/69</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/69/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="69"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Stretcher, Seth. SSN:
@@ -2711,22 +2367,16 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Stretcher, Seth. SSN:
-        222778888</xhtml:div>
-    </summary>
-  </entry>
-  <entry>
-    <title>transcriptionist</title>
-    <id>http://hl7.org/fhir/Practitioner/70</id>
-    <link rel="self" href="http://hl7.org/fhir/Practitioner/70/_history/1"/>
-    <updated>2012-05-29T23:45:32Z</updated>
-    <author>
-      <name>Grahame Grieve</name>
-    </author>
-    <content type="text/xml">
-      <Practitioner xmlns="http://hl7.org/fhir">
+    
+    
+  </item>
+  <item>
+    
+    <Practitioner xmlns="http://hl7.org/fhir">
+      <id value="70"/>
+      <meta>
+        <lastUpdated value="2012-05-29T23:45:32Z"/>
+      </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN:
@@ -2759,10 +2409,7 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    </content>
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN:
-        333777777</xhtml:div>
-    </summary>
-  </entry>
-</feed>
+    
+    
+  </item>
+</Bundle>

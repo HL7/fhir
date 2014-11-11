@@ -118,6 +118,7 @@ public class ProfileGenerator {
 
   public Profile generate(PrimitiveType type, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
@@ -192,6 +193,7 @@ public class ProfileGenerator {
 
   public Profile generate(DefinedStringPattern type, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
     p.setPublisher("HL7 FHIR Standard");
@@ -271,6 +273,7 @@ public class ProfileGenerator {
 
   public Profile generate(TypeDefn t, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ t.getName());
     p.setName(t.getName());
     p.setPublisher("HL7 FHIR Standard");
@@ -310,6 +313,7 @@ public class ProfileGenerator {
   
   public Profile generate(ProfiledType pt, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ pt.getName());
     p.setName(pt.getName());
     p.setPublisher("HL7 FHIR Standard");
@@ -376,6 +380,7 @@ public class ProfileGenerator {
 
   public Profile generate(ResourceDefn r, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
     p.setName(r.getRoot().getName());
     p.setPublisher("HL7 FHIR Standard");
@@ -433,6 +438,7 @@ public class ProfileGenerator {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
+    p.setId(id);
     p.setUrl("http://hl7.org/fhir/Profile/"+ id);
     p.setName(profile.metadata("name"));
     p.setPublisher(profile.metadata("author.name"));
@@ -790,9 +796,9 @@ public class ProfileGenerator {
         makeExtensionSlice("modifierExtension", pd, p, c, e, path);
 
         if (!path.contains(".")) {
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReferenceBase().getRoot().getElementByName("language")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("text")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName("contained")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("text")));
+          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("contained")));
         }
       }
     }
@@ -865,7 +871,7 @@ public class ProfileGenerator {
   }
 
   private void makeExtensionSlice(String extensionName, ProfileDefn pd, Profile p, ConstraintComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
-      ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseReference().getRoot().getElementByName(extensionName));
+      ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(extensionName));
       c.getElement().add(ex);
   }
   

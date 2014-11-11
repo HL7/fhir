@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -247,7 +247,7 @@ P.O. Box number, delivery hints, and similar address information.)
 P.O. Box number, delivery hints, and similar address information.)
      */
     // syntactic sugar
-    public StringType addLineElement() { 
+    public StringType addLineElement() {//2 
       StringType t = new StringType();
       this.line.add(t);
       return t;
@@ -257,7 +257,7 @@ P.O. Box number, delivery hints, and similar address information.)
      * @param value {@link #line} (This component contains the house number, apartment number, street name, street direction, 
 P.O. Box number, delivery hints, and similar address information.)
      */
-    public Address addLine(String value) { 
+    public Address addLine(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.line.add(t);
@@ -448,6 +448,7 @@ P.O. Box number, delivery hints, and similar address information.)
 
       public Address copy() {
         Address dst = new Address();
+        copyValues(dst);
         dst.use = use == null ? null : use.copy();
         dst.text = text == null ? null : text.copy();
         dst.line = new ArrayList<StringType>();

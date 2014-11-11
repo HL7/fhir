@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Immunization event information.
  */
-public class Immunization extends Resource {
+public class Immunization extends DomainResource {
 
     public static class ImmunizationExplanationComponent extends BackboneElement {
         /**
@@ -67,7 +67,7 @@ public class Immunization extends Resource {
          * @return {@link #reason} (Reasons why a vaccine was administered.)
          */
     // syntactic sugar
-        public CodeableConcept addReason() { 
+        public CodeableConcept addReason() { //3
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
           return t;
@@ -84,7 +84,7 @@ public class Immunization extends Resource {
          * @return {@link #refusalReason} (Refusal or exemption reasons.)
          */
     // syntactic sugar
-        public CodeableConcept addRefusalReason() { 
+        public CodeableConcept addRefusalReason() { //3
           CodeableConcept t = new CodeableConcept();
           this.refusalReason.add(t);
           return t;
@@ -98,6 +98,7 @@ public class Immunization extends Resource {
 
       public ImmunizationExplanationComponent copy() {
         ImmunizationExplanationComponent dst = new ImmunizationExplanationComponent();
+        copyValues(dst);
         dst.reason = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reason)
           dst.reason.add(i.copy());
@@ -247,6 +248,7 @@ public class Immunization extends Resource {
 
       public ImmunizationReactionComponent copy() {
         ImmunizationReactionComponent dst = new ImmunizationReactionComponent();
+        copyValues(dst);
         dst.date = date == null ? null : date.copy();
         dst.detail = detail == null ? null : detail.copy();
         dst.reported = reported == null ? null : reported.copy();
@@ -543,6 +545,7 @@ public class Immunization extends Resource {
 
       public ImmunizationVaccinationProtocolComponent copy() {
         ImmunizationVaccinationProtocolComponent dst = new ImmunizationVaccinationProtocolComponent();
+        copyValues(dst);
         dst.doseSequence = doseSequence == null ? null : doseSequence.copy();
         dst.description = description == null ? null : description.copy();
         dst.authority = authority == null ? null : authority.copy();
@@ -697,7 +700,7 @@ public class Immunization extends Resource {
      * @return {@link #identifier} (A unique identifier assigned to this adverse reaction record.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1107,7 +1110,7 @@ public class Immunization extends Resource {
      * @return {@link #reaction} (Categorical data indicating that an adverse event is associated in time to an immunization.)
      */
     // syntactic sugar
-    public ImmunizationReactionComponent addReaction() { 
+    public ImmunizationReactionComponent addReaction() { //3
       ImmunizationReactionComponent t = new ImmunizationReactionComponent();
       this.reaction.add(t);
       return t;
@@ -1124,7 +1127,7 @@ public class Immunization extends Resource {
      * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
     // syntactic sugar
-    public ImmunizationVaccinationProtocolComponent addVaccinationProtocol() { 
+    public ImmunizationVaccinationProtocolComponent addVaccinationProtocol() { //3
       ImmunizationVaccinationProtocolComponent t = new ImmunizationVaccinationProtocolComponent();
       this.vaccinationProtocol.add(t);
       return t;
@@ -1154,6 +1157,7 @@ public class Immunization extends Resource {
 
       public Immunization copy() {
         Immunization dst = new Immunization();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

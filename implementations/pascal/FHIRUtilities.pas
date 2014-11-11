@@ -37,7 +37,7 @@ uses
 
   IdSoapMime, TextUtilities, ZLib,
 
-  FHIRSupport, FHIRParserBase, FHIRParser, FHIRBase, FHIRTypes, FHIRAtomFeed, FHIRComponents, FHIRResources, FHIRConstants;
+  FHIRSupport, FHIRParserBase, FHIRParser, FHIRBase, FHIRTypes, FHIRComponents, FHIRResources, FHIRConstants;
 
 Type
   ETooCostly = class (Exception);
@@ -59,13 +59,12 @@ function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes; policy
 function MakeComposer(lang : string; mimetype : String) : TFHIRComposer;
 Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
-function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
+function geTFhirResourceNarrativeAsText(resource : TFhirDomainResource) : String;
 function IsId(s : String) : boolean;
 procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
 Function FhirHtmlToText(html : TFhirXHtmlNode):String;
-function FindContainedResource(resource : TFhirResource; ref : TFhirReference) : TFhirResource;
-function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirReference) : TFHIRResource;
+function FindContainedResource(resource : TFhirDomainResource; ref : TFhirReference) : TFhirResource;
 function LoadFromFormParam(part : TIdSoapMimePart; lang : String) : TFhirResource;
 function LoadDTFromFormParam(part : TIdSoapMimePart; lang, name : String; type_ : TFHIRTypeClass) : TFhirType;
 
@@ -115,22 +114,33 @@ type
     procedure setExtensionString(url, value : String);
   end;
 
-  TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirElementDefinitionList
+  TFHIRResourceHelper = class helper for TFHIRResource
   public
-    function summary : String;
   end;
 
-  TFHIRConformanceHelper = class helper (TFHIRElementHelper) for TFHIRConformance
-  public
-    function rest(type_ : TFhirResourceType) : TFhirConformanceRestResource;
-  end;
-
-  TFHIRResourceHelper = class helper (TFHIRElementHelper) for TFHIRResource
+  TFHIRDomainResourceHelper = class helper (TFHIRResourceHelper) for TFHIRDomainResource
   private
     function GetContained(id: String): TFhirResource;
   public
     property Contained[id : String] : TFhirResource read GetContained; default;
     procedure collapseAllContained;
+    procedure addExtension(url : String; t : TFhirType); overload;
+    procedure addExtension(url : String; v : String); overload;
+    function hasExtension(url : String) : boolean;
+    function getExtension(url : String) : Integer;
+    function getExtensionString(url : String) : String;
+    procedure removeExtension(url : String);
+    procedure setExtensionString(url, value : String);
+  end;
+
+  TFhirProfileStructureSnapshotElementDefinitionTypeListHelper = class helper for TFhirElementDefinitionList
+  public
+    function summary : String;
+  end;
+
+  TFHIRConformanceHelper = class helper (TFHIRDomainResourceHelper) for TFHIRConformance
+  public
+    function rest(type_ : TFhirResourceType) : TFhirConformanceRestResource;
   end;
 
   TFhirConformanceRestResourceHelper = class helper (TFHIRElementHelper) for TFhirConformanceRestResource
@@ -144,7 +154,7 @@ type
     procedure setSystem(type_ : TFhirContactPointSystem; value : String);
   end;
 
-  TFHIROperationOutcomeHelper = class helper (TFHIRElementHelper) for TFhirOperationOutcome
+  TFHIROperationOutcomeHelper = class helper (TFHIRDomainResourceHelper) for TFhirOperationOutcome
   public
     function rule(level : TFhirIssueSeverity; source, typeCode, path : string; test : boolean; msg : string) : boolean;
     function error(source, typeCode, path : string; test : boolean; msg : string) : boolean;
@@ -167,7 +177,7 @@ type
     function concept : String;
   end;
 
-  TFhirConceptMapHelper = class helper (TFhirElementHelper) for TFhirConceptMap
+  TFhirConceptMapHelper = class helper (TFhirResourceHelper) for TFhirConceptMap
   public
     function conceptList : TFhirConceptMapElementList;
   end;
@@ -298,7 +308,7 @@ begin
 end;
 
 
-function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
+function geTFhirResourceNarrativeAsText(resource : TFhirDomainResource) : String;
 begin
   result := resource.text.div_.Content;
 end;
@@ -500,6 +510,7 @@ begin
     result := MAX_DATE;
 end;
 
+{
 function GetResourceFromFeed(feed : TFHIRAtomFeed; ref : TFhirReference) : TFHIRResource;
 var
   i : integer;
@@ -514,14 +525,15 @@ begin
     end;
   end;
 end;
+}
 
-function FindContainedResource(resource : TFhirResource; ref : TFhirReference) : TFhirResource;
+function FindContainedResource(resource : TFhirDomainResource; ref : TFhirReference) : TFhirResource;
 var
   i : integer;
 begin
   result := nil;
   for i := 0 to resource.containedList.Count - 1 do
-    if ('#'+resource.containedList[i].xmlId = ref.reference) then
+    if ('#'+resource.containedList[i].Id = ref.reference) then
     begin
       result := resource.containedList[i];
       exit;
@@ -1237,6 +1249,77 @@ begin
   ext.value := TFhirString.Create(value);
 end;
 
+{ TFHIRDomainResourceHelper }
+
+procedure TFHIRDomainResourceHelper.addExtension(url: String; t: TFhirType);
+var
+  ex : TFhirExtension;
+begin
+  ex := self.ExtensionList.Append;
+  ex.url := url;
+  ex.value := t; // nolink here (done outside)
+end;
+
+procedure TFHIRDomainResourceHelper.addExtension(url, v: String);
+begin
+  addExtension(url, TFhirString.Create(v));
+end;
+
+function TFHIRDomainResourceHelper.getExtension(url: String): Integer;
+var
+  i : integer;
+begin
+  result := -1;
+  for i := 0 to self.ExtensionList.Count -1 do
+    if self.ExtensionList[i].url = url then
+      result := i;
+end;
+
+function TFHIRDomainResourceHelper.getExtensionString(url: String): String;
+var
+  ndx : Integer;
+begin
+  ndx := getExtension(url);
+  if (ndx = -1) then
+    result := ''
+  else if (self.ExtensionList.Item(ndx).value is TFhirString) then
+    result := TFhirString(self.ExtensionList.Item(ndx).value).value
+  else if (self.ExtensionList.Item(ndx).value is TFhirCode) then
+    result := TFhirCode(self.ExtensionList.Item(ndx).value).value
+  else if (self.ExtensionList.Item(ndx).value is TFhirUri) then
+    result := TFhirUri(self.ExtensionList.Item(ndx).value).value
+  else
+    result := '';
+end;
+
+function TFHIRDomainResourceHelper.hasExtension(url: String): boolean;
+begin
+  result := getExtension(url) > -1;
+end;
+
+procedure TFHIRDomainResourceHelper.removeExtension(url: String);
+var
+  ndx : integer;
+begin
+  ndx := getExtension(url);
+  while ndx > -1 do
+  begin
+    Self.ExtensionList.DeleteByIndex(ndx);
+    ndx := getExtension(url);
+  end;
+
+end;
+
+procedure TFHIRDomainResourceHelper.setExtensionString(url, value: String);
+var
+  ext : TFhirExtension;
+begin
+  removeExtension(url);
+  ext := self.ExtensionList.Append;
+  ext.url := url;
+  ext.value := TFhirString.Create(value);
+end;
+
 { TFHIRConformanceHelper }
 
 function TFHIRConformanceHelper.rest(type_: TFhirResourceType): TFhirConformanceRestResource;
@@ -1381,28 +1464,32 @@ end;
 {$ENDIF}
 
 
-{ TFHIRResourceHelper }
+{ TFHIRDomainResourceHelper }
 
-procedure TFHIRResourceHelper.collapseAllContained;
+procedure TFHIRDomainResourceHelper.collapseAllContained;
 var
   i : integer;
 begin
   i := 0;
   while (i < ContainedList.Count) do
   begin
-    containedList.AddAll(containedList[i].containedList);
-    containedList[i].containedList.Clear;
+
+    if containedList[i] is TFhirDomainResource then
+    begin
+      containedList.AddAll(TFhirDomainResource(containedList[i]).containedList);
+      TFhirDomainResource(containedList[i]).containedList.Clear;
+    end;
     inc(i);
   end;
 end;
 
-function TFHIRResourceHelper.GetContained(id: String): TFhirResource;
+function TFHIRDomainResourceHelper.GetContained(id: String): TFhirResource;
 var
   i : integer;
 begin
   result := nil;
   for i := 0 to containedList.Count - 1 do
-    if containedList[i].xmlId = id then
+    if containedList[i].Id = id then
       result := containedList[i];
 end;
 

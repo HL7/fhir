@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+ <id value="7546D"/>
 
  <text>
     <status value="generated"/>

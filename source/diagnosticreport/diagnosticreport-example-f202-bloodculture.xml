@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <id value="f202"/>
   <contained>
-    <DiagnosticOrder id="req">
+    <DiagnosticOrder>
+      <id value="req"/>
       <subject><!--It entails Roel's diagnostic report-->
          <reference value="Patient/f201"/>
          <display value="Roel"/>

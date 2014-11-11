@@ -1,8 +1,16 @@
 package org.hl7.fhir.instance.utils;
 
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleLinkComponent;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.instance.model.DomainResource;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
+import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 /**
@@ -36,6 +44,37 @@ public class ResourceUtilities {
 			else if (t.getSeverity() == IssueSeverity.INFORMATION)
 				b.append("Information:" +t.getDetails()+"\r\n");
 		return b.toString();
+  }
+
+	public static Resource getById(Bundle feed, ResourceType type, String reference) {
+	  for (Resource item : feed.getItem()) {
+	    if (item.getId().equals(reference) && item.getResourceType() == type)
+	      return item;
+	  }
+	  return null;
+  }
+
+	public static String getLink(Bundle feed, String rel) {
+		for (BundleLinkComponent link : feed.getLink()) {
+			if (link.getRelation().equals(rel))
+				return link.getUrl();
+		}
+	  return null;
+  }
+
+  public static Extension getExtension(DomainResource c, String name) {
+    if (name == null)
+      return null;
+    for (Extension e : c.getExtension()) {
+      if (name.equals(e.getUrl()))
+        return e;
+    }
+    return null;  }
+
+  public static ResourceMetaComponent meta(Resource resource) {
+    if (resource.getMeta() == null)
+      resource.setMeta(new ResourceMetaComponent());
+    return resource.getMeta();
   }
 
 }

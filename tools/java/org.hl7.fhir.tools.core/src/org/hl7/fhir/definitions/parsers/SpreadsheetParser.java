@@ -74,7 +74,6 @@ import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionContext;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.InstantType;
@@ -118,8 +117,9 @@ public class SpreadsheetParser {
   private String version; 
   private WorkerContext context;
   private Calendar genDate;
+  private boolean isAbstract;
 
-	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate) throws Exception {
+	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract) throws Exception {
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
@@ -137,6 +137,7 @@ public class SpreadsheetParser {
 		this.version = version;
 		this.context = context;
 		this.genDate = genDate;
+		this.isAbstract = isAbstract;
 	}
 
 
@@ -407,10 +408,6 @@ public class SpreadsheetParser {
 	}
 
   private void readSearchParams(ResourceDefn root2, Sheet sheet, boolean forProfile) throws Exception {
-    if (!forProfile && !root2.getName().equals("ResourceBase")) {
-      root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
-      root2.getSearchParams().put("_language", new SearchParameter("_language","The stated language of the resource",SearchType.token).addPath("language"));
-    }
     
     if (sheet != null)
       for (int row = 0; row < sheet.rows.size(); row++) {
@@ -585,7 +582,8 @@ public class SpreadsheetParser {
           cd.setReferredValueSet((ValueSet) p.parse(input));
 			  } else
 			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
-
+			  if (cd.getReferredValueSet() != null)
+			    cd.getReferredValueSet().setId(cd.getReference());
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {
 				throw new Exception("Definition of binding '"
@@ -800,7 +798,7 @@ public class SpreadsheetParser {
 				}
 			}
 		}
-		if (defn.getExamples().size() == 0 && (!(defn.getName().equals("Resource") || defn.getName().equals("ResourceBase")))) {
+		if (defn.getExamples().size() == 0 && !isAbstract) {
 			File file = new CSFile(folder + title + "-example.xml");
 			if (!file.exists())
 				throw new Exception("Example (file '" + file.getAbsolutePath()
@@ -1175,9 +1173,7 @@ public class SpreadsheetParser {
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
     new ProfileGenerator(definitions, null).convertElements(exe, ex, null);
-    AtomEntry<ExtensionDefinition> ae = new AtomEntry<ExtensionDefinition>();
-    ae.setResource(ex);
-	  this.context.seeExtensionDefinition(ae);
+	  this.context.seeExtensionDefinition(ex);
 	  return row;
 	}
 

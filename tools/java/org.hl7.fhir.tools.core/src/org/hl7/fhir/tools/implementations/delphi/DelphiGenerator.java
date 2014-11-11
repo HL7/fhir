@@ -79,7 +79,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private boolean generics = false; 
   
   public enum ClassCategory {
-    Type, Component, Resource
+    Type, Component, Resource, AbstractResource
   }
 
   private DelphiCodeGenerator defCodeType;
@@ -155,18 +155,23 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
     parserGap();
 
-    generateResource();
+    for (String s : definitions.getBaseResources().keySet()) {
+      ResourceDefn n = definitions.getBaseResources().get(s);
+      generate(n.getRoot(), n.getRoot().typeCode().equals("Any") ? "TFHIRBase" : "TFhir"+n.getRoot().typeCode(), true, ClassCategory.AbstractResource);
+//      genResource(n, "TFhir"+n.getName(), "TFhirResource", ClassCategory.AbstractResource);
+    }
+
     parserGap();
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      generate(n, "TFHIRType", true, false, ClassCategory.Type);
+      generate(n, "TFHIRType", false, ClassCategory.Type);
     }
     for (ElementDefn n : definitions.getTypes().values()) {
-      generate(n, "TFhirType", false, false, ClassCategory.Type);
+      generate(n, "TFhirType", false, ClassCategory.Type);
     }
 
     for (ElementDefn n : definitions.getStructures().values()) {
-      generate(n, "TFhirType", false, false, ClassCategory.Type);
+      generate(n, "TFhirType", false, ClassCategory.Type);
     }
 
     for (ProfiledType c : definitions.getConstraints().values()) {
@@ -175,8 +180,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     parserGap();
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
-      generate(n.getRoot(), "TFhirResource", true, true, ClassCategory.Resource);
-      genResource(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
+      generate(n.getRoot(), "TFhir"+n.getRoot().typeCode(), true, ClassCategory.Resource);
+//      genResource(n, "TFhir"+n.getName(), "TFhir"+n.getRoot().typeCode(), ClassCategory.Resource);
       prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
       srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
       prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
@@ -189,10 +194,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeRes.append("  {@Class TFhirResourceFactory : TFHIRBaseFactory\r\n");
     defCodeRes.append("     FHIR factory: class constructors and general useful builders\r\n");
     defCodeRes.append("  }\r\n");
-    defCodeRes.classDefs.add(" TFhirResourceFactory = class (TFHIRBaseFactory)\r\n  public\r\n"+factoryIntf.toString()+"    function makeByName(const name : String) : TFHIRElement;\r\n  end;\r\n");
+    defCodeRes.classDefs.add(" TFhirResourceFactory = class (TFHIRBaseFactory)\r\n  public\r\n"+factoryIntf.toString()+"    function makeByName(const name : String) : TFHIRBase;\r\n  end;\r\n");
     types.add("TFhirResourceFactory");
     defCodeRes.classImpls.add(factoryImpl.toString());
-    defCodeRes.classImpls.add("function TFHIRResourceFactory.makeByName(const name : String) : TFHIRElement;\r\nbegin\r\n  "+factoryByName.toString().substring(7)+"  else\r\n    result := nil;\r\nend;\r\n\r\n");
+    defCodeRes.classImpls.add("function TFHIRResourceFactory.makeByName(const name : String) : TFHIRBase;\r\nbegin\r\n  "+factoryByName.toString().substring(7)+"  else\r\n    result := nil;\r\nend;\r\n\r\n");
     defCodeComp.finish();
     defCodeType.finish();
     defCodeRes.finish();
@@ -331,7 +336,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.name = "FHIRParser";
   }
 
-  private void generate(ElementDefn root, String superClass, boolean listsAreWrapped, boolean resource, ClassCategory category) throws Exception {
+  private void generate(ElementDefn root, String superClass, boolean resource, ClassCategory category) throws Exception {
     typeNames.clear();
     enums.clear();
     strucs.clear();
@@ -339,135 +344,21 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     Map<ElementDefn, List<String>> paths = new HashMap<ElementDefn, List<String>>();
 
     for (ElementDefn e : root.getElements()) {
-      if (!root.typeCode().equals("Resource") || (!e.getName().equals("extension") && !e.getName().equals("text")))
-        scanNestedTypes(root, root.getName(), e, root.getName(), paths);
+      scanNestedTypes(root, root.getName(), e, root.getName(), paths);
     }
 
     for (ElementDefn e : enums) {
       generateEnum(e);
     }
     for (ElementDefn e : strucs) {
-      generateType(e, listsAreWrapped, category == ClassCategory.Resource ? ClassCategory.Component : category, true, paths.get(e));
+      generateType(e, category == ClassCategory.Resource ? ClassCategory.Component : category, true, paths.get(e));
     }
 
-    if (root.getTypes().size() > 0 && root.getTypes().get(0).getName().equals("GenericType")) {
-      for (TypeRef td : definitions.getKnownTypes()) {
-        if (td.getName().equals(root.getName()) && td.hasParams()) {
-          for (String pt : td.getParams()) {
-            String tn = getTypeName(pt, false);
-            if (tn.equals(pt))
-              tn = "TFhir"+tn;
-            genGenericResource(root, "TFhir"+root.getName()+"_"+getTitle(pt), tn, superClass, ClassCategory.Type);
-          }
-        }
-      }
-    } else if (!resource) {
-      genType(root, "TFhir"+root.getName(), superClass, listsAreWrapped, category);
-    }
-  }
-
-  private void genGenericResource(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
-    prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
-    srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
-    prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b/}\r\n");
-    srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
-    workingParserX = new StringBuilder();
-    workingParserXA = new StringBuilder();
-    workingComposerX = new StringBuilder();
-    workingComposerXA = new StringBuilder();
-    workingParserJ = new StringBuilder();
-    workingComposerJ = new StringBuilder();
-
-    StringBuilder def = new StringBuilder();
-    StringBuilder defPriv1 = new StringBuilder();
-    StringBuilder defPriv2 = new StringBuilder();
-    StringBuilder defPub = new StringBuilder();
-    StringBuilder impl = new StringBuilder();
-    StringBuilder create = new StringBuilder();
-    StringBuilder destroy = new StringBuilder();
-    StringBuilder assign = new StringBuilder();
-    StringBuilder getkids = new StringBuilder();
-    StringBuilder getkidsvars = new StringBuilder();
-    StringBuilder getprops = new StringBuilder();
-    StringBuilder getpropsvars = new StringBuilder();
-    StringBuilder setprops = new StringBuilder();
-
-
-
-    for (ElementDefn e : root.getElements()) {
-      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, pt, true, false, category, true);
-    }
-
-    def.append("  {@Class "+tn+" : "+superClass+"\r\n");
-    def.append("    "+Utilities.normaliseEolns(root.getDefinition())+"\r\n");
-    def.append("  }\r\n");
-    def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
-    def.append("  "+tn+" = class ("+superClass+")\r\n");
-    types.add(tn);
-    factoryIntf.append("    {@member new"+tn.substring(5)+"\r\n      create a new "+root.getName()+"\r\n    }\r\n    {!script nolink}\r\n    function new"+tn.substring(5)+" : "+tn+";\r\n");
-    factoryImpl.append("function TFhirResourceFactory.new"+tn.substring(5)+" : "+tn+";\r\nbegin\r\n  result := "+tn+".create;\r\nend;\r\n\r\n");
-    factoryByName.append("  else if name = '"+tn.substring(5)+"' then\r\n    result := new"+tn.substring(5)+"()\r\n");
-    def.append("  private\r\n");
-    def.append(defPriv1.toString());
-    def.append(defPriv2.toString());
-    def.append("  protected\r\n");
-    def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
-    def.append("  public\r\n");
-    def.append("    constructor Create; Override;\r\n");
-    def.append("    destructor Destroy; override;\r\n");
-    def.append("    {!script hide}\r\n");
-    def.append("    procedure Assign(oSource : TAdvObject); override;\r\n");
-    def.append("    function Link : "+tn+"; overload;\r\n");
-    def.append("    function Clone : "+tn+"; overload;\r\n");
-    def.append("    {!script show}\r\n");
-    def.append("  published\r\n");
-    def.append(defPub.toString());
-    def.append("  end;\r\n");
-    def.append("\r\n");
-
-    StringBuilder impl2 = new StringBuilder();
-    impl2.append("{ "+tn+" }\r\n\r\n");
-    impl2.append("constructor "+tn+".Create;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append(create.toString());
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("destructor "+tn+".Destroy;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append(destroy.toString());
-    impl2.append("  inherited;\r\n");
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("procedure "+tn+".Assign(oSource : TAdvObject);\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append(assign.toString());
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("procedure "+tn+".GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+");\r\n");
-    if (getkidsvars.length() > 0) {
-      impl2.append("var\r\n");
-      impl2.append(getkidsvars.toString());
-    }
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append(getkids.toString());
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("function "+tn+".Link : "+tn+";\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := "+tn+"(inherited Link);\r\n");
-    impl2.append("end;\r\n\r\n");
-    impl2.append("function "+tn+".Clone : "+tn+";\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := "+tn+"(inherited Clone);\r\n");
-    impl2.append("end;\r\n\r\n");
-
-    getCode(category).classDefs.add(def.toString());
-    getCode(category).classImpls.add(impl2.toString()+impl.toString());
-    getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, ClassCategory.Type, !superClass.equals("TFHIRObject"));
+    if (category == ClassCategory.AbstractResource) 
+      genTypeAbstract(root, "TFhir"+root.getName(), superClass, category);
+    else
+      genType(root, "TFhir"+root.getName(), superClass, category);
+    
   }
 
   private DelphiCodeGenerator getCode(ClassCategory category) {
@@ -478,19 +369,23 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       return defCodeComp;
     case Resource:
       return defCodeRes;
+    case AbstractResource:
+      return defCodeRes;
     }
     return null;
   }
 
-  private void genType(ElementDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
+  private void genType(ElementDefn root, String tn, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload;\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrFragJ.append("  else if (type_ = '"+tn+"') then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
     prsrFragX.append("  else if SameText(element.NodeName, '"+tn+"') then\r\n    result := parse"+root.getName()+"(element, element.nodeName)\r\n");
-    prsrDTJ.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
-    prsrDTX.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(element, name)\r\n");
+    if (category == ClassCategory.Type) {
+      prsrDTJ.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
+      prsrDTX.append("  else if (type_ = "+tn+") then\r\n    result := parse"+root.getName()+"(element, name)\r\n");
+    }
     workingParserX = new StringBuilder();
     workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
@@ -515,9 +410,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl.append("{ "+tn+" }\r\n\r\n");
 
 
-    boolean isRes = superClass.equals("TFhirResource");
     for (ElementDefn e : root.getElements()) {
-      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", !isRes, listsAreWrapped, category, true);
+      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, true);
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
@@ -533,7 +427,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append(defPriv1.toString());
     def.append(defPriv2.toString());
     def.append("  protected\r\n");
-    if (isRes) {
+    if (category == ClassCategory.Resource) {
       def.append("    function GetResourceType : TFhirResourceType; override;\r\n");      
       def.append("    Function GetHasASummary : Boolean; Override;\r\n");
     }
@@ -566,7 +460,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append(destroy.toString());
     impl2.append("  inherited;\r\n");
     impl2.append("end;\r\n\r\n");
-    if (isRes) {
+    if (category == ClassCategory.Resource) {
       impl2.append("function "+tn+".GetResourceType : TFhirResourceType;\r\nbegin\r\n  result := frt"+root.getName()+";\r\nend;\r\n\r\n");       
       impl2.append("function "+tn+".GetHasASummary : Boolean;\r\nbegin\r\n  result := false;\r\nend;\r\n\r\n");       
     }
@@ -616,11 +510,197 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, isRes ? ClassCategory.Resource : ClassCategory.Type, !superClass.equals("TFHIRObject"));
+    generateParser(tn, category, !superClass.equals("TFHIRObject"), root.typeCode());
     defineList(tn, tn+"List", null, category, false);
   }
 
-  private void genResource(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
+  private void genTypeAbstract(ElementDefn root, String tn, String superClass, ClassCategory category) throws Exception {
+    boolean isBase = root.typeCode().equals("Any");
+    if (isBase)
+      generateResource();
+
+    StringBuilder def = new StringBuilder();
+    StringBuilder defPriv1 = new StringBuilder();
+    StringBuilder defPriv2 = new StringBuilder();
+    StringBuilder defPub = new StringBuilder();
+    StringBuilder impl = new StringBuilder();
+    StringBuilder create = new StringBuilder();
+    StringBuilder destroy = new StringBuilder();
+    StringBuilder assign = new StringBuilder();
+    StringBuilder getkids = new StringBuilder();
+    StringBuilder getkidsvars = new StringBuilder();
+    StringBuilder getprops = new StringBuilder();
+    StringBuilder getpropsvars = new StringBuilder();
+    StringBuilder setprops = new StringBuilder();
+    impl.append("{ "+tn+" }\r\n\r\n");
+
+    workingParserX = new StringBuilder();
+    workingParserXA = new StringBuilder();
+    workingComposerX = new StringBuilder();
+    workingComposerXA = new StringBuilder();
+    workingParserJ = new StringBuilder();
+    workingComposerJ = new StringBuilder();
+
+    for (ElementDefn e : root.getElements()) {
+      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, true);
+    }
+
+    def.append("  {@Class "+tn+" : "+superClass+"\r\n");
+    def.append("    "+Utilities.normaliseEolns(root.getDefinition())+"\r\n");
+    def.append("  }\r\n");
+    def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
+    def.append("  "+tn+" = {abstract} class ("+superClass+")\r\n");
+    types.add(tn);
+    def.append("  private\r\n");
+    def.append(defPriv1.toString());
+    def.append(defPriv2.toString());
+    def.append("  protected\r\n");
+    def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
+    def.append("    Procedure ListProperties(oList : "+listForm("TFHIRProperty")+"; bInheritedProperties : Boolean); Override;\r\n");
+    if (isBase) {
+      def.append("    function GetResourceType : TFhirResourceType; virtual; abstract;\r\n");
+      def.append("    function GetHasASummary : Boolean; virtual; abstract;\r\n");
+    }
+    def.append("  public\r\n");
+    def.append("    constructor Create; Override;\r\n");
+    def.append("    destructor Destroy; override;\r\n");
+    def.append("    {!script hide}\r\n");
+    def.append("    procedure Assign(oSource : TAdvObject); override;\r\n");
+    def.append("    function Link : "+tn+"; overload;\r\n");
+    def.append("    function Clone : "+tn+"; overload;\r\n");
+    def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
+    def.append("    function FhirType : string; override;\r\n");
+    def.append("    {!script show}\r\n");
+    def.append("  published\r\n");
+    if (isBase) {
+      def.append("    Property ResourceType : TFhirResourceType read GetResourceType;\r\n\r\n");
+      def.append("    Property HasASummary : Boolean read GetHasASummary;\r\n\r\n");
+    }
+    def.append(defPub.toString());
+    def.append("  end;\r\n");
+    def.append("\r\n");
+    if (isBase) {
+      def.append("  TFhirResourceClass = class of TFhirResource;\r\n");
+    }
+    StringBuilder impl2 = new StringBuilder();
+    impl2.append("{ "+tn+" }\r\n\r\n");
+    impl2.append("constructor "+tn+".Create;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append(create.toString());
+    impl2.append("end;\r\n\r\n");
+
+    impl2.append("destructor "+tn+".Destroy;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append(destroy.toString());
+    impl2.append("  inherited;\r\n");
+    impl2.append("end;\r\n\r\n");
+
+    impl2.append("procedure "+tn+".Assign(oSource : TAdvObject);\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append(assign.toString());
+    impl2.append("end;\r\n\r\n");
+    impl2.append("procedure "+tn+".GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+");\r\n");
+    if (getkidsvars.length() > 0) {
+      impl2.append("var\r\n");
+      impl2.append(getkidsvars.toString());
+    }
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append(getkids.toString());
+    impl2.append("end;\r\n\r\n");
+    impl2.append("procedure "+tn+".ListProperties(oList: "+listForm("TFHIRProperty")+"; bInheritedProperties: Boolean);\r\n");
+    if (getpropsvars.length() > 0) {
+      impl2.append("var\r\n  prop : TFHIRProperty;\r\n");      
+      impl2.append(getpropsvars.toString());
+    }
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append(getprops.toString());
+    impl2.append("end;\r\n\r\n");
+    impl2.append("procedure "+tn+".setProperty(propName: string; propValue: TFHIRObject);\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  "+setprops.toString().substring(7));
+    impl2.append("  else inherited;\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function "+tn+".FhirType : string;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := '"+root.getName()+"';\r\n");
+    impl2.append("end;\r\n\r\n");
+
+
+    impl2.append("function "+tn+".Link : "+tn+";\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := "+tn+"(inherited Link);\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function "+tn+".Clone : "+tn+";\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := "+tn+"(inherited Clone);\r\n");
+    impl2.append("end;\r\n\r\n");
+    getCode(category).classDefs.add(def.toString());
+    getCode(category).classImpls.add(impl2.toString() + impl.toString());
+    getCode(category).classFwds.add("  "+tn+" = class;\r\n");
+    defineList(tn, tn+"List", null, category, false);
+
+    prsrdefX.append("    Procedure Parse"+root.getName()+"Attributes(resource : "+tn+"; path : string; element : IXmlDomElement);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlParser.Parse"+root.getName()+"Attributes(resource : "+tn+"; path : string; element : IXmlDomElement);\r\n");
+    prsrImpl.append("begin\r\n");
+    if (!isBase)
+      prsrImpl.append("  Parse"+root.typeCode()+"Attributes(resource, path, element);\r\n");
+    prsrImpl.append(workingParserXA.toString());
+    prsrImpl.append("end;\r\n\r\n");
+    prsrdefX.append("    Function Parse"+root.getName()+"Child(resource : "+tn+"; path : string; child : IXmlDomElement) : boolean;\r\n");
+    prsrImpl.append("Function TFHIRXmlParser.Parse"+root.getName()+"Child(resource : "+tn+"; path : string; child : IXmlDomElement) : boolean;\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  result := true;\r\n");
+    prsrImpl.append("  "+workingParserX.toString().substring(11).replace("      ", "  ").replace("result.", "resource."));
+    if (isBase)
+      prsrImpl.append("  else\r\n");
+    else
+      prsrImpl.append("  else if not parse"+root.typeCode()+"Child(resource, path, child) then\r\n");
+    prsrImpl.append("    result := false;\r\n");
+    prsrImpl.append("end;\r\n\r\n");
+
+    prsrdefJ.append("    procedure Parse"+root.getName()+"Properties(jsn : TJsonObject; resource : "+tn+");\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.Parse"+root.getName()+"Properties(jsn : TJsonObject; resource : "+tn+");\r\n");
+    prsrImpl.append("begin\r\n");
+    if (!isBase)
+      prsrImpl.append("  Parse"+root.typeCode()+"Properties(jsn, resource);\r\n");
+    prsrImpl.append(workingParserJ.toString().replace("    ", "  ").replace("result.", "resource."));
+    prsrImpl.append("end;\r\n\r\n");
+
+
+    srlsdefX.append("    Procedure Compose"+root.getName()+"Attributes(xml : TXmlBuilder; resource : "+tn+");\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+root.getName()+"Attributes(xml : TXmlBuilder; resource : "+tn+");\r\n");
+    prsrImpl.append("begin\r\n");
+    if (!isBase)
+      prsrImpl.append("  Compose"+root.typeCode()+"Attributes(xml, resource);\r\n");
+    prsrImpl.append(workingComposerXA.toString());        
+    prsrImpl.append("end;\r\n\r\n");
+    srlsdefX.append("    Procedure Compose"+root.getName()+"Children(xml : TXmlBuilder; elem : "+tn+");\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+root.getName()+"Children(xml : TXmlBuilder; elem : "+tn+");\r\n");
+    prsrImpl.append("var\r\n");
+    prsrImpl.append("  i : integer;\r\n");
+    prsrImpl.append("begin\r\n");
+    if (!isBase)
+      prsrImpl.append("  compose"+root.typeCode()+"Children(xml, elem);\r\n");
+    prsrImpl.append(workingComposerX.toString());        
+    prsrImpl.append("end;\r\n\r\n");
+
+    srlsdefJ.append("    Procedure Compose"+root.getName()+"Properties(json : TJSONWriter; elem : "+tn+");\r\n");
+    prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+root.getName()+"Properties(json : TJSONWriter; elem : "+tn+");\r\n");
+    prsrImpl.append("var\r\n");
+    prsrImpl.append("  i : integer;\r\n");
+    prsrImpl.append("begin\r\n");
+    if (!isBase)
+      prsrImpl.append("  Compose"+root.typeCode()+"Properties(json, elem);\r\n");
+    prsrImpl.append(workingComposerJ.toString());        
+    prsrImpl.append("end;\r\n\r\n");
+
+  }
+
+  private void genResource(ResourceDefn root, String tn, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload; {b|}\r\n");
@@ -651,11 +731,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
 
     boolean hasASummary = hasASummary(root);
-    boolean isRes = superClass.equals("TFhirResource");
     for (ElementDefn e : root.getRoot().getElements()) {
-      if (!isRes || (!e.getName().equals("extension") && !e.getName().equals("text"))) {
-        generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", !isRes, listsAreWrapped, ClassCategory.Component, !hasASummary);
-      }
+      generateField(e, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", ClassCategory.Component, !hasASummary);
     }
 
     def.append("  {@Class "+tn+" : "+superClass+"\r\n");
@@ -673,7 +750,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("  protected\r\n");
     def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
     def.append("    Procedure ListProperties(oList : "+listForm("TFHIRProperty")+"; bInheritedProperties : Boolean); Override;\r\n");
-    if (isRes) {
+    if (category == ClassCategory.Resource) {
       def.append("    Function GetHasASummary : Boolean; Override;\r\n");
       def.append("    function GetResourceType : TFhirResourceType; override;\r\n");      
     }
@@ -704,7 +781,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append(destroy.toString());
     impl2.append("  inherited;\r\n");
     impl2.append("end;\r\n\r\n");
-    if (isRes) {
+    if (category == ClassCategory.Resource) {
       impl2.append("function "+tn+".GetResourceType : TFhirResourceType;\r\nbegin\r\n  result := frt"+root.getName()+";\r\nend;\r\n\r\n");       
       impl2.append("function "+tn+".GetHasASummary : Boolean;\r\nbegin\r\n  result := "+(hasASummary ? "true" : "false")+";\r\nend;\r\n\r\n");       
     }
@@ -753,7 +830,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, isRes ? ClassCategory.Resource : ClassCategory.Type, !superClass.equals("TFHIRObject"));
+    generateParser(tn, category.Resource, !superClass.equals("TFHIRObject"), root.getRoot().typeCode());
   }
 
   private boolean hasASummary(ResourceDefn root) {
@@ -790,14 +867,23 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       con6.append("  PATHS_"+tn+" : Array["+tn+"] of String = (");
       con7.append("  TARGETS_"+tn+" : Array["+tn+"] of TFhirResourceTypeSet = (");
 
-      int l = r.getSearchParams().size();
-      int i = 0;
-
       List<String> names = new ArrayList<String>();
+      Map<String, SearchParameter> params = new HashMap<String, SearchParameter>();
       names.addAll(r.getSearchParams().keySet());
+      params.putAll(r.getSearchParams());
+      String pn = r.getRoot().typeCode();
+      while (!pn.equals("Any")) {
+        ResourceDefn rd = definitions.getBaseResources().get(pn);
+        names.addAll(rd.getSearchParams().keySet());
+        params.putAll(rd.getSearchParams());
+        pn = rd.getRoot().typeCode();
+      }
+
       Collections.sort(names);
+      int l = names.size();
+      int i = 0;
       for (String name : names) {
-        SearchParameter p = r.getSearchParams().get(name);
+        SearchParameter p = params.get(name);
         i++;
         String n = p.getCode().replace("$", "_");
         String d = Utilities.normaliseEolns(p.getDescription());
@@ -945,7 +1031,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       return substring;
   }
 
-  private void generateType(ElementDefn e, boolean listsAreWrapped, ClassCategory category, boolean noSummaries, List<String> paths) throws Exception {
+  private void generateType(ElementDefn e, ClassCategory category, boolean noSummaries, List<String> paths) throws Exception {
     String tn = typeNames.get(e);
 
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
@@ -989,7 +1075,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl.append("{ "+tn+" }\r\n\r\n");
 
     for (ElementDefn c : e.getElements()) {
-      generateField(c, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", false, listsAreWrapped, category, noSummaries);
+      generateField(c, defPriv1, defPriv2, defPub, impl, create, destroy, assign, getkids, getkidsvars, getprops, getpropsvars, setprops, tn, "", category, noSummaries);
     }
 
     def.append("  private\r\n");
@@ -1072,11 +1158,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, category, true);
+    generateParser(tn, category, true, e.typeCode());
     defineList(tn, tn+"List", null, category, false);
   }
 
-  private void generateParser(String tn, ClassCategory category, boolean isElement) throws Exception {
+  private void generateParser(String tn, ClassCategory category, boolean isElement, String parent) throws Exception {
     String s = workingParserX.toString();
     prsrImpl.append(
         "function TFHIRXmlParser.Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n"+
@@ -1089,7 +1175,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  try\r\n");
     if (isElement)
       if (category == ClassCategory.Resource)
-        prsrImpl.append("    parseResourceAttributes(result, path, element);\r\n");
+        prsrImpl.append("    parse"+parent+"Attributes(result, path, element);\r\n");
       else
         prsrImpl.append("    parseElementAttributes(result, path, element);\r\n");
 
@@ -1106,7 +1192,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           "      else\r\n");
     else if (category == ClassCategory.Resource)
       prsrImpl.append(
-          "      else if Not ParseResourceChild(result, path, child) then\r\n");
+          "      else if Not Parse"+parent+"Child(result, path, child) then\r\n");
     else if (category == ClassCategory.Component)
       prsrImpl.append(
           "      else if Not ParseBackboneElementChild(result, path, child) then\r\n");
@@ -1262,8 +1348,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         tn = typeNames.get(getElementForPath(root, e.typeCode().substring(1)));
         typeNames.put(e,  tn);
       } else if (e.getTypes().size() > 0) {
-        boolean hasId = root.typeCode().equals("Resource") || e.unbounded();
-        tn = getTypeName(e, hasId);
+        tn = getTypeName(e);
         typeNames.put(e,  tn);
       } else 
       {
@@ -1320,7 +1405,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     return null;
   }
 
-  private void generateField(ElementDefn e, StringBuilder defPriv1, StringBuilder defPriv2, StringBuilder defPub, StringBuilder impl, StringBuilder create, StringBuilder destroy, StringBuilder assign, StringBuilder getkids, StringBuilder getkidsvars, StringBuilder getprops, StringBuilder getpropsvars, StringBuilder setprops, String cn, String pt, Boolean isType, boolean listsAreWrapped, ClassCategory category, boolean noSummaries) throws Exception {
+  private void generateField(ElementDefn e, StringBuilder defPriv1, StringBuilder defPriv2, StringBuilder defPub, StringBuilder impl, StringBuilder create, StringBuilder destroy, StringBuilder assign, StringBuilder getkids, StringBuilder getkidsvars, StringBuilder getprops, StringBuilder getpropsvars, StringBuilder setprops, String cn, String pt, ClassCategory category, boolean noSummaries) throws Exception {
     String tn;
     if (e.getTypes().size() > 0 && e.getTypes().get(0).isUnboundGenericParam())
       tn = pt;
@@ -1330,7 +1415,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       if (e.getName().equals("extension"))
         tn = "TFhirExtension";
       else
-        tn = getTypeName(e, isType || e.unbounded());
+        tn = getTypeName(e);
     }
 
 
@@ -1694,16 +1779,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               if (td.hasParams())
                 throw new Exception("Type "+td.summary()+" has parameters");                
               workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(td.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"(child, path+'/"+pfx+getTitle(td.getName())+"'){x.3}\r\n");
-              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") {6} then\r\n    Compose"+getTitle(td.getName())+"(xml, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
+              workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") {6} then\r\n    Compose"+getTitle(td.getName())+"(xml, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
               if (typeIsPrimitive(td.getName())) {
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") then \r\n"+
+                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") then \r\n"+
                     "  begin\r\n"+
-                    "    Compose"+getTitle(td.getName())+"Value(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"), false);\r\n"+
-                    "    Compose"+getTitle(td.getName())+"Props(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"), false);\r\n  end"+(i == t-1?";" : "")+"\r\n");
+                    "    Compose"+getTitle(td.getName())+"Value(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"), false);\r\n"+
+                    "    Compose"+getTitle(td.getName())+"Props(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+"), false);\r\n  end"+(i == t-1?";" : "")+"\r\n");
                 workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') or jsn.has('_"+pfx+getTitle(td.getName())+"') then\r\n      result."+s+" := parse"+Utilities.capitalize(td.getName())+"(jsn['"+pfx+getTitle(td.getName())+"'], jsn.vObj['_"+pfx+getTitle(td.getName())+"']);\r\n");
               } else {
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") then \r\n"+
-                    "    Compose"+getTitle(td.getName())+"(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+")) "+(i == t-1?";" : "")+"\r\n");
+                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName())+") then \r\n"+
+                    "    Compose"+getTitle(td.getName())+"(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName())+"(elem."+s+")) "+(i == t-1?";" : "")+"\r\n");
                 workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') {a4} then\r\n      result."+s+" := Parse"+getTitle(td.getName())+"(jsn.vObj['"+pfx+getTitle(td.getName())+"']);\r\n");
               }
             }
@@ -2073,20 +2158,20 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     return name.replace("[x]", "").replace("[type]", "value");
   }
 
-  private String getTypeName(ElementDefn e, boolean hasId) throws Exception {
+  private String getTypeName(ElementDefn e) throws Exception {
     if (e.getTypes().size() > 1) {
       return "TFhirType";
     } else if (e.getTypes().size() == 0) {
       throw new Exception("not supported");
     } else {
-      return getTypename(e.getTypes().get(0), hasId);
+      return getTypename(e.getTypes().get(0));
     }
   }
 
-  private String getTypename(TypeRef type, boolean complex) throws Exception {
+  private String getTypename(TypeRef type) throws Exception {
     if (type.getParams().size() == 1) {     
       if (type.isResourceReference())
-        return "TFhirReference{"+getTypeName(type.getParams().get(0), complex)+"}";
+        return "TFhirReference{"+getTypeName(type.getParams().get(0))+"}";
       else if (type.getName().equals("Interval"))
         return "TInterval_"+type.getParams().get(0);
       else
@@ -2097,11 +2182,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       else
         throw new Exception("not supported");
     } else {
-      return getTypeName(type.getName(), complex);
+      return getTypeName(type.getName());
     }
   }
 
-  private String getTypeName(String tn, boolean complex) {
+  private String getTypeName(String tn) {
     if (tn == null) {
       return "";
     } else if (tn.equals("xml:lang")) {
@@ -2113,7 +2198,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     } else if (tn.equals("Any")) {
       return "TFhirReference";
     } else if (definitions.getConstraints().containsKey(tn)) {
-      return getTypeName(definitions.getConstraints().get(tn).getBaseType(), complex);
+      return getTypeName(definitions.getConstraints().get(tn).getBaseType());
     } else {
       return "TFhir"+getTitle(tn);
     }
@@ -2952,194 +3037,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeConst.enumConsts.add(cmp.toString());
 
 
-    def = new StringBuilder();
-
-
-    def.append("  {@Class TFhirResource : TFhirElement\r\n");
-    def.append("    Base Resource Definition - extensions, narrative, contained resources\r\n");
-    def.append("  }\r\n");
-    def.append("  {!.Net HL7Connect.Fhir.Resource}\r\n");
-    def.append("  TFhirResource = {abstract} class (TFhirBackboneElement)\r\n");
-    types.add("TFhirResource");
-    def.append("  private\r\n");
-    def.append("    FText : TFhirNarrative;\r\n");
-    def.append("    FLanguage : TFhirCode;\r\n");
-    def.append("    FFormat : TFHIRFormat;\r\n");
-    def.append("    FContainedList : TFhirResourceList;\r\n");
-    def.append("    procedure SetText(value : TFhirNarrative);\r\n");
-    def.append("    procedure SetLanguage(value : TFhirCode);\r\n");
-    def.append("  protected\r\n");
-    def.append("    function GetResourceType : TFhirResourceType; virtual; abstract;\r\n");
-    def.append("    function GetHasASummary : Boolean; virtual; abstract;\r\n");
-    def.append("  protected\r\n");
-    def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
-    def.append("    Procedure ListProperties(oList : "+listForm("TFHIRProperty")+"; bInheritedProperties : Boolean); Override;\r\n");
-    def.append("  public\r\n");
-    def.append("    constructor Create; override;\r\n");
-    def.append("    destructor Destroy; override;\r\n");
-    def.append("    {!script hide}\r\n");
-    def.append("    procedure Assign(oSource : TAdvObject); override;\r\n");
-    def.append("    function Link : TFhirResource; overload;\r\n");
-    def.append("    function Clone : TFhirResource; overload;\r\n");
-    def.append("    {!script show}\r\n");
-    def.append("  published\r\n");
-    def.append("    Property ResourceType : TFhirResourceType read GetResourceType;\r\n\r\n");
-    def.append("    Property HasASummary : Boolean read GetHasASummary;\r\n\r\n");
-    def.append("    {@member language\r\n");
-    def.append("      The base language of the resource\r\n");
-    def.append("    }\r\n");
-    def.append("    property language : TFhirCode read FLanguage write SetLanguage;\r\n");
-    def.append("    {@member text\r\n");
-    def.append("      Text summary of resource content, for human interpretation\r\n");
-    def.append("    }\r\n");
-    def.append("    property text : TFhirNarrative read FText write SetText;\r\n");
-    def.append("    {@member containedList\r\n");
-    def.append("      Text summary of resource content, for human interpretation\r\n");
-    def.append("    }\r\n");
-    def.append("    property containedList : TFhirResourceList read FContainedList;\r\n");
-    def.append("    {@member _source_format\r\n");
-    def.append("      Whether the resource was first represented in XML or JSON\r\n");
-    def.append("    }\r\n");
-    def.append("    property _source_format : TFHIRFormat read FFormat write FFormat;\r\n");
-    def.append("  end;\r\n");
-    def.append("  \r\n");
-    def.append("  TFhirResourceClass = class of TFhirResource;\r\n");
-    def.append("  \r\n");
-    def.append("  \r\n");
-    StringBuilder impl2 = new StringBuilder();
-    impl2.append("{ TFhirResource }\r\n\r\n");
-    impl2.append("constructor TFhirResource.Create;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  FContainedList := TFhirResourceList.create;\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("destructor TFhirResource.Destroy;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  FText.Free;\r\n");
-    impl2.append("  FContainedList.Free;\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("procedure TFhirResource.GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+");\r\n");
-    if (generics)
-      impl2.append("var\r\n  o : TFHIRResource;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    if (generics)
-      impl2.append("  if (child_name = 'contained') then\r\n    for o in FContainedList do\r\n      list.add(o.Link);\r\n");
-    else
-      impl2.append("  if (child_name = 'contained') then\r\n    list.addAll(FContainedList);\r\n");
-    impl2.append("  if (child_name = 'text') then\r\n    list.add(text.Link);\r\n");
-    impl2.append("end;\r\n\r\n");
-    impl2.append("procedure TFhirResource.ListProperties(oList: "+listForm("TFHIRProperty")+"; bInheritedProperties: Boolean);\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("  oList.add(TFHIRProperty.create(self, 'contained', 'Resource', FContainedList.Link));\r\n");
-    impl2.append("  oList.add(TFHIRProperty.create(self, 'text', 'Narrative', FText.Link));\r\n");
-    impl2.append("end;\r\n\r\n");
-
-
-    impl2.append("procedure TFhirResource.Assign(oSource : TAdvObject);\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  inherited;\r\n");
-    impl2.append("  FFormat := TFhirResource(oSource).FFormat;\r\n");
-    impl2.append("  containedList.assign(TFhirResource(oSource).containedList);\r\n");
-    impl2.append("  text := TFhirResource(oSource).text.Clone;\r\n");
-    impl2.append("end;\r\n\r\n");
-
-    impl2.append("function TFhirResource.Link : TFhirResource;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := TFhirResource(inherited Link);\r\n");
-    impl2.append("end;\r\n\r\n");
-    impl2.append("function TFhirResource.Clone : TFhirResource;\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  result := TFhirResource(inherited Clone);\r\n");
-    impl2.append("end;\r\n\r\n");
-    impl2.append("procedure TFhirResource.SetText(value : TFhirNarrative);\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  FText.Free;\r\n");
-    impl2.append("  FText := value;\r\n");
-    impl2.append("end;\r\n\r\n");
-    impl2.append("procedure TFhirResource.SetLanguage(value : TFhirCode);\r\n");
-    impl2.append("begin\r\n");
-    impl2.append("  FLanguage.Free;\r\n");
-    impl2.append("  FLanguage := value;\r\n");
-    impl2.append("end;\r\n\r\n");
-
-
-    defCodeRes.classDefs.add(def.toString());
-    defCodeRes.classImpls.add(impl2.toString());
-    defCodeRes.classFwds.add("  TFhirResource = class;\r\n");
-    defineList("TFhirResource", "TFhirResourceList", null, ClassCategory.Resource, true);
-
-    prsrdefX.append("    Procedure ParseResourceAttributes(resource : TFhirResource; path : string; element : IXmlDomElement);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlParser.ParseResourceAttributes(resource : TFhirResource; path : string; element : IXmlDomElement);\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  ParseElementAttributes(resource, path, element);\r\n");
-    prsrImpl.append("  // lang\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-    prsrdefX.append("    Function ParseResourceChild(resource : TFhirResource; path : string; child : IXmlDomElement) : boolean;\r\n");
-    prsrImpl.append("Function TFHIRXmlParser.ParseResourceChild(resource : TFhirResource; path : string; child : IXmlDomElement) : boolean;\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  result := true;\r\n");
-    prsrImpl.append("  if (child.baseName = 'text') then\r\n");
-    prsrImpl.append("    resource.text := ParseNarrative(child, path+'/text')\r\n");
-    prsrImpl.append("  else if (child.baseName = 'language') then\r\n");
-    prsrImpl.append("    resource.language := ParseCode(child, path+'/language')\r\n");
-    prsrImpl.append("  else if (child.baseName = 'contained') then\r\n");
-    prsrImpl.append("    resource.ContainedList.add(ParseContained(child, path+'/contained'))\r\n");
-    prsrImpl.append("  else if not parseBackboneElementChild(resource, path, child) then\r\n");
-    prsrImpl.append("    result := false;\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-
-    prsrdefJ.append("    procedure ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource);\r\n");
-    prsrImpl.append("procedure TFHIRJsonParser.ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource);\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  ParseBackboneElementProperties(jsn, resource);\r\n");
-    prsrImpl.append("  if jsn.has('language') or jsn.has('_language') then\r\n");
-    prsrImpl.append("    resource.language := parseCode(jsn['language'], jsn.vObj['_language']);\r\n");
-    prsrImpl.append("  if jsn.has('text') then\r\n");
-    prsrImpl.append("    resource.text := parseNarrative(jsn.vObj['text']);\r\n");
-    prsrImpl.append("  if jsn.has('contained') then\r\n");
-    prsrImpl.append("    iterateArray(jsn.vArr['contained'], resource.containedList, parseContained);\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-
-
-    srlsdefX.append("    Procedure ComposeResourceAttributes(xml : TXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceAttributes(xml : TXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  ComposeElementAttributes(xml, resource);\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-    srlsdefX.append("    Procedure ComposeResourceChildren(xml : TXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeResourceChildren(xml : TXmlBuilder; resource : TFhirResource);\r\n");
-    prsrImpl.append("var\r\n");
-    prsrImpl.append("  i : integer;\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  composeBackboneElementChildren(xml, resource);\r\n");
-    prsrImpl.append("  composeCode(xml, 'language', resource.language);\r\n");
-    prsrImpl.append("  if not SummaryOnly then\r\n    composeNarrative(xml, 'text', resource.text);\r\n");    
-    prsrImpl.append("  if not SummaryOnly then\r\n    for i := 0 to resource.containedList.count - 1 do\r\n");
-    prsrImpl.append("      ComposeContained(xml, 'contained', resource.containedList[i]);\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-    srlsdefJ.append("    Procedure ComposeResourceProperties(json : TJSONWriter; resource : TFhirResource);\r\n");
-    prsrImpl.append("Procedure TFHIRJsonComposer.ComposeResourceProperties(json : TJSONWriter; resource : TFhirResource);\r\n");
-    prsrImpl.append("var\r\n");
-    prsrImpl.append("  i : integer;\r\n");
-    prsrImpl.append("begin\r\n");
-    prsrImpl.append("  ComposeBackboneElementProperties(json, resource);\r\n");
-    prsrImpl.append("  composeCodeValue(json, 'language', resource.language, false);\r\n");
-    prsrImpl.append("  composeCodeProps(json, 'language', resource.language, false);\r\n");
-    prsrImpl.append("  if not SummaryOnly then\r\n    ComposeNarrative(json, 'text', resource.text);\r\n");
-    prsrImpl.append("  if not SummaryOnly and (resource.containedList.count > 0) then\r\n");
-    prsrImpl.append("  begin\r\n");
-    prsrImpl.append("    json.valueArray('contained');\r\n");
-    prsrImpl.append("    for i := 0 to resource.containedList.Count - 1 do\r\n");
-    prsrImpl.append("      ComposeContained(json, resource.containedList[i]);\r\n");
-    prsrImpl.append("    json.FinishArray;\r\n");
-    prsrImpl.append("  end;\r\n");
-    prsrImpl.append("end;\r\n\r\n");
-
   }
 
 
@@ -3160,7 +3057,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.uses.add("MsXmlParser");
     prsrCode.uses.add("XmlBuilder");
     prsrCode.uses.add("JSON");
-    prsrCode.uses.add("FHIRAtomFeed");
+    prsrCode.uses.add("AdvStringMatches");
     prsrCode.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
 
     prsrImpl.append(
@@ -3184,7 +3081,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "procedure TFHIRXmlComposer.ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource: TFhirResource; links : TFHIRAtomLinkList);\r\n"+
+        "procedure TFHIRXmlComposer.ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource: TFhirResource; links : TAdvStringMatch);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
             "    Raise Exception.Create('error - resource is nil');\r\n"+
@@ -3209,7 +3106,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "function TFHIRJsonParser.ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;\r\n"+
+        "function TFHIRJsonParser.ParseFragment(jsn : TJsonObject; type_ : String) : TFhirBase;\r\n"+
             "begin\r\n  "+
             prsrFragJ.toString().substring(6)+
             "  else\r\n"+
@@ -3218,7 +3115,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "function TFHIRXmlParser.ParseFragment(element : IXMLDOMElement) : TFhirElement;\r\n"+
+        "function TFHIRXmlParser.ParseFragment(element : IXMLDOMElement) : TFhirBase;\r\n"+
             "begin\r\n  "+
             prsrFragX.toString().substring(6)+
             "  else\r\n"+
@@ -3247,7 +3144,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource: TFhirResource; links : TFHIRAtomLinkList);\r\n"+
+        "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource: TFhirResource; links : TAdvStringMatch);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
             "    Raise Exception.Create('error - resource is nil');\r\n"+
@@ -3267,12 +3164,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "    function ParseResource(element : IxmlDomElement; path : String) : TFhirResource; override;\r\n"+
         "    function ParseDataType(element : IXmlDomElement; name : String; type_ : TFHIRTypeClass) : TFHIRType; override;\r\n"+
         "  public\r\n"+
-        "    function ParseFragment(element : IxmlDomElement) : TFhirElement; overload;\r\n"+
+        "    function ParseFragment(element : IxmlDomElement) : TFhirBase; overload;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRXmlComposer = class (TFHIRXmlComposerBase)\r\n"+
         "  protected\r\n"+
         srlsdefX.toString()+
-        "    procedure ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource : TFhirResource; links : TFHIRAtomLinkList); override;\r\n"+
+        "    procedure ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource : TFhirResource; links : TAdvStringMatch); override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+
@@ -3280,12 +3177,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "    function ParseResource(jsn : TJsonObject) : TFhirResource; override;\r\n"+
         "    function ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType; override;\r\n"+
         "  public\r\n"+
-        "    function ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;  overload;\r\n"+
+        "    function ParseFragment(jsn : TJsonObject; type_ : String) : TFhirBase;  overload;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonComposer = class (TFHIRJsonComposerBase)\r\n"+
         "  protected\r\n"+
         srlsdefJ.toString()+
-        "    procedure ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource : TFhirResource; links : TFHIRAtomLinkList); override;\r\n"+
+        "    procedure ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource : TFhirResource; links : TAdvStringMatch); override;\r\n"+
         "  end;\r\n\r\n";
   }
 

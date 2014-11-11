@@ -43,13 +43,13 @@ public abstract class BackboneElement extends Element {
 	/**
 	 * Modifier extensions
 	 */
-  private List<Extension> modifierExtensions = new ArrayList<Extension>();
+  private List<Extension> modifierExtension = new ArrayList<Extension>();
 
   /**
    * @return Modifier extensions
    */
-  public List<Extension> getModifierExtensions() {
-		return modifierExtensions;
+  public List<Extension> getModifierExtension() {
+		return modifierExtension;
 	}
 
   /**
@@ -57,7 +57,7 @@ public abstract class BackboneElement extends Element {
    */
 	@Override
   public boolean hasExtensions() {
-    return modifierExtensions.size() > 0 || super.hasExtensions();
+    return modifierExtension.size() > 0 || super.hasExtensions();
   }
 
 	/**
@@ -68,7 +68,7 @@ public abstract class BackboneElement extends Element {
   public boolean hasExtension(String name) {
     if (name == null)
       return false;
-    for (Extension e : modifierExtensions) {
+    for (Extension e : modifierExtension) {
       if (name.equals(e.getUrl()))
         return true;
     }
@@ -83,7 +83,7 @@ public abstract class BackboneElement extends Element {
   public Extension getExtension(String name) {
     if (name == null)
       return null;
-    for (Extension e : modifierExtensions) {
+    for (Extension e : modifierExtension) {
       if (name.equals(e.getUrl()))
         return e;
     }
@@ -94,7 +94,7 @@ public abstract class BackboneElement extends Element {
    * @return true if there are any modifier extensions
    */
   public boolean hasModifierExtensions() {
-    return modifierExtensions.size() > 0;
+    return modifierExtension.size() > 0;
   }
 	
 	/**
@@ -104,7 +104,7 @@ public abstract class BackboneElement extends Element {
   public boolean hasModifierExtension(String name) {
     if (name == null)
       return false;
-    for (Extension e : modifierExtensions) {
+    for (Extension e : modifierExtension) {
       if (name.equals(e.getUrl()))
         return true;
     }
@@ -118,7 +118,7 @@ public abstract class BackboneElement extends Element {
   public Extension getModifierExtension(String name) {
     if (name == null)
       return null;
-    for (Extension e : modifierExtensions) {
+    for (Extension e : modifierExtension) {
       if (name.equals(e.getUrl()))
         return e;
     }
@@ -128,8 +128,16 @@ public abstract class BackboneElement extends Element {
   @Override
 	protected void listChildren(List<Property> result) {
     super.listChildren(result);
-		result.add(new Property("modifierExtension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, modifierExtensions));	  
+		result.add(new Property("modifierExtension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, modifierExtension));	  
   }  
   
+  public void copyValues(BackboneElement dst) {
+  	super.copyValues(dst);
+  	
+    dst.modifierExtension = new ArrayList<Extension>();
+    for (Extension i : modifierExtension)
+      dst.modifierExtension.add(i.copy());
+  }
+
 
 }

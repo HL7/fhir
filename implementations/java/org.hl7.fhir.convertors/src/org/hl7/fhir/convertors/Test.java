@@ -35,7 +35,7 @@ import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
@@ -49,7 +49,7 @@ public class Test {
 	public static void main(String[] args) {
 		try {
 			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
-			AtomFeed a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
+			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";
 			XmlComposer x = new XmlComposer();
 			x.compose(new FileOutputStream(fx),  a,  true);

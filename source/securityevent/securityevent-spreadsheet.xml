@@ -973,7 +973,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -11337,7 +11337,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">A logical object related to the event.  (Deprecated)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>

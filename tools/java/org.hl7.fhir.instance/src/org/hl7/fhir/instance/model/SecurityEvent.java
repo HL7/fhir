@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
  */
-public class SecurityEvent extends Resource {
+public class SecurityEvent extends DomainResource {
 
     public enum SecurityEventAction {
         C, // Create a new database object, such as Placing an Order.
@@ -505,7 +505,7 @@ public class SecurityEvent extends Resource {
             case _1: return "Patient";
             case _2: return "Location";
             case _3: return "Report";
-            case _4: return "Resource";
+            case _4: return "DomainResource";
             case _5: return "Master file";
             case _6: return "User";
             case _7: return "List";
@@ -894,7 +894,7 @@ public class SecurityEvent extends Resource {
          * @return {@link #subtype} (Identifier for the category of event.)
          */
     // syntactic sugar
-        public CodeableConcept addSubtype() { 
+        public CodeableConcept addSubtype() { //3
           CodeableConcept t = new CodeableConcept();
           this.subtype.add(t);
           return t;
@@ -1052,6 +1052,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventEventComponent copy() {
         SecurityEventEventComponent dst = new SecurityEventEventComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.subtype = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : subtype)
@@ -1133,7 +1134,7 @@ public class SecurityEvent extends Resource {
          * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.)
          */
     // syntactic sugar
-        public CodeableConcept addRole() { 
+        public CodeableConcept addRole() { //3
           CodeableConcept t = new CodeableConcept();
           this.role.add(t);
           return t;
@@ -1353,6 +1354,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventParticipantComponent copy() {
         SecurityEventParticipantComponent dst = new SecurityEventParticipantComponent();
+        copyValues(dst);
         dst.role = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : role)
           dst.role.add(i.copy());
@@ -1465,6 +1467,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventParticipantNetworkComponent copy() {
         SecurityEventParticipantNetworkComponent dst = new SecurityEventParticipantNetworkComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
         return dst;
@@ -1578,7 +1581,7 @@ public class SecurityEvent extends Resource {
          * @return {@link #type} (Code specifying the type of source where event originated.)
          */
     // syntactic sugar
-        public Coding addType() { 
+        public Coding addType() { //3
           Coding t = new Coding();
           this.type.add(t);
           return t;
@@ -1593,6 +1596,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventSourceComponent copy() {
         SecurityEventSourceComponent dst = new SecurityEventSourceComponent();
+        copyValues(dst);
         dst.site = site == null ? null : site.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = new ArrayList<Coding>();
@@ -1952,7 +1956,7 @@ public class SecurityEvent extends Resource {
          * @return {@link #detail} (Additional Information about the Object.)
          */
     // syntactic sugar
-        public SecurityEventObjectDetailComponent addDetail() { 
+        public SecurityEventObjectDetailComponent addDetail() { //3
           SecurityEventObjectDetailComponent t = new SecurityEventObjectDetailComponent();
           this.detail.add(t);
           return t;
@@ -1974,6 +1978,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventObjectComponent copy() {
         SecurityEventObjectComponent dst = new SecurityEventObjectComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.reference = reference == null ? null : reference.copy();
         dst.type = type == null ? null : type.copy();
@@ -2086,6 +2091,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEventObjectDetailComponent copy() {
         SecurityEventObjectDetailComponent dst = new SecurityEventObjectDetailComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -2151,7 +2157,7 @@ public class SecurityEvent extends Resource {
      * @return {@link #participant} (A person, a hardware device or software process.)
      */
     // syntactic sugar
-    public SecurityEventParticipantComponent addParticipant() { 
+    public SecurityEventParticipantComponent addParticipant() { //3
       SecurityEventParticipantComponent t = new SecurityEventParticipantComponent();
       this.participant.add(t);
       return t;
@@ -2183,7 +2189,7 @@ public class SecurityEvent extends Resource {
      * @return {@link #object} (Specific instances of data or objects that have been accessed.)
      */
     // syntactic sugar
-    public SecurityEventObjectComponent addObject() { 
+    public SecurityEventObjectComponent addObject() { //3
       SecurityEventObjectComponent t = new SecurityEventObjectComponent();
       this.object.add(t);
       return t;
@@ -2199,6 +2205,7 @@ public class SecurityEvent extends Resource {
 
       public SecurityEvent copy() {
         SecurityEvent dst = new SecurityEvent();
+        copyValues(dst);
         dst.event = event == null ? null : event.copy();
         dst.participant = new ArrayList<SecurityEventParticipantComponent>();
         for (SecurityEventParticipantComponent i : participant)

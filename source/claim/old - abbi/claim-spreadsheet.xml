@@ -363,7 +363,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Insurance claim (adjudicated or not)</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>

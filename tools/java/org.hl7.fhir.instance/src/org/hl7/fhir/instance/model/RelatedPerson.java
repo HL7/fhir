@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
  */
-public class RelatedPerson extends Resource {
+public class RelatedPerson extends DomainResource {
 
     public enum AdministrativeGender {
         MALE, // Male
@@ -182,7 +182,7 @@ public class RelatedPerson extends Resource {
      * @return {@link #identifier} (Identifier for a person within a particular scope.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -259,7 +259,7 @@ public class RelatedPerson extends Resource {
      * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -327,7 +327,7 @@ public class RelatedPerson extends Resource {
      * @return {@link #photo} (Image of the person.)
      */
     // syntactic sugar
-    public Attachment addPhoto() { 
+    public Attachment addPhoto() { //3
       Attachment t = new Attachment();
       this.photo.add(t);
       return t;
@@ -347,6 +347,7 @@ public class RelatedPerson extends Resource {
 
       public RelatedPerson copy() {
         RelatedPerson dst = new RelatedPerson();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

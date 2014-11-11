@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
  * Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
  */
-public class Other extends Resource {
+public class Other extends DomainResource {
 
     /**
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
@@ -95,7 +95,7 @@ public class Other extends Resource {
      * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -223,6 +223,7 @@ public class Other extends Resource {
 
       public Other copy() {
         Other dst = new Other();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

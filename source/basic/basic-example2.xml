@@ -4,6 +4,17 @@ unlikely anyone would ever use FHIR to do this.  (XMI isn't *that* unpleasant :>
 how somewhat esoteric requirements that won't ever be supported by the core FHIR specification can still
 be managed in a conformant manner.-->
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
+  <id value="classModel"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><b>Class1</b></p>
+      <ul>
+        <li>Attribute1: 1..*</li>
+        <li>Attribute2: 0..1</li>
+      </ul>
+    </div>
+  </text>
   <extension url="http://example.org/do-not-use/fhir-extensions/UML#class">
     <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.name">
       <valueString value="Class1"/>
@@ -31,16 +42,6 @@ be managed in a conformant manner.-->
       </extension>
     </extension>
   </extension>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p><b>Class1</b></p>
-      <ul>
-        <li>Attribute1: 1..*</li>
-        <li>Attribute2: 0..1</li>
-      </ul>
-    </div>
-  </text>
   <code>
     <coding>
       <system value="http://example.org/do-not-use/fhir-codes#resourceTypes"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -92,6 +92,7 @@ public class Range extends Type {
 
       public Range copy() {
         Range dst = new Range();
+        copyValues(dst);
         dst.low = low == null ? null : low.copy();
         dst.high = high == null ? null : high.copy();
         return dst;

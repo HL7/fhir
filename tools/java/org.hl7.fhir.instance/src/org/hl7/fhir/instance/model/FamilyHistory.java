@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Significant health events and conditions for people related to the subject relevant in the context of care for the subject.
  */
-public class FamilyHistory extends Resource {
+public class FamilyHistory extends DomainResource {
 
     public static class FamilyHistoryRelationComponent extends BackboneElement {
         /**
@@ -229,7 +229,7 @@ public class FamilyHistory extends Resource {
          * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
          */
     // syntactic sugar
-        public FamilyHistoryRelationConditionComponent addCondition() { 
+        public FamilyHistoryRelationConditionComponent addCondition() { //3
           FamilyHistoryRelationConditionComponent t = new FamilyHistoryRelationConditionComponent();
           this.condition.add(t);
           return t;
@@ -248,6 +248,7 @@ public class FamilyHistory extends Resource {
 
       public FamilyHistoryRelationComponent copy() {
         FamilyHistoryRelationComponent dst = new FamilyHistoryRelationComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.born = born == null ? null : born.copy();
@@ -385,6 +386,7 @@ public class FamilyHistory extends Resource {
 
       public FamilyHistoryRelationConditionComponent copy() {
         FamilyHistoryRelationConditionComponent dst = new FamilyHistoryRelationConditionComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.onset = onset == null ? null : onset.copy();
@@ -446,7 +448,7 @@ public class FamilyHistory extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -565,7 +567,7 @@ public class FamilyHistory extends Resource {
      * @return {@link #relation} (The related person. Each FamilyHistory resource contains the entire family history for a single person.)
      */
     // syntactic sugar
-    public FamilyHistoryRelationComponent addRelation() { 
+    public FamilyHistoryRelationComponent addRelation() { //3
       FamilyHistoryRelationComponent t = new FamilyHistoryRelationComponent();
       this.relation.add(t);
       return t;
@@ -582,6 +584,7 @@ public class FamilyHistory extends Resource {
 
       public FamilyHistory copy() {
         FamilyHistory dst = new FamilyHistory();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

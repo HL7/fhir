@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Resource xmlns="http://hl7.org/fhir">
-
+  <id value="12"/>
+  <meta>
+    <versionId value="12"/>
+    <lastUpdated value="2014-08-18T01:43:30Z"/>
+    <profile value="http://example-consortium.org/fhir/profile/patient"/>
+    <security>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="EMP"/>
+    </security>
+    <tag>
+      <system value="http://example.com/codes/workflow"/>
+      <code value="needs-review"/>
+    </tag>
+  </meta>
+  <implicitRules value="http://example-consortium.org/fhir/ehr-plugins"/>
+  <language value="X"/>
 </Resource>

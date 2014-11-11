@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A set of information summarized from a list of other resources.
  */
-public class List_ extends Resource {
+public class List_ extends DomainResource {
 
     public enum ListMode {
         WORKING, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
@@ -153,7 +153,7 @@ public class List_ extends Resource {
          * @return {@link #flag} (The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.)
          */
     // syntactic sugar
-        public CodeableConcept addFlag() { 
+        public CodeableConcept addFlag() { //3
           CodeableConcept t = new CodeableConcept();
           this.flag.add(t);
           return t;
@@ -271,6 +271,7 @@ public class List_ extends Resource {
 
       public ListEntryComponent copy() {
         ListEntryComponent dst = new ListEntryComponent();
+        copyValues(dst);
         dst.flag = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : flag)
           dst.flag.add(i.copy());
@@ -359,7 +360,7 @@ public class List_ extends Resource {
      * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -555,7 +556,7 @@ public class List_ extends Resource {
      * @return {@link #entry} (Entries in this list.)
      */
     // syntactic sugar
-    public ListEntryComponent addEntry() { 
+    public ListEntryComponent addEntry() { //3
       ListEntryComponent t = new ListEntryComponent();
       this.entry.add(t);
       return t;
@@ -591,6 +592,7 @@ public class List_ extends Resource {
 
       public List_ copy() {
         List_ dst = new List_();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

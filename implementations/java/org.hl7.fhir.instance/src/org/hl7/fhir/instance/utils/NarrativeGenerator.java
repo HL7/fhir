@@ -39,11 +39,11 @@ import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.Address;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
+import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.Base64BinaryType;
 import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
@@ -63,6 +63,7 @@ import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -111,6 +112,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 import com.github.rjeschke.txtmark.Processor;
 
+
 public class NarrativeGenerator {
 
   public class ResourceWithReference {
@@ -142,7 +144,7 @@ public class NarrativeGenerator {
     this.context = context;
   }
 
-  public void generate(Resource r) throws Exception {
+  public void generate(DomainResource r) throws Exception {
     if (r instanceof ConceptMap) {
       generate((ConceptMap) r); // Maintainer = Grahame
     } else if (r instanceof ValueSet) {
@@ -154,14 +156,14 @@ public class NarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      generateByProfile(r, context.getProfiles().get(r.getResourceType().toString()).getResource(), true); // todo: make this manageable externally 
+      generateByProfile(r, context.getProfiles().get(r.getResourceType().toString()), true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
-      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()).getResource(), true); // todo: make this manageable externally 
+      generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
     }
   }
   
-  private void generateByProfile(Resource r, Profile profile, boolean showCodeDetails) throws Exception {
-    if (r.hasModifierExtensions())
+  private void generateByProfile(DomainResource r, Profile profile, boolean showCodeDetails) throws Exception {
+    if (!r.getModifierExtension().isEmpty())
       throw new Exception("Unable to generate narrative for resource of type "+r.getResourceType().toString()+" because it has modifier extensions");
     ProfileStructureComponent ps = getByName(profile, r.getResourceType().toString());
     
@@ -176,7 +178,7 @@ public class NarrativeGenerator {
     inject(r, x,  NarrativeStatus.GENERATED);
   }
 
-  private void generateByProfile(Resource res, Element e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
+  private void generateByProfile(Resource res, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
     if (children.isEmpty()) {
       renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn));
     } else {
@@ -197,11 +199,11 @@ public class NarrativeGenerator {
                   para.addText(": ");
                   if (renderAsList(child) && p.getValues().size() > 1) {
                     XhtmlNode list = x.addTag("ul");
-                    for (Element v : p.getValues()) 
+                    for (Base v : p.getValues()) 
                       renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
                   } else { 
                     boolean first = true;
-                    for (Element v : p.getValues()) {
+                    for (Base v : p.getValues()) {
                       if (first)
                         first = false;
                       else
@@ -214,13 +216,13 @@ public class NarrativeGenerator {
                 x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
                 XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
                 addColumnHeadings(tbl.addTag("tr"), grandChildren);
-                for (Element v : p.getValues()) {
+                for (Base v : p.getValues()) {
                   if (v != null) {
                     addColumnValues(res, tbl.addTag("tr"), grandChildren, v, showCodeDetails, displayHints);
                   }
                 }
               } else {
-                for (Element v : p.getValues()) {
+                for (Base v : p.getValues()) {
                   if (v != null) {
                     XhtmlNode bq = x.addTag("blockquote");
                     bq.addTag("p").addTag("b").addText(p.getName());
@@ -235,7 +237,7 @@ public class NarrativeGenerator {
     }
   }
   
-  private boolean isDefaultValue(Map<String, String> displayHints, List<Element> list) {
+  private boolean isDefaultValue(Map<String, String> displayHints, List<Base> list) {
     if (list.size() != 1)
       return false;
     if (list.get(0) instanceof PrimitiveType) 
@@ -275,7 +277,7 @@ public class NarrativeGenerator {
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPath())));
   }
 
-  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementDefinition> grandChildren, Element v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementDefinition> grandChildren, Base v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     for (ElementDefinition e : grandChildren) {
       Property p = v.getChildByName(e.getPath().substring(e.getPath().lastIndexOf(".")+1));
       if (p == null || p.getValues().size() == 0 || p.getValues().get(0) == null)
@@ -300,7 +302,7 @@ public class NarrativeGenerator {
 
   private List<Property> getValues(String path, Property p, ElementDefinition e) {
     List<Property> res = new ArrayList<Property>();
-    for (Element v : p.values) {
+    for (Base v : p.values) {
       for (Property g : v.children()) {
         if ((path+"."+p.getName()+"."+g.getName()).equals(e.getPath()))
           res.add(p);
@@ -326,7 +328,7 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(Resource res, Element e, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
+  private void renderLeaf(Resource res, Base e, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     if (e == null)
       return;
    
@@ -406,11 +408,15 @@ public class NarrativeGenerator {
       } else {
         c.addText(r.getReference());
       }
+    } else if (e instanceof Resource) {
+      return;
+    } else if (e instanceof ElementDefinition) {
+      x.addText("todo-bundle");
     } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
-  private boolean displayLeaf(Resource res, Element e, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
+  private boolean displayLeaf(Resource res, Base e, ElementDefinition defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
     if (e == null)
       return false;
     Map<String, String> displayHints = readDisplayHints(defn);
@@ -502,6 +508,10 @@ public class NarrativeGenerator {
       } else
         x.addText("??");
       return true;
+    } else if (e instanceof Narrative) {
+      return false;
+    } else if (e instanceof Resource) {
+      return false;
     } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
     return false;
@@ -532,9 +542,12 @@ public class NarrativeGenerator {
   }
 
   private void generateResourceSummary(XhtmlNode x, Resource res, boolean textAlready, boolean showCodeDetails) throws Exception {
+  	if (!(res instanceof DomainResource))
+  		throw new Exception("Not handled yet"); // todo-bundle
+  	DomainResource dres = (DomainResource) res;
     if (!textAlready) {
-      if (res.getText() != null && res.getText().getDiv() != null) {
-        XhtmlNode div = res.getText().getDiv();
+      if (dres.getText() != null && dres.getText().getDiv() != null) {
+        XhtmlNode div = dres.getText().getDiv();
         if (div.allChildrenAreText())
           x.getChildNodes().addAll(div.getChildNodes());
         if (div.getChildNodes().size() == 1 && div.getChildNodes().get(0).allChildrenAreText())
@@ -542,8 +555,8 @@ public class NarrativeGenerator {
       }
       x.addText("Generated Summary: ");
     }
-    String path = res.getResourceType().toString();
-    Profile profile = context.getProfiles().get(path).getResource();
+    String path = dres.getResourceType().toString();
+    Profile profile = context.getProfiles().get(path);
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
@@ -551,7 +564,7 @@ public class NarrativeGenerator {
 
       boolean firstElement = true;
       boolean last = false;
-      for (Property p : res.children()) {
+      for (Property p : dres.children()) {
         ElementDefinition child = getElementDefinition(struc.getSnapshot().getElement(), path+"."+p.getName());
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
@@ -560,12 +573,12 @@ public class NarrativeGenerator {
             x.addText("; ");
           boolean first = true;
           last = false;
-          for (Element v : p.getValues()) {
+          for (Base v : p.getValues()) {
             if (first)
               first = false;
             else if (last)
               x.addText(", ");
-            last = displayLeaf(res, v, child, x, p.getName(), showCodeDetails) || last;
+            last = displayLeaf(dres, v, child, x, p.getName(), showCodeDetails) || last;
           }
         }
       }
@@ -589,9 +602,9 @@ public class NarrativeGenerator {
   private ResourceWithReference resolveReference(Resource res, String url) {
     if (url == null)
       return null;
-    if (url.startsWith("#")) {
-      for (Resource r : res.getContained()) {
-        if (r.getXmlId().equals(url.substring(1)))
+    if (url.startsWith("#") && res instanceof DomainResource) {
+      for (Resource r : ((DomainResource) res).getContained()) {
+        if (r.getId().equals(url.substring(1)))
           return new ResourceWithReference(null, r);
       }
       return null;
@@ -599,11 +612,11 @@ public class NarrativeGenerator {
     if (!context.hasClient())
       return null;
     
-    AtomEntry<?> ae = context.getClient().read(null, url);
+    Resource ae = context.getClient().read(null, url);
     if (ae == null)
       return null;
     else
-      return new ResourceWithReference(ae.getLinks().get("self"), ae.getResource());
+      return new ResourceWithReference(url, ae);
   }
 
   private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {
@@ -693,7 +706,7 @@ public class NarrativeGenerator {
     if (context.getCodeSystems() == null && context.getTerminologyServices() == null)
     	return code;
     else if (context.getCodeSystems() != null && context.getCodeSystems().containsKey(system)) 
-      t = findCode(code, context.getCodeSystems().get(system).getResource().getDefine().getConcept());
+      t = findCode(code, context.getCodeSystems().get(system).getDefine().getConcept());
     else 
       t = context.getTerminologyServices().getCodeDefinition(system, code);
       
@@ -1152,7 +1165,7 @@ public class NarrativeGenerator {
   
   
   
-  private void inject(Resource r, XhtmlNode x, NarrativeStatus status) {
+  private void inject(DomainResource r, XhtmlNode x, NarrativeStatus status) {
     if (r.getText() == null)
       r.setText(new Narrative());
     if (r.getText().getDiv() == null || r.getText().getDiv().getChildNodes().isEmpty()) {
@@ -1177,7 +1190,7 @@ public class NarrativeGenerator {
     if (code == null)
       return null;
     if (context.getCodeSystems().containsKey(system)) {
-      ValueSet vs = context.getCodeSystems().get(system).getResource();
+      ValueSet vs = context.getCodeSystems().get(system);
       return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitive());
     } else if (context.getTerminologyServices() != null) {
       ConceptDefinitionComponent cl = context.getTerminologyServices().getCodeDefinition(system, code);
@@ -1257,12 +1270,12 @@ public class NarrativeGenerator {
   private boolean generateExpansion(XhtmlNode x, ValueSet vs) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
-      if (((Reference) a.getResource().getSource()).getReference().equals(vs.getIdentifier())) {
+    for (ConceptMap a : context.getMaps().values()) {
+      if (((Reference) a.getSource()).getReference().equals(vs.getIdentifier())) {
         String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getResource().getTarget()).getReference()))
-            url = context.getValueSets().get(((Reference) a.getResource().getTarget()).getReference()).getLinks().get("path");
-        mymaps.put(a.getResource(), url);
+        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
+            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getTag("filename");
+        mymaps.put(a, url);
       }
     }
 
@@ -1287,12 +1300,12 @@ public class NarrativeGenerator {
   private boolean generateDefinition(XhtmlNode x, ValueSet vs) {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (AtomEntry<ConceptMap> a : context.getMaps().values()) {
-      if (((Reference) a.getResource().getSource()).getReference().equals(vs.getIdentifier())) {
+    for (ConceptMap a : context.getMaps().values()) {
+      if (((Reference) a.getSource()).getReference().equals(vs.getIdentifier())) {
         String url = "";
-        if (context.getValueSets().containsKey(((Reference) a.getResource().getTarget()).getReference()))
-            url = context.getValueSets().get(((Reference) a.getResource().getTarget()).getReference()).getLinks().get("path");
-        mymaps.put(a.getResource(), url);
+        if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
+            url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getTag("filename");
+        mymaps.put(a, url);
       }
     }
     List<String> langs = new ArrayList<String>();
@@ -1429,7 +1442,7 @@ public class NarrativeGenerator {
     
     String s = Utilities.padLeft("", '.', i*2);
     td.addText(s);
-    AtomEntry<? extends Resource> e = context.getCodeSystems().get(c.getSystem());
+    Resource e = context.getCodeSystems().get(c.getSystem());
     if (e == null)
       td.addText(c.getCode());
     else {
@@ -1597,13 +1610,13 @@ public class NarrativeGenerator {
 
   private void AddVsRef(String value, XhtmlNode li) {
 
-    AtomEntry<? extends Resource> vs = context.getValueSets().get(value);
+    ValueSet vs = context.getValueSets().get(value);
     if (vs == null) 
       vs = context.getCodeSystems().get(value); 
     if (vs != null) {
-      String ref= vs.getLinks().get("path");
+      String ref= (String) vs.getTag("filename");
       XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", prefix+ref.replace("\\", "/"));
+      a.setAttribute("href", prefix+(ref == null ? "??" : ref.replace("\\", "/")));
       a.addText(value);
     } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
       XhtmlNode a = li.addTag("a");
@@ -1618,7 +1631,7 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
-    AtomEntry<? extends Resource> e = context.getCodeSystems().get(inc.getSystem());
+    ValueSet e = context.getCodeSystems().get(inc.getSystem());
     
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -1689,14 +1702,14 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
+  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) {
     if (e == null) {
       if (context.getTerminologyServices() != null)
         return context.getTerminologyServices().getCodeDefinition(system, code);
       else
         return null;
     }
-    ValueSet vs = (ValueSet) e.getResource();
+    ValueSet vs = (ValueSet) e;
     if (vs.getDefine() == null)
       return null;
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
@@ -1720,12 +1733,12 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry<T> cs) {
+  private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, T cs) {
     String ref = null;
     if (cs != null) {
-      cs.getLinks().get("path");
+      ref = (String) cs.getTag("filename");
       if (Utilities.noString(ref))
-        ref = cs.getLinks().get("self");
+        ref = (String) cs.getTag("filename");
     }
     if (cs != null && ref != null) {
       if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
@@ -1737,15 +1750,15 @@ public class NarrativeGenerator {
       li.addText(inc.getSystem().toString());
   }
 
-  private  <T extends Resource> String getCsRef(AtomEntry<T> cs) {
-    String ref = cs.getLinks().get("path");
+  private  <T extends Resource> String getCsRef(T cs) {
+    String ref = (String) cs.getTag("filename");
     if (Utilities.noString(ref))
-      ref = cs.getLinks().get("self");
-    return ref.replace("\\", "/");
+      ref = (String) cs.getTag("filename");
+    return ref == null ? "??" : ref.replace("\\", "/");
   }
 
-  private  <T extends Resource> boolean codeExistsInValueSet(AtomEntry<T> cs, String code) {
-    ValueSet vs = (ValueSet) cs.getResource();
+  private  <T extends Resource> boolean codeExistsInValueSet(T cs, String code) {
+    ValueSet vs = (ValueSet) cs;
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       if (inConcept(code, c))
         return true;
@@ -1965,7 +1978,7 @@ public class NarrativeGenerator {
     tr.addTag("td").addText(value);    
   }
 
-  public XhtmlNode generateDocumentNarrative(AtomFeed feed) {
+  public XhtmlNode generateDocumentNarrative(Bundle feed) {
     /*
      When the document is presented for human consumption, applications must present the collated narrative portions of the following resources in order:
      * The Composition resource
@@ -1973,19 +1986,19 @@ public class NarrativeGenerator {
      * Resources referenced in the section.content
      */
     XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
-    Composition comp = (Composition) feed.getEntryList().get(0).getResource();
+    Composition comp = (Composition) feed.getItem().get(0);
     root.getChildNodes().add(comp.getText().getDiv());
-    Resource subject = feed.getById(comp.getSubject().getReference()).getResource();
-    if (subject != null) {
+    Resource subject = ResourceUtilities.getById(feed, null, comp.getSubject().getReference());
+    if (subject != null && subject instanceof DomainResource) {
       root.addTag("hr");
-      root.getChildNodes().add(subject.getText().getDiv());
+      root.getChildNodes().add(((DomainResource)subject).getText().getDiv());
     }
     List<SectionComponent> sections = comp.getSection();
     renderSections(feed, root, sections, 1);
     return root;
   }
 
-  private void renderSections(AtomFeed feed, XhtmlNode node, List<SectionComponent> sections, int level) {
+  private void renderSections(Bundle feed, XhtmlNode node, List<SectionComponent> sections, int level) {
     for (SectionComponent section : sections) {
       node.addTag("hr");
       if (section.getTitle() != null)

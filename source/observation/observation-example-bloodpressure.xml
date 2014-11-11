@@ -26,24 +26,22 @@ for publication convenience, the 3 resources are packaged in a single
 bundle, but this is not required
 -->
 
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
-  <title>Blood Pressure Example</title>
-  <id>urn:uuid:988fc332-b3a2-4c25-af3b-91b0171ec652</id>
-  <link rel="self" href="http://www.hl7.org/fhir/observation-example-bloodpressure.xml"/>
-  <updated>2014-01-30T22:35:23+11:00</updated>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+  <id value="blood-pressure"/>
+  <meta>
+    <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+  </meta>
   
   <!-- first entry: the single resource with combined
      narrative, and links to the 2 component resources -->
-  <entry>
-    <title>Blood Pressure Observation</title>
+  <item>
     <!-- this id is purely arbitrary. It could have been a UUID, or something else -->
-    <id>http://acme.org/ehr/observations/34252345234</id>
-    <updated>2014-01-30T22:35:23+11:00</updated>
-    <author>
-      <name>FHIR Project Team</name>
-    </author>
-    <content type="text/xml">
-      <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+    
+    <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+      <id value="34252345234"/>
+      <meta>
+        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+      </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
@@ -98,15 +96,11 @@ bundle, but this is not required
           </target>
         </related>
       </Observation>
-    </content>
-    <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
-    </summary>
-  </entry>
+    
+  </item>
 
   <!-- Observation for systolic blood pressure: name, value, and flags -->
-  <entry>
-    <title>Blood Pressure Observation</title>
+  <item>
     <!-- 
       Most systems won't store systolic and diastolic observations separately.
       They'd usually be two fields in a database or something like that. The 
@@ -121,13 +115,12 @@ bundle, but this is not required
       system to decide how to manage this (e.g. readonly, so there's no 
       update operations to worry about)
     -->
-    <id>http://acme.org/ehr/observations/34252345234-s</id>
-    <updated>2014-01-30T22:35:23+11:00</updated>
-    <author>
-      <name>FHIR Project Team</name>
-    </author>
-    <content type="text/xml">
-      <Observation xmlns="http://hl7.org/fhir">
+    
+    <Observation xmlns="http://hl7.org/fhir">
+      <id value="34252345234-s"/>
+      <meta>
+        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+      </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
@@ -168,22 +161,17 @@ bundle, but this is not required
         <status value="final"/>
         <reliability value="ok"/>
       </Observation>
-    </content>
-    <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
-    </summary>
-  </entry>
+    
+  </item>
   
   <!-- diastolic blood pressure: name, value, and flags -->
-  <entry>
-    <title>Blood Pressure Observation</title>
-    <id>http://acme.org/ehr/observations/34252345234-d</id>
-    <updated>2014-01-30T22:35:23+11:00</updated>
-    <author>
-      <name>FHIR Project Team</name>
-    </author>
-    <content type="text/xml">
-      <Observation xmlns="http://hl7.org/fhir">
+  <item>
+    
+    <Observation xmlns="http://hl7.org/fhir">
+      <id value="34252345234-d"/>
+      <meta>
+        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+      </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
@@ -204,9 +192,6 @@ bundle, but this is not required
         <status value="final"/>
         <reliability value="ok"/>
       </Observation>
-    </content>
-    <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
-    </summary>
-  </entry>
-</feed>  
+    
+  </item>
+</Bundle>  

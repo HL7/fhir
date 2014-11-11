@@ -3,6 +3,7 @@
 <MedicationPrescription xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationprescription.xsd">
+  <id value="warfarin"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +13,8 @@
     </div>
   </text>
   <contained>
-    <Medication id="1">
+    <Medication>
+      <id value="1"/>
       <code>
         <coding>
           <system value="urn:oid:2.16.840.1.113883.6.73"/>

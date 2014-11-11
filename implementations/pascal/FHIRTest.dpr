@@ -98,7 +98,6 @@ uses
   IdSSLOpenSSLHeaders,
 
   FHIRLang in 'FHIRLang.pas',
-  FHIRAtomFeed in 'FHIRAtomFeed.pas',
   FHIRBase in 'FHIRBase.pas',
   FHIRParserBase in 'FHIRParserBase.pas',
   FHIRConstants in 'FHIRConstants.pas',
@@ -130,7 +129,6 @@ var
   p : TFHIRParser;
   c : TFHIRComposer;
   r : TFhirResource;
-  a : TFHIRAtomFeed;
 begin
   try
     p := TFHIRXmlParser.Create('en');
@@ -141,7 +139,6 @@ begin
         p.source := f;
         p.Parse;
         r := p.resource.Link;
-        a := p.feed.Link;
       finally
         f.Free;
       end;
@@ -150,13 +147,11 @@ begin
     end;
     m := TMemoryStream.Create;
     try
+
       c := TFHIRJsonComposer.Create('en');
       try
         TFHIRJsonComposer(c).Comments := true;
-        if r <> nil then
-          c.Compose(m, '', '', '', r, true, nil)
-        else
-          c.Compose(m, a, true);
+        c.Compose(m, '', '', '', r, true, nil);
       finally
         c.free;
       end;
@@ -164,15 +159,12 @@ begin
       m.SaveToFile(ChangeFileExt(dest, '.json'));
       m.Position := 0;
       r.Free;
-      a.Free;
       r := nil;
-      a := nil;
       p := TFHIRJsonParser.Create('en');
       try
         p.source := m;
         p.Parse;
         r := p.resource.Link;
-        a := p.feed.Link;
       finally
         p.Free;
       end;
@@ -184,10 +176,7 @@ begin
     try
       c := TFHIRXMLComposer.Create('en');
       try
-        if r <> nil then
-          c.Compose(f, '', '', '', r, true, nil)
-        else
-          c.Compose(f, a, true);
+        c.Compose(f, '', '', '', r, true, nil);
       finally
         c.free;
       end;
@@ -196,7 +185,6 @@ begin
     end;
   finally
     r.Free;
-    a.Free;
   end;
 
 //  IdSoapXmlCheckDifferent(source, dest);

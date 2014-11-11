@@ -394,7 +394,7 @@ public class GeneratorUtils {
 	
 	public static String buildFullyScopedTypeName( String fullName ) throws Exception
 	{		
-		String[] nameParts = fullName.split("\\.");
+  	String[] nameParts = fullName == null ? "DomainResource".split("\\.") : fullName.split("\\.");
 		
 		if( nameParts.length == 1 )
 			// Globally defined name

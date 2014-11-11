@@ -46,7 +46,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
   }
 
   private boolean inImport(String uri, String system, String code) throws ETooCostly {
-    ValueSet vs = context.getValueSets().get(uri).getResource();
+    ValueSet vs = context.getValueSets().get(uri);
     if (vs == null) 
       return false ; // we can't tell
     return codeInExpansion(factory.getExpander().expand(vs), system, code);
@@ -87,7 +87,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
       }
       
     if (context.getCodeSystems().containsKey(system)) {
-      ValueSet def = context.getCodeSystems().get(system).getResource();
+      ValueSet def = context.getCodeSystems().get(system);
       if (!def.getDefine().getCaseSensitive()) {
         // well, ok, it's not case sensitive - we'll check that too now
         for (ConceptReferenceComponent cc : vsi.getConcept())

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+  <id value="f202"/>
  <identifier><!--The identifier for the person as this practitioner (fictive)-->
     <use value="official"/>
         <label value="UZI-nummer"/>

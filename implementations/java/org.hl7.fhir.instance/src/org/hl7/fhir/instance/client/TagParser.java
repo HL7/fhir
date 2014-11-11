@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.hl7.fhir.instance.model.AtomCategory;
+import org.hl7.fhir.instance.model.Coding;
 
 public class TagParser {
 	
@@ -45,8 +45,8 @@ public class TagParser {
 	
 	public static final String REGEX_CATEGORY = "((.+?)([;,]))";
 
-	public List<AtomCategory> parse(String categoryHeader) {
-		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+	public List<Coding> parse(String categoryHeader) {
+		List<Coding> tags = new ArrayList<Coding>();
 		Matcher matcher = loadRegexMatcher(categoryHeader);
 		int high = -1;
 		String[] arguments = new String[3];
@@ -59,7 +59,7 @@ public class TagParser {
 				high = matcher.end();
 			}
 			if(isLastSentenceInCategory){
-				AtomCategory category = new AtomCategory(arguments[0], arguments[1], arguments[2]);
+				Coding category = new Coding(); // todo-bundle arguments[0], arguments[1], arguments[2]);
 				tags.add(category);
 				arguments = new String[3];
 			}
@@ -67,7 +67,7 @@ public class TagParser {
 		if(high < categoryHeader.length()) {
 			handleSentence(categoryHeader.substring(high).trim(), arguments);
 		}
-		AtomCategory category = new AtomCategory(arguments[0], arguments[1], arguments[2]);
+		Coding category = new Coding(); // todo-bundle arguments[0], arguments[1], arguments[2]);
 		tags.add(category);
 		return tags;
 	}

@@ -32,10 +32,15 @@ import java.io.FileOutputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CSVProcessor;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 
 public class Example {
@@ -87,11 +92,18 @@ public class Example {
         throw new Exception("unable to read "+path.getAbsolutePath()+": "+e.getMessage(), e);
       }
     }
-    if (Utilities.noString(id) && xml != null) { 
-      if (!xml.getDocumentElement().getLocalName().equals("feed"))
-        throw new Exception("unidentified resource "+path);
+    if (xml != null) {
+      if (!Utilities.noString(id)) {
+        if (XMLUtil.getNamedChild(xml.getDocumentElement(), "id") == null)
+          throw new Exception("no id element (looking for '"+id+"' from "+path.getName());
+        String xid = XMLUtil.getNamedChild(xml.getDocumentElement(), "id").getAttribute("value");
+        if (!id.equals(xid)) {
+          throw new Exception("misidentified resource "+path+" expected '"+id+"' found '"+xid+"'");
+        }
+      }
     }
   }
+  
   public String getName() {
     return name;
   }

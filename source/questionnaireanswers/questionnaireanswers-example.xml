@@ -1,6 +1,7 @@
 <QuestionnaireAnswers xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireanswers.xsd">
-  <text>
+ <id value="3141"/>
+   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>
@@ -19,7 +20,8 @@
     </div>
   </text>
   <contained>
-    <Patient id="patsub">
+    <Patient>
+      <id value="patsub"/>
       <identifier>
         <system value="http://cancer.questionnaire.org/systems/id/patientnr"/>
         <value value="A34442332"/>
@@ -35,7 +37,8 @@
     </Patient>
   </contained>
   <contained>
-    <Practitioner id="questauth">
+    <Practitioner>
+      <id value="questauth"/>
       <identifier>
         <label value="AUMC, Den Helder"/>
         <system value="http://cancer.questionnaire.org/systems/id/org"/>
@@ -44,7 +47,8 @@
     </Practitioner>
   </contained>
   <contained>
-    <Observation id="obs.pt-category">
+    <Observation>
+      <id value="obs.pt-category"/>
       <name>
         <coding>
           <system value="http://snomed.info/sct"/>

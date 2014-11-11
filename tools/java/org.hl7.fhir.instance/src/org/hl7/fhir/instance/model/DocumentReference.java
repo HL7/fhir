@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A reference to a document.
  */
-public class DocumentReference extends Resource {
+public class DocumentReference extends DomainResource {
 
     public enum DocumentReferenceStatus {
         CURRENT, // This is the current reference for this document.
@@ -279,6 +279,7 @@ public class DocumentReference extends Resource {
 
       public DocumentReferenceRelatesToComponent copy() {
         DocumentReferenceRelatesToComponent dst = new DocumentReferenceRelatesToComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
@@ -375,7 +376,7 @@ public class DocumentReference extends Resource {
          * @return {@link #parameter} (A list of named parameters that is used in the service call.)
          */
     // syntactic sugar
-        public DocumentReferenceServiceParameterComponent addParameter() { 
+        public DocumentReferenceServiceParameterComponent addParameter() { //3
           DocumentReferenceServiceParameterComponent t = new DocumentReferenceServiceParameterComponent();
           this.parameter.add(t);
           return t;
@@ -390,6 +391,7 @@ public class DocumentReference extends Resource {
 
       public DocumentReferenceServiceComponent copy() {
         DocumentReferenceServiceComponent dst = new DocumentReferenceServiceComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.address = address == null ? null : address.copy();
         dst.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
@@ -498,6 +500,7 @@ public class DocumentReference extends Resource {
 
       public DocumentReferenceServiceParameterComponent copy() {
         DocumentReferenceServiceParameterComponent dst = new DocumentReferenceServiceParameterComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -538,7 +541,7 @@ public class DocumentReference extends Resource {
          * @return {@link #event} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
          */
     // syntactic sugar
-        public CodeableConcept addEvent() { 
+        public CodeableConcept addEvent() { //3
           CodeableConcept t = new CodeableConcept();
           this.event.add(t);
           return t;
@@ -583,6 +586,7 @@ public class DocumentReference extends Resource {
 
       public DocumentReferenceContextComponent copy() {
         DocumentReferenceContextComponent dst = new DocumentReferenceContextComponent();
+        copyValues(dst);
         dst.event = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : event)
           dst.event.add(i.copy());
@@ -775,7 +779,7 @@ public class DocumentReference extends Resource {
      * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -852,7 +856,7 @@ public class DocumentReference extends Resource {
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
     // syntactic sugar
-    public Reference addAuthor() { 
+    public Reference addAuthor() { //3
       Reference t = new Reference();
       this.author.add(t);
       return t;
@@ -1087,7 +1091,7 @@ public class DocumentReference extends Resource {
      * @return {@link #relatesTo} (Relationships that this document has with other document references that already exist.)
      */
     // syntactic sugar
-    public DocumentReferenceRelatesToComponent addRelatesTo() { 
+    public DocumentReferenceRelatesToComponent addRelatesTo() { //3
       DocumentReferenceRelatesToComponent t = new DocumentReferenceRelatesToComponent();
       this.relatesTo.add(t);
       return t;
@@ -1140,7 +1144,7 @@ public class DocumentReference extends Resource {
      * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
      */
     // syntactic sugar
-    public CodeableConcept addConfidentiality() { 
+    public CodeableConcept addConfidentiality() { //3
       CodeableConcept t = new CodeableConcept();
       this.confidentiality.add(t);
       return t;
@@ -1225,7 +1229,7 @@ public class DocumentReference extends Resource {
      * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
     // syntactic sugar
-    public UriType addFormatElement() { 
+    public UriType addFormatElement() {//2 
       UriType t = new UriType();
       this.format.add(t);
       return t;
@@ -1234,7 +1238,7 @@ public class DocumentReference extends Resource {
     /**
      * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public DocumentReference addFormat(String value) { 
+    public DocumentReference addFormat(String value) { //1
       UriType t = new UriType();
       t.setValue(value);
       this.format.add(t);
@@ -1419,6 +1423,7 @@ public class DocumentReference extends Resource {
 
       public DocumentReference copy() {
         DocumentReference dst = new DocumentReference();
+        copyValues(dst);
         dst.masterIdentifier = masterIdentifier == null ? null : masterIdentifier.copy();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)

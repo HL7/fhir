@@ -3,6 +3,7 @@
 <!-- lab report example: a CBC -->
 
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <id value="101"/>
   <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml"> 
@@ -32,7 +33,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
       </div>
   </text>
-  <contained>
   <!-- 
   all the data items (= Observations) are contained 
   in this diagnostic report. It would be equally 
@@ -43,7 +43,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   topic page -->
   <!-- for users steeped in v2, each observation roughly corresponds with an 
     OBX, and the Diagnostic Report with an ORU_R01 message -->
-    <Observation id="r1">
+  <contained>
+    <Observation>
+      <id value="r1"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -81,7 +83,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r2">
+    <Observation>
+      <id value="r2"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -119,7 +122,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r3">
+    <Observation>
+      <id value="r3"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -157,7 +161,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r4">
+    <Observation>
+      <id value="r4"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -201,7 +206,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r5">
+    <Observation>
+      <id value="r5"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -245,7 +251,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r6">
+    <Observation>
+      <id value="r6"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -283,7 +290,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r7">
+    <Observation>
+      <id value="r7"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -321,7 +329,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r8">
+    <Observation>
+      <id value="r8"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -345,7 +354,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r9">
+    <Observation>
+      <id value="r9"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -389,7 +399,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r10">
+    <Observation>
+      <id value="r10"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -413,7 +424,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-  <Observation id="r11">
+  <Observation>
+    <id value="r11"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -457,7 +469,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r12">
+    <Observation>
+      <id value="r12"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -481,7 +494,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r13">
+    <Observation>
+      <id value="r13"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -519,7 +533,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r14">
+    <Observation>
+      <id value="r14"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -543,7 +558,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r15">
+    <Observation>
+      <id value="r15"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -587,7 +603,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r16">
+    <Observation>
+      <id value="r16"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
@@ -611,7 +628,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     </Observation>
   </contained> 
   <contained>  
-    <Observation id="r17">
+    <Observation>
+      <id value="r17"/>
       <text>
         <status value="empty"/>
         <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>

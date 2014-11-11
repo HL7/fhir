@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+  <id value="f003"/>
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>

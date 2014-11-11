@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,9 +37,9 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Teest Bundle.
  */
-public class NewBundle extends Resource {
+public class Bundle extends Resource {
 
-    public static class NewBundleLinkComponent extends BackboneElement {
+    public static class BundleLinkComponent extends BackboneElement {
         /**
          * A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
          */
@@ -52,11 +52,11 @@ public class NewBundle extends Resource {
 
         private static final long serialVersionUID = -1010386066L;
 
-      public NewBundleLinkComponent() {
+      public BundleLinkComponent() {
         super();
       }
 
-      public NewBundleLinkComponent(StringType relation, UriType url) {
+      public BundleLinkComponent(StringType relation, UriType url) {
         super();
         this.relation = relation;
         this.url = url;
@@ -72,7 +72,7 @@ public class NewBundle extends Resource {
         /**
          * @param value {@link #relation} (A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].). This is the underlying object with id, value and extensions. The accessor "getRelation" gives direct access to the value
          */
-        public NewBundleLinkComponent setRelationElement(StringType value) { 
+        public BundleLinkComponent setRelationElement(StringType value) { 
           this.relation = value;
           return this;
         }
@@ -87,7 +87,7 @@ public class NewBundle extends Resource {
         /**
          * @param value A name which details the functional use for this link - see [[http://www.iana.org/assignments/link-relations/link-relations.xhtml]].
          */
-        public NewBundleLinkComponent setRelation(String value) { 
+        public BundleLinkComponent setRelation(String value) { 
             if (this.relation == null)
               this.relation = new StringType();
             this.relation.setValue(value);
@@ -104,7 +104,7 @@ public class NewBundle extends Resource {
         /**
          * @param value {@link #url} (The reference details for the link.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public NewBundleLinkComponent setUrlElement(UriType value) { 
+        public BundleLinkComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -119,7 +119,7 @@ public class NewBundle extends Resource {
         /**
          * @param value The reference details for the link.
          */
-        public NewBundleLinkComponent setUrl(String value) { 
+        public BundleLinkComponent setUrl(String value) { 
             if (this.url == null)
               this.url = new UriType();
             this.url.setValue(value);
@@ -132,8 +132,9 @@ public class NewBundle extends Resource {
           childrenList.add(new Property("url", "uri", "The reference details for the link.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
-      public NewBundleLinkComponent copy() {
-        NewBundleLinkComponent dst = new NewBundleLinkComponent();
+      public BundleLinkComponent copy() {
+        BundleLinkComponent dst = new BundleLinkComponent();
+        copyValues(dst);
         dst.relation = relation == null ? null : relation.copy();
         dst.url = url == null ? null : url.copy();
         return dst;
@@ -154,7 +155,7 @@ public class NewBundle extends Resource {
     /**
      * A series of links that provide context to this bundle.
      */
-    protected List<NewBundleLinkComponent> link = new ArrayList<NewBundleLinkComponent>();
+    protected List<BundleLinkComponent> link = new ArrayList<BundleLinkComponent>();
 
     /**
      * Resources that are contained in this bundle.
@@ -166,9 +167,9 @@ public class NewBundle extends Resource {
      */
     protected Base64BinaryType signature;
 
-    private static final long serialVersionUID = -838562462L;
+    private static final long serialVersionUID = -1376490024L;
 
-    public NewBundle() {
+    public Bundle() {
       super();
     }
 
@@ -182,7 +183,7 @@ public class NewBundle extends Resource {
     /**
      * @param value {@link #base} (The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
-    public NewBundle setBaseElement(UriType value) { 
+    public Bundle setBaseElement(UriType value) { 
       this.base = value;
       return this;
     }
@@ -197,7 +198,7 @@ public class NewBundle extends Resource {
     /**
      * @param value The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
      */
-    public NewBundle setBase(String value) { 
+    public Bundle setBase(String value) { 
       if (Utilities.noString(value))
         this.base = null;
       else {
@@ -218,7 +219,7 @@ public class NewBundle extends Resource {
     /**
      * @param value {@link #total} (The total number of matches for the search.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
      */
-    public NewBundle setTotalElement(IntegerType value) { 
+    public Bundle setTotalElement(IntegerType value) { 
       this.total = value;
       return this;
     }
@@ -233,7 +234,7 @@ public class NewBundle extends Resource {
     /**
      * @param value The total number of matches for the search.
      */
-    public NewBundle setTotal(int value) { 
+    public Bundle setTotal(int value) { 
       if (value == -1)
         this.total = null;
       else {
@@ -247,7 +248,7 @@ public class NewBundle extends Resource {
     /**
      * @return {@link #link} (A series of links that provide context to this bundle.)
      */
-    public List<NewBundleLinkComponent> getLink() { 
+    public List<BundleLinkComponent> getLink() { 
       return this.link;
     }
 
@@ -255,8 +256,8 @@ public class NewBundle extends Resource {
      * @return {@link #link} (A series of links that provide context to this bundle.)
      */
     // syntactic sugar
-    public NewBundleLinkComponent addLink() { 
-      NewBundleLinkComponent t = new NewBundleLinkComponent();
+    public BundleLinkComponent addLink() { //3
+      BundleLinkComponent t = new BundleLinkComponent();
       this.link.add(t);
       return t;
     }
@@ -281,7 +282,7 @@ public class NewBundle extends Resource {
     /**
      * @param value {@link #signature} (XML Digital Signature - base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
      */
-    public NewBundle setSignatureElement(Base64BinaryType value) { 
+    public Bundle setSignatureElement(Base64BinaryType value) { 
       this.signature = value;
       return this;
     }
@@ -296,7 +297,7 @@ public class NewBundle extends Resource {
     /**
      * @param value XML Digital Signature - base64 encoded.
      */
-    public NewBundle setSignature(byte[] value) { 
+    public Bundle setSignature(byte[] value) { 
       if (value == null)
         this.signature = null;
       else {
@@ -316,12 +317,13 @@ public class NewBundle extends Resource {
         childrenList.add(new Property("signature", "base64Binary", "XML Digital Signature - base64 encoded.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
-      public NewBundle copy() {
-        NewBundle dst = new NewBundle();
+      public Bundle copy() {
+        Bundle dst = new Bundle();
+        copyValues(dst);
         dst.base = base == null ? null : base.copy();
         dst.total = total == null ? null : total.copy();
-        dst.link = new ArrayList<NewBundleLinkComponent>();
-        for (NewBundleLinkComponent i : link)
+        dst.link = new ArrayList<BundleLinkComponent>();
+        for (BundleLinkComponent i : link)
           dst.link.add(i.copy());
         dst.item = new ArrayList<Resource>();
         for (Resource i : item)
@@ -330,13 +332,13 @@ public class NewBundle extends Resource {
         return dst;
       }
 
-      protected NewBundle typedCopy() {
+      protected Bundle typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.NewBundle;
+    return ResourceType.Bundle;
    }
 
 

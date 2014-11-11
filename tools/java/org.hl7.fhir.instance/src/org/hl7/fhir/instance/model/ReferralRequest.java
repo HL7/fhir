@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organisation.
  */
-public class ReferralRequest extends Resource {
+public class ReferralRequest extends DomainResource {
 
     public enum Referralstatus {
         DRAFT, // A draft referral that has yet to be send.
@@ -289,7 +289,7 @@ public class ReferralRequest extends Resource {
      * @return {@link #identifier} (Business Id that uniquely identifies the referral/care transfer request instance.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -411,7 +411,7 @@ public class ReferralRequest extends Resource {
      * @return {@link #recipient} (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
     // syntactic sugar
-    public Reference addRecipient() { 
+    public Reference addRecipient() { //3
       Reference t = new Reference();
       this.recipient.add(t);
       return t;
@@ -552,7 +552,7 @@ public class ReferralRequest extends Resource {
      * @return {@link #serviceRequested} (The service(s) that is/are requested to be provided to the patient.)
      */
     // syntactic sugar
-    public CodeableConcept addServiceRequested() { 
+    public CodeableConcept addServiceRequested() { //3
       CodeableConcept t = new CodeableConcept();
       this.serviceRequested.add(t);
       return t;
@@ -569,7 +569,7 @@ public class ReferralRequest extends Resource {
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.)
      */
     // syntactic sugar
-    public Reference addSupportingInformation() { 
+    public Reference addSupportingInformation() { //3
       Reference t = new Reference();
       this.supportingInformation.add(t);
       return t;
@@ -618,6 +618,7 @@ public class ReferralRequest extends Resource {
 
       public ReferralRequest copy() {
         ReferralRequest dst = new ReferralRequest();
+        copyValues(dst);
         dst.status = status == null ? null : status.copy();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)

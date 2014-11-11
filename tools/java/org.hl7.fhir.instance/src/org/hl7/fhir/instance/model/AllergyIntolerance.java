@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
  */
-public class AllergyIntolerance extends Resource {
+public class AllergyIntolerance extends DomainResource {
 
     public enum AllergyIntoleranceStatus {
         UNCONFIRMED, // A low level of certainty about the propensity for a reaction to the identified Substance.
@@ -539,7 +539,7 @@ public class AllergyIntolerance extends Resource {
          * @return {@link #manifestation} (Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.)
          */
     // syntactic sugar
-        public CodeableConcept addManifestation() { 
+        public CodeableConcept addManifestation() { //3
           CodeableConcept t = new CodeableConcept();
           this.manifestation.add(t);
           return t;
@@ -734,6 +734,7 @@ public class AllergyIntolerance extends Resource {
 
       public AllergyIntoleranceEventComponent copy() {
         AllergyIntoleranceEventComponent dst = new AllergyIntoleranceEventComponent();
+        copyValues(dst);
         dst.substance = substance == null ? null : substance.copy();
         dst.certainty = certainty == null ? null : certainty.copy();
         dst.manifestation = new ArrayList<CodeableConcept>();
@@ -843,7 +844,7 @@ public class AllergyIntolerance extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1187,7 +1188,7 @@ public class AllergyIntolerance extends Resource {
      * @return {@link #event} (Details about each Adverse Reaction Event linked to exposure to the identified Substance.)
      */
     // syntactic sugar
-    public AllergyIntoleranceEventComponent addEvent() { 
+    public AllergyIntoleranceEventComponent addEvent() { //3
       AllergyIntoleranceEventComponent t = new AllergyIntoleranceEventComponent();
       this.event.add(t);
       return t;
@@ -1211,6 +1212,7 @@ public class AllergyIntolerance extends Resource {
 
       public AllergyIntolerance copy() {
         AllergyIntolerance dst = new AllergyIntolerance();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

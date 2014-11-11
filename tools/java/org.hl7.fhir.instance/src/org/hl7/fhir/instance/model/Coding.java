@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -302,6 +302,7 @@ public class Coding extends Type {
 
       public Coding copy() {
         Coding dst = new Coding();
+        copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();

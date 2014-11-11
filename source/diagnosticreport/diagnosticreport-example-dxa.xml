@@ -3,6 +3,7 @@
 <!-- lab report example: a CBC -->
 
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <id value="102"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml"> 
@@ -124,7 +125,8 @@ GE LUNAR PRODIGY DENSITOMETER
   </text>
   <contained>
     <!-- Here is one of the measurements above encoded as an observation for example purposes. -->
-    <Observation id="r1">
+    <Observation>
+      <id value="r1"/>
       <name>
         <coding>
           <system value="http://loinc.org"/>

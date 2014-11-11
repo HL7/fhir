@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
-public class OperationDefinition extends Resource {
+public class OperationDefinition extends DomainResource {
 
     public enum ResourceProfileStatus {
         DRAFT, // This profile is still under development.
@@ -495,6 +495,7 @@ public class OperationDefinition extends Resource {
 
       public OperationDefinitionParameterComponent copy() {
         OperationDefinitionParameterComponent dst = new OperationDefinitionParameterComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.use = use == null ? null : use.copy();
         dst.min = min == null ? null : min.copy();
@@ -769,7 +770,7 @@ public class OperationDefinition extends Resource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -822,7 +823,7 @@ public class OperationDefinition extends Resource {
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
     // syntactic sugar
-    public Coding addCode() { 
+    public Coding addCode() { //3
       Coding t = new Coding();
       this.code.add(t);
       return t;
@@ -1105,7 +1106,7 @@ public class OperationDefinition extends Resource {
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
     // syntactic sugar
-    public CodeType addTypeElement() { 
+    public CodeType addTypeElement() {//2 
       CodeType t = new CodeType();
       this.type.add(t);
       return t;
@@ -1114,7 +1115,7 @@ public class OperationDefinition extends Resource {
     /**
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public OperationDefinition addType(String value) { 
+    public OperationDefinition addType(String value) { //1
       CodeType t = new CodeType();
       t.setValue(value);
       this.type.add(t);
@@ -1174,7 +1175,7 @@ public class OperationDefinition extends Resource {
      * @return {@link #parameter} (Parameters for the operation/query.)
      */
     // syntactic sugar
-    public OperationDefinitionParameterComponent addParameter() { 
+    public OperationDefinitionParameterComponent addParameter() { //3
       OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
       this.parameter.add(t);
       return t;
@@ -1204,6 +1205,7 @@ public class OperationDefinition extends Resource {
 
       public OperationDefinition copy() {
         OperationDefinition dst = new OperationDefinition();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.title = title == null ? null : title.copy();

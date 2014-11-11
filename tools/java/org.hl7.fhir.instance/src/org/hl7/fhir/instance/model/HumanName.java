@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -269,7 +269,7 @@ public class HumanName extends Type {
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
     // syntactic sugar
-    public StringType addFamilyElement() { 
+    public StringType addFamilyElement() {//2 
       StringType t = new StringType();
       this.family.add(t);
       return t;
@@ -278,7 +278,7 @@ public class HumanName extends Type {
     /**
      * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public HumanName addFamily(String value) { 
+    public HumanName addFamily(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.family.add(t);
@@ -306,7 +306,7 @@ public class HumanName extends Type {
      * @return {@link #given} (Given name.)
      */
     // syntactic sugar
-    public StringType addGivenElement() { 
+    public StringType addGivenElement() {//2 
       StringType t = new StringType();
       this.given.add(t);
       return t;
@@ -315,7 +315,7 @@ public class HumanName extends Type {
     /**
      * @param value {@link #given} (Given name.)
      */
-    public HumanName addGiven(String value) { 
+    public HumanName addGiven(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.given.add(t);
@@ -343,7 +343,7 @@ public class HumanName extends Type {
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
     // syntactic sugar
-    public StringType addPrefixElement() { 
+    public StringType addPrefixElement() {//2 
       StringType t = new StringType();
       this.prefix.add(t);
       return t;
@@ -352,7 +352,7 @@ public class HumanName extends Type {
     /**
      * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public HumanName addPrefix(String value) { 
+    public HumanName addPrefix(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.prefix.add(t);
@@ -380,7 +380,7 @@ public class HumanName extends Type {
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
     // syntactic sugar
-    public StringType addSuffixElement() { 
+    public StringType addSuffixElement() {//2 
       StringType t = new StringType();
       this.suffix.add(t);
       return t;
@@ -389,7 +389,7 @@ public class HumanName extends Type {
     /**
      * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public HumanName addSuffix(String value) { 
+    public HumanName addSuffix(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.suffix.add(t);
@@ -434,6 +434,7 @@ public class HumanName extends Type {
 
       public HumanName copy() {
         HumanName dst = new HumanName();
+        copyValues(dst);
         dst.use = use == null ? null : use.copy();
         dst.text = text == null ? null : text.copy();
         dst.family = new ArrayList<StringType>();

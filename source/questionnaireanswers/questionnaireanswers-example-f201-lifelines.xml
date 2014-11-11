@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireAnswers xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireanswers.xsd">
-  <status value="completed"/>
+ <id value="f201"/>
+   <status value="completed"/>
   <!--Fictive, only the below answers are non-fictive-->
   <subject>
     <reference value="Patient/f201"/>

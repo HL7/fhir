@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <id value="micro"/>
 <!--
 
 This diagnostic report shows how to do a microbiology isolate and sensitivity. This is a particular complex case, with two different susceptibilities. 
@@ -71,7 +72,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
   <!-- first, a series of atomic results matching the atomice result OBXs -->
   <contained>
-    <Observation id="obx1-4">
+    <Observation>
+      <id value="obx1-4"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -90,7 +92,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
   <contained>
-    <Observation id="obx1-5">
+    <Observation>
+      <id value="obx1-5"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -112,7 +115,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
   <!-- this is an interpretation without a value, as in the source message. Quite Strange -->
   <contained>
-    <Observation id="obx2-1">
+    <Observation>
+      <id value="obx2-1"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -134,7 +138,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-2">
+    <Observation>
+      <id value="obx2-2"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -160,7 +165,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
 
   <contained>
-    <Observation id="obx2-4">
+    <Observation>
+      <id value="obx2-4"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -187,7 +193,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-6">
+    <Observation>
+      <id value="obx2-6"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -213,7 +220,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
 
   <contained>
-    <Observation id="obx2-8"> 
+    <Observation>
+      <id value="obx2-8"/> 
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -240,7 +248,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-10">
+    <Observation>
+      <id value="obx2-10"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -267,7 +276,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-12">
+    <Observation>
+      <id value="obx2-12"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -294,7 +304,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-14">
+    <Observation>
+      <id value="obx2-14"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -321,7 +332,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-16">
+    <Observation>
+      <id value="obx2-16"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -347,7 +359,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
 
   <contained>
-    <Observation id="obx2-18">
+    <Observation>
+      <id value="obx2-18"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -372,7 +385,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-20">
+    <Observation>
+      <id value="obx2-20"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -399,7 +413,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-22">
+    <Observation>
+      <id value="obx2-22"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -425,7 +440,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-24">
+    <Observation>
+      <id value="obx2-24"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -452,7 +468,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-26">
+    <Observation>
+      <id value="obx2-26"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -478,7 +495,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-28">
+    <Observation>
+      <id value="obx2-28"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -505,7 +523,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-30">
+    <Observation>
+      <id value="obx2-30"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -532,7 +551,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-32">
+    <Observation>
+      <id value="obx2-32"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -559,7 +579,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 
   <contained>
-    <Observation id="obx2-34">
+    <Observation>
+      <id value="obx2-34"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -584,7 +605,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
 
   <contained>
-    <Observation id="nte-1">
+    <Observation>
+      <id value="nte-1"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -601,7 +623,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   </contained>
  
   <contained>
-    <Observation id="obx3-1">
+    <Observation>
+      <id value="obx3-1"/>
       <name>
         <coding>
           <system value="http://acme.org/lab/codes/tests"/>
@@ -632,7 +655,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     to appear last, we weill work up to it
   -->
   <contained>
-    <Observation id="obr-2"> 
+    <Observation>
+      <id value="obr-2"/> 
       <!-- OBR 2 -->
       <name>
         <coding>
@@ -668,7 +692,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
   <!-- now we encounter another inner group: susceptibility measured by disk diffusion -->
   <contained>
-    <Observation id="obr-3"> 
+    <Observation>
+      <id value="obr-3"/> 
       <!-- OBR 3 -->
       <name>
         <coding>
@@ -685,7 +710,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
   <!-- organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism -->
   <contained>
-    <Observation id="org1"> 
+    <Observation>
+      <id value="org1"/> 
       <!-- OBR 1 -->
       <name>
         <coding>
@@ -731,7 +757,8 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
   <!-- ORC information -->
   <contained>
-    <DiagnosticOrder id="req">
+    <DiagnosticOrder>
+      <id value="req"/>
       <subject>
         <reference value="Patient/101"/> <!-- patient chosen at random -->
       </subject>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
-public class MedicationAdministration extends Resource {
+public class MedicationAdministration extends DomainResource {
 
     public enum MedicationAdminStatus {
         INPROGRESS, // The administration has started but has not yet completed.
@@ -314,6 +314,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationAdministrationDosageComponent copy() {
         MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
+        copyValues(dst);
         dst.timing = timing == null ? null : timing.copy();
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
@@ -443,7 +444,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #identifier} (External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -648,7 +649,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #reasonNotGiven} (A code indicating why the administration was not performed.)
      */
     // syntactic sugar
-    public CodeableConcept addReasonNotGiven() { 
+    public CodeableConcept addReasonNotGiven() { //3
       CodeableConcept t = new CodeableConcept();
       this.reasonNotGiven.add(t);
       return t;
@@ -710,7 +711,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #device} (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
      */
     // syntactic sugar
-    public Reference addDevice() { 
+    public Reference addDevice() { //3
       Reference t = new Reference();
       this.device.add(t);
       return t;
@@ -744,7 +745,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      * @return {@link #dosage} (Provides details of how much of the medication was administered.)
      */
     // syntactic sugar
-    public MedicationAdministrationDosageComponent addDosage() { 
+    public MedicationAdministrationDosageComponent addDosage() { //3
       MedicationAdministrationDosageComponent t = new MedicationAdministrationDosageComponent();
       this.dosage.add(t);
       return t;
@@ -768,6 +769,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationAdministration copy() {
         MedicationAdministration dst = new MedicationAdministration();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

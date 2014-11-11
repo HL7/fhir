@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+  <id value="integrate"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -121,7 +122,8 @@
       Could also be handled as references to external resources.
       And not essential to have them captured at all.
       For purposes of example, will represent this way. -->
-    <Condition id="p1">
+    <Condition>
+      <id value="p1"/>
       <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
@@ -133,7 +135,8 @@
     </Condition>
   </contained>
   <contained>
-    <Condition id="p2">
+    <Condition>
+      <id value="p2"/>
       <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
@@ -145,7 +148,8 @@
     </Condition>
   </contained>
   <contained>
-    <Condition id="p3">
+    <Condition>
+      <id value="p3"/>
       <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>

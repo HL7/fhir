@@ -33,10 +33,9 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.OutputStream;
 import java.util.List;
 
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
@@ -98,34 +97,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
 	@Override
-  public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
-    if (canonical && pretty)
-      throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, feed, pretty);
-		writer.close();
-	}
-
-	/**
-	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
-	 */
-	public void compose(OutputStream stream, AtomFeed feed, boolean pretty, boolean htmlPretty) throws Exception {
-    if (canonical && (pretty || htmlPretty))
-      throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, feed, htmlPretty);
-		writer.close();
-	}
-	
-	/**
-	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	@Override
-  public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception {
+  public void compose(OutputStream stream, List<Coding> tags, boolean pretty) throws Exception {
     if (canonical && pretty)
       throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
@@ -138,7 +110,7 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	/**
 	 * Compose a tag list to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
 	 */
-	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty, boolean htmlPretty) throws Exception {
+	public void compose(OutputStream stream, List<Coding> tags, boolean pretty, boolean htmlPretty) throws Exception {
     if (canonical && (pretty || htmlPretty))
       throw new Exception("Do not use pretty = true if canonical = true");
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
@@ -148,53 +120,6 @@ public abstract class XmlComposerBase extends ComposerBase  {
 		writer.close();
 	}
 
-
-	public void compose(IXMLWriter writer, AtomFeed feed, boolean htmlPretty) throws Exception {
-    if (canonical && (htmlPretty))
-      throw new Exception("Do not use pretty = true if canonical = true");
-		this.htmlPretty = htmlPretty;
-		xml = writer;
-		xml.setDefaultNamespace(ATOM_NS);
-		
-	  xml.open(ATOM_NS, "feed");
-    if (feed.getTitle() != null)
-      xml.element(ATOM_NS, "title", feed.getTitle());
-    if (feed.getId() != null)
-      xml.element(ATOM_NS, "id", feed.getId());
-    for (String n : feed.getLinks().keySet()) {
-      xml.attribute("href", feed.getLinks().get(n));
-      xml.attribute("rel", n);
-      xml.element(ATOM_NS, "link", null);
-    }
-    if (feed.getTotalResults() != null) {
-    	xml.setDefaultNamespace("http://a9.com/-/spec/opensearch/1.1/");
-    	xml.element("totalResults", feed.getTotalResults().toString());
-    	xml.setDefaultNamespace(ATOM_NS);
-    }
-    if (feed.getUpdated() != null)
-      xml.element(ATOM_NS, "updated", feed.getUpdated().toString());
-    if (feed.getAuthorName() != null || feed.getAuthorUri() != null) {
-      xml.open(ATOM_NS, "author");
-      if (feed.getAuthorName() != null)
-        xml.element(ATOM_NS, "name", feed.getAuthorName());
-      if (feed.getAuthorUri() != null)
-        xml.element(ATOM_NS, "uri", feed.getAuthorUri());
-      xml.close(ATOM_NS, "author");
-    }
-		for (AtomCategory cat : feed.getTags()) {
-			xml.attribute("scheme", cat.getScheme());
-			xml.attribute("term", cat.getTerm());
-			if (!Utilities.noString(cat.getLabel()))
-				xml.attribute("label", cat.getLabel());
-	    xml.element("category", null);
-		}
-    
-    for (AtomEntry<? extends Resource> e : feed.getEntryList())
-      composeEntry(e);
-    xml.close(ATOM_NS, "feed");
-
-  
-	}
 	
   /**
    * Compose a type to a stream (used in the spec, for example, but not normally in production)
@@ -210,91 +135,6 @@ public abstract class XmlComposerBase extends ComposerBase  {
 
 	protected abstract void composeType(String prefix, Type type) throws Exception;
 
-	private <T extends Resource>void composeEntry(AtomEntry<T> entry) throws Exception {
-		AtomEntry<T> e = entry;
-	  if (entry.isDeleted()) {
-	    xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
-	    xml.attribute("ref", entry.getId());
-	    xml.attribute("when", entry.getUpdated().toString());
-	    xml.open("deleted-entry");
-	    for (String name : entry.getLinks().keySet()) {
-	      xml.attribute("href", entry.getLinks().get(name));
-	      xml.attribute("rel", name);
-	      xml.element("link", null);
-	    }
-//	    if (entry.getoriginalId <> "") then
-//	    begin
-//	      xml.open("source");
-//	      xml.element("id", entry.originalId);
-//	      xml.close("source");
-//	    end;
-	    if (entry.getAuthorUri() != null || entry.getAuthorName() != null) {
-	      xml.open("by");
-	      if (entry.getAuthorName() != null)
-	        xml.element("name", entry.getAuthorName());
-	      if (entry.getAuthorUri() != null)
-	        xml.element("uri", entry.getAuthorUri());
-	      xml.close("by");
-	    }
-	    xml.close("deleted-entry");
-	    xml.setDefaultNamespace(ATOM_NS);
-	  } else {
-	    xml.setDefaultNamespace(ATOM_NS);
-	    xml.open("entry");
-	    if (e.getTitle() != null)
-	      xml.element(ATOM_NS, "title", e.getTitle());
-	    if (e.getId() != null)
-	      xml.element(ATOM_NS, "id", e.getId());
-	    for (String n : e.getLinks().keySet()) {
-	      xml.attribute("href", e.getLinks().get(n));
-	      xml.attribute("rel", n);
-	      xml.element(ATOM_NS, "link", null);
-	    }
-	    if (e.getUpdated() != null)
-	      xml.element(ATOM_NS, "updated", e.getUpdated().toString());
-
-	    if (entry.getAuthorUri() != null  || entry.getAuthorName() != null) {
-	      xml.open("author");
-	      if (entry.getAuthorName() != null) 
-	        xml.element("name", entry.getAuthorName());
-	      if (entry.getAuthorUri() != null)
-	        xml.element("uri", entry.getAuthorUri());
-	      xml.close("author");
-	    }
-			for (AtomCategory cat : entry.getTags()) {
-				xml.attribute("scheme", cat.getScheme());
-				xml.attribute("term", cat.getTerm());
-				if (!Utilities.noString(cat.getLabel()))
-					xml.attribute("label", cat.getLabel());
-		    xml.element("category", null);
-			}
-	    if (e.getPublished() != null)
-	      xml.element(ATOM_NS, "published", e.getPublished().toString());
-	    
-	    xml.attribute("type", "text/xml");
-	    xml.open(ATOM_NS, "content");
-	    xml.setDefaultNamespace(FHIR_NS); 
-//	    if (entry.getResource() instanceof Binary)
-//	      composeBinary("Binary", (Binary) entry.getResource());
-//	    else
-	      composeResource(entry.getResource());
-	    xml.setDefaultNamespace(ATOM_NS);
-	    xml.close(ATOM_NS, "content");
-	    
-	    if (e.getSummary() != null) {
-	      xml.attribute("type", "xhtml");
-	      xml.open(ATOM_NS, "summary");
-	      xml.namespace(XhtmlComposer.XHTML_NS, null);
-	      boolean oldPretty = xml.isPretty();
-	      xml.setPretty(htmlPretty);
-	      new XhtmlComposer().setXmlOnly(true).compose(xml, e.getSummary());
-	      xml.setPretty(oldPretty);
-	      xml.close(ATOM_NS, "summary");
-	    }
-	    xml.close("entry");
-	  }  
-  }
-
 	public void compose(IXMLWriter writer, Resource resource, boolean htmlPretty) throws Exception {
 		this.htmlPretty = htmlPretty;
 		xml = writer;
@@ -302,18 +142,18 @@ public abstract class XmlComposerBase extends ComposerBase  {
 		composeResource(resource);
 	}
 	
-	public void compose(IXMLWriter writer, List<AtomCategory> tags, boolean htmlPretty) throws Exception {
+	public void compose(IXMLWriter writer, List<Coding> tags, boolean htmlPretty) throws Exception {
 		this.htmlPretty = htmlPretty;
 		xml = writer;
 		xml.setDefaultNamespace(FHIR_NS);
 
 		xml.open(FHIR_NS, "taglist");
-		for (AtomCategory cat : tags) {
-			xml.attribute("scheme", cat.getScheme());
-			xml.attribute("term", cat.getTerm());
-			if (!Utilities.noString(cat.getLabel()))
-				xml.attribute("label", cat.getLabel());
-			xml.element("category", null);
+		for (Coding cat : tags) {
+//			xml.attribute("scheme", cat.getScheme());
+//			xml.attribute("term", cat.getTerm());
+//			if (!Utilities.noString(cat.getDisplay()))
+//				xml.attribute("label", cat.getDisplay());
+//			xml.element("category", null);
 		}
 		xml.close(FHIR_NS, "taglist");
 	}
@@ -371,4 +211,12 @@ public abstract class XmlComposerBase extends ComposerBase  {
     writer.close();
 	}
 
+  protected void composeDomainResource(String name, DomainResource res) throws Exception {
+    xml.open(FHIR_NS, name);
+    composeResource(res.getResourceType().toString(), res);
+    xml.close(FHIR_NS, name);
+  }
+
+	protected abstract void composeResource(String name, Resource res) throws Exception;
+	
 }

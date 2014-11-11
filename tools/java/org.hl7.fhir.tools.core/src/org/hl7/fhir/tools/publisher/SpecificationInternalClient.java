@@ -12,21 +12,21 @@ import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FeedFormat;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.utils.ResourceUtilities;
 
 public class SpecificationInternalClient implements FHIRClient {
 
   private PageProcessor page;
-  private AtomFeed feed;
+  private Bundle feed;
 
-  public SpecificationInternalClient(PageProcessor page, AtomFeed feed) {
+  public SpecificationInternalClient(PageProcessor page, Bundle feed) {
     this.page = page;
     this.feed = feed;
   }
@@ -68,8 +68,8 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomEntry<T> read(Class<T> resource, String id) {
-    if (feed != null && feed.getById(id) != null) {
+  public <T extends Resource> T read(Class<T> resource, String id) {
+    if (feed != null && ResourceUtilities.getById(feed, null, id) != null) {
       
     }
     String[] path = id.split("/");
@@ -79,11 +79,7 @@ public class SpecificationInternalClient implements FHIRClient {
       ResourceDefn r = page.getDefinitions().getResourceByName(path[0]);
       for (Example e : r.getExamples()) {
         if (e.getId().equals(path[1])) {
-          AtomEntry<Resource> ae = new AtomEntry<Resource>();
-          ae.setId(id);
-          ae.getLinks().put("self", e.getFileTitle()+".html");
-          ae.setResource(new XmlParser().parse(new FileInputStream(e.getPath())));
-          return (AtomEntry<T>) ae;
+          return (T) new XmlParser().parse(new FileInputStream(e.getPath()));
         }
       }
       return null;
@@ -93,17 +89,17 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomEntry<T> vread(Class<T> resource, String id, String versionid) {
+  public <T extends Resource> T vread(Class<T> resource, String id, String versionid) {
     throw new Error("vread not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
+  public <T extends Resource> T update(Class<T> resourceClass, T resource, String id) {
     throw new Error("update not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id, List<AtomCategory> tags) {
+  public <T extends Resource> T update(Class<T> resourceClass, T resource, String id, List<Coding> tags) {
     throw new Error("update not supported by the internal specification client");
   }
 
@@ -113,72 +109,72 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource) {
+  public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource) {
     throw new Error("create not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource, List<AtomCategory> tags) {
+  public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource, List<Coding> tags) {
     throw new Error("create not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass, String id) {
+  public <T extends Resource> Bundle history(Calendar lastUpdate, Class<T> resourceClass, String id) {
     throw new Error("create not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(Class<T> resource, String id) {
+  public <T extends Resource> Bundle history(Class<T> resource, String id) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass) {
+  public <T extends Resource> Bundle history(Calendar lastUpdate, Class<T> resourceClass) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(Calendar lastUpdate) {
+  public <T extends Resource> Bundle history(Calendar lastUpdate) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomEntry<OperationOutcome> validate(Class<T> resourceClass, T resource, String id) {
+  public <T extends Resource> OperationOutcome validate(Class<T> resourceClass, T resource, String id) {
     throw new Error("validate not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> params) {
+  public <T extends Resource> Bundle search(Class<T> resourceClass, Map<String, String> params) {
     throw new Error("search not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> params) {
+  public <T extends Resource> Bundle searchPost(Class<T> resourceClass, T resource, Map<String, String> params) {
     throw new Error("searchPost not supported by the internal specification client");
   }
 
   @Override
-  public AtomFeed transaction(AtomFeed batch) {
+  public Bundle transaction(Bundle batch) {
     throw new Error("transaction not supported by the internal specification client");
   }
 
   @Override
-  public List<AtomCategory> getAllTags() {
+  public List<Coding> getAllTags() {
     throw new Error("getAllTags not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass) {
+  public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass) {
     throw new Error("getAllTagsForResourceType not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> getTagsForReference(Class<T> resource, String id) {
+  public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id) {
     throw new Error("getTagsForResource not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
+  public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
     throw new Error("getTagsForResourceVersion not supported by the internal specification client");
   }
 
@@ -188,42 +184,42 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
+  public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass) {
+  public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate) {
+  public <T extends Resource> Bundle history(DateAndTime lastUpdate) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomFeed history() {
+  public <T extends Resource> Bundle history() {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> deleteTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+  public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
     throw new Error("deleteTags not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
+  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id) {
     throw new Error("createTags not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
     throw new Error("createTags not supported by the internal specification client");
   }
 
   @Override
-  public AtomFeed fetchFeed(String url) {
+  public Bundle fetchFeed(String url) {
     throw new Error("fetchFeed not supported by the internal specification client");
   }
 
@@ -246,7 +242,7 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomFeed history(Class<T> resourceClass) {
+  public <T extends Resource> Bundle history(Class<T> resourceClass) {
     throw new Error("history not supported by the internal specification client");
   }
 

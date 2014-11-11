@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
  */
-public class Location extends Resource {
+public class Location extends DomainResource {
 
     public enum LocationStatus {
         ACTIVE, // The location is operational.
@@ -299,6 +299,7 @@ public class Location extends Resource {
 
       public LocationPositionComponent copy() {
         LocationPositionComponent dst = new LocationPositionComponent();
+        copyValues(dst);
         dst.longitude = longitude == null ? null : longitude.copy();
         dst.latitude = latitude == null ? null : latitude.copy();
         dst.altitude = altitude == null ? null : altitude.copy();
@@ -394,7 +395,7 @@ public class Location extends Resource {
      * @return {@link #identifier} (Unique code or number identifying the location to its users.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -498,7 +499,7 @@ public class Location extends Resource {
      * @return {@link #telecom} (The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -699,6 +700,7 @@ public class Location extends Resource {
 
       public Location copy() {
         Location dst = new Location();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

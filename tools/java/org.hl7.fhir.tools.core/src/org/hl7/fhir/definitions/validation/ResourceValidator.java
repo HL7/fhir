@@ -48,7 +48,6 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.Translations;
@@ -76,12 +75,12 @@ public class ResourceValidator extends BaseValidator {
   private Definitions definitions;
 	private Map<String, Usage> usages = new HashMap<String, Usage>();
   private Translations translations;
-  private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
+  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
   
   
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, AtomEntry<ValueSet>> map) {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map) {
 		super();
     source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -457,7 +456,7 @@ public class ResourceValidator extends BaseValidator {
 	}
 
 	private boolean typeExists(String name, ResourceDefn parent) {
-		return definitions.hasType(name) ||
+		return definitions.hasType(name) || definitions.getBaseResources().containsKey(name) ||
 				(parent != null && parent.getRoot().hasNestedType(name));
 	}
 

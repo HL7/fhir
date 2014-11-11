@@ -5,10 +5,12 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <comments>Annual physical</comments>
 -->
 <DocumentReference xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/documentreference.xsd">
-  <contained>
+  <id value="example"/>
     <!-- Many XDS systems do not trak any id for the author. When systems don't do this, 
     the only option is for the author information to be contained in the Document Reference -->
-    <Practitioner id="a1">    
+  <contained>
+    <Practitioner>
+      <id value="a1"/>    
         <name>
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>
@@ -31,7 +33,8 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     </Practitioner>
   </contained>
   <contained>
-    <Practitioner id="a2">    
+    <Practitioner>
+      <id value="a2"/> 
         <name>
           <family value="Smitty"/>
           <given value="Gerald"/>

@@ -374,7 +374,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private Resource getReference(String id) {
-    return context.getProfiles().get(id.toLowerCase()).getResource();
+    return context.getProfiles().get(id.toLowerCase());
   }
 
   private void validateBinary(WrapperElement elem) {
@@ -555,7 +555,7 @@ public class InstanceValidator extends BaseValidator {
           cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && child.getName().substring(5).equals(Utilities.capitalize(cs)), "No Extension value found (looking for '"+cs+"')");
         }
         if (cok) {
-          Profile type = context.getProfiles().get(cs).getResource();
+          Profile type = context.getProfiles().get(cs);
           ElementDefinition ec = new ElementDefinition(); // gimmy up a fake element component for the next call
           ec.setPath(path+"[url='"+url+"']");
           ec.setName(child.getName());
@@ -804,9 +804,9 @@ public class InstanceValidator extends BaseValidator {
 
   private ValueSet resolveBindingReference(Type reference) {
     if (reference instanceof UriType)
-      return context.getValueSets().get(((UriType) reference).getValue().toString()).getResource();
+      return context.getValueSets().get(((UriType) reference).getValue().toString());
     else if (reference instanceof Reference)
-      return context.getValueSets().get(((Reference) reference).getReference()).getResource();
+      return context.getValueSets().get(((Reference) reference).getReference());
     else
       return null;
   }
@@ -947,7 +947,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private ValueSet getValueSet(String system) {
-    return context.getCodeSystems().get(system).getResource();
+    return context.getCodeSystems().get(system);
   }
 
   public boolean isSuppressLoincSnomedMessages() {
@@ -1120,7 +1120,7 @@ public class InstanceValidator extends BaseValidator {
 	private ValueSet resolveValueSetReference(Profile profile, Reference reference) {
 	  if (reference.getReference().startsWith("#")) {
 	  	for (Resource r : profile.getContained()) {
-	  		if (r instanceof ValueSet && r.getXmlId().equals(reference.getReference().substring(1)))
+	  		if (r instanceof ValueSet && r.getId().equals(reference.getReference().substring(1)))
 	  			return (ValueSet) r;
 	  	}
 	  	return null;
@@ -1258,10 +1258,10 @@ public class InstanceValidator extends BaseValidator {
 				 rule(errors, "exception", path, false, "Unhandled fixed value type "+fixed.getClass().getName());
 			List<WrapperElement> extensions = new ArrayList<WrapperElement>();
 			focus.getNamedChildren("extension", extensions);
-			if (fixed.getExtensions().size() == 0) {
+			if (fixed.getExtension().size() == 0) {
 				rule(errors, "value", path, extensions.size() == 0, "No extensions allowed");
-			} else if (rule(errors, "value", path, extensions.size() == fixed.getExtensions().size(), "Extensions count mismatch: expected "+Integer.toString(fixed.getExtensions().size())+" but found "+Integer.toString(extensions.size()))) {
-				for (Extension e : fixed.getExtensions()) {
+			} else if (rule(errors, "value", path, extensions.size() == fixed.getExtension().size(), "Extensions count mismatch: expected "+Integer.toString(fixed.getExtension().size())+" but found "+Integer.toString(extensions.size()))) {
+				for (Extension e : fixed.getExtension()) {
 				  WrapperElement ex = getExtensionByUrl(extensions, e.getUrl());
 					if (rule(errors, "value", path, ex != null, "Extension count mismatch: unable to find extension: "+e.getUrl())) {
 						checkFixedValue(errors, path, ex.getFirstChild().getNextSibling(), e.getValue(), "extension.value");

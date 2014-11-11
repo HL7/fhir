@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Primarily used for identification and definition of Medication, but also covers ingredients and packaging.
  */
-public class Medication extends Resource {
+public class Medication extends DomainResource {
 
     public enum MedicationKind {
         PRODUCT, // The medication is a product.
@@ -138,7 +138,7 @@ public class Medication extends Resource {
          * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
          */
     // syntactic sugar
-        public MedicationProductIngredientComponent addIngredient() { 
+        public MedicationProductIngredientComponent addIngredient() { //3
           MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
           this.ingredient.add(t);
           return t;
@@ -152,6 +152,7 @@ public class Medication extends Resource {
 
       public MedicationProductComponent copy() {
         MedicationProductComponent dst = new MedicationProductComponent();
+        copyValues(dst);
         dst.form = form == null ? null : form.copy();
         dst.ingredient = new ArrayList<MedicationProductIngredientComponent>();
         for (MedicationProductIngredientComponent i : ingredient)
@@ -241,6 +242,7 @@ public class Medication extends Resource {
 
       public MedicationProductIngredientComponent copy() {
         MedicationProductIngredientComponent dst = new MedicationProductIngredientComponent();
+        copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
         return dst;
@@ -291,7 +293,7 @@ public class Medication extends Resource {
          * @return {@link #content} (A set of components that go to make up the described item.)
          */
     // syntactic sugar
-        public MedicationPackageContentComponent addContent() { 
+        public MedicationPackageContentComponent addContent() { //3
           MedicationPackageContentComponent t = new MedicationPackageContentComponent();
           this.content.add(t);
           return t;
@@ -305,6 +307,7 @@ public class Medication extends Resource {
 
       public MedicationPackageComponent copy() {
         MedicationPackageComponent dst = new MedicationPackageComponent();
+        copyValues(dst);
         dst.container = container == null ? null : container.copy();
         dst.content = new ArrayList<MedicationPackageContentComponent>();
         for (MedicationPackageContentComponent i : content)
@@ -394,6 +397,7 @@ public class Medication extends Resource {
 
       public MedicationPackageContentComponent copy() {
         MedicationPackageContentComponent dst = new MedicationPackageContentComponent();
+        copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
         return dst;
@@ -643,6 +647,7 @@ public class Medication extends Resource {
 
       public Medication copy() {
         Medication dst = new Medication();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.code = code == null ? null : code.copy();
         dst.isBrand = isBrand == null ? null : isBrand.copy();

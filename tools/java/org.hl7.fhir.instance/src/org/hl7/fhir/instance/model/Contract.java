@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
  */
-public class Contract extends Resource {
+public class Contract extends DomainResource {
 
     public static class ContractTermComponent extends BackboneElement {
         /**
@@ -198,6 +198,7 @@ public class Contract extends Resource {
 
       public ContractTermComponent copy() {
         ContractTermComponent dst = new ContractTermComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
         dst.subtype = subtype == null ? null : subtype.copy();
@@ -431,7 +432,7 @@ public class Contract extends Resource {
      * @return {@link #author} (Contract author or responsible party.)
      */
     // syntactic sugar
-    public Reference addAuthor() { 
+    public Reference addAuthor() { //3
       Reference t = new Reference();
       this.author.add(t);
       return t;
@@ -455,7 +456,7 @@ public class Contract extends Resource {
      * @return {@link #grantor} (First Party to the contract, may be the party who confers or delegates the rights defined in the contract.)
      */
     // syntactic sugar
-    public Reference addGrantor() { 
+    public Reference addGrantor() { //3
       Reference t = new Reference();
       this.grantor.add(t);
       return t;
@@ -479,7 +480,7 @@ public class Contract extends Resource {
      * @return {@link #grantee} (The Second party to the contract, may be the party who accepts obligations or be that to which rights are delegated.)
      */
     // syntactic sugar
-    public Reference addGrantee() { 
+    public Reference addGrantee() { //3
       Reference t = new Reference();
       this.grantee.add(t);
       return t;
@@ -503,7 +504,7 @@ public class Contract extends Resource {
      * @return {@link #witness} (Who witnesses the contract.)
      */
     // syntactic sugar
-    public Reference addWitness() { 
+    public Reference addWitness() { //3
       Reference t = new Reference();
       this.witness.add(t);
       return t;
@@ -542,7 +543,7 @@ public class Contract extends Resource {
      * @return {@link #term} (A contract provision.)
      */
     // syntactic sugar
-    public ContractTermComponent addTerm() { 
+    public ContractTermComponent addTerm() { //3
       ContractTermComponent t = new ContractTermComponent();
       this.term.add(t);
       return t;
@@ -613,6 +614,7 @@ public class Contract extends Resource {
 
       public Contract copy() {
         Contract dst = new Contract();
+        copyValues(dst);
         dst.subject = subject == null ? null : subject.copy();
         dst.type = type == null ? null : type.copy();
         dst.subtype = subtype == null ? null : subtype.copy();

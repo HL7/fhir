@@ -5,6 +5,7 @@ problem lists, allergy lists, etc.
 Note: Referral is likely to be incorporated as an official resource in a future release of the FHIR DSTU.
 -->
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic">
+  <id value="referral"/>
   <extension url="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner">
     <valueReference>
       <reference value="Practitioner/f201"/>

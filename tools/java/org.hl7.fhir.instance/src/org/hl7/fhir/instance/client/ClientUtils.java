@@ -74,9 +74,8 @@ import org.hl7.fhir.instance.formats.Parser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -134,14 +133,14 @@ public class ClientUtils {
 		return issuePostRequest(resourceUri, payload, resourceFormat, null, proxy);
 	}
 	
-	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat, HttpHost proxy) {
+	public static Bundle issueGetFeedRequest(URI resourceUri, String feedFormat, HttpHost proxy) {
 		HttpGet httpget = new HttpGet(resourceUri);
 		configureFhirRequest(httpget, feedFormat);
 		HttpResponse response = sendRequest(httpget, proxy);
 		return unmarshalFeed(response, feedFormat);
 	}
 	
-	public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat, HttpHost proxy) {
+	public static Bundle postBatchRequest(URI resourceUri, byte[] payload, String feedFormat, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		configureFhirRequest(httpPost, feedFormat);
 		HttpResponse response = sendPayload(httpPost, payload, proxy);
@@ -192,7 +191,7 @@ public class ClientUtils {
 			response = sendRequest(request, proxy);
 		}
 		T resource = unmarshalReference(response, resourceFormat);
-		AtomEntry<T> atomEntry = buildAtomEntry(response, resource);
+		T atomEntry = buildAtomEntry(response, resource);
 		return new ResourceRequest<T>(atomEntry, response.getStatusLine().getStatusCode());
 	}
 	
@@ -211,7 +210,7 @@ public class ClientUtils {
 		} else {
 			response = sendRequest(request, proxy);
 		}
-		List<AtomCategory> result = unmarshalTagList(response, resourceFormat);
+		List<Coding> result = unmarshalTagList(response, resourceFormat);
 		return new TagListRequest(result, response.getStatusLine().getStatusCode());
 	}
 	
@@ -328,7 +327,7 @@ public class ClientUtils {
 	 * @param response
 	 * @return
 	 */
-	protected static List<AtomCategory> unmarshalTagList(HttpResponse response, String format) {
+	protected static List<Coding> unmarshalTagList(HttpResponse response, String format) {
 		InputStream instream = null;
 		OperationOutcome error = null;
 		ResourceOrFeed rf = null;
@@ -360,13 +359,13 @@ public class ClientUtils {
 	}
 	
 	/**
-	 * Unmarshals AtomFeed from response stream.
+	 * Unmarshals Bundle from response stream.
 	 * 
 	 * @param response
 	 * @return
 	 */
-	protected static AtomFeed unmarshalFeed(HttpResponse response, String format) {
-		AtomFeed feed = null;
+	protected static Bundle unmarshalFeed(HttpResponse response, String format) {
+		Bundle feed = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
 		String contentType = response.getHeaders("Content-Type")[0].getValue();
@@ -379,15 +378,11 @@ public class ClientUtils {
 			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parseGeneral(instream).getResource();
 			    } else {
 			    	ResourceOrFeed rf = getParser(format).parseGeneral(instream);
-			    	if (rf.getResource() != null) {
 			    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource())) {
 			    			error = (OperationOutcome) rf.getResource();
 			    		} else {
 			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instead");
 			    		}
-			    	} else {
-			    		feed = rf.getFeed();
-			    	}
 			    }
 			    instream.close();
 			}
@@ -411,22 +406,17 @@ public class ClientUtils {
 	  return false;
   }
 
-	protected static <T extends Resource> AtomEntry<T> buildAtomEntry(HttpResponse response, T resource) {
-		AtomEntry<T> entry = new AtomEntry<T>();
+	protected static <T extends Resource> T buildAtomEntry(HttpResponse response, T resource) {
 		String location = null;
 		if(response.getHeaders("location").length > 0) {//TODO Distinguish between both cases if necessary
     		location = response.getHeaders("location")[0].getValue();
     	} else if(response.getHeaders("content-location").length > 0) {
     		location = response.getHeaders("content-location")[0].getValue();
     	}
-		if(location != null) {
-			entry.getLinks().put("self", location);//TODO Make sure this is right.
-		}
-		List<AtomCategory> tags = parseTags(response);
-		entry.getTags().addAll(tags);
+		List<Coding> tags = parseTags(response);
+		resource.getMeta().getTag().addAll(tags);
 		//entry.setCategory(resource.getClass().getSimpleName());
-		entry.setResource(resource);
-		return entry;
+		return resource;
 	}
 	
 	/**
@@ -435,14 +425,14 @@ public class ClientUtils {
 	 * @param response
 	 * @return
 	 */
-	protected static List<AtomCategory> parseTags(HttpResponse response) {
-		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+	protected static List<Coding> parseTags(HttpResponse response) {
+		List<Coding> tags = new ArrayList<Coding>();
 		Header[] categoryHeaders = response.getHeaders("Category");
 		for(Header categoryHeader : categoryHeaders) {
 			if(categoryHeader == null || categoryHeader.getValue().trim().isEmpty()) {
 				continue;
 			}
-			List<AtomCategory> categories = new TagParser().parse(categoryHeader.getValue());
+			List<Coding> categories = new TagParser().parse(categoryHeader.getValue());
 			tags.addAll(categories);
 		}
 		return tags;
@@ -471,7 +461,7 @@ public class ClientUtils {
 	 * Other general helper methods
 	 * ****************************************************************/
 	 
-	public  static <T extends Resource>  byte[] getTagListAsByteArray(List<AtomCategory> tags, boolean pretty, boolean isJson) {
+	public  static <T extends Resource>  byte[] getTagListAsByteArray(List<Coding> tags, boolean pretty, boolean isJson) {
 		ByteArrayOutputStream baos = null;
 		byte[] byteArray = null;
 		try {
@@ -521,7 +511,7 @@ public class ClientUtils {
 		return byteArray;
 	}
 	
-	public  static byte[] getFeedAsByteArray(AtomFeed feed, boolean pretty, boolean isJson) {
+	public  static byte[] getFeedAsByteArray(Bundle feed, boolean pretty, boolean isJson) {
 		ByteArrayOutputStream baos = null;
 		byte[] byteArray = null;
 		try {
@@ -591,7 +581,7 @@ public class ClientUtils {
 		return value;
 	}
 	
-  public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
+  public static Bundle issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
     HttpPost httppost = new HttpPost(resourceUri);
     String boundary = "----WebKitFormBoundarykbMUo6H8QaUnYtRy";
     httppost.addHeader("Content-Type", "multipart/form-data; boundary="+boundary);

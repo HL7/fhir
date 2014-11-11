@@ -3,15 +3,17 @@
 source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegister.b_Transaction.
 -->
 <DocumentManifest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/documentmanifest.xsd">
+  <id value="example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Text</div>
   </text>
 
-  <contained>
     <!-- Many XDS systems do not trak any id for the author. When systems don't do this, 
     the only option is for the author information to be contained in the Document Reference -->
-    <Practitioner id="a1">    
+  <contained>
+    <Practitioner>
+      <id value="a1"/>  
         <name>
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>

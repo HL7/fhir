@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 /**
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
-public class Basic extends Resource {
+public class Basic extends DomainResource {
 
     /**
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
@@ -95,7 +95,7 @@ public class Basic extends Resource {
      * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -223,6 +223,7 @@ public class Basic extends Resource {
 
       public Basic copy() {
         Basic dst = new Basic();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

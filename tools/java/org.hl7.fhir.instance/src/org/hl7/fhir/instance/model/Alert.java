@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Prospective warnings of potential issues when providing care to the patient.
  */
-public class Alert extends Resource {
+public class Alert extends DomainResource {
 
     public enum AlertStatus {
         ACTIVE, // A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.
@@ -169,7 +169,7 @@ public class Alert extends Resource {
      * @return {@link #identifier} (Identifier assigned to the alert for external use (outside the FHIR environment).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -326,6 +326,7 @@ public class Alert extends Resource {
 
       public Alert copy() {
         Alert dst = new Alert();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

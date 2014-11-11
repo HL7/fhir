@@ -44,7 +44,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -198,13 +197,15 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             write("<a href=\""+cd.getReference()+".html\">http://hl7.org/fhir/vs/"+cd.getReference().substring(9)+"</a><!-- a -->");            
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-              AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
-              if (vs.getLinks().get("path") == null)
+              ValueSet vs = page.getValueSets().get(cd.getReference());
+              String pp = (String) vs.getTag("path");
+              if (pp == null)
                 throw new Exception("unknown path on "+cd.getReference());
-              write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
+              write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-                AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
-                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
+                ValueSet vs = page.getValueSets().get(cd.getReference());
+                String pp = (String) vs.getTag("path");
+                write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
               BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+cd.getReference().substring(23), cd);
               if (bs1 != null)
@@ -234,9 +235,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     if (def.getReference() == null) 
       return def.getDescription();
     String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((Reference) def.getReference()).getReference();
-    AtomEntry<ValueSet> vs = page.getValueSets().get(ref);
-    if (vs != null)
-      return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+vs.getResource().getName()+"</a>"+confTail(def);
+    ValueSet vs = page.getValueSets().get(ref);
+    if (vs != null) {
+      String pp = (String) vs.getTag("path");
+      return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
+    }
     if (ref.startsWith("http:") || ref.startsWith("https:"))
       return def.getDescription()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
     else
@@ -284,8 +287,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       if (Utilities.noString(cd.getReference())) 
         return cd.getDescription();
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-        AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
-        return cd.getBindingStrength().toString()+": <a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
+        ValueSet vs = page.getValueSets().get(cd.getReference());
+        String pp = (String) vs.getTag("path");
+        return cd.getBindingStrength().toString()+": <a href=\""+pp.replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
       } else if (cd.getReferredValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
           return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";

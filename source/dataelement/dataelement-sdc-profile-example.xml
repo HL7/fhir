@@ -2,12 +2,14 @@
 <!-- This DataElement is an example reflecting the content of row 15 of the Google document:
      https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
 <DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\dataelement.xsd" xmlns="http://hl7.org/fhir">
+  <id value="sdc-gender"/>
   <text>
     <status value="generated"></status>
     <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
   </text>
   <contained>
-    <ValueSet id="de42">
+    <ValueSet>
+      <id value="de42"/>
       <!--
          Side notes:
           - "1" is not a valid code system version for AdministrativeGender

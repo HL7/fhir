@@ -2,6 +2,7 @@
 <CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
  xmlns="http://hl7.org/fhir" id="cp1">
+  <id value="asthma"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +17,8 @@
   
   <!-- The provenance resource. Identifies the author and date created-->
   <contained>
-    <Provenance id='prov1'>
+    <Provenance>
+      <id value='prov1'/>
       <target>
         <reference value="#cp1"/>
         <display value="This Careplan"/>
@@ -52,7 +54,8 @@
   
   <!-- The Condition that this careplan refers to. It is referenced from the concern. -->
   <contained>
-    <Condition id="p1">
+    <Condition>
+      <id value="p1"/>
       <subject>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
@@ -71,7 +74,8 @@
   
   <!-- The medication that the prescription refers to -->
   <contained>
-    <Medication id="med1">
+    <Medication>
+      <id value="med1"/>
       <name value="Prednisone 5mg tablet"/>
       <code>
         <coding>
@@ -85,7 +89,8 @@
   </contained>
   <!-- The sliding scale of steroids -->
   <contained>
-    <MedicationPrescription id="rx1">
+    <MedicationPrescription>
+      <id value="rx1"/>
       <text>
         <status value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">

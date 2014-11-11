@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * (informative) A container for slot(s) of time that may be available for booking appointments.
  */
-public class Availability extends Resource {
+public class Availability extends DomainResource {
 
     /**
      * External Ids for this item.
@@ -96,7 +96,7 @@ public class Availability extends Resource {
      * @return {@link #identifier} (External Ids for this item.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -113,7 +113,7 @@ public class Availability extends Resource {
      * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
     // syntactic sugar
-    public CodeableConcept addType() { 
+    public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);
       return t;
@@ -248,6 +248,7 @@ public class Availability extends Resource {
 
       public Availability copy() {
         Availability dst = new Availability();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

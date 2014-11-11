@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -545,6 +545,7 @@ public class Timing extends Type {
 
       public TimingRepeatComponent copy() {
         TimingRepeatComponent dst = new TimingRepeatComponent();
+        copyValues(dst);
         dst.frequency = frequency == null ? null : frequency.copy();
         dst.when = when == null ? null : when.copy();
         dst.duration = duration == null ? null : duration.copy();
@@ -583,7 +584,7 @@ public class Timing extends Type {
      * @return {@link #event} (Identifies specific time periods when the event should occur.)
      */
     // syntactic sugar
-    public Period addEvent() { 
+    public Period addEvent() { //3
       Period t = new Period();
       this.event.add(t);
       return t;
@@ -612,6 +613,7 @@ public class Timing extends Type {
 
       public Timing copy() {
         Timing dst = new Timing();
+        copyValues(dst);
         dst.event = new ArrayList<Period>();
         for (Period i : event)
           dst.event.add(i.copy());

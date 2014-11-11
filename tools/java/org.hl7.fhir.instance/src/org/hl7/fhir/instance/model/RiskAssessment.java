@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
  */
-public class RiskAssessment extends Resource {
+public class RiskAssessment extends DomainResource {
 
     public static class RiskAssessmentPredictionComponent extends BackboneElement {
         /**
@@ -205,6 +205,7 @@ public class RiskAssessment extends Resource {
 
       public RiskAssessmentPredictionComponent copy() {
         RiskAssessmentPredictionComponent dst = new RiskAssessmentPredictionComponent();
+        copyValues(dst);
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.probability = probability == null ? null : probability.copy();
         dst.relativeRisk = relativeRisk == null ? null : relativeRisk.copy();
@@ -453,7 +454,7 @@ public class RiskAssessment extends Resource {
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
     // syntactic sugar
-    public Reference addBasis() { 
+    public Reference addBasis() { //3
       Reference t = new Reference();
       this.basis.add(t);
       return t;
@@ -477,7 +478,7 @@ public class RiskAssessment extends Resource {
      * @return {@link #prediction} (Describes the expected outcome for the subject.)
      */
     // syntactic sugar
-    public RiskAssessmentPredictionComponent addPrediction() { 
+    public RiskAssessmentPredictionComponent addPrediction() { //3
       RiskAssessmentPredictionComponent t = new RiskAssessmentPredictionComponent();
       this.prediction.add(t);
       return t;
@@ -534,6 +535,7 @@ public class RiskAssessment extends Resource {
 
       public RiskAssessment copy() {
         RiskAssessment dst = new RiskAssessment();
+        copyValues(dst);
         dst.subject = subject == null ? null : subject.copy();
         dst.date = date == null ? null : date.copy();
         dst.condition = condition == null ? null : condition.copy();

@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -33,7 +34,7 @@ public class NarrativeGeneratorTests {
 
 	private void process(String path) throws Exception {
 	  XmlParser p = new XmlParser();
-	  Resource r = p.parse(new FileInputStream(path));
+	  DomainResource r = (DomainResource) p.parse(new FileInputStream(path));
 	  gen.generate(r);
 	  new XmlComposer().compose(new FileOutputStream("c:\\temp\\gen.xml"), r, true);
 	  

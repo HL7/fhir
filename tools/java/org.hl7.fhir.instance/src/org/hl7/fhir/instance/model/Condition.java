@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.
  */
-public class Condition extends Resource {
+public class Condition extends DomainResource {
 
     public enum ConditionStatus {
         PROVISIONAL, // This is a tentative diagnosis - still a candidate that is under consideration.
@@ -219,7 +219,7 @@ public class Condition extends Resource {
          * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
          */
     // syntactic sugar
-        public Reference addAssessment() { 
+        public Reference addAssessment() { //3
           Reference t = new Reference();
           this.assessment.add(t);
           return t;
@@ -240,6 +240,7 @@ public class Condition extends Resource {
 
       public ConditionStageComponent copy() {
         ConditionStageComponent dst = new ConditionStageComponent();
+        copyValues(dst);
         dst.summary = summary == null ? null : summary.copy();
         dst.assessment = new ArrayList<Reference>();
         for (Reference i : assessment)
@@ -297,7 +298,7 @@ public class Condition extends Resource {
          * @return {@link #detail} (Links to other relevant information, including pathology reports.)
          */
     // syntactic sugar
-        public Reference addDetail() { 
+        public Reference addDetail() { //3
           Reference t = new Reference();
           this.detail.add(t);
           return t;
@@ -318,6 +319,7 @@ public class Condition extends Resource {
 
       public ConditionEvidenceComponent copy() {
         ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.detail = new ArrayList<Reference>();
         for (Reference i : detail)
@@ -403,6 +405,7 @@ public class Condition extends Resource {
 
       public ConditionLocationComponent copy() {
         ConditionLocationComponent dst = new ConditionLocationComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.detail = detail == null ? null : detail.copy();
         return dst;
@@ -528,6 +531,7 @@ public class Condition extends Resource {
 
       public ConditionRelatedItemComponent copy() {
         ConditionRelatedItemComponent dst = new ConditionRelatedItemComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
@@ -660,7 +664,7 @@ public class Condition extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -940,7 +944,7 @@ public class Condition extends Resource {
      * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
      */
     // syntactic sugar
-    public ConditionEvidenceComponent addEvidence() { 
+    public ConditionEvidenceComponent addEvidence() { //3
       ConditionEvidenceComponent t = new ConditionEvidenceComponent();
       this.evidence.add(t);
       return t;
@@ -957,7 +961,7 @@ public class Condition extends Resource {
      * @return {@link #location} (The anatomical location where this condition manifests itself.)
      */
     // syntactic sugar
-    public ConditionLocationComponent addLocation() { 
+    public ConditionLocationComponent addLocation() { //3
       ConditionLocationComponent t = new ConditionLocationComponent();
       this.location.add(t);
       return t;
@@ -974,7 +978,7 @@ public class Condition extends Resource {
      * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
      */
     // syntactic sugar
-    public ConditionRelatedItemComponent addRelatedItem() { 
+    public ConditionRelatedItemComponent addRelatedItem() { //3
       ConditionRelatedItemComponent t = new ConditionRelatedItemComponent();
       this.relatedItem.add(t);
       return t;
@@ -1039,6 +1043,7 @@ public class Condition extends Resource {
 
       public Condition copy() {
         Condition dst = new Condition();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

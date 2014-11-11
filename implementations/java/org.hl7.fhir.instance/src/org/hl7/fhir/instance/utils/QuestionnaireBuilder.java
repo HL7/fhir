@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DateAndTime;
@@ -244,12 +245,12 @@ public class QuestionnaireBuilder {
       questionnaire.setPublisher(profile.getPublisher());
       questionnaire.setGroup(new Questionnaire.GroupComponent());
       questionnaire.getGroup().getConcept().addAll(profile.getCode());
-      questionnaire.setXmlId(nextId("qs"));
+      questionnaire.setId(nextId("qs"));
     }
 
     if (answers != null) {
       // no identifier - this is transient
-      answers.setQuestionnaire(factory.makeReference("#"+questionnaire.getXmlId()));
+      answers.setQuestionnaire(factory.makeReference("#"+questionnaire.getId()));
       answers.getContained().add(questionnaire);
       answers.setStatus(QuestionnaireAnswersStatus.INPROGRESS);
       answers.setGroup(new QuestionnaireAnswers.GroupComponent());
@@ -336,8 +337,8 @@ public class QuestionnaireBuilder {
   private void processExisting(String path, List<QuestionnaireAnswers.GroupComponent> answerGroups, List<QuestionnaireAnswers.GroupComponent> nAnswers) {
     // processing existing data
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups) {
-      List<Element> children = ((Element) ag.getTag("object")).listChildrenByName(tail(path));
-      for (Element child : children) {
+      List<Base> children = ((Element) ag.getTag("object")).listChildrenByName(tail(path));
+      for (Base child : children) {
         if (child != null) {
           QuestionnaireAnswers.GroupComponent ans = ag.addGroup();
           ans.setTag("object", child);
@@ -531,10 +532,10 @@ public class QuestionnaireBuilder {
         result.getOptions().setReference(vs.getIdentifier());
         ToolingExtensions.addFilterOnly(result.getOptions(), true); 
       } else {
-        if (Utilities.noString(vs.getXmlId())) {
-          vs.setXmlId(nextId("vs"));
+        if (Utilities.noString(vs.getId())) {
+          vs.setId(nextId("vs"));
           questionnaire.getContained().add(vs);
-          vsCache.put(vs.getIdentifier(), vs.getXmlId());
+          vsCache.put(vs.getIdentifier(), vs.getId());
           vs.setText(null);
           vs.setDefine(null);
           vs.setCompose(null);
@@ -543,7 +544,7 @@ public class QuestionnaireBuilder {
           vs.setPublisherElement(null);
           vs.setCopyrightElement(null);
         }
-        result.getOptions().setReference("#"+vs.getXmlId());
+        result.getOptions().setReference("#"+vs.getId());
       }
     }
   
@@ -558,7 +559,7 @@ public class QuestionnaireBuilder {
     if (answerGroups != null) {
 
       for (QuestionnaireAnswers.GroupComponent ag : answerGroups) {
-        List<Element> children = new ArrayList<Element>(); 
+        List<Base> children = new ArrayList<Base>(); 
 
         QuestionnaireAnswers.QuestionComponent aq = null;
         Element obj = (Element) ag.getTag("object");
@@ -570,7 +571,7 @@ public class QuestionnaireBuilder {
     } else
           children = obj.listChildrenByName(id);
 
-        for (Element child: children) {
+        for (Base child: children) {
           if (child != null) {
             if (aq == null) {
               aq = ag.addQuestion();
@@ -586,7 +587,7 @@ public class QuestionnaireBuilder {
 	}
       
   @SuppressWarnings("unchecked")
-  private Type convertType(Element value, AnswerFormat af, ValueSet vs, String path) throws Exception {
+  private Type convertType(Base value, AnswerFormat af, ValueSet vs, String path) throws Exception {
     switch (af) {
       // simple cases
     case BOOLEAN: if (value instanceof BooleanType) return (Type) value;
@@ -737,7 +738,7 @@ public class QuestionnaireBuilder {
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Extension"))
       addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
-    else if (!t.getCode().equals("Narrative"))
+    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource"))
       throw new Exception("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 

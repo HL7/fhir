@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
-public class Device extends Resource {
+public class Device extends DomainResource {
 
     /**
      * Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.
@@ -141,7 +141,7 @@ public class Device extends Resource {
      * @return {@link #identifier} (Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -479,7 +479,7 @@ public class Device extends Resource {
      * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
      */
     // syntactic sugar
-    public ContactPoint addContact() { 
+    public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
       this.contact.add(t);
       return t;
@@ -540,6 +540,7 @@ public class Device extends Resource {
 
       public Device copy() {
         Device dst = new Device();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

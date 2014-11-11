@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This is a silly exmple showing how Basic could be used to pure narrative.  (It also demonstrates all of the markup supported by narrative as a test case for narrative processing.)-->
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
+  <id value="basic-example-narrative"/>
   <text>
     <status value="additional" />
     <div xmlns="http://www.w3.org/1999/xhtml">

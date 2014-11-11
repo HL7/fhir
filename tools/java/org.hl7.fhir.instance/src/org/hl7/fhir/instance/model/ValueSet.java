@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A value set specifies a set of codes drawn from one or more code systems.
  */
-public class ValueSet extends Resource {
+public class ValueSet extends DomainResource {
 
     public enum ValuesetStatus {
         DRAFT, // This valueset is still under development.
@@ -348,7 +348,7 @@ public class ValueSet extends Resource {
          * @return {@link #concept} (Concepts in the code system.)
          */
     // syntactic sugar
-        public ConceptDefinitionComponent addConcept() { 
+        public ConceptDefinitionComponent addConcept() { //3
           ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
           return t;
@@ -364,6 +364,7 @@ public class ValueSet extends Resource {
 
       public ValueSetDefineComponent copy() {
         ValueSetDefineComponent dst = new ValueSetDefineComponent();
+        copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
@@ -568,7 +569,7 @@ public class ValueSet extends Resource {
          * @return {@link #designation} (Additional representations for the concept - other languages, aliases, specialised purposes, used for particular purposes, etc.)
          */
     // syntactic sugar
-        public ConceptDefinitionDesignationComponent addDesignation() { 
+        public ConceptDefinitionDesignationComponent addDesignation() { //3
           ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
           this.designation.add(t);
           return t;
@@ -585,7 +586,7 @@ public class ValueSet extends Resource {
          * @return {@link #concept} (Child Concepts (is-a / contains).)
          */
     // syntactic sugar
-        public ConceptDefinitionComponent addConcept() { 
+        public ConceptDefinitionComponent addConcept() { //3
           ConceptDefinitionComponent t = new ConceptDefinitionComponent();
           this.concept.add(t);
           return t;
@@ -603,6 +604,7 @@ public class ValueSet extends Resource {
 
       public ConceptDefinitionComponent copy() {
         ConceptDefinitionComponent dst = new ConceptDefinitionComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.display = display == null ? null : display.copy();
@@ -737,6 +739,7 @@ public class ValueSet extends Resource {
 
       public ConceptDefinitionDesignationComponent copy() {
         ConceptDefinitionDesignationComponent dst = new ConceptDefinitionDesignationComponent();
+        copyValues(dst);
         dst.language = language == null ? null : language.copy();
         dst.use = use == null ? null : use.copy();
         dst.value = value == null ? null : value.copy();
@@ -778,7 +781,7 @@ public class ValueSet extends Resource {
          * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
     // syntactic sugar
-        public UriType addImportElement() { 
+        public UriType addImportElement() {//2 
           UriType t = new UriType();
           this.import_.add(t);
           return t;
@@ -787,7 +790,7 @@ public class ValueSet extends Resource {
         /**
          * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
-        public ValueSetComposeComponent addImport(String value) { 
+        public ValueSetComposeComponent addImport(String value) { //1
           UriType t = new UriType();
           t.setValue(value);
           this.import_.add(t);
@@ -815,7 +818,7 @@ public class ValueSet extends Resource {
          * @return {@link #include} (Include one or more codes from a code system.)
          */
     // syntactic sugar
-        public ConceptSetComponent addInclude() { 
+        public ConceptSetComponent addInclude() { //3
           ConceptSetComponent t = new ConceptSetComponent();
           this.include.add(t);
           return t;
@@ -832,7 +835,7 @@ public class ValueSet extends Resource {
          * @return {@link #exclude} (Exclude one or more codes from the value set.)
          */
     // syntactic sugar
-        public ConceptSetComponent addExclude() { 
+        public ConceptSetComponent addExclude() { //3
           ConceptSetComponent t = new ConceptSetComponent();
           this.exclude.add(t);
           return t;
@@ -847,6 +850,7 @@ public class ValueSet extends Resource {
 
       public ValueSetComposeComponent copy() {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
+        copyValues(dst);
         dst.import_ = new ArrayList<UriType>();
         for (UriType i : import_)
           dst.import_.add(i.copy());
@@ -972,7 +976,7 @@ public class ValueSet extends Resource {
          * @return {@link #concept} (Specifies a concept to be included or excluded.)
          */
     // syntactic sugar
-        public ConceptReferenceComponent addConcept() { 
+        public ConceptReferenceComponent addConcept() { //3
           ConceptReferenceComponent t = new ConceptReferenceComponent();
           this.concept.add(t);
           return t;
@@ -989,7 +993,7 @@ public class ValueSet extends Resource {
          * @return {@link #filter} (Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.)
          */
     // syntactic sugar
-        public ConceptSetFilterComponent addFilter() { 
+        public ConceptSetFilterComponent addFilter() { //3
           ConceptSetFilterComponent t = new ConceptSetFilterComponent();
           this.filter.add(t);
           return t;
@@ -1005,6 +1009,7 @@ public class ValueSet extends Resource {
 
       public ConceptSetComponent copy() {
         ConceptSetComponent dst = new ConceptSetComponent();
+        copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.concept = new ArrayList<ConceptReferenceComponent>();
@@ -1124,7 +1129,7 @@ public class ValueSet extends Resource {
          * @return {@link #designation} (Additional representations for this concept when used in this value set - other languages, aliases, specialised purposes, used for particular purposes, etc.)
          */
     // syntactic sugar
-        public ConceptDefinitionDesignationComponent addDesignation() { 
+        public ConceptDefinitionDesignationComponent addDesignation() { //3
           ConceptDefinitionDesignationComponent t = new ConceptDefinitionDesignationComponent();
           this.designation.add(t);
           return t;
@@ -1139,6 +1144,7 @@ public class ValueSet extends Resource {
 
       public ConceptReferenceComponent copy() {
         ConceptReferenceComponent dst = new ConceptReferenceComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
         dst.designation = new ArrayList<ConceptDefinitionDesignationComponent>();
@@ -1283,6 +1289,7 @@ public class ValueSet extends Resource {
 
       public ConceptSetFilterComponent copy() {
         ConceptSetFilterComponent dst = new ConceptSetFilterComponent();
+        copyValues(dst);
         dst.property = property == null ? null : property.copy();
         dst.op = op == null ? null : op.copy();
         dst.value = value == null ? null : value.copy();
@@ -1376,7 +1383,7 @@ public class ValueSet extends Resource {
          * @return {@link #contains} (Codes in the value set.)
          */
     // syntactic sugar
-        public ValueSetExpansionContainsComponent addContains() { 
+        public ValueSetExpansionContainsComponent addContains() { //3
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           this.contains.add(t);
           return t;
@@ -1391,6 +1398,7 @@ public class ValueSet extends Resource {
 
       public ValueSetExpansionComponent copy() {
         ValueSetExpansionComponent dst = new ValueSetExpansionComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
@@ -1629,7 +1637,7 @@ public class ValueSet extends Resource {
          * @return {@link #contains} (Codes contained in this concept.)
          */
     // syntactic sugar
-        public ValueSetExpansionContainsComponent addContains() { 
+        public ValueSetExpansionContainsComponent addContains() { //3
           ValueSetExpansionContainsComponent t = new ValueSetExpansionContainsComponent();
           this.contains.add(t);
           return t;
@@ -1647,6 +1655,7 @@ public class ValueSet extends Resource {
 
       public ValueSetExpansionContainsComponent copy() {
         ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
+        copyValues(dst);
         dst.system = system == null ? null : system.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.version = version == null ? null : version.copy();
@@ -1983,7 +1992,7 @@ public class ValueSet extends Resource {
      * @return {@link #telecom} (Contacts of the publisher to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -2305,6 +2314,7 @@ public class ValueSet extends Resource {
 
       public ValueSet copy() {
         ValueSet dst = new ValueSet();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();

@@ -2,7 +2,7 @@
 <!--
 This XML file includes a set of resources that test out difficult cases 
 for servers to handle as part of a batch post
- --><feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+ --><feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/bundle.xsd">
 	<title>FHIR Test Cases</title>
 	<id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
 	<link rel="self" href="http://www.hl7.org/fhir/test-cases.xml"/>

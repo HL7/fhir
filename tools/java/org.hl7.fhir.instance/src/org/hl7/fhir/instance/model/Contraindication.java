@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
  */
-public class Contraindication extends Resource {
+public class Contraindication extends DomainResource {
 
     public static class ContraindicationMitigationComponent extends BackboneElement {
         /**
@@ -161,6 +161,7 @@ public class Contraindication extends Resource {
 
       public ContraindicationMitigationComponent copy() {
         ContraindicationMitigationComponent dst = new ContraindicationMitigationComponent();
+        copyValues(dst);
         dst.action = action == null ? null : action.copy();
         dst.date = date == null ? null : date.copy();
         dst.author = author == null ? null : author.copy();
@@ -332,7 +333,7 @@ public class Contraindication extends Resource {
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that.)
      */
     // syntactic sugar
-    public Reference addImplicated() { 
+    public Reference addImplicated() { //3
       Reference t = new Reference();
       this.implicated.add(t);
       return t;
@@ -509,7 +510,7 @@ public class Contraindication extends Resource {
      * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
     // syntactic sugar
-    public ContraindicationMitigationComponent addMitigation() { 
+    public ContraindicationMitigationComponent addMitigation() { //3
       ContraindicationMitigationComponent t = new ContraindicationMitigationComponent();
       this.mitigation.add(t);
       return t;
@@ -531,6 +532,7 @@ public class Contraindication extends Resource {
 
       public Contraindication copy() {
         Contraindication dst = new Contraindication();
+        copyValues(dst);
         dst.patient = patient == null ? null : patient.copy();
         dst.category = category == null ? null : category.copy();
         dst.severity = severity == null ? null : severity.copy();

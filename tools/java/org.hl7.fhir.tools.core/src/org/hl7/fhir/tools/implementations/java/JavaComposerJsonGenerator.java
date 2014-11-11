@@ -47,9 +47,10 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.tools.implementations.java.JavaParserJsonGenerator.JavaGenClass;
 
 public class JavaComposerJsonGenerator extends OutputStreamWriter {
-  public enum JavaGenClass { Structure, Type, Resource, Constraint, Backbone }
+  public enum JavaGenClass { Structure, Type, Resource, AbstractResource, Constraint, Backbone }
 
   private Definitions definitions;
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -108,8 +109,11 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
     }
     
-    genReference();
-
+    for (String s : definitions.getBaseResources().keySet()) {
+      ResourceDefn n = definitions.getBaseResources().get(s);
+      generate(n.getRoot(), JavaGenClass.AbstractResource);
+    }
+    
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
       generate(n.getRoot(), JavaGenClass.Resource);
@@ -141,9 +145,9 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("          prop(null,  s);\r\n");
     write("         closeArray();\r\n");
     write("      }\r\n");
-    write("    if (element.getExtensions().size() > 0) {\r\n");
+    write("    if (element.getExtension().size() > 0) {\r\n");
     write("      openArray(\"extension\");\r\n");
-    write("      for (Extension ex : element.getExtensions())\r\n");
+    write("      for (Extension ex : element.getExtension())\r\n");
     write("        composeExtension(null, ex);\r\n");
     write("      closeArray();\r\n");
     write("    }\r\n");
@@ -151,38 +155,14 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("\r\n");
     write("  private void composeBackbone(BackboneElement element) throws Exception {\r\n");
     write("    composeElement(element);\r\n");
-    write("    if (element.getModifierExtensions().size() > 0) {\r\n");
+    write("    if (element.getModifierExtension().size() > 0) {\r\n");
     write("      openArray(\"modifierExtension\");\r\n");
-    write("      for (Extension ex : element.getModifierExtensions())\r\n");
+    write("      for (Extension ex : element.getModifierExtension())\r\n");
     write("        composeExtension(null, ex);\r\n");
     write("      closeArray();\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
-  }
-
-  private void genReference() throws Exception {    
-    write("  private void composeResourceElements(Resource element) throws Exception {\r\n");
-    write("    composeBackbone(element);\r\n");
-    write("    if (element.getText() != null)\r\n");
-    write("      composeNarrative(\"text\", element.getText());\r\n");
-    write("    if (element.getLanguageElement() != null) {\r\n");
-    write("      composeCodeCore(\"language\", element.getLanguageElement(), false);\r\n");
-    write("      composeCodeExtras(\"language\", element.getLanguageElement(), false);\r\n");
-    write("    }\r\n");
-    write("    if (element.getContained().size() > 0) {\r\n");
-    write("      openArray(\"contained\");\r\n");
-    write("      for (Resource r : element.getContained()) {\r\n");
-    write("        if (r.getXmlId() == null)\r\n");
-    write("          throw new Exception(\"Contained Resource has no id - one must be assigned\"); // we can't assign one here - what points to it?\r\n");
-    write("        open(null);\r\n");
-    write("        composeResource(r);\r\n");
-    write("        close();\r\n");
-    write("      }\r\n");
-    write("      closeArray();\r\n");
-    write("    }\r\n");
-    write("  }\r\n");
-    write("\r\n");		
   }
 
   private String javaClassName(String name) {
@@ -288,10 +268,13 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     }
     context = nn;
 
-    genInner(n, clss);
+    if (clss == JavaGenClass.AbstractResource)
+      genInnerAbstract(n);
+    else
+      genInner(n, clss);
     
     for (ElementDefn e : strucs) {
-      genInner(e, clss == JavaGenClass.Resource ? JavaGenClass.Backbone : JavaGenClass.Structure);
+      genInner(e, (clss == JavaGenClass.Resource || clss == JavaGenClass.AbstractResource) ? JavaGenClass.Backbone : JavaGenClass.Structure);
     }
 
   }
@@ -334,13 +317,24 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("  }\r\n\r\n");    
     write("  private void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws Exception {\r\n");
     if (clss == JavaGenClass.Resource) 
-      write("      composeResourceElements(element);\r\n");
+      write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (clss == JavaGenClass.Backbone) 
       write("      composeBackbone(element);\r\n");
     else
       write("      composeElement(element);\r\n");
     for (ElementDefn e : n.getElements()) 
       genElement(n, e, clss);
+    write("  }\r\n\r\n");    
+  }
+
+  private void genInnerAbstract(ElementDefn n) throws IOException, Exception {
+    String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
+    
+    write("  private void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
+    if (!n.typeCode().equals("Any")) 
+      write("      compose"+n.typeCode()+"Elements(element);\r\n");
+    for (ElementDefn e : n.getElements()) 
+      genElement(n, e, JavaGenClass.Backbone);
     write("  }\r\n\r\n");    
   }
 

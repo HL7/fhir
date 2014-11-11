@@ -36,11 +36,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
@@ -166,11 +164,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   	parseElementAttributes(xpp, e);
   }
 
-  protected void parseResourceAttributes(XmlPullParser xpp, Resource r) throws Exception {
-    parseElementAttributes(xpp, r);
-  }
-
-
   private String pathForLocation(XmlPullParser xpp) {
     return xpp.getPositionDescription();
   }
@@ -186,10 +179,8 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     
     if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("TagList"))
       r.setResource(parseResource(xpp));
-    else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("Taglist"))
-      r.setTaglist(parseTagList(xpp));
-    else if (xpp.getNamespace().equals(ATOM_NS)) 
-      r.setFeed(parseFeed(xpp));
+//    else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("Taglist"))
+//        r.setTaglist(parseTagList(xpp));
     else
     	throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return r;    
@@ -246,141 +237,25 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 //    return res;
 //  }
 
-  private AtomFeed parseFeed(XmlPullParser xpp) throws Exception {
-    if (!(xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))))
-      throw new Exception("This does not appear to be an atom feed (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
-    return parseAtom(xpp);
-  }
-
-  private List<AtomCategory> parseTagList(XmlPullParser xpp) throws Exception {
-  	List<AtomCategory> res = new ArrayList<AtomCategory>();
-    if (!xpp.getName().equalsIgnoreCase("Taglist")) //Seems like Taglist, taglist or TagList is being returned
-      throw new Exception("This does not appear to be a tag list (wrong name '"+xpp.getName()+"') (@ /)");
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        res.add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
-        skipEmptyElement(xpp);
-      } else
-        skipElementWithContent(xpp);
-  	
-      eventType = nextNoWhitespace(xpp);
-    }
-
-    return res;  
-  }
-
-  private AtomFeed parseAtom(XmlPullParser xpp) throws Exception {
-    AtomFeed res = new AtomFeed();
-    if (!(xpp.getName().equals("feed")||xpp.getName().equalsIgnoreCase("TagList")))
-      throw new Exception("This does not appear to be an atom feed (wrong name '"+xpp.getName()+"') (@ /)");
-    xpp.next();
-    
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("title")) {
-        res.setTitle(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("id"))
-        res.setId(parseString(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("link")){
-        res.getLinks().put(xpp.getAttributeValue(null, "rel"), xpp.getAttributeValue(null, "href"));
-        skipEmptyElement(xpp);
-      } else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("updated"))
-        res.setUpdated(parseDate(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        res.getTags().add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
-        skipEmptyElement(xpp);
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("entry"))
-        res.getEntryList().add(parseEntry(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
-        xpp.next();
-        eventType = nextNoWhitespace(xpp);
-        while (eventType != XmlPullParser.END_TAG) {
-          if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-            res.setAuthorName(parseString(xpp));
-          } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uri"))
-            res.setAuthorUri(parseString(xpp));
-          else
-            throw new Exception("Bad Xml parsing entry.author");
-          eventType = nextNoWhitespace(xpp);
-        }
-        xpp.next();
-      }else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("totalResults")){
-        res.setTotalResults(parseInt(xpp));
-      }
-      else
-        skipElementWithContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-
-    return res;  
-  }
-
-  @SuppressWarnings("unchecked")
-  private <T extends Resource> AtomEntry<T> parseEntry(XmlPullParser xpp) throws Exception {
-    AtomEntry<T> res = new AtomEntry<T>();
-    
-    xpp.next();    
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("title")) {
-        res.setTitle(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("id"))
-        res.setId(parseString(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("link")) {
-        res.getLinks().put(xpp.getAttributeValue(null, "rel"), xpp.getAttributeValue(null, "href"));
-        skipEmptyElement(xpp);
-      } else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("updated"))
-        res.setUpdated(parseDate(xpp));
-      else if(eventType == XmlPullParser.START_TAG && xpp.getName().equals("published"))
-        res.setPublished(parseDate(xpp));
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-        res.getTags().add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
-        skipEmptyElement(xpp);
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
-        xpp.next();
-        eventType = nextNoWhitespace(xpp);
-        while (eventType != XmlPullParser.END_TAG) {
-          if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-            res.setAuthorName(parseString(xpp));
-          } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uri"))
-            res.setAuthorUri(parseString(xpp));
-          else
-            throw new Exception("Bad Xml parsing entry.author");
-          eventType = nextNoWhitespace(xpp);
-        }
-        xpp.next();
-      }
-      else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("content")) {
-        xpp.next();
-        nextNoWhitespace(xpp);
-        XmlParser p = new XmlParser();
-        p.setAllowUnknownContent(this.isAllowUnknownContent());
-        res.setResource((T)p.parse(xpp));//TODO Refactor architecture to eliminate this unsafe cast and better support generics
-        xpp.next();
-        nextNoWhitespace(xpp);
-        if (xpp.getName().equals("content")){
-        	xpp.next();
-        }
-        
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("summary")) {
-        xpp.next();
-        nextNoWhitespace(xpp);
-        res.setSummary(new XhtmlParser().parseHtmlNode(xpp));
-        xpp.next();
-        nextNoWhitespace(xpp);
-        if(xpp.getName().equals("summary")) {
-        	xpp.next();
-        }
-      } else
-        throw new Exception("Bad Xml parsing entry");
-      eventType = nextNoWhitespace(xpp);
-    }
-
-    xpp.next();
-    return res;  
-  }
+//  private List<AtomCategory> parseTagList(XmlPullParser xpp) throws Exception {
+//  	List<AtomCategory> res = new ArrayList<AtomCategory>();
+//    if (!xpp.getName().equalsIgnoreCase("Taglist")) //Seems like Taglist, taglist or TagList is being returned
+//      throw new Exception("This does not appear to be a tag list (wrong name '"+xpp.getName()+"') (@ /)");
+//    next(xpp);
+//    int eventType = nextNoWhitespace(xpp);
+//    while (eventType != XmlPullParser.END_TAG) {
+//      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+//        res.add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
+//        skipEmptyElement(xpp);
+//      } else
+//        skipElementWithContent(xpp);
+//  	
+//      eventType = nextNoWhitespace(xpp);
+//    }
+//
+//    return res;  
+//  }
+//
 
   private String parseString(XmlPullParser xpp) throws Exception {
     StringBuilder res = new StringBuilder();
@@ -413,5 +288,30 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 
   protected abstract Type parseType(XmlPullParser xml, String type) throws Exception;
  
- 
+  protected DomainResource parseDomainResourceContained(XmlPullParser xpp) throws Exception {
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    if (eventType == XmlPullParser.START_TAG) { 
+      DomainResource dr = (DomainResource) parseResource(xpp);
+      next(xpp);
+      next(xpp);
+      return dr;
+    } else {
+      unknownContent(xpp);
+      return null;
+    }
+  } 
+  protected Resource parseResourceContained(XmlPullParser xpp) throws Exception {
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    if (eventType == XmlPullParser.START_TAG) { 
+      Resource r = (Resource) parseResource(xpp);
+      next(xpp);
+      next(xpp);
+      return r;
+    } else {
+      unknownContent(xpp);
+      return null;
+    }
+  } 
 }

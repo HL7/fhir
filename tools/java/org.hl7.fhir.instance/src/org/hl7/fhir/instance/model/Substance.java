@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A homogeneous material with a definite composition.
  */
-public class Substance extends Resource {
+public class Substance extends DomainResource {
 
     public static class SubstanceInstanceComponent extends BackboneElement {
         /**
@@ -136,6 +136,7 @@ public class Substance extends Resource {
 
       public SubstanceInstanceComponent copy() {
         SubstanceInstanceComponent dst = new SubstanceInstanceComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.expiry = expiry == null ? null : expiry.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
@@ -224,6 +225,7 @@ public class Substance extends Resource {
 
       public SubstanceIngredientComponent copy() {
         SubstanceIngredientComponent dst = new SubstanceIngredientComponent();
+        copyValues(dst);
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.substance = substance == null ? null : substance.copy();
         return dst;
@@ -339,7 +341,7 @@ public class Substance extends Resource {
      * @return {@link #ingredient} (A substance can be composed of other substances.)
      */
     // syntactic sugar
-    public SubstanceIngredientComponent addIngredient() { 
+    public SubstanceIngredientComponent addIngredient() { //3
       SubstanceIngredientComponent t = new SubstanceIngredientComponent();
       this.ingredient.add(t);
       return t;
@@ -355,6 +357,7 @@ public class Substance extends Resource {
 
       public Substance copy() {
         Substance dst = new Substance();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
         dst.instance = instance == null ? null : instance.copy();

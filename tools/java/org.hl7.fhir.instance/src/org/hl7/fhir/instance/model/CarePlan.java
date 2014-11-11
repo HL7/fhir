@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
-public class CarePlan extends Resource {
+public class CarePlan extends DomainResource {
 
     public enum CarePlanStatus {
         PLANNED, // The plan is in development or awaiting use but is not yet intended to be acted upon.
@@ -463,6 +463,7 @@ public class CarePlan extends Resource {
 
       public CarePlanParticipantComponent copy() {
         CarePlanParticipantComponent dst = new CarePlanParticipantComponent();
+        copyValues(dst);
         dst.role = role == null ? null : role.copy();
         dst.member = member == null ? null : member.copy();
         return dst;
@@ -622,7 +623,7 @@ public class CarePlan extends Resource {
          * @return {@link #concern} (The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.)
          */
     // syntactic sugar
-        public Reference addConcern() { 
+        public Reference addConcern() { //3
           Reference t = new Reference();
           this.concern.add(t);
           return t;
@@ -655,6 +656,7 @@ public class CarePlan extends Resource {
 
       public CarePlanGoalComponent copy() {
         CarePlanGoalComponent dst = new CarePlanGoalComponent();
+        copyValues(dst);
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.notes = notes == null ? null : notes.copy();
@@ -734,7 +736,7 @@ public class CarePlan extends Resource {
          * @return {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
     // syntactic sugar
-        public UriType addGoalElement() { 
+        public UriType addGoalElement() {//2 
           UriType t = new UriType();
           this.goal.add(t);
           return t;
@@ -743,7 +745,7 @@ public class CarePlan extends Resource {
         /**
          * @param value {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
          */
-        public CarePlanActivityComponent addGoal(String value) { 
+        public CarePlanActivityComponent addGoal(String value) { //1
           UriType t = new UriType();
           t.setValue(value);
           this.goal.add(t);
@@ -839,7 +841,7 @@ public class CarePlan extends Resource {
          * @return {@link #actionResulting} (Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.)
          */
     // syntactic sugar
-        public Reference addActionResulting() { 
+        public Reference addActionResulting() { //3
           Reference t = new Reference();
           this.actionResulting.add(t);
           return t;
@@ -946,6 +948,7 @@ public class CarePlan extends Resource {
 
       public CarePlanActivityComponent copy() {
         CarePlanActivityComponent dst = new CarePlanActivityComponent();
+        copyValues(dst);
         dst.goal = new ArrayList<UriType>();
         for (UriType i : goal)
           dst.goal.add(i.copy());
@@ -1137,7 +1140,7 @@ public class CarePlan extends Resource {
          * @return {@link #performer} (Identifies who's expected to be involved in the activity.)
          */
     // syntactic sugar
-        public Reference addPerformer() { 
+        public Reference addPerformer() { //3
           Reference t = new Reference();
           this.performer.add(t);
           return t;
@@ -1261,6 +1264,7 @@ public class CarePlan extends Resource {
 
       public CarePlanActivitySimpleComponent copy() {
         CarePlanActivitySimpleComponent dst = new CarePlanActivitySimpleComponent();
+        copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
@@ -1359,7 +1363,7 @@ public class CarePlan extends Resource {
      * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1489,7 +1493,7 @@ public class CarePlan extends Resource {
      * @return {@link #concern} (Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.)
      */
     // syntactic sugar
-    public Reference addConcern() { 
+    public Reference addConcern() { //3
       Reference t = new Reference();
       this.concern.add(t);
       return t;
@@ -1523,7 +1527,7 @@ public class CarePlan extends Resource {
      * @return {@link #participant} (Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.)
      */
     // syntactic sugar
-    public CarePlanParticipantComponent addParticipant() { 
+    public CarePlanParticipantComponent addParticipant() { //3
       CarePlanParticipantComponent t = new CarePlanParticipantComponent();
       this.participant.add(t);
       return t;
@@ -1540,7 +1544,7 @@ public class CarePlan extends Resource {
      * @return {@link #goal} (Describes the intended objective(s) of carrying out the Care Plan.)
      */
     // syntactic sugar
-    public CarePlanGoalComponent addGoal() { 
+    public CarePlanGoalComponent addGoal() { //3
       CarePlanGoalComponent t = new CarePlanGoalComponent();
       this.goal.add(t);
       return t;
@@ -1557,7 +1561,7 @@ public class CarePlan extends Resource {
      * @return {@link #activity} (Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
     // syntactic sugar
-    public CarePlanActivityComponent addActivity() { 
+    public CarePlanActivityComponent addActivity() { //3
       CarePlanActivityComponent t = new CarePlanActivityComponent();
       this.activity.add(t);
       return t;
@@ -1615,6 +1619,7 @@ public class CarePlan extends Resource {
 
       public CarePlan copy() {
         CarePlan dst = new CarePlan();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

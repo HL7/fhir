@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+    <id value="example"/>
     <text>
         <status value="additional"></status>
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +13,8 @@
         </div>
     </text>
     <contained>
-      <Condition id="p1">
+      <Condition>
+        <id value="p1"/>
         <subject>
           <reference value="Patient/example"/>
           <display value="Peter James Chalmers"/>
@@ -24,7 +26,8 @@
       </Condition>
     </contained>
     <contained>
-      <Practitioner id="pr1">
+      <Practitioner>
+        <id value="pr1"/>
           <name>
             <family value="Dietician"/>
             <given value="Dorothy"/>

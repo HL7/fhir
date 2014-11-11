@@ -44,7 +44,7 @@ public class Property {
 	/**
 	 * The actual elements that exist on this instance
 	 */
-	public List<Element> values = new ArrayList<Element>();
+	public List<Base> values = new ArrayList<Base>();
 
 
 	/**
@@ -63,7 +63,7 @@ public class Property {
 	/**
 	 * Internal constructor
 	 */
-	public Property(String name, String typeCode, String definition, int minCardinality, int maxCardinality, List<? extends Element> values) {
+	public Property(String name, String typeCode, String definition, int minCardinality, int maxCardinality, List<? extends Base> values) {
 	  super();
 	  this.name = name;
 	  this.typeCode = typeCode;
@@ -111,12 +111,12 @@ public class Property {
 	/**
 	 * @return the actual values - will only be 1 unless maximum cardinality == MAX_INT
 	 */
-	public List<Element> getValues() {
+	public List<Base> getValues() {
 		return values;
 	}
 
   public boolean hasValues() {
-    for (Element e : getValues())
+    for (Base e : getValues())
       if (e != null)
         return true;
     return false;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\media.xsd">
+  <id value="1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
   <!-- 
     this is added to demonstrate the use of extensions.
     0002,0010 is the DICOM transfer syntax of the referenced image

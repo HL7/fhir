@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A collection of error, warning or information messages that result from a system action.
  */
-public class OperationOutcome extends Resource {
+public class OperationOutcome extends DomainResource {
 
     public enum IssueSeverity {
         FATAL, // The issue caused the action to fail, and no further checking could be performed.
@@ -241,7 +241,7 @@ public class OperationOutcome extends Resource {
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
     // syntactic sugar
-        public StringType addLocationElement() { 
+        public StringType addLocationElement() {//2 
           StringType t = new StringType();
           this.location.add(t);
           return t;
@@ -250,7 +250,7 @@ public class OperationOutcome extends Resource {
         /**
          * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
-        public OperationOutcomeIssueComponent addLocation(String value) { 
+        public OperationOutcomeIssueComponent addLocation(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
           this.location.add(t);
@@ -277,6 +277,7 @@ public class OperationOutcome extends Resource {
 
       public OperationOutcomeIssueComponent copy() {
         OperationOutcomeIssueComponent dst = new OperationOutcomeIssueComponent();
+        copyValues(dst);
         dst.severity = severity == null ? null : severity.copy();
         dst.type = type == null ? null : type.copy();
         dst.details = details == null ? null : details.copy();
@@ -310,7 +311,7 @@ public class OperationOutcome extends Resource {
      * @return {@link #issue} (An error, warning or information message that results from a system action.)
      */
     // syntactic sugar
-    public OperationOutcomeIssueComponent addIssue() { 
+    public OperationOutcomeIssueComponent addIssue() { //3
       OperationOutcomeIssueComponent t = new OperationOutcomeIssueComponent();
       this.issue.add(t);
       return t;
@@ -323,6 +324,7 @@ public class OperationOutcome extends Resource {
 
       public OperationOutcome copy() {
         OperationOutcome dst = new OperationOutcome();
+        copyValues(dst);
         dst.issue = new ArrayList<OperationOutcomeIssueComponent>();
         for (OperationOutcomeIssueComponent i : issue)
           dst.issue.add(i.copy());

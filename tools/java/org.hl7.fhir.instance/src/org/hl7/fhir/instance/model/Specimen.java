@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Sample for analysis.
  */
-public class Specimen extends Resource {
+public class Specimen extends DomainResource {
 
     public enum HierarchicalRelationshipType {
         PARENT, // The target resource is the parent of the focal specimen resource.
@@ -165,7 +165,7 @@ public class Specimen extends Resource {
          * @return {@link #target} (The specimen resource that is the target of this relationship.)
          */
     // syntactic sugar
-        public Reference addTarget() { 
+        public Reference addTarget() { //3
           Reference t = new Reference();
           this.target.add(t);
           return t;
@@ -196,6 +196,7 @@ public class Specimen extends Resource {
 
       public SpecimenSourceComponent copy() {
         SpecimenSourceComponent dst = new SpecimenSourceComponent();
+        copyValues(dst);
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.target = new ArrayList<Reference>();
         for (Reference i : target)
@@ -288,7 +289,7 @@ public class Specimen extends Resource {
          * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
     // syntactic sugar
-        public StringType addCommentElement() { 
+        public StringType addCommentElement() {//2 
           StringType t = new StringType();
           this.comment.add(t);
           return t;
@@ -297,7 +298,7 @@ public class Specimen extends Resource {
         /**
          * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
          */
-        public SpecimenCollectionComponent addComment(String value) { 
+        public SpecimenCollectionComponent addComment(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
           this.comment.add(t);
@@ -386,6 +387,7 @@ public class Specimen extends Resource {
 
       public SpecimenCollectionComponent copy() {
         SpecimenCollectionComponent dst = new SpecimenCollectionComponent();
+        copyValues(dst);
         dst.collector = collector == null ? null : collector.copy();
         dst.comment = new ArrayList<StringType>();
         for (StringType i : comment)
@@ -488,7 +490,7 @@ public class Specimen extends Resource {
          * @return {@link #additive} (Material used in the processing step.)
          */
     // syntactic sugar
-        public Reference addAdditive() { 
+        public Reference addAdditive() { //3
           Reference t = new Reference();
           this.additive.add(t);
           return t;
@@ -520,6 +522,7 @@ public class Specimen extends Resource {
 
       public SpecimenTreatmentComponent copy() {
         SpecimenTreatmentComponent dst = new SpecimenTreatmentComponent();
+        copyValues(dst);
         dst.description = description == null ? null : description.copy();
         dst.procedure = procedure == null ? null : procedure.copy();
         dst.additive = new ArrayList<Reference>();
@@ -583,7 +586,7 @@ public class Specimen extends Resource {
          * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
          */
     // syntactic sugar
-        public Identifier addIdentifier() { 
+        public Identifier addIdentifier() { //3
           Identifier t = new Identifier();
           this.identifier.add(t);
           return t;
@@ -712,6 +715,7 @@ public class Specimen extends Resource {
 
       public SpecimenContainerComponent copy() {
         SpecimenContainerComponent dst = new SpecimenContainerComponent();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
@@ -797,7 +801,7 @@ public class Specimen extends Resource {
      * @return {@link #identifier} (Id for specimen.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -829,7 +833,7 @@ public class Specimen extends Resource {
      * @return {@link #source} (Parent specimen from which the focal specimen was a component.)
      */
     // syntactic sugar
-    public SpecimenSourceComponent addSource() { 
+    public SpecimenSourceComponent addSource() { //3
       SpecimenSourceComponent t = new SpecimenSourceComponent();
       this.source.add(t);
       return t;
@@ -942,7 +946,7 @@ public class Specimen extends Resource {
      * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
      */
     // syntactic sugar
-    public SpecimenTreatmentComponent addTreatment() { 
+    public SpecimenTreatmentComponent addTreatment() { //3
       SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
       this.treatment.add(t);
       return t;
@@ -959,7 +963,7 @@ public class Specimen extends Resource {
      * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
     // syntactic sugar
-    public SpecimenContainerComponent addContainer() { 
+    public SpecimenContainerComponent addContainer() { //3
       SpecimenContainerComponent t = new SpecimenContainerComponent();
       this.container.add(t);
       return t;
@@ -980,6 +984,7 @@ public class Specimen extends Resource {
 
       public Specimen copy() {
         Specimen dst = new Specimen();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions.
  */
-public class Profile extends Resource {
+public class Profile extends DomainResource {
 
     public enum ResourceProfileStatus {
         DRAFT, // This profile is still under development.
@@ -393,6 +393,7 @@ public class Profile extends Resource {
 
       public ProfileMappingComponent copy() {
         ProfileMappingComponent dst = new ProfileMappingComponent();
+        copyValues(dst);
         dst.identity = identity == null ? null : identity.copy();
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
@@ -668,7 +669,7 @@ public class Profile extends Resource {
          * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
          */
     // syntactic sugar
-        public ProfileStructureSearchParamComponent addSearchParam() { 
+        public ProfileStructureSearchParamComponent addSearchParam() { //3
           ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
           this.searchParam.add(t);
           return t;
@@ -688,6 +689,7 @@ public class Profile extends Resource {
 
       public ProfileStructureComponent copy() {
         ProfileStructureComponent dst = new ProfileStructureComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.base = base == null ? null : base.copy();
         dst.name = name == null ? null : name.copy();
@@ -726,7 +728,7 @@ public class Profile extends Resource {
          * @return {@link #element} (Captures constraints on each element within the resource.)
          */
     // syntactic sugar
-        public ElementDefinition addElement() { 
+        public ElementDefinition addElement() { //3
           ElementDefinition t = new ElementDefinition();
           this.element.add(t);
           return t;
@@ -739,6 +741,7 @@ public class Profile extends Resource {
 
       public ConstraintComponent copy() {
         ConstraintComponent dst = new ConstraintComponent();
+        copyValues(dst);
         dst.element = new ArrayList<ElementDefinition>();
         for (ElementDefinition i : element)
           dst.element.add(i.copy());
@@ -929,7 +932,7 @@ public class Profile extends Resource {
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
     // syntactic sugar
-        public CodeType addTargetElement() { 
+        public CodeType addTargetElement() {//2 
           CodeType t = new CodeType();
           this.target.add(t);
           return t;
@@ -938,7 +941,7 @@ public class Profile extends Resource {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public ProfileStructureSearchParamComponent addTarget(String value) { 
+        public ProfileStructureSearchParamComponent addTarget(String value) { //1
           CodeType t = new CodeType();
           t.setValue(value);
           this.target.add(t);
@@ -966,6 +969,7 @@ public class Profile extends Resource {
 
       public ProfileStructureSearchParamComponent copy() {
         ProfileStructureSearchParamComponent dst = new ProfileStructureSearchParamComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
@@ -1109,7 +1113,7 @@ public class Profile extends Resource {
      * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -1230,7 +1234,7 @@ public class Profile extends Resource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -1283,7 +1287,7 @@ public class Profile extends Resource {
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
     // syntactic sugar
-    public Coding addCode() { 
+    public Coding addCode() { //3
       Coding t = new Coding();
       this.code.add(t);
       return t;
@@ -1476,7 +1480,7 @@ public class Profile extends Resource {
      * @return {@link #mapping} (An external specification that the content is mapped to.)
      */
     // syntactic sugar
-    public ProfileMappingComponent addMapping() { 
+    public ProfileMappingComponent addMapping() { //3
       ProfileMappingComponent t = new ProfileMappingComponent();
       this.mapping.add(t);
       return t;
@@ -1493,7 +1497,7 @@ public class Profile extends Resource {
      * @return {@link #structure} (A constraint statement about what contents a resource or data type may have.)
      */
     // syntactic sugar
-    public ProfileStructureComponent addStructure() { 
+    public ProfileStructureComponent addStructure() { //3
       ProfileStructureComponent t = new ProfileStructureComponent();
       this.structure.add(t);
       return t;
@@ -1520,6 +1524,7 @@ public class Profile extends Resource {
 
       public Profile copy() {
         Profile dst = new Profile();
+        copyValues(dst);
         dst.url = url == null ? null : url.copy();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)

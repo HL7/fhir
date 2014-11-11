@@ -2,6 +2,7 @@
 <CarePlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd"
  xmlns="http://hl7.org/fhir">
+    <id value="gpvisit"/>
     <text>
         <status value="additional"></status>
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -17,7 +18,8 @@
     </text>
     <contained>
         <!-- This is the reason for the encounter. It is referenced by the concern -->
-        <Condition id="p1">
+        <Condition>
+          <id value="p1"/>
             <subject>
                 <reference value="Patient/100"/>
                 <display value="Peter James Chalmers"/>

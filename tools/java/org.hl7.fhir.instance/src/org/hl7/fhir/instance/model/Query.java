@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A description of a query with a set of parameters.
  */
-public class Query extends Resource {
+public class Query extends DomainResource {
 
     public enum QueryOutcome {
         OK, // The query was processed successfully.
@@ -289,7 +289,7 @@ public class Query extends Resource {
          * @return {@link #parameter} (Parameters server used.)
          */
     // syntactic sugar
-        public Extension addParameter() { 
+        public Extension addParameter() { //3
           Extension t = new Extension();
           this.parameter.add(t);
           return t;
@@ -306,7 +306,7 @@ public class Query extends Resource {
          * @return {@link #first} (To get first page (if paged).)
          */
     // syntactic sugar
-        public Extension addFirst() { 
+        public Extension addFirst() { //3
           Extension t = new Extension();
           this.first.add(t);
           return t;
@@ -323,7 +323,7 @@ public class Query extends Resource {
          * @return {@link #previous} (To get previous page (if paged).)
          */
     // syntactic sugar
-        public Extension addPrevious() { 
+        public Extension addPrevious() { //3
           Extension t = new Extension();
           this.previous.add(t);
           return t;
@@ -340,7 +340,7 @@ public class Query extends Resource {
          * @return {@link #next} (To get next page (if paged).)
          */
     // syntactic sugar
-        public Extension addNext() { 
+        public Extension addNext() { //3
           Extension t = new Extension();
           this.next.add(t);
           return t;
@@ -357,7 +357,7 @@ public class Query extends Resource {
          * @return {@link #last} (To get last page (if paged).)
          */
     // syntactic sugar
-        public Extension addLast() { 
+        public Extension addLast() { //3
           Extension t = new Extension();
           this.last.add(t);
           return t;
@@ -374,7 +374,7 @@ public class Query extends Resource {
          * @return {@link #reference} (Resources that are the results of the search.)
          */
     // syntactic sugar
-        public Reference addReference() { 
+        public Reference addReference() { //3
           Reference t = new Reference();
           this.reference.add(t);
           return t;
@@ -402,6 +402,7 @@ public class Query extends Resource {
 
       public QueryResponseComponent copy() {
         QueryResponseComponent dst = new QueryResponseComponent();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.total = total == null ? null : total.copy();
@@ -497,7 +498,7 @@ public class Query extends Resource {
      * @return {@link #parameter} (Set of query parameters with values.)
      */
     // syntactic sugar
-    public Extension addParameter() { 
+    public Extension addParameter() { //3
       Extension t = new Extension();
       this.parameter.add(t);
       return t;
@@ -527,6 +528,7 @@ public class Query extends Resource {
 
       public Query copy() {
         Query dst = new Query();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.parameter = new ArrayList<Extension>();
         for (Extension i : parameter)

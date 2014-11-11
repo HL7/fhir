@@ -80,8 +80,8 @@ public class Definitions {
 	private List<String> shared = new ArrayList<String>(); 
 	private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
 	private List<String> deletedResources = new ArrayList<String>();
-  private ResourceDefn baseResource;
-  private ResourceDefn baseResourceBase;
+  private Map<String, ResourceDefn> baseResources = new HashMap<String, ResourceDefn>();
+  
   private List<String> aggregationEndpoints = new ArrayList<String>();
 
 	private Map<String, EventDefn> events = new HashMap<String, EventDefn>();
@@ -102,10 +102,6 @@ public class Definitions {
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
 	public TypeDefn getElementDefn(String name) throws Exception {
-    if (name.equals("Resource"))
-      return baseResource.getRoot();
-    if (name.equals("ResourceBase"))
-      return baseResourceBase.getRoot();
     
 		TypeDefn root = null;
 		if (types.containsKey(name))
@@ -114,11 +110,12 @@ public class Definitions {
 			root = structures.get(name);
 		if (infrastructure.containsKey(name))
 			root = infrastructure.get(name);
+    if (baseResources.containsKey(name))
+      return baseResources.get(name).getRoot();
 		if (resources.containsKey(name))
 			root = resources.get(name).getRoot();
 		if (root == null)
-			throw new Exception("unable to find resource or composite type "
-					+ name);
+			throw new Exception("unable to find resource or composite type " + name);
 		return root;
 	}
 
@@ -271,21 +268,9 @@ public class Definitions {
   public Map<String, String> getDiagrams() {
     return diagrams;
   }
-
-  public ResourceDefn getBaseReference() {
-    return baseResource;
-  }
-
-  public void setBaseReference(ResourceDefn baseResource) {
-    this.baseResource = baseResource;
-  }
-
-  public ResourceDefn getBaseReferenceBase() {
-    return baseResourceBase;
-  }
-
-  public void setBaseReferenceBase(ResourceDefn baseResource) {
-    this.baseResourceBase = baseResource;
+  
+  public Map<String, ResourceDefn> getBaseResources() {
+    return baseResources;
   }
 
   public List<BindingSpecification> getCommonBindings() {

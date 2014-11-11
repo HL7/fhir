@@ -12,12 +12,13 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.Parser;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
+import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.sentinel.taggers.profile.ProfileTagger;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -127,14 +128,14 @@ public class SentinelWorker {
   }
 
 	private void updateResources(FHIRClient client) throws Exception {
-		  AtomFeed feed = null;
+		  Bundle feed = null;
 	    if (Utilities.noString(ini.getStringProperty(server, "cursor")) && timeToQuery())
 	      feed = downloadUpdates(client);
 
 	    if (!stop && !Utilities.noString(ini.getStringProperty(server, "cursor"))) {
 	    	if (feed == null) {
 	    		Parser p = new XmlParser();
-	    		feed = p.parseGeneral(new FileInputStream(getWorkingFileName())).getFeed();
+	    		feed = (Bundle) p.parse(new FileInputStream(getWorkingFileName()));
 	    	}
 	      while(!stop && !Utilities.noString(ini.getStringProperty(server, "cursor"))) 
           process(feed, client);
@@ -142,16 +143,15 @@ public class SentinelWorker {
 	    	Thread.sleep(1000);
   }
 
-  private AtomFeed downloadUpdates(FHIRClient client) throws Exception {
-		AtomFeed master = new AtomFeed();
-		master.setTitle("working temporary feed");
+  private Bundle downloadUpdates(FHIRClient client) throws Exception {
+  	Bundle master = new Bundle();
 	  String lasttime = ini.getStringProperty(server, "lasttime");
 
 	  String next = null;
 	  int i = 1;
 	  do {
 	      System.out.println("Downloading Updates (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : ""));
-	      AtomFeed feed = null;
+	      Bundle feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
 	      else if (!Utilities.noString(lasttime)) {
@@ -159,40 +159,40 @@ public class SentinelWorker {
 	      	feed = client.history(dd); 
 	      } else
 	        feed = client.history();
-	      if (feed.getLinks().containsKey("fhir-base")) {
-	      if (!master.getLinks().containsKey("fhir-base"))
-	      	master.getLinks().put("fhir-base", feed.getLinks().get("fhir-base"));
-	      else if (!master.getLinks().get("fhir-base").equals(feed.getLinks().get("fhir-base")))
+	      if (feed.getBase() != null) {
+	      if (master.getBase() != null)
+	      	master.setBase(feed.getBase());
+	      else if (!master.getBase().equals(feed.getBase()))
 	      	throw new Exception("fhir-base link changed within a fetch");
 	      }
-        master.getEntryList().addAll(feed.getEntryList());
+        master.getItem().addAll(feed.getItem());
         if (next == null)
-	          lasttime = feed.getUpdated().toString();
-        next = feed.getLinks().get("next");
+	          lasttime = feed.getMeta().getLastUpdated().toString();
+        next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (!stop && next != null);
 
-    if (!master.getLinks().containsKey("fhir-base"))
-    	master.getLinks().put("fhir-base", server);
+    if (master.getBase() == null)
+    	master.setBase(server);
 	  
     ini.setStringProperty(server, "qtime", DateAndTime.now().toString(), null);
     ini.setStringProperty(server, "lasttime", lasttime, null);
     ini.save();
-    System.out.println(master.getEntryList().size() == 1 ? "1 update found" : Integer.toString(master.getEntryList().size())+" updates found");
+    System.out.println(master.getItem().size() == 1 ? "1 update found" : Integer.toString(master.getItem().size())+" updates found");
 
     new XmlComposer().compose(new FileOutputStream(getWorkingFileName()), master, false);
-    if (master.getEntryList().isEmpty())
+    if (master.getItem().isEmpty())
       ini.setStringProperty(server, "cursor", "", null);
     else
-    	ini.setIntegerProperty(server, "cursor", master.getEntryList().size()-1, null);
+    	ini.setIntegerProperty(server, "cursor", master.getItem().size()-1, null);
     ini.save();
     return master;
   }
 
-	private void process(AtomFeed feed, FHIRClient client) throws Exception {
+	private void process(Bundle feed, FHIRClient client) throws Exception {
 	  int i = ini.getIntegerProperty(server, "cursor");
-	  AtomEntry<? extends Resource> ae = feed.getEntryList().get(i);
-    System.out.println("Processing #"+Integer.toString(i)+" ("+ae.getResource().getResourceType().toString()+"): "+ae.getLinks().get("self"));
+	  Resource ae = feed.getItem().get(i);
+    System.out.println("Processing #"+Integer.toString(i)+" ("+ae.getResourceType().toString()+"): "+ae.getId());
 	  process(feed, ae, client);
 	  i--;
 	  if (i < 0)
@@ -202,15 +202,16 @@ public class SentinelWorker {
 	  ini.save();
   }
 
-	private void process(AtomFeed feed, AtomEntry<? extends Resource> ae, FHIRClient client) throws Exception {
-		List<AtomCategory> added = new ArrayList<AtomCategory>();
-		List<AtomCategory> deleted = new ArrayList<AtomCategory>();
+	private void process(Bundle feed, Resource ae, FHIRClient client) throws Exception {
+		ResourceMetaComponent added = new ResourceMetaComponent();
+		ResourceMetaComponent deleted = new ResourceMetaComponent();
 		for (Tagger t : taggers) 
-			t.process(ae, ae.getTags(), added, deleted);
-		if (!added.isEmpty())
-		  client.createTags(added, ae.getResource().getClass(), feed.getLogicalId(ae), feed.getVersionId(ae));
-		if (!deleted.isEmpty())
-		  client.deleteTags(deleted, ae.getResource().getClass(), feed.getLogicalId(ae), feed.getVersionId(ae));
+			t.process(ae, ae.getMeta(), added, deleted);
+		// todo-bundle
+//		if (!added.isEmpty())
+//		  client.createTags(added, ae.getClass(), ae.getId(), ae.getMeta().getVersionId());
+//		if (!deleted.isEmpty())
+//		  client.deleteTags(deleted, ae.getClass(), ae.getId(), feed.getMeta().getVersionId());
   }
 
 	  

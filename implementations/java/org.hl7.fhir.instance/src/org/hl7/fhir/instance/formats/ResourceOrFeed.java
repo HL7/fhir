@@ -31,14 +31,14 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.util.List;
 
-import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Resource;
 
 public class ResourceOrFeed {
 	private Resource resource;
-	private AtomFeed feed;
-	private List<AtomCategory> taglist;
+	private List<Coding> taglist;
 
 	public ResourceOrFeed() {
 	}
@@ -51,19 +51,11 @@ public class ResourceOrFeed {
 		this.resource = resource;
 	}
 
-	public AtomFeed getFeed() {
-		return feed;
-	}
-
-	public void setFeed(AtomFeed feed) {
-		this.feed = feed;
-	}
-
-	public List<AtomCategory> getTaglist() {
+	public List<Coding> getTaglist() {
 		return taglist;
 	}
 
-	public void setTaglist(List<AtomCategory> taglist) {
+	public void setTaglist(List<Coding> taglist) {
 		this.taglist = taglist;
 	}
 	

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -382,7 +382,7 @@ public class ElementDefinition extends Type {
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
     // syntactic sugar
-        public IdType addDiscriminatorElement() { 
+        public IdType addDiscriminatorElement() {//2 
           IdType t = new IdType();
           this.discriminator.add(t);
           return t;
@@ -391,7 +391,7 @@ public class ElementDefinition extends Type {
         /**
          * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public ElementDefinitionSlicingComponent addDiscriminator(String value) { 
+        public ElementDefinitionSlicingComponent addDiscriminator(String value) { //1
           IdType t = new IdType();
           t.setValue(value);
           this.discriminator.add(t);
@@ -522,6 +522,7 @@ public class ElementDefinition extends Type {
 
       public ElementDefinitionSlicingComponent copy() {
         ElementDefinitionSlicingComponent dst = new ElementDefinitionSlicingComponent();
+        copyValues(dst);
         dst.discriminator = new ArrayList<IdType>();
         for (IdType i : discriminator)
           dst.discriminator.add(i.copy());
@@ -639,7 +640,7 @@ public class ElementDefinition extends Type {
          * @return {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
     // syntactic sugar
-        public Enumeration<ResourceAggregationMode> addAggregationElement() { 
+        public Enumeration<ResourceAggregationMode> addAggregationElement() {//2 
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
           this.aggregation.add(t);
           return t;
@@ -648,7 +649,7 @@ public class ElementDefinition extends Type {
         /**
          * @param value {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
-        public TypeRefComponent addAggregation(ResourceAggregationMode value) { 
+        public TypeRefComponent addAggregation(ResourceAggregationMode value) { //1
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
           t.setValue(value);
           this.aggregation.add(t);
@@ -674,6 +675,7 @@ public class ElementDefinition extends Type {
 
       public TypeRefComponent copy() {
         TypeRefComponent dst = new TypeRefComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
         dst.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
@@ -899,6 +901,7 @@ public class ElementDefinition extends Type {
 
       public ElementDefinitionConstraintComponent copy() {
         ElementDefinitionConstraintComponent dst = new ElementDefinitionConstraintComponent();
+        copyValues(dst);
         dst.key = key == null ? null : key.copy();
         dst.name = name == null ? null : name.copy();
         dst.severity = severity == null ? null : severity.copy();
@@ -1109,6 +1112,7 @@ public class ElementDefinition extends Type {
 
       public ElementDefinitionBindingComponent copy() {
         ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
+        copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
         dst.conformance = conformance == null ? null : conformance.copy();
@@ -1214,6 +1218,7 @@ public class ElementDefinition extends Type {
 
       public ElementDefinitionMappingComponent copy() {
         ElementDefinitionMappingComponent dst = new ElementDefinitionMappingComponent();
+        copyValues(dst);
         dst.identity = identity == null ? null : identity.copy();
         dst.map = map == null ? null : map.copy();
         return dst;
@@ -1395,7 +1400,7 @@ public class ElementDefinition extends Type {
      * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
      */
     // syntactic sugar
-    public Enumeration<PropertyRepresentation> addRepresentationElement() { 
+    public Enumeration<PropertyRepresentation> addRepresentationElement() {//2 
       Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
       this.representation.add(t);
       return t;
@@ -1404,7 +1409,7 @@ public class ElementDefinition extends Type {
     /**
      * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
      */
-    public ElementDefinition addRepresentation(PropertyRepresentation value) { 
+    public ElementDefinition addRepresentation(PropertyRepresentation value) { //1
       Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
       t.setValue(value);
       this.representation.add(t);
@@ -1627,7 +1632,7 @@ public class ElementDefinition extends Type {
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
     // syntactic sugar
-    public StringType addSynonymElement() { 
+    public StringType addSynonymElement() {//2 
       StringType t = new StringType();
       this.synonym.add(t);
       return t;
@@ -1636,7 +1641,7 @@ public class ElementDefinition extends Type {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public ElementDefinition addSynonym(String value) { 
+    public ElementDefinition addSynonym(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.synonym.add(t);
@@ -1736,7 +1741,7 @@ public class ElementDefinition extends Type {
      * @return {@link #type} (The data type or resource that the value of this element is permitted to be.)
      */
     // syntactic sugar
-    public TypeRefComponent addType() { 
+    public TypeRefComponent addType() { //3
       TypeRefComponent t = new TypeRefComponent();
       this.type.add(t);
       return t;
@@ -1870,7 +1875,7 @@ public class ElementDefinition extends Type {
      * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
      */
     // syntactic sugar
-    public IdType addConditionElement() { 
+    public IdType addConditionElement() {//2 
       IdType t = new IdType();
       this.condition.add(t);
       return t;
@@ -1879,7 +1884,7 @@ public class ElementDefinition extends Type {
     /**
      * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
      */
-    public ElementDefinition addCondition(String value) { 
+    public ElementDefinition addCondition(String value) { //1
       IdType t = new IdType();
       t.setValue(value);
       this.condition.add(t);
@@ -1907,7 +1912,7 @@ public class ElementDefinition extends Type {
      * @return {@link #constraint} (Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.)
      */
     // syntactic sugar
-    public ElementDefinitionConstraintComponent addConstraint() { 
+    public ElementDefinitionConstraintComponent addConstraint() { //3
       ElementDefinitionConstraintComponent t = new ElementDefinitionConstraintComponent();
       this.constraint.add(t);
       return t;
@@ -2047,7 +2052,7 @@ public class ElementDefinition extends Type {
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
     // syntactic sugar
-    public ElementDefinitionMappingComponent addMapping() { 
+    public ElementDefinitionMappingComponent addMapping() { //3
       ElementDefinitionMappingComponent t = new ElementDefinitionMappingComponent();
       this.mapping.add(t);
       return t;
@@ -2083,6 +2088,7 @@ public class ElementDefinition extends Type {
 
       public ElementDefinition copy() {
         ElementDefinition dst = new ElementDefinition();
+        copyValues(dst);
         dst.path = path == null ? null : path.copy();
         dst.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
         for (Enumeration<PropertyRepresentation> i : representation)

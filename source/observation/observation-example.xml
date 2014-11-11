@@ -4,6 +4,7 @@
 -->
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+  <id value="example"/>
     
   <!-- 
     Observations are often coded in multiple code systems. 

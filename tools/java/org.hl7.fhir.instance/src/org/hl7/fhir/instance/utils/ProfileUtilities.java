@@ -8,7 +8,6 @@ import java.util.Map;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonComposer;
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -441,9 +440,9 @@ public class ProfileUtilities {
   private ProfileStructureComponent getStructureForDataType(TypeRefComponent type) {
     if (type.getProfile() != null && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
       throw new Error("handling profiles is not supported yet");
-    for (AtomEntry<Profile> ae : context.getProfiles().values()) {
-      if (ae.getResource().getName().equals(type.getCode())) {
-        return ae.getResource().getStructure().get(0);
+    for (Profile ae : context.getProfiles().values()) {
+      if (ae.getName().equals(type.getCode())) {
+        return ae.getStructure().get(0);
       }
     }
     return null;
@@ -1108,12 +1107,12 @@ public class ProfileUtilities {
         		throw new Exception("Unable to understand address of profile: "+parts[0]);
         	FHIRClient client = new FHIRSimpleClient();
         	client.initialize(ps[0]);
-        	AtomEntry<Profile> ae = client.read(Profile.class, ps[1]);
+        	Profile ae = client.read(Profile.class, ps[1]);
         	context.getProfiles().put(parts[0], ae);
       	} else
       		return null;
       }
-      profile = context.getProfiles().get(parts[0]).getResource();
+      profile = context.getProfiles().get(parts[0]);
       code = parts.length < 2 ? null : parts[1];
     }
 

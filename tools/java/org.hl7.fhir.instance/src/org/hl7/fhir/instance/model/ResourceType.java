@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
@@ -29,7 +29,9 @@ public enum ResourceType {
     HealthcareService,
     Profile,
     DocumentReference,
+    Eligibility,
     Immunization,
+    Bundle,
     ExtensionDefinition,
     Subscription,
     OrderResponse,
@@ -38,7 +40,6 @@ public enum ResourceType {
     Practitioner,
     CarePlan,
     Provenance,
-    NewBundle,
     Device,
     Query,
     Order,
@@ -63,6 +64,7 @@ public enum ResourceType {
     RiskAssessment,
     FamilyHistory,
     Location,
+    ExplanationOfBenefit,
     AllergyIntolerance,
     Observation,
     Contract,
@@ -128,8 +130,12 @@ public enum ResourceType {
       return "profile";
     case DocumentReference:
       return "documentreference";
+    case Eligibility:
+      return "eligibility";
     case Immunization:
       return "immunization";
+    case Bundle:
+      return "bundle";
     case ExtensionDefinition:
       return "extensiondefinition";
     case Subscription:
@@ -146,8 +152,6 @@ public enum ResourceType {
       return "careplan";
     case Provenance:
       return "provenance";
-    case NewBundle:
-      return "newbundle";
     case Device:
       return "device";
     case Query:
@@ -196,6 +200,8 @@ public enum ResourceType {
       return "familyhistory";
     case Location:
       return "location";
+    case ExplanationOfBenefit:
+      return "explanationofbenefit";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Observation:

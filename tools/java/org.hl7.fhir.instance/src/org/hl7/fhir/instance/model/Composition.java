@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.
  */
-public class Composition extends Resource {
+public class Composition extends DomainResource {
 
     public enum CompositionStatus {
         PRELIMINARY, // This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
@@ -239,7 +239,7 @@ public class Composition extends Resource {
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
     // syntactic sugar
-        public Enumeration<CompositionAttestationMode> addModeElement() { 
+        public Enumeration<CompositionAttestationMode> addModeElement() {//2 
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           this.mode.add(t);
           return t;
@@ -248,7 +248,7 @@ public class Composition extends Resource {
         /**
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public CompositionAttesterComponent addMode(CompositionAttestationMode value) { 
+        public CompositionAttesterComponent addMode(CompositionAttestationMode value) { //1
           Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
           t.setValue(value);
           this.mode.add(t);
@@ -340,6 +340,7 @@ public class Composition extends Resource {
 
       public CompositionAttesterComponent copy() {
         CompositionAttesterComponent dst = new CompositionAttesterComponent();
+        copyValues(dst);
         dst.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
         for (Enumeration<CompositionAttestationMode> i : mode)
           dst.mode.add(i.copy());
@@ -388,7 +389,7 @@ public class Composition extends Resource {
          * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
          */
     // syntactic sugar
-        public CodeableConcept addCode() { 
+        public CodeableConcept addCode() { //3
           CodeableConcept t = new CodeableConcept();
           this.code.add(t);
           return t;
@@ -420,7 +421,7 @@ public class Composition extends Resource {
          * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
     // syntactic sugar
-        public Reference addDetail() { 
+        public Reference addDetail() { //3
           Reference t = new Reference();
           this.detail.add(t);
           return t;
@@ -442,6 +443,7 @@ public class Composition extends Resource {
 
       public CompositionEventComponent copy() {
         CompositionEventComponent dst = new CompositionEventComponent();
+        copyValues(dst);
         dst.code = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : code)
           dst.code.add(i.copy());
@@ -548,7 +550,7 @@ public class Composition extends Resource {
          * @return {@link #section} (A nested sub-section within this section.)
          */
     // syntactic sugar
-        public SectionComponent addSection() { 
+        public SectionComponent addSection() { //3
           SectionComponent t = new SectionComponent();
           this.section.add(t);
           return t;
@@ -594,6 +596,7 @@ public class Composition extends Resource {
 
       public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
+        copyValues(dst);
         dst.title = title == null ? null : title.copy();
         dst.code = code == null ? null : code.copy();
         dst.section = new ArrayList<SectionComponent>();
@@ -911,7 +914,7 @@ public class Composition extends Resource {
      * @return {@link #author} (Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).)
      */
     // syntactic sugar
-    public Reference addAuthor() { 
+    public Reference addAuthor() { //3
       Reference t = new Reference();
       this.author.add(t);
       return t;
@@ -935,7 +938,7 @@ public class Composition extends Resource {
      * @return {@link #attester} (A participant who has attested to the accuracy of the composition/document.)
      */
     // syntactic sugar
-    public CompositionAttesterComponent addAttester() { 
+    public CompositionAttesterComponent addAttester() { //3
       CompositionAttesterComponent t = new CompositionAttesterComponent();
       this.attester.add(t);
       return t;
@@ -982,7 +985,7 @@ public class Composition extends Resource {
      * @return {@link #event} (The clinical service, such as a colonoscopy or an appendectomy, being documented.)
      */
     // syntactic sugar
-    public CompositionEventComponent addEvent() { 
+    public CompositionEventComponent addEvent() { //3
       CompositionEventComponent t = new CompositionEventComponent();
       this.event.add(t);
       return t;
@@ -1029,7 +1032,7 @@ public class Composition extends Resource {
      * @return {@link #section} (The root of the sections that make up the composition.)
      */
     // syntactic sugar
-    public SectionComponent addSection() { 
+    public SectionComponent addSection() { //3
       SectionComponent t = new SectionComponent();
       this.section.add(t);
       return t;
@@ -1055,6 +1058,7 @@ public class Composition extends Resource {
 
       public Composition copy() {
         Composition dst = new Composition();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.date = date == null ? null : date.copy();
         dst.type = type == null ? null : type.copy();

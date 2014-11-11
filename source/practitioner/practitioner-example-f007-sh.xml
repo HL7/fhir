@@ -2,6 +2,7 @@
 <Practitioner xmlns="http://hl7.org/fhir"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir file:/C:/svn/fhir/build/schema/practitioner.xsd">
+  <id value="f007"/>
     <identifier>
         <use value="official"/>
         <system value="urn:oid:2.16.528.1.1007.3.1"/>

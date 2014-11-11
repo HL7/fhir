@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */
-public class ImagingStudy extends Resource {
+public class ImagingStudy extends DomainResource {
 
     public enum ImagingModality {
         AR, // 
@@ -1443,7 +1443,7 @@ public class ImagingStudy extends Resource {
          * @return {@link #instance} (A single image taken from a patient.)
          */
     // syntactic sugar
-        public ImagingStudySeriesInstanceComponent addInstance() { 
+        public ImagingStudySeriesInstanceComponent addInstance() { //3
           ImagingStudySeriesInstanceComponent t = new ImagingStudySeriesInstanceComponent();
           this.instance.add(t);
           return t;
@@ -1465,6 +1465,7 @@ public class ImagingStudy extends Resource {
 
       public ImagingStudySeriesComponent copy() {
         ImagingStudySeriesComponent dst = new ImagingStudySeriesComponent();
+        copyValues(dst);
         dst.number = number == null ? null : number.copy();
         dst.modality = modality == null ? null : modality.copy();
         dst.uid = uid == null ? null : uid.copy();
@@ -1786,6 +1787,7 @@ public class ImagingStudy extends Resource {
 
       public ImagingStudySeriesInstanceComponent copy() {
         ImagingStudySeriesInstanceComponent dst = new ImagingStudySeriesInstanceComponent();
+        copyValues(dst);
         dst.number = number == null ? null : number.copy();
         dst.uid = uid == null ? null : uid.copy();
         dst.sopclass = sopclass == null ? null : sopclass.copy();
@@ -2041,7 +2043,7 @@ public class ImagingStudy extends Resource {
      * @return {@link #identifier} (Other identifiers for the study.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -2058,7 +2060,7 @@ public class ImagingStudy extends Resource {
      * @return {@link #order} (A list of the diagnostic orders that resulted in this imaging study being performed.)
      */
     // syntactic sugar
-    public Reference addOrder() { 
+    public Reference addOrder() { //3
       Reference t = new Reference();
       this.order.add(t);
       return t;
@@ -2092,7 +2094,7 @@ public class ImagingStudy extends Resource {
      * @return {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
     // syntactic sugar
-    public Enumeration<ImagingModality> addModalityListElement() { 
+    public Enumeration<ImagingModality> addModalityListElement() {//2 
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       this.modalityList.add(t);
       return t;
@@ -2101,7 +2103,7 @@ public class ImagingStudy extends Resource {
     /**
      * @param value {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
-    public ImagingStudy addModalityList(ImagingModality value) { 
+    public ImagingStudy addModalityList(ImagingModality value) { //1
       Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
       t.setValue(value);
       this.modalityList.add(t);
@@ -2331,7 +2333,7 @@ public class ImagingStudy extends Resource {
      * @return {@link #procedure} (Type of procedure performed.)
      */
     // syntactic sugar
-    public Coding addProcedure() { 
+    public Coding addProcedure() { //3
       Coding t = new Coding();
       this.procedure.add(t);
       return t;
@@ -2414,7 +2416,7 @@ public class ImagingStudy extends Resource {
      * @return {@link #series} (Each study has one or more series of image instances.)
      */
     // syntactic sugar
-    public ImagingStudySeriesComponent addSeries() { 
+    public ImagingStudySeriesComponent addSeries() { //3
       ImagingStudySeriesComponent t = new ImagingStudySeriesComponent();
       this.series.add(t);
       return t;
@@ -2443,6 +2445,7 @@ public class ImagingStudy extends Resource {
 
       public ImagingStudy copy() {
         ImagingStudy dst = new ImagingStudy();
+        copyValues(dst);
         dst.started = started == null ? null : started.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.uid = uid == null ? null : uid.copy();

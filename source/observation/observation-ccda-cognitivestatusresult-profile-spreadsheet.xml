@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-08T19:56:17Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -163,7 +163,7 @@
   <WindowTopX>315</WindowTopX>
   <WindowTopY>120</WindowTopY>
   <TabRatio>647</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1415,7 +1415,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4076,7 +4076,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <LeftColumnVisible>5</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -4375,7 +4374,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8376,7 +8375,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s135"><Data ss:Type="String">ObservationNegationIndicator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8410,7 +8409,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s135"><Data ss:Type="String">CCDAObsRelatedTypes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9357,6 +9356,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9376,7 +9376,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11961,7 +11961,7 @@
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s173"/>
     <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s84"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * The formal description of a single piece of information that can be gathered and reported.
  */
-public class DataElement extends Resource {
+public class DataElement extends DomainResource {
 
     public enum ResourceObservationDefStatus {
         DRAFT, // This data element is still under development.
@@ -352,6 +352,7 @@ public class DataElement extends Resource {
 
       public DataElementBindingComponent copy() {
         DataElementBindingComponent dst = new DataElementBindingComponent();
+        copyValues(dst);
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
         dst.conformance = conformance == null ? null : conformance.copy();
         dst.description = description == null ? null : description.copy();
@@ -543,6 +544,7 @@ public class DataElement extends Resource {
 
       public DataElementMappingComponent copy() {
         DataElementMappingComponent dst = new DataElementMappingComponent();
+        copyValues(dst);
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
         dst.comments = comments == null ? null : comments.copy();
@@ -761,7 +763,7 @@ public class DataElement extends Resource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -882,7 +884,7 @@ public class DataElement extends Resource {
      * @return {@link #category} (A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.)
      */
     // syntactic sugar
-    public CodeableConcept addCategory() { 
+    public CodeableConcept addCategory() { //3
       CodeableConcept t = new CodeableConcept();
       this.category.add(t);
       return t;
@@ -899,7 +901,7 @@ public class DataElement extends Resource {
      * @return {@link #code} (A code that provides the meaning for a data element according to a particular terminology.)
      */
     // syntactic sugar
-    public Coding addCode() { 
+    public Coding addCode() { //3
       Coding t = new Coding();
       this.code.add(t);
       return t;
@@ -1060,7 +1062,7 @@ public class DataElement extends Resource {
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
     // syntactic sugar
-    public StringType addSynonymElement() { 
+    public StringType addSynonymElement() {//2 
       StringType t = new StringType();
       this.synonym.add(t);
       return t;
@@ -1069,7 +1071,7 @@ public class DataElement extends Resource {
     /**
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
-    public DataElement addSynonym(String value) { 
+    public DataElement addSynonym(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       this.synonym.add(t);
@@ -1214,7 +1216,7 @@ public class DataElement extends Resource {
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
     // syntactic sugar
-    public DataElementMappingComponent addMapping() { 
+    public DataElementMappingComponent addMapping() { //3
       DataElementMappingComponent t = new DataElementMappingComponent();
       this.mapping.add(t);
       return t;
@@ -1246,6 +1248,7 @@ public class DataElement extends Resource {
 
       public DataElement copy() {
         DataElement dst = new DataElement();
+        copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.publisher = publisher == null ? null : publisher.copy();

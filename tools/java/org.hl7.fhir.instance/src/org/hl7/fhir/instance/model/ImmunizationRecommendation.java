@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A patient's point-of-time immunization status and recommendation with optional supporting justification.
  */
-public class ImmunizationRecommendation extends Resource {
+public class ImmunizationRecommendation extends DomainResource {
 
     public static class ImmunizationRecommendationRecommendationComponent extends BackboneElement {
         /**
@@ -212,7 +212,7 @@ public class ImmunizationRecommendation extends Resource {
          * @return {@link #dateCriterion} (Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.)
          */
     // syntactic sugar
-        public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { //3
           ImmunizationRecommendationRecommendationDateCriterionComponent t = new ImmunizationRecommendationRecommendationDateCriterionComponent();
           this.dateCriterion.add(t);
           return t;
@@ -244,7 +244,7 @@ public class ImmunizationRecommendation extends Resource {
          * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
          */
     // syntactic sugar
-        public Reference addSupportingImmunization() { 
+        public Reference addSupportingImmunization() { //3
           Reference t = new Reference();
           this.supportingImmunization.add(t);
           return t;
@@ -278,7 +278,7 @@ public class ImmunizationRecommendation extends Resource {
          * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
     // syntactic sugar
-        public Reference addSupportingPatientInformation() { 
+        public Reference addSupportingPatientInformation() { //3
           Reference t = new Reference();
           this.supportingPatientInformation.add(t);
           return t;
@@ -305,6 +305,7 @@ public class ImmunizationRecommendation extends Resource {
 
       public ImmunizationRecommendationRecommendationComponent copy() {
         ImmunizationRecommendationRecommendationComponent dst = new ImmunizationRecommendationRecommendationComponent();
+        copyValues(dst);
         dst.date = date == null ? null : date.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.doseNumber = doseNumber == null ? null : doseNumber.copy();
@@ -402,6 +403,7 @@ public class ImmunizationRecommendation extends Resource {
 
       public ImmunizationRecommendationRecommendationDateCriterionComponent copy() {
         ImmunizationRecommendationRecommendationDateCriterionComponent dst = new ImmunizationRecommendationRecommendationDateCriterionComponent();
+        copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -589,6 +591,7 @@ public class ImmunizationRecommendation extends Resource {
 
       public ImmunizationRecommendationRecommendationProtocolComponent copy() {
         ImmunizationRecommendationRecommendationProtocolComponent dst = new ImmunizationRecommendationRecommendationProtocolComponent();
+        copyValues(dst);
         dst.doseSequence = doseSequence == null ? null : doseSequence.copy();
         dst.description = description == null ? null : description.copy();
         dst.authority = authority == null ? null : authority.copy();
@@ -640,7 +643,7 @@ public class ImmunizationRecommendation extends Resource {
      * @return {@link #identifier} (A unique identifier assigned to this particular recommendation record.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -687,7 +690,7 @@ public class ImmunizationRecommendation extends Resource {
      * @return {@link #recommendation} (Vaccine administration recommendations.)
      */
     // syntactic sugar
-    public ImmunizationRecommendationRecommendationComponent addRecommendation() { 
+    public ImmunizationRecommendationRecommendationComponent addRecommendation() { //3
       ImmunizationRecommendationRecommendationComponent t = new ImmunizationRecommendationRecommendationComponent();
       this.recommendation.add(t);
       return t;
@@ -702,6 +705,7 @@ public class ImmunizationRecommendation extends Resource {
 
       public ImmunizationRecommendation copy() {
         ImmunizationRecommendation dst = new ImmunizationRecommendation();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

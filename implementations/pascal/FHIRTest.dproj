@@ -208,7 +208,6 @@
         <DCCReference Include="support\InternetFetcher.pas"/>
         <DCCReference Include="SCIMObjects.pas"/>
         <DCCReference Include="FHIRLang.pas"/>
-        <DCCReference Include="FHIRAtomFeed.pas"/>
         <DCCReference Include="FHIRBase.pas"/>
         <DCCReference Include="FHIRParserBase.pas"/>
         <DCCReference Include="FHIRConstants.pas"/>

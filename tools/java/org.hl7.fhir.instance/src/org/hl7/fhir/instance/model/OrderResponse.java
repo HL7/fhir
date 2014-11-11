@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A response to an order.
  */
-public class OrderResponse extends Resource {
+public class OrderResponse extends DomainResource {
 
     public enum OrderOutcomeCode {
         PENDING, // The order is known, but no processing has occurred at this time.
@@ -243,7 +243,7 @@ public class OrderResponse extends Resource {
      * @return {@link #identifier} (Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -439,7 +439,7 @@ public class OrderResponse extends Resource {
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
     // syntactic sugar
-    public Reference addFulfillment() { 
+    public Reference addFulfillment() { //3
       Reference t = new Reference();
       this.fulfillment.add(t);
       return t;
@@ -466,6 +466,7 @@ public class OrderResponse extends Resource {
 
       public OrderResponse copy() {
         OrderResponse dst = new OrderResponse();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

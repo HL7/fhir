@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+    <id value="preg"/>
     <!-- an extension to record the LMP, which is required at the plan level... -->
     <extension url="http://example.org/DoNotUse/careplan#lmp" >
         <valueDateTime value="2013-01-01" />
@@ -15,7 +16,8 @@
         </div>
     </text>
     <contained>
-      <Condition id="p1">
+      <Condition>
+        <id value="p1"/>
         <subject>
           <reference value="Patient/1"/>
           <display value="Eve Everywoman"/>
@@ -27,7 +29,8 @@
       </Condition>
     </contained>
     <contained>
-      <Practitioner id="pr1">
+      <Practitioner>
+        <id value="pr1"/>
           <name>
             <family value="Midwife"/>
             <given value="Mavis"/>
@@ -38,7 +41,8 @@
       </Practitioner>
     </contained>
     <contained>
-      <Practitioner id="pr2">
+      <Practitioner>
+        <id value="pr2"/>
           <name>
             <family value="Obstetrician"/>
             <given value="Oscar"/>

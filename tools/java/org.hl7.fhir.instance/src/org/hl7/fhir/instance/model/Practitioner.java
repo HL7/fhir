@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
-public class Practitioner extends Resource {
+public class Practitioner extends DomainResource {
 
     public enum AdministrativeGender {
         MALE, // Male
@@ -163,7 +163,7 @@ public class Practitioner extends Resource {
          * @return {@link #identifier} (An identifier that applies to this person's qualification in this role.)
          */
     // syntactic sugar
-        public Identifier addIdentifier() { 
+        public Identifier addIdentifier() { //3
           Identifier t = new Identifier();
           this.identifier.add(t);
           return t;
@@ -239,6 +239,7 @@ public class Practitioner extends Resource {
 
       public PractitionerQualificationComponent copy() {
         PractitionerQualificationComponent dst = new PractitionerQualificationComponent();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
@@ -347,7 +348,7 @@ public class Practitioner extends Resource {
      * @return {@link #identifier} (An identifier that applies to this person in this role.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -379,7 +380,7 @@ public class Practitioner extends Resource {
      * @return {@link #telecom} (A contact detail for the practitioner, e.g. a telephone number or an email address.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { 
+    public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
       this.telecom.add(t);
       return t;
@@ -396,7 +397,7 @@ public class Practitioner extends Resource {
      * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
     // syntactic sugar
-    public Address addAddress() { 
+    public Address addAddress() { //3
       Address t = new Address();
       this.address.add(t);
       return t;
@@ -485,7 +486,7 @@ public class Practitioner extends Resource {
      * @return {@link #photo} (Image of the person.)
      */
     // syntactic sugar
-    public Attachment addPhoto() { 
+    public Attachment addPhoto() { //3
       Attachment t = new Attachment();
       this.photo.add(t);
       return t;
@@ -532,7 +533,7 @@ public class Practitioner extends Resource {
      * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
      */
     // syntactic sugar
-    public CodeableConcept addRole() { 
+    public CodeableConcept addRole() { //3
       CodeableConcept t = new CodeableConcept();
       this.role.add(t);
       return t;
@@ -549,7 +550,7 @@ public class Practitioner extends Resource {
      * @return {@link #specialty} (Specific specialty of the practitioner.)
      */
     // syntactic sugar
-    public CodeableConcept addSpecialty() { 
+    public CodeableConcept addSpecialty() { //3
       CodeableConcept t = new CodeableConcept();
       this.specialty.add(t);
       return t;
@@ -581,7 +582,7 @@ public class Practitioner extends Resource {
      * @return {@link #location} (The location(s) at which this practitioner provides care.)
      */
     // syntactic sugar
-    public Reference addLocation() { 
+    public Reference addLocation() { //3
       Reference t = new Reference();
       this.location.add(t);
       return t;
@@ -615,7 +616,7 @@ public class Practitioner extends Resource {
      * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
     // syntactic sugar
-    public PractitionerQualificationComponent addQualification() { 
+    public PractitionerQualificationComponent addQualification() { //3
       PractitionerQualificationComponent t = new PractitionerQualificationComponent();
       this.qualification.add(t);
       return t;
@@ -632,7 +633,7 @@ public class Practitioner extends Resource {
      * @return {@link #communication} (A language the practitioner is able to use in patient communication.)
      */
     // syntactic sugar
-    public CodeableConcept addCommunication() { 
+    public CodeableConcept addCommunication() { //3
       CodeableConcept t = new CodeableConcept();
       this.communication.add(t);
       return t;
@@ -658,6 +659,7 @@ public class Practitioner extends Resource {
 
       public Practitioner copy() {
         Practitioner dst = new Practitioner();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

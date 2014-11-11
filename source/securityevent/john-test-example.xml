@@ -1,4 +1,5 @@
 <SecurityEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/securityevent.xsd">
+ <id value="john"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Disclosure by some idiot to places unknown of Poor Sap data Everthing important.</div>

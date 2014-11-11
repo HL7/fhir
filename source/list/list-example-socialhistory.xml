@@ -2,6 +2,7 @@
 <List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/list.xsd"
  xmlns="http://hl7.org/fhir">
+  <id value="social-history"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -38,7 +39,8 @@
 <!-- We're including the actual social history as contained resources
   but could equally point to a 'real' resource of that existed-->
 <contained>
-  <Observation id='obs1'>
+  <Observation>
+    <id value='obs1'/>
     <name>
       <coding>
         <system value='http://snomed.info/sct'/>
@@ -54,7 +56,8 @@
 </contained>
   
   <contained>
-    <Observation id='obs2'>
+    <Observation>
+      <id value='obs2'/>
       <name>
         <coding>
           <system value='http://snomed.info/sct'/>

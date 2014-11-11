@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -57,7 +57,7 @@ public class JsonParser extends JsonParserBase {
     if (json != null && json.has("extension")) {
       JsonArray array = json.getAsJsonArray("extension");
       for (int i = 0; i < array.size(); i++) {
-        element.getExtensions().add(parseExtension(array.get(i).getAsJsonObject()));
+        element.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -67,7 +67,7 @@ public class JsonParser extends JsonParserBase {
     if (json != null && json.has("modifierExtension")) {
       JsonArray array = json.getAsJsonArray("modifierExtension");
       for (int i = 0; i < array.size(); i++) {
-        element.getModifierExtensions().add(parseExtension(array.get(i).getAsJsonObject()));
+        element.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -995,12 +995,66 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {
-    parseBackboneProperties(json, res); 
+  private void parseResourceProperties(JsonObject json, Resource res) throws Exception {
+    if (json.has("id"))
+      res.setIdElement(parseId(json.get("id").getAsString()));
+    if (json.has("_id"))
+      parseElementProperties(json.getAsJsonObject("_id"), res.getIdElement());
+    if (json.has("meta"))
+      res.setMeta(parseResourceResourceMetaComponent(json.getAsJsonObject("meta"), res));
+    if (json.has("implicitRules"))
+      res.setImplicitRulesElement(parseUri(json.get("implicitRules").getAsString()));
+    if (json.has("_implicitRules"))
+      parseElementProperties(json.getAsJsonObject("_implicitRules"), res.getImplicitRulesElement());
     if (json.has("language"))
       res.setLanguageElement(parseCode(json.get("language").getAsString()));
     if (json.has("_language"))
       parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageElement());
+  }
+
+  private Resource.ResourceMetaComponent parseResourceResourceMetaComponent(JsonObject json, Resource owner) throws Exception {
+    Resource.ResourceMetaComponent res = new Resource.ResourceMetaComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("versionId"))
+      res.setVersionIdElement(parseId(json.get("versionId").getAsString()));
+    if (json.has("_versionId"))
+      parseElementProperties(json.getAsJsonObject("_versionId"), res.getVersionIdElement());
+    if (json.has("lastUpdated"))
+      res.setLastUpdatedElement(parseInstant(json.get("lastUpdated").getAsString()));
+    if (json.has("_lastUpdated"))
+      parseElementProperties(json.getAsJsonObject("_lastUpdated"), res.getLastUpdatedElement());
+    if (json.has("profile")) {
+      JsonArray array = json.getAsJsonArray("profile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProfile().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_profile")) {
+      JsonArray array = json.getAsJsonArray("_profile");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getProfile().size())
+          res.getProfile().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
+      }
+    };
+    if (json.has("security")) {
+      JsonArray array = json.getAsJsonArray("security");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSecurity().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("tag")) {
+      JsonArray array = json.getAsJsonArray("tag");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTag().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  private void parseDomainResourceProperties(JsonObject json, DomainResource res) throws Exception {
+    parseResourceProperties(json, res);
     if (json.has("text"))
       res.setText(parseNarrative(json.getAsJsonObject("text")));
     if (json.has("contained")) {
@@ -1009,11 +1063,23 @@ public class JsonParser extends JsonParserBase {
         res.getContained().add(parseResource(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("extension")) {
+      JsonArray array = json.getAsJsonArray("extension");
+      for (int i = 0; i < array.size(); i++) {
+        res.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("modifierExtension")) {
+      JsonArray array = json.getAsJsonArray("modifierExtension");
+      for (int i = 0; i < array.size(); i++) {
+        res.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   private Alert parseAlert(JsonObject json) throws Exception {
     Alert res = new Alert();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1039,7 +1105,7 @@ public class JsonParser extends JsonParserBase {
 
   private AllergyIntolerance parseAllergyIntolerance(JsonObject json) throws Exception {
     AllergyIntolerance res = new AllergyIntolerance();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1129,7 +1195,7 @@ public class JsonParser extends JsonParserBase {
 
   private Appointment parseAppointment(JsonObject json) throws Exception {
     Appointment res = new Appointment();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1213,7 +1279,7 @@ public class JsonParser extends JsonParserBase {
 
   private AppointmentResponse parseAppointmentResponse(JsonObject json) throws Exception {
     AppointmentResponse res = new AppointmentResponse();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1261,7 +1327,7 @@ public class JsonParser extends JsonParserBase {
 
   private Availability parseAvailability(JsonObject json) throws Exception {
     Availability res = new Availability();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1291,7 +1357,7 @@ public class JsonParser extends JsonParserBase {
 
   private Basic parseBasic(JsonObject json) throws Exception {
     Basic res = new Basic();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1325,9 +1391,53 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private Bundle parseBundle(JsonObject json) throws Exception {
+    Bundle res = new Bundle();
+    parseResourceProperties(json, res);
+    if (json.has("base"))
+      res.setBaseElement(parseUri(json.get("base").getAsString()));
+    if (json.has("_base"))
+      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
+    if (json.has("total"))
+      res.setTotalElement(parseInteger(json.get("total").getAsLong()));
+    if (json.has("_total"))
+      parseElementProperties(json.getAsJsonObject("_total"), res.getTotalElement());
+    if (json.has("link")) {
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLink().add(parseBundleBundleLinkComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("item")) {
+      JsonArray array = json.getAsJsonArray("item");
+      for (int i = 0; i < array.size(); i++) {
+        res.getItem().add(parseResource(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("signature"))
+      res.setSignatureElement(parseBase64Binary(json.get("signature").getAsString()));
+    if (json.has("_signature"))
+      parseElementProperties(json.getAsJsonObject("_signature"), res.getSignatureElement());
+    return res;
+  }
+
+  private Bundle.BundleLinkComponent parseBundleBundleLinkComponent(JsonObject json, Bundle owner) throws Exception {
+    Bundle.BundleLinkComponent res = new Bundle.BundleLinkComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("relation"))
+      res.setRelationElement(parseString(json.get("relation").getAsString()));
+    if (json.has("_relation"))
+      parseElementProperties(json.getAsJsonObject("_relation"), res.getRelationElement());
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    return res;
+  }
+
   private CarePlan parseCarePlan(JsonObject json) throws Exception {
     CarePlan res = new CarePlan();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1489,7 +1599,7 @@ public class JsonParser extends JsonParserBase {
 
   private ClaimResponse parseClaimResponse(JsonObject json) throws Exception {
     ClaimResponse res = new ClaimResponse();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -1828,7 +1938,7 @@ public class JsonParser extends JsonParserBase {
 
   private Composition parseComposition(JsonObject json) throws Exception {
     Composition res = new Composition();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("date"))
@@ -1951,7 +2061,7 @@ public class JsonParser extends JsonParserBase {
 
   private ConceptMap parseConceptMap(JsonObject json) throws Exception {
     ConceptMap res = new ConceptMap();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -2083,7 +2193,7 @@ public class JsonParser extends JsonParserBase {
 
   private Condition parseCondition(JsonObject json) throws Exception {
     Condition res = new Condition();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -2201,7 +2311,7 @@ public class JsonParser extends JsonParserBase {
 
   private Conformance parseConformance(JsonObject json) throws Exception {
     Conformance res = new Conformance();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -2634,7 +2744,7 @@ public class JsonParser extends JsonParserBase {
 
   private Contract parseContract(JsonObject json) throws Exception {
     Contract res = new Contract();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("type"))
@@ -2708,7 +2818,7 @@ public class JsonParser extends JsonParserBase {
 
   private Contraindication parseContraindication(JsonObject json) throws Exception {
     Contraindication res = new Contraindication();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("patient"))
       res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("category"))
@@ -2764,7 +2874,7 @@ public class JsonParser extends JsonParserBase {
 
   private Coverage parseCoverage(JsonObject json) throws Exception {
     Coverage res = new Coverage();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("issuer"))
       res.setIssuer(parseReference(json.getAsJsonObject("issuer")));
     if (json.has("period"))
@@ -2808,7 +2918,7 @@ public class JsonParser extends JsonParserBase {
 
   private DataElement parseDataElement(JsonObject json) throws Exception {
     DataElement res = new DataElement();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("version"))
@@ -2948,7 +3058,7 @@ public class JsonParser extends JsonParserBase {
 
   private Device parseDevice(JsonObject json) throws Exception {
     Device res = new Device();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -3002,7 +3112,7 @@ public class JsonParser extends JsonParserBase {
 
   private DeviceObservationReport parseDeviceObservationReport(JsonObject json) throws Exception {
     DeviceObservationReport res = new DeviceObservationReport();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("instant"))
       res.setInstantElement(parseInstant(json.get("instant").getAsString()));
     if (json.has("_instant"))
@@ -3060,7 +3170,7 @@ public class JsonParser extends JsonParserBase {
 
   private DiagnosticOrder parseDiagnosticOrder(JsonObject json) throws Exception {
     DiagnosticOrder res = new DiagnosticOrder();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("orderer"))
@@ -3158,7 +3268,7 @@ public class JsonParser extends JsonParserBase {
 
   private DiagnosticReport parseDiagnosticReport(JsonObject json) throws Exception {
     DiagnosticReport res = new DiagnosticReport();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("name"))
       res.setName(parseCodeableConcept(json.getAsJsonObject("name")));
     if (json.has("status"))
@@ -3243,7 +3353,7 @@ public class JsonParser extends JsonParserBase {
 
   private DocumentManifest parseDocumentManifest(JsonObject json) throws Exception {
     DocumentManifest res = new DocumentManifest();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("masterIdentifier"))
       res.setMasterIdentifier(parseIdentifier(json.getAsJsonObject("masterIdentifier")));
     if (json.has("identifier")) {
@@ -3303,7 +3413,7 @@ public class JsonParser extends JsonParserBase {
 
   private DocumentReference parseDocumentReference(JsonObject json) throws Exception {
     DocumentReference res = new DocumentReference();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("masterIdentifier"))
       res.setMasterIdentifier(parseIdentifier(json.getAsJsonObject("masterIdentifier")));
     if (json.has("identifier")) {
@@ -3464,9 +3574,35 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private Eligibility parseEligibility(JsonObject json) throws Exception {
+    Eligibility res = new Eligibility();
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("ruleset"))
+      res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
+    if (json.has("originalRuleset"))
+      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
+    if (json.has("date"))
+      res.setDateElement(parseDate(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("target"))
+      res.setTarget(parseReference(json.getAsJsonObject("target")));
+    if (json.has("provider"))
+      res.setProvider(parseReference(json.getAsJsonObject("provider")));
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    return res;
+  }
+
   private Encounter parseEncounter(JsonObject json) throws Exception {
     Encounter res = new Encounter();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -3600,9 +3736,51 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  private ExplanationOfBenefit parseExplanationOfBenefit(JsonObject json) throws Exception {
+    ExplanationOfBenefit res = new ExplanationOfBenefit();
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("request"))
+      res.setRequest(parseReference(json.getAsJsonObject("request")));
+    if (json.has("requestIdentifier")) {
+      JsonArray array = json.getAsJsonArray("requestIdentifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("outcome"))
+      res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), ExplanationOfBenefit.RSLink.NULL, new ExplanationOfBenefit.RSLinkEnumFactory()));
+    if (json.has("_outcome"))
+      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeElement());
+    if (json.has("disposition"))
+      res.setDispositionElement(parseString(json.get("disposition").getAsString()));
+    if (json.has("_disposition"))
+      parseElementProperties(json.getAsJsonObject("_disposition"), res.getDispositionElement());
+    if (json.has("ruleset"))
+      res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
+    if (json.has("originalRuleset"))
+      res.setOriginalRuleset(parseCoding(json.getAsJsonObject("originalRuleset")));
+    if (json.has("date"))
+      res.setDateElement(parseDate(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("requestProvider"))
+      res.setRequestProvider(parseReference(json.getAsJsonObject("requestProvider")));
+    if (json.has("requestOrganization"))
+      res.setRequestOrganization(parseReference(json.getAsJsonObject("requestOrganization")));
+    return res;
+  }
+
   private ExtensionDefinition parseExtensionDefinition(JsonObject json) throws Exception {
     ExtensionDefinition res = new ExtensionDefinition();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("url"))
       res.setUrlElement(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
@@ -3715,7 +3893,7 @@ public class JsonParser extends JsonParserBase {
 
   private FamilyHistory parseFamilyHistory(JsonObject json) throws Exception {
     FamilyHistory res = new FamilyHistory();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -3791,7 +3969,7 @@ public class JsonParser extends JsonParserBase {
 
   private Group parseGroup(JsonObject json) throws Exception {
     Group res = new Group();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("type"))
@@ -3844,7 +4022,7 @@ public class JsonParser extends JsonParserBase {
 
   private HealthcareService parseHealthcareService(JsonObject json) throws Exception {
     HealthcareService res = new HealthcareService();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4031,7 +4209,7 @@ public class JsonParser extends JsonParserBase {
 
   private ImagingStudy parseImagingStudy(JsonObject json) throws Exception {
     ImagingStudy res = new ImagingStudy();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("started"))
       res.setStartedElement(parseDateTime(json.get("started").getAsString()));
     if (json.has("_started"))
@@ -4194,7 +4372,7 @@ public class JsonParser extends JsonParserBase {
 
   private Immunization parseImmunization(JsonObject json) throws Exception {
     Immunization res = new Immunization();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4322,7 +4500,7 @@ public class JsonParser extends JsonParserBase {
 
   private ImmunizationRecommendation parseImmunizationRecommendation(JsonObject json) throws Exception {
     ImmunizationRecommendation res = new ImmunizationRecommendation();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4412,7 +4590,7 @@ public class JsonParser extends JsonParserBase {
 
   private List_ parseList_(JsonObject json) throws Exception {
     List_ res = new List_();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4472,7 +4650,7 @@ public class JsonParser extends JsonParserBase {
 
   private Location parseLocation(JsonObject json) throws Exception {
     Location res = new Location();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4536,7 +4714,7 @@ public class JsonParser extends JsonParserBase {
 
   private Media parseMedia(JsonObject json) throws Exception {
     Media res = new Media();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Media.MediaType.NULL, new Media.MediaTypeEnumFactory()));
     if (json.has("_type"))
@@ -4586,7 +4764,7 @@ public class JsonParser extends JsonParserBase {
 
   private Medication parseMedication(JsonObject json) throws Exception {
     Medication res = new Medication();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
@@ -4660,7 +4838,7 @@ public class JsonParser extends JsonParserBase {
 
   private MedicationAdministration parseMedicationAdministration(JsonObject json) throws Exception {
     MedicationAdministration res = new MedicationAdministration();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4735,7 +4913,7 @@ public class JsonParser extends JsonParserBase {
 
   private MedicationDispense parseMedicationDispense(JsonObject json) throws Exception {
     MedicationDispense res = new MedicationDispense();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("status"))
@@ -4851,7 +5029,7 @@ public class JsonParser extends JsonParserBase {
 
   private MedicationPrescription parseMedicationPrescription(JsonObject json) throws Exception {
     MedicationPrescription res = new MedicationPrescription();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -4950,7 +5128,7 @@ public class JsonParser extends JsonParserBase {
 
   private MedicationStatement parseMedicationStatement(JsonObject json) throws Exception {
     MedicationStatement res = new MedicationStatement();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -5013,7 +5191,7 @@ public class JsonParser extends JsonParserBase {
 
   private MessageHeader parseMessageHeader(JsonObject json) throws Exception {
     MessageHeader res = new MessageHeader();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseId(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -5111,7 +5289,7 @@ public class JsonParser extends JsonParserBase {
 
   private NamingSystem parseNamingSystem(JsonObject json) throws Exception {
     NamingSystem res = new NamingSystem();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), NamingSystem.NamingsystemType.NULL, new NamingSystem.NamingsystemTypeEnumFactory()));
     if (json.has("_type"))
@@ -5189,53 +5367,9 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NewBundle parseNewBundle(JsonObject json) throws Exception {
-    NewBundle res = new NewBundle();
-    parseResourceProperties(json, res);
-    if (json.has("base"))
-      res.setBaseElement(parseUri(json.get("base").getAsString()));
-    if (json.has("_base"))
-      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
-    if (json.has("total"))
-      res.setTotalElement(parseInteger(json.get("total").getAsLong()));
-    if (json.has("_total"))
-      parseElementProperties(json.getAsJsonObject("_total"), res.getTotalElement());
-    if (json.has("link")) {
-      JsonArray array = json.getAsJsonArray("link");
-      for (int i = 0; i < array.size(); i++) {
-        res.getLink().add(parseNewBundleNewBundleLinkComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("item")) {
-      JsonArray array = json.getAsJsonArray("item");
-      for (int i = 0; i < array.size(); i++) {
-        res.getItem().add(parseResource(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("signature"))
-      res.setSignatureElement(parseBase64Binary(json.get("signature").getAsString()));
-    if (json.has("_signature"))
-      parseElementProperties(json.getAsJsonObject("_signature"), res.getSignatureElement());
-    return res;
-  }
-
-  private NewBundle.NewBundleLinkComponent parseNewBundleNewBundleLinkComponent(JsonObject json, NewBundle owner) throws Exception {
-    NewBundle.NewBundleLinkComponent res = new NewBundle.NewBundleLinkComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("relation"))
-      res.setRelationElement(parseString(json.get("relation").getAsString()));
-    if (json.has("_relation"))
-      parseElementProperties(json.getAsJsonObject("_relation"), res.getRelationElement());
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    return res;
-  }
-
   private NutritionOrder parseNutritionOrder(JsonObject json) throws Exception {
     NutritionOrder res = new NutritionOrder();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("orderer"))
@@ -5401,7 +5535,7 @@ public class JsonParser extends JsonParserBase {
 
   private Observation parseObservation(JsonObject json) throws Exception {
     Observation res = new Observation();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("name"))
       res.setName(parseCodeableConcept(json.getAsJsonObject("name")));
     Type value = parseType("value", json);
@@ -5497,7 +5631,7 @@ public class JsonParser extends JsonParserBase {
 
   private OperationDefinition parseOperationDefinition(JsonObject json) throws Exception {
     OperationDefinition res = new OperationDefinition();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -5620,7 +5754,7 @@ public class JsonParser extends JsonParserBase {
 
   private OperationOutcome parseOperationOutcome(JsonObject json) throws Exception {
     OperationOutcome res = new OperationOutcome();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("issue")) {
       JsonArray array = json.getAsJsonArray("issue");
       for (int i = 0; i < array.size(); i++) {
@@ -5663,7 +5797,7 @@ public class JsonParser extends JsonParserBase {
 
   private OralHealthClaim parseOralHealthClaim(JsonObject json) throws Exception {
     OralHealthClaim res = new OralHealthClaim();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("use"))
@@ -5982,7 +6116,7 @@ public class JsonParser extends JsonParserBase {
 
   private Order parseOrder(JsonObject json) throws Exception {
     Order res = new Order();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6027,7 +6161,7 @@ public class JsonParser extends JsonParserBase {
 
   private OrderResponse parseOrderResponse(JsonObject json) throws Exception {
     OrderResponse res = new OrderResponse();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6064,7 +6198,7 @@ public class JsonParser extends JsonParserBase {
 
   private Organization parseOrganization(JsonObject json) throws Exception {
     Organization res = new Organization();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6134,7 +6268,7 @@ public class JsonParser extends JsonParserBase {
 
   private Other parseOther(JsonObject json) throws Exception {
     Other res = new Other();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6156,7 +6290,7 @@ public class JsonParser extends JsonParserBase {
 
   private Patient parsePatient(JsonObject json) throws Exception {
     Patient res = new Patient();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6294,7 +6428,7 @@ public class JsonParser extends JsonParserBase {
 
   private Practitioner parsePractitioner(JsonObject json) throws Exception {
     Practitioner res = new Practitioner();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6386,7 +6520,7 @@ public class JsonParser extends JsonParserBase {
 
   private Procedure parseProcedure(JsonObject json) throws Exception {
     Procedure res = new Procedure();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6476,7 +6610,7 @@ public class JsonParser extends JsonParserBase {
 
   private Profile parseProfile(JsonObject json) throws Exception {
     Profile res = new Profile();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("url"))
       res.setUrlElement(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
@@ -6659,7 +6793,7 @@ public class JsonParser extends JsonParserBase {
 
   private Provenance parseProvenance(JsonObject json) throws Exception {
     Provenance res = new Provenance();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("target")) {
       JsonArray array = json.getAsJsonArray("target");
       for (int i = 0; i < array.size(); i++) {
@@ -6752,7 +6886,7 @@ public class JsonParser extends JsonParserBase {
 
   private Query parseQuery(JsonObject json) throws Exception {
     Query res = new Query();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -6824,7 +6958,7 @@ public class JsonParser extends JsonParserBase {
 
   private Questionnaire parseQuestionnaire(JsonObject json) throws Exception {
     Questionnaire res = new Questionnaire();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -6938,7 +7072,7 @@ public class JsonParser extends JsonParserBase {
 
   private QuestionnaireAnswers parseQuestionnaireAnswers(JsonObject json) throws Exception {
     QuestionnaireAnswers res = new QuestionnaireAnswers();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("questionnaire"))
@@ -7033,7 +7167,7 @@ public class JsonParser extends JsonParserBase {
 
   private ReferralRequest parseReferralRequest(JsonObject json) throws Exception {
     ReferralRequest res = new ReferralRequest();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), ReferralRequest.Referralstatus.NULL, new ReferralRequest.ReferralstatusEnumFactory()));
     if (json.has("_status"))
@@ -7091,7 +7225,7 @@ public class JsonParser extends JsonParserBase {
 
   private RelatedPerson parseRelatedPerson(JsonObject json) throws Exception {
     RelatedPerson res = new RelatedPerson();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -7127,7 +7261,7 @@ public class JsonParser extends JsonParserBase {
 
   private RiskAssessment parseRiskAssessment(JsonObject json) throws Exception {
     RiskAssessment res = new RiskAssessment();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
     if (json.has("date"))
@@ -7185,7 +7319,7 @@ public class JsonParser extends JsonParserBase {
 
   private SecurityEvent parseSecurityEvent(JsonObject json) throws Exception {
     SecurityEvent res = new SecurityEvent();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("event"))
       res.setEvent(parseSecurityEventSecurityEventEventComponent(json.getAsJsonObject("event"), res));
     if (json.has("participant")) {
@@ -7361,7 +7495,7 @@ public class JsonParser extends JsonParserBase {
 
   private Slot parseSlot(JsonObject json) throws Exception {
     Slot res = new Slot();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -7401,7 +7535,7 @@ public class JsonParser extends JsonParserBase {
 
   private Specimen parseSpecimen(JsonObject json) throws Exception {
     Specimen res = new Specimen();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
       JsonArray array = json.getAsJsonArray("identifier");
       for (int i = 0; i < array.size(); i++) {
@@ -7533,7 +7667,7 @@ public class JsonParser extends JsonParserBase {
 
   private Subscription parseSubscription(JsonObject json) throws Exception {
     Subscription res = new Subscription();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("criteria"))
       res.setCriteriaElement(parseString(json.get("criteria").getAsString()));
     if (json.has("_criteria"))
@@ -7613,7 +7747,7 @@ public class JsonParser extends JsonParserBase {
 
   private Substance parseSubstance(JsonObject json) throws Exception {
     Substance res = new Substance();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("description"))
@@ -7657,7 +7791,7 @@ public class JsonParser extends JsonParserBase {
 
   private Supply parseSupply(JsonObject json) throws Exception {
     Supply res = new Supply();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("kind"))
       res.setKind(parseCodeableConcept(json.getAsJsonObject("kind")));
     if (json.has("identifier"))
@@ -7713,7 +7847,7 @@ public class JsonParser extends JsonParserBase {
 
   private ValueSet parseValueSet(JsonObject json) throws Exception {
     ValueSet res = new ValueSet();
-    parseResourceProperties(json, res);
+    parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
       res.setIdentifierElement(parseUri(json.get("identifier").getAsString()));
     if (json.has("_identifier"))
@@ -8021,6 +8155,8 @@ public class JsonParser extends JsonParserBase {
       return parseBasic(json);
     else if (t.equals("Binary"))
       return parseBinary(json);
+    else if (t.equals("Bundle"))
+      return parseBundle(json);
     else if (t.equals("CarePlan"))
       return parseCarePlan(json);
     else if (t.equals("ClaimResponse"))
@@ -8053,8 +8189,12 @@ public class JsonParser extends JsonParserBase {
       return parseDocumentManifest(json);
     else if (t.equals("DocumentReference"))
       return parseDocumentReference(json);
+    else if (t.equals("Eligibility"))
+      return parseEligibility(json);
     else if (t.equals("Encounter"))
       return parseEncounter(json);
+    else if (t.equals("ExplanationOfBenefit"))
+      return parseExplanationOfBenefit(json);
     else if (t.equals("ExtensionDefinition"))
       return parseExtensionDefinition(json);
     else if (t.equals("FamilyHistory"))
@@ -8089,8 +8229,6 @@ public class JsonParser extends JsonParserBase {
       return parseMessageHeader(json);
     else if (t.equals("NamingSystem"))
       return parseNamingSystem(json);
-    else if (t.equals("NewBundle"))
-      return parseNewBundle(json);
     else if (t.equals("NutritionOrder"))
       return parseNutritionOrder(json);
     else if (t.equals("Observation"))
@@ -8377,6 +8515,8 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Binary"))
       return true;
+    if (json.has(prefix+"Bundle"))
+      return true;
     if (json.has(prefix+"CarePlan"))
       return true;
     if (json.has(prefix+"ClaimResponse"))
@@ -8409,7 +8549,11 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"DocumentReference"))
       return true;
+    if (json.has(prefix+"Eligibility"))
+      return true;
     if (json.has(prefix+"Encounter"))
+      return true;
+    if (json.has(prefix+"ExplanationOfBenefit"))
       return true;
     if (json.has(prefix+"ExtensionDefinition"))
       return true;
@@ -8444,8 +8588,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"MessageHeader"))
       return true;
     if (json.has(prefix+"NamingSystem"))
-      return true;
-    if (json.has(prefix+"NewBundle"))
       return true;
     if (json.has(prefix+"NutritionOrder"))
       return true;

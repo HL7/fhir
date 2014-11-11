@@ -827,7 +827,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Type</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">DomainResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1677,7 +1677,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1690,23 +1690,15 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;Resource,Type,Structure&quot;</Value>
-  </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C18:R33C18</Range>
    <Type>List</Type>
@@ -1884,6 +1876,13 @@
    <Range>R6C18</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[14]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[14]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C5</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC5)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -4494,7 +4493,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

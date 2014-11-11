@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 6, 2014 07:40+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ import org.hl7.fhir.utilities.Utilities;
 /**
  * An order for both supply of the medication and the instructions for administration of the medicine to a patient.
  */
-public class MedicationPrescription extends Resource {
+public class MedicationPrescription extends DomainResource {
 
     public enum MedicationPrescriptionStatus {
         ACTIVE, // The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
@@ -385,6 +385,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationPrescriptionDosageInstructionComponent copy() {
         MedicationPrescriptionDosageInstructionComponent dst = new MedicationPrescriptionDosageInstructionComponent();
+        copyValues(dst);
         dst.text = text == null ? null : text.copy();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
@@ -573,6 +574,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
       public MedicationPrescriptionDispenseComponent copy() {
         MedicationPrescriptionDispenseComponent dst = new MedicationPrescriptionDispenseComponent();
+        copyValues(dst);
         dst.medication = medication == null ? null : medication.copy();
         dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
         dst.numberOfRepeatsAllowed = numberOfRepeatsAllowed == null ? null : numberOfRepeatsAllowed.copy();
@@ -643,6 +645,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
       public MedicationPrescriptionSubstitutionComponent copy() {
         MedicationPrescriptionSubstitutionComponent dst = new MedicationPrescriptionSubstitutionComponent();
+        copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.reason = reason == null ? null : reason.copy();
         return dst;
@@ -742,7 +745,7 @@ In some situations, this attribute may be used instead of quantity to identify t
      * @return {@link #identifier} (External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.)
      */
     // syntactic sugar
-    public Identifier addIdentifier() { 
+    public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
@@ -966,7 +969,7 @@ In some situations, this attribute may be used instead of quantity to identify t
      * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
      */
     // syntactic sugar
-    public MedicationPrescriptionDosageInstructionComponent addDosageInstruction() { 
+    public MedicationPrescriptionDosageInstructionComponent addDosageInstruction() { //3
       MedicationPrescriptionDosageInstructionComponent t = new MedicationPrescriptionDosageInstructionComponent();
       this.dosageInstruction.add(t);
       return t;
@@ -1019,6 +1022,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
       public MedicationPrescription copy() {
         MedicationPrescription dst = new MedicationPrescription();
+        copyValues(dst);
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());

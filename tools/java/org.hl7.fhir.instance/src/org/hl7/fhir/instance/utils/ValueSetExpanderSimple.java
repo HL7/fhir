@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -101,7 +100,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	private void importValueSet(String value) throws Exception {
 	  if (value == null)
 	  	throw new Exception("unable to find value set with no identity");
-	  ValueSet vs = context.getValueSets().get(value).getResource();
+	  ValueSet vs = context.getValueSets().get(value);
 	  if (vs == null)
 			throw new Exception("Unable to find imported value set "+value);
 	  ValueSetExpansionOutcome vso = factory.getExpander().expand(vs);
@@ -118,10 +117,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       return;
 	  }
 	    
-	  AtomEntry<ValueSet> ae = context.getCodeSystems().get(inc.getSystem());
-	  if (ae == null)
+	  ValueSet cs = context.getCodeSystems().get(inc.getSystem());
+	  if (cs == null)
 	  	throw new Exception("unable to find code system "+inc.getSystem().toString());
-    ValueSet cs = ae.getResource();
 	  if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ConceptDefinitionComponent def : cs.getDefine().getConcept()) {
@@ -165,7 +163,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void excludeCodes(ConceptSetComponent inc) throws Exception {
-	  ValueSet cs = context.getCodeSystems().get(inc.getSystem().toString()).getResource();
+	  ValueSet cs = context.getCodeSystems().get(inc.getSystem().toString());
 	  if (cs == null)
 	  	throw new Exception("unable to find value set "+inc.getSystem().toString());
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {

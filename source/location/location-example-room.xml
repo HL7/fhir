@@ -2,6 +2,7 @@
 <Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd"
  xmlns="http://hl7.org/fhir">
+  <id value="2"/>
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>

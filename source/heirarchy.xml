@@ -185,7 +185,7 @@ todo: compartments
     <page type="resource" resource="Provenance"/>
     <page type="resource" resource="SecurityEvent"/>
     <page type="resource" resource="Binary"/>
-    <page type="resource" resource="NewBundle"/>
+    <page type="resource" resource="Bundle"/>
 
     <page type="resource" resource="Composition"/>
     <page type="resource" resource="DocumentReference"/>

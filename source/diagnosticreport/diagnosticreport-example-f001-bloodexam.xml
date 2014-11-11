@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/patient.xsd">
+  <id value="f001"/>
   <contained>
-    <DiagnosticOrder id="req">
+    <DiagnosticOrder>
+      <id value="req"/>
       <subject>
           <reference value="Patient/f001"/>
           <display value="P. van den Heuvel"/>

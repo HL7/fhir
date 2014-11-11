@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is used for the Contraindication-example.xml  When making updates, don't alter the medication or timing in a way that violates the contraindication -->
 <MedicationStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationstatement.xsd">
+  <id value="tylenol"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +9,8 @@
     </div>
   </text> 
   <contained>
-    <Substance id="1">
+    <Substance>
+      <id value="1"/>
       <type>
         <coding>
           <system value="urn:oid:2.16.840.1.113883.5.1103"/>
@@ -18,7 +20,8 @@
     </Substance>
   </contained>
   <contained>
-    <Medication id="2">
+    <Medication>
+      <id value="2"/>
       <name value="ACETAMINOPHEN"/>
       <code>
         <coding>
