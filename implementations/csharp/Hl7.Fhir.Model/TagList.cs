@@ -64,9 +64,6 @@ namespace Hl7.Fhir.Model
     public class Tag
     {
        
-        public static readonly Uri FHIRTAGSCHEME_GENERAL = new Uri(XmlNs.FHIRTAG, UriKind.Absolute);
-        public static readonly Uri FHIRTAGSCHEME_PROFILE = new Uri(XmlNs.TAG_PROFILE, UriKind.Absolute);
-        public static readonly Uri FHIRTAGSCHEME_SECURITY = new Uri(XmlNs.TAG_SECURITY, UriKind.Absolute);
 
         [Required]
         public string Term { get; private set; }

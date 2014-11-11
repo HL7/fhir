@@ -28,30 +28,34 @@ namespace Hl7.Fhir.Model
 
     public static class TagListExtensions
     {
+        public static readonly Uri FHIRTAGSCHEME_GENERAL = new Uri(XmlNs.FHIRTAG, UriKind.Absolute);
+        public static readonly Uri FHIRTAGSCHEME_PROFILE = new Uri(XmlNs.TAG_PROFILE, UriKind.Absolute);
+        public static readonly Uri FHIRTAGSCHEME_SECURITY = new Uri(XmlNs.TAG_SECURITY, UriKind.Absolute);
+
         public const string TAG_TERM_DOCUMENT = "http://hl7.org/fhir/tag/document";
         public const string TAG_TERM_MESSAGE = "http://hl7.org/fhir/tag/message";
         public const string TAG_TERM_TEXT = "http://hl7.org/fhir/tag/text/";
 
-        private static readonly Tag MESSAGE_TAG = new Tag(TAG_TERM_MESSAGE, Tag.FHIRTAGSCHEME_GENERAL);
-        private static readonly Tag DOCUMENT_TAG = new Tag(TAG_TERM_DOCUMENT, Tag.FHIRTAGSCHEME_GENERAL);
+        private static readonly Coding MESSAGE_TAG = new Coding(XmlNs.FHIRTAG, TAG_TERM_MESSAGE);
+        private static readonly Coding DOCUMENT_TAG = new Coding(XmlNs.FHIRTAG, TAG_TERM_DOCUMENT);
 
-        public static void SetTextTag(this BundleEntry entry, string text)
+        public static void SetTextTag(this Resource entry, string text)
         {
-            var result = new List<Tag>();
+            if (entry.Meta == null) entry.Meta = new Resource.ResourceMetaComponent();
+            if (entry.Meta.Tag == null) entry.Meta.Tag = new List<Coding>();
 
-            if (entry.Tags != null) result.AddRange(entry.Tags);
+            entry.Meta.Tag.RemoveAll(t => Equals(t.System, XmlNs.FHIRTAG) &&
+                    (t.Code != null && t.Code.StartsWith(TAG_TERM_TEXT)));
 
-            result.RemoveAll(t => Equals(t.Scheme,Tag.FHIRTAGSCHEME_GENERAL) &&
-                    (t.Term != null && t.Term.StartsWith(TAG_TERM_TEXT)));
-
-            result.Add(new Tag(TAG_TERM_TEXT + Uri.EscapeUriString(text), Tag.FHIRTAGSCHEME_GENERAL, text));
-
-            entry.Tags = result;
+            entry.Meta.Tag.Add(new Coding(XmlNs.FHIRTAG, TAG_TERM_TEXT + Uri.EscapeUriString(text)) { Display = text });
         }
 
-        public static string GetTextTag(this BundleEntry entry)
+        public static string GetTextTag(this Resource entry)
         {
-            var textTag = entry.Tags.FilterByScheme(Tag.FHIRTAGSCHEME_GENERAL).
+            if (entry.Meta == null) entry.Meta = new Resource.ResourceMetaComponent();
+            if (entry.Meta.Tag == null) entry.Meta.Tag = new List<Coding>();
+
+            var textTag = entry.Meta.Tag.FilterByScheme(XmlNs.FHIRTAG).
                 Where(t => t.Term.StartsWith(TAG_TERM_TEXT)).SingleOrDefault();
 
             if (textTag == null) return null;

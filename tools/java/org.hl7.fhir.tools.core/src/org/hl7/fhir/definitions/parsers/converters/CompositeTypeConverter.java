@@ -53,10 +53,7 @@ public class CompositeTypeConverter {
 
 		for (org.hl7.fhir.definitions.model.ElementDefn type : types) 
 		{
-			TypeRef elementBase = FhirFactory.eINSTANCE.createTypeRef();
-			elementBase.setName(TypeRef.ELEMENT_TYPE_NAME);
-
-			result.add(buildCompositeTypeFromFhirModel(type, false, scope, elementBase));
+			result.add(buildCompositeTypeFromFhirModel(type, false, scope));
 		}
 
 		return result;
@@ -71,10 +68,7 @@ public class CompositeTypeConverter {
 		{
 			try 
 			{
-		    TypeRef resourceBase = FhirFactory.eINSTANCE.createTypeRef();
-		    resourceBase.setName(TypeRef.RESOURCE_TYPE_NAME);
-
-			  result.add(buildResourceFromFhirModel(resource, resourceBase));
+			  result.add(buildResourceFromFhirModel(resource));
 			} 
 			catch (Exception e) 
 			{
@@ -87,62 +81,70 @@ public class CompositeTypeConverter {
 	}
 
 	public static ResourceDefn buildResourceFromFhirModel(
-			org.hl7.fhir.definitions.model.ResourceDefn resource, TypeRef base)
+			org.hl7.fhir.definitions.model.ResourceDefn resource)
 			throws Exception {
 		
 		ResourceDefn newResource = null;
-		
+   
 		if (resource.isForFutureUse()) {
 			// Build a shallow, empty ResourceDefn
-			newResource = FhirFactory.eINSTANCE
-					.createResourceDefn();
+			newResource = FhirFactory.eINSTANCE.createResourceDefn();
 			newResource.setName(resource.getName());
 			newResource.setFullName(resource.getName());
 			Annotations ann = FhirFactory.eINSTANCE.createAnnotations();
 			newResource.setAnnotations(ann);
 			newResource.setFuture(true);
+	    TypeRef base = FhirFactory.eINSTANCE.createTypeRef();
+	    base.setName("DomainResource");
 			newResource.setBaseType(base);
 		}
 		else 
 		{
 
 			newResource = (ResourceDefn) buildCompositeTypeFromFhirModel(
-					resource.getRoot(), true, null, base);
-			newResource.setAbstract(resource.isAbstract());
-			newResource.setBaseType(base);
+					resource.getRoot(), true, null);		
 			newResource.getExample().addAll(
 					ExampleConverter.buildExamplesFromFhirModel(resource
 							.getExamples()));
 			newResource.getSearch().addAll(
 					SearchParameterConverter
 							.buildSearchParametersFromFhirModel(resource
-									.getSearchParams().values()));
-			
-//			if(newResource.getName().equals("Binary"))
-//			{
-//			  for(ElementDefn elem : newResource.getElement())
-//			  {
-//			    if(elem.getName().equals("content"))
-//			    {
-//			      elem.setXmlFormatHint(XmlFormatHint.TEXT_NODE);
-//			      elem.setPrimitiveContents(true);
-//			    }
-//			  }
-//			}
+									.getSearchParams().values()));		
 		}
 		
 		return newResource;
 	}
 
 	public static CompositeTypeDefn buildCompositeTypeFromFhirModel( 
-			org.hl7.fhir.definitions.model.ElementDefn type, boolean isResource, CompositeTypeDefn scope,
-			TypeRef base) throws Exception
+			org.hl7.fhir.definitions.model.ElementDefn type, boolean isResource, CompositeTypeDefn scope) throws Exception
 	{
 
 		CompositeTypeDefn result = isResource ? FhirFactory.eINSTANCE.createResourceDefn() : 
 			FhirFactory.eINSTANCE.createCompositeTypeDefn();
 
 		result.setName( type.getName() );
+
+    TypeRef base = FhirFactory.eINSTANCE.createTypeRef();
+    String name = type.getName();
+    
+    // Set the base class to the normal case
+    if(isResource)
+      base.setName("DomainResource");
+    else
+      base.setName("Element");
+
+    // Revisit exceptional bases
+    if(name.equals("DomainResource"))
+      base.setName("Resource");
+    else if(name.equals("Resource"))
+      base = null;
+    else if(name.equals("Element"))
+      base = null;
+
+    Boolean isAbstract = name.equals("Element") || name.equals("Resource") || name.equals("DomainResource");
+    
+    result.setAbstract(isAbstract);
+    result.setBaseType(base);
 
 		if( base != null ) result.setBaseType(base);
 		

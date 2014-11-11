@@ -41,48 +41,47 @@ using System.ComponentModel.DataAnnotations;
 namespace Hl7.Fhir.Model
 {
     [InvokeIValidatableObject]
-    public abstract class BundleEntry : Hl7.Fhir.Validation.IValidatableObject
+    public class DeletedResource : Resource, Hl7.Fhir.Validation.IValidatableObject
     {
-        public BundleEntry()
+        public DeletedResource()
         {
-            Links = new UriLinkList();
-            Tags = new List<Tag>();
         }
 
-        [Required]
-        public Uri Id { get; set; }
-        public UriLinkList Links { get; set; }
-        public ICollection<Tag> Tags { get; set; }
-
-        public Uri SelfLink
+        public DeletedResource(DateTimeOffset when)
         {
-            get { return Links.SelfLink; }
-            set { Links.SelfLink = value; }
+            When = when;
         }
 
-        /// <summary>
-        /// Read-only property getting a summary from a Resource or a descriptive text in other cases.
-        /// </summary>
-        public abstract string Summary { get; }
+        [Required(ErrorMessage="A DeletedEntry must have a non-null deletion time (When)")]
+        public DateTimeOffset? When { get; set; }
 
-
-        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
+            result.AddRange(base.Validate(validationContext));
 
-            if (Id != null && !Id.IsAbsoluteUri)
-                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry id must be an absolute URI"));
-
-            if (Bundle.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
-                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
-
-            if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
-                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Paging links can only be used on feeds, not entries"));
-
-            if (Tags != null && validationContext.ValidateRecursively())
-                DotNetAttributeValidation.TryValidate(Tags,result,true);
+            if (!result.Any()) result.Add(ValidationResult.Success);
 
             return result;
+        }
+
+        public override IDeepCopyable CopyTo(IDeepCopyable other)
+        {
+            var dest = other as DeletedResource;
+
+            if (dest != null)
+            {
+                base.CopyTo(dest);
+                if (When != null) dest.When = When;
+                return dest;
+            }
+            else
+                throw new ArgumentException("Can only copy to an object of the same type", "other");
+        }
+
+        public override IDeepCopyable DeepCopy()
+        {
+            return CopyTo(new Composition());
         }
     }
 }

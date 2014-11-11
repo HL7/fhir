@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base64Binary.cs" />
+    <Compile Include="Bundle.cs" />
     <Compile Include="BundleExtensions.cs" />
     <Compile Include="FhirBoolean.cs" />
     <Compile Include="FhirDecimal.cs" />
@@ -69,15 +70,14 @@
     <Compile Include="Introspection\ReferencesAttribute.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Binary.cs" />
-    <Compile Include="Bundle.cs" />
-    <Compile Include="BundleEntry.cs" />
     <Compile Include="Code.cs" />
     <Compile Include="IDeepCopyable.cs" />
     <Compile Include="Oid.cs" />
+    <Compile Include="DomainResource.cs" />
     <Compile Include="OperationOutcomeExtensions.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="Date.cs" />
-    <Compile Include="DeletedEntry.cs" />
+    <Compile Include="DeletedResource.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="FhirDateTime.cs" />
     <Compile Include="FhirUri.cs" />
@@ -88,15 +88,11 @@
     <Compile Include="ModelInfo.cs" />
     <Compile Include="OperationOutcome.cs" />
     <Compile Include="Resource.cs" />
-    <Compile Include="ResourceEntry.cs" />
     <Compile Include="ResourceReference.cs" />
     <Compile Include="Support\Logging.cs" />
     <Compile Include="Support\ReflectionHelper.cs" />
     <Compile Include="Support\StringExtensions.cs" />
     <Compile Include="Support\XmlNs.cs" />
-    <Compile Include="TagList.cs" />
-    <Compile Include="TagListExtensions.cs" />
-    <Compile Include="UriLinkList.cs" />
     <Compile Include="Uuid.cs" />
     <Compile Include="Validation\DotNetAttributeValidation.cs" />
     <Compile Include="ValueSet.cs" />

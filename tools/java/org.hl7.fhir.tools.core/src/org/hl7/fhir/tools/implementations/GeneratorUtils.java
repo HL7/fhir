@@ -366,7 +366,10 @@ public class GeneratorUtils {
 		if( Character.isLowerCase(name.charAt(0)) )
 			result = mapPrimitiveToFhirCSharpType(name);
 		else
+		{		  
 			result = Utilities.capitalize(name);
+			if(result.equals("Reference")) result = "ResourceReference";
+		}
 		
 		return result;
 	}
@@ -394,8 +397,9 @@ public class GeneratorUtils {
 	
 	public static String buildFullyScopedTypeName( String fullName ) throws Exception
 	{		
-  	String[] nameParts = fullName == null ? "DomainResource".split("\\.") : fullName.split("\\.");
-		
+  	//String[] nameParts = fullName == null ? "DomainResource".split("\\.") : fullName.split("\\.");
+  	String[] nameParts = fullName.split("\\.");
+  	
 		if( nameParts.length == 1 )
 			// Globally defined name
 			return HL7NAMESPACE + "." + GeneratorUtils.generateCSharpTypeName(nameParts[0]);
@@ -441,7 +445,7 @@ public class GeneratorUtils {
 	
 	
 	
-	public static String generateCSharpMemberName(ElementDefn member) 
+	public static String generateCSharpMemberName(ElementDefn member) throws Exception
 	{
 		String result = Utilities.capitalize(member.getName());
 		
@@ -460,7 +464,8 @@ public class GeneratorUtils {
 		// An attribute cannot have the same name as a nested type
 		for( CompositeTypeDefn composite : member.getParentType().getLocalCompositeTypes() )
 		{
-			if( composite.getName().equals(result) )
+		  String csName = generateCSharpTypeName(composite.getName());
+			if( csName.equals(result) )
 			{
 				result += "_";
 				break;
@@ -480,7 +485,8 @@ public class GeneratorUtils {
 
 		
 		// An attribute cannot have the same name as its enclosing type
-		if( result.equals( member.getParentType().getName() ) )
+		String csName = generateCSharpTypeName(member.getParentType().getName());
+		if( result.equals(csName) )
 				result += "_";
 		
 		return result;

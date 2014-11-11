@@ -234,9 +234,8 @@ public class SourceParser {
 		loadCompartments();
 		loadStatusCodes();
 		
-		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource = CompositeTypeConverter.buildResourceFromFhirModel(definitions.getBaseResources().get("Resource"), null);
-		eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
-		eCoreParseResults.getType().add( eCoreBaseResource );
+		//eCoreBaseResource.getElement().add(CompositeTypeConverter.buildInternalIdElement());		
+		eCoreParseResults.getType().addAll(sortTypes(CompositeTypeConverter.buildResourcesFromFhirModel(definitions.getBaseResources().values() )));
 		eCoreParseResults.getType().addAll(sortTypes(CompositeTypeConverter.buildResourcesFromFhirModel(definitions.getResources().values() )));
 		
 	//	eCoreParseResults.getType().add(CompositeTypeConverter.buildBinaryResourceDefn());
