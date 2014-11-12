@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 20:51+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -54,14 +54,14 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseElementProperties(JsonObject json, Element element) throws Exception {
     super.parseElementProperties(json, element);
-    parseExtensions(json, element.getExtension());
+    parseExtensions(json, element.getExtension(), false);
   }
 
   protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {
     parseElementProperties(json, element);
     if (json != null && json.has("modifier")) {
       JsonObject obj = json.getAsJsonObject("modifier");
-      parseExtensions(obj, element.getModifierExtension());
+      parseExtensions(obj, element.getModifierExtension(), false);
     };
   }
 
@@ -1056,10 +1056,10 @@ public class JsonParser extends JsonParserBase {
         res.getContained().add(parseResource(array.get(i).getAsJsonObject()));
       }
     };
-    parseExtensions(json, res.getExtension());
+    parseExtensions(json, res.getExtension(), false);
     if (json != null && json.has("modifier")) {
       JsonObject obj = json.getAsJsonObject("modifier");
-      parseExtensions(obj, res.getModifierExtension());
+      parseExtensions(obj, res.getModifierExtension(), false);
     };
   }
 
@@ -8456,7 +8456,7 @@ public class JsonParser extends JsonParserBase {
     throw new Exception("Unknown Type "+type);
   }
 
-  private boolean hasTypeName(JsonObject json, String prefix) {
+  protected boolean hasTypeName(JsonObject json, String prefix) {
         if (json.has(prefix+"Period"))
       return true;
     if (json.has(prefix+"Coding"))

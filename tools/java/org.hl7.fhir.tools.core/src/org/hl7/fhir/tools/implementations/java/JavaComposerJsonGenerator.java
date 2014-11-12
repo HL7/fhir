@@ -357,7 +357,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       write("      if (element.getModifierExtension().size() > 0) {\r\n");
       write("        openObject(\"modifier\");\r\n");
       write("        composeExtensions(element.getModifierExtension());\r\n");
-      write("        closeArray();\r\n");
+      write("        close();\r\n");
       write("      };\r\n");      
     } else {
       String comp = null;

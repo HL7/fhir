@@ -146,14 +146,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElement() throws Exception {
     write("  protected void parseElementProperties(JsonObject json, Element element) throws Exception {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
-    write("    parseExtensions(json, element.getExtension());\r\n");
+    write("    parseExtensions(json, element.getExtension(), false);\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("    if (json != null && json.has(\"modifier\")) {\r\n");
     write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
-    write("      parseExtensions(obj, element.getModifierExtension());\r\n");
+    write("      parseExtensions(obj, element.getModifierExtension(), false);\r\n");
     write("    };\r\n");    
     write("  }\r\n");
     write("\r\n");
@@ -348,11 +348,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("      res.set"+upFirst(getElementName(en, false))+"("+getElementName(en, false)+");\r\n");
     } else if (name.equals("extension")) {
     // special case handling for extensions in json
-      write("    parseExtensions(json, res.getExtension());\r\n");
+      write("    parseExtensions(json, res.getExtension(), false);\r\n");
     } else if (name.equals("modifierExtension")) {
       write("    if (json != null && json.has(\"modifier\")) {\r\n");
       write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
-      write("      parseExtensions(obj, res.getModifierExtension());\r\n");
+      write("      parseExtensions(obj, res.getModifierExtension(), false);\r\n");
       write("    };\r\n");
     } else {
         String prsr = null;
@@ -492,7 +492,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //    write("    throw new Exception(\"Unknown type \"+type);\r\n");
 //    write("  }\r\n\r\n");
 //
-    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
+    write("  protected boolean hasTypeName(JsonObject json, String prefix) {\r\n");
     write("    "+regn.toString());
     write("    return false;\r\n");
     write("  }\r\n");

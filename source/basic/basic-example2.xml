@@ -15,29 +15,29 @@ be managed in a conformant manner.-->
       </ul>
     </div>
   </text>
-  <extension url="http://example.org/do-not-use/fhir-extensions/UML#class">
-    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.name">
+  <extension url="http://example.org/do-not-use/fhir-extensions/UMLclass">
+    <extension url="name">
       <valueString value="Class1"/>
     </extension>
-    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
+    <extension url="attribute">
+      <extension url="name">
         <valueString value="attribute1"/>
       </extension>
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
+      <extension url="minOccurs">
         <valueInteger value="1"/>
       </extension>
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
+      <extension url="maxOccurs">
         <valueCode value="*"/>
       </extension>
     </extension>
-    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
+    <extension url="attribute">
+      <extension url="name">
         <valueString value="attribute2"/>
       </extension>
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
+      <extension url="minOccurs">
         <valueInteger value="0"/>
       </extension>
-      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
+      <extension url="maxOccurs">
         <valueInteger value="1"/>
       </extension>
     </extension>

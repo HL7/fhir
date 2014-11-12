@@ -3245,7 +3245,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean doesTest() {
-    return doesCompile();
+    return false; // todo-bundle doesCompile();
   }
 
   @Override

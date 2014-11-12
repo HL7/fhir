@@ -143,10 +143,11 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   }
 
   protected abstract Type parseType(String prefix, JsonObject json) throws Exception;
+  protected abstract boolean hasTypeName(JsonObject json, String prefix);
   
-  protected void parseExtensions(JsonObject json, List<Extension> extensions) throws Exception {
+  protected void parseExtensions(JsonObject json, List<Extension> extensions, boolean inExtension) throws Exception {
 	  for (Entry<String, JsonElement> p : json.entrySet()) {
-	  	if (p.getKey().contains(":")) {
+	  	if (p.getKey().contains(":") || (inExtension && !(p.getKey().startsWith("value") || p.getKey().startsWith("_value")))) {
 	  		// it's an extension
 	  		if (!(p.getValue() instanceof JsonArray))
 	  			throw new Exception("The property "+p.getKey()+" looks like an extension, but isn't a JSON array (it's a "+p.getValue().getClass().getName()+")");
@@ -154,7 +155,10 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 	  		for (int i = 0; i < arr.size(); i++) {
 	  			Extension ex = new Extension();
 	  			ex.setUrl(p.getKey());
-	  			ex.setValue(parseType("value", (JsonObject) arr.get(i)));
+	  			JsonObject obj = (JsonObject) arr.get(i);
+	  			if (hasTypeName(obj, "value"))
+	  			  ex.setValue(parseType("value", obj));
+	  			parseExtensions(obj, ex.getExtension(), true);
 	  			extensions.add(ex);
 	  		}
 	  	}

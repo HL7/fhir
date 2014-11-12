@@ -255,7 +255,7 @@ public class ToolsHelper {
 	FileInputStream in;
 	File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
-    if (args.length >= 3) {
+    if (args.length >= 4) {
     	Utilities.copyFile(args[1], args[3]);
     }
 

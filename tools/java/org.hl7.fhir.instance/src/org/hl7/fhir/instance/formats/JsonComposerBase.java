@@ -237,7 +237,10 @@ public abstract class JsonComposerBase extends ComposerBase {
   			for (Extension ex : extensions) {
   				if (ex.getUrl().equals(e.getUrl())) {
   					openObject(null);
+  					if (e.getValue() != null)
   					composeType("value", e.getValue());
+  					if (ex.getExtension().size() > 0)
+  					  composeExtensions(ex.getExtension());
   					close();
   				}
   			}
