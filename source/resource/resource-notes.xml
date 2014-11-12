@@ -1,10 +1,143 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-
-<a name="rest"> </a>
-<h3>Testing</h3>
+<h3>Resource Identity</h3>
 
 <p>
-test
+Each resource has an "id" element which contains the logical identity of the resource 
+assigned by the server responsible for storing it. Resources always have a known identity
+except for the special case when a new resources is being sent to a server to assign
+an identity (<a href="http.html#create">create interaction</a>). 
+The logical identity is unique within the space of all resources of the same type on 
+the same server. Once assigned, the identity is never changed, though copies of the 
+same resource made elsewhere may not retain the same identity.
 </p>
+
+<p>
+The full identity of a resource is an absolute URL constructed from the server base address at 
+which it is found, the resource type, and the Logical Id, such as http://test.fhir.org/rest/Patient/123 
+(where 123 is the Logical Id). Note that implementations SHOULD NOT assume that the identity of a resource 
+is always resolvable to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
+cases, it may not actually exist (e.g. use of resource outside a RESTful environment). Resources reference each other by their identity. 
+These references are allowed to be absolute or relative (see <a href="references.html">Resource References</a> for further discussion).
+Copying or moving resources from one server to another means that resources acquire a new identity. For further details, 
+see <a href="managing.html">Managing Resource Identity</a>.
+</p>
+
+<p>
+Logical ids are case sensitive. Ids are always opaque, and external systems need not and should not 
+attempt to determine their internal structure. An id SHALL always be represented in the same way in 
+resource references and URLs. Ids can be up to 36 characters long, and contain any combination of 
+upper and lowercase ASCII letters, numerals, "-" and ".". 
+</p>
+
+<a name="metadata"> </a>
+<h3>Resource Metadata</h3>
+<p>
+Each resource contains a set of meta data that provide technical and workflow 
+context to the resource. The metadata items are all optional, though some of all
+of them may be required in particular implementations.
+</p>
+
+<table class="grid">
+  <tr>
+    <th>Metadata Item</th>
+    <th>Type</th>
+    <th>Usage</th>
+  </tr>
+  <tr>
+    <td>versionId (0..1)</td>
+    <td><a href="datatypes.html#id">id</a></td>
+    <td>Changes each time the content of the resource changes. Can be referenced in a <a href="references.html#Resource">resource reference</a>. 
+      Can be used to ensure that updates are based on the latest version of the resource. 
+    <br/>The version can be globally unique, or scoped by the Logical Id of the resource. 
+     Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches 
+     is required. Note that servers SHOULD support versions, but some are unable to</td>
+  </tr>
+	 
+  <tr>
+   <td>lastUpdated (0..1)</td>
+   <td><a href="datatypes.html#instant">instant</a></td>
+   <td>If populated, this value changes each time the content of the resource 
+    changes. it can be used by a system or a human to judge the currency of the resource content. 
+    Note that <a href="http.html#update">version aware updates</a> do not use this element</td>
+  </tr>
+	
+  <tr>
+   <td>profile (0..*)</td>
+   <td><a href="datatypes.html#uri">uri</a></td>
+   <td>An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
+    Can be changed as profiles and value sets change or the system rechecks conformance</td>
+  </tr>
+	
+  <tr>
+   <td>security (0..*)</td>
+   <td><a href="datatypes.html#Coding">Coding</a></td>
+   <td><a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to 
+    the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</td>
+  </tr>
+	
+  <tr>
+   <td>tag (0..*)</td>
+   <td><a href="datatypes.html#Coding">Coding</a></td>
+   <td><a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider 
+    the tags when interpreting the meaning of a resource.</td>
+  </tr>
+		
+</table>
+
+<p>
+The profile, security, and tag elements can be changed by <a href="http.html#meta">a meta interaction</a> without changing the resource version.
+</p>
+  
+<h3>Implicit Rules</h3>
+<p>
+A reference to a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used 
+that was followed when the resource was constructed, and which must be understood when processing the content.
+</p>
+<p>
+Asserting this rule set restricts the content to be only understood by a limited set of 
+trading partners. This inherently limits the usefulness of the data in the long term,
+and should be avoided where possible. However the existing health 
+eco-system is highly fractured, and not yet ready to define, collect, and exchange 
+data in a generally exchangeable sense. 
+</p>
+<p>
+Note that reosurces are almost always constructed following some custom agreement.
+Best practice is that such agreements make all knowledge about the content 
+of the resouce explicit; if custom agreements do this, and declare their extensions
+as required, then it is not necessary to understand the agrement when processing the 
+resource content.
+</p>
+
+<a name="lang"> </a>
+<a name="language"> </a>
+<h3>Language</h3>
+
+<p>
+Each resource may have a language element that specifies the base language of the content using a <a href="http://tools.ietf.org/html/bcp47">code defined in BCP 47</a>.
+The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
+</p>
+<p>
+There is no default language, though one may be inferred from the context of use.
+Not all of the content of the resource has to be in the specified language. 
+</p>
+<p>
+If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
+The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
+for use to specify the language of alternate presentations generated from the data in the resource
+</p>
+
+<h3>Further Information</h3>
+<ul>
+  <li><a href="conformance-rules.html">Conformance Rules</a></li>
+  <li><a href="resources.html">Resource Definitions</a></li>
+  <li><a href="extras.html">Tags, Bundles, Compartments</a></li>
+  <li><a href="references.html">References between Resources</a></li>
+  <li><a href="narrative.html">Narratives</a></li>
+  <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
+  <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
+  <li><a href="base-definitions.html">Formal Definitions</a></li>
+  <li><a href="compatibility.html">Inter-version Compatibility</a></li>
+</ul>
+
 </div>
