@@ -31,17 +31,13 @@ Resources contain two types of references:
  <li><b>Internal "contained" references</b> - references to other resources packaged inside the source resource</li>
  <li><b>External references</b> - references from resources found elsewhere</li>
 </ul>
-<a name="id"></a>
 <p>
-There are also references between the elements in a resource, involving <a href="narrative.html#id">the narrative</a>.
-</p>
-  <p>
 References are always defined and represented in one particular direction - from one resource (source) to another (target).
 References are provided as a URL, which may either be absolute or relative. Resolving the references is discussed below.
 </p>
 <p>
 The corresponding reverse relationship from the target to the source exists in a logical sense, but is 
-not represented explicitly in the resource. Navigating these reverse relationships requires some 
+not represented explicitly in the resource. For external references, navigating these reverse relationships requires some 
 external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such 
 infrastructure by providing the ability to <a href="http.html#search">search</a> the reverse relationship by naming 
 search parameters for the references).
@@ -53,7 +49,7 @@ For example, if a <a href="condition.html">Condition</a> resource references a p
 resource as its cause, there is no automatic rule or implication that the procedure 
 has the same patient for its subject. Instead, the subject of the procedure must be established 
 directly in the procedure itself. Another way to state this is that the context of the subject
-is not "inherited" and it does not "conduct" along the relationship to procedure. 
+is not "inherited", nor does it "conduct" along the relationship to procedure. 
 The only exception to this in the case of contained resources (see below). Note that in
 practice, the relationships do need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
@@ -87,13 +83,13 @@ The actual reference looks like this:
  <li>The <i>display</i>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to 
    identify what's being referenced, not to more fully describe it</li>
 </ul>
-
-<div class="use">
-<p><b>Constraints</b></p>
 <p>
-[%dt.constraints Reference%]
+Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference". 
+URIs may point to either resources, elements inside a resource by their "id" property, or (most often) 
+some other content that is not a resource. The Reference type is only used to refer to resources 
+directly, by their logical id.
 </p>
-</div>
+
 
 <div class="example">
 <p>A relative reference to the <a href="patient.html">patient</a> "034AB16" in an element named "context" on a FHIR RESTful server:</p>
@@ -356,6 +352,13 @@ service root URL is merely a logical construct that holds within the
 bundle when resolving resources, and will have no meaning outside 
 the bundle. 
 </p>
+<div class="use">
+<p><b>Constraints</b></p>
+<p>
+[%dt.constraints Reference%]
+</p>
+<p>See below for a discussion
+</div>
 
 
 <!--
