@@ -2801,7 +2801,8 @@ public class Publisher implements URIResolver {
     st.start("");
     page.getSectionTrackerCache().put(n, st);
 
-    String src = TextFile.fileToString(page.getFolders().srcDir + "template.html");
+    String template = isAbstract ? "template-abstract" : "template";
+    String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
     src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html");
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
 
@@ -2812,32 +2813,34 @@ public class Publisher implements URIResolver {
       }
     }
 
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html"),
-        page.getFolders().dstDir + n + "-examples.html");
-    page.getEpub().registerFile(n + "-examples.html", "Examples for " + resource.getName(), EPubManager.XHTML_TYPE);
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-definitions.html");
+
+    src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
     TextFile.stringToFile(
         insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Formal Definitions", n + "-definitions.html"), st, n
             + "-definitions.html"), page.getFolders().dstDir + n + "-definitions.html");
     page.getEpub().registerFile(n + "-definitions.html", "Formal Definitions for " + resource.getName(), EPubManager.XHTML_TYPE);
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html"),
-        page.getFolders().dstDir + n + "-mappings.html");
-    page.getEpub().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), EPubManager.XHTML_TYPE);
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html"), st, n
-            + "-explanations.html"), page.getFolders().dstDir + n + "-explanations.html");
-    page.getEpub().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), EPubManager.XHTML_TYPE);
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
-    TextFile.stringToFile(
-        insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html"), st, n + "-profiles.html"),
-        page.getFolders().dstDir + n + "-profiles.html");
-    page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
-
+    if (!isAbstract) {
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-examples.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html"), st, n + "-examples.html"),
+          page.getFolders().dstDir + n + "-examples.html");
+      page.getEpub().registerFile(n + "-examples.html", "Examples for " + resource.getName(), EPubManager.XHTML_TYPE);
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html"), st, n + "-mappings.html"),
+          page.getFolders().dstDir + n + "-mappings.html");
+      page.getEpub().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), EPubManager.XHTML_TYPE);
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html"), st, n
+              + "-explanations.html"), page.getFolders().dstDir + n + "-explanations.html");
+      page.getEpub().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), EPubManager.XHTML_TYPE);
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html"), st, n + "-profiles.html"),
+          page.getFolders().dstDir + n + "-profiles.html");
+      page.getEpub().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), EPubManager.XHTML_TYPE);
+    }
     if (!resource.getOperations().isEmpty()) {
       src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
       TextFile.stringToFile(
@@ -2848,17 +2851,18 @@ public class Publisher implements URIResolver {
       for (Operation t : resource.getOperations().values()) {
         produceOperation(resource, t);
       }
+      // todo: get rid of these...
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
+      src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html");
+      cachePage(n + ".html", src, "Resource " + resource.getName());
+      //    src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.html").replace("<body>", "<body style=\"margin: 10px\">");
+      //    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples");
+      // cachePage(n + "Ex.html", src,
+      // "Resource Examples for "+resource.getName());
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.html").replace("<body>", "<body style=\"margin: 10px\">");
+      src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Formal Definitions", n + "-definitions.html");
+      cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName());
     }
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html");
-    cachePage(n + ".html", src, "Resource " + resource.getName());
-    //    src = TextFile.fileToString(page.getFolders().srcDir + "template-book-ex.html").replace("<body>", "<body style=\"margin: 10px\">");
-    //    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Examples");
-    // cachePage(n + "Ex.html", src,
-    // "Resource Examples for "+resource.getName());
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-book-defn.html").replace("<body>", "<body style=\"margin: 10px\">");
-    src = page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "res-Formal Definitions", n + "-definitions.html");
-    cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName());
 
     // xml to json
     // todo - fix this up

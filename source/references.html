@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
       
 [%settitle Resource References%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -358,6 +357,17 @@ bundle when resolving resources, and will have no meaning outside
 the bundle. 
 </p>
 
+
+<!--
+<li>
+<a name="Ids"></a>
+FHIR resources make use of id attributes as targets for <a href="references.html#id">internal references with resources</a>. 
+These id attributes are unique and resolved within the context of a single resource. When resources are 
+combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
+the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
+</li>
+
+-->
 </div>
 
 [%file newfooter%]

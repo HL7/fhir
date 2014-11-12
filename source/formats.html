@@ -12,6 +12,8 @@
 
 <div class="col-9">
 
+<%fmtheader base%>
+
 <a name="root"> </a>
 <h1>Resource Formats</h1>
 <p>
@@ -119,7 +121,7 @@ Here's an example:
  <li><img title="Choice of Types" style="background-color: white;" alt="." class="heirarchy" src="icon_choice.gif"/>: An element which can have one of a several different types (see below)</li>
  <li><img title="Primitive Data Type" style="background-color: white;" alt="." class="heirarchy" src="icon_primitive.png"/>: A data type which describes an element that has a value attribute/property</li>
  <li><img title="Data Type" style="background-color: white;" alt="." class="heirarchy" src="icon_datatype.gif"/>: A data type which describes an element that has other elements</li>
- <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="heirarchy" src="icon_reference.png"/>: A element that contains a reference to another resource (see <a href="references.html"></a></li>
+ <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="heirarchy" src="icon_reference.png"/>: A element that contains a reference to another resource (see <a href="references.html">references</a></li>
  <li><img title="Reference to another Element" style="background-color: white;" alt="." class="heirarchy" src="icon_reuse.png"/>: This element has the same content as another element defined within this resource or profile</li>
  <li><img title="Slice Definition" style="background-color: white;" alt="." class="heirarchy" src="icon_slice.png"/>: Introduction of a set of slices (see <a href="profiling.html#slicing">Slicing</a></li>
  <li><img title="Extension" style="background-color: white;" alt="." class="heirarchy" src="icon_extension.png"/>: An extension (see <a href="extensibility.html">Extensibility</a>)</li>
@@ -152,6 +154,7 @@ Notes:
 </ul>
     
 
+<a name="uml"> </a>
 <h3>UML</h3>
 <p>
 The UML diagrams represent the same content as a series of classes that represent
@@ -162,19 +165,37 @@ the elements of a resource.
 </p>
 <p>
 Where an element can have a choice of data types, these are represented by listing the type names separated by the "|" character. 
-Due to way UML works, the actual order of the elements cannot be determined from the diagram, nor is it visible 
-whether a property is an element or an attribute. The elements and types are
-links to the formal definitions of the parts. The UML diagrams also show the 
+The elements and types are links to the formal definitions of the parts. The UML diagrams also show the 
 bindings, and these are hyperlinks to the value set details.
 </p>
 <p>
 These UML diagrams are intended to communicate the contents of the resource
 to a human, and are not suitable for code generation using standard UML code 
-generation tools. 
+generation tools (see the <a href="downloads.html">eCore reference implementation</a> for UML related code generation). 
+</p>
+<p>
+The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute. 
 </p>
 
+<a name="wire"> </a>
+<h3>Wire Format Representations</h3>
 
+<p>
+This specification defines these ways to represent resources when they are exchanged:
+</p>
+<ul>
+ <li><a href="xml.html">XML</a></li>
+ <li><a href="json.html">JSON</a></li>
+ <li>RDF <i>(Under development)</i></li>
+</ul>
 
+<p>
+Clients and servers can choose whether to implement in XML or JSON. In 
+the interests of interoperability, Servers SHOULD support both formats.
+Systems SHALL declare which format(s) they support in their <a href="conformance.html">Conformance Statement</a>. 
+If a server receives a request for it's conformance statement in
+a format it does not otherwise support, it SHALL return a 415 Unsupported Media Type.
+</p>
 
 </div>
 

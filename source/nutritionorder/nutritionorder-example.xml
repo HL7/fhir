@@ -6,6 +6,6 @@
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
-<dateTime value="2014-09-17"></dateTime>  
+  <dateTime value="2014-09-17"/>  
   
 </NutritionOrder>

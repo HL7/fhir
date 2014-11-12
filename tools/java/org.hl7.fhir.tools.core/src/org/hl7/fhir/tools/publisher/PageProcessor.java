@@ -380,6 +380,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //        src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("txheader"))
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("fmtheader"))
+        src = s1+fmtHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("igheader"))
         src = s1+igHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
@@ -390,6 +392,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("aresheader"))
+        src = s1+abstractResHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("onthispage"))
         src = s1+onThisPage(s2.substring(com[0].length()+1))+s3;
       else if (com[0].equals("maponthispage"))
@@ -1899,6 +1903,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String fmtHeader(String n, String mode) {
+    if (n.contains("-"))
+      n = n.substring(0, n.indexOf('-'));
+    StringBuilder b = new StringBuilder();
+    String pfx = "";
+    if ("l1".equals(mode))
+      pfx = "../";
+    if ("l2".equals(mode))
+      pfx = "../../";
+    if ("l3".equals(mode))
+      pfx = "../../../";
+
+    b.append("<ul class=\"nav nav-tabs\">");    
+    b.append(makeHeaderTab("Formats", pfx + "formats.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("XML", pfx + "xml.html", "xml".equals(mode)));
+    b.append(makeHeaderTab("JSON", pfx + "json.html", "json".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String cmpHeader(String n, String mode) {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
@@ -1998,6 +2022,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+    if (hasOps)
+      b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
+
+    b.append("</ul>\r\n");
+
+    return b.toString();   
+  }
+
+  private String abstractResHeader(String n, String title, String mode) throws Exception {
+    StringBuilder b = new StringBuilder();
+    if (n.contains("-"))
+      n = n.substring(0, n.indexOf('-'));
+
+    boolean hasOps = !definitions.getResourceByName(title).getOperations().isEmpty();
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -2430,11 +2472,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
-          com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
+          com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") || com[0].equals("fmtheader") || 
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("aresheader"))
+        src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("res-category")) {
@@ -2756,9 +2800,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
-          com[0].equals("txheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
+          com[0].equals("txheader") || com[0].equals("fmtheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
         src = s1+s3;
       else if (com[0].equals("resheader"))
+        src = s1+s3;
+      else if (com[0].equals("aresheader"))
         src = s1+s3;
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
@@ -3039,6 +3085,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String[] com = s2.split(" ");
       if (com[0].equals("resheader"))
         src = s1+resHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("aresheader"))
+        src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
@@ -3095,6 +3143,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+name+s3;
       else if (com[0].equals("search"))
         src = s1+getSearch(resource)+s3;
+      else if (com[0].equals("asearch"))
+        src = s1+getAbstractSearch(resource)+s3;
       else if (com[0].equals("version"))
         src = s1+ini.getStringProperty("FHIR", "version")+s3;
       else if (com[0].equals("gendate"))
@@ -3133,6 +3183,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(0) + s3;  
+      else if (com[0].equals("atitle"))
+        src = s1 + abstractResourceTitle(resource) + s3;  
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("example-header"))
@@ -3161,6 +3213,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     }
     return src;
+  }
+
+  private String abstractResourceTitle(ResourceDefn resource) {
+    return "Base Resource";
   }
 
   private String genOpCount(ResourceDefn resource) {
@@ -3342,6 +3398,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("<p>Search parameters for this resource. The <a href=\"#all\">common parameters</a> also apply.</p>\r\n");
       else
         b.append("<p>Search parameters for this resource. The <a href=\"search.html#all\">common parameters</a> also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
+      List<String> names = new ArrayList<String>();
+      names.addAll(resource.getSearchParams().keySet());
+      Collections.sort(names);
+      for (String name : names)  {
+        SearchParameter p = resource.getSearchParams().get(name);
+        b.append("<tr><td>"+p.getCode()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")+"</td></tr>\r\n");
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+    }
+  }
+
+  private String getAbstractSearch(ResourceDefn resource) {
+    if (resource.getSearchParams().size() == 0)
+      return "";
+    else {
+      StringBuilder b = new StringBuilder();
+      b.append("<h2>Search Parameters</h2>\r\n");
+      b.append("<p>Common search parameters defined by this resource. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
