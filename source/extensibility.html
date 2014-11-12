@@ -20,9 +20,9 @@
 <p>
 This exchange specification is based on generally agreed common
 requirements across healthcare - covering many jurisdictions, domains, and
-different functional approaches. As such, it is common for
-specific implementations to have valid requirements that will not
-be directly included in this specification. Incorporating all of these requirements
+different functional approaches. It is common for
+specific implementations to have valid requirements that are not
+part of these agreed common requirements. Incorporating all of these requirements
 would make this specification very cumbersome and difficult to
 implement. Instead, this specification expects that these additional
 distinct requirements will be implemented as extensions.
@@ -263,10 +263,10 @@ In XML, these modifier elements are represented using an element named "modifier
 <div class="example">
 <p>
 Example: There's no element on <a href="procedure.html">Procedure</a> 
-so it can be used to say "this procedure did not occur", and a source system does 
+so it can be used to say "this procedure did not occur"; however, a source system does 
 have this flag on it's procedure records. It could choose not to share those
 procedures (e.g. consider them as logically deleted). However, it may be that
-it is required to share procedures marked as do not occur with it's trading
+it is required to share procedures marked as "did not occur" with it's trading
 partners. Hence, applications are allowed to extend a resource with data like this: 
 </p>
 <pre class="xml">
@@ -283,7 +283,7 @@ Or in JSON:
 <pre class="json">
 {
   "resourceType" : "Procedure",
-  "modifier" : [{ 
+  "modifier" : { 
     "http://example.org/fhir/ExtensionDefinition/negation" : [{
       "boolean" : "true"
       }],
@@ -316,14 +316,14 @@ are not required to check for unknown modifier extensions.
 <p>
 <b>#1</b>: When an application understands this extension, it means that some developer
 has provided appropriate instructions for what to do with the data contained 
-in it becaue of the existence of the modifier extension. 
+in it because of the existence of the modifier extension. 
 </p>
 <p><b>#2</b>: 
 This means that implementations are not inherently required to "support" 
 a modifier extension in any meaningful way - they may achieve this 
 understanding by rejecting instances that contain this extension.
-Applications may also be able to ignore it if that is safe in its 
-own context, though this would not usually be the case.
+Applications may also be able to ignore a modifier extension if that 
+can know that this is safe to do in its own context, though this would not usually be the case.
 </p>
 <p> 
 Note that implementations may be able to be sure, due to their 
@@ -331,7 +331,7 @@ implementation environment (e.g. specific trading partner agreement),
 that modifier extensions will never occur, and can therefore meet
 the requirement to check for modifiers at the design stage. 
 However, since integration and deployment options often change
-subsequently, applications SHOULD always check for extensions when 
+subsequently, applications SHOULD always check for modifier extensions when 
 processing resources anyway.
 </p>
 

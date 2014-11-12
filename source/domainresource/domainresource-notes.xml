@@ -1,10 +1,15 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-
-<a name="rest"> </a>
-<h3>Testing</h3>
-
+<a name="search"> </a>
+<h2>Search Parameters</h2>
+<p>This resource doesn't define any common <a href="search.html">Search parameters</a></p>
 <p>
-test
+To search for extensions, define a search parameter for the extension. 
+All other search parameters are named aliases for existing content in
+the resource. In some cases, though not all, the search parameter name
+is the same as the element that it searches, but this is not required. 
+Searching for extensions is the same - define a name that identifies 
+the value extension by it's URL, and then searches can filter based on
+the value of the extension.
 </p>
 </div>

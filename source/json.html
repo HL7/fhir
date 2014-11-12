@@ -27,7 +27,7 @@ In the current absence of a specific json description, the JSON representation i
 </p>
 <ul>
  <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
- <li>Just as in XML, JSON property attributes never have empty values; omit a property if it is empty</li>
+ <li>Just as in XML, JSON objects and arrays are never empty, and properties never have null values (except for a special case documented below). Omit a property if it is empty</li>
  <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
 </ul>
 
@@ -37,6 +37,7 @@ In the current absence of a specific json description, the JSON representation i
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property "resourceType"</li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are handled differently</li>
+ <li><a href="extensibility.html">Extensions are represented differently</a></li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
  <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name "fhir_comments", which is an array of strings, which can appear on any JSON object. 

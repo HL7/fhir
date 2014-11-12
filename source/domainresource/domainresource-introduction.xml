@@ -4,14 +4,31 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This is defined for illustration purposes
+This resource is defined to add text, contained resources, and extension support
+to the base <a href="resource.html">resource</a>. As an abstract resource, this 
+resource never exists directly, only one of it's ancestor resources (<a href="resourcelist.html">list</a>).
 </p>
+<p>
+For further information:
+</p>
+<ul>
+ <li><i>text</i>: see <a href="narrative.html">Human Narrative in resources</a></li>
+ <li><i>contained</i>: see <a href="references.html#contained">Contained Resources</a></li>
+ <li><i>extension</i> and <i>modifierExtension</i>: See <a href="extensibility.html">Extensibility</a></li>
+</ul>
+
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
+
 <p>
-not yet done
+This resource is extends <a href="resource.html">resource</a>. All of the <a href="resourcelist.html">listed</a>
+resources except <a href="bundle.html">Bundle</a> and <a href="binary.html">Binary</a> extend
+this resource.
 </p>
+
 </div>
+
+
 </div>
