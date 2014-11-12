@@ -3,8 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Todo
-Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used.
+The NutritionOrder resource describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2 gram Sodium, or Fluid Restricted), oral nutrition supplements, enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products used to feed patients within an in-patient setting.These nutrition orders are combined with information on a patient's food allergies and intolerances, and ethnic or cultural food preferences (Kosher, Vegetarian) to inform healthcare personnel about the type, texture, and/or quantity of foods that the patient should receive or consume. The NutritionOrder resource is tied to the Order resource; however, addresses the unique attributes of nutrition orders. It is not intended for use in prescribing parenteral (IV) nutrition or dietary supplements such as vitamin/mineral supplements.
 </p>
 </div>
 
@@ -12,7 +11,7 @@ Describes some of the situations/use cases intended to be managed with the resou
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.  -TODO
+The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the Order resource and its associated workflow with the Nutrition Order referenced from the Order.details, or by using the Nutrition Order resource in the context of a messaging or service workflow where the request is explicit or implicit. 
 </p>
 </div>
 
@@ -21,7 +20,7 @@ Explains how this resource relates to others. Particularly important is to diffe
 <div>
 <h2>Background and Context</h2>
 <p>
-Provides additional detail on exactly how the resource is to be used -TODO
+The NutritionOrder resource is to be used to request oral diets, oral nutritional supplements, enteral nutrition, and other food and nutrition related requests.  It is used for scheduling of order initiation, routes of enteral nutrition administration, additives to enteral nutrition, oral nutrition supplement types and quantities, oral diet foods to exclude, food and fluid texture modifications, and macronutrient and micronutrient quantities.    
 </p>
 </div>
 
