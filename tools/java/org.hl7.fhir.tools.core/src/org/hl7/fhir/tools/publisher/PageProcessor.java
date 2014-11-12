@@ -81,6 +81,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Bundle;
@@ -632,6 +633,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
+      else if (com[0].equals("id_regex"))
+        src = s1 + FormatUtilities.ID_REGEX + s3;  
       else if (com[0].equals("resourcecount"))
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else if (others != null && others.containsKey(com[0]))  
@@ -2968,6 +2971,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genIGProfilelist() + s3;  
       else if (com[0].equals("operationslist"))
         src = s1 + genOperationList() + s3;  
+      else if (com[0].equals("id_regex"))
+        src = s1 + FormatUtilities.ID_REGEX + s3;  
       else if (com[0].equals("resourcecount"))
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else 

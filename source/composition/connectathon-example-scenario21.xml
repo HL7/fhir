@@ -4,8 +4,12 @@
     <lastUpdated value="2013-05-28T22:12:21Z"/>
     <!-- Time the bundle was built -->
     <!-- This tag specifies unambiguously that this is a FHIR document bundle -->
-    <category  term="http://hl7.org/fhir/tag/document" scheme="http://hl7.org/fhir/tag" />
+    <tag> 
+      <system value="http://hl7.org/fhir/tag"/>
+      <code value="document"/>
+    </tag>
   </meta> 
+  <type value="transaction"/>
 
   <!-- The composition -->
   <item>

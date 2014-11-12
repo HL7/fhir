@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/newbundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
   <id value="example"/>
   <meta>
     <versionId value="1"/>
     <lastUpdated value="2014-08-18T01:43:30Z"/>
   </meta> 
+  <type value="transaction"/>  
   <base value="http://example.com/base"/>
   <total value="3"/>
   <link>
@@ -15,11 +16,10 @@
     <relation value="self"/>
     <url value="https://example.com/base/MedicationPrescription?patient=347"/>
   </link>
-</Bundle>
-<!--  <item>
+  <item>
     <MedicationPrescription>
+      <id value="3123"/>
       <meta>
-        <id value="3123"/>
         <versionId value="1"/>
         <lastUpdated value="2014-08-16T05:31:17Z"/>      
       </meta> 
@@ -78,4 +78,6 @@
       </dispense>
 
     </MedicationPrescription>
-  </item> -->
+  </item>
+</Bundle>
+

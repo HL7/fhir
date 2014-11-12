@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1461,6 +1461,10 @@ public class JsonComposer extends JsonComposerBase {
 
   private void composeBundleInner(Bundle element) throws Exception {
       composeResourceElements(element);
+      if (element.getTypeElement() != null) {
+        composeEnumerationCore("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory(), false);
+      }
       composeUriCore("base", element.getBaseElement(), false);
       composeUriExtras("base", element.getBaseElement(), false);
       composeIntegerCore("total", element.getTotalElement(), false);
@@ -1474,6 +1478,15 @@ public class JsonComposer extends JsonComposerBase {
       if (element.getItem().size() > 0) {
         openArray("item");
         for (Resource e : element.getItem()) {
+          open(null);
+          composeResource(e);
+          close();
+        }
+        closeArray();
+      };
+      if (element.getInclude().size() > 0) {
+        openArray("include");
+        for (Resource e : element.getInclude()) {
           open(null);
           composeResource(e);
           close();

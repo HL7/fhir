@@ -11,7 +11,7 @@
       <code value="message"/> 
     </tag>
   </meta>
-
+  <type value="message"/>
   <!-- first entry: the message response -->
   <item>   
     <MessageHeader xmlns="http://hl7.org/fhir">

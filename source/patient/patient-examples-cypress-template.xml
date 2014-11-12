@@ -2,14 +2,13 @@
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
   <id value="b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
-  <link href="http://hl7.org/fhir/patient" rel="self"/>
   <meta>
     <lastUpdated value="2012-05-29T23:45:32Z"/> 
-  </meta> [%loop count=70%]
+  </meta> 
+  <type value="collection"/> [%loop count=70%]
   <item>
     <Patient xmlns="http://hl7.org/fhir">
       <id value="[%count%]"/>
-      <link href="http://hl7.org/fhir/Patient/[%count%]/_history/1" rel="self"/>
       <meta>
         <lastUpdated value="2012-06-03T23:45:32Z"/>
       </meta>

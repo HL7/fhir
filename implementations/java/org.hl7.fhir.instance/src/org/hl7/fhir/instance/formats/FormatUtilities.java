@@ -36,6 +36,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.DateAndTime;
 
 public abstract class FormatUtilities {
+  public static final String ID_REGEX = "[A-Za-z0-9\\-\\.]{1,64}";
   protected static final String FHIR_NS = "http://hl7.org/fhir";
   protected static final String ATOM_NS = "http://www.w3.org/2005/Atom";
   protected static final String GDATA_NS = "http://schemas.google.com/g/2005";
@@ -70,7 +71,14 @@ public abstract class FormatUtilities {
   }
 
 	public static boolean isValidId(String tail) {
-	  return tail.matches("[A-Za-z0-9\\-\\.]{1,36}");
+	  return tail.matches(ID_REGEX);
+  }
+  public static String makeId(String candidate) {
+    StringBuilder b = new StringBuilder();
+    for (char c : candidate.toCharArray())
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '.' || c == '-')
+        b.append(c);
+    return b.toString();
   }
   
 

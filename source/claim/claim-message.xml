@@ -4,10 +4,11 @@
   <meta>
     <lastUpdated value="2013-09-23T08:14:00+10:00"/>
   </meta>
+  <type value="message"/>
 
   <!-- first entry: the message resource -->
   <item>
-    <Message xmlns="http://hl7.org/fhir">
+    <MessageHeader xmlns="http://hl7.org/fhir">
       <id value="urn:uuid:4913837e-3f91-4900-aa6f-f5ebb07728fc"/>
       <meta>
         <lastUpdated value="2013-09-23T08:14:00+10:00"/>

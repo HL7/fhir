@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1394,6 +1394,10 @@ public class JsonParser extends JsonParserBase {
   private Bundle parseBundle(JsonObject json) throws Exception {
     Bundle res = new Bundle();
     parseResourceProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Bundle.BundleType.NULL, new Bundle.BundleTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("base"))
       res.setBaseElement(parseUri(json.get("base").getAsString()));
     if (json.has("_base"))
@@ -1412,6 +1416,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("item");
       for (int i = 0; i < array.size(); i++) {
         res.getItem().add(parseResource(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("include")) {
+      JsonArray array = json.getAsJsonArray("include");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInclude().add(parseResource(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("signature"))

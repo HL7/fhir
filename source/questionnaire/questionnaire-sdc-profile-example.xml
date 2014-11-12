@@ -4,20 +4,13 @@
   <meta>
     <lastUpdated value="2014-05-15T17:25:15Z"/>
   </meta>
-  <item>
-    
+  <type value="collection"/>
+  <item>    
     <Questionnaire xmlns="http://hl7.org/fhir">
       <id value="F8-1.2"/>
       <meta>
         <lastUpdated value="2014-05-15T17:25:15Z"/>
       </meta>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-          <valueCodeableConcept>
-            <coding>
-              <code value="Acute Care Hospitals"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
@@ -639,6 +632,13 @@
             </define>
           </ValueSet>
         </contained>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+          <valueCodeableConcept>
+            <coding>
+              <code value="Acute Care Hospitals"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
         <identifier>
           <system value="http://Medication"/>
           <value value="form_identifier/F8/1.2"/>
@@ -1526,17 +1526,10 @@
   <item>
     
     <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="3921052v1.0/"/>
+      <id value="3921052v1.0"/>
       <meta>
         <lastUpdated value="2014-05-15T17:25:15Z"/>
       </meta>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-          <valueCodeableConcept>
-            <coding>
-              <code value="CRF"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -1878,6 +1871,13 @@
             </element>
           </ConceptMap>
         </contained>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+          <valueCodeableConcept>
+            <coding>
+              <code value="CRF"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
         <identifier>
           <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier"/>
           <value value="3921052v1.0/"/>
@@ -2028,20 +2028,6 @@
       <meta>
         <lastUpdated value="2014-05-15T17:25:15Z"/>
       </meta>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-          <valueCodeableConcept>
-            <coding>
-              <code value="CRF"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-          <valueCodeableConcept>
-            <coding>
-              <code value="Demographic"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -3127,6 +3113,20 @@
             </element>
           </ConceptMap>
         </contained>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+          <valueCodeableConcept>
+            <coding>
+              <code value="CRF"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+          <valueCodeableConcept>
+            <coding>
+              <code value="Demographic"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
         <identifier>
           <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier"/>
           <value value="2674812v4.0/"/>
@@ -3389,13 +3389,6 @@
       <meta>
         <lastUpdated value="2014-05-15T17:25:15Z"/>
       </meta>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-          <valueCodeableConcept>
-            <coding>
-              <code value="CRF"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -23765,6 +23758,13 @@
             </element>
           </ConceptMap>
         </contained>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+          <valueCodeableConcept>
+            <coding>
+              <code value="CRF"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
         <identifier>
           <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier"/>
           <value value="3265657v2.0/"/>

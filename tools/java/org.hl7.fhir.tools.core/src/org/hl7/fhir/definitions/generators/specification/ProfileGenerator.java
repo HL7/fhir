@@ -55,6 +55,7 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -438,7 +439,7 @@ public class ProfileGenerator {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
-    p.setId(id);
+    p.setId(FormatUtilities.makeId(id));
     p.setUrl("http://hl7.org/fhir/Profile/"+ id);
     p.setName(profile.metadata("name"));
     p.setPublisher(profile.metadata("author.name"));

@@ -62,6 +62,7 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
@@ -583,7 +584,7 @@ public class SpreadsheetParser {
 			  } else
 			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
 			  if (cd.getReferredValueSet() != null)
-			    cd.getReferredValueSet().setId(cd.getReference());
+			    cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getReference()));
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {
 				throw new Exception("Definition of binding '"

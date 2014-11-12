@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -879,6 +879,8 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
+      if (element.getTypeElement() != null)
+        composeEnumeration("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory());
       composeUri("base", element.getBaseElement());
       composeInteger("total", element.getTotalElement());
       for (Bundle.BundleLinkComponent e : element.getLink()) 
@@ -888,6 +890,12 @@ public class XmlComposer extends XmlComposerBase {
         xml.open(FHIR_NS, "item");
         composeResource(e);
         xml.close(FHIR_NS, "item");
+      }
+      for (Resource e : element.getInclude()) 
+      {
+        xml.open(FHIR_NS, "include");
+        composeResource(e);
+        xml.close(FHIR_NS, "include");
       }
       composeBase64Binary("signature", element.getSignatureElement());
       xml.close(FHIR_NS, name);

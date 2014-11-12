@@ -5,12 +5,19 @@
   <meta>
     <lastUpdated value="2013-07-01T13:11:33Z"/>
   </meta>
+  <type value="transaction"/>
   <item>
     <DocumentReference xmlns="http://hl7.org/fhir">
-      <id value="cid:f6791f11-ef7c-4877-a92b-adf7df4948a6@healthintersections.com.au"/>
+      <id value="f6791f11-ef7c-4877-a92b-adf7df4948a6"/> <!-- cid:f6791f11-ef7c-4877-a92b-adf7df4948a6@healthintersections.com.au -->
       <meta>
         <lastUpdated value="2013-07-01T13:11:33Z"/>
       </meta>
+      <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <a href="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"
+              >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
+      </text>
       <extension url="http://hl7.org/fhir/Profile/xds-profile#practiceSettingCode">
         <valueCodeableConcept>
           <coding>
@@ -20,12 +27,6 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-          <a href="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"
-              >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
-      </text>
       <masterIdentifier>
         <system value="urn:ietf:rfc:3986"/>
         <value value="urn:oid:129.6.58.92.88336"/>
@@ -68,7 +69,7 @@
   </item>
   <item>     
     <Patient xmlns="http://hl7.org/fhir">
-      <id value="http://localhost/patient/search?identifier=http://acme.org/xds/patients!89765a87b"/>
+      <id value="asdasd"/> <!-- http://localhost/patient/search?identifier=http://acme.org/xds/patients!89765a87b -->
       <meta>
         <lastUpdated value="2013-07-01T13:11:33Z"/>
       </meta>
@@ -93,19 +94,19 @@
   </item>
   <item> 
     <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="cid:af500afb-d680-4fa0-bcf2-ba1f5c5b096d@healthintersections.com.au"/>
+      <id value="af500afb-d680-4fa0-bcf2-ba1f5c5b096d"/> <!-- cid:af500afb-d680-4fa0-bcf2-ba1f5c5b096d@healthintersections.com.au -->
       <meta>
         <lastUpdated value="2013-07-01T13:11:33Z"/>
       </meta>
+      <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+      </text>
       <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
         <valueReference>
           <display value="Parma Community"/>
         </valueReference>
       </extension>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
-      </text>
       <identifier>
         <system value="usual"/>
       </identifier>
@@ -133,19 +134,19 @@
   </item>
   <item>     
     <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au"/>
+      <id value="51b578b4-3ccb-4e67-b0dc-ef519d82ef2d"/> <!-- cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au -->
       <meta>
         <lastUpdated value="2013-07-01T13:11:33Z"/>
       </meta>
+      <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+      </text>
       <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
         <valueReference>
           <display value="Berea Community"/>
         </valueReference>
       </extension>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
-      </text>
       <identifier>
         <system value="usual"/>
       </identifier>

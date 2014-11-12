@@ -10,7 +10,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
   <LastSaved>2014-11-12T03:16:15Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,6 +21,7 @@
   <WindowTopX>630</WindowTopX>
   <WindowTopY>780</WindowTopY>
   <DoNotCalculateBeforeSave/>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -225,7 +226,7 @@
     <Cell><Data ss:Type="String">RFC 4122</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string+</Data></Cell>
-    <Cell><Data ss:Type="String">[a-z0-9\-\.]{1,36}</Data></Cell>
+    <Cell><Data ss:Type="String">[A-Za-z0-9\-\.]{1,64}</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -244,8 +245,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

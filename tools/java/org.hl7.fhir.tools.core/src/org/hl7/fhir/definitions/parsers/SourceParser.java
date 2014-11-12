@@ -71,6 +71,7 @@ import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.ConstrainedTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.EventConverter;
 import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -352,7 +353,7 @@ public class SourceParser {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
     vs.setIdentifier("http://hl7.org/fhir/vs/"+n);
-    vs.setId(n);
+    vs.setId(FormatUtilities.makeId(n));
     definitions.getExtraValuesets().put(n, vs);
   }
 
@@ -446,7 +447,7 @@ public class SourceParser {
 		    } else
 		      throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
 		    if (cd.getReferredValueSet().getId() == null)
-		      cd.getReferredValueSet().setId(cd.getBinding().name()); 
+		      cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getBinding().name())); 
 		  }
 		}
 	}

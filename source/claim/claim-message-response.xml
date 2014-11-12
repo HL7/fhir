@@ -4,8 +4,9 @@
   <meta>
     <lastUpdated value="2013-09-22T15:39:15Z"/>
   </meta>
+  <type value="message"/>
   <item>
-    <Message xmlns="http://hl7.org/fhir">
+    <MessageHeader xmlns="http://hl7.org/fhir">
       <id value="1c0aaed0-19d0-49bc-8987-67a7bd618e83"/>
       <meta>
         <lastUpdated value="2013-09-22T15:39:15Z"/>

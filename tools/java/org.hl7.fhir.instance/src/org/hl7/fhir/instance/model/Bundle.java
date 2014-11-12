@@ -29,15 +29,111 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Nov 11, 2014 23:11+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 /**
- * Teest Bundle.
+ * A container for a group of resources.
  */
 public class Bundle extends Resource {
+
+    public enum BundleType {
+        DOCUMENT, // The bundle is a document. The first resource is a Composition.
+        MESSAGE, // The bundle is a message. The first resource is a MessageHeader.
+        TRANSACTION, // The bundle is a transaction - intended to be processed by a server as an atomic commit.
+        HISTORY, // The bundle is a list of resources from a _history interaction on a server.
+        SEARCHSET, // The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.
+        COLLECTION, // The bundle is a set of resources collected into a single document for ease of distribution.
+        NULL; // added to help the parsers
+        public static BundleType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("document".equals(codeString))
+          return DOCUMENT;
+        if ("message".equals(codeString))
+          return MESSAGE;
+        if ("transaction".equals(codeString))
+          return TRANSACTION;
+        if ("history".equals(codeString))
+          return HISTORY;
+        if ("searchset".equals(codeString))
+          return SEARCHSET;
+        if ("collection".equals(codeString))
+          return COLLECTION;
+        throw new Exception("Unknown BundleType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DOCUMENT: return "document";
+            case MESSAGE: return "message";
+            case TRANSACTION: return "transaction";
+            case HISTORY: return "history";
+            case SEARCHSET: return "searchset";
+            case COLLECTION: return "collection";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DOCUMENT: return "The bundle is a document. The first resource is a Composition.";
+            case MESSAGE: return "The bundle is a message. The first resource is a MessageHeader.";
+            case TRANSACTION: return "The bundle is a transaction - intended to be processed by a server as an atomic commit.";
+            case HISTORY: return "The bundle is a list of resources from a _history interaction on a server.";
+            case SEARCHSET: return "The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.";
+            case COLLECTION: return "The bundle is a set of resources collected into a single document for ease of distribution.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DOCUMENT: return "Document";
+            case MESSAGE: return "Message";
+            case TRANSACTION: return "Transaction";
+            case HISTORY: return "History List";
+            case SEARCHSET: return "Search Results";
+            case COLLECTION: return "Collection";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class BundleTypeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("document".equals(codeString))
+          return BundleType.DOCUMENT;
+        if ("message".equals(codeString))
+          return BundleType.MESSAGE;
+        if ("transaction".equals(codeString))
+          return BundleType.TRANSACTION;
+        if ("history".equals(codeString))
+          return BundleType.HISTORY;
+        if ("searchset".equals(codeString))
+          return BundleType.SEARCHSET;
+        if ("collection".equals(codeString))
+          return BundleType.COLLECTION;
+        throw new Exception("Unknown BundleType code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == BundleType.DOCUMENT)
+        return "document";
+      if (code == BundleType.MESSAGE)
+        return "message";
+      if (code == BundleType.TRANSACTION)
+        return "transaction";
+      if (code == BundleType.HISTORY)
+        return "history";
+      if (code == BundleType.SEARCHSET)
+        return "searchset";
+      if (code == BundleType.COLLECTION)
+        return "collection";
+      return "?";
+      }
+    }
 
     public static class BundleLinkComponent extends BackboneElement {
         /**
@@ -143,12 +239,17 @@ public class Bundle extends Resource {
   }
 
     /**
+     * Indicates the purpose of this bundle- how it was intended to be used.
+     */
+    protected Enumeration<BundleType> type;
+
+    /**
      * The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).
      */
     protected UriType base;
 
     /**
-     * The total number of matches for the search.
+     * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
     protected IntegerType total;
 
@@ -163,14 +264,56 @@ public class Bundle extends Resource {
     protected List<Resource> item = new ArrayList<Resource>();
 
     /**
+     * For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.
+     */
+    protected List<Resource> include = new ArrayList<Resource>();
+
+    /**
      * XML Digital Signature - base64 encoded.
      */
     protected Base64BinaryType signature;
 
-    private static final long serialVersionUID = -1376490024L;
+    private static final long serialVersionUID = 1083093396L;
 
     public Bundle() {
       super();
+    }
+
+    public Bundle(Enumeration<BundleType> type) {
+      super();
+      this.type = type;
+    }
+
+    /**
+     * @return {@link #type} (Indicates the purpose of this bundle- how it was intended to be used.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Enumeration<BundleType> getTypeElement() { 
+      return this.type;
+    }
+
+    /**
+     * @param value {@link #type} (Indicates the purpose of this bundle- how it was intended to be used.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Bundle setTypeElement(Enumeration<BundleType> value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
+     * @return Indicates the purpose of this bundle- how it was intended to be used.
+     */
+    public BundleType getType() { 
+      return this.type == null ? null : this.type.getValue();
+    }
+
+    /**
+     * @param value Indicates the purpose of this bundle- how it was intended to be used.
+     */
+    public Bundle setType(BundleType value) { 
+        if (this.type == null)
+          this.type = new Enumeration<BundleType>();
+        this.type.setValue(value);
+      return this;
     }
 
     /**
@@ -210,14 +353,14 @@ public class Bundle extends Resource {
     }
 
     /**
-     * @return {@link #total} (The total number of matches for the search.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
+     * @return {@link #total} (If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
      */
     public IntegerType getTotalElement() { 
       return this.total;
     }
 
     /**
-     * @param value {@link #total} (The total number of matches for the search.). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
+     * @param value {@link #total} (If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).). This is the underlying object with id, value and extensions. The accessor "getTotal" gives direct access to the value
      */
     public Bundle setTotalElement(IntegerType value) { 
       this.total = value;
@@ -225,14 +368,14 @@ public class Bundle extends Resource {
     }
 
     /**
-     * @return The total number of matches for the search.
+     * @return If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
     public int getTotal() { 
       return this.total == null ? null : this.total.getValue();
     }
 
     /**
-     * @param value The total number of matches for the search.
+     * @param value If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
     public Bundle setTotal(int value) { 
       if (value == -1)
@@ -273,6 +416,16 @@ public class Bundle extends Resource {
      * @return {@link #item} (Resources that are contained in this bundle.)
      */
     /**
+     * @return {@link #include} (For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.)
+     */
+    public List<Resource> getInclude() { 
+      return this.include;
+    }
+
+    /**
+     * @return {@link #include} (For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.)
+     */
+    /**
      * @return {@link #signature} (XML Digital Signature - base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
      */
     public Base64BinaryType getSignatureElement() { 
@@ -310,16 +463,19 @@ public class Bundle extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle- how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("base", "uri", "The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).", 0, java.lang.Integer.MAX_VALUE, base));
-        childrenList.add(new Property("total", "integer", "The total number of matches for the search.", 0, java.lang.Integer.MAX_VALUE, total));
+        childrenList.add(new Property("total", "integer", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("item", "Resource", "Resources that are contained in this bundle.", 0, java.lang.Integer.MAX_VALUE, item));
+        childrenList.add(new Property("include", "Resource", "For search results, and documents, resources that are included by request, but not part of the set of resources 'in' the bundle.", 0, java.lang.Integer.MAX_VALUE, include));
         childrenList.add(new Property("signature", "base64Binary", "XML Digital Signature - base64 encoded.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
       public Bundle copy() {
         Bundle dst = new Bundle();
         copyValues(dst);
+        dst.type = type == null ? null : type.copy();
         dst.base = base == null ? null : base.copy();
         dst.total = total == null ? null : total.copy();
         dst.link = new ArrayList<BundleLinkComponent>();
@@ -328,6 +484,9 @@ public class Bundle extends Resource {
         dst.item = new ArrayList<Resource>();
         for (Resource i : item)
           dst.item.add(i.copy());
+        dst.include = new ArrayList<Resource>();
+        for (Resource i : include)
+          dst.include.add(i.copy());
         dst.signature = signature == null ? null : signature.copy();
         return dst;
       }
