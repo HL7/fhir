@@ -33,12 +33,16 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.hl7.fhir.instance.model.Binary;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
@@ -222,5 +226,25 @@ public abstract class JsonComposerBase extends ComposerBase {
 	  
   }
 
+  protected abstract void composeType(String prefix, Type type) throws Exception;
 
+  protected void composeExtensions(List<Extension> extensions) throws Exception {
+  	Set<String> handled = new HashSet<String>();
+  	for (Extension e : extensions) {
+  		if (!handled.contains(e.getUrl())) {
+  			handled.add(e.getUrl());
+  			openArray(e.getUrl());
+  			for (Extension ex : extensions) {
+  				if (ex.getUrl().equals(e.getUrl())) {
+  					openObject(null);
+  					composeType("value", e.getValue());
+  					close();
+  				}
+  			}
+  			closeArray();
+  		}
+  		
+  	}
+  }
+  
 }

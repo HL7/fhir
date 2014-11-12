@@ -139,27 +139,23 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("  private void composeElement(Element element) throws Exception {\r\n");
     write("    if (element.getXmlId() != null)\r\n");
     write("      prop(\"id\", element.getXmlId());\r\n");
-    write("      if (!element.getXmlComments().isEmpty() || !canonical) {\r\n");
+    write("      if (!element.getXmlComments().isEmpty() && !canonical) {\r\n");
     write("        openArray(\"fhir_comments\");\r\n");
     write("        for (String s : element.getXmlComments())\r\n");
     write("          prop(null,  s);\r\n");
     write("         closeArray();\r\n");
     write("      }\r\n");
     write("    if (element.getExtension().size() > 0) {\r\n");
-    write("      openArray(\"extension\");\r\n");
-    write("      for (Extension ex : element.getExtension())\r\n");
-    write("        composeExtension(null, ex);\r\n");
-    write("      closeArray();\r\n");
+    write("      composeExtensions(element.getExtension());\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  private void composeBackbone(BackboneElement element) throws Exception {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.getModifierExtension().size() > 0) {\r\n");
-    write("      openArray(\"modifierExtension\");\r\n");
-    write("      for (Extension ex : element.getModifierExtension())\r\n");
-    write("        composeExtension(null, ex);\r\n");
-    write("      closeArray();\r\n");
+    write("      openObject(\"modifier\");\r\n");
+    write("      composeExtensions(element.getModifierExtension());\r\n");
+    write("      close();\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -352,6 +348,17 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       String en = name.endsWith("[x]") & !name.equals("[x]") ? name.replace("[x]", "") : "value";
       String pfx = name.endsWith("[x]") ? name.replace("[x]", "") : "";
       write("      composeType(\""+pfx+"\", element.get"+upFirst(en)+"());\r\n");
+    } else if (name.equals("extension")) {
+    // special case handling for extensions in json
+      write("      if (element.getExtension().size() > 0) {\r\n");
+      write("        composeExtensions(element.getExtension());\r\n");
+      write("      };\r\n");
+    } else if (name.equals("modifierExtension")) {
+      write("      if (element.getModifierExtension().size() > 0) {\r\n");
+      write("        openObject(\"modifier\");\r\n");
+      write("        composeExtensions(element.getModifierExtension());\r\n");
+      write("        closeArray();\r\n");
+      write("      };\r\n");      
     } else {
       String comp = null;
       String en = null;

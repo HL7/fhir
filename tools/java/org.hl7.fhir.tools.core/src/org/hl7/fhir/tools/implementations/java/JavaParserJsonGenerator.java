@@ -146,21 +146,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElement() throws Exception {
     write("  protected void parseElementProperties(JsonObject json, Element element) throws Exception {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
-    write("    if (json != null && json.has(\"extension\")) {\r\n");
-    write("      JsonArray array = json.getAsJsonArray(\"extension\");\r\n");
-    write("      for (int i = 0; i < array.size(); i++) {\r\n");
-    write("        element.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
-    write("      }\r\n");
-    write("    };\r\n");    
+    write("    parseExtensions(json, element.getExtension());\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
-    write("    if (json != null && json.has(\"modifierExtension\")) {\r\n");
-    write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
-    write("      for (int i = 0; i < array.size(); i++) {\r\n");
-    write("        element.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
-    write("      }\r\n");
+    write("    if (json != null && json.has(\"modifier\")) {\r\n");
+    write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
+    write("      parseExtensions(obj, element.getModifierExtension());\r\n");
     write("    };\r\n");    
     write("  }\r\n");
     write("\r\n");
@@ -353,6 +346,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("    Type "+getElementName(en, false)+" = parseType(\""+en+"\", json);\r\n");
       write("    if ("+getElementName(en, false)+" != null)\r\n");
       write("      res.set"+upFirst(getElementName(en, false))+"("+getElementName(en, false)+");\r\n");
+    } else if (name.equals("extension")) {
+    // special case handling for extensions in json
+      write("    parseExtensions(json, res.getExtension());\r\n");
+    } else if (name.equals("modifierExtension")) {
+      write("    if (json != null && json.has(\"modifier\")) {\r\n");
+      write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
+      write("      parseExtensions(obj, res.getModifierExtension());\r\n");
+      write("    };\r\n");
     } else {
         String prsr = null;
         String aprsr = null;

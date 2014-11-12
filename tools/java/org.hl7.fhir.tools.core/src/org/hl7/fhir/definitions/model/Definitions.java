@@ -194,6 +194,8 @@ public class Definitions {
 		ResourceDefn root = null;
 		if (resources.containsKey(name))
 			root = resources.get(name);
+    if (root == null)
+      root = baseResources.get(name);
 		if (root == null)
 			throw new Exception("unable to find resource '" + name+"'");
 		return root;

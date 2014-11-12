@@ -772,6 +772,8 @@ public class SvgGenerator extends BaseGenerator {
       return "extensibility-definitions.html#";
     else if (definitions.hasType(root))
       return "datatypes-definitions.html#";
+    if (definitions.getBaseResources().containsKey(root))
+      return root.toLowerCase()+"-definitions.html#";
     else
       throw new Exception(root+" not handled yet");
   }

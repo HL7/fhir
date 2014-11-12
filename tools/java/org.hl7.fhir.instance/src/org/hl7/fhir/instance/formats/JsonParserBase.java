@@ -29,7 +29,9 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.Bundle;
@@ -38,6 +40,7 @@ import org.hl7.fhir.instance.model.Binary;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.TextFile;
@@ -139,4 +142,23 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 	  return (DomainResource) parseResource(json);
   }
 
+  protected abstract Type parseType(String prefix, JsonObject json) throws Exception;
+  
+  protected void parseExtensions(JsonObject json, List<Extension> extensions) throws Exception {
+	  for (Entry<String, JsonElement> p : json.entrySet()) {
+	  	if (p.getKey().contains(":")) {
+	  		// it's an extension
+	  		if (!(p.getValue() instanceof JsonArray))
+	  			throw new Exception("The property "+p.getKey()+" looks like an extension, but isn't a JSON array (it's a "+p.getValue().getClass().getName()+")");
+	  		JsonArray arr = (JsonArray) p.getValue();
+	  		for (int i = 0; i < arr.size(); i++) {
+	  			Extension ex = new Extension();
+	  			ex.setUrl(p.getKey());
+	  			ex.setValue(parseType("value", (JsonObject) arr.get(i)));
+	  			extensions.add(ex);
+	  		}
+	  	}
+	  }
+  }
+  
 }

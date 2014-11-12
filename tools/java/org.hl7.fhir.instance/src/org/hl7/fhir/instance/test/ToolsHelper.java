@@ -255,6 +255,9 @@ public class ToolsHelper {
 	FileInputStream in;
 	File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
+    if (args.length >= 4) {
+    	Utilities.copyFile(args[1], args[3]);
+    }
 
     if (!source.exists())        
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
@@ -264,6 +267,7 @@ public class ToolsHelper {
     Resource rf = p.parse(in);
     ByteArrayOutputStream json = new ByteArrayOutputStream();
     new JsonComposer().compose(json, rf, true);
+    TextFile.stringToFile(new String(json.toByteArray()), Utilities.changeFileExt(dest.getAbsolutePath(), ".json"));
     rf = pj.parse(new ByteArrayInputStream(json.toByteArray()));
     new XmlComposer().compose(new FileOutputStream(dest), rf, true);
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -41,27 +41,23 @@ public class JsonComposer extends JsonComposerBase {
   private void composeElement(Element element) throws Exception {
     if (element.getXmlId() != null)
       prop("id", element.getXmlId());
-      if (!element.getXmlComments().isEmpty() || !canonical) {
+      if (!element.getXmlComments().isEmpty() && !canonical) {
         openArray("fhir_comments");
         for (String s : element.getXmlComments())
           prop(null,  s);
          closeArray();
       }
     if (element.getExtension().size() > 0) {
-      openArray("extension");
-      for (Extension ex : element.getExtension())
-        composeExtension(null, ex);
-      closeArray();
+      composeExtensions(element.getExtension());
     }
   }
 
   private void composeBackbone(BackboneElement element) throws Exception {
     composeElement(element);
     if (element.getModifierExtension().size() > 0) {
-      openArray("modifierExtension");
-      for (Extension ex : element.getModifierExtension())
-        composeExtension(null, ex);
-      closeArray();
+      openObject("modifier");
+      composeExtensions(element.getModifierExtension());
+      close();
     }
   }
 
@@ -1146,15 +1142,11 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       if (element.getExtension().size() > 0) {
-        openArray("extension");
-        for (Extension e : element.getExtension()) 
-          composeExtension(null, e);
-        closeArray();
+        composeExtensions(element.getExtension());
       };
       if (element.getModifierExtension().size() > 0) {
-        openArray("modifierExtension");
-        for (Extension e : element.getModifierExtension()) 
-          composeExtension(null, e);
+        openObject("modifier");
+        composeExtensions(element.getModifierExtension());
         closeArray();
       };
   }

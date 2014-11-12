@@ -846,8 +846,8 @@ public class Publisher implements URIResolver {
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate) {
-      produceResource1(r);
-      produceResource2(r);
+      produceResource1(r, false);
+      produceResource2(r, false);
     }
     page.log(" ...vocab #2", LogMessageType.Process);
     generateCodeSystemsPart2();
@@ -1526,21 +1526,30 @@ public class Publisher implements URIResolver {
       produceExtensionDefinition(ae);
     
     
+    for (String rname : page.getDefinitions().getBaseResources().keySet()) {
+      ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
+      produceResource1(r, true);
+    }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
-        produceResource1(r);
+        produceResource1(r, false);
       }
     }
     if (buildFlags.get("all")) {
       page.log("Base profiles", LogMessageType.Process);
       produceBaseProfile();
     }
+    for (String rname : page.getDefinitions().getBaseResources().keySet()) {
+      ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
+      page.log(" ...resource " + r.getName(), LogMessageType.Process);
+      produceResource2(r, true);
+    }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         page.log(" ...resource " + r.getName(), LogMessageType.Process);
-        produceResource2(r);
+        produceResource2(r, false);
       }
     }
 
@@ -2732,7 +2741,7 @@ public class Publisher implements URIResolver {
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-all-xsd.zip"), f);
   }
 
-  private void produceResource1(ResourceDefn resource) throws Exception {
+  private void produceResource1(ResourceDefn resource, boolean isAbstract) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String n = resource.getName().toLowerCase();
 
@@ -2742,10 +2751,11 @@ public class Publisher implements URIResolver {
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     xmls.put(n, xml);
-    generateProfile(resource, n, xml);
+    if (!isAbstract)
+      generateProfile(resource, n, xml);
   }
 
-  private void produceResource2(ResourceDefn resource) throws Exception {
+  private void produceResource2(ResourceDefn resource, boolean isAbstract) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     String n = resource.getName().toLowerCase();
     String xml = xmls.get(n);
@@ -2857,11 +2867,13 @@ public class Publisher implements URIResolver {
     // File(page.getFolders().dstDir+n+".json"));
 
     tmp.delete();
-    // because we'll pick up a little more information as we process the
-    // resource
-    Profile p = generateProfile(resource, n, xml);
-    if (n.equals("Bundle"))
-      generateQuestionnaire(n, p);
+    if (!isAbstract) {
+      // because we'll pick up a little more information as we process the
+      // resource
+      Profile p = generateProfile(resource, n, xml);
+      if (!n.equals("Bundle"))
+        generateQuestionnaire(n, p);
+    }
   }
 
   private void produceOperation(ResourceDefn r, Operation op) throws Exception {

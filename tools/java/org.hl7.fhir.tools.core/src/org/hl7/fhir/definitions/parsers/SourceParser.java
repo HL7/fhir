@@ -226,11 +226,11 @@ public class SourceParser {
 		
 		// basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure"))
-      definitions.getBaseResources().put(ini.getStringProperty("resource-infrastructure", n), loadResource(n, null, "resource", true));
+      definitions.getBaseResources().put(ini.getStringProperty("resource-infrastructure", n), loadResource(n, null, true));
 		
     logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))
-			loadResource(n, definitions.getResources(), null, false);
+			loadResource(n, definitions.getResources(), false);
 		
 		loadCompartments();
 		loadStatusCodes();
@@ -543,9 +543,8 @@ public class SourceParser {
 		}
 	}
 
-	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, String folder, boolean isAbstract) throws Exception {
-	  if (folder == null)
-	    folder = n;
+	private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract) throws Exception {
+    String folder = n;
 		File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
 		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(

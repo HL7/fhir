@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 15:50+1100 for FHIR v0.3.0
+// Generated on Wed, Nov 12, 2014 20:51+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -54,21 +54,14 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseElementProperties(JsonObject json, Element element) throws Exception {
     super.parseElementProperties(json, element);
-    if (json != null && json.has("extension")) {
-      JsonArray array = json.getAsJsonArray("extension");
-      for (int i = 0; i < array.size(); i++) {
-        element.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));
-      }
-    };
+    parseExtensions(json, element.getExtension());
   }
 
   protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {
     parseElementProperties(json, element);
-    if (json != null && json.has("modifierExtension")) {
-      JsonArray array = json.getAsJsonArray("modifierExtension");
-      for (int i = 0; i < array.size(); i++) {
-        element.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));
-      }
+    if (json != null && json.has("modifier")) {
+      JsonObject obj = json.getAsJsonObject("modifier");
+      parseExtensions(obj, element.getModifierExtension());
     };
   }
 
@@ -1063,17 +1056,10 @@ public class JsonParser extends JsonParserBase {
         res.getContained().add(parseResource(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("extension")) {
-      JsonArray array = json.getAsJsonArray("extension");
-      for (int i = 0; i < array.size(); i++) {
-        res.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("modifierExtension")) {
-      JsonArray array = json.getAsJsonArray("modifierExtension");
-      for (int i = 0; i < array.size(); i++) {
-        res.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));
-      }
+    parseExtensions(json, res.getExtension());
+    if (json != null && json.has("modifier")) {
+      JsonObject obj = json.getAsJsonObject("modifier");
+      parseExtensions(obj, res.getModifierExtension());
     };
   }
 

@@ -738,7 +738,7 @@ public class QuestionnaireBuilder {
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Extension"))
       addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
-    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource"))
+    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition"))
       throw new Exception("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 
