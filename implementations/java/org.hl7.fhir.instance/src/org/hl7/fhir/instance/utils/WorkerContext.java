@@ -344,22 +344,12 @@ public class WorkerContext {
 	  }
 
 	  @Override
-	  public <T extends Resource> T update(Class<T> resourceClass, T resource, String id, List<Coding> tags) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
 	  public <T extends Resource> boolean delete(Class<T> resourceClass, String id) {
 	  	throw new Error("call to NullClient");
 	  }
 
 	  @Override
 	  public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource, List<Coding> tags) {
       throw new Error("call to NullClient");
 	  }
 
@@ -425,41 +415,6 @@ public class WorkerContext {
 
 	  @Override
 	  public Bundle transaction(Bundle batch) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public List<Coding> getAllTags() {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id) {
-      throw new Error("call to NullClient");
-	  }
-
-	  @Override
-	  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
       throw new Error("call to NullClient");
 	  }
 

@@ -35,6 +35,7 @@ import java.util.List;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 
 public abstract class ComposerBase extends FormatUtilities implements Composer {
 
@@ -49,22 +50,22 @@ public abstract class ComposerBase extends FormatUtilities implements Composer {
     return new String(composeBytes(resource, pretty));
   }
 
-  public String composeString(List<Coding> tags, boolean pretty) throws Exception {
-    return new String(composeBytes(tags, pretty));
-  }
-  
   public byte[] composeBytes(Resource resource, boolean pretty) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     compose(bytes, resource, true);
     return bytes.toByteArray();
   }
 
-  public byte[] composeBytes(List<Coding> tags, boolean pretty) throws Exception {
-    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    compose(bytes, tags, true);
-    return bytes.toByteArray();
+  public String composeString(ResourceMetaComponent meta, boolean pretty) throws Exception {
+    return new String(composeBytes(meta, pretty));
   }
 
+  public byte[] composeBytes(ResourceMetaComponent meta, boolean pretty) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    compose(bytes, meta, true);
+    return bytes.toByteArray();
+  }
+  
   public String composeString(Type type, boolean pretty) throws Exception {
     return new String(composeBytes(type, pretty));
   }

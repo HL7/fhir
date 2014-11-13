@@ -55,6 +55,14 @@ public class ResourceUtilities {
 	  return null;
   }
 
+  public static BundleEntryComponent getEntryById(Bundle feed, ResourceType type, String reference) {
+    for (BundleEntryComponent item : feed.getEntry()) {
+      if (item.getResource().getId().equals(reference) && item.getResource().getResourceType() == type)
+        return item;
+    }
+    return null;
+  }
+
 	public static String getLink(Bundle feed, String rel) {
 		for (BundleLinkComponent link : feed.getLink()) {
 			if (link.getRelation().equals(rel))

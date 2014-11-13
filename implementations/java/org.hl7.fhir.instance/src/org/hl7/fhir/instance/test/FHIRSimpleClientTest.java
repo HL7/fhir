@@ -470,34 +470,34 @@ public class FHIRSimpleClientTest {
 		}
 	}
 	
-	@Test
-	public void testGetAllTags() {
-		List<Coding> tags = testClient.getAllTags();
-		assertTrue(tags != null && tags.size() > 0);
-	}
-	
-	@Test
-	public void testGetAllTagsForResourceType() {
-		List<Coding> tags = testClient.getAllTagsForResourceType(Patient.class);
-		assertTrue(tags != null && tags.size() > 0);
-	}
-	
-	@Test
-	public void testGetTagsForReference() {
-		loadPatientReference();
-		List<Coding> tags = testClient.getTagsForReference(Patient.class, testPatientId);
-		assertTrue(tags != null && tags.size() > 0);
-		unloadPatientReference();
-	}
-	
-	@Test
-	public void testGetTagsForResourceVersion() {
-		loadPatientReference();
-		List<Coding> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
-		assertTrue(tags != null && tags.size() > 0);
-		unloadPatientReference();
-	}
-	
+//	@Test
+//	public void testGetAllTags() {
+//		List<Coding> tags = testClient.getAllTags();
+//		assertTrue(tags != null && tags.size() > 0);
+//	}
+//	
+//	@Test
+//	public void testGetAllTagsForResourceType() {
+//		List<Coding> tags = testClient.getAllTagsForResourceType(Patient.class);
+//		assertTrue(tags != null && tags.size() > 0);
+//	}
+//	
+//	@Test
+//	public void testGetTagsForReference() {
+//		loadPatientReference();
+//		List<Coding> tags = testClient.getTagsForReference(Patient.class, testPatientId);
+//		assertTrue(tags != null && tags.size() > 0);
+//		unloadPatientReference();
+//	}
+//	
+//	@Test
+//	public void testGetTagsForResourceVersion() {
+//		loadPatientReference();
+//		List<Coding> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
+//		assertTrue(tags != null && tags.size() > 0);
+//		unloadPatientReference();
+//	}
+//	
 //	@Test
 //	public void testDeleteTagsForReference() {
 //		loadPatientReference();
@@ -514,24 +514,24 @@ public class FHIRSimpleClientTest {
 //		assertTrue(success);
 //		unloadPatientReference();
 //	}
-	
-	@Test
-	public void testCreateTagsForReference() {
-		loadPatientReference();
-		List<Coding> tags = new ArrayList<Coding>();
-		tags.add(new Coding()); // todo-bundle "http://scheme.com", "http://term.com", "Some good ole term"));
-		testClient.createTags(tags, Patient.class, testPatientId);
-		unloadPatientReference();
-	}
-	
-	@Test
-	public void testCreateTagsForResourceVersion() {
-		loadPatientReference();
-		List<Coding> tags = new ArrayList<Coding>();
-		tags.add(new Coding()); // todo-bundle "http://scheme.com", "http://term.com", "Some good ole term"));
-		testClient.createTags(tags, Patient.class, testPatientId, testPatientVersion);
-		unloadPatientReference();
-	}
+//	
+//	@Test
+//	public void testCreateTagsForReference() {
+//		loadPatientReference();
+//		List<Coding> tags = new ArrayList<Coding>();
+//		tags.add(new Coding()); // todo-bundle "http://scheme.com", "http://term.com", "Some good ole term"));
+//		testClient.createTags(tags, Patient.class, testPatientId);
+//		unloadPatientReference();
+//	}
+//	
+//	@Test
+//	public void testCreateTagsForResourceVersion() {
+//		loadPatientReference();
+//		List<Coding> tags = new ArrayList<Coding>();
+//		tags.add(new Coding()); // todo-bundle "http://scheme.com", "http://term.com", "Some good ole term"));
+//		testClient.createTags(tags, Patient.class, testPatientId, testPatientVersion);
+//		unloadPatientReference();
+//	}
 
 /*
 	@Test
@@ -697,7 +697,7 @@ public class FHIRSimpleClientTest {
 	private void loadPatientReference() {
 		Patient testPatient = buildPatient();
 		List<Coding> tags = generateCategoryHeader();
-		OperationOutcome result = testClient.create(Patient.class, testPatient, tags);
+		OperationOutcome result = testClient.create(Patient.class, testPatient);
 		testPatientId = getEntryId(result);
 		testPatientVersion = getEntryVersion(result);
 	}

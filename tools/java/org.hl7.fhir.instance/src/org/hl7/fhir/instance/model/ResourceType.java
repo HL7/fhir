@@ -1,10 +1,11 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
     Supply,
+    ProcedureRequest,
     Organization,
     Group,
     OralHealthClaim,
@@ -45,6 +46,7 @@ public enum ResourceType {
     Order,
     Procedure,
     Substance,
+    DeviceUseRequest,
     DiagnosticReport,
     Medication,
     MessageHeader,
@@ -56,11 +58,13 @@ public enum ResourceType {
     Encounter,
     SecurityEvent,
     List,
+    DeviceUseStatement,
     OperationDefinition,
     DeviceObservationReport,
     NutritionOrder,
     ClaimResponse,
     ReferralRequest,
+    CommunicationRequest,
     RiskAssessment,
     FamilyHistory,
     Location,
@@ -82,6 +86,8 @@ public enum ResourceType {
       return "condition";
     case Supply:
       return "supply";
+    case ProcedureRequest:
+      return "procedurerequest";
     case Organization:
       return "organization";
     case Group:
@@ -162,6 +168,8 @@ public enum ResourceType {
       return "procedure";
     case Substance:
       return "substance";
+    case DeviceUseRequest:
+      return "deviceuserequest";
     case DiagnosticReport:
       return "diagnosticreport";
     case Medication:
@@ -184,6 +192,8 @@ public enum ResourceType {
       return "securityevent";
     case List:
       return "list";
+    case DeviceUseStatement:
+      return "deviceusestatement";
     case OperationDefinition:
       return "operationdefinition";
     case DeviceObservationReport:
@@ -194,6 +204,8 @@ public enum ResourceType {
       return "claimresponse";
     case ReferralRequest:
       return "referralrequest";
+    case CommunicationRequest:
+      return "communicationrequest";
     case RiskAssessment:
       return "riskassessment";
     case FamilyHistory:

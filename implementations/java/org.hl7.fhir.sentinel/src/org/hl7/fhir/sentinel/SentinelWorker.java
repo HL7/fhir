@@ -165,7 +165,7 @@ public class SentinelWorker {
 	      else if (!master.getBase().equals(feed.getBase()))
 	      	throw new Exception("fhir-base link changed within a fetch");
 	      }
-        master.getItem().addAll(feed.getItem());
+        master.getEntry().addAll(feed.getEntry());
         if (next == null)
 	          lasttime = feed.getMeta().getLastUpdated().toString();
         next = ResourceUtilities.getLink(feed, "next");
@@ -178,22 +178,24 @@ public class SentinelWorker {
     ini.setStringProperty(server, "qtime", DateAndTime.now().toString(), null);
     ini.setStringProperty(server, "lasttime", lasttime, null);
     ini.save();
-    System.out.println(master.getItem().size() == 1 ? "1 update found" : Integer.toString(master.getItem().size())+" updates found");
+    System.out.println(master.getEntry().size() == 1 ? "1 update found" : Integer.toString(master.getEntry().size())+" updates found");
 
     new XmlComposer().compose(new FileOutputStream(getWorkingFileName()), master, false);
-    if (master.getItem().isEmpty())
+    if (master.getEntry().isEmpty())
       ini.setStringProperty(server, "cursor", "", null);
     else
-    	ini.setIntegerProperty(server, "cursor", master.getItem().size()-1, null);
+    	ini.setIntegerProperty(server, "cursor", master.getEntry().size()-1, null);
     ini.save();
     return master;
   }
 
 	private void process(Bundle feed, FHIRClient client) throws Exception {
 	  int i = ini.getIntegerProperty(server, "cursor");
-	  Resource ae = feed.getItem().get(i);
-    System.out.println("Processing #"+Integer.toString(i)+" ("+ae.getResourceType().toString()+"): "+ae.getId());
-	  process(feed, ae, client);
+	  Resource ae = feed.getEntry().get(i).getResource();
+	  if (ae != null) { // ignore deletions
+	  	System.out.println("Processing #"+Integer.toString(i)+" ("+ae.getResourceType().toString()+"): "+ae.getId());
+	  	process(feed, ae, client);
+	  }
 	  i--;
 	  if (i < 0)
 		  ini.setStringProperty(server, "cursor", "", null);

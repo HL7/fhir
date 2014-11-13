@@ -45,6 +45,7 @@ import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -101,8 +102,9 @@ public abstract class JsonComposerBase extends ComposerBase {
 	 * 
 	 */
 	@Override
-  public void compose(OutputStream writer, List<Coding> tags, boolean pretty) throws Exception {
+  public void compose(OutputStream writer, ResourceMetaComponent meta, boolean pretty) throws Exception {
 		checkCanBePretty(pretty);
+		throw new Error("Not done yet");
 	}
 
   public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {

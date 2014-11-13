@@ -26,7 +26,7 @@ some significant ways:
  <li>SubmissionSet = DocumentManifest, and DocumentEntry = DocumentReference. These renamings are appropriate in the wider context of how these resources are used in FHIR.</li>
  <li>There is no direct association between a transaction and a DocumentManifest in FHIR, however a <a href="http.html#transaction">transaction</a> may be used to ensure consistent commits</li>
  <li>Patient, Author and Authenticator are represented using standard <a href="patient.html">Patient</a> and <a href="practitioner.html">Practitioner</a> resources.</li>
- <li>The functionality expressed through the XDSFolder resource is implemented using the <a href="list.html">List</a> resource, or by <a href="extras.html#tags">tags</a></li>
+ <li>The functionality expressed through the XDSFolder resource is implemented using the <a href="list.html">List</a> resource, or by <a href="resource.html#tags">tags</a></li>
  <li>Some XDS specific fields that are not generally applicable do not have matching elements in the DocumentReference resource, and are implemented as FHIR extensions</li>
 </ul>
 
@@ -93,7 +93,7 @@ the relationships between the XDS tranasction and the FHIR resources.
 
  <tr>
   <td>Folders</td>
-  <td>There is no direct equivalent between to XDS folders in FHIR. Workflow associated with a document reference may be managed using <a href="extras.html#tags">Tags</a>, or documents can be explicitly grouped using the <a href="list.html">List resource</a></td>
+  <td>There is no direct equivalent between to XDS folders in FHIR. Workflow associated with a document reference may be managed using <a href="resource.html#tags">Tags</a>, or documents can be explicitly grouped using the <a href="list.html">List resource</a></td>
  </tr>
 
 

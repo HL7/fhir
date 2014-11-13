@@ -189,16 +189,6 @@ public interface FHIRClient {
 	public <T extends Resource> T update(Class<T> resourceClass, T resource, String id);
 	
 	/**
-	 * Update an existing resource by its id or create it if it is a new resource, not present on the server
-	 * 
-	 * @param resourceClass
-	 * @param resource
-	 * @param id
-	 * @return
-	 */
-	public <T extends Resource> T update(Class<T> resourceClass, T resource, String id, List<Coding> tags);
-	
-	/**
 	 * Delete the resource with the given ID.
 	 * 
 	 * @param resourceClass
@@ -216,16 +206,6 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource);
-	
-	/**
-	 * Create a new resource with a server assigned id. Return the newly created
-	 * resource with the id the server assigned. Associates tags with newly created resource.
-	 * 
-	 * @param resourceClass
-	 * @param resource
-	 * @return
-	 */
-	public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource, List<Coding> tags);
 	
 	/**
 	 * Retrieve the update history for a resource with given id since last update time. 
@@ -326,65 +306,66 @@ public interface FHIRClient {
 	 */
 	public Bundle transaction(Bundle batch);
 	
-	/**
-	 * Get a list of all tags on server 
-	 * 
-	 * GET [base]/_tags
-	 */
-	public List<Coding> getAllTags();
 	
-	/**
-	 * Get a list of all tags used for the nominated resource type 
-	 * 
-	 * GET [base]/[type]/_tags
-	 */
-	public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass);
-	
-	/**
-	 * Get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries 
-	 * 
-	 * GET [base]/[type]/[id]/_tags
-	 */
-	public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id);
-	
-	/**
-	 * Get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries
-	 * 
-	 * GET [base]/[type]/[id]/_history/[vid]/_tags
-	 */
-	public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId);
-	
-	/**
-	 * Remove all tags in the provided list from the list of tags for the nominated resource
-	 * 
-	 * DELETE [base]/[type]/[id]/_tags
-	 */
-	//public <T extends Resource> boolean deleteTagsForReference(Class<T> resourceClass, String id);
-	
-	/**
-	 * Remove tags in the provided list from the list of tags for the nominated version of the resource
-	 * 
-	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
-	 */
-	public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version);
-	
-	/**
-	 * Affix tags in the list to the nominated resource
-	 * 
-	 * POST [base]/[type]/[id]/_tags
-	 * @return
-	 */
-	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id);
-	
-	/**
-	 * Affix tags in the list to the nominated version of the resource
-	 * 
-	 * POST [base]/[type]/[id]/_history/[vid]/_tags
-	 * 
-	 * @return
-	 */
-	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version);
-
+//	/**
+//	 * Get a list of all tags on server 
+//	 * 
+//	 * GET [base]/_tags
+//	 */
+//	public List<Coding> getAllTags();
+//	
+//	/**
+//	 * Get a list of all tags used for the nominated resource type 
+//	 * 
+//	 * GET [base]/[type]/_tags
+//	 */
+//	public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass);
+//	
+//	/**
+//	 * Get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries 
+//	 * 
+//	 * GET [base]/[type]/[id]/_tags
+//	 */
+//	public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id);
+//	
+//	/**
+//	 * Get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries
+//	 * 
+//	 * GET [base]/[type]/[id]/_history/[vid]/_tags
+//	 */
+//	public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId);
+//	
+//	/**
+//	 * Remove all tags in the provided list from the list of tags for the nominated resource
+//	 * 
+//	 * DELETE [base]/[type]/[id]/_tags
+//	 */
+//	//public <T extends Resource> boolean deleteTagsForReference(Class<T> resourceClass, String id);
+//	
+//	/**
+//	 * Remove tags in the provided list from the list of tags for the nominated version of the resource
+//	 * 
+//	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
+//	 */
+//	public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version);
+//	
+//	/**
+//	 * Affix tags in the list to the nominated resource
+//	 * 
+//	 * POST [base]/[type]/[id]/_tags
+//	 * @return
+//	 */
+//	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id);
+//	
+//	/**
+//	 * Affix tags in the list to the nominated version of the resource
+//	 * 
+//	 * POST [base]/[type]/[id]/_history/[vid]/_tags
+//	 * 
+//	 * @return
+//	 */
+//	public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version);
+//
 	/**
 	 * Use this to follow a link found in a feed (e.g. paging in a search)
 	 * 

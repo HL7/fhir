@@ -14,7 +14,7 @@
 <h1>Security Labels</h1>
 
 <p>
-A security label is a <a href="extras.html#tags">tag</a> attached to a resource 
+A security label is a <a href="datatypes.html#Coding">concept</a> attached to a resource 
 or bundle that provides specific security metadata about the information it is fixed to.
 The <a href="security.html#access-control">Access Control decision engine</a> 
 uses the security label together with any provenance resources associated with 
@@ -66,13 +66,13 @@ that allow much finer grained management of the information.
 <h2>Representing Security Labels</h2>
 
 <p>
-A security label is represented as a <a href="extras.html#tags">Tag</a>, with the 
-following properties:
+A security label is represented as a <a href="datatypes.html#Coding">Coding</a>, with the 
+following important properties:
 </p>
 <table>
-  <tr> <td>Scheme</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
-  <tr> <td>Term</td> <td>a URI that identifies the security label</td> <td> Usually of the form [system]#[code], where system is a <a href="terminologies-systems.html">code system uri</a> and code is an value from the code system</td> </tr>
-  <tr> <td>Label</td> <td>The display name for the code</td> <td>optional - for display to a human (mostly used when a system doesn't recognize the Term)</td> </tr>
+  <tr> <td>system</td> <td>The coding scheme from which label is taken (see <a href="terminologies-systems.html">code system uri</a>, and below) </td></tr>
+  <tr> <td>code</td> <td>a code from the coding scheme that identifies the security label  and code is an value from the code system</td> </tr>
+  <tr> <td>display</td> <td>The display form for the code (mostly for use when a system doesn't recognize the code)</td> </tr>
 </table>
 
 <div class="example">
@@ -80,15 +80,14 @@ following properties:
 An XML patient resource with a "celebrity" tag associated with it, as represented in an HTTP response:
 </p>
 <pre>
-HTTP/1.1 200 OK
-Content-Type: text/xml
-Access-Control-Allow-Origin: *
-Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
-Content-Location: http://[server]/[path]/Patient/234124/_history/24
-ETag: 24
-Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag/security"; label="Celebrity"
-
 &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;meta&gt;
+    &lt;security&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/v3/ActCode&quot;/&gt;
+      &lt;code value=&quot;CEL&quot;/&gt;
+      &lt;display value=&quot;Celebrity&quot;/&gt;
+    &lt;/security&gt;    
+  &lt;/meta&gt;
 ...  [snip] ...
 &lt;/Patient&gt;
 </pre>
@@ -96,22 +95,24 @@ Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag/se
 A JSON search result that includes a resource that the receiving application must delete all copies of the resource after using it:
 </p>
 <pre>
-HTTP/1.1 200 OK
-[Headers]
-
 {
   "resourceType" : "Bundle",
-  "title" : "Search result",
+  "type" : "searchset",
   ... other headers etc ....
   "entry" : [
      ... other entries ....
      {
-       "id" : "http://fhir.furore.com/fhir/Patient/1",
-       "category" : [{
-         "term" : "http://hl7.org/fhir/v3/ActCode#DELAU",
-         "label" : "delete after use",
-         "scheme" : "http://hl7.org/fhir/tag/security"
-       ... other headers + content etc ....
+       "resource": {
+         "id" : "1",
+         "meta" : {
+           "security" : [{
+             "system" : "http://hl7.org/fhir/v3/ActCode",
+             "code" : "DELAU",
+             "display" : "delete after use"
+           }]
+         }
+         ... other content etc ....
+       }
      },
      ... other entries ....
   ]
@@ -119,20 +120,7 @@ HTTP/1.1 200 OK
 </pre>
 
 <p>Note: the actual terms used in these examples are described below.</p>
-<p>
-A request to see the patient's condition list, with a note that this is requested under "break-the-glass": 
-</p>
-<pre>
-HTTP/1.1 GET fhir/Patient/482735/condition
-Content-Type: text/xml
-Access-Control-Allow-Origin: *
-Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
-Content-Location: http://[server]/[path]/Patient/234124/_history/24
-ETag: 24
-Category: http://hl7.org/fhir/v3/ActReason#ETREAT; scheme="http://hl7.org/fhir/tag/security"; label="Emergency Treatment"
-</pre>
 
-</div>
 
 <p>
 The basic framework for security labels is described by the HL7 Healthcare Classification 
@@ -166,6 +154,8 @@ This specification defines a set of core security labels for all FHIR systems.
 All conformant FHIR Applications SHOULD use these labels where appropriate. 
 For all of these labels, how they are operationalised - their use and interpretation - is subject 
 to the applicable Mutual Trust Framework agreement as described above.
+These codes all come from one of two code systems: 
+http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
 </p>
 
 <table class="grid">
@@ -177,9 +167,9 @@ to the applicable Mutual Trust Framework agreement as described above.
    <td colspan="2" style="background-color: #EFEFEF"><b>Context of Use</b></td>
  </tr>
  <tr>
-   <td>Confidentiality codes: http://hl7.org/fhir/v3/Confidentiality#[code]</td>
+   <td>Confidentiality codes</td>
    <td>
-     These <a href="v3/vs/Confidentiality/index.html">confidentiality codes</a> can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
+     These <a href="v3/vs/Confidentiality/index.html">confidentiality codes</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
      but can be modified subsequently as a matter of operational management. The Confidentiality codes describe the sensitivity of the information in a resource with regard to 
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
@@ -192,7 +182,7 @@ to the applicable Mutual Trust Framework agreement as described above.
    </td>
  </tr>
  <tr>
-   <td>Celebrity / VIP: http://hl7.org/fhir/v3/ActCode#CEL</td>
+   <td>Celebrity / VIP: ActCode.<a href="/v3/ActCode/index.html#CEL">CEL</a></td>
    <td>
     Use on any resource to indicate that the subject/patient is a celebrity or well known to the staff in the institution.
     <br/>Notes:
@@ -203,7 +193,7 @@ to the applicable Mutual Trust Framework agreement as described above.
    </td>
  </tr>
  <tr>
-   <td>Staff: http://hl7.org/fhir/v3/ActCode#EMP</td>
+   <td>Staff: ActCode.<a href="/v3/ActCode/index.html#EMP">EMP</a></td>
    <td>
     Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patient to indicate that the patient is a staff member of the institution. This is a variation on 
     being a celebrity.
@@ -215,7 +205,7 @@ to the applicable Mutual Trust Framework agreement as described above.
    </td>
  </tr>
  <tr>
-   <td>Keep information from patient: http://hl7.org/fhir/v3/ActCode#TBOO</td>
+   <td>Keep information from patient: ActCode.<a href="/v3/ActCode/index.html#TBOO">TBOO</a></td>
    <td>
     Used on <a href="resourcelist.html">any</a> resource to indicate that information is not to be made available to the patient or their relatives/carers, except by the personal decision of a physician assigned to the patient.
     <br/>Notes:
@@ -226,14 +216,14 @@ to the applicable Mutual Trust Framework agreement as described above.
    </td>
  </tr>
  <tr>
-   <td>Contact/Employment Details Confidential: http://hl7.org/fhir/v3/ActCode#DEMO</td>
+   <td>Contact/Employment Details Confidential: ActCode.<a href="/v3/ActCode/index.html#DEMO">DEMO</a></td>
    <td>
     Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details (phone numbers, email addresses) - including employment information - are sensitive 
     and shouldn't be shared with the patient's family or others without specific authorization
    </td>
  </tr>
  <tr>
-   <td>Diagnosis-related confidentiality: http://hl7.org/fhir/v3/ActCode#DIA</td>
+   <td>Diagnosis-related confidentiality: ActCode.<a href="/v3/ActCode/index.html#DIA">DIA</a></td>
    <td>
     Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally 
     associated with confidentiality requirements - or is for this particular patient. 
@@ -246,7 +236,7 @@ to the applicable Mutual Trust Framework agreement as described above.
    </td>
  </tr>
  <tr>
-   <td>Author Consent needed: http://hl7.org/fhir/v3/ActCode#ORCON</td>
+   <td>Author Consent needed: ActCode.<a href="/v3/ActCode/index.html#ORCON">ORCON</a></td>
    <td>
     The author's consent is needed for disclosure. Typically, this is used by a treating practitioner to label portions of their own record confidential. 
     Any such resource is only shared with the author or with other parties as arranged. 
@@ -256,7 +246,7 @@ to the applicable Mutual Trust Framework agreement as described above.
    <td colspan="2" style="background-color: #EFEFEF"><b>Control of Flow</b></td>
  </tr>
  <tr>
-   <td>Delete After Use: http://hl7.org/fhir/v3/ActCode#DELAU</td>
+   <td>Delete After Use: ActCode.<a href="/v3/ActCode/index.html#DELAU">DELAU</a></td>
    <td>
      An application receiving a resource with this label must delete all copies after the immediate use for which the resource/feed was exchanged is complete. <br/> Notes:
      <ul>
@@ -267,7 +257,7 @@ to the applicable Mutual Trust Framework agreement as described above.
  </tr>
  
  <tr>
-   <td>Do Not Re-use: http://hl7.org/fhir/v3/ActCode#NOREUSE</td>
+   <td>Do Not Re-use: ActCode.<a href="/v3/ActCode/index.html#NOREUSE">NOREUSE</a></td>
    <td>
      An application receiving a resource with this label may only use it for the immediate purpose of use. In particular, the application is not authorized to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
      <ul>
@@ -276,22 +266,48 @@ to the applicable Mutual Trust Framework agreement as described above.
      </ul>
    </td>
  </tr>
- <tr>
-   <td colspan="2" style="background-color: #EFEFEF"><b>Operation (Request / Response) labels</b> - these labels are security assertions about the context of the user
-   and are defined for use in a RESTful interface, where there is no deeper infrastructure to share the user context. When the exchange occurs in the presence of 
-   deeper infrastructure, these labels are unnecessary</td>
- </tr>
- <tr>
-   <td>Break The Glass: http://hl7.org/fhir/security-label#break-the-glass</td>
-   <td>
-    The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent.
-    See <a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">this paper</a> for 
-    discussion of the issues involved in break-the-glass operations.
-   </td>
- </tr>   
  
 </table>
 
+<a name="break-the-glass"> </a>
+<h2>Break The Glass</h2>
+
+<p>
+There is a special security label to support the commonly encountered "break-the-glass" protocol, 
+where a clinician (usually in an emergency context) requests emergency 
+unauthorised access to the patient's record. 
+This specification does not make any policy recommendations or rules
+about the operation, merely provides support for it. See 
+<a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">this paper</a> for 
+discussion of the issues involved in break-the-glass operations.
+</p>
+<p>
+When the operation occurs, it is represented as a security label on the 
+request, rather than on a resource, and so is represented differently,
+as a URL:
+</p>
+<table class="grid">
+ <tr>
+   <td>Break The Glass</td>
+   <td>http://hl7.org/fhir/security-label#break-the-glass</td>
+   <td>
+    The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent.
+   </td>
+ </tr>   
+</table>
+<p>
+The URL is represented in the request as a <a href="https://tools.ietf.org/html/draft-johnston-http-category-header-02">web category</a>: 
+</p>
+<pre>
+HTTP/1.1 GET fhir/Patient/482735/condition
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
+Content-Location: http://[server]/[path]/Patient/234124/_history/24
+ETag: 24
+Category: http://hl7.org/fhir/security-label#break-the-glass; scheme="http://hl7.org/fhir/tag/security"; label="Break The Glass"
+</pre>
+</div>
 
 <a name="hcs"> </a>
 <h2>Healthcare Classification System</h2>
@@ -354,15 +370,8 @@ patient consent directive
 
 <p>
 Each of these security labels identifies a <a href="valueset.html">ValueSet</a> that
-lists a set of possible codes for the security label. The <a href="extras.html">tag</a>
-itself has the following parts:
+lists a set of possible codes for the security label.
 </p>
-
-<table>
-  <tr> <td>Scheme</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
-  <tr> <td>Term</td> <td>[system]#[code]</td> <td>Where [code] is chosen from the list of values, and [system] is the listed system for the chosen code</td> </tr>
-  <tr> <td>Label</td> <td>The display name for the code</td> <td>(optional)</td> </tr>
-</table>
 
 <a name="jurisdictions"> </a>
 <h3>Jurisdiction Specific Security Labels</h3>

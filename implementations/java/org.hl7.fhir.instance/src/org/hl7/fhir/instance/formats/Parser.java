@@ -34,6 +34,7 @@ package org.hl7.fhir.instance.formats;
 import java.io.InputStream;
 
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 
 
 /**
@@ -43,13 +44,16 @@ import org.hl7.fhir.instance.model.Resource;
 public interface Parser {
 
   /**
-   * parse content that is either a resource or a bundle  
-   */
-  public ResourceOrFeed parseGeneral(InputStream input) throws Exception;
-  
-  /**
    * parse content that is known to be a resource  
    */
   public Resource parse(InputStream input) throws Exception;
+  public Resource parse(String input) throws Exception;
+  public Resource parse(byte[] bytes) throws Exception;
+
+  /**
+   * parse content that is known to be a meta (from one of the meta operations)  
+   */
+  public ResourceMetaComponent parseMeta(InputStream input) throws Exception;
+
 
 }

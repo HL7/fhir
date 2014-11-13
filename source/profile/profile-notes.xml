@@ -9,7 +9,7 @@
  <ul>
    <li>A internal reference is made from Profile.structure.element.definition.type.profile to re-use the constraints declared in another structure, either in the same profile or another. If the reference is 
      within the same resource, the uri is a relative reference with the form #[name]. If the reference is to another resource, it should be either an absolute URI that termintes with a #[name] </li>
-   <li>An external reference is one made to the profile from a <a href="conformance.html">Conformance Statement</a> or a <a href="extras.html#tags">Profile Tag</a>. 
+   <li>An external reference is one made to the profile from a <a href="conformance.html">Conformance Statement</a> or a <a href="resource.html#tags">Profile Assertions</a>. 
    For these references, the [#name] portion is optional. If there is no #name portion, the reference doesn't identify a particular structural definition in the instance, 
    and it is an error if there is more than one matching structure for the resource type in context that might apply when the Profile reference is used</li>
  </ul> 

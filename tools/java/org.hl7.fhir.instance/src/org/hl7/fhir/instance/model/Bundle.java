@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 /**
  * A container for a group of resources.
@@ -43,6 +44,7 @@ public class Bundle extends Resource {
         DOCUMENT, // The bundle is a document. The first resource is a Composition.
         MESSAGE, // The bundle is a message. The first resource is a MessageHeader.
         TRANSACTION, // The bundle is a transaction - intended to be processed by a server as an atomic commit.
+        TRANSACTIONRESPONSE, // The bundle is a transaction response.
         HISTORY, // The bundle is a list of resources from a _history interaction on a server.
         SEARCHSET, // The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.
         COLLECTION, // The bundle is a set of resources collected into a single document for ease of distribution.
@@ -56,6 +58,8 @@ public class Bundle extends Resource {
           return MESSAGE;
         if ("transaction".equals(codeString))
           return TRANSACTION;
+        if ("transaction-response".equals(codeString))
+          return TRANSACTIONRESPONSE;
         if ("history".equals(codeString))
           return HISTORY;
         if ("searchset".equals(codeString))
@@ -69,6 +73,7 @@ public class Bundle extends Resource {
             case DOCUMENT: return "document";
             case MESSAGE: return "message";
             case TRANSACTION: return "transaction";
+            case TRANSACTIONRESPONSE: return "transaction-response";
             case HISTORY: return "history";
             case SEARCHSET: return "searchset";
             case COLLECTION: return "collection";
@@ -80,6 +85,7 @@ public class Bundle extends Resource {
             case DOCUMENT: return "The bundle is a document. The first resource is a Composition.";
             case MESSAGE: return "The bundle is a message. The first resource is a MessageHeader.";
             case TRANSACTION: return "The bundle is a transaction - intended to be processed by a server as an atomic commit.";
+            case TRANSACTIONRESPONSE: return "The bundle is a transaction response.";
             case HISTORY: return "The bundle is a list of resources from a _history interaction on a server.";
             case SEARCHSET: return "The bundle is a list of resources returned as a result of a search/query interaction, operation, or message.";
             case COLLECTION: return "The bundle is a set of resources collected into a single document for ease of distribution.";
@@ -91,6 +97,7 @@ public class Bundle extends Resource {
             case DOCUMENT: return "Document";
             case MESSAGE: return "Message";
             case TRANSACTION: return "Transaction";
+            case TRANSACTIONRESPONSE: return "Transaction Response";
             case HISTORY: return "History List";
             case SEARCHSET: return "Search Results";
             case COLLECTION: return "Collection";
@@ -110,6 +117,8 @@ public class Bundle extends Resource {
           return BundleType.MESSAGE;
         if ("transaction".equals(codeString))
           return BundleType.TRANSACTION;
+        if ("transaction-response".equals(codeString))
+          return BundleType.TRANSACTIONRESPONSE;
         if ("history".equals(codeString))
           return BundleType.HISTORY;
         if ("searchset".equals(codeString))
@@ -125,6 +134,8 @@ public class Bundle extends Resource {
         return "message";
       if (code == BundleType.TRANSACTION)
         return "transaction";
+      if (code == BundleType.TRANSACTIONRESPONSE)
+        return "transaction-response";
       if (code == BundleType.HISTORY)
         return "history";
       if (code == BundleType.SEARCHSET)
@@ -331,6 +342,11 @@ public class Bundle extends Resource {
         protected UriType search;
 
         /**
+         * When searching, the server's search ranking score for the entry.
+         */
+        protected DecimalType score;
+
+        /**
          * If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.
          */
         protected BundleEntryDeletedComponent deleted;
@@ -340,7 +356,7 @@ public class Bundle extends Resource {
          */
         protected Resource resource;
 
-        private static final long serialVersionUID = -23827545L;
+        private static final long serialVersionUID = 509077972L;
 
       public BundleEntryComponent() {
         super();
@@ -455,6 +471,42 @@ public class Bundle extends Resource {
         }
 
         /**
+         * @return {@link #score} (When searching, the server's search ranking score for the entry.). This is the underlying object with id, value and extensions. The accessor "getScore" gives direct access to the value
+         */
+        public DecimalType getScoreElement() { 
+          return this.score;
+        }
+
+        /**
+         * @param value {@link #score} (When searching, the server's search ranking score for the entry.). This is the underlying object with id, value and extensions. The accessor "getScore" gives direct access to the value
+         */
+        public BundleEntryComponent setScoreElement(DecimalType value) { 
+          this.score = value;
+          return this;
+        }
+
+        /**
+         * @return When searching, the server's search ranking score for the entry.
+         */
+        public BigDecimal getScore() { 
+          return this.score == null ? null : this.score.getValue();
+        }
+
+        /**
+         * @param value When searching, the server's search ranking score for the entry.
+         */
+        public BundleEntryComponent setScore(BigDecimal value) { 
+          if (value == null)
+            this.score = null;
+          else {
+            if (this.score == null)
+              this.score = new DecimalType();
+            this.score.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.)
          */
         public BundleEntryDeletedComponent getDeleted() { 
@@ -489,6 +541,7 @@ public class Bundle extends Resource {
           childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
           childrenList.add(new Property("status", "code", "The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("search", "uri", "Search URL for this resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, search));
+          childrenList.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, java.lang.Integer.MAX_VALUE, score));
           childrenList.add(new Property("deleted", "", "If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.", 0, java.lang.Integer.MAX_VALUE, deleted));
           childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
         }
@@ -499,6 +552,7 @@ public class Bundle extends Resource {
         dst.base = base == null ? null : base.copy();
         dst.status = status == null ? null : status.copy();
         dst.search = search == null ? null : search.copy();
+        dst.score = score == null ? null : score.copy();
         dst.deleted = deleted == null ? null : deleted.copy();
         dst.resource = resource == null ? null : resource.copy();
         return dst;

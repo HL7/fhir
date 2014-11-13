@@ -44,6 +44,7 @@ import org.hl7.fhir.instance.model.AllergyIntolerance.ReactionEventSeverity;
 import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceStatus;
 import org.hl7.fhir.instance.model.AllergyIntolerance.AllergyIntoleranceType;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Comparison;
@@ -242,7 +243,7 @@ public class CCDAConverter {
 		}
 		r.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
 		r.setId(id);
-		feed.getItem().add(r);
+		feed.getEntry().add(new BundleEntryComponent().setResource(r));
 		return id;
 	}
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1511,6 +1511,8 @@ public class JsonComposer extends JsonComposerBase {
       }
       composeUriCore("search", element.getSearchElement(), false);
       composeUriExtras("search", element.getSearchElement(), false);
+      composeDecimalCore("score", element.getScoreElement(), false);
+      composeDecimalExtras("score", element.getScoreElement(), false);
       composeBundleBundleEntryDeletedComponent("deleted", element.getDeleted());
         if (element.getResource() != null) {
           open("resource");
@@ -2039,6 +2041,78 @@ public class JsonComposer extends JsonComposerBase {
       composeCoding("type", element.getType());
       composeStringCore("text", element.getTextElement(), false);
       composeStringExtras("text", element.getTextElement(), false);
+  }
+
+  private void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeCommunicationRequestInner(element);
+    }
+  }
+
+  private void composeCommunicationRequestInner(CommunicationRequest element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("category", element.getCategory());
+      composeReference("sender", element.getSender());
+      if (element.getRecipient().size() > 0) {
+        openArray("recipient");
+        for (Reference e : element.getRecipient()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.getMessagePart().size() > 0) {
+        openArray("messagePart");
+        for (CommunicationRequest.CommunicationRequestMessagePartComponent e : element.getMessagePart()) 
+          composeCommunicationRequestCommunicationRequestMessagePartComponent(null, e);
+        closeArray();
+      };
+      if (element.getMedium().size() > 0) {
+        openArray("medium");
+        for (CodeableConcept e : element.getMedium()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeReference("requester", element.getRequester());
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new CommunicationRequest.CommunicationRequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new CommunicationRequest.CommunicationRequestStatusEnumFactory(), false);
+      }
+      if (element.getModeElement() != null) {
+        composeEnumerationCore("mode", element.getModeElement(), new CommunicationRequest.CommunicationRequestModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getModeElement(), new CommunicationRequest.CommunicationRequestModeEnumFactory(), false);
+      }
+      composeReference("encounter", element.getEncounter());
+      composeDateTimeCore("scheduledTime", element.getScheduledTimeElement(), false);
+      composeDateTimeExtras("scheduledTime", element.getScheduledTimeElement(), false);
+      if (element.getIndication().size() > 0) {
+        openArray("indication");
+        for (CodeableConcept e : element.getIndication()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeDateTimeCore("orderedOn", element.getOrderedOnElement(), false);
+      composeDateTimeExtras("orderedOn", element.getOrderedOnElement(), false);
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("priority", element.getPriority());
+  }
+
+  private void composeCommunicationRequestCommunicationRequestMessagePartComponent(String name, CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeCommunicationRequestCommunicationRequestMessagePartComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeCommunicationRequestCommunicationRequestMessagePartComponentInner(CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
+      composeBackbone(element);
+      composeType("content", element.getContent());
   }
 
   private void composeComposition(String name, Composition element) throws Exception {
@@ -3213,6 +3287,120 @@ public class JsonComposer extends JsonComposerBase {
   private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponentInner(DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent element) throws Exception {
       composeBackbone(element);
       composeReference("observation", element.getObservation());
+  }
+
+  private void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeDeviceUseRequestInner(element);
+    }
+  }
+
+  private void composeDeviceUseRequestInner(DeviceUseRequest element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.getBodySite().size() > 0) {
+        openArray("bodySite");
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new DeviceUseRequest.DeviceUseRequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new DeviceUseRequest.DeviceUseRequestStatusEnumFactory(), false);
+      }
+      if (element.getModeElement() != null) {
+        composeEnumerationCore("mode", element.getModeElement(), new DeviceUseRequest.DeviceUseRequestModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getModeElement(), new DeviceUseRequest.DeviceUseRequestModeEnumFactory(), false);
+      }
+      composeReference("device", element.getDevice());
+      composeReference("encounter", element.getEncounter());
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.getIndication().size() > 0) {
+        openArray("indication");
+        for (CodeableConcept e : element.getIndication()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getNotes().size() > 0) {
+        openArray("notes");
+        for (StringType e : element.getNotes()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNotes())) {
+          openArray("_notes");
+          for (StringType e : element.getNotes()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.getPrnReason().size() > 0) {
+        openArray("prnReason");
+        for (CodeableConcept e : element.getPrnReason()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeDateTimeCore("orderedOn", element.getOrderedOnElement(), false);
+      composeDateTimeExtras("orderedOn", element.getOrderedOnElement(), false);
+      composeDateTimeCore("recordedOn", element.getRecordedOnElement(), false);
+      composeDateTimeExtras("recordedOn", element.getRecordedOnElement(), false);
+      composeReference("subject", element.getSubject());
+      composeType("timing", element.getTiming());
+      if (element.getPriorityElement() != null) {
+        composeEnumerationCore("priority", element.getPriorityElement(), new DeviceUseRequest.DeviceUseRequestPriorityEnumFactory(), false);
+        composeEnumerationExtras("priority", element.getPriorityElement(), new DeviceUseRequest.DeviceUseRequestPriorityEnumFactory(), false);
+      }
+  }
+
+  private void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeDeviceUseStatementInner(element);
+    }
+  }
+
+  private void composeDeviceUseStatementInner(DeviceUseStatement element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.getBodySite().size() > 0) {
+        openArray("bodySite");
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composePeriod("whenUsed", element.getWhenUsed());
+      composeReference("device", element.getDevice());
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.getIndication().size() > 0) {
+        openArray("indication");
+        for (CodeableConcept e : element.getIndication()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getNotes().size() > 0) {
+        openArray("notes");
+        for (StringType e : element.getNotes()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNotes())) {
+          openArray("_notes");
+          for (StringType e : element.getNotes()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeDateTimeCore("recordedOn", element.getRecordedOnElement(), false);
+      composeDateTimeExtras("recordedOn", element.getRecordedOnElement(), false);
+      composeReference("subject", element.getSubject());
+      composeType("timing", element.getTiming());
   }
 
   private void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
@@ -6516,6 +6704,68 @@ public class JsonComposer extends JsonComposerBase {
       composeReference("target", element.getTarget());
   }
 
+  private void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeProcedureRequestInner(element);
+    }
+  }
+
+  private void composeProcedureRequestInner(ProcedureRequest element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeReference("subject", element.getSubject());
+      composeCodeableConcept("type", element.getType());
+      if (element.getBodySite().size() > 0) {
+        openArray("bodySite");
+        for (CodeableConcept e : element.getBodySite()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getIndication().size() > 0) {
+        openArray("indication");
+        for (CodeableConcept e : element.getIndication()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeType("timing", element.getTiming());
+      composeReference("encounter", element.getEncounter());
+      composeReference("performer", element.getPerformer());
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new ProcedureRequest.ProcedureRequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new ProcedureRequest.ProcedureRequestStatusEnumFactory(), false);
+      }
+      if (element.getModeElement() != null) {
+        composeEnumerationCore("mode", element.getModeElement(), new ProcedureRequest.ProcedureRequestModeEnumFactory(), false);
+        composeEnumerationExtras("mode", element.getModeElement(), new ProcedureRequest.ProcedureRequestModeEnumFactory(), false);
+      }
+      if (element.getNotes().size() > 0) {
+        openArray("notes");
+        for (StringType e : element.getNotes()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getNotes())) {
+          openArray("_notes");
+          for (StringType e : element.getNotes()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeType("asNeeded", element.getAsNeeded());
+      composeDateTimeCore("orderedOn", element.getOrderedOnElement(), false);
+      composeDateTimeExtras("orderedOn", element.getOrderedOnElement(), false);
+      composeReference("orderer", element.getOrderer());
+      if (element.getPriorityElement() != null) {
+        composeEnumerationCore("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory(), false);
+        composeEnumerationExtras("priority", element.getPriorityElement(), new ProcedureRequest.ProcedureRequestPriorityEnumFactory(), false);
+      }
+  }
+
   private void composeProfile(String name, Profile element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -8015,6 +8265,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCarePlan("CarePlan", (CarePlan)resource);
     else if (resource instanceof ClaimResponse)
       composeClaimResponse("ClaimResponse", (ClaimResponse)resource);
+    else if (resource instanceof CommunicationRequest)
+      composeCommunicationRequest("CommunicationRequest", (CommunicationRequest)resource);
     else if (resource instanceof Composition)
       composeComposition("Composition", (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -8035,6 +8287,10 @@ public class JsonComposer extends JsonComposerBase {
       composeDevice("Device", (Device)resource);
     else if (resource instanceof DeviceObservationReport)
       composeDeviceObservationReport("DeviceObservationReport", (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceUseRequest)
+      composeDeviceUseRequest("DeviceUseRequest", (DeviceUseRequest)resource);
+    else if (resource instanceof DeviceUseStatement)
+      composeDeviceUseStatement("DeviceUseStatement", (DeviceUseStatement)resource);
     else if (resource instanceof DiagnosticOrder)
       composeDiagnosticOrder("DiagnosticOrder", (DiagnosticOrder)resource);
     else if (resource instanceof DiagnosticReport)
@@ -8107,6 +8363,8 @@ public class JsonComposer extends JsonComposerBase {
       composePractitioner("Practitioner", (Practitioner)resource);
     else if (resource instanceof Procedure)
       composeProcedure("Procedure", (Procedure)resource);
+    else if (resource instanceof ProcedureRequest)
+      composeProcedureRequest("ProcedureRequest", (ProcedureRequest)resource);
     else if (resource instanceof Profile)
       composeProfile("Profile", (Profile)resource);
     else if (resource instanceof Provenance)
@@ -8164,6 +8422,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCarePlan(name, (CarePlan)resource);
     else if (resource instanceof ClaimResponse)
       composeClaimResponse(name, (ClaimResponse)resource);
+    else if (resource instanceof CommunicationRequest)
+      composeCommunicationRequest(name, (CommunicationRequest)resource);
     else if (resource instanceof Composition)
       composeComposition(name, (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -8184,6 +8444,10 @@ public class JsonComposer extends JsonComposerBase {
       composeDevice(name, (Device)resource);
     else if (resource instanceof DeviceObservationReport)
       composeDeviceObservationReport(name, (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceUseRequest)
+      composeDeviceUseRequest(name, (DeviceUseRequest)resource);
+    else if (resource instanceof DeviceUseStatement)
+      composeDeviceUseStatement(name, (DeviceUseStatement)resource);
     else if (resource instanceof DiagnosticOrder)
       composeDiagnosticOrder(name, (DiagnosticOrder)resource);
     else if (resource instanceof DiagnosticReport)
@@ -8256,6 +8520,8 @@ public class JsonComposer extends JsonComposerBase {
       composePractitioner(name, (Practitioner)resource);
     else if (resource instanceof Procedure)
       composeProcedure(name, (Procedure)resource);
+    else if (resource instanceof ProcedureRequest)
+      composeProcedureRequest(name, (ProcedureRequest)resource);
     else if (resource instanceof Profile)
       composeProfile(name, (Profile)resource);
     else if (resource instanceof Provenance)

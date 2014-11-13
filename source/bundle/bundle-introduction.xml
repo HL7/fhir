@@ -22,7 +22,13 @@ mostly includes the whole content of a resource. These resource bundles are usef
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-not yet done
+There are two ways to group resources together - <a href="references.html#contained">contained resources</a>, and
+bundles. There is an important difference between the two: 
 </p>
+<ul>
+ <li>Contained resources are "in" the container resource - they can only ever be interpreted and/or changed in the context of the container</li>
+ <li>A bundle is a group of resources that have an independent existence - the source of the resource can be determined by the base (see below) and the logical id</li>
+</ul>
+
 </div>
 </div>

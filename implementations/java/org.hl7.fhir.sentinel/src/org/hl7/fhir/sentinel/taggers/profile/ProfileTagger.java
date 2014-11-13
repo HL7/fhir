@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -47,8 +48,8 @@ public class ProfileTagger implements Tagger {
 	        feed = client.fetchFeed(next);
 	      else
 	        feed = client.history(ValueSet.class);
-	      for (Resource e : feed.getItem())
-	      	seeValueSet((ValueSet) e);
+	      for (BundleEntryComponent e : feed.getEntry())
+	      	seeValueSet((ValueSet) e.getResource());
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (next != null);
@@ -62,8 +63,8 @@ public class ProfileTagger implements Tagger {
 	        feed = client.fetchFeed(next);
 	      else
 	        feed = client.history(Profile.class);
-	      for (Resource e : feed.getItem())
-	      	seeProfile((Profile) e);
+	      for (BundleEntryComponent e : feed.getEntry())
+	      	seeProfile((Profile) e.getResource());
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (next != null);

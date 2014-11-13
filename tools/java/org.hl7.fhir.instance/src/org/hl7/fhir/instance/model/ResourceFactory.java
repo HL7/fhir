@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -38,6 +38,8 @@ public class ResourceFactory extends Factory {
             return new Condition();
         if ("Supply".equals(name))
             return new Supply();
+        if ("ProcedureRequest".equals(name))
+            return new ProcedureRequest();
         if ("Organization".equals(name))
             return new Organization();
         if ("Group".equals(name))
@@ -80,10 +82,10 @@ public class ResourceFactory extends Factory {
             return new Binary();
         if ("Other".equals(name))
             return new Other();
-        if ("Profile".equals(name))
-            return new Profile();
         if ("HealthcareService".equals(name))
             return new HealthcareService();
+        if ("Profile".equals(name))
+            return new Profile();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
         if ("Eligibility".equals(name))
@@ -118,6 +120,8 @@ public class ResourceFactory extends Factory {
             return new Procedure();
         if ("Substance".equals(name))
             return new Substance();
+        if ("DeviceUseRequest".equals(name))
+            return new DeviceUseRequest();
         if ("DiagnosticReport".equals(name))
             return new DiagnosticReport();
         if ("Medication".equals(name))
@@ -140,6 +144,8 @@ public class ResourceFactory extends Factory {
             return new SecurityEvent();
         if ("List".equals(name))
             return new List_();
+        if ("DeviceUseStatement".equals(name))
+            return new DeviceUseStatement();
         if ("OperationDefinition".equals(name))
             return new OperationDefinition();
         if ("NutritionOrder".equals(name))
@@ -150,6 +156,8 @@ public class ResourceFactory extends Factory {
             return new ClaimResponse();
         if ("ReferralRequest".equals(name))
             return new ReferralRequest();
+        if ("CommunicationRequest".equals(name))
+            return new CommunicationRequest();
         if ("RiskAssessment".equals(name))
             return new RiskAssessment();
         if ("FamilyHistory".equals(name))
