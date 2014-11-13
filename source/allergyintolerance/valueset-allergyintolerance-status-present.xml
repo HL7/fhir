@@ -5,20 +5,20 @@
   </text>
   <identifier value="http://hl7.org/fhir/vs/allergy-intolerance-status-present"/>
   <name value="AllergyIntoleranceStatusPresent"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="CQF Project team"/>
   <telecom>
     <system value="url"/>
-    <value value="http://www.hl7.org/Special/committees/cqi/"/>	
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
   <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org"/>
-  </telecom>  
+  </telecom>
   <description value="Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance"/>
   <status value="draft"/>
-  <date value="2014-11-06T16:57:44.799+00:00"/>
+  <date value="2014-11-13T16:57:44.799+00:00"/>
   <compose>
-     <include>        
+     <include>
 		<system value="http://hl7.org/fhir/allergy-intolerance-status"/>
         <concept>
             <code value="unconfirmed"/>
