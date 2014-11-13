@@ -1,10 +1,12 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h3>Notes</h3>
+<ul>
+<li>The content of bundled resources SHALL always be present except in the special case of a transaction response.</li>
+<li>Conceptually, a bundle is a list of resources with named links. Since a Bundle is itself a <a href="resource.html">Resource</a> it has the common metadata, including profile assertions and tags.</li>
+<li>Bundle has a 'base' element, which is used to resolve relative references present in the bundled resources.</li>
+<li>Applications reading a bundle should always <a href="references.html#atom-refs">look for a resource</a> by its identity (after converting relative URLs to
+absolute URL) in the bundle first before trying to access it by its URL.</li>
+</ul>
 
-<a name="rest"> </a>
-<h3>Testing</h3>
-
-<p>
-test
-</p>
 </div>
