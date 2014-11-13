@@ -148,7 +148,7 @@ todo: compartments
     <page type="resource" resource="DiagnosticOrder"/>
     <page type="resource" resource="ImagingStudy"/>
     <page type="resource" resource="Specimen"/>
-    <page type="resource" resource="DeviceObservationReport"/>
+    <!--<page type="resource" resource="DeviceObservationReport"/>-->
 
     <page type="resource" resource="Questionnaire"/>
     <page type="resource" resource="QuestionnaireAnswers"/>
@@ -163,6 +163,7 @@ todo: compartments
 
     <page type="resource" resource="Contract"/>
     <page type="resource" resource="Device"/>
+	<page type="resource" resource="DeviceComponent"/>
     <page type="resource" resource="DeviceUseRequest"/>
     <page type="resource" resource="DeviceUseStatement"/>
     <page type="resource" resource="Location"/>

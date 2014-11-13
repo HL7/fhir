@@ -150,11 +150,17 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="DeviceUseStatement">
         <translation lang="en">DeviceUseStatement</translation>
     </item>
-    <item id="DeviceObservationReport">
+    <!--<item id="DeviceObservationReport">
         <translation lang="en">DeviceObservationReport</translation>
         <translation lang="zh">设备观测报告</translation>
         <translation lang="es">InformeObservaciónDispositivo</translation>
         <translation lang="fr">DispositifRapportObservation</translation>
+    </item>-->
+	<item id="DeviceComponent">
+        <translation lang="en">DeviceComponent</translation>
+        <translation lang="zh">设备组件</translation>
+        <translation lang="es">ComponenteDeDispositivo</translation>
+        <translation lang="fr">ComposanteDeL'appareil</translation>
     </item>
     <item id="DiagnosticOrder">
         <translation lang="en">DiagnosticOrder</translation>

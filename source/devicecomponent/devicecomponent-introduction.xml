@@ -1,0 +1,55 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The DeviceComponent resource is used to describe the characteristics, operational status and capabilities of a medical-related component of a medical device. It can be a physical component that is integrated inside the device, a removable physical component, or a non-physical component that allows physiological measurement data and its derived data to be grouped in a hierarchical information organization. 
+</p>
+<p>
+Note:
+</p>
+<p>
+For the initial scope, this DeviceComponent resource is only applicable to describe a single node (such as MDS, VMD, or Channel) represents in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+There are several related resources
+</p>
+<ul>
+ <li><a href="device.html">Device</a>  - Used by the MedicalDeviceSystem profile</li>
+ <li><a href="patient.html">Patient</a>  - Used by the MedicalDeviceSystem profile</li>
+ <li><a href="location.html">Location</a>  - Used by the MedicalDeviceSystem profile</li>
+ <li><a href="devicecomponent.html">DeviceComponent</a></li>
+</ul>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<h3>Structure of a DeviceComponent Resource</h3>
+
+<p>
+A Context Scanner object of a medical device that implements or derives from ISO/IEEE 11073
+standard is responsible for observing device configuration changes. After instantiation, the
+Context Scanner object is responsible for announcing the object instances in the device's MDIB, 
+a hierarchical containment (MDS->VMD->Channel->Metric). The DeviceComponent resource can be used  
+to describe  the characteristics, operational status and capabilities of a medical-related 
+component of a medical device. It can be a physical component that is integrated inside 
+the device, a removable physical component, or a non-physical component that allows 
+physiological measurement data and its derived data to be grouped in a hierarchical 
+information organization. Devices are conceptualised using the following main structure:
+</p>
+<ol>
+ <li><b>MedicalDeviceSystem</b> - An actual device that external systems communicate with. In 11073, this is known as a MDS.</li>
+ <li><b>VirtualMedicalDevice</b> - A medical-related subsystem of a medical device. It can either be a physical hardware piece or a pure software plugin component of a medical device. In 11073, this is known as a VMD.</li>
+ <li><b>Channel</b> - A non-physical component that allows physiological measurement data and its derived data to be grouped in a hierarchical information organization.</li> 
+</ol>
+
+<p>
+Very simple devices may have only a single virtual device with a single channel and one metric, while complex devices may have multiple items at every level. 
+</p>
+</div>
+ 
+</div>
