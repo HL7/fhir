@@ -16,6 +16,7 @@ import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
 
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
@@ -191,18 +192,18 @@ public class WorkerContext {
   private void loadFromFile(InputStream stream, String name) throws Exception {
     XmlParser xml = new XmlParser();
     Bundle f = (Bundle) xml.parse(stream);
-    for (Resource e : f.getItem()) {
-      if (e.getId() == null) {
+    for (BundleEntryComponent e : f.getEntry()) {
+      if (e.getResource().getId() == null) {
         System.out.println("unidentified resource in "+name);
       }
-      if (e instanceof Profile)
-        seeProfile((Profile) e);
-      else if (e instanceof ValueSet)
-        seeValueSet((ValueSet) e);
-      else if (e instanceof ExtensionDefinition)
-        seeExtensionDefinition((ExtensionDefinition) e);
-      else if (e instanceof ConceptMap)
-        maps.put(((ConceptMap) e).getIdentifier(), (ConceptMap) e);
+      if (e.getResource() instanceof Profile)
+        seeProfile((Profile) e.getResource());
+      else if (e.getResource() instanceof ValueSet)
+        seeValueSet((ValueSet) e.getResource());
+      else if (e.getResource() instanceof ExtensionDefinition)
+        seeExtensionDefinition((ExtensionDefinition) e.getResource());
+      else if (e.getResource() instanceof ConceptMap)
+        maps.put(((ConceptMap) e.getResource()).getIdentifier(), (ConceptMap) e.getResource());
     }
   }
 

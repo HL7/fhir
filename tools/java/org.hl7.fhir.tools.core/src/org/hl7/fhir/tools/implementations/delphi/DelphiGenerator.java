@@ -366,7 +366,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     case Type:
       return defCodeType;
     case Component:
-      return defCodeComp;
+      return defCodeRes;
     case Resource:
       return defCodeRes;
     case AbstractResource:

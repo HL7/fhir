@@ -6,180 +6,199 @@
     <lastUpdated value="2013-07-01T13:11:33Z"/>
   </meta>
   <type value="transaction"/>
-  <item>
-    <DocumentReference xmlns="http://hl7.org/fhir">
-      <id value="f6791f11-ef7c-4877-a92b-adf7df4948a6"/> <!-- cid:f6791f11-ef7c-4877-a92b-adf7df4948a6@healthintersections.com.au -->
-      <meta>
-        <lastUpdated value="2013-07-01T13:11:33Z"/>
-      </meta>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-          <a href="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"
+  <base value="cid:123@healthintersections.com.au"/>
+  <entry>
+    <!-- although the resource has an id - which it might need so it can referred to 
+      from within the transaction, the server is to treat it as a new resource -->
+    <status value="create"/>
+    <resource>
+      <DocumentReference>
+        <id value="a1"/>
+        <meta>
+          <lastUpdated value="2013-07-01T13:11:33Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <a href="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"
               >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
-      </text>
-      <extension url="http://hl7.org/fhir/Profile/xds-profile#practiceSettingCode">
-        <valueCodeableConcept>
+        </text>
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#practiceSettingCode">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
+              <code value="General Medicine"/>
+              <display value="General Medicine"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <masterIdentifier>
+          <system value="urn:ietf:rfc:3986"/>
+          <value value="urn:oid:129.6.58.92.88336"/>
+        </masterIdentifier>
+        <subject>
+          <reference value="cid:123@healthintersections.com.au/Patient/a2"/>
+        </subject>
+        <type>
           <coding>
-            <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
-            <code value="General Medicine"/>
-            <display value="General Medicine"/>
+            <system value="http://ihe.net/connectathon/classCodes"/>
+            <code value="History and Physical"/>
+            <display value="History and Physical"/>
           </coding>
-        </valueCodeableConcept>
-      </extension>
-      <masterIdentifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:oid:129.6.58.92.88336"/>
-      </masterIdentifier>
-      <subject>
-        <reference
-            value="http://localhost/patient/search?identifier=http://acme.org/xds/patients!89765a87b"
-          />
-      </subject>
-      <type>
-        <coding>
-          <system value="http://ihe.net/connectathon/classCodes"/>
-          <code value="History and Physical"/>
-          <display value="History and Physical"/>
-        </coding>
-      </type>
-      <author>
-        <reference value="cid:af500afb-d680-4fa0-bcf2-ba1f5c5b096d@healthintersections.com.au"/>
-      </author>
-      <author>
-        <reference value="cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au"/>
-      </author>
-      <created value="2005-12-24"/>
-      <indexed value="2013-07-01T23:11:33+10:00"/>
-      <status value="current"/>
-      <description value="Physical"/>
-      <primaryLanguage value="en-us"/>
-      <mimeType value="text/plain"/>
-      <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/>
-      <location
-          value="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
-      <context>
-        <period>
-          <start value="2004-12-23T08:00:00"/>
-          <end value="2004-12-23T08:01:00"/>
-        </period>
-      </context>
-    </DocumentReference>
+        </type>
+        <author>
+          <reference value="cid:123@healthintersections.com.au/Practitioner/a3"/>
+        </author>
+        <author>
+          <reference value="cid:123@healthintersections.com.au/Practitioner/a4"/>
+        </author>
+        <created value="2005-12-24"/>
+        <indexed value="2013-07-01T23:11:33+10:00"/>
+        <status value="current"/>
+        <description value="Physical"/>
+        <primaryLanguage value="en-us"/>
+        <mimeType value="text/plain"/>
+        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/>
+        <location value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+        <context>
+          <period>
+            <start value="2004-12-23T08:00:00"/>
+            <end value="2004-12-23T08:01:00"/>
+          </period>
+        </context>
+      </DocumentReference>
 
-  </item>
-  <item>     
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="asdasd"/> <!-- http://localhost/patient/search?identifier=http://acme.org/xds/patients!89765a87b -->
-      <meta>
-        <lastUpdated value="2013-07-01T13:11:33Z"/>
-      </meta>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Person DOE, John, M, dob: 27/05/1956</div>
-      </text>
-      <identifier>
-        <system value="usual"/>
-        <value value="MRN"/>
-      </identifier>
-      <name>
-        <use value="usual"/>
-        <text value="DOE, John"/>
-        <family value="Doe"/>
-        <given value="John"/>
-      </name>
-      <birthDate value="1956-05-27"/>
+    </resource>
+  </entry>
+  <entry>
+    <!-- if the server can find a matching resource, use that, else create a new 
+      resource with these details -->
+    <status value="match"/>
+    <search value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
+    <resource>  
+      <Patient>
+        <id value="a2"/>
+        <meta>
+          <lastUpdated value="2013-07-01T13:11:33Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Person DOE, John, M, dob: 27/05/1956</div>
+        </text>
+        <identifier>
+          <system value="usual"/>
+          <value value="MRN"/>
+        </identifier>
+        <name>
+          <use value="usual"/>
+          <text value="DOE, John"/>
+          <family value="Doe"/>
+          <given value="John"/>
+        </name>
+        <birthDate value="1956-05-27"/>
 
-    </Patient>
+      </Patient>
 
-  </item>
-  <item> 
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="af500afb-d680-4fa0-bcf2-ba1f5c5b096d"/> <!-- cid:af500afb-d680-4fa0-bcf2-ba1f5c5b096d@healthintersections.com.au -->
-      <meta>
-        <lastUpdated value="2013-07-01T13:11:33Z"/>
-      </meta>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
-      </text>
-      <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-        <valueReference>
-          <display value="Parma Community"/>
-        </valueReference>
-      </extension>
-      <identifier>
-        <system value="usual"/>
-      </identifier>
-      <name>
-        <use value="usual"/>
-        <family value="Smitty"/>
-        <given value="Gerald"/>
-      </name>
+    </resource>
+  </entry>
+  <entry>
+    <status value="create"/>
+    <resource>  
+      <Practitioner>
+        <id value="a3"/>
+        <meta>
+          <lastUpdated value="2013-07-01T13:11:33Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Author Gerald Smitty @ Cleveland Clinic</div>
+        </text>
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
+          <valueReference>
+            <display value="Parma Community"/>
+          </valueReference>
+        </extension>
+        <identifier>
+          <label value="usual"/>
+        </identifier>
+        <name>
+          <use value="usual"/>
+          <family value="Smitty"/>
+          <given value="Gerald"/>
+        </name>
 
-      <organization>
-        <display value="Cleveland Clinic"/>
-      </organization>
-      <role>
-        <coding>
-          <code value="Attending"/>
-        </coding>
-      </role>
-      <specialty>
-        <coding>
-          <code value="Orthopedic"/>
-        </coding>
-      </specialty>
-    </Practitioner>
+        <organization>
+          <display value="Cleveland Clinic"/>
+        </organization>
+        <role>
+          <coding>
+            <code value="Attending"/>
+          </coding>
+        </role>
+        <specialty>
+          <coding>
+            <code value="Orthopedic"/>
+          </coding>
+        </specialty>
+      </Practitioner>
 
-  </item>
-  <item>     
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="51b578b4-3ccb-4e67-b0dc-ef519d82ef2d"/> <!-- cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au -->
-      <meta>
-        <lastUpdated value="2013-07-01T13:11:33Z"/>
-      </meta>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
-      </text>
-      <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
-        <valueReference>
-          <display value="Berea Community"/>
-        </valueReference>
-      </extension>
-      <identifier>
-        <system value="usual"/>
-      </identifier>
-      <name>
-        <use value="usual"/>
-        <family value="Dopplemeyer"/>
-        <given value="Sherry"/>
-      </name>
+    </resource>
+  </entry>
+  <entry>
+    <status value="create"/>
+    <resource>  
+      <Practitioner>
+        <id value="a4"/>
+        <!-- cid:51b578b4-3ccb-4e67-b0dc-ef519d82ef2d@healthintersections.com.au -->
+        <meta>
+          <lastUpdated value="2013-07-01T13:11:33Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+        </text>
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
+          <valueReference>
+            <display value="Berea Community"/>
+          </valueReference>
+        </extension>
+        <identifier>
+          <system value="usual"/>
+        </identifier>
+        <name>
+          <use value="usual"/>
+          <family value="Dopplemeyer"/>
+          <given value="Sherry"/>
+        </name>
 
-      <organization>
-        <display value="Cleveland Clinic"/>
-      </organization>
-      <role>
-        <coding>
-          <code value="Primary Surgon"/>
-        </coding>
-      </role>
-      <specialty>
-        <coding>
-          <code value="Orthopedic"/>
-        </coding>
-      </specialty>
-    </Practitioner>
+        <organization>
+          <display value="Cleveland Clinic"/>
+        </organization>
+        <role>
+          <coding>
+            <code value="Primary Surgon"/>
+          </coding>
+        </role>
+        <specialty>
+          <coding>
+            <code value="Orthopedic"/>
+          </coding>
+        </specialty>
+      </Practitioner>
 
-  </item>
-  <item> 
-    <Binary xmlns="http://hl7.org/fhir">
-      <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
-      <meta>
-        <lastUpdated value="2013-07-01T13:11:33Z"/>
-      </meta>
-      <contentType value="text/plain"/>
-      <content value="YXNkYXNkYXNkYXNkYXNk"/>
-    </Binary>    
-  </item>
+    </resource>
+  </entry>
+  <entry>
+    <status value="update"/>
+    <resource>  
+      <Binary>
+        <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+        <meta>
+          <lastUpdated value="2013-07-01T13:11:33Z"/>
+        </meta>
+        <contentType value="text/plain"/>
+        <content value="YXNkYXNkYXNkYXNkYXNk"/>
+      </Binary>    
+    </resource>
+  </entry>
 </Bundle>

@@ -59,7 +59,7 @@ the results that are returned.
 <a name="all"> </a>
 <h4>Parameters for all resources</h4>
 <p>
-Two parameters are defined that apply to all resources: _id and _language.
+These parameters are <a href="resource.html#search">defined that apply to all resources</a>: [%allparams%].
 </p>
 <p>
 The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
@@ -77,7 +77,7 @@ read operation</a>:
 </pre>
 <p>
 except that it returns a bundle with the requested resource, rather than the 
-resource itself. However additional parameters can be added which may provide
+resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence.
 </p>
 <p>
@@ -91,6 +91,56 @@ This search finds any compositions with a designated language of French.
 Note that this is the claimed language of the resource, not the actual
 language of the content.
 </p>
+<p>
+The search parameter _lastUpdated can be used to select resources based
+on the last time they were changed:
+</p>
+<pre>
+ GET [base]/Observations?_lastUpdated=>2010-10-01
+</pre>
+<p>
+This search finds any observations changed since 1-Oct 2010. When
+this search parameter is used, applications should consider 
+synchronization approaches (<a href="http.html#history">RESTful history</a>
+or the <a href="subscription.html">Subscription resource</a>.
+</p>
+<a name="tag" />
+<a name="tags" />
+<a name="profile" />
+
+<p>
+The search parameters _tag, _profile and _security parameters search
+on the equivalent elements in the <a href="resource.html#meta">meta element</a>.
+For example
+</p>
+<pre>
+ GET [base]/Condition?_tag=http://acme.org/codes|needs-review
+</pre>
+<p>
+searches for all Condition resources with the tag:
+</p>
+<pre class="json">
+{
+  "system" : "http://acme.org/codes", 
+  "code" : "needs-review"
+}
+</pre>
+<p>
+In the same manner:
+</p>
+<pre>
+ GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/Profile/lipid
+ GET [base]/DiagnosticReport?_profile=Profile/lipid
+</pre>
+<p>
+restricts the search to only DiagnosticReport resources that are tagged that they conform to a particular profile.
+The second reference is relative, and refers a local profile on the same server.
+</p>
+<p>
+_tag, _profile and _security parameters are all token types (see <a href="#token">below</a>).
+</p>
+
+
 <h4>Parameters for each resource</h4>
 <p>
 In addition to the _id parameter which exists for all resources, each 
@@ -500,39 +550,6 @@ is welcome.
 </p>
 </blockquote>
 
-<a name="tag" />
-<a name="tags" />
-<a name="profile" />
-<h4>Selecting resources by tag, profile or security label</h4>
-
-<p>
-Resources may have <a href="extras.html#tag">tags</a> affixed to them: either general tags, profile tags or
-security labels. Search supports the _tag, _profile and _security parameters to search for any tagged resource
-by the term (URI) within the specific tag scheme. For example:
-</p>
-<pre>
- GET [base]/Condition?_tag=http://acme.org/fhir/tags/needs-review
-</pre>
-<p>
-This searches for all Condition resources with a tag "http://acme.org/fhir/tags/needs-review" in the
-general tag scheme "http://hl7.org/fhir/tag". In the same manner:</p>
-<pre>
- GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/profile/lipid
- GET [base]/DiagnosticReport?_profile=http://localhost/profile/lipid
-</pre>
-<p>
-restricts the search to only DiagnosticReport resources that are tagged that they conform to a particular profile.
-The reference to localhost refers to a local profile with the given logical id ("lipid") in this case.
-</p>
-<p>All three tag search parameter may have the modifiers ":partial" and ":text", which mean 
-to only match on the left side of the target tag term, or to search the label part of the tag respectively.
-</p>
-<p>
-Note that when a resource is submitted to a server as a create or an update, the server is 
-free to determine which profiles a resource conforms to, and add additional profile tags 
-as appropriate so that resources can be found by this operation.
-</p>
-
 <a name="filter"> </a>
 <a name="_filter"> </a>
 <h4>Advanced filtering</h4>
@@ -568,16 +585,18 @@ The _filter parameter is described in detail on the <a href="search_filter.html"
 Where a search specifies a non-deterministic sort, the search algorithm
 may generate some kind of ranking score to indicate which resources meet
 the specified criteria better than others. The server can return this 
-score using the OpenSearch Relevance extension:
+score in <a href="bundle-extensions.html#Bundle.entry.score">entry.score</a>:
 </p>
-<pre class="spec">  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
-  &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
-    &lt;os:score xmlns:os="http://a9.com/-/opensearch/extensions/relevance/1.0/"&gt;[score]&lt;/os:score&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
-    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
+<pre class="xml">
+  &lt;entry&gt;
+    &lt;score value=&quot;.45&quot;/&gt;
+    &lt;Patient&gt;
+      ... patient data ...
+    &lt;/Patient&gt;
   &lt;/entry&gt;
 </pre>
 <p>
-[score] is a decimal number with a value between (and including) 0 and 1. 
+The score is a decimal number with a value between (and including) 0 and 1. 
 </p>
 
 <a name="sort" />
@@ -657,8 +676,11 @@ Each _include parameter specifies a path to a url (usually a resource reference)
 </pre>
 <p>
 For each returned resource, the server collects the elements described by the path, 
-and any resources they point to that the server also holds are added to the results.
-This search returns all the <a href="medicationprescription.html">Medication 
+and any resources they point to that the server also holds are added to the results,
+with the <a href="bundle-definitions.html#Bundle.entry.status">entry.status</a>
+set to "include" (in some searches, it is not obvious which resources are 
+matches, and which are includes). 
+This example search returns all the <a href="medicationprescription.html">Medication 
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources.
 </p>
@@ -780,7 +802,10 @@ In the case of a RESTful search, these parameters are encoded in the
 self link in the atom feed that is returned:
 </p>
 <pre class="xml">
-  &lt;link rel="self" href="http://example.org/Patient?name=peter"/&gt;
+  &lt;link&gt;
+    &lt;relation value="self"/&gt; 
+    &lt;url value="http://example.org/Patient?name=peter"/&gt;
+  &lt;/link&gt;
 </pre>
 <p>
 In other respects, servers have considerable discretion with regards 

@@ -4,7 +4,9 @@
   <meta>
     <lastUpdated value="2014-11-05T20:31:00Z"/>
   </meta>
-  <item>
+  <type value="collection"/>
+  <entry>
+   <resource>
     <Profile xmlns="http://hl7.org/fhir">
       <id value="cda"/>
       <meta>
@@ -1467,9 +1469,11 @@
         </differential>
       </structure>
     </Profile>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-preference"/>
       <meta>
@@ -1506,9 +1510,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>  
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-proficiency"/>
       <meta>
@@ -1550,9 +1556,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-language-mode"/>
       <meta>
@@ -1594,9 +1602,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-guardian-id"/>
       <meta>
@@ -1633,9 +1643,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-birthplace"/>
       <meta>
@@ -1673,9 +1685,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-effectivetime"/>
       <meta>
@@ -1712,9 +1726,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-statuscode"/>
       <meta>
@@ -1756,9 +1772,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-org-partof-code"/>
       <meta>
@@ -1800,9 +1818,11 @@
         </mapping>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-whole-organization"/>
       <meta>
@@ -1836,9 +1856,11 @@
         </type>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
-  <item>
+  <entry>
+   <resource>
     <ExtensionDefinition xmlns="http://hl7.org/fhir">
       <id value="cda-inFulFillmentOf"/>
       <meta>
@@ -1872,6 +1894,7 @@
         </type>
       </element>
     </ExtensionDefinition>
-  </item>
+   </resource>
+  </entry>
 
 </Bundle>

@@ -223,7 +223,7 @@ public class ResourceValidator extends BaseValidator {
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
     warning(errors, "structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
-    rule(errors, "structure", path, !e.getName().equals("id"), "Element named \"id\" not allowed");
+    rule(errors, "structure", path, !e.getName().equals("id") || !parentName.equals("Bundle"), "Element named \"id\" not allowed");
     rule(errors, "structure", path, !e.getName().equals("extension"), "Element named \"extension\" not allowed");
     rule(errors, "structure", path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
     rule(errors, "structure", path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");

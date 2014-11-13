@@ -458,6 +458,12 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
         write("        composeEnumerationExtras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+context+"."+upFirst(en.substring(en.indexOf(".")+2))+"EnumFactory(), false);\r\n");
         write("      }\r\n");
         //write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
+      } else if (e.typeCode().equals("Resource")){
+        write("        if (element.get"+upFirst(getElementName(name, false))+"() != null) {\r\n");
+        write("          open(\""+name+"\");\r\n");
+        write("          "+comp+"(element.get"+upFirst(getElementName(name, false))+"());\r\n");
+        write("          close();\r\n");
+        write("        }\r\n");
       } else if (isPrimitive(e)) {
         write("      "+comp+"Core(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), false);\r\n");
         write("      "+comp+"Extras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), false);\r\n");

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -283,24 +283,14 @@ public class NutritionOrder extends DomainResource {
         protected List<CodeableConcept> code = new ArrayList<CodeableConcept>();
 
         /**
-         * Identifies the type of nutrient that is being modified such as cabohydrate or sodium.
+         * Class that defines the details of any nutrient modifications required for the oral diet.
          */
-        protected List<CodeableConcept> nutrientModifier = new ArrayList<CodeableConcept>();
+        protected List<NutritionOrderItemOralDietNutrientsComponent> nutrients = new ArrayList<NutritionOrderItemOralDietNutrientsComponent>();
 
         /**
-         * The quantity or range of the specified nutrient to supply.
+         * Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
          */
-        protected Type nutrientAmount;
-
-        /**
-         * Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.
-         */
-        protected List<CodeableConcept> textureModifier = new ArrayList<CodeableConcept>();
-
-        /**
-         * Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.
-         */
-        protected List<CodeableConcept> foodType = new ArrayList<CodeableConcept>();
+        protected List<NutritionOrderItemOralDietTextureComponent> texture = new ArrayList<NutritionOrderItemOralDietTextureComponent>();
 
         /**
          * Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
@@ -312,7 +302,7 @@ public class NutritionOrder extends DomainResource {
          */
         protected StringType description;
 
-        private static final long serialVersionUID = 12996418L;
+        private static final long serialVersionUID = 1385056421L;
 
       public NutritionOrderItemOralDietComponent() {
         super();
@@ -336,68 +326,36 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #nutrientModifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         * @return {@link #nutrients} (Class that defines the details of any nutrient modifications required for the oral diet.)
          */
-        public List<CodeableConcept> getNutrientModifier() { 
-          return this.nutrientModifier;
+        public List<NutritionOrderItemOralDietNutrientsComponent> getNutrients() { 
+          return this.nutrients;
         }
 
         /**
-         * @return {@link #nutrientModifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         * @return {@link #nutrients} (Class that defines the details of any nutrient modifications required for the oral diet.)
          */
     // syntactic sugar
-        public CodeableConcept addNutrientModifier() { //3
-          CodeableConcept t = new CodeableConcept();
-          this.nutrientModifier.add(t);
+        public NutritionOrderItemOralDietNutrientsComponent addNutrients() { //3
+          NutritionOrderItemOralDietNutrientsComponent t = new NutritionOrderItemOralDietNutrientsComponent();
+          this.nutrients.add(t);
           return t;
         }
 
         /**
-         * @return {@link #nutrientAmount} (The quantity or range of the specified nutrient to supply.)
+         * @return {@link #texture} (Class that describes any texture modifications required for the patient to safely consume various types of solid foods.)
          */
-        public Type getNutrientAmount() { 
-          return this.nutrientAmount;
+        public List<NutritionOrderItemOralDietTextureComponent> getTexture() { 
+          return this.texture;
         }
 
         /**
-         * @param value {@link #nutrientAmount} (The quantity or range of the specified nutrient to supply.)
-         */
-        public NutritionOrderItemOralDietComponent setNutrientAmount(Type value) { 
-          this.nutrientAmount = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #textureModifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
-         */
-        public List<CodeableConcept> getTextureModifier() { 
-          return this.textureModifier;
-        }
-
-        /**
-         * @return {@link #textureModifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
+         * @return {@link #texture} (Class that describes any texture modifications required for the patient to safely consume various types of solid foods.)
          */
     // syntactic sugar
-        public CodeableConcept addTextureModifier() { //3
-          CodeableConcept t = new CodeableConcept();
-          this.textureModifier.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
-         */
-        public List<CodeableConcept> getFoodType() { 
-          return this.foodType;
-        }
-
-        /**
-         * @return {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
-         */
-    // syntactic sugar
-        public CodeableConcept addFoodType() { //3
-          CodeableConcept t = new CodeableConcept();
-          this.foodType.add(t);
+        public NutritionOrderItemOralDietTextureComponent addTexture() { //3
+          NutritionOrderItemOralDietTextureComponent t = new NutritionOrderItemOralDietTextureComponent();
+          this.texture.add(t);
           return t;
         }
 
@@ -457,10 +415,8 @@ public class NutritionOrder extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A set of one or more codes representing diets that describe what can be consumed orally (i.e., take via the mouth).", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("nutrientModifier", "CodeableConcept", "Identifies the type of nutrient that is being modified such as cabohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, nutrientModifier));
-          childrenList.add(new Property("nutrientAmount[x]", "Quantity|Range", "The quantity or range of the specified nutrient to supply.", 0, java.lang.Integer.MAX_VALUE, nutrientAmount));
-          childrenList.add(new Property("textureModifier", "CodeableConcept", "Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.", 0, java.lang.Integer.MAX_VALUE, textureModifier));
-          childrenList.add(new Property("foodType", "CodeableConcept", "Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.", 0, java.lang.Integer.MAX_VALUE, foodType));
+          childrenList.add(new Property("nutrients", "", "Class that defines the details of any nutrient modifications required for the oral diet.", 0, java.lang.Integer.MAX_VALUE, nutrients));
+          childrenList.add(new Property("texture", "", "Class that describes any texture modifications required for the patient to safely consume various types of solid foods.", 0, java.lang.Integer.MAX_VALUE, texture));
           childrenList.add(new Property("fluidConsistencyType", "CodeableConcept", "Identifies the required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.", 0, java.lang.Integer.MAX_VALUE, fluidConsistencyType));
           childrenList.add(new Property("description", "string", "A descriptive name of the required diets that describe what can be consumed orally (i.e., take via the mouth).", 0, java.lang.Integer.MAX_VALUE, description));
         }
@@ -471,20 +427,142 @@ public class NutritionOrder extends DomainResource {
         dst.code = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : code)
           dst.code.add(i.copy());
-        dst.nutrientModifier = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : nutrientModifier)
-          dst.nutrientModifier.add(i.copy());
-        dst.nutrientAmount = nutrientAmount == null ? null : nutrientAmount.copy();
-        dst.textureModifier = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : textureModifier)
-          dst.textureModifier.add(i.copy());
-        dst.foodType = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : foodType)
-          dst.foodType.add(i.copy());
+        dst.nutrients = new ArrayList<NutritionOrderItemOralDietNutrientsComponent>();
+        for (NutritionOrderItemOralDietNutrientsComponent i : nutrients)
+          dst.nutrients.add(i.copy());
+        dst.texture = new ArrayList<NutritionOrderItemOralDietTextureComponent>();
+        for (NutritionOrderItemOralDietTextureComponent i : texture)
+          dst.texture.add(i.copy());
         dst.fluidConsistencyType = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : fluidConsistencyType)
           dst.fluidConsistencyType.add(i.copy());
         dst.description = description == null ? null : description.copy();
+        return dst;
+      }
+
+  }
+
+    public static class NutritionOrderItemOralDietNutrientsComponent extends BackboneElement {
+        /**
+         * Identifies the type of nutrient that is being modified such as cabohydrate or sodium.
+         */
+        protected CodeableConcept modifier;
+
+        /**
+         * The quantity or range of the specified nutrient to supply.
+         */
+        protected Type amount;
+
+        private static final long serialVersionUID = -1359777156L;
+
+      public NutritionOrderItemOralDietNutrientsComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #modifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         */
+        public CodeableConcept getModifier() { 
+          return this.modifier;
+        }
+
+        /**
+         * @param value {@link #modifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         */
+        public NutritionOrderItemOralDietNutrientsComponent setModifier(CodeableConcept value) { 
+          this.modifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #amount} (The quantity or range of the specified nutrient to supply.)
+         */
+        public Type getAmount() { 
+          return this.amount;
+        }
+
+        /**
+         * @param value {@link #amount} (The quantity or range of the specified nutrient to supply.)
+         */
+        public NutritionOrderItemOralDietNutrientsComponent setAmount(Type value) { 
+          this.amount = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies the type of nutrient that is being modified such as cabohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("amount[x]", "Quantity|Range", "The quantity or range of the specified nutrient to supply.", 0, java.lang.Integer.MAX_VALUE, amount));
+        }
+
+      public NutritionOrderItemOralDietNutrientsComponent copy() {
+        NutritionOrderItemOralDietNutrientsComponent dst = new NutritionOrderItemOralDietNutrientsComponent();
+        copyValues(dst);
+        dst.modifier = modifier == null ? null : modifier.copy();
+        dst.amount = amount == null ? null : amount.copy();
+        return dst;
+      }
+
+  }
+
+    public static class NutritionOrderItemOralDietTextureComponent extends BackboneElement {
+        /**
+         * Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.
+         */
+        protected CodeableConcept modifier;
+
+        /**
+         * Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.
+         */
+        protected CodeableConcept foodType;
+
+        private static final long serialVersionUID = -56402817L;
+
+      public NutritionOrderItemOralDietTextureComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
+         */
+        public CodeableConcept getModifier() { 
+          return this.modifier;
+        }
+
+        /**
+         * @param value {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
+         */
+        public NutritionOrderItemOralDietTextureComponent setModifier(CodeableConcept value) { 
+          this.modifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
+         */
+        public CodeableConcept getFoodType() { 
+          return this.foodType;
+        }
+
+        /**
+         * @param value {@link #foodType} (Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.)
+         */
+        public NutritionOrderItemOralDietTextureComponent setFoodType(CodeableConcept value) { 
+          this.foodType = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("foodType", "CodeableConcept", "Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.", 0, java.lang.Integer.MAX_VALUE, foodType));
+        }
+
+      public NutritionOrderItemOralDietTextureComponent copy() {
+        NutritionOrderItemOralDietTextureComponent dst = new NutritionOrderItemOralDietTextureComponent();
+        copyValues(dst);
+        dst.modifier = modifier == null ? null : modifier.copy();
+        dst.foodType = foodType == null ? null : foodType.copy();
         return dst;
       }
 

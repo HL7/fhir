@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1398,16 +1398,10 @@ public class JsonParser extends JsonParserBase {
         res.getLink().add(parseBundleBundleLinkComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("item")) {
-      JsonArray array = json.getAsJsonArray("item");
+    if (json.has("entry")) {
+      JsonArray array = json.getAsJsonArray("entry");
       for (int i = 0; i < array.size(); i++) {
-        res.getItem().add(parseResource(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("include")) {
-      JsonArray array = json.getAsJsonArray("include");
-      for (int i = 0; i < array.size(); i++) {
-        res.getInclude().add(parseResource(array.get(i).getAsJsonObject()));
+        res.getEntry().add(parseBundleBundleEntryComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     if (json.has("signature"))
@@ -1428,6 +1422,46 @@ public class JsonParser extends JsonParserBase {
       res.setUrlElement(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
       parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
+    return res;
+  }
+
+  private Bundle.BundleEntryComponent parseBundleBundleEntryComponent(JsonObject json, Bundle owner) throws Exception {
+    Bundle.BundleEntryComponent res = new Bundle.BundleEntryComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("base"))
+      res.setBaseElement(parseUri(json.get("base").getAsString()));
+    if (json.has("_base"))
+      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Bundle.BundleEntryStatus.NULL, new Bundle.BundleEntryStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("search"))
+      res.setSearchElement(parseUri(json.get("search").getAsString()));
+    if (json.has("_search"))
+      parseElementProperties(json.getAsJsonObject("_search"), res.getSearchElement());
+    if (json.has("deleted"))
+      res.setDeleted(parseBundleBundleEntryDeletedComponent(json.getAsJsonObject("deleted"), owner));
+    if (json.has("resource"))
+      res.setResource(parseResource(json.getAsJsonObject("resource")));
+    return res;
+  }
+
+  private Bundle.BundleEntryDeletedComponent parseBundleBundleEntryDeletedComponent(JsonObject json, Bundle owner) throws Exception {
+    Bundle.BundleEntryDeletedComponent res = new Bundle.BundleEntryDeletedComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("id"))
+      res.setIdElement(parseId(json.get("id").getAsString()));
+    if (json.has("_id"))
+      parseElementProperties(json.getAsJsonObject("_id"), res.getIdElement());
+    if (json.has("instant"))
+      res.setInstantElement(parseInstant(json.get("instant").getAsString()));
+    if (json.has("_instant"))
+      parseElementProperties(json.getAsJsonObject("_instant"), res.getInstantElement());
     return res;
   }
 
@@ -5441,25 +5475,16 @@ public class JsonParser extends JsonParserBase {
         res.getCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("nutrientModifier")) {
-      JsonArray array = json.getAsJsonArray("nutrientModifier");
+    if (json.has("nutrients")) {
+      JsonArray array = json.getAsJsonArray("nutrients");
       for (int i = 0; i < array.size(); i++) {
-        res.getNutrientModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getNutrients().add(parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    Type nutrientAmount = parseType("nutrientAmount", json);
-    if (nutrientAmount != null)
-      res.setNutrientAmount(nutrientAmount);
-    if (json.has("textureModifier")) {
-      JsonArray array = json.getAsJsonArray("textureModifier");
+    if (json.has("texture")) {
+      JsonArray array = json.getAsJsonArray("texture");
       for (int i = 0; i < array.size(); i++) {
-        res.getTextureModifier().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("foodType")) {
-      JsonArray array = json.getAsJsonArray("foodType");
-      for (int i = 0; i < array.size(); i++) {
-        res.getFoodType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getTexture().add(parseNutritionOrderNutritionOrderItemOralDietTextureComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("fluidConsistencyType")) {
@@ -5472,6 +5497,27 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemOralDietNutrientsComponent parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemOralDietNutrientsComponent res = new NutritionOrder.NutritionOrderItemOralDietNutrientsComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("modifier"))
+      res.setModifier(parseCodeableConcept(json.getAsJsonObject("modifier")));
+    Type amount = parseType("amount", json);
+    if (amount != null)
+      res.setAmount(amount);
+    return res;
+  }
+
+  private NutritionOrder.NutritionOrderItemOralDietTextureComponent parseNutritionOrderNutritionOrderItemOralDietTextureComponent(JsonObject json, NutritionOrder owner) throws Exception {
+    NutritionOrder.NutritionOrderItemOralDietTextureComponent res = new NutritionOrder.NutritionOrderItemOralDietTextureComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("modifier"))
+      res.setModifier(parseCodeableConcept(json.getAsJsonObject("modifier")));
+    if (json.has("foodType"))
+      res.setFoodType(parseCodeableConcept(json.getAsJsonObject("foodType")));
     return res;
   }
 

@@ -1986,7 +1986,7 @@ public class NarrativeGenerator {
      * Resources referenced in the section.content
      */
     XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
-    Composition comp = (Composition) feed.getItem().get(0);
+    Composition comp = (Composition) feed.getEntry().get(0).getResource();
     root.getChildNodes().add(comp.getText().getDiv());
     Resource subject = ResourceUtilities.getById(feed, null, comp.getSubject().getReference());
     if (subject != null && subject instanceof DomainResource) {

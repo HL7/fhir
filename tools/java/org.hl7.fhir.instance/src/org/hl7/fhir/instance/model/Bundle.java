@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -131,6 +131,82 @@ public class Bundle extends Resource {
         return "searchset";
       if (code == BundleType.COLLECTION)
         return "collection";
+      return "?";
+      }
+    }
+
+    public enum BundleEntryStatus {
+        CREATE, // Transaction: perform a create operation on this resource.
+        UPDATE, // Transaction: perform an update operation on this resource.
+        MATCH, // Transaction: look for this resource using the search url provided. If there's no match, create it. Search: this resource is returned because it matches the search criteria.
+        INCLUDE, // Search: this resource is returned because it meets an _include criteria.
+        NULL; // added to help the parsers
+        public static BundleEntryStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("create".equals(codeString))
+          return CREATE;
+        if ("update".equals(codeString))
+          return UPDATE;
+        if ("match".equals(codeString))
+          return MATCH;
+        if ("include".equals(codeString))
+          return INCLUDE;
+        throw new Exception("Unknown BundleEntryStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case CREATE: return "create";
+            case UPDATE: return "update";
+            case MATCH: return "match";
+            case INCLUDE: return "include";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case CREATE: return "Transaction: perform a create operation on this resource.";
+            case UPDATE: return "Transaction: perform an update operation on this resource.";
+            case MATCH: return "Transaction: look for this resource using the search url provided. If there's no match, create it. Search: this resource is returned because it matches the search criteria.";
+            case INCLUDE: return "Search: this resource is returned because it meets an _include criteria.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case CREATE: return "Create";
+            case UPDATE: return "Update";
+            case MATCH: return "Match";
+            case INCLUDE: return "Include";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class BundleEntryStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("create".equals(codeString))
+          return BundleEntryStatus.CREATE;
+        if ("update".equals(codeString))
+          return BundleEntryStatus.UPDATE;
+        if ("match".equals(codeString))
+          return BundleEntryStatus.MATCH;
+        if ("include".equals(codeString))
+          return BundleEntryStatus.INCLUDE;
+        throw new Exception("Unknown BundleEntryStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == BundleEntryStatus.CREATE)
+        return "create";
+      if (code == BundleEntryStatus.UPDATE)
+        return "update";
+      if (code == BundleEntryStatus.MATCH)
+        return "match";
+      if (code == BundleEntryStatus.INCLUDE)
+        return "include";
       return "?";
       }
     }
@@ -238,6 +314,341 @@ public class Bundle extends Resource {
 
   }
 
+    public static class BundleEntryComponent extends BackboneElement {
+        /**
+         * The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
+         */
+        protected UriType base;
+
+        /**
+         * The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         */
+        protected Enumeration<BundleEntryStatus> status;
+
+        /**
+         * Search URL for this resource when processing a transaction (see transaction documentation).
+         */
+        protected UriType search;
+
+        /**
+         * If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.
+         */
+        protected BundleEntryDeletedComponent deleted;
+
+        /**
+         * The Resources for the entry.
+         */
+        protected Resource resource;
+
+        private static final long serialVersionUID = -23827545L;
+
+      public BundleEntryComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #base} (The Base URL for the resource, if different to the base URL specified for the bundle as a whole.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+         */
+        public UriType getBaseElement() { 
+          return this.base;
+        }
+
+        /**
+         * @param value {@link #base} (The Base URL for the resource, if different to the base URL specified for the bundle as a whole.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+         */
+        public BundleEntryComponent setBaseElement(UriType value) { 
+          this.base = value;
+          return this;
+        }
+
+        /**
+         * @return The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
+         */
+        public String getBase() { 
+          return this.base == null ? null : this.base.getValue();
+        }
+
+        /**
+         * @param value The Base URL for the resource, if different to the base URL specified for the bundle as a whole.
+         */
+        public BundleEntryComponent setBase(String value) { 
+          if (Utilities.noString(value))
+            this.base = null;
+          else {
+            if (this.base == null)
+              this.base = new UriType();
+            this.base.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         */
+        public Enumeration<BundleEntryStatus> getStatusElement() { 
+          return this.status;
+        }
+
+        /**
+         * @param value {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         */
+        public BundleEntryComponent setStatusElement(Enumeration<BundleEntryStatus> value) { 
+          this.status = value;
+          return this;
+        }
+
+        /**
+         * @return The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         */
+        public BundleEntryStatus getStatus() { 
+          return this.status == null ? null : this.status.getValue();
+        }
+
+        /**
+         * @param value The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         */
+        public BundleEntryComponent setStatus(BundleEntryStatus value) { 
+          if (value == null)
+            this.status = null;
+          else {
+            if (this.status == null)
+              this.status = new Enumeration<BundleEntryStatus>();
+            this.status.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #search} (Search URL for this resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getSearch" gives direct access to the value
+         */
+        public UriType getSearchElement() { 
+          return this.search;
+        }
+
+        /**
+         * @param value {@link #search} (Search URL for this resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getSearch" gives direct access to the value
+         */
+        public BundleEntryComponent setSearchElement(UriType value) { 
+          this.search = value;
+          return this;
+        }
+
+        /**
+         * @return Search URL for this resource when processing a transaction (see transaction documentation).
+         */
+        public String getSearch() { 
+          return this.search == null ? null : this.search.getValue();
+        }
+
+        /**
+         * @param value Search URL for this resource when processing a transaction (see transaction documentation).
+         */
+        public BundleEntryComponent setSearch(String value) { 
+          if (Utilities.noString(value))
+            this.search = null;
+          else {
+            if (this.search == null)
+              this.search = new UriType();
+            this.search.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.)
+         */
+        public BundleEntryDeletedComponent getDeleted() { 
+          return this.deleted;
+        }
+
+        /**
+         * @param value {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.)
+         */
+        public BundleEntryComponent setDeleted(BundleEntryDeletedComponent value) { 
+          this.deleted = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #resource} (The Resources for the entry.)
+         */
+        public Resource getResource() { 
+          return this.resource;
+        }
+
+        /**
+         * @param value {@link #resource} (The Resources for the entry.)
+         */
+        public BundleEntryComponent setResource(Resource value) { 
+          this.resource = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
+          childrenList.add(new Property("status", "code", "The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("search", "uri", "Search URL for this resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, search));
+          childrenList.add(new Property("deleted", "", "If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.", 0, java.lang.Integer.MAX_VALUE, deleted));
+          childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
+        }
+
+      public BundleEntryComponent copy() {
+        BundleEntryComponent dst = new BundleEntryComponent();
+        copyValues(dst);
+        dst.base = base == null ? null : base.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.search = search == null ? null : search.copy();
+        dst.deleted = deleted == null ? null : deleted.copy();
+        dst.resource = resource == null ? null : resource.copy();
+        return dst;
+      }
+
+  }
+
+    public static class BundleEntryDeletedComponent extends BackboneElement {
+        /**
+         * The type of resource that was deleted (required to construct the identity).
+         */
+        protected CodeType type;
+
+        /**
+         * The id of the resource that was deleted.
+         */
+        protected IdType id;
+
+        /**
+         * The date/time that the resource was deleted.
+         */
+        protected InstantType instant;
+
+        private static final long serialVersionUID = 1677488073L;
+
+      public BundleEntryDeletedComponent() {
+        super();
+      }
+
+      public BundleEntryDeletedComponent(CodeType type, IdType id, InstantType instant) {
+        super();
+        this.type = type;
+        this.id = id;
+        this.instant = instant;
+      }
+
+        /**
+         * @return {@link #type} (The type of resource that was deleted (required to construct the identity).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public CodeType getTypeElement() { 
+          return this.type;
+        }
+
+        /**
+         * @param value {@link #type} (The type of resource that was deleted (required to construct the identity).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public BundleEntryDeletedComponent setTypeElement(CodeType value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type of resource that was deleted (required to construct the identity).
+         */
+        public String getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type of resource that was deleted (required to construct the identity).
+         */
+        public BundleEntryDeletedComponent setType(String value) { 
+            if (this.type == null)
+              this.type = new CodeType();
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #id} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
+         */
+        public IdType getIdElement() { 
+          return this.id;
+        }
+
+        /**
+         * @param value {@link #id} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
+         */
+        public BundleEntryDeletedComponent setIdElement(IdType value) { 
+          this.id = value;
+          return this;
+        }
+
+        /**
+         * @return The id of the resource that was deleted.
+         */
+        public String getId() { 
+          return this.id == null ? null : this.id.getValue();
+        }
+
+        /**
+         * @param value The id of the resource that was deleted.
+         */
+        public BundleEntryDeletedComponent setId(String value) { 
+            if (this.id == null)
+              this.id = new IdType();
+            this.id.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #instant} (The date/time that the resource was deleted.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
+         */
+        public InstantType getInstantElement() { 
+          return this.instant;
+        }
+
+        /**
+         * @param value {@link #instant} (The date/time that the resource was deleted.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
+         */
+        public BundleEntryDeletedComponent setInstantElement(InstantType value) { 
+          this.instant = value;
+          return this;
+        }
+
+        /**
+         * @return The date/time that the resource was deleted.
+         */
+        public DateAndTime getInstant() { 
+          return this.instant == null ? null : this.instant.getValue();
+        }
+
+        /**
+         * @param value The date/time that the resource was deleted.
+         */
+        public BundleEntryDeletedComponent setInstant(DateAndTime value) { 
+            if (this.instant == null)
+              this.instant = new InstantType();
+            this.instant.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "The type of resource that was deleted (required to construct the identity).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("id", "id", "The id of the resource that was deleted.", 0, java.lang.Integer.MAX_VALUE, id));
+          childrenList.add(new Property("instant", "instant", "The date/time that the resource was deleted.", 0, java.lang.Integer.MAX_VALUE, instant));
+        }
+
+      public BundleEntryDeletedComponent copy() {
+        BundleEntryDeletedComponent dst = new BundleEntryDeletedComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.id = id == null ? null : id.copy();
+        dst.instant = instant == null ? null : instant.copy();
+        return dst;
+      }
+
+  }
+
     /**
      * Indicates the purpose of this bundle- how it was intended to be used.
      */
@@ -259,21 +670,16 @@ public class Bundle extends Resource {
     protected List<BundleLinkComponent> link = new ArrayList<BundleLinkComponent>();
 
     /**
-     * Resources that are contained in this bundle.
+     * An entry in a bundle resource - will either contain a resource, or a deleted entry (transaction and history bundles only).
      */
-    protected List<Resource> item = new ArrayList<Resource>();
-
-    /**
-     * For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.
-     */
-    protected List<Resource> include = new ArrayList<Resource>();
+    protected List<BundleEntryComponent> entry = new ArrayList<BundleEntryComponent>();
 
     /**
      * XML Digital Signature - base64 encoded.
      */
     protected Base64BinaryType signature;
 
-    private static final long serialVersionUID = 1083093396L;
+    private static final long serialVersionUID = -1152759872L;
 
     public Bundle() {
       super();
@@ -406,25 +812,22 @@ public class Bundle extends Resource {
     }
 
     /**
-     * @return {@link #item} (Resources that are contained in this bundle.)
+     * @return {@link #entry} (An entry in a bundle resource - will either contain a resource, or a deleted entry (transaction and history bundles only).)
      */
-    public List<Resource> getItem() { 
-      return this.item;
+    public List<BundleEntryComponent> getEntry() { 
+      return this.entry;
     }
 
     /**
-     * @return {@link #item} (Resources that are contained in this bundle.)
+     * @return {@link #entry} (An entry in a bundle resource - will either contain a resource, or a deleted entry (transaction and history bundles only).)
      */
-    /**
-     * @return {@link #include} (For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.)
-     */
-    public List<Resource> getInclude() { 
-      return this.include;
+    // syntactic sugar
+    public BundleEntryComponent addEntry() { //3
+      BundleEntryComponent t = new BundleEntryComponent();
+      this.entry.add(t);
+      return t;
     }
 
-    /**
-     * @return {@link #include} (For search results, and documents, resources that are included by request, but not part of the set of resources "in" the bundle.)
-     */
     /**
      * @return {@link #signature} (XML Digital Signature - base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
      */
@@ -467,8 +870,7 @@ public class Bundle extends Resource {
         childrenList.add(new Property("base", "uri", "The base URL for the service that provided these resources. All relative URLs are relative to this one (equivalent to xml:base).", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("total", "integer", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
-        childrenList.add(new Property("item", "Resource", "Resources that are contained in this bundle.", 0, java.lang.Integer.MAX_VALUE, item));
-        childrenList.add(new Property("include", "Resource", "For search results, and documents, resources that are included by request, but not part of the set of resources 'in' the bundle.", 0, java.lang.Integer.MAX_VALUE, include));
+        childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or a deleted entry (transaction and history bundles only).", 0, java.lang.Integer.MAX_VALUE, entry));
         childrenList.add(new Property("signature", "base64Binary", "XML Digital Signature - base64 encoded.", 0, java.lang.Integer.MAX_VALUE, signature));
       }
 
@@ -481,12 +883,9 @@ public class Bundle extends Resource {
         dst.link = new ArrayList<BundleLinkComponent>();
         for (BundleLinkComponent i : link)
           dst.link.add(i.copy());
-        dst.item = new ArrayList<Resource>();
-        for (Resource i : item)
-          dst.item.add(i.copy());
-        dst.include = new ArrayList<Resource>();
-        for (Resource i : include)
-          dst.include.add(i.copy());
+        dst.entry = new ArrayList<BundleEntryComponent>();
+        for (BundleEntryComponent i : entry)
+          dst.entry.add(i.copy());
         dst.signature = signature == null ? null : signature.copy();
         return dst;
       }

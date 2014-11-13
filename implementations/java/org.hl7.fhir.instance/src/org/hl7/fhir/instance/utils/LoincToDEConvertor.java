@@ -8,9 +8,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DataElement;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Identifier;
@@ -80,6 +82,7 @@ public class LoincToDEConvertor {
     now = DateAndTime.today();
 
     bundle = new Bundle();
+    bundle.setType(BundleType.COLLECTION);
     bundle.setId("http://hl7.org/fhir/commondataelement/loinc");
     bundle.setMeta(new ResourceMetaComponent().setLastUpdated(now));
 
@@ -148,7 +151,7 @@ public class LoincToDEConvertor {
 				DataElement de = new DataElement();
 				de.setId("loinc-"+code);
 		    de.setMeta(new ResourceMetaComponent().setLastUpdated(now));
-				bundle.getItem().add(de);
+				bundle.getEntry().add(new BundleEntryComponent().setResource(de));
 				Identifier id = new Identifier();
 				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
 				id.setValue(code);

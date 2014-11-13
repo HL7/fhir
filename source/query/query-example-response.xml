@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
 
   <!-- this is the envelope id - see the Messaging page for a discussion of its use -->
   <id value="resp"/>
@@ -13,19 +12,21 @@
   </meta>
   <type value="message"/>
   <!-- first entry: the message response -->
-  <item>   
-    <MessageHeader xmlns="http://hl7.org/fhir">
-      <id value="b651eebd-aaa8-4b72-854b-7e543abb99e3"/>
-      <meta>
-        <lastUpdated value="2013-05-18T08:35:00+10:00"/>
-      </meta>
+  <entry>
+    <resource>  
+      <MessageHeader>
+        <id value="b651eebd-aaa8-4b72-854b-7e543abb99e3"/>
+        <meta>
+          <lastUpdated value="2013-05-18T08:35:00+10:00"/>
+        </meta>
         <!-- this is the message id - see the Messaging page for a discussion of its use -->
         <identifier value="c321589c-9146-4e94-81c4-b142343f77aa"/>
         <timestamp value="2013-05-18T08:14:00+10:00"/>
 
         <event>
           <system value="http://hl7.org/fhir/message-type"/>
-          <code value="query"/><!-- this is query message -->
+          <code value="query"/>
+          <!-- this is query message -->
         </event> 
         <!-- this is query message -->
         <response>
@@ -54,18 +55,20 @@
           <reference value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
         </data>
       </MessageHeader>
-    
-  </item>
+
+    </resource>
+  </entry>
 
   <!-- second entry: the query resource -->
-  <item>
-    <!-- this is the target of the forward reference in the Message resource -->
-   
-    <Query xmlns="http://hl7.org/fhir">
-      <id value="16fddf81-f792-47ba-b02e-3fa2a3024519"/>
-      <meta>
-        <lastUpdated value="2013-05-18T08:35:00+10:00"/>
-      </meta>
+  <entry>
+    <resource>
+      <!-- this is the target of the forward reference in the Message resource -->
+
+      <Query>
+        <id value="16fddf81-f792-47ba-b02e-3fa2a3024519"/>
+        <meta>
+          <lastUpdated value="2013-05-18T08:35:00+10:00"/>
+        </meta>
         <!-- In the message we choose, for convenience, to make the query.id 
             the same as the query resource id. In other contexts that wouldn't be appropriate -->
         <identifier value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
@@ -322,18 +325,20 @@
           </reference>
         </response>
       </Query>
-    
-  </item>
+
+    </resource>
+  </entry>
 
   <!-- and now, all the patients, as returned by the server and referred to above -->
 
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-1"/>
-      <meta>
-        <lastUpdated value="2013-05-05T16:13:03Z"/>
-      </meta>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-1"/>
+        <meta>
+          <lastUpdated value="2013-05-05T16:13:03Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
@@ -343,37 +348,39 @@
         <identifier>
           <system value="nhi"/>
         </identifier>
-          <name>
-            <text value="Eve   Everywoman"/>
-            <family value="Everywoman1"/>
-            <given value="Eve"/>
-          </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2003"/>
-            <use value="work"/>
-          </telecom>
-          <gender value="female" />
-          <birthDate value="1955-01-06"/>
-          <address>
-            <use value="home"/>
-            <line value="2222 Home Street"/>
-          </address>
-        
+        <name>
+          <text value="Eve   Everywoman"/>
+          <family value="Everywoman1"/>
+          <given value="Eve"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2003"/>
+          <use value="work"/>
+        </telecom>
+        <gender value="female" />
+        <birthDate value="1955-01-06"/>
+        <address>
+          <use value="home"/>
+          <line value="2222 Home Street"/>
+        </address>
+
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-10"/>
-      <meta>
-        <lastUpdated value="2013-05-05T13:04:31Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-10"/>
+        <meta>
+          <lastUpdated value="2013-05-05T13:04:31Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Betterhalf, Boris. SSN: 444888888</div>
@@ -384,37 +391,39 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444888888"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Betterhalf"/>
-            <given value="Boris"/>
-          </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2008"/>
-            <use value="work"/>
-          </telecom>
-          <gender value="male" />
-          <address>
-            <use value="home"/>
-            <line value="2222 Home Street"/>
-          </address>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Betterhalf"/>
+          <given value="Boris"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2008"/>
+          <use value="work"/>
+        </telecom>
+        <gender value="male" />
+        <address>
+          <use value="home"/>
+          <line value="2222 Home Street"/>
+        </address>
+
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-100"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-100"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Garrett, Gordon. MRN: 577419</div>
@@ -424,29 +433,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577419"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Garrett"/>
-            <given value="Gordon"/>
-          </name>
-          <gender value="male" />
-          <birthDate value="1935-05-08"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Garrett"/>
+          <given value="Gordon"/>
+        </name>
+        <gender value="male" />
+        <birthDate value="1935-05-08"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-101"/>
-      <meta>
-        <lastUpdated value="2013-05-03T22:27:30Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-101"/>
+        <meta>
+          <lastUpdated value="2013-05-03T22:27:30Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Lamb, Greg. MRN: 577420</div>
@@ -456,29 +467,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577420"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Lamb"/>
-            <given value="Greg"/>
-          </name>
-          <gender value="male" />
-          <birthDate value="1938-08-29"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Lamb"/>
+          <given value="Greg"/>
+        </name>
+        <gender value="male" />
+        <birthDate value="1938-08-29"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-102"/>
-      <meta>
-        <lastUpdated value="2013-05-03T22:34:47Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-102"/>
+        <meta>
+          <lastUpdated value="2013-05-03T22:34:47Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Garcia, Jessie. MRN: 577421</div>
@@ -488,29 +501,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577421"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Garcia"/>
-            <given value="Jessie"/>
-          </name>
-          <gender value="female" />
-          <birthDate value="1949-05-08"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Garcia"/>
+          <given value="Jessie"/>
+        </name>
+        <gender value="female" />
+        <birthDate value="1949-05-08"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-103"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-103"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Christensen, Donald. MRN: 577422</div>
@@ -520,29 +535,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577422"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Christensen"/>
-            <given value="Donald"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Christensen"/>
+          <given value="Donald"/>
+        </name>
         <gender value="male" />
         <birthDate value="1933-03-02"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-104"/>
-      <meta>
-        <lastUpdated value="2013-05-05T03:36:43Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-104"/>
+        <meta>
+          <lastUpdated value="2013-05-05T03:36:43Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Teresa. MRN: 577423</div>
@@ -552,29 +569,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577423"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Hughes"/>
-            <given value="Teresa"/>
-          </name>
-          <gender value="female" />
-          <birthDate value="1988-05-22"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Hughes"/>
+          <given value="Teresa"/>
+        </name>
+        <gender value="female" />
+        <birthDate value="1988-05-22"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-105"/>
-      <meta>
-        <lastUpdated value="2013-05-07T14:19:15Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-105"/>
+        <meta>
+          <lastUpdated value="2013-05-07T14:19:15Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Houston, Daryl. MRN: 577424</div>
@@ -584,29 +603,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577424"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Houston"/>
-            <given value="Daryl"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Houston"/>
+          <given value="Daryl"/>
+        </name>
         <gender value="male" />
         <birthDate value="1937-02-14"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-106"/>
-      <meta>
-        <lastUpdated value="2013-05-05T04:05:09Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-106"/>
+        <meta>
+          <lastUpdated value="2013-05-05T04:05:09Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">West, James. MRN: 577425</div>
@@ -615,35 +636,37 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577425"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="West"/>
-            <given value="James"/>
-            <given value="Tiberius"/>
-          </name>
-          <name>
-            <use value="usual"/>
-            <family value="West"/>
-            <given value="Jim"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="West"/>
+          <given value="James"/>
+          <given value="Tiberius"/>
+        </name>
+        <name>
+          <use value="usual"/>
+          <family value="West"/>
+          <given value="Jim"/>
+        </name>
         <gender value="male" />
         <birthDate value="1946-06-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-107"/>
-      <meta>
-        <lastUpdated value="2013-05-05T03:40:59Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-107"/>
+        <meta>
+          <lastUpdated value="2013-05-05T03:40:59Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Nguyen, Glenda. MRN: 577426</div>
@@ -653,29 +676,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577426"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Nguyen"/>
-            <given value="Glenda"/>
-          </name>
-          <gender value="female" />
-          <birthDate value="1945-02-15"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Nguyen"/>
+          <given value="Glenda"/>
+        </name>
+        <gender value="female" />
+        <birthDate value="1945-02-15"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-108"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-108"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Swanson, Nathaniel. MRN: 577427</div>
@@ -685,29 +710,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577427"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Swanson"/>
-            <given value="Nathaniel"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Swanson"/>
+          <given value="Nathaniel"/>
+        </name>
         <gender value="male" />
         <birthDate value="1940-01-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-109"/>
-      <meta>
-        <lastUpdated value="2013-05-05T03:44:25Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-109"/>
+        <meta>
+          <lastUpdated value="2013-05-05T03:44:25Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Powers, Vera. MRN: 577428</div>
@@ -717,29 +744,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577428"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Powers"/>
-            <given value="Vera"/>
-          </name>
-          <gender value="female" />
-          <birthDate value="1945-06-11"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Powers"/>
+          <given value="Vera"/>
+        </name>
+        <gender value="female" />
+        <birthDate value="1945-06-11"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-11"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:38Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-11"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:38Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Relative, Ralph. SSN: 444999999</div>
@@ -749,37 +778,39 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="444999999"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Relative"/>
-            <given value="Ralph"/>
-          </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2009"/>
-            <use value="work"/>
-          </telecom>
+
+        <name>
+          <use value="official"/>
+          <family value="Relative"/>
+          <given value="Ralph"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2009"/>
+          <use value="work"/>
+        </telecom>
         <gender value="male" />
         <address>
-            <use value="home"/>
-            <line value="4444 Home Street"/>
-          </address>
-        
+          <use value="home"/>
+          <line value="4444 Home Street"/>
+        </address>
+
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-110"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-110"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Chandler, Perry. MRN: 577429</div>
@@ -789,29 +820,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577429"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Chandler"/>
-            <given value="Perry"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Chandler"/>
+          <given value="Perry"/>
+        </name>
         <gender value="male" />
         <birthDate value="1960-01-12"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-111"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-111"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Carroll, Alvin. MRN: 577430</div>
@@ -821,29 +854,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577430"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Carroll"/>
-            <given value="Alvin"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Carroll"/>
+          <given value="Alvin"/>
+        </name>
         <gender value="male" />
         <birthDate value="1945-06-04"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-112"/>
-      <meta>
-        <lastUpdated value="2013-05-05T03:53:20Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-112"/>
+        <meta>
+          <lastUpdated value="2013-05-05T03:53:20Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Matthews, Florence. MRN: 577431</div>
@@ -853,29 +888,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577431"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Matthews"/>
-            <given value="Florence"/>
-          </name>
-          <gender value="female" />
+
+        <name>
+          <use value="official"/>
+          <family value="Matthews"/>
+          <given value="Florence"/>
+        </name>
+        <gender value="female" />
         <birthDate value="1995-01-06"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-113"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-113"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Frazier, Jordan. MRN: 577432</div>
@@ -885,29 +922,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577432"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Frazier"/>
-            <given value="Jordan"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Frazier"/>
+          <given value="Jordan"/>
+        </name>
         <gender value="male" />
         <birthDate value="1943-02-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-114"/>
-      <meta>
-        <lastUpdated value="2013-05-05T04:34:50Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-114"/>
+        <meta>
+          <lastUpdated value="2013-05-05T04:34:50Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Patrick, Beth. MRN: 577433</div>
@@ -917,29 +956,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577433"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Patrick"/>
-            <given value="Beth"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Patrick"/>
+          <given value="Beth"/>
+        </name>
         <gender value="female" />
         <birthDate value="1990-08-11"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-115"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-115"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Fleming, Christopher. MRN: 577434</div>
@@ -949,29 +990,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577434"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Fleming"/>
-            <given value="Christopher"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Fleming"/>
+          <given value="Christopher"/>
+        </name>
         <gender value="male" />
         <birthDate value="1939-03-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-116"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-116"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Marshall, Howard. MRN: 577435</div>
@@ -981,29 +1024,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577435"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Marshall"/>
-            <given value="Howard"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Marshall"/>
+          <given value="Howard"/>
+        </name>
         <gender value="male" />
         <birthDate value="1960-06-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-117"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-117"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Larson, Erika. MRN: 577436</div>
@@ -1013,29 +1058,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577436"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Larson"/>
-            <given value="Erika"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Larson"/>
+          <given value="Erika"/>
+        </name>
         <gender value="female" />
         <birthDate value="1935-06-05"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-118"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-118"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Day, Carol. MRN: 577437</div>
@@ -1045,29 +1092,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577437"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Day"/>
-            <given value="Carol"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Day"/>
+          <given value="Carol"/>
+        </name>
         <gender value="female" />
         <birthDate value="1963-06-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-119"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-119"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Strickland, Veronica. MRN: 577438</div>
@@ -1077,29 +1126,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577438"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Strickland"/>
-            <given value="Veronica"/>
-          </name>
-          <gender value="female" />
-          <birthDate value="1963-02-08"/>
-        
+
+        <name>
+          <use value="official"/>
+          <family value="Strickland"/>
+          <given value="Veronica"/>
+        </name>
+        <gender value="female" />
+        <birthDate value="1963-02-08"/>
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-11edef91-601c-461c-bbf2-3b99b9a48ae0"/>
-      <meta>
-        <lastUpdated value="2013-05-07T20:44:39Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-11edef91-601c-461c-bbf2-3b99b9a48ae0"/>
+        <meta>
+          <lastUpdated value="2013-05-07T20:44:39Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
@@ -1109,26 +1160,28 @@
         <identifier>
           <system value="nhi"/>
         </identifier>
-        
-          <name>
-            <text value="dave   everyperson"/>
-            <family value="everyperson"/>
-            <given value="dave  "/>
-          </name>
+
+        <name>
+          <text value="dave   everyperson"/>
+          <family value="everyperson"/>
+          <given value="dave  "/>
+        </name>
         <gender value="male" />
         <birthDate value="1945-01-01"/>
-        
+
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-12"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:38Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-12"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:38Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Contact, Carrie. SSN: 555222222</div>
@@ -1138,37 +1191,39 @@
           <system value="http://hl7.org/fhir/sid/us-ssn"/>
           <value value="555222222"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Contact"/>
-            <given value="Carrie"/>
-          </name>
-          <telecom>
-            <system value="phone"/>
-            <value value="555-555-2010"/>
-            <use value="work"/>
-          </telecom>
+
+        <name>
+          <use value="official"/>
+          <family value="Contact"/>
+          <given value="Carrie"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2010"/>
+          <use value="work"/>
+        </telecom>
         <gender value="female" />
         <address>
-            <use value="home"/>
-            <line value="5555 Home Street"/>
-          </address>
-        
+          <use value="home"/>
+          <line value="5555 Home Street"/>
+        </address>
+
         <managingOrganization>
           <reference value="Organization/hl7"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-120"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-120"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Mckinney, Valerie. MRN: 577439</div>
@@ -1178,29 +1233,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577439"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Mckinney"/>
-            <given value="Valerie"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Mckinney"/>
+          <given value="Valerie"/>
+        </name>
         <gender value="female" />
         <birthDate value="1960-06-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-121"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-121"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Ortiz, Lucille. MRN: 577440</div>
@@ -1210,29 +1267,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577440"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Ortiz"/>
-            <given value="Lucille"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Ortiz"/>
+          <given value="Lucille"/>
+        </name>
         <gender value="female" />
         <birthDate value="1930-04-02"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-122"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-122"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Alvarez, Mitchell. MRN: 577441</div>
@@ -1242,29 +1301,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577441"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Alvarez"/>
-            <given value="Mitchell"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Alvarez"/>
+          <given value="Mitchell"/>
+        </name>
         <gender value="male" />
         <birthDate value="1980-04-08"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-123"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-123"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Dennis, Charles. MRN: 577442</div>
@@ -1274,29 +1335,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577442"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Dennis"/>
-            <given value="Charles"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Dennis"/>
+          <given value="Charles"/>
+        </name>
         <gender value="male" />
         <birthDate value="1976-06-01"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-124"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-124"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Schmidt, Lewis. MRN: 577443</div>
@@ -1306,29 +1369,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577443"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Schmidt"/>
-            <given value="Lewis"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Schmidt"/>
+          <given value="Lewis"/>
+        </name>
         <gender value="male" />
         <birthDate value="1963-02-12"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-125"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-125"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Carr, Rebecca. MRN: 577444</div>
@@ -1338,29 +1403,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577444"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Carr"/>
-            <given value="Rebecca"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Carr"/>
+          <given value="Rebecca"/>
+        </name>
         <gender value="female" />
         <birthDate value="1943-09-18"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-126"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-126"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Greer, Esther. MRN: 577445</div>
@@ -1370,29 +1437,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577445"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Greer"/>
-            <given value="Esther"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Greer"/>
+          <given value="Esther"/>
+        </name>
         <gender value="female" />
         <birthDate value="1952-03-26"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-127"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-127"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Eddie. MRN: 577446</div>
@@ -1402,29 +1471,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577446"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Phillips"/>
-            <given value="Eddie"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Phillips"/>
+          <given value="Eddie"/>
+        </name>
         <gender value="male" />
         <birthDate value="1942-04-24"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-128"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-128"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sparks, Louise. MRN: 577447</div>
@@ -1434,29 +1505,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577447"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Sparks"/>
-            <given value="Louise"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Sparks"/>
+          <given value="Louise"/>
+        </name>
         <gender value="female" />
         <birthDate value="1968-11-27"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-129"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-129"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Holloway, Willie. MRN: 577448</div>
@@ -1466,29 +1539,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577448"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Holloway"/>
-            <given value="Willie"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Holloway"/>
+          <given value="Willie"/>
+        </name>
         <gender value="female" />
         <birthDate value="1959-08-02"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-130"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-130"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Foster, Gabriel. MRN: 577449</div>
@@ -1498,29 +1573,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577449"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Foster"/>
-            <given value="Gabriel"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Foster"/>
+          <given value="Gabriel"/>
+        </name>
         <gender value="male" />
         <birthDate value="1967-12-29"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-131"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-131"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Hodges, Sarah. MRN: 577450</div>
@@ -1530,29 +1607,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577450"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Hodges"/>
-            <given value="Sarah"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Hodges"/>
+          <given value="Sarah"/>
+        </name>
         <gender value="female" />
         <birthDate value="1964-07-18"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-132"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-132"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">White, Wilma. MRN: 577451</div>
@@ -1562,29 +1641,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577451"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="White"/>
-            <given value="Wilma"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="White"/>
+          <given value="Wilma"/>
+        </name>
         <gender value="female" />
         <birthDate value="1968-07-10"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-133"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-133"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Drake, Ronald. MRN: 577452</div>
@@ -1594,29 +1675,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577452"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Drake"/>
-            <given value="Ronald"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Drake"/>
+          <given value="Ronald"/>
+        </name>
         <gender value="male" />
         <birthDate value="1979-07-18"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-134"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-134"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Wanda. MRN: 577453</div>
@@ -1626,29 +1709,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577453"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Phillips"/>
-            <given value="Wanda"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Phillips"/>
+          <given value="Wanda"/>
+        </name>
         <gender value="female" />
         <birthDate value="1980-04-23"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-135"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-135"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Hansen, Chris. MRN: 577454</div>
@@ -1658,29 +1743,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577454"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Hansen"/>
-            <given value="Chris"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Hansen"/>
+          <given value="Chris"/>
+        </name>
         <gender value="male" />
         <birthDate value="1956-11-28"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-136"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-136"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Reynolds, Julio. MRN: 577455</div>
@@ -1690,29 +1777,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577455"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Reynolds"/>
-            <given value="Julio"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Reynolds"/>
+          <given value="Julio"/>
+        </name>
         <gender value="male" />
         <birthDate value="1970-04-13"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-137"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-137"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Roberson, Jonathan. MRN: 577456</div>
@@ -1722,29 +1811,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577456"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Roberson"/>
-            <given value="Jonathan"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Roberson"/>
+          <given value="Jonathan"/>
+        </name>
         <gender value="male" />
         <birthDate value="1945-10-01"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-138"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-138"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Crawford, Carla. MRN: 577457</div>
@@ -1754,29 +1845,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577457"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Crawford"/>
-            <given value="Carla"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Crawford"/>
+          <given value="Carla"/>
+        </name>
         <gender value="female" />
         <birthDate value="1969-02-03"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-139"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-139"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Hicks, Ronald. MRN: 577458</div>
@@ -1786,29 +1879,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577458"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Hicks"/>
-            <given value="Ronald"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Hicks"/>
+          <given value="Ronald"/>
+        </name>
         <gender value="male" />
         <birthDate value="1942-09-28"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-140"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-140"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Mae. MRN: 577459</div>
@@ -1818,29 +1913,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577459"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Hughes"/>
-            <given value="Mae"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Hughes"/>
+          <given value="Mae"/>
+        </name>
         <gender value="female" />
         <birthDate value="1958-05-14"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-141"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-141"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Rice, Loretta. MRN: 577460</div>
@@ -1850,29 +1947,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577460"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Rice"/>
-            <given value="Loretta"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Rice"/>
+          <given value="Loretta"/>
+        </name>
         <gender value="female" />
         <birthDate value="1952-08-19"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-142"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-142"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Reese, Naomi. MRN: 577461</div>
@@ -1882,29 +1981,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577461"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Reese"/>
-            <given value="Naomi"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Reese"/>
+          <given value="Naomi"/>
+        </name>
         <gender value="female" />
         <birthDate value="1996-03-31"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-143"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-143"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Cox, Jesse. MRN: 577462</div>
@@ -1914,29 +2015,31 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577462"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Cox"/>
-            <given value="Jesse"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Cox"/>
+          <given value="Jesse"/>
+        </name>
         <gender value="male" />
         <birthDate value="1993-12-02"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
-  <item>
-    
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="ps-q-144"/>
-      <meta>
-        <lastUpdated value="2013-05-03T10:25:34Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Patient>
+        <id value="ps-q-144"/>
+        <meta>
+          <lastUpdated value="2013-05-03T10:25:34Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Mccoy, Virgil. MRN: 577463</div>
@@ -1946,21 +2049,22 @@
           <system value="https://github.com/projectcypress/cypress/patient"/>
           <value value="577463"/>
         </identifier>
-        
-          <name>
-            <use value="official"/>
-            <family value="Mccoy"/>
-            <given value="Virgil"/>
-          </name>
+
+        <name>
+          <use value="official"/>
+          <family value="Mccoy"/>
+          <given value="Virgil"/>
+        </name>
         <gender value="male" />
         <birthDate value="1997-06-17"/>
-        
+
         <managingOrganization>
           <reference value="Organization/1"/>
         </managingOrganization>
         <active value="true"/>
       </Patient>
-    
-  </item>
+
+    </resource>
+  </entry>
 
 </Bundle>

@@ -76,6 +76,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
@@ -387,11 +388,11 @@ public class SourceParser {
       try {
         Resource rf = new XmlParser().parse(new FileInputStream(spreadsheet));
         if (rf instanceof Bundle) {
-          for (Resource ae : ((Bundle) rf).getItem()) {
-            if (ae instanceof Profile)
-              profile.setSource((Profile) ae);
-            else if (ae instanceof ExtensionDefinition) {
-              ExtensionDefinition ed = (ExtensionDefinition) ae;
+          for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
+            if (ae.getResource() instanceof Profile)
+              profile.setSource((Profile) ae.getResource());
+            else if (ae.getResource() instanceof ExtensionDefinition) {
+              ExtensionDefinition ed = (ExtensionDefinition) ae.getResource();
               context.seeExtensionDefinition(ed);
               profile.getExtensions().add(ed.getUrl());
             }

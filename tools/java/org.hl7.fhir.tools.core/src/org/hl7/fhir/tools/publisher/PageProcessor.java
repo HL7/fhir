@@ -85,6 +85,7 @@ import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -110,6 +111,7 @@ import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
@@ -511,6 +513,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genResCodes() + s3;
       else if (com[0].equals("datatypecodes"))
         src = s1 + genDTCodes() + s3;
+      else if (com[0].equals("allparams"))
+        src = s1 + allParamlist() + s3;      
       else if (com[0].equals("bindingtable-codelists"))
         src = s1 + genBindingTable(true) + s3;
       else if (com[0].equals("bindingtable"))
@@ -647,6 +651,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String allParamlist() {
+    ResourceDefn rd = definitions.getBaseResources().get("Resource");
+    List<String> names = new ArrayList<String>();
+    names.addAll(rd.getSearchParams().keySet());
+    Collections.sort(names);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (String n  : names) 
+      b.append(n);
+    return b.toString();
   }
 
   private String makeCanonical(String name) {
@@ -1136,12 +1151,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> names = new ArrayList<String>();
     Map<String, Resource> map = new HashMap<String, Resource>();
     
-    for (Resource e : v3Valuesets.getItem()) {
-      ValueSet vs = (ValueSet)e;
+    for (BundleEntryComponent e : v3Valuesets.getEntry()) {
+      ValueSet vs = (ValueSet)e.getResource();
       if (vs.getDefine() != null) {
         String n = vs.getDefine().getSystem();
         names.add(n);
-        map.put(n, e);
+        map.put(n, vs);
       }
     }
     Collections.sort(names);
@@ -1170,12 +1185,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     List<String> names = new ArrayList<String>();
     Map<String, Resource> map = new HashMap<String, Resource>();
     
-    for (Resource e : v3Valuesets.getItem()) {
-      ValueSet vs = (ValueSet) e;
+    for (BundleEntryComponent e : v3Valuesets.getEntry()) {
+      ValueSet vs = (ValueSet) e.getResource();
       if (vs.getDefine() == null) {
         String n = vs.getIdentifier();
         names.add(n);
-        map.put(n, e);
+        map.put(n, vs);
       }
     }
     Collections.sort(names);
@@ -2206,9 +2221,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private ValueSet getv3ValueSetByRef(String ref) {
     String vsRef = ref.replace("/vs", "");
-    for (Resource ae : v3Valuesets.getItem()) {
-      if (ref.equals(ae.getId())) 
-        return (ValueSet) ae;
+    for (BundleEntryComponent ae : v3Valuesets.getEntry()) {
+      if (ref.equals(ae.getResource().getId())) 
+        return (ValueSet) ae.getResource();
     }
     return null;
   }
@@ -3019,6 +3034,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genOperationList() + s3;  
       else if (com[0].equals("id_regex"))
         src = s1 + FormatUtilities.ID_REGEX + s3;  
+      else if (com[0].equals("allparams"))
+        src = s1 + allParamlist() + s3;      
       else if (com[0].equals("resourcecount"))
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else 
@@ -3216,7 +3233,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String abstractResourceTitle(ResourceDefn resource) {
-    return "Base Resource";
+    if (resource.getName().equals("Resource"))
+      return "Base Resource Definitions";
+    else 
+      return resource.getName() + " Resource";
   }
 
   private String genOpCount(ResourceDefn resource) {
@@ -4369,7 +4389,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private void addToValuesets(Bundle atom, ValueSet vs) {
     // e.setId(id.contains(":") ? id : "http://hl7.org/fhir/vs/" + id);
-    atom.getItem().add(vs);
+    atom.getEntry().add(new BundleEntryComponent().setResource(vs));
   }
 
   public Map<String, ValueSet> getCodeSystems() {

@@ -62,11 +62,9 @@ and implementation.
 <a name="tech"> </a>
 <h2>Technical Requirements</h2>
 <p>
-Resources are designed so the package that is "the resource" consists of data (the content inside the resource,
-and metadata - additional fields that are actually stored and exchanged outside the resource). In the 
-RESTful context, these fields are part of the HTTP header, and their functionality is integrated into  
-the HTTP exchange. When the resources are used with a service, this data must either be exchanged with
-the resource, or the functionality they provide replaced in some way.
+A resource consist of an identifier, some metadata, narrrative, and data. 
+When the resources are used with a service, the context of use will need to
+describe how the id and meta data are managed.
 </p>
 <p>
 A key question in this regard is whether the resources that are exchanged across a service interface 
@@ -76,7 +74,7 @@ use an internal RESTful service to store and access them. In this case, it would
 the resources out of the service context, and use them in a RESTful context, and generally the
 service would expect to see duplicate resources over time, where versions must be managed 
 correctly. If the resources to be exchanged over services are also to
-be exchanged with REST, the metadata will be required.
+be exchanged with REST, the metadata will be required to be managed carefully.
 </p>
 <p><b>Resource Identity</b></p>
 <p>
@@ -89,7 +87,7 @@ still be resolved.
 <p>
 Related to this, resources are modular units that refer to each other. Although 
 resources stand-alone and are each processed independently, it's rarely possible 
-to use a resource to achieve some clinical or business goal without retrieving the 
+to use a resource to achieve some clinical or business goal without retrieving 
 other referenced resources. Any use of resources in a service environment needs to 
 address how these references can be resolved. This can be achieved by delegating 
 the reference resolution to a RESTful framework, by ensuring that all the relevant 

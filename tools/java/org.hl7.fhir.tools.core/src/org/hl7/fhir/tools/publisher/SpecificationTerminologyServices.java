@@ -301,7 +301,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((ValueSet) ((Bundle)r).getItem().get(0)).getExpansion().getContains();
+        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
     }
     vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
     
@@ -320,7 +320,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), result, false);
-        return ((ValueSet) result.getItem().get(0)).getExpansion().getContains();
+        return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
@@ -360,7 +360,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((OperationOutcome) ((Bundle) r).getItem().get(0));
+        return ((OperationOutcome) ((Bundle) r).getEntry().get(0).getResource());
     }
     vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
         
@@ -379,7 +379,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), result, false);
-        return ((OperationOutcome) result.getItem().get(0));
+        return ((OperationOutcome) result.getEntry().get(0).getResource());
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);

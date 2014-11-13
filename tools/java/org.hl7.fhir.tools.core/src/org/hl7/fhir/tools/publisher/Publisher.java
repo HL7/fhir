@@ -115,6 +115,7 @@ import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
@@ -510,8 +511,8 @@ public class Publisher implements URIResolver {
             }
             if (rf instanceof Bundle) {
               //              new XmlComposer().compose(new FileOutputStream(f), rf.getFeed(), true);
-              for (Resource ae : ((Bundle)rf).getItem()) {
-                loadIgReference(ae);
+              for (BundleEntryComponent ae : ((Bundle)rf).getEntry()) {
+                loadIgReference(ae.getResource());
               }
             } else {
               //              new XmlComposer().compose(new FileOutputStream(f), rf.getResource(), true);
@@ -1628,7 +1629,7 @@ public class Publisher implements URIResolver {
       extensionsFeed.setType(BundleType.COLLECTION);
       extensionsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ExtensionDefinition ed : page.getWorkerContext().getExtensionDefinitions().values())
-        extensionsFeed.getItem().add(ed);
+        extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml"), extensionsFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed, true);
       cloneToXhtml("extension-definitions", "Core Extension Definitions", false, "summary-instance");
@@ -2080,7 +2081,7 @@ public class Publisher implements URIResolver {
               vs.setMeta(new ResourceMetaComponent().setLastUpdated(vs.getDate().expandTime()));
             else
               vs.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
-            page.getV3Valuesets().getItem().add(vs);
+            page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
             page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
             page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
             page.getValueSets().put(vs.getIdentifier(), vs);
@@ -2113,7 +2114,7 @@ public class Publisher implements URIResolver {
             vs.setMeta(new ResourceMetaComponent().setLastUpdated(vs.getDate().expandTime()));
           else
             vs.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
-          page.getV3Valuesets().getItem().add(vs);
+          page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
           page.getValueSets().put(vs.getIdentifier(), vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
         }
@@ -3083,9 +3084,9 @@ public class Publisher implements URIResolver {
         throw new Exception("Resource in "+n + ".xml needs an id");
       boolean wantSave = false;
       if (rf instanceof Bundle) {
-        rt = ((Bundle) rf).getItem().get(0).getResourceType().toString();
-        for (Resource ae : ((Bundle) rf).getItem()) {
-          r = ae;
+        rt = ((Bundle) rf).getEntry().get(0).getResource().getResourceType().toString();
+        for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
+          r = ae.getResource();
           if (r.getId() == null)
             throw new Exception("Resource in bundle in "+n + ".xml needs an id");
           if (r instanceof DomainResource) {
@@ -3264,12 +3265,12 @@ public class Publisher implements URIResolver {
 
   private void deletefromFeed(ResourceType type, String id, Bundle feed) {
     int index = -1;
-    for (Resource ae : feed.getItem()) {
-      if (ae.getId().equals(id) && ae.getResourceType() == type) 
-        index = feed.getItem().indexOf(ae);
+    for (BundleEntryComponent ae : feed.getEntry()) {
+      if (ae.getResource().getId().equals(id) && ae.getResource().getResourceType() == type) 
+        index = feed.getEntry().indexOf(ae);
     }
     if (index > -1)
-      feed.getItem().remove(index);
+      feed.getEntry().remove(index);
   }
 
   private void saveAsPureHtml(Profile resource, FileOutputStream stream) throws Exception {
@@ -3298,15 +3299,15 @@ public class Publisher implements URIResolver {
   private void addToResourceFeed(DomainResource resource, Bundle dest) throws Exception {
     if (resource.getId() == null)
       throw new Exception("Resource has no id");
-    Resource byId = ResourceUtilities.getById(dest, resource.getResourceType(), resource.getId());
+    BundleEntryComponent byId = ResourceUtilities.getEntryById(dest, resource.getResourceType(), resource.getId());
     if (byId != null)
-      dest.getItem().remove(byId);
+      dest.getEntry().remove(byId);
     deletefromFeed(resource.getResourceType(), resource.getId(), dest);
 
     ResourceUtilities.meta(resource).setLastUpdated(new DateAndTime(page.getGenDate()));
     if (resource.getText() == null || resource.getText().getDiv() == null)
       throw new Exception("Example Resource " + resource.getId() + " does not have any narrative");
-    dest.getItem().add(resource);
+    dest.getEntry().add(new BundleEntryComponent().setResource(resource));
   }
 
   private void addToResourceFeed(ValueSet vs, Bundle dest) throws Exception {
@@ -3318,7 +3319,7 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Value Set " + vs.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(vs).setLastUpdated(new DateAndTime(page.getGenDate()));
-    dest.getItem().add(vs);
+    dest.getEntry().add(new BundleEntryComponent().setResource(vs));
   }
 
   private void addToResourceFeed(ConceptMap cm, Bundle dest) throws Exception {
@@ -3330,7 +3331,7 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Concept Map " + cm.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(cm).setLastUpdated(new DateAndTime(page.getGenDate()));
-    dest.getItem().add(cm);
+    dest.getEntry().add(new BundleEntryComponent().setResource(cm));
   }
 
   private void addToResourceFeed(Conformance conf, Bundle dest) throws Exception {
@@ -3342,7 +3343,7 @@ public class Publisher implements URIResolver {
       throw new Exception("Example Conformance " + conf.getId() + " does not have any narrative");
 
     ResourceUtilities.meta(conf).setLastUpdated(new DateAndTime(page.getGenDate()));
-    dest.getItem().add(conf);
+    dest.getEntry().add(new BundleEntryComponent().setResource(conf));
   }
 
   private Profile produceProfile(String filename, ProfileDefn profile, String filePath, String master, Map<String, Example> examples) throws Exception {
@@ -4427,7 +4428,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.html"));
 
     cm.setTag("path", Utilities.changeFileExt(filename, "-map-v2.html"));
-    conceptMapsFeed.getItem().add(cm);
+    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
     page.getConceptMaps().put(cm.getIdentifier(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
@@ -4509,7 +4510,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));
 
     cm.setTag("path", Utilities.changeFileExt(filename, "-map-v3.html"));
-    conceptMapsFeed.getItem().add(cm);
+    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
     page.getConceptMaps().put(cm.getIdentifier(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);

@@ -1,6 +1,7 @@
 package org.hl7.fhir.instance.utils;
 
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleLinkComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.DomainResource;
@@ -47,9 +48,9 @@ public class ResourceUtilities {
   }
 
 	public static Resource getById(Bundle feed, ResourceType type, String reference) {
-	  for (Resource item : feed.getItem()) {
-	    if (item.getId().equals(reference) && item.getResourceType() == type)
-	      return item;
+	  for (BundleEntryComponent item : feed.getEntry()) {
+	    if (item.getResource().getId().equals(reference) && item.getResource().getResourceType() == type)
+	      return item.getResource();
 	  }
 	  return null;
   }

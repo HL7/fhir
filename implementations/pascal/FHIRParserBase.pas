@@ -153,7 +153,8 @@ Type
 
     // handlers
     procedure parseDomainResource(jsn : TJsonObject; ctxt : TFHIRObjectList);
-    procedure ParseInnerResource(jsn : TJsonObject; ctxt : TFHIRObjectList);
+    procedure ParseInnerResource(jsn : TJsonObject; ctxt : TFHIRObjectList);  overload;
+    function ParseInnerResource(jsn: TJsonObject) : TFhirResource; overload;
   Public
     procedure Parse; Override;
     function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Override;
@@ -932,6 +933,11 @@ end;
 procedure TFHIRJsonParserBase.ParseInnerResource(jsn: TJsonObject; ctxt: TFHIRObjectList);
 begin
   ctxt.add(ParseResource(jsn));
+end;
+
+function TFHIRJsonParserBase.ParseInnerResource(jsn: TJsonObject) : TFhirResource;
+begin
+  result := ParseResource(jsn);
 end;
 
 class function TFHIRXmlParserBase.ParseFragment(fragment, lang: String): TFHIRBase;

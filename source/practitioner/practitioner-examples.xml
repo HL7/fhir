@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir" xmlns:gd="http://schemas.google.com/g/2005"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
   <id value="b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
   <meta>
     <lastUpdated value="2012-05-29T23:45:32Z"/>
   </meta>
   <type value="collection"/>
-  <item>    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="13"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+  <entry>
+    <resource>  
+      <Practitioner>
+        <id value="13"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Seven, Henry. SSN:
@@ -25,35 +24,37 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Seven"/>
-            <given value="Henry"/>
-          </name>
+          <use value="official"/>
+          <family value="Seven"/>
+          <given value="Henry"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1002"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1002 Healthcare Drive"/>
-          </address>
-        
+          <use value="home"/>
+          <line value="1002 Healthcare Drive"/>
+        </address>
+
         <gender value="male" />
 
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="14"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="14"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Assigned, Amanda. SSN:
@@ -66,35 +67,37 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Assigned"/>
-            <given value="Amanda"/>
-          </name>
+          <use value="official"/>
+          <family value="Assigned"/>
+          <given value="Amanda"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1021"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1020 Healthcare Drive"/>
-          </address>
-        
-        
+          <use value="home"/>
+          <line value="1020 Healthcare Drive"/>
+        </address>
+
+
         <gender value="female" />
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="15"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="15"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hippocrates, Harold. SSN:
@@ -107,19 +110,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Hippocrates"/>
-            <given value="Harold"/>
-          </name>
+          <use value="official"/>
+          <family value="Hippocrates"/>
+          <given value="Harold"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1003"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1003 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1003 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -127,15 +130,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="16"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="16"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Primary, Patricia. SSN:
@@ -148,19 +153,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Primary"/>
-            <given value="Patricia"/>
-          </name>
+          <use value="official"/>
+          <family value="Primary"/>
+          <given value="Patricia"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1004"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1004 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1004 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -168,15 +173,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="17"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="17"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Admit, Alan. SSN:
@@ -189,19 +196,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Admit"/>
-            <given value="Alan"/>
-          </name>
+          <use value="official"/>
+          <family value="Admit"/>
+          <given value="Alan"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1005"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1005 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1005 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -209,15 +216,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="18"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="18"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Attend, Aaron. SSN:
@@ -230,19 +239,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Attend"/>
-            <given value="Aaron"/>
-          </name>
+          <use value="official"/>
+          <family value="Attend"/>
+          <given value="Aaron"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1006"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1006 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1006 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -250,15 +259,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="19"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="19"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sender, Sam. SSN:
@@ -271,19 +282,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Sender"/>
-            <given value="Sam"/>
-          </name>
+          <use value="official"/>
+          <family value="Sender"/>
+          <given value="Sam"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1007"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1007 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1007 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -291,15 +302,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="20"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="20"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Intern, Irving. SSN:
@@ -312,19 +325,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Intern"/>
-            <given value="Irving"/>
-          </name>
+          <use value="official"/>
+          <family value="Intern"/>
+          <given value="Irving"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1022"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1021 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1021 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -332,15 +345,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="21"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="21"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Resident, Rachel. SSN:
@@ -353,19 +368,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Resident"/>
-            <given value="Rachel"/>
-          </name>
+          <use value="official"/>
+          <family value="Resident"/>
+          <given value="Rachel"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1023"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1022 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1022 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -373,16 +388,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="22"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="22"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Leader, Linda. SSN:
@@ -395,19 +412,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Leader"/>
-            <given value="Linda"/>
-          </name>
+          <use value="official"/>
+          <family value="Leader"/>
+          <given value="Linda"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1024"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1023 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1023 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -415,16 +432,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="23"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="23"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Verify, Virgil. SSN:
@@ -437,19 +456,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Verify"/>
-            <given value="Virgil"/>
-          </name>
+          <use value="official"/>
+          <family value="Verify"/>
+          <given value="Virgil"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1008"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1008 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1008 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -457,16 +476,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="24"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="24"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specialize, Sara. SSN:
@@ -479,36 +500,38 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Specialize"/>
-            <given value="Sara"/>
-          </name>
+          <use value="official"/>
+          <family value="Specialize"/>
+          <given value="Sara"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1009"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1009 Healthcare Drive"/>
-          </address>
-        
+          <use value="home"/>
+          <line value="1009 Healthcare Drive"/>
+        </address>
+
         <gender value="female" />
 
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="25"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="25"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Reaction, Ramsey. SSN:
@@ -521,19 +544,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Reaction"/>
-            <given value="Ramsey"/>
-          </name>
+          <use value="official"/>
+          <family value="Reaction"/>
+          <given value="Ramsey"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1025"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1024 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1024 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -541,16 +564,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="26"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="26"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sleeper, Sally. SSN:
@@ -563,19 +588,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Sleeper"/>
-            <given value="Sally"/>
-          </name>
+          <use value="official"/>
+          <family value="Sleeper"/>
+          <given value="Sally"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1012"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1012 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1012 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -583,16 +608,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="27"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="27"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pump, Patrick. SSN:
@@ -605,19 +632,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Pump"/>
-            <given value="Patrick"/>
-          </name>
+          <use value="official"/>
+          <family value="Pump"/>
+          <given value="Patrick"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1027"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1025 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1025 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -625,16 +652,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="28"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="28"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Valve, Vera. SSN:
@@ -647,19 +676,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Valve"/>
-            <given value="Vera"/>
-          </name>
+          <use value="official"/>
+          <family value="Valve"/>
+          <given value="Vera"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1028"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1026 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1026 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -667,15 +696,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="29"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="29"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Scratch, Sophie. SSN:
@@ -688,19 +719,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Scratch"/>
-            <given value="Sophie"/>
-          </name>
+          <use value="official"/>
+          <family value="Scratch"/>
+          <given value="Sophie"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1029"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1027 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1027 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -708,16 +739,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="30"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="30"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Emergency, Eric. SSN:
@@ -730,19 +763,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Emergency"/>
-            <given value="Eric"/>
-          </name>
+          <use value="official"/>
+          <family value="Emergency"/>
+          <given value="Eric"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1030"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1028 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1028 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -750,16 +783,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="31"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="31"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hormone, Horace. SSN:
@@ -772,19 +807,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Hormone"/>
-            <given value="Horace"/>
-          </name>
+          <use value="official"/>
+          <family value="Hormone"/>
+          <given value="Horace"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1031"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1029 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1029 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -792,16 +827,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="32"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="32"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Family, Fay. SSN:
@@ -814,19 +851,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Family"/>
-            <given value="Fay"/>
-          </name>
+          <use value="official"/>
+          <family value="Family"/>
+          <given value="Fay"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1032"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1030 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1030 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -834,15 +871,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="33"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="33"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tum, Tony. SSN:
@@ -855,19 +894,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Tum"/>
-            <given value="Tony"/>
-          </name>
+          <use value="official"/>
+          <family value="Tum"/>
+          <given value="Tony"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1033"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1031 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1031 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -875,15 +914,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="34"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="34"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Sage, Stanley. SSN:
@@ -896,19 +937,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Sage"/>
-            <given value="Stanley"/>
-          </name>
+          <use value="official"/>
+          <family value="Sage"/>
+          <given value="Stanley"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1034"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1032 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1032 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -916,16 +957,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="35"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="35"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bleeder, Boris. SSN:
@@ -938,19 +981,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Bleeder"/>
-            <given value="Boris"/>
-          </name>
+          <use value="official"/>
+          <family value="Bleeder"/>
+          <given value="Boris"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1035"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1033 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1033 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -958,16 +1001,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="36"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="36"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Pasteur, Paula. SSN:
@@ -980,19 +1025,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Pasteur"/>
-            <given value="Paula"/>
-          </name>
+          <use value="official"/>
+          <family value="Pasteur"/>
+          <given value="Paula"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1036"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1034 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1034 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1000,16 +1045,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="37"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="37"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Osler, Otto. SSN:
@@ -1022,19 +1069,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Osler"/>
-            <given value="Otto"/>
-          </name>
+          <use value="official"/>
+          <family value="Osler"/>
+          <given value="Otto"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1037"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1035 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1035 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1042,15 +1089,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="38"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="38"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Renal, Rory. SSN:
@@ -1063,19 +1112,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Renal"/>
-            <given value="Rory"/>
-          </name>
+          <use value="official"/>
+          <family value="Renal"/>
+          <given value="Rory"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1038"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1036 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1036 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1083,15 +1132,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="39"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="39"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brain, Barry. SSN:
@@ -1104,19 +1155,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Brain"/>
-            <given value="Barry"/>
-          </name>
+          <use value="official"/>
+          <family value="Brain"/>
+          <given value="Barry"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1039"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1037 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1037 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1124,15 +1175,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="40"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="40"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cranium, Carol. SSN:
@@ -1145,19 +1198,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Cranium"/>
-            <given value="Carol"/>
-          </name>
+          <use value="official"/>
+          <family value="Cranium"/>
+          <given value="Carol"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1040"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1038 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1038 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1165,16 +1218,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="41"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="41"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Fem, Flora. SSN:
@@ -1187,19 +1242,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Fem"/>
-            <given value="Flora"/>
-          </name>
+          <use value="official"/>
+          <family value="Fem"/>
+          <given value="Flora"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1041"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1039 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1039 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1207,15 +1262,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="42"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="42"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Tumor, Trudy. SSN:
@@ -1228,19 +1285,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Tumor"/>
-            <given value="Trudy"/>
-          </name>
+          <use value="official"/>
+          <family value="Tumor"/>
+          <given value="Trudy"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1040 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1040 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1248,15 +1305,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="43"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="43"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Vision, Victor. SSN:
@@ -1269,19 +1328,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Vision"/>
-            <given value="Victor"/>
-          </name>
+          <use value="official"/>
+          <family value="Vision"/>
+          <given value="Victor"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1043"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1041 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1041 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1289,16 +1348,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="44"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="44"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Carpenter, Calvin. SSN:
@@ -1311,19 +1372,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Carpenter"/>
-            <given value="Calvin"/>
-          </name>
+          <use value="official"/>
+          <family value="Carpenter"/>
+          <given value="Calvin"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1044"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1042 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1042 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1331,16 +1392,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="45"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="45"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Rhino, Rick. SSN:
@@ -1353,19 +1416,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Rhino"/>
-            <given value="Rick"/>
-          </name>
+          <use value="official"/>
+          <family value="Rhino"/>
+          <given value="Rick"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1045"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1043 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1043 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1373,15 +1436,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="46"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="46"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Slide, Stan. SSN:
@@ -1394,19 +1459,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Slide"/>
-            <given value="Stan"/>
-          </name>
+          <use value="official"/>
+          <family value="Slide"/>
+          <given value="Stan"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1010"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1010 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1010 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1414,15 +1479,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="47"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="47"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Kidder, Karen. SSN:
@@ -1435,19 +1502,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Kidder"/>
-            <given value="Karen"/>
-          </name>
+          <use value="official"/>
+          <family value="Kidder"/>
+          <given value="Karen"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1046"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1044 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1044 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1455,16 +1522,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="48"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="48"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Hollywood, Heddie. SSN:
@@ -1477,19 +1546,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Hollywood"/>
-            <given value="Heddie"/>
-          </name>
+          <use value="official"/>
+          <family value="Hollywood"/>
+          <given value="Heddie"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1047"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1045 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1045 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1497,16 +1566,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="49"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="49"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Shrink, Serena. SSN:
@@ -1519,19 +1590,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Shrink"/>
-            <given value="Serena"/>
-          </name>
+          <use value="official"/>
+          <family value="Shrink"/>
+          <given value="Serena"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1048"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1046 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1046 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1539,16 +1610,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="50"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="50"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Puffer, Penny. SSN:
@@ -1561,19 +1634,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Puffer"/>
-            <given value="Penny"/>
-          </name>
+          <use value="official"/>
+          <family value="Puffer"/>
+          <given value="Penny"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1049"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1047 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1047 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1581,16 +1654,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="51"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="51"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Curie, Christine. SSN:
@@ -1603,19 +1678,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Curie"/>
-            <given value="Christine"/>
-          </name>
+          <use value="official"/>
+          <family value="Curie"/>
+          <given value="Christine"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1011"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1011 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1011 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1623,16 +1698,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="52"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="52"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Joint, Jeffrey. SSN:
@@ -1645,19 +1722,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Joint"/>
-            <given value="Jeffrey"/>
-          </name>
+          <use value="official"/>
+          <family value="Joint"/>
+          <given value="Jeffrey"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1050"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1048 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1048 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1665,16 +1742,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="53"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="53"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Cutter, Carl. SSN:
@@ -1687,19 +1766,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Cutter"/>
-            <given value="Carl"/>
-          </name>
+          <use value="official"/>
+          <family value="Cutter"/>
+          <given value="Carl"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1013"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1013 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1013 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1707,15 +1786,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="54"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="54"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Plumber, Peter. SSN:
@@ -1728,19 +1809,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Plumber"/>
-            <given value="Peter"/>
-          </name>
+          <use value="official"/>
+          <family value="Plumber"/>
+          <given value="Peter"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1051"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1049 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1049 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1748,16 +1829,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="55"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="55"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Helper, Horace. SSN:
@@ -1770,19 +1853,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Helper"/>
-            <given value="Horace"/>
-          </name>
+          <use value="official"/>
+          <family value="Helper"/>
+          <given value="Horace"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1052"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1050 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1050 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1790,16 +1873,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="56"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="56"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Nightingale, Nancy. SSN:
@@ -1812,19 +1897,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Nightingale"/>
-            <given value="Nancy"/>
-          </name>
+          <use value="official"/>
+          <family value="Nightingale"/>
+          <given value="Nancy"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1014"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1014 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1014 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -1832,16 +1917,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="57"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="57"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Barton, Clarence. SSN:
@@ -1854,19 +1941,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Barton"/>
-            <given value="Clarence"/>
-          </name>
+          <use value="official"/>
+          <family value="Barton"/>
+          <given value="Clarence"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1015"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1015 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1015 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1874,16 +1961,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="58"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="58"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bender, Bob. SSN:
@@ -1896,19 +1985,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Bender"/>
-            <given value="Bob"/>
-          </name>
+          <use value="official"/>
+          <family value="Bender"/>
+          <given value="Bob"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1053"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1051 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1051 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1916,15 +2005,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="59"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="59"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chopper, Charlie. SSN:
@@ -1937,19 +2028,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Chopper"/>
-            <given value="Charlie"/>
-          </name>
+          <use value="official"/>
+          <family value="Chopper"/>
+          <given value="Charlie"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1054"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1052 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1052 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1957,16 +2048,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="60"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="60"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Brace, Ben. SSN:
@@ -1979,19 +2072,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Brace"/>
-            <given value="Ben"/>
-          </name>
+          <use value="official"/>
+          <family value="Brace"/>
+          <given value="Ben"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1055"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1053 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1053 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -1999,15 +2092,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="61"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="61"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Specs, Sylvia. SSN:
@@ -2020,19 +2115,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Specs"/>
-            <given value="Sylvia"/>
-          </name>
+          <use value="official"/>
+          <family value="Specs"/>
+          <given value="Sylvia"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1056"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1054 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1054 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -2040,16 +2135,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="62"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="62"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Script, Susan. SSN:
@@ -2062,34 +2159,36 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Script"/>
-            <given value="Susan"/>
-          </name>
+          <use value="official"/>
+          <family value="Script"/>
+          <given value="Susan"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1016"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1016 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1016 Healthcare Drive"/>
+        </address>
         <gender value="female" />
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="63"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="63"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Bunion, Paul. SSN:
@@ -2102,19 +2201,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Bunion"/>
-            <given value="Paul"/>
-          </name>
+          <use value="official"/>
+          <family value="Bunion"/>
+          <given value="Paul"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1057"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1055 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1055 Healthcare Drive"/>
+        </address>
 
 
         <gender value="male" />
@@ -2122,15 +2221,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="64"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="64"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Listener, Larry. SSN:
@@ -2143,19 +2244,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Listener"/>
-            <given value="Larry"/>
-          </name>
+          <use value="official"/>
+          <family value="Listener"/>
+          <given value="Larry"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1058"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1056 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1056 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -2163,16 +2264,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="65"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="65"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Beaker, Bill. SSN:
@@ -2185,19 +2288,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Beaker"/>
-            <given value="Bill"/>
-          </name>
+          <use value="official"/>
+          <family value="Beaker"/>
+          <given value="Bill"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1017"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1017 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1017 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -2205,15 +2308,17 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="66"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="66"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Chow, Connie. SSN:
@@ -2226,34 +2331,36 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Chow"/>
-            <given value="Connie"/>
-          </name>
+          <use value="official"/>
+          <family value="Chow"/>
+          <given value="Connie"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1018"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1018 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1018 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="67"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="67"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">teHelper. SSN: 000111111</xhtml:div>
@@ -2265,34 +2372,36 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Helper"/>
-            <given value="Helen"/>
-          </name>
+          <use value="official"/>
+          <family value="Helper"/>
+          <given value="Helen"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1019"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1019 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1019 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="68"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="68"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Player, Pamela. SSN:
@@ -2305,19 +2414,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Player"/>
-            <given value="Pamela"/>
-          </name>
+          <use value="official"/>
+          <family value="Player"/>
+          <given value="Pamela"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1059"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1057 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1057 Healthcare Drive"/>
+        </address>
 
         <gender value="female" />
 
@@ -2325,16 +2434,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="69"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="69"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Stretcher, Seth. SSN:
@@ -2347,19 +2458,19 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Stretcher"/>
-            <given value="Seth"/>
-          </name>
+          <use value="official"/>
+          <family value="Stretcher"/>
+          <given value="Seth"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1060"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1058 Healthcare Drive"/>
-          </address>
+          <use value="home"/>
+          <line value="1058 Healthcare Drive"/>
+        </address>
 
         <gender value="male" />
 
@@ -2367,16 +2478,18 @@
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
-  <item>
-    
-    <Practitioner xmlns="http://hl7.org/fhir">
-      <id value="70"/>
-      <meta>
-        <lastUpdated value="2012-05-29T23:45:32Z"/>
-      </meta>
+
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+
+      <Practitioner>
+        <id value="70"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN:
@@ -2389,27 +2502,28 @@
         </identifier>
 
         <name>
-            <use value="official"/>
-            <family value="Enter"/>
-            <given value="Ellen"/>
-          </name>
+          <use value="official"/>
+          <family value="Enter"/>
+          <given value="Ellen"/>
+        </name>
         <telecom>
           <system value="phone"/>
           <value value="555-555-1020"/>
           <use value="work"/>
         </telecom>
         <address>
-            <use value="home"/>
-            <line value="1058 Healthcare Drive"/>
-          </address>
-        
+          <use value="home"/>
+          <line value="1058 Healthcare Drive"/>
+        </address>
+
         <gender value="female" />
 
         <organization>
           <reference value="Organization/hl7"/>
         </organization>
       </Practitioner>
-    
-    
-  </item>
+
+
+    </resource>
+  </entry>
 </Bundle>

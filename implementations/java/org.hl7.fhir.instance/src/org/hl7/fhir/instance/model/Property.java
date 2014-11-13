@@ -50,7 +50,7 @@ public class Property {
 	/**
 	 * Internal constructor
 	 */
-	public Property(String name, String typeCode, String definition, int minCardinality, int maxCardinality, Element value) {
+	public Property(String name, String typeCode, String definition, int minCardinality, int maxCardinality, Base value) {
 	  super();
 	  this.name = name;
 	  this.typeCode = typeCode;

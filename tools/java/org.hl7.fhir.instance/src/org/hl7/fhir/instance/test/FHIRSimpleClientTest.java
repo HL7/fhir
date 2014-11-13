@@ -22,6 +22,7 @@ import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Patient;
 
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Condition;
@@ -278,7 +279,7 @@ public class FHIRSimpleClientTest {
 		testClient.update(Patient.class, patient, testPatientId);
 		Bundle feed = testClient.history(Patient.class, testPatientId);
 		assertNotNull(feed);
-		assertEquals(3, feed.getItem().size());
+		assertEquals(3, feed.getEntry().size());
 	}
 	
 	
@@ -292,7 +293,7 @@ public class FHIRSimpleClientTest {
 			testClient.update(Patient.class, patient, getEntryId(createdEntry));
 			Bundle feed = testClient.history(testDate, Patient.class);
 			assertNotNull(feed);
-			assertTrue(feed.getItem().size() > 0);
+			assertTrue(feed.getEntry().size() > 0);
 			testClient.delete(Patient.class, getEntryId(createdEntry));
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -309,7 +310,7 @@ public class FHIRSimpleClientTest {
 		testDate = new DateAndTime(cal);
 		Bundle feed = testClient.history(testDate);
 		assertNotNull(feed);
-		assertTrue(feed.getItem().size() > 1);
+		assertTrue(feed.getEntry().size() > 1);
 	}
 	
 	@Test
@@ -321,8 +322,8 @@ public class FHIRSimpleClientTest {
 		testDate = new DateAndTime(cal);
 		Bundle feed = testClient.history(testDate);
 		assertNotNull(feed);
-		System.out.println(feed.getItem().size());
-		assertTrue(feed.getItem().size() > 1);
+		System.out.println(feed.getEntry().size());
+		assertTrue(feed.getEntry().size() > 1);
 	}
 
 	@Test
@@ -335,7 +336,7 @@ public class FHIRSimpleClientTest {
 		testClient.update(Patient.class, patient, getEntryId(entry));
 		Bundle feed = testClient.history(testDate, Patient.class, getEntryId(entry));
 		assertNotNull(feed);
-		assertEquals(3, feed.getItem().size());
+		assertEquals(3, feed.getEntry().size());
 		testClient.delete(Patient.class, getEntryId(entry));
 	}
 
@@ -347,8 +348,8 @@ public class FHIRSimpleClientTest {
 		parameters.put("birthdate", "2008-08-08");
 		Bundle feed = testClient.search(Patient.class, parameters);
 		assertTrue(feed != null);
-		System.out.println(feed.getItem().size());
-		assertTrue(feed.getItem().size() > 0);
+		System.out.println(feed.getEntry().size());
+		assertTrue(feed.getEntry().size() > 0);
 	}
 	
 	@Test
@@ -362,7 +363,7 @@ public class FHIRSimpleClientTest {
 			Patient patient = buildPatient(fullName, firstName, lastName);
 			OperationOutcome createdPatientEntry = testClient.create(Patient.class, patient);
 			Bundle feed = testClient.search(Patient.class, searchMap);
-			int resultSetSize = feed.getItem().size();
+			int resultSetSize = feed.getEntry().size();
 			System.out.println(resultSetSize);
 			assertTrue(resultSetSize == 1);
 			testClient.delete(Patient.class, getEntryId(createdPatientEntry));
@@ -386,12 +387,12 @@ public class FHIRSimpleClientTest {
 			OperationOutcome createdObservationEntry = testClient.create(Observation.class, obs);
 			obs.setId(getEntryPath(createdObservationEntry));
 			Bundle batchFeed = new Bundle();
-			batchFeed.getItem().add(patient);
-			batchFeed.getItem().add(obs);
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(obs));
 			System.out.println(new String(ClientUtils.getFeedAsByteArray(batchFeed, false, false)));
 			Bundle responseFeed = testClient.transaction(batchFeed);
 			assertNotNull(responseFeed);
-			assert(responseFeed.getItem().get(0) instanceof Patient);
+			assert(responseFeed.getEntry().get(0).getResource() instanceof Patient);
 		}catch(Exception e) {
 			e.printStackTrace();
 			fail();
@@ -404,7 +405,7 @@ public class FHIRSimpleClientTest {
 			Patient patient = buildPatient();
 			Bundle batchFeed = new Bundle();
 			patient.setId("cid:Patient/temp1");
-			batchFeed.getItem().add(patient);
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
 			Bundle responseFeed = null;
 			try {
 				responseFeed = testClient.transaction(batchFeed);
@@ -413,7 +414,7 @@ public class FHIRSimpleClientTest {
 				fail();
 			}
 			assertNotNull(responseFeed);
-			assertEquals(1, responseFeed.getItem().size());
+			assertEquals(1, responseFeed.getEntry().size());
 		} catch(Exception e) {
 			fail();
 		}
@@ -427,7 +428,7 @@ public class FHIRSimpleClientTest {
 			patient.setBirthDate(new DateAndTime("1966-01-10"));
 			Bundle batchFeed = new Bundle();
 			patient.setId(getEntryPath(createdPatientEntry));
-			batchFeed.getItem().add(patient);
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
 			Bundle responseFeed = null;
 			try {
 				responseFeed = testClient.transaction(batchFeed);
@@ -436,7 +437,7 @@ public class FHIRSimpleClientTest {
 				fail();
 			}
 			assertNotNull(responseFeed);
-			assertEquals(1, responseFeed.getItem().size());
+			assertEquals(1, responseFeed.getEntry().size());
 			testClient.delete(Patient.class, getEntryId(createdPatientEntry));
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -452,8 +453,8 @@ public class FHIRSimpleClientTest {
 			patient.setBirthDate(new DateAndTime("1966-01-10"));
 			Bundle batchFeed = new Bundle();
 			patient.setId(getEntryId(createdPatientEntry));
-			batchFeed.getItem().add(patient);
-			batchFeed.getItem().add(patient);
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
+			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
 			Bundle responseFeed = null;
 			try {
 				responseFeed = testClient.transaction(batchFeed);

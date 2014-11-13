@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -885,18 +885,8 @@ public class XmlComposer extends XmlComposerBase {
       composeInteger("total", element.getTotalElement());
       for (Bundle.BundleLinkComponent e : element.getLink()) 
         composeBundleBundleLinkComponent("link", e);
-      for (Resource e : element.getItem()) 
-      {
-        xml.open(FHIR_NS, "item");
-        composeResource(e);
-        xml.close(FHIR_NS, "item");
-      }
-      for (Resource e : element.getInclude()) 
-      {
-        xml.open(FHIR_NS, "include");
-        composeResource(e);
-        xml.close(FHIR_NS, "include");
-      }
+      for (Bundle.BundleEntryComponent e : element.getEntry()) 
+        composeBundleBundleEntryComponent("entry", e);
       composeBase64Binary("signature", element.getSignatureElement());
       xml.close(FHIR_NS, name);
     }
@@ -909,6 +899,37 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeString("relation", element.getRelationElement());
       composeUri("url", element.getUrlElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeUri("base", element.getBaseElement());
+      if (element.getStatusElement() != null)
+        composeEnumeration("status", element.getStatusElement(), new Bundle.BundleEntryStatusEnumFactory());
+      composeUri("search", element.getSearchElement());
+      composeBundleBundleEntryDeletedComponent("deleted", element.getDeleted());
+      if (element.getResource() != null) {
+        xml.open(FHIR_NS, "resource");
+        composeResource(element.getResource());
+        xml.close(FHIR_NS, "resource");
+      }
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCode("type", element.getTypeElement());
+      composeId("id", element.getIdElement());
+      composeInstant("instant", element.getInstantElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3170,16 +3191,35 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       for (CodeableConcept e : element.getCode()) 
         composeCodeableConcept("code", e);
-      for (CodeableConcept e : element.getNutrientModifier()) 
-        composeCodeableConcept("nutrientModifier", e);
-      composeType("nutrientAmount", element.getNutrientAmount());
-      for (CodeableConcept e : element.getTextureModifier()) 
-        composeCodeableConcept("textureModifier", e);
-      for (CodeableConcept e : element.getFoodType()) 
-        composeCodeableConcept("foodType", e);
+      for (NutritionOrder.NutritionOrderItemOralDietNutrientsComponent e : element.getNutrients()) 
+        composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent("nutrients", e);
+      for (NutritionOrder.NutritionOrderItemOralDietTextureComponent e : element.getTexture()) 
+        composeNutritionOrderNutritionOrderItemOralDietTextureComponent("texture", e);
       for (CodeableConcept e : element.getFluidConsistencyType()) 
         composeCodeableConcept("fluidConsistencyType", e);
       composeString("description", element.getDescriptionElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCodeableConcept("modifier", element.getModifier());
+      composeType("amount", element.getAmount());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeCodeableConcept("modifier", element.getModifier());
+      composeCodeableConcept("foodType", element.getFoodType());
       xml.close(FHIR_NS, name);
     }
   }

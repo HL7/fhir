@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Nov 12, 2014 22:07+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 13, 2014 15:52+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1467,22 +1467,10 @@ public class JsonComposer extends JsonComposerBase {
           composeBundleBundleLinkComponent(null, e);
         closeArray();
       };
-      if (element.getItem().size() > 0) {
-        openArray("item");
-        for (Resource e : element.getItem()) {
-          open(null);
-          composeResource(e);
-          close();
-        }
-        closeArray();
-      };
-      if (element.getInclude().size() > 0) {
-        openArray("include");
-        for (Resource e : element.getInclude()) {
-          open(null);
-          composeResource(e);
-          close();
-        }
+      if (element.getEntry().size() > 0) {
+        openArray("entry");
+        for (Bundle.BundleEntryComponent e : element.getEntry()) 
+          composeBundleBundleEntryComponent(null, e);
         closeArray();
       };
       composeBase64BinaryCore("signature", element.getSignatureElement(), false);
@@ -1503,6 +1491,50 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("relation", element.getRelationElement(), false);
       composeUriCore("url", element.getUrlElement(), false);
       composeUriExtras("url", element.getUrlElement(), false);
+  }
+
+  private void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBundleBundleEntryComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeBundleBundleEntryComponentInner(Bundle.BundleEntryComponent element) throws Exception {
+      composeBackbone(element);
+      composeUriCore("base", element.getBaseElement(), false);
+      composeUriExtras("base", element.getBaseElement(), false);
+      if (element.getStatusElement() != null) {
+        composeEnumerationCore("status", element.getStatusElement(), new Bundle.BundleEntryStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Bundle.BundleEntryStatusEnumFactory(), false);
+      }
+      composeUriCore("search", element.getSearchElement(), false);
+      composeUriExtras("search", element.getSearchElement(), false);
+      composeBundleBundleEntryDeletedComponent("deleted", element.getDeleted());
+        if (element.getResource() != null) {
+          open("resource");
+          composeResource(element.getResource());
+          close();
+        }
+  }
+
+  private void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBundleBundleEntryDeletedComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeBundleBundleEntryDeletedComponentInner(Bundle.BundleEntryDeletedComponent element) throws Exception {
+      composeBackbone(element);
+      composeCodeCore("type", element.getTypeElement(), false);
+      composeCodeExtras("type", element.getTypeElement(), false);
+      composeIdCore("id", element.getIdElement(), false);
+      composeIdExtras("id", element.getIdElement(), false);
+      composeInstantCore("instant", element.getInstantElement(), false);
+      composeInstantExtras("instant", element.getInstantElement(), false);
   }
 
   private void composeCarePlan(String name, CarePlan element) throws Exception {
@@ -5343,23 +5375,16 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.getNutrientModifier().size() > 0) {
-        openArray("nutrientModifier");
-        for (CodeableConcept e : element.getNutrientModifier()) 
-          composeCodeableConcept(null, e);
+      if (element.getNutrients().size() > 0) {
+        openArray("nutrients");
+        for (NutritionOrder.NutritionOrderItemOralDietNutrientsComponent e : element.getNutrients()) 
+          composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(null, e);
         closeArray();
       };
-      composeType("nutrientAmount", element.getNutrientAmount());
-      if (element.getTextureModifier().size() > 0) {
-        openArray("textureModifier");
-        for (CodeableConcept e : element.getTextureModifier()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.getFoodType().size() > 0) {
-        openArray("foodType");
-        for (CodeableConcept e : element.getFoodType()) 
-          composeCodeableConcept(null, e);
+      if (element.getTexture().size() > 0) {
+        openArray("texture");
+        for (NutritionOrder.NutritionOrderItemOralDietTextureComponent e : element.getTexture()) 
+          composeNutritionOrderNutritionOrderItemOralDietTextureComponent(null, e);
         closeArray();
       };
       if (element.getFluidConsistencyType().size() > 0) {
@@ -5370,6 +5395,34 @@ public class JsonComposer extends JsonComposerBase {
       };
       composeStringCore("description", element.getDescriptionElement(), false);
       composeStringExtras("description", element.getDescriptionElement(), false);
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeNutritionOrderNutritionOrderItemOralDietNutrientsComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponentInner(NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+      composeBackbone(element);
+      composeCodeableConcept("modifier", element.getModifier());
+      composeType("amount", element.getAmount());
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeNutritionOrderNutritionOrderItemOralDietTextureComponentInner(element);
+      close();
+    }
+  }
+
+  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponentInner(NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+      composeBackbone(element);
+      composeCodeableConcept("modifier", element.getModifier());
+      composeCodeableConcept("foodType", element.getFoodType());
   }
 
   private void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {

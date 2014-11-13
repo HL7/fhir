@@ -24,19 +24,23 @@ Outstanding issues:
 FHIR resources can be used to build documents that represent a composition:
 a set of coherent information that is a statement of healthcare information, 
 particularly including clinical observations and services. 
-
 A document is an immutable set of resources with a fixed presentation 
 that is authored and/or attested by humans, organizations and devices. 
-
+</p>
+<p>
 Documents built in this fashion may be exchanged between systems and also 
 persisted in document storage and management systems, including systems such as IHE 
 XDS. 
+</p>
+<p>
 
 Applications claiming conformance to this framework claim to be conformant to 
 "FHIR documents". 
-
+</p>
+<p>
 FHIR documents may be 'clinical' (focused on patient healthcare information) but
-may also serve non-clinical purposes (e.g. practice guidelines, patient handouts, etc.)
+may also serve non-clinical purposes (e.g. FHIR Implementation guides, practice 
+guidelines, patient handouts, etc.)
 HL7 will develop profiles in the future giving additional guidance on appropriate 
 representation of clinical documents in general as well as specific types of clinical 
 documents (e.g. Consolidated CDA).
@@ -49,20 +53,19 @@ general references to other documents.
 </p>
 <ul>
  <li>Example Document: <a href="query-example-request.xml.html">XML</a> or <a href="query-example-request.json.html">JSON</a></li>
+ <li><a href="document-example-dischargesummary.html">Example discharge summary</a>: <a href="document-example-dischargesummary.xml.html">XML</a> or <a href="document-example-dischargesummary.json.html">JSON</a></li>
 </ul>
-
-<tr><td><a href="document-example-dischargesummary.html">Example of a discharge summary</a></td><td><a href="document-example-dischargesummary.xml.html">XML</a></td><td><a href="document-example-dischargesummary.json.html">JSON</a></td></tr>
 
 <h2>Document Content</h2>
 
 <p>
-All documents have the same structure: a <a href="extras.html#bundle">bundle</a> 
-<a href="extras.html#tags">of resources identified by the tag</a> "http://hl7.org/fhir/tag/document" 
+All documents have the same structure: a <a href="bundle.html">Bundle</a> 
+of resources of <a href="bundle-definitions.html#Bundle.type">type</a> "document"
 that has a <a href="composition.html">Composition</a> resource as the first resource 
 in the bundle, followed by a series of other resources referenced from the <i>Composition</i> 
 resource that provides guidance on how they fit together. The bundle gathers all the content
-of the document into a single XML document which may be signed and managed as required. The 
-resources include both human readable and computer processable portions. In addition, the bundle 
+of the document into a single XML or JSON document which may be signed and managed as required. 
+The resources include both human readable and computer processable portions. In addition, the bundle 
 may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a> 
 <a href="provenance.html">provenance</a> statements, and a signature.
 </p>
@@ -94,7 +97,7 @@ The document bundle SHALL NOT include any resources not on this list:
 There are two key identifiers on the document:
 </p>
 <ul>
- <li>The document identifier (mandatory). This is found in <i>feed.id</i> and is unique for this instance of the document, and is never re-used</li>
+ <li>The document identifier (mandatory). This is found in <i>Bundle.id</i> and is unique for this instance of the document, and is never re-used</li>
  <li>The Composition identifier (optional). This is found in <i>Composition.identifier</i>, and is the same for all documents that are derived from this composition</li> 
 </ul>
 
@@ -102,14 +105,14 @@ There are two key identifiers on the document:
 The document has several dates in it:
 </p>
 <ul>
- <li>The document date (mandatory). This is found in <i>feed.updated</i> and identifies when the document bundle was assembled from the underlying resources</li>
+ <li>The document date (mandatory). This is found in <i>Bundle.meta.lastUpdated</i> and identifies when the document bundle was assembled from the underlying resources</li>
  <li>The Composition date (mandatory). This is found in <i>Composition.instant</i>, which is when the author wrote the document logically</li> 
  <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li> 
- <li>The Composition last modified time (mandatory per Atom). This is found in <i>entry.updated</i> for the composition, and is the last date of change of the composition. This must be &gt;= the composition date</li> 
+ <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition, and is the last date of change of the composition. This must be &gt;= the composition date</li> 
 </ul>
 <p>
 Document Bundles may be signed using digital signatures following the rules laid out in 
-the <a href="http://tools.ietf.org/html/rfc4287" target="_blank">Atom specification</a>. 
+the <a href="signatures.html">digital signatures</a> page. 
 The signature SHOULD be provided by a listed attester of the document and the signature 
 SHOULD contain a <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank">KeyInfo 
 element</a> that contains a KeyName element whose value is a URI that matches the Atom <i>link</i> 
@@ -160,10 +163,13 @@ must be followed, a document can reference or contain one or more stylesheets th
 apply to the collated narrative. This is done by asserting stylesheet links on the feed:
 </p>
 <pre class="xml">
-&lt;feed xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;  
-  &lt;title&gt;FHIR Document&lt;/title&gt;
-  &lt;id&gt;urn:uuid:e1db84d2-a524-40a3-827b-076a277ef7df&lt;/id&gt;
-  &lt;link rel=&quot;stylesheet&quot; href=&quot;[uri]&quot;/&gt;
+&lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;  
+  &lt;!-- metadata and type --&gt;
+  &lt;link&gt;
+    &lt;relation value=&quot;stylesheet&quot;/&gt;
+    &lt;url value=&quot;[uri]&quot;/&gt;
+  &lt;/link&gt;
+&lt;/Bundle&gt;  
 </pre>
 <p>
 The uri can be an absolute reference to a CSS stylesheet or
@@ -252,36 +258,6 @@ they SHOULD either withdraw data extracted from superseded documents or warn use
 they view the document or data taken from it.
 </p>
 
-<a name="signatures"> </a>
-<h2>Signing Documents</h2>
-<p>
-Documents may have either an <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
-or a <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached</a> signature. 
-</p>
-<p>
-Enveloped signatures are included in the document using the technique described for 
-<a href="http://tools.ietf.org/html/rfc4287#section-5.1">Atom signatures</a>. 
-There is a single signature that signs the entire feed (e.g. on atom:feed). 
-The obligations described in the Atom specification apply, with the proviso 
-that atom:source has no use for Documents, and therefore there is no need 
-to create the atom:source elements. 
-</p>
-<p>
-Whether documents are signed with an enveloped or a detached signature, applications
-processing documents need to relate the document to an existing document participant.
-For this reasons, the keyName in the signature SHOULD contain a uri that points 
-directly to one of the document participants (person, device or organization)
-by the resource identity.
-</p>
-<p>
-If the document is represented in <a href="json.html">JSON</a>, the same signature
-rules apply, and the signature is represented described for <a href="json.html#sig">JSON</a>.
-</p>
-
-
-
-
-
 <a name="bundle"> </a>
 <h2>Document End-Points</h2>
 
@@ -292,9 +268,9 @@ of posting to them:
 </p>
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
- <tr> <td>[baseurl]/Document</td> <td>Document Bundle</td> <td>This works like a normal end point 
+ <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end point 
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles. The search parameters
-   exposed by this end-point are those of the composition resource from the document bundle</td> </tr>
+   exposed by this end-point are those of the bunde, and the composition resource from the document bundle. <i>todo - what happens to parameters from base resource?</i></td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document or after breaking a document up into 
@@ -311,7 +287,7 @@ of posting to them:
    server can reassemble the document (see below), the result cannot be expected to be in the same order, etc.  Thus a document signature will
    very likely be invalid.)</td> </tr>
    
- <tr> <td><a href="messaging.html#mailbox">[baseurl]/Mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
+ <tr> <td><a href="messaging.html#mailbox">[baseurl]/$mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
  document to the server for processing. The exact processing the server performs is at the discretion of the
  server. It MAY perform one or more of these actions:
   <ul>

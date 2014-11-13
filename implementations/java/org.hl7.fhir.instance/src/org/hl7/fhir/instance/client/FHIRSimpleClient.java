@@ -637,7 +637,7 @@ public class FHIRSimpleClient implements FHIRClient {
   public ValueSet expandValueset(ValueSet source) throws Exception {
     Bundle searchResults = null;
     searchResults = ClientUtils.issuePostFeedRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand"), new HashMap<String, String>(), "valueSet", source, getPreferredFeedFormat());
-    return (ValueSet) searchResults.getItem().get(0);
+    return (ValueSet) searchResults.getEntry().get(0).getResource();
   }
 
 }

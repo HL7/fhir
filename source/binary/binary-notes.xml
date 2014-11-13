@@ -21,4 +21,61 @@ unless specifically requested, the FHIR XML/JSON representation is not returned.
 Note that in the native binary represnetation, the metadata is not available directly,
 though some of it is replicated in the HTTP response headers.
 </p>
+<!--
+<a name="binary"> </a>
+<h3>Binary Support</h3>
+<p>
+FHIR servers can choose to support <a href="extras.html#binary">Binary Resources</a>
+at the end point [base]/Binary. The binary end-point accepts
+any kind of content, such as images and other media, documents (CDA, 
+PDF, Word etc.), plain text, XML or anything else, and stores the 
+content as is, along with the content type provided by the HTTP headers. 
+</p>
+<p>
+Binary resources function with the same interactions as described
+above. The _format  parameter has no meaning when used with binary 
+resources: they are always represented using their original content type.
+</p>
+<p>
+Note that on GET, POST, and PUT operations, the http content-type
+header is the mime type of the binary resource, and the HTTP body is
+the resource in its binary form. (The <a href="xml.html#binary">XML</a> 
+and <a href="json.html#binary">JSON</a> Bundle Representations for binary 
+resources are only used in bundles). 
+</p>
+<div class="example">
+<p>
+Here is the request and response to a read operation on a CDA document:
+</p>
+<pre>
+GET /[path]/Binary/4 HTTP/1.1
+Host: [server]
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
+ETag: 1
+Content-Location: http://[server]/[path]/Binary/4/_history/1
+
+&lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+  xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
+...  [snip] ...
+&lt;/ClinicalDocument&gt;
+</pre>
+</div>
+
+<p>
+Searching Binary resources may use the following parameters:
+</p>
+
+<table class="list">
+<tbody><tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td></tr>
+<tr><td>_id</td><td><a href="search.html#token">token</a></td><td>The logical resource id associated with the resource (must be supported by all servers)</td></tr>
+<tr><td>size</td><td><a href="search.html#number">number</a></td><td>Size of the resource in bytes</td></tr>
+<tr><td>contenttype</td><td><a href="search.html#token">token</a></td><td>Content Type of the resource</td></tr>
+</tbody></table>
+
+-->
 </div>

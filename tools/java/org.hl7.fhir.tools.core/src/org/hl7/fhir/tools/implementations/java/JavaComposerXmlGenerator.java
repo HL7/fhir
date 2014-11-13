@@ -437,9 +437,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
       } else if (isJavaPrimitive(e)) {
         write("      "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
       } else if (e.typeCode().equals("Resource")) {
-        write("      {\r\n");
+        write("      if (element.get"+upFirst(getElementName(name, false))+"() != null) {\r\n");
         write("        xml.open(FHIR_NS, \""+name+"\");\r\n");
-        write("        "+comp+"(element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
+        write("        "+comp+"(element.get"+upFirst(getElementName(name, false))+"());\r\n");
         write("        xml.close(FHIR_NS, \""+name+"\");\r\n");
         write("      }\r\n");
       } else {

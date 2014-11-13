@@ -21,8 +21,8 @@ Applications asserting conformance to this framework claim to be conformant to "
 <p>
 In FHIR messaging, a "request message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the 
-real world. The request message consists of a <a href="extras.html#bundle">bundle</a>
-<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
+real world. The request message consists of a <a href="bundle.html">Bundle</a> identified 
+by the <a href="bundle-definitions.html#Bundle.type">type</a> "message", 
 with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a> 
 resource. The MessageHeader resource has a code - the message event - that identifies the 
 nature of the request message, and it also carries additional request metadata. 
@@ -33,9 +33,9 @@ The events supported in FHIR, along with the resources that are included in them
 </p>
 <p>
 The destination application processes the request and returns one or more response messages 
-which are also a <a href="extras.html#bundle">bundle</a> of resources
-<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
-resource in the bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
+which are also a <a href="bundle.html">bundle</a> of resources identified 
+by the <a href="bundle-definitions.html#Bundle.type">type</a> "message", with the first 
+resource in each bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
 section that reports the outcome of processing the message and any additional response 
 resources required. 
 </p>
@@ -43,6 +43,7 @@ resources required.
  <li>Example Request Message: <a href="query-example-request.xml.html">XML</a> or <a href="query-example-request.json.html">JSON</a></li>
  <li>Example Response Message: <a href="query-example-response.xml.html">XML</a> or <a href="query-example-response.json.html">JSON</a></li>
 </ul>
+
 <h2>Basic Messaging Assumptions</h2>
 
 <p>
@@ -76,13 +77,6 @@ in both directions.
 <p>
 A key aspect of a message is the impact of its content:
 </p>
-<!--
-<table class="grid">
- <tr> <td>Consequence</td> <td>The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment</td> </tr>
- <tr> <td>Currency</td> <td>The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful</td> </tr>
- <tr> <td>Notification</td> <td>The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications</td> </tr>
-</table>
--->
 [%codelist MessageSignificanceCategory%]
 <p>
 Some Events defined by FHIR are assigned to one of these categories, 
@@ -110,7 +104,7 @@ delivery of messages.
 For this reason, a synchronous exchange pattern - where the sender sends a 
 message, and waits on the same channel for a single response, and then 
 sends the next message - are the easiest to understand and manage. The 
-<a href="#mailbox">Mailbox</a> described below works in this fashion.
+<a href="#mailbox">mailbox</a> described below works in this fashion.
 </p>
 <p>
 However synchronous message exchange does not cater for multiple response 
@@ -121,22 +115,22 @@ none are described in detail in this specification.
 </p>
 
 
-<h3>Message Identifiers</h3>
+<h3>MessageHeader.identifiers</h3>
 <p>
-An incoming message contains two identifiers: the envelope id 
-(<a href="extras.html#bundles">feed</a>.id) and the <a href="messageheader.html">message</a>.identifier. 
-Each time a new message is created, it SHALL be assigned an identifier that is 
-unique within that message stream. Note that since message streams are often 
-merged with other streams, it is recommended that the identifier should be globally 
-unique. This can be achieved by using a UUID or an OID or appropriately 
-chosen URI with a serially incrementing number. Each time a message is sent, 
-the bundle identifier (feed.id) should be changed to a new value. 
+An incoming message contains two identifiers: the Bundle.id and 
+the <a href="messageheader.html">MessageHeader</a>.identifier. 
+Each time a new message is created, it SHALL be assigned an identifier 
+(MessageHeader.identifier) that is unique within that message stream. 
+Note that since message streams are often merged with other streams, 
+it is recommended that the identifier should be globally unique. 
+This can be achieved by using a UUID or an OID. Each time a message is sent, 
+the Bundle.id should be changed to a new value. 
 </p>
 <p>
 When a receiver receives and processes the message, it responds with a 
 new message with a new identifier, wrapped in a bundle which also has a new id. 
-The response message also quotes the request message identifier so that the source
-system can relate the response to its request.
+The response message also quotes the request MessageHeader.identifier so that 
+the source system can relate the response to its request.
 </p>
 
 <a name="reliable"> </a>
@@ -156,20 +150,20 @@ the following when it receives no response to a message within a
 configured timeout period:
 </p>
 <table class="grid">
- <tr><td>Consequence</td><td>Resend the same message (including with the same identifier) with the same envelope id</td></tr>
- <tr><td>Currency</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
- <tr><td>Notification</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
+ <tr><td>Consequence</td><td>Resend the same message (with the same identifier) with the same Bundle.id</td></tr>
+ <tr><td>Currency</td><td>Resend the same message (with the same identifier) with a different Bundle.id</td></tr>
+ <tr><td>Notification</td><td>Resend the same message (with the same identifier) with a different Bundle.id</td></tr>
 </table>
 <p>
-When a receiver implements reliable messaging, it SHALL check the incoming envelope 
-id and message identifier against a cache of previously received messages. The 
+When a receiver implements reliable messaging, it SHALL check the incoming Bundle.id 
+and MessageHeader.identifier against a cache of previously received messages. The 
 correct action to take depends on what is received:
 </p>
 <table class="grid">
- <tr><td>Both the envelope id and message identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
+ <tr><td>Both the Bundle.id and MessageHeader.identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
  <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
- <tr><td>The message identifier has already been received, but the envelope id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
- <tr><td>The envelope id has already been received, but the message identifier is new</td><td>This is an error - envelope ids should never be reused</td></tr>
+ <tr><td>The MessageHeader.identifier has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
+ <tr><td>The Bundle.id has already been received, but the MessageHeader.identifier is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
 </table>
 <p>
 The duration period for caching does generally not need to be very long. At a minimum, it 
@@ -187,8 +181,8 @@ In the first example, a Clinical EHR issues an order for a particular imaging ex
 to be performed on a patient. This is considered to be a message of <b>Consequence</b>: multiple
 orders should not be created (in practice there are usually human review processes that 
 catch multiple orders, but repeat orders create entropy in the system that is harmful). 
-The EHR sends a message where the envelope id (feed.id) is UUID 1 (urn:uuid:72edc4e0-6708-42ab-9734-f56721882c10), 
-with a Message Header that contains a message id of UUID 2 (urn:uuid:dad53a57-dcb4-4f18-b066-7239eb4b5229).
+The EHR sends a message where the Bundle.id is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10), 
+with a MessageHeader.identifier of UUID 2 (dad53a57-dcb4-4f18-b066-7239eb4b5229).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
@@ -217,21 +211,20 @@ response portion of the returned message.
 In this second example, a Clinical EHR needs to know what appointment slots are available
 for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are 
 ever disappearing, and ordering a slot that has become unavailable is a waste of time for 
-the humans and systems involved. The EHR sends a message where the envelope id (feed.id) is 
-UUID 3 (urn:uuid:4c7f5cb2-5964-4d42-b719-e0227461818c), with a Message Header that contains 
-a message id of UUID 4 (urn:uuid:63ED7D68-B2CC-421D-BA1C-A6C7785581F2).
+the humans and systems involved. The EHR sends a message where the Bundle.id is 
+UUID 3 (4c7f5cb2-5964-4d42-b719-e0227461818c), with a MessageHeader.identifier is 
+UUID 4 (63ed7d68-b2cc-421d-ba1c-a6c7785581f2).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
 message got lost, or the imaging management systems was unable to process the request, or whether
 it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same message id (UUID 4), but creates a new envelope id (feed.id):
-(urn:uuid:c7c17fe4-9560-49c7-b2ae-42636476fb86).
+resends the message with same MessageHeader.identifier (UUID 4), but creates a new Bundle.id (c7c17fe4-9560-49c7-b2ae-42636476fb86).
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. When 
 it receives the resent order after 1 minute (which is within its 15 minute cache time), it 
-sees that although the message id is the same, the envelope id has changed, and it reprocesses
+sees that although the message id is the same, the Bundle.id has changed, and it reprocesses
 the message again, and sends a new response.
 </p>
 <p>
@@ -241,9 +234,9 @@ on the imaging management system responded.
 <p>
 Note that the existence of active intermediaries (or "middleware") creates the need
 for this protocol - the original sender matches the response to the request based on the 
-message id, and so an active intermediary that choose the re-initiate a query that
-it previously relayed cannot change the message id. This protocol avoids the need for
-the message id to change, and only requires change to the envelope id which is never
+MessageHeader.id, and so an active intermediary that choose the re-initiate a query that
+it previously relayed cannot change the MessageHeader.identifier. This protocol avoids the need for
+the MessageHeader.identifier to change, and only requires change to the Bundle.id which is never
 the basis for context linking outside the immediate message exchange protocol described
 here.
 </p>
@@ -307,7 +300,7 @@ This simple mailbox profile can be used by any HTTP end point that accepts FHIR 
 FHIR RESTful servers.
 </p>
 <p>
-In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of envelope id and 
+In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and 
 message id described above</a> SHALL be followed when messages are processed using the mailbox. No such rules apply regarding
 documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
 accept multiple document submissions and process them correctly.

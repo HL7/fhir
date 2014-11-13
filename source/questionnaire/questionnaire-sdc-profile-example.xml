@@ -5,12 +5,13 @@
     <lastUpdated value="2014-05-15T17:25:15Z"/>
   </meta>
   <type value="collection"/>
-  <item>    
-    <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="F8-1.2"/>
-      <meta>
-        <lastUpdated value="2014-05-15T17:25:15Z"/>
-      </meta>
+  <entry>    
+    <resource>
+      <Questionnaire>
+        <id value="F8-1.2"/>
+        <meta>
+          <lastUpdated value="2014-05-15T17:25:15Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
@@ -768,7 +769,7 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
-<!--                        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
+                        <!--                        <extension url="http://hl7.org/fhir/ExtensionDefinition/minValue">
                           <valueInteger value="??"/>
                         </extension>
                         <extension url="http://hl7.org/fhir/ExtensionDefinition/maxValue">
@@ -1085,15 +1086,16 @@
           </group>
         </group>
       </Questionnaire>
-    
-  </item>
-  <item>
-    
-    <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="HERF-1.2"/>
-      <meta>
-        <lastUpdated value="2014-05-15T17:25:15Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>    
+      <Questionnaire>
+        <id value="HERF-1.2"/>
+        <meta>
+          <lastUpdated value="2014-05-15T17:25:15Z"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
@@ -1521,15 +1523,16 @@
           </group>
         </group>
       </Questionnaire>
-    
-  </item>
-  <item>
-    
-    <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="3921052v1.0"/>
-      <meta>
-        <lastUpdated value="2014-05-15T17:25:15Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>    
+      <Questionnaire>
+        <id value="3921052v1.0"/>
+        <meta>
+          <lastUpdated value="2014-05-15T17:25:15Z"/>
+        </meta>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -2019,15 +2022,16 @@
           </group>
         </group>
       </Questionnaire>
-    
-  </item>
-  <item>
-    
-    <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="2674812v4.0"/>
-      <meta>
-        <lastUpdated value="2014-05-15T17:25:15Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>    
+      <Questionnaire>
+        <id value="2674812v4.0"/>
+        <meta>
+          <lastUpdated value="2014-05-15T17:25:15Z"/>
+        </meta>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -3380,15 +3384,16 @@
           </group>
         </group>
       </Questionnaire>
-    
-  </item>
-  <item>
-    
-    <Questionnaire xmlns="http://hl7.org/fhir">
-      <id value="3265657v2.0"/>
-      <meta>
-        <lastUpdated value="2014-05-15T17:25:15Z"/>
-      </meta>
+
+    </resource>
+  </entry>
+  <entry>
+    <resource>    
+      <Questionnaire>
+        <id value="3265657v2.0"/>
+        <meta>
+          <lastUpdated value="2014-05-15T17:25:15Z"/>
+        </meta>
         <language value="en"/>
         <text>
           <status value="generated"/>
@@ -24243,6 +24248,7 @@
           </group>
         </group>
       </Questionnaire>
-    
-  </item>
+
+    </resource>
+  </entry>
 </Bundle>

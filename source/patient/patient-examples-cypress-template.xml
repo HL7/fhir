@@ -6,33 +6,35 @@
     <lastUpdated value="2012-05-29T23:45:32Z"/> 
   </meta> 
   <type value="collection"/> [%loop count=70%]
-  <item>
-    <Patient xmlns="http://hl7.org/fhir">
-      <id value="[%count%]"/>
-      <meta>
-        <lastUpdated value="2012-06-03T23:45:32Z"/>
-      </meta>
-      <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">[%last name%], [%first name%]. MRN:
+  <entry>
+    <resource>
+      <Patient>
+        <id value="[%count%]"/>
+        <meta>
+          <lastUpdated value="2012-06-03T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">[%last name%], [%first name%]. MRN:
           [%patient_id%]</div>
-      </text>
-      <identifier>
-        <label value="SSN"/>
-        <system value="https://github.com/projectcypress/cypress/patient"/>
-        <value value="[%patient_id%]"/>
-      </identifier>
-      <name>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="[%patient_id%]"/>
+        </identifier>
+        <name>
           <use value="official"/>
           <family value="[%last name%]"/>
           <given value="[%first name%]"/>
         </name>
-      <gender value="[%gender%]" />
-      <birthDate value="[%birthdate%]"/>
-      <managingOrganization>
-        <reference value="Organization/[%organization%]"/>
-      </managingOrganization>
-      <active value="true"/>
-    </Patient>
-  </item> [%endloop%] 
+        <gender value="[%gender%]" />
+        <birthDate value="[%birthdate%]"/>
+        <managingOrganization>
+          <reference value="Organization/[%organization%]"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </resource>
+  </entry> [%endloop%] 
 </Bundle>

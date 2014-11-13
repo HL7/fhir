@@ -32,17 +32,18 @@ bundle, but this is not required
     <lastUpdated value="2014-01-30T22:35:23+11:00"/>
   </meta>
   <type value="collection"/>
-  
+
   <!-- first entry: the single resource with combined
      narrative, and links to the 2 component resources -->
-  <item>
-    <!-- this id is purely arbitrary. It could have been a UUID, or something else -->
-    
-    <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
-      <id value="34252345234"/>
-      <meta>
-        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
-      </meta>
+  <entry>
+    <resource>
+      <!-- this id is purely arbitrary. It could have been a UUID, or something else -->
+
+      <Observation>
+        <id value="34252345234"/>
+        <meta>
+          <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
@@ -54,7 +55,7 @@ bundle, but this is not required
             <display value="Blood pressure systolic &amp; diastolic"/>
           </coding>
         </name>
-        
+
         <!-- an interpretation offered to the combination observation
         generally, it would only be appropriate to offer an interpretation
         of an observation that has no value if it has "COMP" (component)
@@ -68,16 +69,16 @@ bundle, but this is not required
           <text value="low"/>
         </interpretation>
         <appliesDateTime value="2012-09-17"/>
-      
+
         <!-- for an observation with components, these cannot disagree with the flags on the components -->
         <status value="final"/>
         <reliability value="ok"/>
-        
+
         <identifier>
           <system value="urn:ietf:rfc:3986"/>
           <value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
         </identifier>
-        
+
         <subject>
           <reference value="Patient/example"/>
         </subject>
@@ -97,12 +98,14 @@ bundle, but this is not required
           </target>
         </related>
       </Observation>
-    
-  </item>
+
+    </resource>
+  </entry>
 
   <!-- Observation for systolic blood pressure: name, value, and flags -->
-  <item>
-    <!-- 
+  <entry>
+    <resource>
+      <!-- 
       Most systems won't store systolic and diastolic observations separately.
       They'd usually be two fields in a database or something like that. The 
       FHIR interface treats these as separate observation for consistency 
@@ -116,12 +119,12 @@ bundle, but this is not required
       system to decide how to manage this (e.g. readonly, so there's no 
       update operations to worry about)
     -->
-    
-    <Observation xmlns="http://hl7.org/fhir">
-      <id value="34252345234-s"/>
-      <meta>
-        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
-      </meta>
+
+      <Observation>
+        <id value="34252345234-s"/>
+        <meta>
+          <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
@@ -162,17 +165,19 @@ bundle, but this is not required
         <status value="final"/>
         <reliability value="ok"/>
       </Observation>
-    
-  </item>
-  
+
+    </resource>
+  </entry>
+
   <!-- diastolic blood pressure: name, value, and flags -->
-  <item>
-    
-    <Observation xmlns="http://hl7.org/fhir">
-      <id value="34252345234-d"/>
-      <meta>
-        <lastUpdated value="2014-01-30T22:35:23+11:00"/>
-      </meta>
+  <entry>
+    <resource>
+
+      <Observation>
+        <id value="34252345234-d"/>
+        <meta>
+          <lastUpdated value="2014-01-30T22:35:23+11:00"/>
+        </meta>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
@@ -193,6 +198,7 @@ bundle, but this is not required
         <status value="final"/>
         <reliability value="ok"/>
       </Observation>
-    
-  </item>
+
+    </resource>
+  </entry>
 </Bundle>  

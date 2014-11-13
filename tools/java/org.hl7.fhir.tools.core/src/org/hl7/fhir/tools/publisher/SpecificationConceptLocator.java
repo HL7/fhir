@@ -298,7 +298,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
-        return ((ValueSet) ((Bundle)r).getItem().get(0)).getExpansion().getContains();
+        return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
     }
     vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
     
@@ -317,7 +317,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), result, false);
-        return ((ValueSet) result.getItem().get(0)).getExpansion().getContains();
+        return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
         new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
