@@ -36,7 +36,7 @@ In the current absence of a specific json description, the JSON representation i
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property "resourceType"</li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are handled differently</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (id, value) are handled differently</li>
  <li><a href="extensibility.html">Extensions are represented differently</a></li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
@@ -97,7 +97,7 @@ FHIR elements with primitive values are represented in two parts:
 </p>
 <ul>
  <li>A JSON property with the name of the element, which has a JSON type of number, boolean, or string</li>
- <li>a JSON property with "_" prepended to the name of the element, which, if present, contains the value's xml:id and/or extensions (and comments, if there are any)</li>
+ <li>a JSON property with "_" prepended to the name of the element, which, if present, contains the value's id and/or extensions (and comments, if there are any)</li>
 </ul>
 <p>
 The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
@@ -136,8 +136,7 @@ If the value has an id attribute, or extensions, then this is represented as fol
  "dob": "1972-11-30",
  "_dob": { 
    "id": "314159", 
-   "extension": [{
-      "url" : "http://example.org/fhir/extensions#text",
+   "http://example.org/fhir/extensions#text": [{
       "valueString" : "Easter 1970"
    }]
  }
@@ -162,8 +161,7 @@ the first array, as demonstrated in this example:
  "code": [ "au", "nz" ],
  "_code": [ 
    null, 
-   { "extension": [{
-      "url" : "http://example.org/fhir/extensions#text",
+   { "http://example.org/fhir/extensions#text": [{
       "valueString" : "New Zealand a.k.a Kiwiland"
    }] }
   ]

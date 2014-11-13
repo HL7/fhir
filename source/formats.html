@@ -121,9 +121,9 @@ Here's an example:
  <li><img title="Choice of Types" style="background-color: white;" alt="." class="heirarchy" src="icon_choice.gif"/>: An element which can have one of a several different types (see below)</li>
  <li><img title="Primitive Data Type" style="background-color: white;" alt="." class="heirarchy" src="icon_primitive.png"/>: A data type which describes an element that has a value attribute/property</li>
  <li><img title="Data Type" style="background-color: white;" alt="." class="heirarchy" src="icon_datatype.gif"/>: A data type which describes an element that has other elements</li>
- <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="heirarchy" src="icon_reference.png"/>: A element that contains a reference to another resource (see <a href="references.html">references</a></li>
+ <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="heirarchy" src="icon_reference.png"/>: A element that contains a reference to another resource (see <a href="references.html">references</a>)</li>
  <li><img title="Reference to another Element" style="background-color: white;" alt="." class="heirarchy" src="icon_reuse.png"/>: This element has the same content as another element defined within this resource or profile</li>
- <li><img title="Slice Definition" style="background-color: white;" alt="." class="heirarchy" src="icon_slice.png"/>: Introduction of a set of slices (see <a href="profiling.html#slicing">Slicing</a></li>
+ <li><img title="Slice Definition" style="background-color: white;" alt="." class="heirarchy" src="icon_slice.png"/>: Introduction of a set of slices (see <a href="profiling.html#slicing">Slicing</a>)</li>
  <li><img title="Extension" style="background-color: white;" alt="." class="heirarchy" src="icon_extension.png"/>: An extension (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Complex Extension" style="background-color: white;" alt="." class="heirarchy" src="icon_extension_complex.png"/>: A complex extension - one with nested extensions (see <a href="extensibility.html#complex">Extensibility</a>)</li>
  <li><img title="Simple Extension" style="background-color: white;" alt="." class="heirarchy" src="icon_extension_simple.png"/>: An extension that has a value and no nested extensions (see <a href="extensibility.html">Extensibility</a>)</li>
@@ -140,7 +140,8 @@ Notes:
 </p>
 <ul>
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
- <li>Any elements that have a <a href="datatypes.html#primitive">primitive type</a> will have a value attribute/property to contain the actual value of the element</li>
+ <li>Any elements that have a <a href="datatypes.html#primitive">primitive type</a> will have a "value" attribute/property to contain the actual value of the element</li>
+ <li>This "value" attribute/property can never be empty. Either it is absent, or it is present with at least one character of non-whitespace content</li>
  <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. </li>
  <li>Unless elements have children defined directly (as nameC does above) they are assigned one or more types. Most of the types are defined in <a href="datatypes.html">the data types</a>. All the type names are hyperlinked to the source definition</li>
  <li>Element reuse: Some data types that have children have the same set of children as some other element defined in the resource. In that case, the type of that element has a "see [name]" where [name] is the name of the element that has the defined children</li>
@@ -150,10 +151,9 @@ Notes:
  <li>Any of the elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format. Extensions are not always shown, but may appear except where the flag "NE" appears</li>
  <a name="element-rules"> </a>
  <li>FHIR elements can never be empty. If an element is present in the resource, it SHALL have either a value, child elements as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
- <li>The value attribute/property can never be empty. Either it is absent, or it is present with at least one character of non-whitespace content</li>
+ <li>Infrastructural elements that are common to all resources are not shown in the logical representation. These are described in the common base classes <a href="resource.html">Resource</a>, and <a href="domainresource.html">DomainResource</a></li>
 </ul>
     
-
 <a name="uml"> </a>
 <h3>UML</h3>
 <p>

@@ -29,7 +29,7 @@ The XML representation for a resource is described using this format:
    &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><span title="Inv-5: Some rule apples to this element" style="color: brown"><b><img alt="??" src="lock.png"/> 1..1</b></span> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
-     &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+     &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant elements</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
    &lt;/nameC&gt;
  &lt;name&gt;
 </pre>
@@ -41,11 +41,16 @@ Using this format:
    as described by the cardinality, type rules and content description found in the comment in each element</li>
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Elements must always appear in the order documented</li>
- <li>A few properties are represented as attributes: primitive values, extension URLs, and the id property</li>
+ <li>A few properties are represented as attributes: primitive values in the "value" attribute, extension URLs in the "url" attribute on an extension, and the "id" property</li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace (<a href="narrative.html">XHTML is found in most resources)</a></li>
- <li>The elements for <a href="extensibility.html">extension</a> (and <a href="extensibility.html#modifiers">modifierExtension</a>, if applicable) appear as the first set of children, prior to any other defined child elements</li>
+ <li>Infrastructural elements that are common to all resources are not shown in the xml representation. These must appear prior to any other defined child elements in the following order:
+	<ul>
+		<li>First, the elements from the <a href="resource.html">base resource</a>, in order</li>
+		<li>Second, the elements from the <a href="domainresource.html">domain resource</a>, in order</li>
+	</ul>
+ </li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>The lock icon (<img alt="??" src="lock.png"/>) denotes that an element defines or is affected by <a href="conformance.html#invariants">additional rules</a> that control its presence and/or content</li>
@@ -53,7 +58,7 @@ Using this format:
  <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a &lt;?xml encoding="UTF-8" ?&gt; processing instruction is optional but recommended</li>
  <li>Other processing Instructions SHOULD not be included, except and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. 
   Applications MAY preserve these when handling resources, but are not required to do so</li>
- <li>The mimetype for this format is application/xml+fhir.</li>
+ <li>The MIME-type for this format is application/xml+fhir.</li>
 </ul>
 
 <a name="schema"> </a>
