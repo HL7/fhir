@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Mathews, Jason</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-03T19:14:08Z</LastSaved>
+  <LastSaved>2014-11-13T15:42:53Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,8 +24,8 @@
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Data Elements</Path>
    <SheetName>Data Elements</SheetName>
   </SupBook>
-  <WindowHeight>11988</WindowHeight>
-  <WindowWidth>25116</WindowWidth>
+  <WindowHeight>11844</WindowHeight>
+  <WindowWidth>25284</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -1396,12 +1396,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">valuesetAllergyIntoleranceStatusPresent</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">unconfirmed | confirmed | resolved</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1797,7 +1799,8 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1877,7 +1880,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -1959,14 +1961,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C14:R23C15</Range>
+   <Range>R2C14:R7C15,R9C14:R23C15,R8C15</Range>
    <Condition>
     <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R23C3,R3C7:R23C7,R3C5:R23C5,R2C8:R23C24</Range>
+   <Range>R2C1:R23C3,R3C7:R23C7,R3C5:R23C5,R2C8:R7C24,R9C8:R23C24,R8C8:R8C13,R8C15:R8C24</Range>
    <Condition>
     <Value1>LEFT(RC3,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -2005,7 +2007,32 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C1:R23C3,R3C5:R23C5,R3C7:R23C24</Range>
+   <Range>R3C1:R23C3,R3C5:R23C5,R3C7:R7C24,R9C7:R23C24,R8C7:R8C13,R8C15:R8C24</Range>
+   <Condition>
+    <Value1>#REF!=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C14</Range>
+   <Condition>
+    <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C14</Range>
+   <Condition>
+    <Value1>LEFT(RC3,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C14</Range>
    <Condition>
     <Value1>#REF!=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -7635,7 +7662,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C14"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s130" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s130" ss:Width="114.6"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="274.8"/>
@@ -7716,28 +7743,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s134"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">valuesetAllergyIntoleranceStatusPresent</Data></Cell>
+    <Cell><Data ss:Type="String">Value set for AllergyIntolerance Status for non-refuted values.</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">valueset-allergyintolerance-status-present</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
@@ -8212,26 +8223,26 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R30C5</Range>
+   <Range>R2C5:R29C5</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R2C4:R29C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;required,preferred,example&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C3:R30C3</Range>
+   <Range>R2C3:R29C3</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;code list,value set,reference,special,unbound&quot;</Value>
@@ -8240,52 +8251,59 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C14</Range>
+   <Range>R3C1:R29C14,R2C3:R2C14,R2C1</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C1</Range>
+   <Range>R3C1:R29C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R30C5</Range>
+   <Range>R3C2:R29C5,R2C3:R2C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C6:R30C6</Range>
+   <Range>R2C6:R29C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC3=&quot;unbound&quot;)&lt;&gt;(RC=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C7:R30C7</Range>
+   <Range>R2C7:R29C7</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC&lt;&gt;&quot;&quot;)&lt;&gt;(RC3=&quot;reference&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C8:R30C11</Range>
+   <Range>R2C8:R29C11</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,RC3&lt;&gt;&quot;code list&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C14</Range>
+   <Range>R3C1:R29C14,R2C3:R2C14,R2C1</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C1</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
