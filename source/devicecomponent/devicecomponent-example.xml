@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceComponent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/DeviceComponent.xsd">
+	<!-- 
+		<Simple_MDS xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="DIM.xsd" Handle="0" System-Id="ID 13.1" Mds-Status="disconnected" object_id="MDC_MOC_VMS_MDS_SIMP" Class="MDC_MOC_VMS_MDS_SIMP">
+			<Nomenclature-Version object_id="MDC_ATTR_NOM_VERS" nom-minor-version="0">
+				<nom-major-version majorVersion1="true"/>
+			</Nomenclature-Version>
+			<System-Model object_id="MDC_ATTR_ID_MODEL" manufacturer="Center4MI" model-number="2-0-14"/>
+			<System-Type object_id="MDC_ATTR_SYS_TYPE" partition="nom-part-obj" code="MDC_DEV_ANALY_SAT_O2_MDS"/>
+			<Locale object_id="MDC_ATTR_LOCALE" charset="ISO-10646-UCS-2" country="US" Language="en"/>
+			<VMD Handle="20" object_id="MDC_MOC_VMO_VMD" Class="MDC_MOC_VMO_VMD">
+				<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-obj" code="MDC_DEV_ANALY_SAT_O2_VMD"/>
+				<VMD-Status vmd-standby="true"/>
+				<Channel Handle="22" object_id="MDC_MOC_VMO_CHAN" Class="MDC_MOC_VMO_CHAN" Physical-Channel-No="1" Logical-Channel-No="1" Channel-Id="MDC_DEV_ANALY_SAT_O2_CHAN">
+					<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-obj" code="MDC_DEV_ANALY_SAT_O2_CHAN"/>
+					<Channel-Status chan-standby="true"/> 
+					<Numeric Handle="221" object_id="MDC_MOC_VMO_METRIC_NU" Class="MDC_MOC_VMO_METRIC_NU" Nu-Measure-Resolution="0" Metric-Id="MDC_PULS_OXIM_SAT_O2">
+						<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-metric" code="MDC_PULS_OXIM_SAT_O2"/>
+						<Metric-Specification object_id="MDC_ATTR_METRIC_SPECN" update-period="8192" category="auto-measurement">
+							<relevance rv-unspec="true"/> 
+							<access upd-periodic="true" acc-scan="true" sc-opt-normal="true"/>
+							<structure object_id="NA1" ms-comp-no="0" ms-struct="simple"/>
+						</Metric-Specification>
+						<Nu-Observed-Value object_id="MDC_ATTR_NU_VAL_OBS" value="0" unit-code="MDC_DIM_PERCENT" metric-id="MDC_PULS_OXIM_SAT_O2">
+							<state not-available="true"/>
+						</Nu-Observed-Value>
+					</Numeric>
+					<Numeric Handle="222" object_id="MDC_MOC_VMO_METRIC_NU" Class="MDC_MOC_VMO_METRIC_NU" Nu-Measure-Resolution="0" Metric-Id="MDC_BLD_PERF_INDEX">
+						<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-metric" code="MDC_BLD_PERF_INDEX"/>
+						<Metric-Specification object_id="MDC_ATTR_METRIC_SPECN" update-period="8192" category="auto-measurement">
+							<relevance rv-unspec="true"/> 
+							<access upd-periodic="true" acc-scan="true" sc-opt-normal="true"/>
+							<structure object_id="NA1" ms-comp-no="0" ms-struct="simple"/>
+						</Metric-Specification>
+						<Nu-Observed-Value object_id="MDC_ATTR_NU_VAL_OBS" value="0" unit-code="MDC_DIM_MILLI_L_PER_MIN" metric-id="MDC_BLD_PERF_INDEX">
+							<state not-available="true"/>
+						</Nu-Observed-Value>
+					</Numeric>
+				</Channel>
+				<Channel Handle="33" object_id="MDC_MOC_VMO_CHAN" Class="MDC_MOC_VMO_CHAN" Physical-Channel-No="2" Logical-Channel-No="2" Channel-Id="MDC_DEV_PULS_CHAN">
+					<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-obj" code="MDC_DEV_PULS_CHAN"/>
+					<Channel-Status chan-standby="true"/> 
+					<Numeric Handle="333" object_id="MDC_MOC_VMO_METRIC_NU"  Class="MDC_MOC_VMO_METRIC_NU" Nu-Measure-Resolution="0" Metric-Id="MDC_PULS_OXIM_PULS_RATE">
+						<Type object_id="MDC_ATTR_ID_TYPE" partition="nom-part-metric" code="MDC_PULS_OXIM_PULS_RATE"/>
+						<Metric-Specification object_id="MDC_ATTR_METRIC_SPECN" update-period="8192" category="auto-measurement">
+							<relevance rv-unspec="true"/> 
+							<access upd-periodic="true" acc-scan="true" sc-opt-normal="true"/>
+							<structure object_id="NA1" ms-comp-no="0" ms-struct="simple"/>
+						</Metric-Specification>
+						<Nu-Observed-Value object_id="MDC_ATTR_NU_VAL_OBS" value="0" unit-code="MDC_DIM_BEAT_PER_MIN" metric-id="MDC_PULS_OXIM_PULS_RATE">
+							<state not-available="true"/>
+						</Nu-Observed-Value>
+					</Numeric>
+				</Channel>
+			</VMD>
+		</Simple_MDS>
+	-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Example of a simple MDS from a pulse oximeter containment tree</p>
+		</div>
+	</text>
+
+	<contained>
+		<Device>
+			<id value="d1"/>
+			<identifier>
+				<label value="Serial Number"/>
+				<value value="ID 13.1"/>
+			</identifier>
+			<identifier>
+				<label value="Global Medical Device Nomenclature"/>
+				<system value="urn:std:iso:11073:10101"/>
+				<value value="2000"/>
+			</identifier>
+			<type>
+				<coding>
+					<system value="urn:std:iso:11073:10101"/> 
+					<code value="2000"/>
+					<display value = "MDC_DEV_ANALY_SAT_O2_MDS"/>
+				</coding>
+			</type>
+			<manufacturer value="Center4MI"/>
+			<model value="2-0-14"/>		  
+		</Device>
+	</contained>
+	
+	<type>
+		<coding>
+			<system value="urn:std:iso:11073:10101"/> 
+			<code value="2000"/>
+			<display value = "MDC_DEV_ANALY_SAT_O2_MDS"/>
+		</coding>
+	</type>
+	<identifier>
+		<label value="Handle ID"/>
+		<value value="0"/>
+	</identifier>
+	<lastSystemChange value="2014-10-07T14:45:00"/>
+	<source>
+		<reference value="#d1"/>
+	</source>	
+	<operationalStatus>
+		<coding>
+			<system value="urn:std:iso:11073:10101"/> 
+			<code value = "0"/>
+			<display value = "disconnected"/>
+		</coding>
+	</operationalStatus>
+	<languageCode>
+		<coding>
+			<system value="http://tools.ietf.org/html/bcp47"/>
+			<code value="en-US"/>
+		</coding>
+	</languageCode>
+</DeviceComponent>
