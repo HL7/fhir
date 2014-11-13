@@ -93,6 +93,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="ClaimResponse">
         <translation lang="en">ClaimResponse</translation>
     </item>
+    <item id="CommunicationRequest">
+        <translation lang="en">CommunicationRequest</translation>
+    </item>
     <item id="Composition">
         <translation lang="en">Composition</translation>
         <translation lang="zh">组合</translation>
@@ -140,6 +143,12 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">设备</translation>
         <translation lang="es">Dispositivo</translation>
         <translation lang="fr">Dispositif</translation>
+    </item>
+    <item id="DeviceUseRequest">
+        <translation lang="en">DeviceUseRequest</translation>
+    </item>
+    <item id="DeviceUseStatement">
+        <translation lang="en">DeviceUseStatement</translation>
     </item>
     <item id="DeviceObservationReport">
         <translation lang="en">DeviceObservationReport</translation>
@@ -382,6 +391,10 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">步骤</translation>
         <translation lang="es">Procedimiento</translation>
         <translation lang="fr">Procédure</translation>
+    </item>
+    <item id="ProcedureRequest">
+        <translation lang="en">ProcedureRequest</translation>
+        <translation lang="fr">ProcédureDemande</translation>
     </item>
     <item id="Profile">
         <translation lang="en">Profile</translation>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">To be added</div>
+  </text>
+
+  <!-- insert contents here -->
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="323418000"/>
+      <display value="Fix me up"/>
+    </coding>  
+  </type>
+  
+</ProcedureRequest>

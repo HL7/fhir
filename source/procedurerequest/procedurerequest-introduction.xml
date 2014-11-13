@@ -1,0 +1,46 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+    <p>
+        <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
+        they are to be considered only as draft resource proposals for potential submission.</b>
+    </p>
+    
+    <p>
+        A <i>Procedure Request</i> is a record of a request for a procedure to be performed. 
+        It can be used to represent a procedure that is planned, that is proposed, or that is ordered.
+    </p>
+    <p>
+        The procedure request may represent an order that is entered by a practitioner in a CPOE 
+        system as well as a proposal made by a clinical decision support system (CDSS) based 
+        on a patient's clinical record and context of care. Planned procedures may also be 
+        represented by this resource (though this use case is still being discussed and will 
+        need to be validated by Patient Care and Orders and Observation).
+    </p>
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+    <b>Notes to reviewers:</b>
+
+    <p>
+        <i>Please note that the boundaries between a Diagnostic Order and a Procedure Request will need to be concretely
+        defined by Patient Care.</i>
+    </p>
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+The notion of a procedure request is of key importance to clinical decision support system which may recommend 
+procedures based on a number of criteria evaluated on patient and other clinical information.
+</p>
+</div>
+
+</div>

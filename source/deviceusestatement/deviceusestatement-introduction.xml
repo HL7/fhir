@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+    <p>
+        <b>These resources have not yet undergone proper review by PC, CQI, CDS, and OO. At this time, 
+            they are to be considered only as draft resource proposals for potential submission.</b>
+    </p>
+    <p>
+        This resource records the use of a healthcare-related device by a patient. The record is the 
+        result of a report of use by the patient or another provider. The resource can be used to note 
+        the use of an assistive device such as a wheelchair or hearing aid, a contraceptive such an 
+        intra-uterine device, or other implanted devices such as a pacemaker.
+    </p>
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This resource is different from DeviceUseRequest which records a request to use the device. This also is distinct from the Procedure resource which may describe the implantation or explantation of a device.
+</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

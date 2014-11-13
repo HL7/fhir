@@ -130,6 +130,7 @@ todo: compartments
     <page type="resource" resource="CarePlan"/>
     <page type="resource" resource="ReferralRequest"/>
     <page type="resource" resource="Procedure"/>
+    <page type="resource" resource="ProcedureRequest"/>
     <page type="resource" resource="Contraindication"/>
     <page type="resource" resource="RiskAssessment"/>
 
@@ -162,12 +163,15 @@ todo: compartments
 
     <page type="resource" resource="Contract"/>
     <page type="resource" resource="Device"/>
+    <page type="resource" resource="DeviceUseRequest"/>
+    <page type="resource" resource="DeviceUseStatement"/>
     <page type="resource" resource="Location"/>
     <page type="resource" resource="Substance"/>
     <page type="resource" resource="Group"/>
 
     <page type="resource" resource="Encounter"/>
     <page type="resource" resource="Alert"/>
+    <page type="resource" resource="CommunicationRequest"/>
     <page type="resource" resource="Supply"/>
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>

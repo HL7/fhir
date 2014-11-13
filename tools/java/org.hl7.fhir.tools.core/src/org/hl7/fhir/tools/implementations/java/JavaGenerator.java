@@ -75,7 +75,7 @@ import org.hl7.fhir.utilities.ZipGenerator;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
-  private static final boolean IN_PROCESS = true;
+  private static final boolean IN_PROCESS = false;
   
   private FolderManager folders;
   private String javaDir;
