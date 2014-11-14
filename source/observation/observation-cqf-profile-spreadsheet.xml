@@ -24,8 +24,8 @@
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Data Elements</Path>
    <SheetName>Data Elements</SheetName>
   </SupBook>
-  <WindowHeight>7215</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>9975</WindowHeight>
+  <WindowWidth>23325</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -1116,7 +1116,7 @@
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="106.5"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="60"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="81"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="36.75"/>
@@ -3478,7 +3478,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3493,7 +3493,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
