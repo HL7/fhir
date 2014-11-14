@@ -9,7 +9,7 @@
   <description value="This value sets refers to a Category of supply"/>
   <status value="draft"/>
   <define>
-    <system value="http://hl7.org/fhir/supply-type"/>
+    <system value="http://hl7.org/fhir/supply-kind"/>
     <concept>
       <code value="central"/>
       <display value="Central Supply"/>
