@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set includes all SNOMED CT codes relating to the qualifier "Known" (concepts with an is-a relationship with 36692007)
+	  for absent or "not present" codes.
+	  </p>
+    </div>
+  </text>
+  <identifier value="http://hl7.org/fhir/vs/condition-certainty-absent"/>
+  <name value="Condition/Diagnosis Certainty"/>
+  <publisher value="CQF Project team"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="value set for Condition/Problem/Diagnosis certainty for absent or refuted occurrences"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+		<concept>
+			<code value="410516002"/>
+			<!-- Known absent (qualifier value) -->
+		</concept>
+		<concept>
+			<code value="410593006"/>
+			<!-- Probably NOT present (qualifier value) -->
+		</concept>
+		<concept>
+			<code value="428263003"/>
+			<!-- NOT suspected (qualifier value) -->
+		</concept>
+		<concept>
+			<code value="410594000"/>
+			<!-- Definitely NOT present (qualifier value) -->
+		</concept>
+    </include>
+  </compose>
+</ValueSet>
