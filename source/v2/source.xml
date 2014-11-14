@@ -24713,7 +24713,7 @@
       <item id="7" code="X" desc="Container Unavailable"/>
     </version>
   </table>
-  <table id="371" state="exclude">
+  <table id="371" state="include">
     <version version="2.4" desc="Additive">
       <item id="7" code="BOR" desc="Borate"/>
       <item id="5" code="C32" desc="3.2%  Citrate"/>
