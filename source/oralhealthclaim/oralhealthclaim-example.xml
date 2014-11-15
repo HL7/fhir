@@ -12,22 +12,22 @@
     <value value="12345"/>
  </identifier>
  
- <use value="complete"/>
- 
- <insurer>
+  <date value="2014-08-16"/>
+
+ <target>
   <reference value="Organization/2"/>
-</insurer>
- 
+</target>
+
+ <organization>
+    <reference value="Organization/1"/>
+ </organization>
+
+ <use value="complete"/>
+
  <priority>
     <code value="normal"/>
  </priority>
 
- <date value="2014-08-16"/>
- 
- <organization>
-    <reference value="Organization/1"/>
- </organization>
- 
  <payee>
    <type>
      <code value="provider"/>
@@ -62,18 +62,23 @@
    <type>
      <code value="service"/>
    </type>
+   <provider>
+     <reference value="Practitioner/1"/>
+   </provider>
    <service>
      <code value="1200"/>
    </service>
    <serviceDate value="2014-08-16"/>
-   <provider>
-     <reference value="Practitioner/1"/>
-   </provider>
-   <fee>
+   <unitPrice>
       <value value="135.57"/>
 	  <system value="urn:std:iso:4217"/>
       <code value="USD"/> 
-   </fee> 
+   </unitPrice> 
+   <net>
+      <value value="135.57"/>
+	  <system value="urn:std:iso:4217"/>
+      <code value="USD"/> 
+   </net> 
   </item>
 
 </OralHealthClaim>
