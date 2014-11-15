@@ -1,10 +1,11 @@
 <ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+ 
  <id value="R3500"/>
 
  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ClaimResponse</div>
-  </text>
+ </text>
 
   <identifier>
     <system value="http://www.BenefitsInc.com/fhir/remittance"/>
@@ -19,11 +20,8 @@
     <system value="http://happyvalley.com/claims"/>
     <value value="12345"/>
   </requestIdentifier>
-
-  <outcome value="complete"/>
-  
-  <disposition value="Claim settled as per contract."/>
-
+</ClaimResponse>
+<!--
   <date value="2014-08-16"/>
 
   <organization>
@@ -34,13 +32,17 @@
     <reference value="Organization/1"/>
   </requestOrganization>
  
+  <outcome value="complete"/>
+  
+  <disposition value="Claim settled as per contract."/>
+
   <payeeType>
      <system value="http://hl7.org/fhir/payeetype"/>
      <code value="provider"/>
   </payeeType>
-
+-->
  <!-- Adjudication details -->
- 
+ <!--
  <item>
 
    <sequenceLinkId value="1"/> 
@@ -98,9 +100,9 @@
 	<system value="urn:std:iso:4217"/>
 	<code value="USD"/>
  </totalBenefit>
- 
+ -->
  <!-- Payment details -->
- 
+ <!--
  <paymentDate value="2014-08-31"/>
  
  <paymentAmount>
@@ -114,4 +116,4 @@
     <value value="201408-2-1569478"/>
  </paymentRef>	
 
-</ClaimResponse>
+</ClaimResponse> -->
