@@ -365,7 +365,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
-		tableRow("Definition", null, page.processMarkdown(e.getDefinition()));
+		tableRowNE("Definition", null, page.processMarkdown(e.getDefinition()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.html", describeBinding(e));
 		if (!Utilities.noString(type) && type.startsWith("@"))
@@ -377,7 +377,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));
-    tableRow("Comments", null, page.processMarkdown(e.getComments()));
+    tableRowNE("Comments", null, page.processMarkdown(e.getComments()));
     tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));
     tableRow("LOINC Code", null, e.getMapping(Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, e.getMapping(Definitions.SNOMED_MAPPING));
