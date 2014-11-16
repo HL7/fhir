@@ -84,6 +84,7 @@ import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerat
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
+import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
@@ -147,7 +148,6 @@ import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
@@ -573,7 +573,7 @@ public class Publisher implements URIResolver {
 
   @SuppressWarnings("unchecked")
   private void processProfiles() throws Exception {
-    page.log(" ...process profiles", LogMessageType.Process);
+    page.log(" ...process profiles (base)", LogMessageType.Process);
     // first, for each type and resource, we build it's master profile
     for (DefinedCode t : page.getDefinitions().getPrimitives().values()) {
       if (t instanceof PrimitiveType)
@@ -588,6 +588,7 @@ public class Publisher implements URIResolver {
     for (TypeDefn t : page.getDefinitions().getInfrastructure().values())
       genTypeProfile(t);
 
+    page.log(" ...process profiles (resources)", LogMessageType.Process);
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r, page.getGenDate()));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
@@ -600,27 +601,34 @@ public class Publisher implements URIResolver {
     }
 
     if (page.hasIG()) {
+      page.log(" ...process profiles (ig)", LogMessageType.Process);
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof Profile) {
-          ProfileDefn pd = new ProfileDefn();
-          pd.setSource((Profile) rd);
-          page.getDefinitions().getProfiles().put(pd.getSource().getUrl(), pd);
+          ProfileDefn pd = new ProfileDefn((Profile) rd);
+          throw new Exception("not done yet - create pack structure");
+//          page.getDefinitions().getProfiles().put(pd.getSource().getUrl(), pd);
         }
       }
     }
+
+    page.log(" ...process profiles (packs)", LogMessageType.Process);
     // we have profiles scoped by resources, and stand alone profiles
-    for (ProfileDefn p : page.getDefinitions().getProfiles().values())
-      processProfile(p, p.metadata("id"));
+    for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
+      for (ProfileDefn p : ap.getProfiles())
+        processProfile(ap, p, ap.getName());
     for (ResourceDefn r : page.getDefinitions().getResources().values())       
-      for (RegisteredProfile p : r.getProfiles())      
-        processProfile(p.getProfile(), p.getDestFilenameNoExt());
+      for (ConformancePackage ap : r.getConformancePackages())      
+        for (ProfileDefn p : ap.getProfiles())
+          processProfile(ap, p, ap.getName());
 
     // now, validate the profiles
-    for (ProfileDefn p : page.getDefinitions().getProfiles().values())
-      validateProfile(p);
+    for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
+      for (ProfileDefn p : ap.getProfiles())
+        validateProfile(p);
     for (ResourceDefn r : page.getDefinitions().getResources().values())       
-      for (RegisteredProfile p : r.getProfiles())      
-        validateProfile(p.getProfile());
+      for (ConformancePackage ap : r.getConformancePackages())      
+        for (ProfileDefn p : ap.getProfiles())
+          validateProfile(p);
     if (page.hasIG()) 
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof Profile) {
@@ -643,11 +651,11 @@ public class Publisher implements URIResolver {
   private void validateProfile(ProfileDefn p) throws Exception {
     ProfileValidator pv = new ProfileValidator();
     pv.setContext(page.getWorkerContext());
-    List<String> errors = pv.validate(p.getSource());
+    List<String> errors = pv.validate(p.getResource());
     if (errors.size() > 0) {
       for (String e : errors)
         page.log(e, LogMessageType.Error);
-      throw new Exception("Error validating " + p.metadata("name"));
+      throw new Exception("Error validating " + p.getId());
     }
   }
 
@@ -690,32 +698,30 @@ public class Publisher implements URIResolver {
     t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
   }
 
-  private void processProfile(ProfileDefn profile, String filename) throws Exception {
+  private void processProfile(ConformancePackage ap, ProfileDefn profile, String filename) throws Exception {
     // they've either been loaded from spreadsheets, or from profile declarations
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
-    if (profile.getSource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(profile, profile.metadata("id"), page.getGenDate());
-      profile.setSource(p);
+    if (profile.getResource() == null) {
+      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate());
+      profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
     } else {
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
-      if (profile.getSource().getDate() == null)
-        profile.getSource().setDate(new DateAndTime(page.getGenDate()));
-      for (ProfileStructureComponent c : profile.getSource().getStructure()) {
-        if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
+      if (profile.getResource().getDate() == null)
+        profile.getResource().setDate(new DateAndTime(page.getGenDate()));
+        if (profile.getResource().getBase() != null && profile.getResource().getSnapshot() == null) {
           // cause it probably doesn't, coming from the profile directly
-          ProfileStructureComponent base = getSnapShotForProfile(c.getBase());
-          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBase().split("#")[0], profile.getSource().getName());
+          Profile base = getSnapShotForProfile(profile.getResource().getBase());
+          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName());
         }
-        page.getProfiles().put(profile.getSource().getUrl(), profile.getSource());
+        page.getProfiles().put(profile.getResource().getUrl(), profile.getResource());
       }
-    }
     if (!Utilities.noString(filename))
-      profile.getSource().setTag("filename", filename);
+      profile.getResource().setTag("filename", filename);
   }
 
-  public ProfileStructureComponent getSnapShotForProfile(String base) throws Exception {
+  public Profile getSnapShotForProfile(String base) throws Exception {
     String[] parts = base.split("#");
     if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
       String name = base.substring(28);
@@ -723,30 +729,30 @@ public class Publisher implements URIResolver {
         return page.getDefinitions().getSnapShotForType(name);
       else if (page.getDefinitions().hasType(name)) {
         TypeDefn t = page.getDefinitions().getElementDefn(name);
-        for (ProfileStructureComponent s : t.getProfile().getStructure())
-          if (s.getSnapshot() != null)
-            return s;
+        if (t.getProfile().getSnapshot() != null)
+          return t.getProfile();
         throw new Exception("unable to find snapshot for "+name);
       } else
         throw new Exception("unable to find base definition for "+name);
     }
-    Profile p = page.getDefinitions().getProfileByURL(parts[0]);
+    Profile p = new ProfileUtilities(page.getWorkerContext()).getProfile(null, parts[0]);
     if (p == null)
       throw new Exception("unable to find base definition for "+base);
     if (parts.length == 1) {
-      if (p.getStructure().size() != 1)
-        throw new Exception("Profile "+base+" has multiple structures");
-      if (p.getStructure().get(0).getSnapshot() == null)
+      if (p.getSnapshot() == null)
         throw new Exception("Profile "+base+" has no snapshot"); // or else we could fill it in? 
-      return p.getStructure().get(0);
+      return p;
     }
-    for (ProfileStructureComponent s : p.getStructure()) {
-      if (s.getSnapshot() == null && p.getName().equals(parts[1])) {
-        ProfileDefn profile = page.getDefinitions().getProfiles().get(parts[0]);
-        processProfile(profile, null);
+    for (Resource r : p.getContained()) {
+      if (r instanceof Profile && r.getId().equals(parts[1])) {
+        Profile pc = (Profile) r;
+      
+      if (pc.getSnapshot() == null) {
+        Profile ps = getSnapShotForProfile(pc.getBase());
+        processProfile(pc);
       }
-      if (s.getSnapshot() != null && p.getName().equals(parts[1]))
-        return s;
+      return pc;
+      }
     }
     throw new Exception("Unable to find snapshot for "+base);
   }
@@ -755,19 +761,17 @@ public class Publisher implements URIResolver {
   private void processProfile(Profile ae) throws Exception {
     if (ae.getDate() == null)
       ae.setDate(new DateAndTime(page.getGenDate()));
-    for (ProfileStructureComponent c : ae.getStructure()) {
-      if (c.getBase() != null && !hasSnapshot(ae, c)) {
-        // cause it probably doesn't, coming from the profile directly
-        ProfileStructureComponent base;
-        base = getIgProfile(c.getBase());
-        if (base == null)
-          base = page.getDefinitions().getSnapShotForProfile(c.getBase());
-        new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, c, c.getBase().split("#")[0], ae.getName());
-      }
+    if (ae.getBase() != null && ae.getSnapshot() == null) {
+      // cause it probably doesn't, coming from the profile directly
+      Profile base = getIgProfile(ae.getBase());
+      if (base == null)
+        base = new ProfileUtilities(page.getWorkerContext()).getProfile(null, ae.getBase());
+      new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName());
       page.getProfiles().put(ae.getUrl(), ae);
     }
   }
-  public ProfileStructureComponent getIgProfile(String base) throws Exception {
+  
+  public Profile getIgProfile(String base) throws Exception {
     String[] parts = base.split("#");
     Profile p = getIGProfileByURL(parts[0]);
     if (p == null)
@@ -775,15 +779,21 @@ public class Publisher implements URIResolver {
 
     processProfile(p); // this is recursive, but will terminate at the root
     if (parts.length == 1) {
-      if (p.getStructure().size() != 1)
-        throw new Exception("Profile "+base+" has multiple structures");
-      if (p.getStructure().get(0).getSnapshot() == null)
+      if (p.getSnapshot() == null)
         throw new Exception("Profile "+base+" has no snapshot"); // or else we could fill it in? 
-      return p.getStructure().get(0);
+      return p;
     }
-    for (ProfileStructureComponent s : p.getStructure())
-      if (s.getSnapshot() != null && p.getName().equals(parts[1]))
-        return s;
+    for (Resource r : p.getContained()) {
+      if (r instanceof Profile && r.getId().equals(parts[1])) {
+        Profile pc = (Profile) r;
+      
+      if (pc.getSnapshot() == null) {
+        Profile ps = getSnapShotForProfile(pc.getBase());
+        processProfile(pc);
+      }
+      return pc;
+      }
+    }
     throw new Exception("Unable to find snapshot for "+base);
   }
 
@@ -799,10 +809,6 @@ public class Publisher implements URIResolver {
       }
     }
     return null;
-  }
-
-  private boolean hasSnapshot(Profile source, ProfileStructureComponent c) {
-    return c.getSnapshot() != null;
   }
 
   private void loadSuppressedMessages(String rootDir) throws Exception {
@@ -1585,10 +1591,10 @@ public class Publisher implements URIResolver {
     if (buildFlags.get("all")) {
       page.log(" ...check Fragments", LogMessageType.Process);
       checkFragments();
-      for (String n : page.getDefinitions().getProfiles().keySet()) {
+      for (String n : page.getDefinitions().getConformancePackages().keySet()) {
         if (!n.startsWith("http://")) {
-          page.log(" ...profile " + n, LogMessageType.Process);
-          produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null);
+          page.log(" ...Conformance package " + n, LogMessageType.Process);
+          produceConformancePackage("", page.getDefinitions().getConformancePackages().get(n));
         }
       }
       if (page.hasIG()) {
@@ -1596,12 +1602,12 @@ public class Publisher implements URIResolver {
           if (ae instanceof Profile) {
             String n = Utilities.fileTitle((String) ae.getTag("path")).replace(".xml", "");
             Profile p = (Profile) ae;
-            ProfileDefn pd = new ProfileDefn();
-            pd.setSource(p);
+            ProfileDefn pd = new ProfileDefn(p);
 
 
             page.log(" ...profile " + n, LogMessageType.Process);
-            produceProfile(n, pd, null, null, null);
+            throw new Error("not done yet (packaging)");
+//            produceProfile(n, pd, null, null, null);
           }
         }
       }
@@ -1748,7 +1754,7 @@ public class Publisher implements URIResolver {
     jsonToXhtml(filename, ed.getName(), resource2Json(ed), "extension"); 
  
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    XmlSpecGenerator gen = new XmlSpecGenerator(bytes, null, "http://hl7.org/fhir/", page);
+    XmlSpecGenerator gen = new XmlSpecGenerator(bytes, null, null /*"http://hl7.org/fhir/"*/, page);
     gen.generate(ed);
     gen.close();
     String xml = bytes.toString();
@@ -2747,7 +2753,7 @@ public class Publisher implements URIResolver {
     String n = resource.getName().toLowerCase();
 
     XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), n + "-definitions.html", null, page);
-    gen.generate(resource.getRoot());
+    gen.generate(resource.getRoot(), isAbstract);
     gen.close();
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
@@ -2779,8 +2785,8 @@ public class Publisher implements URIResolver {
     SvgGenerator svg = new SvgGenerator(page);
     svg.generate(resource, page.getFolders().dstDir + n + ".svg");
 
-    for (RegisteredProfile p : resource.getProfiles())
-      p.setReference(produceProfile(p.getDestFilename(), p.getProfile(), p.getFilepath(), resource.getName(), p.getExamples()));
+    for (ConformancePackage ap : resource.getConformancePackages())
+      produceConformancePackage(resource.getName(), ap);
 
     Profile profile = (Profile) ResourceUtilities.getById(profileFeed, ResourceType.Profile, resource.getName());
     for (Example e : resource.getExamples()) {
@@ -3346,131 +3352,70 @@ public class Publisher implements URIResolver {
     dest.getEntry().add(new BundleEntryComponent().setResource(conf));
   }
 
-  private Profile produceProfile(String filename, ProfileDefn profile, String filePath, String master, Map<String, Example> examples) throws Exception {
+  private void produceConformancePackage(String resourceName, ConformancePackage pack) throws Exception {
+    // first, we produce each profile
+    for (ProfileDefn profile : pack.getProfiles())
+      produceProfile(resourceName, pack, profile);
+
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
+    src = page.processConformancePackageIncludes(pack, src);
+    page.getEpub().registerFile(pack.getId() + ".html", "Conformance Package " + pack.getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
+
+    // create examples here
+//    if (examples != null) {
+//      for (String en : examples.keySet()) {
+//        processExample(examples.get(en), null, profile.getSource());
+  }
+  
+  private void produceProfile(String resourceName, ConformancePackage pack, ProfileDefn profile) throws Exception {
     File tmp = Utilities.createTempFile("tmp", ".tmp");
-    String title = filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename;
+    String title = profile.getId();
 
     // you have to validate a profile, because it has to be merged with it's
     // base resource to fill out all the missing bits
     //    validateProfile(profile);
 
     XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), null, "http://hl7.org/fhir/", page);
-    gen.generate(profile, "http://hl7.org/fhir/Profile/"+title);
+    gen.generate(profile.getResource());
     gen.close();
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
-    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext());
-    Profile p = pgen.generate(profile, title, xml, page.getGenDate());
     XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);
-    Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title
-        + ".profile.xml"));
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), profile.getResource(), true, false);
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title+ ".profile.xml"));
     JsonComposer jcomp = new JsonComposer();
-    jcomp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.json"), p, true);
-    // Utilities.copyFile(new CSFile(page.getFolders().dstDir + title +
-    // ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" +
-    // File.separator + title + ".profile.json"));
+    jcomp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.json"), profile.getResource(), true);
 
     TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
     tgen.generate(profile, page.getDefinitions().getBindings());
     tgen.close();
     String tx = TextFile.fileToString(tmp.getAbsolutePath());
 
-    String introAndNotesPath = Utilities.path(page.getFolders().rootDir, "profiles");
-    if (master != null)
-      introAndNotesPath = Utilities.path(page.getFolders().rootDir, "source", master.toLowerCase());
+    String intro = profile.getIntroduction() != null ? page.loadXmlNotesFromFile(profile.getIntroduction(), false, null, null) : null;
+    String notes = profile.getNotes() != null ? page.loadXmlNotesFromFile(profile.getNotes(), false, null, null) : null;
 
-    String intro = null;
-    if (profile.getMetadata().containsKey("introduction") && !Utilities.noString(profile.getMetadata().get("introduction").get(0))) {
-      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0), false, null, null);
-    }
-    String notes = null;
-    if (profile.getMetadata().containsKey("notes") && !Utilities.noString(profile.getMetadata().get("notes").get(0)))
-      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0), false, null, null);
-
-    String exXml = "<p><i>No Example Provided</i></p>";
-    if (examples != null) {
-      for (String en : examples.keySet()) {
-        processExample(examples.get(en), null, profile.getSource());
-//        String ep = examples.get(en).getPath().getAbsolutePath();
-//        String n = Utilities.changeFileExt(en, "");
-//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-//        factory.setNamespaceAware(true);
-//        DocumentBuilder builder = factory.newDocumentBuilder();
-//        Document xdoc = builder.parse(new CSFileInputStream(ep));
-//        // strip namespace - see below
-//        XmlGenerator xmlgen = new XmlGenerator();
-//        File dst = new File(page.getFolders().dstDir + en);
-//        xmlgen.generate(xdoc.getDocumentElement(), dst, xdoc.getDocumentElement().getLocalName().equals("feed") ? "http://www.w3.org/2005/Atom"
-//            : "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
-//        builder = factory.newDocumentBuilder();
-//        xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
-//        XhtmlGenerator xhtml = new XhtmlGenerator(null);
-//        exXml = xhtml.generateInsert(xdoc, "Example for Profile " + profile.metadata("name"), null);
-//        cloneToXhtml(n, "Example for Profile " + profile.metadata("name"), true, "profile-instance:example");
-//!!
-//        String json;
-//        // generate the json version (use the java reference platform)
-//        try {
-//          json = javaReferencePlatform.convertToJson(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().dstDir + n + ".json");
-//        } catch (Throwable t) {
-//          System.out.println("Error processing " + page.getFolders().dstDir + n + ".xml");
-//          t.printStackTrace(System.err);
-//          TextFile.stringToFile(t.getMessage(), page.getFolders().dstDir + n + ".json");
-//          json = t.getMessage();
-//        }
-//
-//        String head = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"
-//            + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
-//            + "</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"
-//            + "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>" + Utilities.escapeXml("Example for Profile " + profile.metadata("name"))
-//            + "</p>\r\n<p><a href=\"" + n + ".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
-//        String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-//        TextFile.stringToFile(head + Utilities.escapeXml(json) + tail, page.getFolders().dstDir + n + ".json.html");
-//        page.getEpub().registerFile(n + ".json.html", "Example for Profile " + profile.metadata("name"), EPubManager.XHTML_TYPE);
-      }
-    }
-    //
-    // DictHTMLGenerator dgen = new DictHTMLGenerator(new
-    // FileOutputStream(tmp));
-    // dgen.generate(root);
-    // String dict = Utilities.fileToString(tmp.getAbsolutePath());
-    //
-    //
-    // File xmlf = new
-    // File(page.getFolders().srcDir+n+File.separatorChar+"example.xml");
-    // File umlf = new CSFile(page.getFolders().imgDir+n+".png");
-    //
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
-    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + ".html", "Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    page.getEpub().registerFile(title + ".html", "Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
 
-    // now, generate a page for each structure definition
-    for (ProfileStructureComponent s : profile.getSource().getStructure()) {
-      String fn = Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getName()))+".html";
-      src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-constraint.html");
-      src = page.processProfileIncludes(fn, profile, "", tx, src, exXml, intro, notes, master, title + ".html", s, filename, examples);
-      page.getEpub().registerFile(fn, "Profile " + profile.getSource().getName()+ " structure " +s.getName(), EPubManager.XHTML_TYPE);
-      TextFile.stringToFile(src, page.getFolders().dstDir + fn);
-    }
-
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
-    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-mappings.html", "Mappings for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    page.getEpub().registerFile(title + "-mappings.html", "Mappings for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
 
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
-    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-examples.html", "Examples for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
-    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
+//    src = page.processProfileIncludes(profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html");
+//    page.getEpub().registerFile(title + "-examples.html", "Examples for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
-    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null, filename, examples);
-    page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getSource().getName(), EPubManager.XHTML_TYPE);
+    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+    page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
 
-    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + title + "-review.xls", "HL7 FHIR Project", page.getGenDate(), profile.getSource());
+    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + title + "-review.xls", "HL7 FHIR Project", page.getGenDate(), profile.getResource());
 
     //
     // src = Utilities.fileToString(page.getFolders().srcDir +
@@ -3502,22 +3447,21 @@ public class Publisher implements URIResolver {
     xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
     XhtmlGenerator xhtml = new XhtmlGenerator(new ExampleAdorner(page.getDefinitions()));
     ByteArrayOutputStream b = new ByteArrayOutputStream();
-    xhtml.generate(xdoc, b, "Profile", profile.metadata("name"), 0, true, title + ".profile.xml.html");
+    xhtml.generate(xdoc, b, "Profile", profile.getTitle(), 0, true, title + ".profile.xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-profile-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processProfileIncludes(title + ".profile.xml.html", profile, "", "", html, "", "", "", master, title + ".html", null, filename, examples);
+    html = page.processProfileIncludes(title + ".profile.xml.html", profile.getId(), pack, profile, "", "", html, "", "", title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.xml.html");
 
     page.getEpub().registerFile(title + ".profile.xml.html", "Profile", EPubManager.XHTML_TYPE);
     String n = title + ".profile";
-    String json = resource2Json(p);
-    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("Profile for " + profile.metadata("description")) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
+    String json = resource2Json(profile.getResource());
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml("Profile for " + profile.getResource().getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-profile-example-json.html").replace("<%example%>", json);
-    html = page.processProfileIncludes(title + ".profile.json.html", profile, "", "", html, "", "", "", master, title + ".html", null, filename, examples);
+    html = page.processProfileIncludes(title + ".profile.json.html", profile.getId(), pack, profile, "", "", html, "", "", title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.json.html");
     //    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
     page.getEpub().registerExternal(n + ".json.html");
     tmp.delete();
-    return p;
   }
 
   //  private void validateProfile(ProfileDefn profile) throws FileNotFoundException, Exception {
@@ -3828,23 +3772,25 @@ public class Publisher implements URIResolver {
           page.log(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
         }
-        for (RegisteredProfile e : r.getProfiles()) {
-          String n = e.getTitle() + ".profile";
-          page.log(" ...validate " + n, LogMessageType.Process);
-          validateXmlFile(schema, n, validator, null);
-          for (String en : e.getExamples().keySet()) {
-            page.log(" ...validate " + en, LogMessageType.Process);
-            validateXmlFile(schema, Utilities.changeFileExt(en, ""), validator, e.getReference()); // validates the example against it's base definitions
-          }
-        }
+        // todo-profile: how this works has to change (to use profile tag)
+//        for (ConformancePackage e : r.getConformancePackages()) {
+//          String n = e.getTitle() + ".profile";
+//          page.log(" ...validate " + n, LogMessageType.Process);
+//          validateXmlFile(schema, n, validator, null);
+//          for (String en : e.getExamples().keySet()) {
+//            page.log(" ...validate " + en, LogMessageType.Process);
+//            validateXmlFile(schema, Utilities.changeFileExt(en, ""), validator, e.getResource()); // validates the example against it's base definitions
+//          }
+//        }
       }
     }
 
     if (buildFlags.get("all")) {
-      for (String n : page.getDefinitions().getProfiles().keySet()) {
-        page.log(" ...profile " + n, LogMessageType.Process);
-        validateXmlFile(schema, n + ".profile", validator, null);
-      }
+      // todo-profile: how this works has to change (to use profile tag)
+//      for (String n : page.getDefinitions().getProfiles().keySet()) {
+//        page.log(" ...profile " + n, LogMessageType.Process);
+//        validateXmlFile(schema, n + ".profile", validator, null);
+//      }
 
       page.log(" ...validate " + "profiles-resources", LogMessageType.Process);
       validateXmlFile(schema, "profiles-resources", validator, null);

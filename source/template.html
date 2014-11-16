@@ -69,7 +69,7 @@ Resource Content
 </div>
 
   </div>
-  <div id="tabs-json>
+  <div id="tabs-json">
 
 <div id="json">
 <p><b>JSON Template</b></p>
@@ -79,7 +79,7 @@ Resource Content
 </div>
 
   </div>
-  <div id="tabs-all>
+  <div id="tabs-all">
 
 <div id="tbl">
 <a name="tbl"> </a>
@@ -148,6 +148,7 @@ try {
 }
 catch(exception){ 
   // happens on IE when running locally    
+  alert(exception);
 }
 
 if (!currentTabIndex)
@@ -159,10 +160,11 @@ $( '#tabs' ).tabs({
              var active = $('.selector').tabs('option', 'active');
              currentTabIndex = ui.newTab.index();
              try {
-               localStorage.setItem('fhir-resource-tab-index', currentTabIndex);
+               sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
              catch(exception){ 
                // happens on IE when running locally    
+               alert(exception);
              }
          }
      });

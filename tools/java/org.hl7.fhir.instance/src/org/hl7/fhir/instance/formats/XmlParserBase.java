@@ -168,24 +168,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return xpp.getPositionDescription();
   }
   
-
-  /**
-   * Parse content that may be either a resource or a bundle
-   */
-  @Override
-  public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
-    XmlPullParser xpp = loadXml(input);
-    ResourceOrFeed r = new ResourceOrFeed();
-    
-    if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("TagList"))
-      r.setResource(parseResource(xpp));
-//    else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("Taglist"))
-//        r.setTaglist(parseTagList(xpp));
-    else
-    	throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
-    return r;    
-  }
-
   /**
    * Parse content that is known to be a resource
    */

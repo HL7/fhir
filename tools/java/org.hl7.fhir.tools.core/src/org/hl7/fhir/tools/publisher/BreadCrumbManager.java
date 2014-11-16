@@ -322,14 +322,24 @@ public class BreadCrumbManager {
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
       } else if (type.startsWith("profile:")) {
-        String[] path = map.get(type.substring(type.indexOf(":")+1).toLowerCase()).split("\\.");
-        Page focus = home;
-        for (int i = 0; i < path.length; i++) {
-          focus = getChild(focus, path[i]);
-          if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
-          else
-            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        String p = map.get(type.substring(type.indexOf(":")+1).toLowerCase());
+        if (p == null) {
+          // the bit after profile is resource.pack.profile
+          String[] path = type.substring(type.indexOf(":")+1).split("\\/");
+          if (!Utilities.noString(path[0]))
+            b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
+          b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+"-profiles.html\">Profiles</a></li>");
+//          b.append("        <li><a href=\""+prefix+path[0].toLowerCase()+".html\">"+path[0]+"</a></li>");
+        } else {
+          String[] path = p.split("\\.");
+          Page focus = home;
+          for (int i = 0; i < path.length; i++) {
+            focus = getChild(focus, path[i]);
+            if (focus.type == PageType.resource)
+              b.append("        <li><a href=\""+prefix+focus.getReference().toLowerCase()+".html\">"+focus.getReference()+"</a></li>");
+            else
+              b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+          }
         }
         b.append("        <li><b>"+Utilities.fileTitle(name)+"</b></li>");
       } else if (type.startsWith("profile-instance:type")) {

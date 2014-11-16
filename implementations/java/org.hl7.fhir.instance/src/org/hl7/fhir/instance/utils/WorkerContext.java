@@ -221,12 +221,6 @@ public class WorkerContext {
   }
 
   public void seeProfile(Profile p) {
-	  if (!p.getStructure().isEmpty()) {
-	  	if (p.getStructure().get(0).getNameElement() != null)
-	  		profiles.put(p.getStructure().get(0).getName(), p);
-	  	else 
-	  		profiles.put(p.getStructure().get(0).getType(), p);
-	  }
 	  profiles.put(p.getId(), p);
   }
 

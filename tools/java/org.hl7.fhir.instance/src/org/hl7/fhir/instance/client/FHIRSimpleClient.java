@@ -202,17 +202,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	
 	@Override
 	public <T extends Resource> T update(Class<T> resourceClass, T resource, String id) {
-		return update(resourceClass, resource, id, null);
-	}
-
-	@Override
-	public <T extends Resource> T update(Class<T> resourceClass, T resource, String id, List<Coding> tags) {
 		ResourceRequest<T> result = null;
 		try {
 			List<Header> headers = null;
-			if(tags != null && tags.size() > 0) {
-				headers = buildCategoryHeader(tags);
-			}
 			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			result.addErrorStatus(410);//gone
 			result.addErrorStatus(404);//unknown
@@ -241,18 +233,9 @@ public class FHIRSimpleClient implements FHIRClient {
 
 	@Override
 	public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource) {
-		return create(resourceClass, resource, null);
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource, List<Coding> tags) {
 		ResourceRequest<T> resourceRequest = null;
 		try {
 			List<Header> headers = null;
-			if(tags != null && tags.size() > 0) {
-				headers = buildCategoryHeader(tags);
-			}
 			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			resourceRequest.addSuccessStatus(201);
 			if(resourceRequest.isUnsuccessfulRequest()) {
@@ -414,6 +397,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		return (OperationOutcome)result.getPayload();
 	}
 	
+	/* change to meta operations
 	@Override
 	public List<Coding> getAllTags() {
 		TagListRequest result = null;
@@ -526,6 +510,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return request.getPayload();
 	}
+	*/
 
 	/**
 	 * Helper method to prevent nesting of previously thrown EFhirClientExceptions

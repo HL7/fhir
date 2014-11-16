@@ -53,7 +53,6 @@ public class Example {
   private ExampleType type;
   private boolean inBook;
   private Document xml;
-  private boolean dontDecompose;
   
   public enum ExampleType {
 	    XmlFile,
@@ -62,7 +61,7 @@ public class Example {
 	  }
   
   
-  public Example(String name, String id, String description, File path, ExampleType type, boolean inBook, boolean dontDecompose) throws Exception {
+  public Example(String name, String id, String description, File path, ExampleType type, boolean inBook) throws Exception {
     super();
     this.name = name;
     this.id = id;
@@ -70,7 +69,6 @@ public class Example {
     this.path = path;
     this.type = type;
     this.inBook = inBook;
-    this.dontDecompose = dontDecompose;
     
     if( type == ExampleType.CsvFile ) {
       CSVProcessor csv = new CSVProcessor();
@@ -156,12 +154,6 @@ public class Example {
   }
   public void setJson(String json) {
     this.json = json;
-  }
-  public boolean isDontDecompose() {
-    return dontDecompose;
-  }
-  public void setDontDecompose(boolean dontDecompose) {
-    this.dontDecompose = dontDecompose;
   }
   
   

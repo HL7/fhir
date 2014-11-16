@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -403,308 +403,6 @@ public class Profile extends DomainResource {
 
   }
 
-    public static class ProfileStructureComponent extends BackboneElement {
-        /**
-         * The Resource or Data type being described.
-         */
-        protected CodeType type;
-
-        /**
-         * The structure that is the base on which this set of constraints is derived from.
-         */
-        protected UriType base;
-
-        /**
-         * The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
-         */
-        protected CodeType name;
-
-        /**
-         * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
-         */
-        protected BooleanType publish;
-
-        /**
-         * Human summary: why describe this resource?.
-         */
-        protected StringType purpose;
-
-        /**
-         * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.
-         */
-        protected ConstraintComponent snapshot;
-
-        /**
-         * A differential view is expressed relative to the base profile - a statement of differences that it applies.
-         */
-        protected ConstraintComponent differential;
-
-        /**
-         * Additional search parameters defined for this structure that implementations can support and/or make use of.
-         */
-        protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
-
-        private static final long serialVersionUID = 1726531051L;
-
-      public ProfileStructureComponent() {
-        super();
-      }
-
-      public ProfileStructureComponent(CodeType type, CodeType name) {
-        super();
-        this.type = type;
-        this.name = name;
-      }
-
-        /**
-         * @return {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public CodeType getTypeElement() { 
-          return this.type;
-        }
-
-        /**
-         * @param value {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public ProfileStructureComponent setTypeElement(CodeType value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return The Resource or Data type being described.
-         */
-        public String getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value The Resource or Data type being described.
-         */
-        public ProfileStructureComponent setType(String value) { 
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-         */
-        public UriType getBaseElement() { 
-          return this.base;
-        }
-
-        /**
-         * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
-         */
-        public ProfileStructureComponent setBaseElement(UriType value) { 
-          this.base = value;
-          return this;
-        }
-
-        /**
-         * @return The structure that is the base on which this set of constraints is derived from.
-         */
-        public String getBase() { 
-          return this.base == null ? null : this.base.getValue();
-        }
-
-        /**
-         * @param value The structure that is the base on which this set of constraints is derived from.
-         */
-        public ProfileStructureComponent setBase(String value) { 
-          if (Utilities.noString(value))
-            this.base = null;
-          else {
-            if (this.base == null)
-              this.base = new UriType();
-            this.base.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #name} (The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public CodeType getNameElement() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public ProfileStructureComponent setNameElement(CodeType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).
-         */
-        public ProfileStructureComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new CodeType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.). This is the underlying object with id, value and extensions. The accessor "getPublish" gives direct access to the value
-         */
-        public BooleanType getPublishElement() { 
-          return this.publish;
-        }
-
-        /**
-         * @param value {@link #publish} (This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.). This is the underlying object with id, value and extensions. The accessor "getPublish" gives direct access to the value
-         */
-        public ProfileStructureComponent setPublishElement(BooleanType value) { 
-          this.publish = value;
-          return this;
-        }
-
-        /**
-         * @return This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
-         */
-        public boolean getPublish() { 
-          return this.publish == null ? false : this.publish.getValue();
-        }
-
-        /**
-         * @param value This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
-         */
-        public ProfileStructureComponent setPublish(boolean value) { 
-          if (value == false)
-            this.publish = null;
-          else {
-            if (this.publish == null)
-              this.publish = new BooleanType();
-            this.publish.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #purpose} (Human summary: why describe this resource?.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
-         */
-        public StringType getPurposeElement() { 
-          return this.purpose;
-        }
-
-        /**
-         * @param value {@link #purpose} (Human summary: why describe this resource?.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
-         */
-        public ProfileStructureComponent setPurposeElement(StringType value) { 
-          this.purpose = value;
-          return this;
-        }
-
-        /**
-         * @return Human summary: why describe this resource?.
-         */
-        public String getPurpose() { 
-          return this.purpose == null ? null : this.purpose.getValue();
-        }
-
-        /**
-         * @param value Human summary: why describe this resource?.
-         */
-        public ProfileStructureComponent setPurpose(String value) { 
-          if (Utilities.noString(value))
-            this.purpose = null;
-          else {
-            if (this.purpose == null)
-              this.purpose = new StringType();
-            this.purpose.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
-         */
-        public ConstraintComponent getSnapshot() { 
-          return this.snapshot;
-        }
-
-        /**
-         * @param value {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
-         */
-        public ProfileStructureComponent setSnapshot(ConstraintComponent value) { 
-          this.snapshot = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
-         */
-        public ConstraintComponent getDifferential() { 
-          return this.differential;
-        }
-
-        /**
-         * @param value {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
-         */
-        public ProfileStructureComponent setDifferential(ConstraintComponent value) { 
-          this.differential = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
-         */
-        public List<ProfileStructureSearchParamComponent> getSearchParam() { 
-          return this.searchParam;
-        }
-
-        /**
-         * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
-         */
-    // syntactic sugar
-        public ProfileStructureSearchParamComponent addSearchParam() { //3
-          ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
-          this.searchParam.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("name", "code", "The name of this structure. This is used in external references, and also when referring to this structure from other structures (e.g. from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
-          childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
-          childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
-          childrenList.add(new Property("differential", "@Profile.structure.snapshot", "A differential view is expressed relative to the base profile - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
-          childrenList.add(new Property("searchParam", "", "Additional search parameters defined for this structure that implementations can support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
-        }
-
-      public ProfileStructureComponent copy() {
-        ProfileStructureComponent dst = new ProfileStructureComponent();
-        copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.base = base == null ? null : base.copy();
-        dst.name = name == null ? null : name.copy();
-        dst.publish = publish == null ? null : publish.copy();
-        dst.purpose = purpose == null ? null : purpose.copy();
-        dst.snapshot = snapshot == null ? null : snapshot.copy();
-        dst.differential = differential == null ? null : differential.copy();
-        dst.searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
-        for (ProfileStructureSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy());
-        return dst;
-      }
-
-  }
-
     public static class ConstraintComponent extends BackboneElement {
         /**
          * Captures constraints on each element within the resource.
@@ -750,7 +448,7 @@ public class Profile extends DomainResource {
 
   }
 
-    public static class ProfileStructureSearchParamComponent extends BackboneElement {
+    public static class ProfileSearchParamComponent extends BackboneElement {
         /**
          * The name of the standard or custom search parameter.
          */
@@ -778,11 +476,11 @@ public class Profile extends DomainResource {
 
         private static final long serialVersionUID = -1550477651L;
 
-      public ProfileStructureSearchParamComponent() {
+      public ProfileSearchParamComponent() {
         super();
       }
 
-      public ProfileStructureSearchParamComponent(StringType name, Enumeration<SearchParamType> type, StringType documentation) {
+      public ProfileSearchParamComponent(StringType name, Enumeration<SearchParamType> type, StringType documentation) {
         super();
         this.name = name;
         this.type = type;
@@ -799,7 +497,7 @@ public class Profile extends DomainResource {
         /**
          * @param value {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setNameElement(StringType value) { 
+        public ProfileSearchParamComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -814,7 +512,7 @@ public class Profile extends DomainResource {
         /**
          * @param value The name of the standard or custom search parameter.
          */
-        public ProfileStructureSearchParamComponent setName(String value) { 
+        public ProfileSearchParamComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -831,7 +529,7 @@ public class Profile extends DomainResource {
         /**
          * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) { 
+        public ProfileSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) { 
           this.type = value;
           return this;
         }
@@ -846,7 +544,7 @@ public class Profile extends DomainResource {
         /**
          * @param value The type of value a search parameter refers to, and how the content is interpreted.
          */
-        public ProfileStructureSearchParamComponent setType(SearchParamType value) { 
+        public ProfileSearchParamComponent setType(SearchParamType value) { 
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>();
             this.type.setValue(value);
@@ -863,7 +561,7 @@ public class Profile extends DomainResource {
         /**
          * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setDocumentationElement(StringType value) { 
+        public ProfileSearchParamComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -878,7 +576,7 @@ public class Profile extends DomainResource {
         /**
          * @param value A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
          */
-        public ProfileStructureSearchParamComponent setDocumentation(String value) { 
+        public ProfileSearchParamComponent setDocumentation(String value) { 
             if (this.documentation == null)
               this.documentation = new StringType();
             this.documentation.setValue(value);
@@ -895,7 +593,7 @@ public class Profile extends DomainResource {
         /**
          * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
-        public ProfileStructureSearchParamComponent setXpathElement(StringType value) { 
+        public ProfileSearchParamComponent setXpathElement(StringType value) { 
           this.xpath = value;
           return this;
         }
@@ -910,7 +608,7 @@ public class Profile extends DomainResource {
         /**
          * @param value An XPath expression that returns a set of elements for the search parameter.
          */
-        public ProfileStructureSearchParamComponent setXpath(String value) { 
+        public ProfileSearchParamComponent setXpath(String value) { 
           if (Utilities.noString(value))
             this.xpath = null;
           else {
@@ -941,7 +639,7 @@ public class Profile extends DomainResource {
         /**
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
-        public ProfileStructureSearchParamComponent addTarget(String value) { //1
+        public ProfileSearchParamComponent addTarget(String value) { //1
           CodeType t = new CodeType();
           t.setValue(value);
           this.target.add(t);
@@ -967,8 +665,8 @@ public class Profile extends DomainResource {
           childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ProfileStructureSearchParamComponent copy() {
-        ProfileStructureSearchParamComponent dst = new ProfileStructureSearchParamComponent();
+      public ProfileSearchParamComponent copy() {
+        ProfileSearchParamComponent dst = new ProfileSearchParamComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
@@ -1053,21 +751,42 @@ public class Profile extends DomainResource {
     protected List<ProfileMappingComponent> mapping = new ArrayList<ProfileMappingComponent>();
 
     /**
-     * A constraint statement about what contents a resource or data type may have.
+     * The Resource or Data type being described.
      */
-    protected List<ProfileStructureComponent> structure = new ArrayList<ProfileStructureComponent>();
+    protected CodeType type;
 
-    private static final long serialVersionUID = -242910993L;
+    /**
+     * The structure that is the base on which this set of constraints is derived from.
+     */
+    protected UriType base;
+
+    /**
+     * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.
+     */
+    protected ConstraintComponent snapshot;
+
+    /**
+     * A differential view is expressed relative to the base profile - a statement of differences that it applies.
+     */
+    protected ConstraintComponent differential;
+
+    /**
+     * Additional search parameters defined for this structure that implementations can support and/or make use of.
+     */
+    protected List<ProfileSearchParamComponent> searchParam = new ArrayList<ProfileSearchParamComponent>();
+
+    private static final long serialVersionUID = -407540206L;
 
     public Profile() {
       super();
     }
 
-    public Profile(UriType url, StringType name, Enumeration<ResourceProfileStatus> status) {
+    public Profile(UriType url, StringType name, Enumeration<ResourceProfileStatus> status, CodeType type) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
+      this.type = type;
     }
 
     /**
@@ -1487,19 +1206,117 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @return {@link #structure} (A constraint statement about what contents a resource or data type may have.)
+     * @return {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public List<ProfileStructureComponent> getStructure() { 
-      return this.structure;
+    public CodeType getTypeElement() { 
+      return this.type;
     }
 
     /**
-     * @return {@link #structure} (A constraint statement about what contents a resource or data type may have.)
+     * @param value {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Profile setTypeElement(CodeType value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
+     * @return The Resource or Data type being described.
+     */
+    public String getType() { 
+      return this.type == null ? null : this.type.getValue();
+    }
+
+    /**
+     * @param value The Resource or Data type being described.
+     */
+    public Profile setType(String value) { 
+        if (this.type == null)
+          this.type = new CodeType();
+        this.type.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     */
+    public UriType getBaseElement() { 
+      return this.base;
+    }
+
+    /**
+     * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     */
+    public Profile setBaseElement(UriType value) { 
+      this.base = value;
+      return this;
+    }
+
+    /**
+     * @return The structure that is the base on which this set of constraints is derived from.
+     */
+    public String getBase() { 
+      return this.base == null ? null : this.base.getValue();
+    }
+
+    /**
+     * @param value The structure that is the base on which this set of constraints is derived from.
+     */
+    public Profile setBase(String value) { 
+      if (Utilities.noString(value))
+        this.base = null;
+      else {
+        if (this.base == null)
+          this.base = new UriType();
+        this.base.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
+     */
+    public ConstraintComponent getSnapshot() { 
+      return this.snapshot;
+    }
+
+    /**
+     * @param value {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
+     */
+    public Profile setSnapshot(ConstraintComponent value) { 
+      this.snapshot = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
+     */
+    public ConstraintComponent getDifferential() { 
+      return this.differential;
+    }
+
+    /**
+     * @param value {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
+     */
+    public Profile setDifferential(ConstraintComponent value) { 
+      this.differential = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
+     */
+    public List<ProfileSearchParamComponent> getSearchParam() { 
+      return this.searchParam;
+    }
+
+    /**
+     * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
      */
     // syntactic sugar
-    public ProfileStructureComponent addStructure() { //3
-      ProfileStructureComponent t = new ProfileStructureComponent();
-      this.structure.add(t);
+    public ProfileSearchParamComponent addSearchParam() { //3
+      ProfileSearchParamComponent t = new ProfileSearchParamComponent();
+      this.searchParam.add(t);
       return t;
     }
 
@@ -1519,7 +1336,11 @@ public class Profile extends DomainResource {
         childrenList.add(new Property("requirements", "string", "The Scope and Usage that this profile was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
-        childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
+        childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
+        childrenList.add(new Property("differential", "@Profile.snapshot", "A differential view is expressed relative to the base profile - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
+        childrenList.add(new Property("searchParam", "", "Additional search parameters defined for this structure that implementations can support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
       }
 
       public Profile copy() {
@@ -1547,9 +1368,13 @@ public class Profile extends DomainResource {
         dst.mapping = new ArrayList<ProfileMappingComponent>();
         for (ProfileMappingComponent i : mapping)
           dst.mapping.add(i.copy());
-        dst.structure = new ArrayList<ProfileStructureComponent>();
-        for (ProfileStructureComponent i : structure)
-          dst.structure.add(i.copy());
+        dst.type = type == null ? null : type.copy();
+        dst.base = base == null ? null : base.copy();
+        dst.snapshot = snapshot == null ? null : snapshot.copy();
+        dst.differential = differential == null ? null : differential.copy();
+        dst.searchParam = new ArrayList<ProfileSearchParamComponent>();
+        for (ProfileSearchParamComponent i : searchParam)
+          dst.searchParam.add(i.copy());
         return dst;
       }
 

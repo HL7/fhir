@@ -22,7 +22,7 @@ public class QaTracker {
   private class SnapShot {
     private int resources; 
     private int types; 
-    private int profiles; 
+    private int packs; 
     private int paths;
     private int bindings;
     private int codelists;
@@ -69,7 +69,7 @@ public class QaTracker {
     current.resources = definitions.getResources().size();
     current.types = definitions.getResources().size() + definitions.getTypes().size() + definitions.getStructures().size()  
          + definitions.getShared().size() + definitions.getPrimitives().size()+ definitions.getInfrastructure().size();
-    current.profiles = definitions.getProfiles().size();
+    current.packs = definitions.getConformancePackages().size();
     
     for (ResourceDefn r : definitions.getResources().values())
       countPaths(r.getRoot());
@@ -104,7 +104,7 @@ public class QaTracker {
     s.append("<table class=\"grid\">\r\n");
     s.append(" <tr><td>resources</td><td>"+Integer.toString(current.resources)+"</td></tr>\r\n");
     s.append(" <tr><td>types</td><td>"+Integer.toString(current.types)+"</td></tr>\r\n");
-    s.append(" <tr><td>profiles</td><td>"+Integer.toString(current.profiles)+"</td></tr>\r\n");
+    s.append(" <tr><td>packs</td><td>"+Integer.toString(current.packs)+"</td></tr>\r\n");
     s.append(" <tr><td>paths</td><td>"+Integer.toString(current.paths)+"</td></tr>\r\n");
     s.append(" <tr><td>bindings</td><td>"+Integer.toString(current.bindings)+"</td></tr>\r\n");
     s.append(" <tr><td>codelists</td><td>"+Integer.toString(current.codelists)+"</td></tr>\r\n");
@@ -154,7 +154,7 @@ public class QaTracker {
     IniFile ini = new IniFile(rootDir+"records.cache");
     ini.setIntegerProperty("resources", n, current.resources, null);   
     ini.setIntegerProperty("types", n, current.types, null);   
-    ini.setIntegerProperty("profiles", n, current.profiles, null);   
+    ini.setIntegerProperty("profiles", n, current.packs, null); // need to maintain the old word here   
     ini.setIntegerProperty("paths", n, current.paths, null);   
     ini.setIntegerProperty("bindings", n, current.bindings, null);   
     ini.setIntegerProperty("codelists", n, current.codelists, null);   

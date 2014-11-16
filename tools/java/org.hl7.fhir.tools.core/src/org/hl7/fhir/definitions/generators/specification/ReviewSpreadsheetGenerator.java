@@ -7,7 +7,6 @@ import java.util.List;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -30,15 +29,14 @@ public class ReviewSpreadsheetGenerator {
     palette.setColorAtIndex(HSSFColor.LAVENDER.index, (byte) 0xF0, (byte) 0xF0, (byte) 0xF0);
     
     generateReviewHeader(workbook);
-    for (ProfileStructureComponent sc : profile.getStructure())
-      generateReviewSheet(workbook, sc);
+    generateReviewSheet(workbook, profile);
     FileOutputStream out = new FileOutputStream(filename);
     workbook.write(out);
     out.close();
   }
 
-  private void generateReviewSheet(HSSFWorkbook workbook, ProfileStructureComponent sc) {
-    HSSFSheet sheet = workbook.createSheet(sc.getName());
+  private void generateReviewSheet(HSSFWorkbook workbook, Profile profile) {
+    HSSFSheet sheet = workbook.createSheet(profile.getName());
     sheet.setColumnWidth(0, 8000);
     sheet.setColumnWidth(3, 100);
     
@@ -58,10 +56,10 @@ public class ReviewSpreadsheetGenerator {
     font.setFontName("Calibri");
     style = workbook.createCellStyle();
     
-    ElementDefinition ed = sc.getSnapshot().getElement().get(0);
+    ElementDefinition ed = profile.getSnapshot().getElement().get(0);
     String path = ed.getPath();
-    addRow(sheet, style, path+" : "+sc.getType(), sc.getName(), "", ed.getFormal(), "");
-    processRows(workbook, path, sc.getSnapshot().getElement(), 1, sheet, "  ");
+    addRow(sheet, style, path+" : "+profile.getType(), profile.getName(), "", ed.getFormal(), "");
+    processRows(workbook, path, profile.getSnapshot().getElement(), 1, sheet, "  ");
   }
 
   private int processRows(HSSFWorkbook workbook, String path, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) {

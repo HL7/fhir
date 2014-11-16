@@ -40,74 +40,64 @@ POSSIBILITY OF SUCH DAMAGE.
  * @author Grahame
  *
  */
+// to be removed
+
 public class RegisteredProfile {
 
-  public enum ProfileInputType {
-    Spreadsheet, Profile;
-  }
 
-  private String name;
-  private String sourceFilename;
-  private String destFilename;
-  private String filepath;
-  private ProfileDefn profile;
-  private ProfileInputType type;
-  private Profile resource;
-  private Map<String, Example> examples = new HashMap<String, Example>();
-
-  public RegisteredProfile(String name, String destFilename, String sourceFilename, String filepath, ProfileInputType type) {
-    super();
-    this.name = name;
-    this.sourceFilename = sourceFilename;
-    this.destFilename = destFilename;
-    this.filepath = filepath;
-    this.type= type;
-  }
-
-  public String getName() {
-    return name;
-  }
-  public String getSourceFilename() {
-    return sourceFilename;
-  }
-  public String getDestFilename() {
-    return destFilename;
-  }
-  public ProfileDefn getProfile() {
-    return profile;
-  }
-  public String getFilepath() {
-    return filepath;
-  }
-
-  public ProfileInputType getType() {
-    return type;
-  }
-
-  public void setProfile(ProfileDefn profile) {
-    this.profile = profile;
-  }
-
-  public Profile getReference() {
-    return resource;
-  }
-
-  public void setReference(Profile resource) {
-    this.resource = resource;
-  }
-
-  public String getTitle() {
-    return destFilename.contains(".") ? destFilename.substring(0, destFilename.lastIndexOf(".")) : destFilename;
-  }
-
-  public String getDestFilenameNoExt() {
-    return getTitle();
-  }
-
-  public Map<String, Example> getExamples() {
-    return examples;
-  }
-
+//  public RegisteredProfile(String name, String destFilename, String sourceFilename, String filepath, ProfileInputType type) {
+//    super();
+//    this.name = name;
+//    this.sourceFilename = sourceFilename;
+//    this.destFilename = destFilename;
+//    this.filepath = filepath;
+//    this.type= type;
+//  }
+//
+//  public String getName() {
+//    return name;
+//  }
+//  public String getSourceFilename() {
+//    return sourceFilename;
+//  }
+//  public String getDestFilename() {
+//    return destFilename;
+//  }
+//  public ProfileDefn getProfile() {
+//    return profile;
+//  }
+//  public String getFilepath() {
+//    return filepath;
+//  }
+//
+//  public ProfileInputType getType() {
+//    return type;
+//  }
+//
+//  public void setProfile(ProfileDefn profile) {
+//    this.profile = profile;
+//  }
+//
+//  public Profile getResource() {
+//    return resource;
+//  }
+//
+//  public void setReference(Profile resource) {
+//    this.resource = resource;
+//  }
+//
+//  public String getTitle() {
+//    return destFilename.contains(".") ? destFilename.substring(0, destFilename.lastIndexOf(".")) : destFilename;
+//  }
+//
+//  public String getDestFilenameNoExt() {
+//    return getTitle();
+//  }
+//
+//  public Map<String, Example> getExamples() {
+//    return examples;
+//  }
+//
 
 
 }

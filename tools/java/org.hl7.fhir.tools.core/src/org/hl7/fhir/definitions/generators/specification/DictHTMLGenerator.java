@@ -55,9 +55,10 @@ import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -68,42 +69,41 @@ import com.github.rjeschke.txtmark.Processor;
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;
+	private ProfileUtilities utilities;
 	private PageProcessor page;
 	
 	public DictHTMLGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
-		super(out, "UTF-8");
-		this.definitions = page.getDefinitions();
-		this.page = page;
+	  super(out, "UTF-8");
+	  this.definitions = page.getDefinitions();
+	  this.page = page;
+	  this.utilities = new ProfileUtilities(page.getWorkerContext());
 	}
 
-  public void generate(Profile profile) throws Exception {
-    int i = 1;
-    for (ProfileStructureComponent s : profile.getStructure()) {
-      write("<p><a name=\"i"+Integer.toString(i)+"\"><b>"+s.getName()+"</b></a></p>\r\n");
-      write("<table class=\"dict\">\r\n");
-      
-      for (ElementDefinition ec : s.getSnapshot().getElement()) {
-        if (isProfiledExtension(ec)) {
-          String name = s.getName()+"."+ makePathLink(ec);
-          String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
-          write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-          ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
-          if (extDefn == null)
-            generateElementInner(profile,  null, ec);
-          else
-            generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
-        } else {
-          String name = s.getName()+"."+ makePathLink(ec);
-          String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
-          write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-          generateElementInner(profile, null, ec);
-          if (ec.getSlicing() != null)
-            generateSlicing(profile, ec.getSlicing());
-        }
-      }
-      write("</table>\r\n");
-      i++;      
-    }
+	public void generate(Profile profile) throws Exception {
+	  int i = 1;
+	  write("<table class=\"dict\">\r\n");
+
+	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
+	    if (isProfiledExtension(ec)) {
+	      String name = profile.getName()+"."+ makePathLink(ec);
+	      String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+	      ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
+	      if (extDefn == null)
+	        generateElementInner(profile,  null, ec);
+	      else
+	        generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
+	    } else {
+	      String name = profile.getName()+"."+ makePathLink(ec);
+	      String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
+	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+	      generateElementInner(profile, null, ec);
+	      if (ec.getSlicing() != null)
+	        generateSlicing(profile, ec.getSlicing());
+	    }
+	  }
+	  write("</table>\r\n");
+	  i++;      
     flush();
     close();
   }
@@ -498,7 +498,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         String right = text.substring(text.indexOf("]]]")+3);
         String url = "";
         String[] parts = linkText.split("\\#");
-        Profile p = definitions.getProfileByURL(parts[0]);
+        Profile p = utilities.getProfile(null, parts[0]);
         if (p != null)
           url = p.getTag("filename")+".html";
         else if (definitions.hasResource(linkText)) {

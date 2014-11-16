@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
@@ -79,8 +80,7 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileSearchParamComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
@@ -131,16 +131,11 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     // first, the differential
-    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
-    p.getStructure().add(cd);
-    cd.setPublish(true); 
-    cd.setType(type.getCode());
-    cd.setName(type.getCode());
-    cd.setPurpose("This is the defintion for the "+type.getCode()+" datatype");
-    cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
-    cd.setDifferential(new ConstraintComponent());
+    p.setType(type.getCode());
+    p.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
+    p.setDifferential(new ConstraintComponent());
     ElementDefinition ec = new ElementDefinition();
-    cd.getDifferential().getElement().add(ec);
+    p.getDifferential().getElement().add(ec);
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
     ec.setFormal(type.getDefinition());
@@ -150,7 +145,7 @@ public class ProfileGenerator {
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     
     ec = new ElementDefinition();
-    cd.getDifferential().getElement().add(ec);
+    p.getDifferential().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setShort("Primitive value for " +type.getCode());
@@ -160,9 +155,9 @@ public class ProfileGenerator {
     
     reset();
     // now. the snapshot
-    cd.setSnapshot(new ConstraintComponent());
+    p.setSnapshot(new ConstraintComponent());
     ec = new ElementDefinition();
-    cd.getSnapshot().getElement().add(ec);
+    p.getSnapshot().getElement().add(ec);
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
     ec.setFormal(type.getDefinition());
@@ -171,10 +166,10 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("*");
 
-    makeExtensionSlice("extension", null, p, cd.getSnapshot(), null, type.getCode());
+    makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
         
     ec = new ElementDefinition();
-    cd.getSnapshot().getElement().add(ec);
+    p.getSnapshot().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setMin(0);
@@ -206,16 +201,11 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     // first, the differential
-    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
-    p.getStructure().add(cd);
-    cd.setPublish(true); 
-    cd.setType(type.getCode());
-    cd.setName(type.getCode());
-    cd.setPurpose("This is the defintion for the "+type.getCode()+" datatype");
-    cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
-    cd.setDifferential(new ConstraintComponent());
+    p.setType(type.getCode());
+    p.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
+    p.setDifferential(new ConstraintComponent());
     ElementDefinition ec = new ElementDefinition();
-    cd.getDifferential().getElement().add(ec);
+    p.getDifferential().getElement().add(ec);
     ec.setPath(type.getCode());
     
     ec.setShort("Primitive Type " +type.getCode());
@@ -226,7 +216,7 @@ public class ProfileGenerator {
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     
     ec = new ElementDefinition();
-    cd.getDifferential().getElement().add(ec);
+    p.getDifferential().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
@@ -237,9 +227,9 @@ public class ProfileGenerator {
     
     reset();
     // now. the snapshot
-    cd.setSnapshot(new ConstraintComponent());
+    p.setSnapshot(new ConstraintComponent());
     ec = new ElementDefinition();
-    cd.getSnapshot().getElement().add(ec);
+    p.getSnapshot().getElement().add(ec);
     ec.setPath(type.getCode());
     
     ec.setShort("Primitive Type " +type.getCode());
@@ -249,11 +239,11 @@ public class ProfileGenerator {
     ec.setMin(0);
     ec.setMax("*");
 
-    makeExtensionSlice("extension", null, p, cd.getSnapshot(), null, type.getCode());
+    makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
     
     
     ec = new ElementDefinition();
-    cd.getSnapshot().getElement().add(ec);
+    p.getSnapshot().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
@@ -287,20 +277,15 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     // first, the differential
-    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
-    p.getStructure().add(cd);
-    cd.setPublish(true); 
-    cd.setType(t.getName());
-    cd.setName(t.getName());
-    cd.setPurpose("This is the defintion for the "+t.getName()+" datatype");
-    cd.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
-    cd.setDifferential(new ConstraintComponent());
-    defineElement(null, p, cd.getDifferential(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    p.setType(t.getName());
+    p.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
+    p.setDifferential(new ConstraintComponent());
+    defineElement(null, p, p.getDifferential(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
     
     reset();
     // now. the snapshot
-    cd.setSnapshot(new ConstraintComponent());
-    defineElement(null, p, cd.getSnapshot(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType);
+    p.setSnapshot(new ConstraintComponent());
+    defineElement(null, p, p.getSnapshot(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType);
 
     containedSlices.clear();
 
@@ -325,13 +310,9 @@ public class ProfileGenerator {
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     // first, the differential
-    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
-    p.getStructure().add(cd);
-    cd.setPublish(true); 
-    cd.setType(pt.getBaseType());
-    cd.setName(pt.getName());
-    cd.setPurpose("This is the invariants for the "+pt.getName()+" data type profile");
-    cd.setBase("http://hl7.org/fhir/Profile/"+pt.getBaseType());
+    p.setType(pt.getBaseType());
+    p.setName(pt.getName());
+    p.setBase("http://hl7.org/fhir/Profile/"+pt.getBaseType());
     ElementDefinition e = new ElementDefinition();
     e.setPath(pt.getBaseType());
     e.setName(pt.getName());
@@ -348,14 +329,14 @@ public class ProfileGenerator {
     inv.setHuman(pt.getInvariant().getEnglish());
     inv.setXpath(pt.getInvariant().getXpath());
     e.getConstraint().add(inv);
-    cd.setDifferential(new ConstraintComponent());
-    cd.getDifferential().getElement().add(e);
+    p.setDifferential(new ConstraintComponent());
+    p.getDifferential().getElement().add(e);
 
     reset();
     
     // now, the snapshot
-    ProfileStructureComponent base = getTypeSnapshot(pt.getBaseType());
-    new ProfileUtilities(context).generateSnapshot(base, cd, "http://hl7.org/fhir/Profile/"+pt.getBaseType(), p.getName());
+    Profile base = getTypeSnapshot(pt.getBaseType());
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+pt.getBaseType(), p.getName());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addTag("h2").addText("Data type "+pt.getName());
@@ -370,12 +351,10 @@ public class ProfileGenerator {
     return p;
   }
   
-  private ProfileStructureComponent getTypeSnapshot(String baseType) throws Exception {
+  private Profile getTypeSnapshot(String baseType) throws Exception {
     Profile p = definitions.getElementDefn(baseType).getProfile();
-    for (ProfileStructureComponent s : p.getStructure()) {
-      if (s.getType().equals(baseType) && s.getSnapshot() != null)
-        return s;
-    }
+    if (p != null && p.getType().equals(baseType) && p.getSnapshot() != null)
+      return p;
     throw new Exception("Unable to find snapshot for "+baseType);
   }
 
@@ -394,27 +373,22 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     // first, the differential
-    Profile.ProfileStructureComponent cd = new Profile.ProfileStructureComponent();
-    p.getStructure().add(cd);
-    cd.setPublish(true); 
-    cd.setType(r.getRoot().getName());
-    cd.setName(r.getRoot().getName());
-    cd.setPurpose("This is the definition for the "+r.getRoot().getName()+" resource");
-    cd.setDifferential(new ConstraintComponent());
-//    cd.setBase("http://hl7.org/fhir/Profile/Resource"); // this is semi-fictional, and causes errors.
-    defineElement(null, p, cd.getDifferential(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    p.setType(r.getRoot().getName());
+    p.setDifferential(new ConstraintComponent());
+//    p.setBase("http://hl7.org/fhir/Profile/Resource"); // this is semi-fictional, and causes errors.
+    defineElement(null, p, p.getDifferential(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
 
     reset();
     // now. the snashot
-    cd.setSnapshot(new ConstraintComponent());
-    defineElement(null, p, cd.getSnapshot(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource);
+    p.setSnapshot(new ConstraintComponent());
+    defineElement(null, p, p.getSnapshot(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource);
 
     List<String> names = new ArrayList<String>();
     names.addAll(r.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
       SearchParameter param = r.getSearchParams().get(pn);
-      makeSearchParam(p, cd, r.getName(), param);
+      makeSearchParam(p, r.getName(), param);
     }
     containedSlices.clear();
 
@@ -431,64 +405,56 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public Profile generate(ProfileDefn profile, String id, Calendar genDate) throws Exception {
-    return generate(profile, id, null, genDate);
+  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, Calendar genDate) throws Exception {
+    return generate(pack, profile, resource, id, null, genDate);
   }
   
-  public Profile generate(ProfileDefn profile, String id, String html, Calendar genDate) throws Exception {
-    if (profile.getSource() != null)
-      return profile.getSource();
+  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, Calendar genDate) throws Exception {
+    if (profile.getResource() != null)
+      return profile.getResource();
     Profile p = new Profile();
     p.setId(FormatUtilities.makeId(id));
     p.setUrl("http://hl7.org/fhir/Profile/"+ id);
-    p.setName(profile.metadata("name"));
-    p.setPublisher(profile.metadata("author.name"));
-    if (profile.hasMetadata("author.reference"))
-      p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, profile.metadata("author.reference")));
+    p.setName(pack.metadata("name"));
+    p.setPublisher(pack.metadata("author.name"));
+    if (pack.hasMetadata("author.reference"))
+      p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pack.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
-    if (profile.hasMetadata("description"))
-      p.setDescription(profile.metadata("description"));
-    if (profile.hasMetadata("requirements"))
-      p.setRequirements(profile.metadata("requirements"));
+    if (pack.hasMetadata("description"))
+      p.setDescription(pack.metadata("description"));
+    if (pack.hasMetadata("requirements"))
+      p.setRequirements(pack.metadata("requirements"));
 
-    if (profile.hasMetadata("date"))
-      p.setDateElement(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
+    if (pack.hasMetadata("date"))
+      p.setDateElement(Factory.newDateTime(pack.metadata("date").substring(0, 10)));
     else
       p.setDate(new DateAndTime(genDate));
 
-    if (profile.hasMetadata("status")) 
-      p.setStatus(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
-    if (profile.getMetadata().containsKey("code"))
-      for (String s : profile.getMetadata().get("code")) 
+    if (pack.hasMetadata("status")) 
+      p.setStatus(Profile.ResourceProfileStatus.fromCode(pack.metadata("status")));
+    if (pack.getMetadata().containsKey("code"))
+      for (String s : pack.getMetadata().get("code")) 
         if (!Utilities.noString(s))
           p.getCode().add(Factory.makeCoding(s));
 
     Set<String> containedSlices = new HashSet<String>();
 
-    for (ResourceDefn resource : profile.getResources()) {
-      Profile.ProfileStructureComponent c = new Profile.ProfileStructureComponent();
-      p.getStructure().add(c);
-      c.setPublish(resource.isPublishedInProfile());
-      c.setType(resource.getRoot().getName());
-      c.setName(resource.getRoot().getName());
-      c.setBase("http://hl7.org/fhir/Profile/"+c.getType());
-      if (!"".equals(resource.getRoot().getProfileName()))
-        c.setName(resource.getRoot().getProfileName());
-      c.setDifferential(new ConstraintComponent());
-      defineElement(profile, p, c.getDifferential(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
-      List<String> names = new ArrayList<String>();
-      names.addAll(resource.getSearchParams().keySet());
-      Collections.sort(names);
-      for (String pn : names) {
-        SearchParameter param = resource.getSearchParams().get(pn);
-        makeSearchParam(p, c, resource.getName(), param);
-      }
-      reset();
-      // ok, c is the differential. now we make the snapshot
-      ProfileStructureComponent base = definitions.getSnapShotForType(c.getType());
-      new ProfileUtilities(context).generateSnapshot(base, c, "http://hl7.org/fhir/Profile/"+c.getType(), p.getName());
-      reset();
+    p.setType(resource.getRoot().getName());
+    p.setBase("http://hl7.org/fhir/Profile/"+p.getType());
+    p.setDifferential(new ConstraintComponent());
+    defineElement(pack, p, p.getDifferential(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    List<String> names = new ArrayList<String>();
+    names.addAll(resource.getSearchParams().keySet());
+    Collections.sort(names);
+    for (String pn : names) {
+      SearchParameter param = resource.getSearchParams().get(pn);
+      makeSearchParam(p, resource.getName(), param);
     }
+    reset();
+    // ok, c is the differential. now we make the snapshot
+    Profile base = definitions.getSnapShotForType(p.getType());
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+p.getType(), p.getName());
+    reset();
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
@@ -518,8 +484,8 @@ public class ProfileGenerator {
     return null;
   }
 
-  private void makeSearchParam(Profile p, ProfileStructureComponent s, String rn, SearchParameter i) {
-    ProfileStructureSearchParamComponent result = new ProfileStructureSearchParamComponent();
+  private void makeSearchParam(Profile p, String rn, SearchParameter i) {
+    ProfileSearchParamComponent result = new ProfileSearchParamComponent();
     result.setName(i.getCode());
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
@@ -529,7 +495,7 @@ public class ProfileGenerator {
         xpath = convertToXpath(xpath);
       result.setXpath(xpath);
     }
-    s.getSearchParam().add(result);
+    p.getSearchParam().add(result);
   }
 
 
@@ -638,7 +604,7 @@ public class ProfileGenerator {
   /**
    * note: snapshot implies that we are generating a resource or a data type; for other profiles, the snapshot is generated elsewhere
    */
-  private ElementDefinition defineElement(ProfileDefn pd, Profile p, ConstraintComponent c, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot) throws Exception 
+  private ElementDefinition defineElement(ConformancePackage ap, Profile p, ConstraintComponent c, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot) throws Exception 
   {
     ElementDefinition ce = new ElementDefinition();
     c.getElement().add(ce);
@@ -787,14 +753,14 @@ public class ProfileGenerator {
 
     for (String m : e.getMappings().keySet()) {
       ElementDefinitionMappingComponent map = ce.addMapping();
-      map.setIdentity(registerMapping(p, pd, m));
+      map.setIdentity(registerMapping(ap, p, m));
       map.setMap(e.getMappings().get(m));
     }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
-      makeExtensionSlice("extension", pd, p, c, e, path);
+      makeExtensionSlice("extension", p, c, e, path);
       if (snapshot == SnapShotMode.Resource) { 
-        makeExtensionSlice("modifierExtension", pd, p, c, e, path);
+        makeExtensionSlice("modifierExtension", p, c, e, path);
 
         if (!path.contains(".")) {
           c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
@@ -805,12 +771,12 @@ public class ProfileGenerator {
     }
     Set<String> containedSlices = new HashSet<String>();
     for (ElementDefn child : e.getElements()) 
-      defineElement(pd, p, c, child, path+"."+child.getName(), containedSlices, myParents, snapshot);
+      defineElement(ap, p, c, child, path+"."+child.getName(), containedSlices, myParents, snapshot);
     
     return ce;
   }
   
-  private String registerMapping(Profile p, ProfileDefn pd, String m) {
+  private String registerMapping(ConformancePackage ap, Profile p, String m) {
     for (ProfileMappingComponent map : p.getMapping()) {
       if (map.getUri().equals(m))
         return map.getIdentity();
@@ -822,12 +788,12 @@ public class ProfileGenerator {
     else
       map.setIdentity("m" + Integer.toString(p.getMapping().size()+1));
     map.setUri(m);
-    String name = pd.metadata(m+"-name");
+    String name = ap.metadata(m+"-name");
     if (Utilities.noString(name) && space != null)
       name = space.getTitle();
     if (!Utilities.noString(name))
       map.setName(name);
-    String comments = pd.metadata(m+"-comments");
+    String comments = ap.metadata(m+"-comments");
     if (Utilities.noString(comments) && space != null)
         comments = space.getPreamble();
     if (!Utilities.noString(comments))
@@ -871,7 +837,7 @@ public class ProfileGenerator {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }
 
-  private void makeExtensionSlice(String extensionName, ProfileDefn pd, Profile p, ConstraintComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
+  private void makeExtensionSlice(String extensionName, Profile p, ConstraintComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
       ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(extensionName));
       c.getElement().add(ex);
   }
@@ -951,9 +917,7 @@ public class ProfileGenerator {
   }
 
   public static ProfileDefn wrapProfile(Profile profile) {
-    ProfileDefn p = new ProfileDefn();
-    p.setSource(profile);
-    return p;
+    return new ProfileDefn(profile);
   }
 
   public void convertElements(ElementDefn src, ExtensionDefinition ed, String path) throws Exception {

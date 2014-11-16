@@ -95,7 +95,7 @@ find the correct set of reports for a use-case, the producer of the
 resources also SHALL:
 </p>
 <ol>
- <li><a href="extras.html#tags">Mark resources</a> with the tag declaring the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li><a href="resource.html#tags">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
  <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
 </ol>
 <p>

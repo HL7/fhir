@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -560,16 +560,11 @@ public class Specimen extends DomainResource {
         protected Quantity specimenQuantity;
 
         /**
-         * Additive associated with the container.
+         * Introduced substance to preserve, maintain or enhance the specimen. examples: Formalin, Citrate, EDTA.
          */
-        protected Reference additive;
+        protected Type additive;
 
-        /**
-         * The actual object that is the target of the reference (Additive associated with the container.)
-         */
-        protected Substance additiveTarget;
-
-        private static final long serialVersionUID = 62861449L;
+        private static final long serialVersionUID = 1823665165L;
 
       public SpecimenContainerComponent() {
         super();
@@ -674,32 +669,17 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @return {@link #additive} (Additive associated with the container.)
+         * @return {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. examples: Formalin, Citrate, EDTA.)
          */
-        public Reference getAdditive() { 
+        public Type getAdditive() { 
           return this.additive;
         }
 
         /**
-         * @param value {@link #additive} (Additive associated with the container.)
+         * @param value {@link #additive} (Introduced substance to preserve, maintain or enhance the specimen. examples: Formalin, Citrate, EDTA.)
          */
-        public SpecimenContainerComponent setAdditive(Reference value) { 
+        public SpecimenContainerComponent setAdditive(Type value) { 
           this.additive = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #additive} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Additive associated with the container.)
-         */
-        public Substance getAdditiveTarget() { 
-          return this.additiveTarget;
-        }
-
-        /**
-         * @param value {@link #additive} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Additive associated with the container.)
-         */
-        public SpecimenContainerComponent setAdditiveTarget(Substance value) { 
-          this.additiveTarget = value;
           return this;
         }
 
@@ -710,7 +690,7 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "The type of container associated with the specimen (e.g. slide, aliquot, etc).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("capacity", "Quantity", "The capacity (volume or other measure) the container may contain.", 0, java.lang.Integer.MAX_VALUE, capacity));
           childrenList.add(new Property("specimenQuantity", "Quantity", "The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.", 0, java.lang.Integer.MAX_VALUE, specimenQuantity));
-          childrenList.add(new Property("additive", "Reference(Substance)", "Additive associated with the container.", 0, java.lang.Integer.MAX_VALUE, additive));
+          childrenList.add(new Property("additive[x]", "CodeableConcept|Reference(Substance)", "Introduced substance to preserve, maintain or enhance the specimen. examples: Formalin, Citrate, EDTA.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
       public SpecimenContainerComponent copy() {

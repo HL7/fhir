@@ -59,7 +59,7 @@ public class TableGenerator extends BaseGenerator {
       if (!e.getElements().isEmpty()) {
         row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
-        row.getCells().add(gen.new Cell(null, null, "Element", null, null));   
+        row.getCells().add(gen.new Cell(null, "element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {
         row.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null)); 
         String t = e.getTypes().get(0).getName();
@@ -126,9 +126,8 @@ public class TableGenerator extends BaseGenerator {
     }
     for (String name : e.getInvariants().keySet()) {
       Invariant inv = e.getInvariants().get(name);
-      if (cc.getPieces().size() == 1)
-        cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()));
+      cc.addPiece(gen.new Piece("br"));
+      cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
     
     if (e.getTypes().size() > 1) {

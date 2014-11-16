@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -98,14 +99,15 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
 	@Override
-  public void compose(OutputStream stream, List<Coding> tags, boolean pretty) throws Exception {
+  public void compose(OutputStream stream, ResourceMetaComponent meta, boolean pretty) throws Exception {
     if (canonical && pretty)
       throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, tags, pretty);
-		writer.close();
+    throw new Error("not done yet");
+//		XMLWriter writer = new XMLWriter(stream, "UTF-8");
+//		writer.setPretty(pretty);
+//		writer.start();
+//		compose(writer, meta, pretty);
+//		writer.close();
 	}
 	
 	/**

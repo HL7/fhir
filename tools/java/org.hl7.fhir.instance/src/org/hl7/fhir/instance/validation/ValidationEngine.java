@@ -118,7 +118,7 @@ public class ValidationEngine {
 
     WorkerContext context = WorkerContext.fromDefinitions(definitions);
     outputs.addAll(new InstanceValidator(context).validateInstance(doc.getDocumentElement(), profile, profileURI));
-    new XmlParser().parseGeneral(new ByteArrayInputStream(source));
+    new XmlParser().parse(new ByteArrayInputStream(source));
         
     OperationOutcome op = new OperationOutcome();
     for (ValidationMessage vm : outputs) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -3216,77 +3216,52 @@ public class JsonComposer extends JsonComposerBase {
       composeUriExtras("url", element.getUrlElement(), false);
   }
 
-  private void composeDeviceObservationReport(String name, DeviceObservationReport element) throws Exception {
+  private void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
-      composeDeviceObservationReportInner(element);
+      composeDeviceComponentInner(element);
     }
   }
 
-  private void composeDeviceObservationReportInner(DeviceObservationReport element) throws Exception {
+  private void composeDeviceComponentInner(DeviceComponent element) throws Exception {
       composeDomainResourceElements(element);
-      composeInstantCore("instant", element.getInstantElement(), false);
-      composeInstantExtras("instant", element.getInstantElement(), false);
+      composeCodeableConcept("type", element.getType());
       composeIdentifier("identifier", element.getIdentifier());
+      composeInstantCore("lastSystemChange", element.getLastSystemChangeElement(), false);
+      composeInstantExtras("lastSystemChange", element.getLastSystemChangeElement(), false);
       composeReference("source", element.getSource());
-      composeReference("subject", element.getSubject());
-      if (element.getVirtualDevice().size() > 0) {
-        openArray("virtualDevice");
-        for (DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent e : element.getVirtualDevice()) 
-          composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponent(null, e);
+      composeReference("parent", element.getParent());
+      if (element.getOperationalStatus().size() > 0) {
+        openArray("operationalStatus");
+        for (CodeableConcept e : element.getOperationalStatus()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
+      composeCodeableConcept("parameterGroup", element.getParameterGroup());
+      composeCodeableConcept("measurementPrinciple", element.getMeasurementPrinciple());
+      if (element.getProductionSpecification().size() > 0) {
+        openArray("productionSpecification");
+        for (DeviceComponent.DeviceComponentProductionSpecificationComponent e : element.getProductionSpecification()) 
+          composeDeviceComponentDeviceComponentProductionSpecificationComponent(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("languageCode", element.getLanguageCode());
   }
 
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent element) throws Exception {
+  private void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponentInner(element);
+      composeDeviceComponentDeviceComponentProductionSpecificationComponentInner(element);
       close();
     }
   }
 
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponentInner(DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent element) throws Exception {
+  private void composeDeviceComponentDeviceComponentProductionSpecificationComponentInner(DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
       composeBackbone(element);
-      composeCodeableConcept("code", element.getCode());
-      if (element.getChannel().size() > 0) {
-        openArray("channel");
-        for (DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent e : element.getChannel()) 
-          composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent(null, e);
-        closeArray();
-      };
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponentInner(DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeableConcept("code", element.getCode());
-      if (element.getMetric().size() > 0) {
-        openArray("metric");
-        for (DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent e : element.getMetric()) 
-          composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent(null, e);
-        closeArray();
-      };
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponentInner(DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent element) throws Exception {
-      composeBackbone(element);
-      composeReference("observation", element.getObservation());
+      composeCodeableConcept("specType", element.getSpecType());
+      composeIdentifier("componentId", element.getComponentId());
+      composeStringCore("productionSpec", element.getProductionSpecElement(), false);
+      composeStringExtras("productionSpec", element.getProductionSpecElement(), false);
   }
 
   private void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
@@ -6821,10 +6796,16 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileMappingComponent(null, e);
         closeArray();
       };
-      if (element.getStructure().size() > 0) {
-        openArray("structure");
-        for (Profile.ProfileStructureComponent e : element.getStructure()) 
-          composeProfileProfileStructureComponent(null, e);
+      composeCodeCore("type", element.getTypeElement(), false);
+      composeCodeExtras("type", element.getTypeElement(), false);
+      composeUriCore("base", element.getBaseElement(), false);
+      composeUriExtras("base", element.getBaseElement(), false);
+      composeProfileConstraintComponent("snapshot", element.getSnapshot());
+      composeProfileConstraintComponent("differential", element.getDifferential());
+      if (element.getSearchParam().size() > 0) {
+        openArray("searchParam");
+        for (Profile.ProfileSearchParamComponent e : element.getSearchParam()) 
+          composeProfileProfileSearchParamComponent(null, e);
         closeArray();
       };
   }
@@ -6849,36 +6830,6 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("comments", element.getCommentsElement(), false);
   }
 
-  private void composeProfileProfileStructureComponent(String name, Profile.ProfileStructureComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeProfileProfileStructureComponentInner(element);
-      close();
-    }
-  }
-
-  private void composeProfileProfileStructureComponentInner(Profile.ProfileStructureComponent element) throws Exception {
-      composeBackbone(element);
-      composeCodeCore("type", element.getTypeElement(), false);
-      composeCodeExtras("type", element.getTypeElement(), false);
-      composeUriCore("base", element.getBaseElement(), false);
-      composeUriExtras("base", element.getBaseElement(), false);
-      composeCodeCore("name", element.getNameElement(), false);
-      composeCodeExtras("name", element.getNameElement(), false);
-      composeBooleanCore("publish", element.getPublishElement(), false);
-      composeBooleanExtras("publish", element.getPublishElement(), false);
-      composeStringCore("purpose", element.getPurposeElement(), false);
-      composeStringExtras("purpose", element.getPurposeElement(), false);
-      composeProfileConstraintComponent("snapshot", element.getSnapshot());
-      composeProfileConstraintComponent("differential", element.getDifferential());
-      if (element.getSearchParam().size() > 0) {
-        openArray("searchParam");
-        for (Profile.ProfileStructureSearchParamComponent e : element.getSearchParam()) 
-          composeProfileProfileStructureSearchParamComponent(null, e);
-        closeArray();
-      };
-  }
-
   private void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
     if (element != null) {
       open(name);
@@ -6897,15 +6848,15 @@ public class JsonComposer extends JsonComposerBase {
       };
   }
 
-  private void composeProfileProfileStructureSearchParamComponent(String name, Profile.ProfileStructureSearchParamComponent element) throws Exception {
+  private void composeProfileProfileSearchParamComponent(String name, Profile.ProfileSearchParamComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeProfileProfileStructureSearchParamComponentInner(element);
+      composeProfileProfileSearchParamComponentInner(element);
       close();
     }
   }
 
-  private void composeProfileProfileStructureSearchParamComponentInner(Profile.ProfileStructureSearchParamComponent element) throws Exception {
+  private void composeProfileProfileSearchParamComponentInner(Profile.ProfileSearchParamComponent element) throws Exception {
       composeBackbone(element);
       composeStringCore("name", element.getNameElement(), false);
       composeStringExtras("name", element.getNameElement(), false);
@@ -7782,7 +7733,7 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("type", element.getType());
       composeQuantity("capacity", element.getCapacity());
       composeQuantity("specimenQuantity", element.getSpecimenQuantity());
-      composeReference("additive", element.getAdditive());
+      composeType("additive", element.getAdditive());
   }
 
   private void composeSubscription(String name, Subscription element) throws Exception {
@@ -8285,8 +8236,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDataElement("DataElement", (DataElement)resource);
     else if (resource instanceof Device)
       composeDevice("Device", (Device)resource);
-    else if (resource instanceof DeviceObservationReport)
-      composeDeviceObservationReport("DeviceObservationReport", (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceComponent)
+      composeDeviceComponent("DeviceComponent", (DeviceComponent)resource);
     else if (resource instanceof DeviceUseRequest)
       composeDeviceUseRequest("DeviceUseRequest", (DeviceUseRequest)resource);
     else if (resource instanceof DeviceUseStatement)
@@ -8442,8 +8393,8 @@ public class JsonComposer extends JsonComposerBase {
       composeDataElement(name, (DataElement)resource);
     else if (resource instanceof Device)
       composeDevice(name, (Device)resource);
-    else if (resource instanceof DeviceObservationReport)
-      composeDeviceObservationReport(name, (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceComponent)
+      composeDeviceComponent(name, (DeviceComponent)resource);
     else if (resource instanceof DeviceUseRequest)
       composeDeviceUseRequest(name, (DeviceUseRequest)resource);
     else if (resource instanceof DeviceUseStatement)

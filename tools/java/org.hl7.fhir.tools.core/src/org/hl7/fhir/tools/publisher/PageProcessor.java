@@ -56,6 +56,7 @@ import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
+import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
@@ -94,8 +95,7 @@ import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraint
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileSearchParamComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.UriType;
@@ -109,6 +109,7 @@ import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -242,7 +243,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 		  throw new Exception("unable to find definition for "+ dt);
 	  } 
 	  else {
-		  gen.generate(e);
+		  gen.generate(e, false);
 		  gen.close();
 	  }
 	  String val = TextFile.fileToString(tmp.getAbsolutePath())+"\r\n";
@@ -333,7 +334,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
     boolean even = false;
@@ -353,7 +353,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
-        src = s1+xmlForDt(com[1], file)+treeForDt(com[1])+profileRef(com[1])+tsForDt(com[1])+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]))+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -434,9 +434,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           ref = "http://hl7.org/fhir/vs/"+ref;
         }
         src = s1 + conceptmaplist(ref, com[1]) + s3;
-      }  else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
       } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
@@ -453,8 +450,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(name.toUpperCase().substring(0, 1)+name.substring(1))+s3;
       else if (com[0].equals("header"))
@@ -653,6 +648,89 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
+  private String orgDT(String name, String xml, String tree, String ref, String ts) {
+    StringBuilder b = new StringBuilder();
+    b.append("<div id=\"tabs-"+name+"\">\r\n");
+    b.append(" <ul>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-struc\">Structure</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-uml\">UML</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-xml\">XML</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-json\">JSON</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-all\">All</a></li>\r\n");
+    b.append(" </ul>\r\n");
+    b.append(" <div id=\"tabs-"+name+"-struc\">\r\n");
+    b.append("  <div id=\"tbl\">\r\n");
+    b.append("   <p><b>Structure</b></p>\r\n");
+    b.append("   <div id=\"tbl-inner\">\r\n");
+    b.append("    "+tree+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-uml\">\r\n");
+    b.append("  <div id=\"uml\">\r\n");
+    b.append("   <p><b>UML Diagram</b></p>\r\n");
+    b.append("   <div id=\"uml-inner\">\r\n");
+    b.append("    <p>to do</p>\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-xml\">\r\n");
+    b.append("  <div id=\"xml\">\r\n");
+    b.append("   <p><b>XML Template</b></p>\r\n");
+    b.append("   <div id=\"xml-inner\">\r\n");
+    b.append("    "+xml+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-json\">\r\n");
+    b.append("  <div id=\"json\">\r\n");
+    b.append("   <p><b>JSON Template</b></p>\r\b");
+    b.append("   <div id=\"xml-inner\">\r\n");
+    b.append("    <p>todo</p>\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("\r\n");
+    b.append(" <div id=\"tabs-"+name+"-all\">\r\n");
+    b.append("  <div id=\"tbla\">\r\n");
+    b.append("   <a name=\"tbl\"> </a>\r\n");
+    b.append("   <p><b>Structure</b></p>\r\n");
+    b.append("   <div id=\"tbl-inner\">\r\n");
+    b.append("    "+tree+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append("\r\n");
+    b.append("  <div id=\"umla\">\r\n");
+    b.append("   <a name=\"uml\"> </a>\r\n");
+    b.append("   <p><b>UML Diagram</b></p>\r\n");
+    b.append("   <div id=\"uml-inner\">\r\n");
+    b.append("    <p>todo</p>\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append("\r\n");
+    b.append("  <div id=\"xmla\">\r\n");
+    b.append("   <a name=\"xml\"> </a>\r\n");
+    b.append("   <p><b>XML Template</b></p>\r\n");
+    b.append("   <div id=\"xml-inner\">\r\n");
+    b.append("     "+xml+"\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append("\r\n");
+    b.append("  <div id=\"jsona\">\r\n");
+    b.append("   <a name=\"json\"> </a>\r\n");
+    b.append("   <p><b>JSON Template</b></p>\r\n");
+    b.append("   <div id=\"xml-inner\">\r\n");
+    b.append("    <p>to do</p>\r\n");
+    b.append("   </div>\r\n");
+    b.append("  </div>\r\n");
+    b.append(" </div>\r\n");
+    b.append("</div>\r\n");
+    return b.toString();
+  }
+
   private String allParamlist() {
     ResourceDefn rd = definitions.getBaseResources().get("Resource");
     List<String> names = new ArrayList<String>();
@@ -676,7 +754,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<table class=\"grid\">\r\n");
     b.append("  <tr>\r\n");
     b.append("    <td><b>Name</b></td>\r\n");
-    b.append("    <td><b>Type</b></td>\r\n");
     b.append("    <td><b>Usage</b></td>\r\n");
     b.append("  </tr>\r\n");
     
@@ -692,7 +769,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Profile ae  = (Profile) igResources.get(s);
       b.append("  <tr>\r\n");
       b.append("    <td><a href=\""+((String) ae.getTag("path")).replace(".xml", ".html")+"\">"+Utilities.escapeXml(ae.getName())+"</a></td>\r\n");
-      b.append("    <td>"+describeProfileType(ae)+"</td>\r\n");
       b.append("    <td>"+Utilities.escapeXml(ae.getDescription())+"</td>\r\n");
       b.append(" </tr>\r\n");
     }
@@ -752,7 +828,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<table class=\"grid\">\r\n");
     b.append("  <tr>\r\n");
     b.append("    <td><b>Name</b></td>\r\n");
-    b.append("    <td><b>Type</b></td>\r\n");
     b.append("    <td><b>Usage</b></td>\r\n");
     b.append("  </tr>\r\n");
     
@@ -760,38 +835,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("    <td colspan=\"2\"><b>General</b></td>\r\n");
     b.append("  </tr>\r\n");
     List<String> names = new ArrayList<String>();
-    names.addAll(definitions.getProfiles().keySet());
+    names.addAll(definitions.getConformancePackages().keySet());
     Collections.sort(names);
     for (String s : names) {
-      ProfileDefn p = definitions.getProfiles().get(s);
+      ConformancePackage ap = definitions.getConformancePackages().get(s);
       b.append("  <tr>\r\n");
-      b.append("    <td><a href=\""+p.metadata("id")+".html\">"+Utilities.escapeXml(p.getSource().getName())+"</a></td>\r\n");
-      b.append("    <td>"+describeProfileType(p.getSource())+"</td>\r\n");
-      b.append("    <td>"+Utilities.escapeXml(p.getSource().getDescription())+"</td>\r\n");
+      b.append("    <td><a href=\""+ap.getName()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      b.append("    <td>"+Utilities.escapeXml(ap.getDescription())+"</td>\r\n");
       b.append(" </tr>\r\n");
     }
-    for (String n : definitions.sortedResourceNames()) {
-      ResourceDefn r = definitions.getResourceByName(n);
-      if (!r.getProfiles().isEmpty()) {
-        b.append("  <tr>\r\n");
-        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
-        b.append("  </tr>\r\n");
-        for (RegisteredProfile p : r.getProfiles()) {
-          b.append("  <tr>\r\n");
-          b.append("    <td><a href=\""+p.getDestFilenameNoExt()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td>\r\n");
-          b.append("    <td>"+describeProfileType(p.getProfile().getSource())+"</td>\r\n");
-          b.append("    <td>"+Utilities.escapeXml(p.getProfile().getSource().getDescription())+"</td>\r\n");
-          b.append(" </tr>\r\n");
-        }
-      }
-    }
+// todo-profiles - do we want to list these here?    
+//    for (String n : definitions.sortedResourceNames()) {
+//      ResourceDefn r = definitions.getResourceByName(n);
+//      if (!r.getProfiles().isEmpty()) {
+//        b.append("  <tr>\r\n");
+//        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
+//        b.append("  </tr>\r\n");
+//        for (RegisteredProfile p : r.getProfiles()) {
+//          b.append("  <tr>\r\n");
+//          b.append("    <td><a href=\""+p.getDestFilenameNoExt()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td>\r\n");
+//          b.append("    <td>"+Utilities.escapeXml(p.getProfile().getSource().getDescription())+"</td>\r\n");
+//          b.append(" </tr>\r\n");
+//        }
+//      }
+//    }
     b.append("</table>\r\n");
    
     return b.toString();
-  }
-
-  private String describeProfileType(Profile source) {
-    return source.getStructure().size() == 1 ?  "Constraint" : "Constraints";
   }
 
   private String profileRef(String name) {
@@ -1452,12 +1522,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private void scanForProfileUsage(StringBuilder b, BindingSpecification cd, ResourceDefn r) {
-    for (RegisteredProfile p : r.getProfiles()) {
-      for (ProfileStructureComponent s : p.getProfile().getSource().getStructure()) {
-        for (ElementDefinition ed : s.getSnapshot().getElement()) {
+    for (ConformancePackage ap : r.getConformancePackages()) {
+      for (ProfileDefn p : ap.getProfiles()) {
+        for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
           if (ed != null && ed.getBinding() != null) {
             if (ed.getBinding().getName().equals(cd.getName()))
-              b.append(" <li><a href=\""+p.getDestFilenameNoExt()+"."+s.getName()+".html\">Profile "+p.getName()+" Structure "+s.getName()+": "+ed.getPath()+"</a> "+getBindingTypeDesc(ed.getBinding())+"</li>\r\n");
+              b.append(" <li><a href=\""+p.getId()+ ".html\">Profile "+p.getTitle()+": "+ed.getPath()+"</a> "+getBindingTypeDesc(ed.getBinding())+"</li>\r\n");
           }
         }
       }
@@ -1608,10 +1678,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return system.substring(system.lastIndexOf("/")+1);
   }
 
-  private String genProfileConstraints(ResourceDefn res) throws Exception {
-    ElementDefn e = res.getRoot();
+  private String genProfileConstraints(Profile res) throws Exception {
     StringBuilder b = new StringBuilder();
-    generateConstraints(res.getName(), e, b, true);
+    for (ElementDefinition e : res.getSnapshot().getElement()) {      
+      for (ElementDefinitionConstraintComponent inv : e.getConstraint()) {
+        if (!e.getPath().contains("."))
+          b.append("<li><b title=\"Formal Invariant Identifier\">Inv-"+inv.getKey()+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        else
+          b.append("<li><b title=\"Formal Invariant Identifier\">Inv-"+inv.getKey()+"</b>: On "+e.getPath()+": "+Utilities.escapeXml(inv.getHuman())+" (xpath on "+presentPath(e.getPath())+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+      }
+    }    
     if (b.length() > 0)
       return "<p>Constraints</p><ul>"+b+"</ul>";
     else
@@ -1843,7 +1919,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
@@ -2460,7 +2535,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
   String processPageIncludesForPrinting(String file, String src, Resource resource) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     boolean even = false;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -2508,10 +2582,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
-      }
       else  if (com[0].equals("conceptmaplistvs")) {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         String ref;
@@ -2530,8 +2600,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
@@ -2785,7 +2853,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   String processPageIncludesForBook(String file, String src, String type, Resource resource) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
     boolean even = false;
@@ -2859,10 +2926,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+new SvgGenerator(this).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
         src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
-      else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
-      } else if (com[0].equals("settitle")) {
+      else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }  else if (com[0].equals("reflink")) {
@@ -2872,8 +2936,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("header"))
         src = s1+s3;
       else if (com[0].equals("newheader"))
@@ -3084,7 +3146,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(name)+"_Page";
     String workingTitle = Utilities.escapeXml(resource.getName());
     
     while (src.contains("<%") || src.contains("[%"))
@@ -3108,18 +3169,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
-      }
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(resource.getName())+s3;
       else if (com[0].equals("maponthispage"))
@@ -3453,8 +3508,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String getSearch(ProfileStructureComponent structure) {
-    if (structure.getSearchParam().size() == 0)
+  private String getSearch(Profile profile) {
+    if (profile.getSearchParam().size() == 0)
       return "";
     else {
       StringBuilder b = new StringBuilder();
@@ -3463,12 +3518,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
-      for (ProfileStructureSearchParamComponent t : structure.getSearchParam())
+      for (ProfileSearchParamComponent t : profile.getSearchParam())
         names.add(t.getName());
       Collections.sort(names);
       for (String name : names)  {
-        ProfileStructureSearchParamComponent p = null;
-        for (ProfileStructureSearchParamComponent t : structure.getSearchParam())
+        ProfileSearchParamComponent p = null;
+        for (ProfileSearchParamComponent t : profile.getSearchParam())
           if (t.getName().equals(name))
             p = t;
         b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(p.getDocumentation())+"</td><td>"+(p.getXpath() == null ? "" : p.getXpath())+"</td></tr>\r\n");
@@ -3502,11 +3557,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String produceProfiles(ResourceDefn resource) {
     StringBuilder s = new StringBuilder();
-    if (resource.getProfiles().size() == 0) {
+    if (resource.getConformancePackages().size() == 0) {
       s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     } else { 
-      for (RegisteredProfile p: resource.getProfiles()) {
-        s.append("<tr><td><a href=\""+p.getTitle()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getProfile().getSource().getDescription())+"</td></tr>");
+      for (ConformancePackage ap: resource.getConformancePackages()) {
+        if (ap.getProfiles().size() + ap.getExtensions().size() + ap.getExamples().size() + ap.getValuesets().size() > 0) {
+          s.append("<tr><td colspan=\"2\"><b>"+Utilities.escapeXml(ap.getTitle())+"</b>"+(Utilities.noString(ap.getDescription()) ? "<br/>"+ap.getDescription() : "") + "</td></tr>");
+          if (ap.getProfiles().size() > 0) {
+            s.append("<tr><td colspan=\"2\">Profiles: </td></tr>");
+            for (ProfileDefn p : ap.getProfiles())
+              s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td><td>"+Utilities.escapeXml(p.getResource().getDescription())+"</td></tr>");
+          }
+          if (ap.getExtensions().size() > 0) {
+            s.append("<tr><td colspan=\"2\">Extensions: </td></tr>");
+            for (ExtensionDefinition ed : ap.getExtensions())
+              s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td>"+Utilities.escapeXml(ed.getName()+" : "+ed.getDescription())+"</td></tr>");
+          }
+        }
       }
     }
     return s.toString();
@@ -3544,21 +3611,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     if (resource.getName().equals("Profile")) {
       started = true;
-      for (String pn : definitions.getProfiles().keySet()) {
-        ProfileDefn p = definitions.getProfiles().get(pn);
+      for (String pn : definitions.getConformancePackages().keySet()) {
+        ConformancePackage ap = definitions.getConformancePackages().get(pn);
         if (!started)
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
-        s.append("<tr><td><a href=\""+pn+".html\">"+Utilities.escapeXml(p.metadata("description"))+"</a></td>");
-        s.append("<td><a href=\""+pn+".profile.xml.html\">XML</a></td>");
-        s.append("<td><a href=\""+pn+".profile.json.html\">JSON</a></td>");
-        s.append("</tr>");
+        for (ProfileDefn p : ap.getProfiles()) {
+          String ln = p.getId();
+          s.append("<tr><td><a href=\""+ln+ ".html\">"+Utilities.escapeXml(p.getResource().getDescription())+"</a></td>");
+          s.append("<td><a href=\""+ln+".profile.xml.html\">XML</a></td>");
+          s.append("<td><a href=\""+ln+".profile.json.html\">JSON</a></td>");
+          s.append("</tr>");
+        }
       }
       for (String rn : definitions.sortedResourceNames()) {
         if (!rn.equals("Profile")) {
-          for (RegisteredProfile p: definitions.getResourceByName(rn).getProfiles()) {
-            s.append("<tr><td><a href=\""+p.getTitle()+".html\">"+Utilities.escapeXml(p.getName())+"</a>:"+Utilities.escapeXml(p.getProfile().getSource().getDescription())+"</td>"+
-             "<td><a href=\""+p.getTitle()+".profile.xml.html\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json.html\">JSON</a></td></tr>");
+          for (ConformancePackage ap: definitions.getResourceByName(rn).getConformancePackages()) {
+            for (ProfileDefn p : ap.getProfiles()) {
+              s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a>:"+Utilities.escapeXml(p.getResource().getDescription())+"</td>"+
+                  "<td><a href=\""+p.getTitle()+".profile.xml.html\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json.html\">JSON</a></td></tr>");
+            }
           }
         }
       }
@@ -3711,8 +3783,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  public String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure, String basefilename, Map<String, Example> examples) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
+  public String processProfileIncludes(String filename, String fileid, ConformancePackage pack, ProfileDefn profile, String xml, String tx, String src, String intro, String notes, String master, String path) throws Exception {
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -3731,22 +3802,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("profileheader"))
-        src = s1+profileHeader(basefilename, com.length > 1 ? com[1] : "")+s3;
+        src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
-      else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
-      }
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }      else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
-        src = s1+pageHeader(profile.metadata("name"))+s3;
+        src = s1+pageHeader(pack.metadata("name"))+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
@@ -3764,18 +3829,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(Utilities.escapeXml(profile.metadata("name"))) : workingTitle)+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml(profile.getResource().getName()) : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(profile.metadata("name")) : Utilities.escapeXml(workingTitle))+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml(profile.getResource().getName()) : Utilities.escapeXml(workingTitle))+s3;
       else if (com[0].equals("profiletitle"))
-        src = s1+Utilities.escapeXml(profile.metadata("name"))+s3;
+        src = s1+Utilities.escapeXml(pack.metadata("name"))+s3;
       else if (com[0].equals("filetitle"))
         src = s1+(filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename)+s3;
       else if (com[0].equals("name"))
         src = s1+filename+s3;
       else if (com[0].equals("date")) {
-        if (!Utilities.noString(profile.metadata("date"))) {
-          Date d = new SimpleDateFormat("yyyy-MM-dd").parse(profile.metadata("date"));
+        if (!Utilities.noString(pack.metadata("date"))) {
+          Date d = new SimpleDateFormat("yyyy-MM-dd").parse(pack.metadata("date"));
           src = s1+Config.DATE_FORMAT().format(d)+s3;
         }
         else
@@ -3785,23 +3850,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+profile.metadata("description")+s3;
+        src = s1+pack.metadata("description")+s3;
       else if (com[0].equals("profile.intro"))
-        src = s1+(intro == null ? profile.metadata("description") : intro) +s3;
+        src = s1+(intro == null ? pack.metadata("description") : intro) +s3;
       else if (com[0].equals("profile.notes"))
         src = s1+(notes == null ? "" : notes) +s3;
       else if (com[0].equals("status"))
-        src = s1+describeStatus(profile.metadata("status"))+s3;
+        src = s1+describeStatus(pack.metadata("status"))+s3;
       else if (com[0].equals("author"))
-        src = s1+profile.metadata("author.name")+s3;
+        src = s1+pack.metadata("author.name")+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("profiledesc")) {
-        src = s1+". "+ProfileUtilities.summarise(profile.getSource(), this)+s3;
+        src = s1+". "+profile.getResource().getDescription()+s3;
       } else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
-        src = s1+(profile.getResources().size() == 0 ? "" : genProfileConstraints(profile.getResources().get(0)))+s3;      
+        src = s1+genProfileConstraints(profile.getResource())+s3;      
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(filename)+s3;
       else if (com[0].equals("notes"))
@@ -3813,7 +3878,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(filename, (master == null ? "profilelist.html" : "profile:"+master), genlevel(0)) + s3;      
+        src = s1 + breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -3824,47 +3889,45 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;
-      else if (com[0].equals("profile-constraints-links"))
-        src = s1 + generateProfileConstraintLinks(profile, filename) + s3;      
-      else if (com[0].equals("pagepath"))
-        src = s1 + pagePath + s3;  
       else if (com[0].equals("profileurl"))
-        src = s1 + profile.getSource().getUrl() + s3;  
-      else if (com[0].equals("rellink"))
-        src = s1 + Utilities.URLEncode(pagePath) + s3;  
+        src = s1 + profile.getResource().getUrl() + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (com[0].equals("base-link"))
-        src = s1 + baseLink(structure) + s3;  
+        src = s1 + baseLink(profile.getResource()) + s3;  
       else if (com[0].equals("profile-structure-table-diff"))
-        src = s1 + generateProfileStructureTable(profile, structure, true, filename) + s3;      
+        src = s1 + generateProfileStructureTable(profile, true, filename) + s3;      
       else if (com[0].equals("profile-structure-table"))
-        src = s1 + generateProfileStructureTable(profile, structure, false, filename) + s3;      
+        src = s1 + generateProfileStructureTable(profile, false, filename) + s3;      
       else if (com[0].equals("maponthispage"))
-        src = s1+mapOnPageProfile(profile.getSource())+s3;
-      else if (com[0].equals("definitionsonthispage"))
-        src = s1+definitionsOnPageProfile(profile.getSource())+s3;
+        src = s1+mapOnPageProfile(profile.getResource())+s3;
       else if (com[0].equals("mappings"))
-        src = s1+mappingsProfile(profile.getSource())+s3;
+        src = s1+mappingsProfile(profile.getResource())+s3;
       else if (com[0].equals("definitions"))
-        src = s1+definitionsProfile(profile.getSource())+s3;
-      else if (com[0].equals("profile-examples"))
-        src = s1+profileExampleList(profile, examples, example)+s3;
+        src = s1+definitionsProfile(profile.getResource())+s3;
       else if (com[0].equals("profile.review"))
         src = s1+profileReviewLink(profile)+s3;
       else if (com[0].equals("profile.search"))
-        src = s1+getSearch(structure)+s3;
+        src = s1+getSearch(profile.getResource())+s3;
       else if (com[0].equals("profile.tx"))
-        src = s1+getTerminologyNotes(structure)+s3;
+        src = s1+getTerminologyNotes(profile.getResource())+s3;
       else if (com[0].equals("profile.inv"))
-        src = s1+getInvariantList(structure)+s3;
+        src = s1+getInvariantList(profile.getResource())+s3;
+      else if (com[0].equals("pagepath"))
+        src = s1+filename+s3;
+      else if (com[0].equals("rellink"))
+        src = s1+filename+s3;
+      else if (com[0].equals("profile-examples"))
+        src = s1+s3;      
       else if (com[0].equals("profile-extensions-table"))
         src = s1+"<p><i>Todo</i></p>"+s3;
+      else if (com[0].equals("definitionsonthispage"))
+        src = s1+"<p><i>Todo</i></p>"+s3;
       else if (com[0].equals("resurl")) {
-         if (Utilities.noString(profile.metadata("id")))
+         if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;
          else
-           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
+           src = s1+"The id of this profile is "+pack.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
@@ -3872,7 +3935,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   public String processExtensionIncludes(String filename, ExtensionDefinition ed, String xml, String tx, String src, String pagePath) throws Exception {
-    String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -3894,17 +3956,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("extDefnHeader"))
         src = s1+extDefnHeader(filename, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("setwiki")) {
-        wikilink = com[1];
-        src = s1+s3;
-      }
       else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }      else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
-      else if (com[0].equals("wiki"))
-        src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(ed.getName())+s3;
       else if (com[0].equals("header"))
@@ -4003,10 +4059,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  private String getTerminologyNotes(ProfileStructureComponent structure) {
+  private String getTerminologyNotes(Profile profile) {
     List<String> txlist = new ArrayList<String>();
     Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
-    for (ElementDefinition ed : structure.getSnapshot().getElement()) {
+    for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       if (ed.getBinding() != null) {
         txlist.add(ed.getPath());
         txmap.put(ed.getPath(), ed.getBinding());
@@ -4043,10 +4099,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String getInvariantList(ProfileStructureComponent structure) {
+  private String getInvariantList(Profile profile) {
     List<String> txlist = new ArrayList<String>();
     Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
-    for (ElementDefinition ed : structure.getSnapshot().getElement()) {
+    for (ElementDefinition ed : profile.getSnapshot().getElement()) {
       txlist.add(ed.getPath());
       txmap.put(ed.getPath(), ed.getConstraint());
     }
@@ -4070,7 +4126,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String profileReviewLink(ProfileDefn profile) {
-    return Utilities.changeFileExt((String) profile.getSource().getTag("filename"), "-review.xls");
+    return Utilities.changeFileExt((String) profile.getResource().getTag("filename"), "-review.xls");
   }
 
   private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
@@ -4144,19 +4200,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  private String definitionsOnPageProfile(Profile source) {
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
-    int i = 1;
-    for (ProfileStructureComponent struc : source.getStructure()) {
-      b.append("<p class=\"link\"><a href=\"#i"+Integer.toString(i)+"\">"+struc.getName()+"</a></p>");
-      i++;
-    }
-    b.append("</div>\r\n");
-    return b.toString();
-  }
-
-  private String baseLink(ProfileStructureComponent structure) throws Exception {
+  private String baseLink(Profile structure) throws Exception {
     if (structure.getBase().startsWith("http://hl7.org/fhir/Profile/")) {
       String name = structure.getBase().substring(28);
       if (definitions.hasResource(name))
@@ -4167,7 +4211,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         return "??"+name;
     } else {
       String[] parts = structure.getBase().split("#");
-      Profile profile = definitions.getProfileByURL(parts[0]);
+      Profile profile = new ProfileUtilities(workerContext).getProfile(structure, parts[0]);
       if (profile != null) {
         if (parts.length == 2) {
           return "<a href=\""+profile.getTag("filename")+"."+parts[1]+".html\">the structure "+parts[1]+"</a> in <a href=\""+profile.getTag("filename")+".html\">the "+profile.getName()+" profile</a>";
@@ -4179,49 +4223,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff, String filename) throws Exception {
-    String deffile = filename.substring(0, filename.indexOf('.'))+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, structure, diff, folders.dstDir, false, profile.getSource(), this, filename.substring(0, filename.indexOf('.')), !diff));
-  }
-
-  private String generateProfileConstraintLinks(ProfileDefn profile, String filename) throws Exception {
-    if (profile.getSource().getStructure().isEmpty())
-      return "";
-    
-    StringBuilder b = new StringBuilder();
-    b.append("<p><b>Constraints:</b></p>\r\n");
-    b.append("<table class=\"grid\">\r\n");
-    b.append("<tr>");
-    b.append("<th>Name</th>");
-    b.append("<th>Base</th>");
-    b.append("<th>Purpose</th>");
-    b.append("</tr>");
-    
-    for (ProfileStructureComponent s : profile.getSource().getStructure()) {
-      b.append("<tr>");
-      b.append("<td><a href=\""+Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getName()))+".html\">"+Utilities.escapeXml(s.getName())+"</a></td>");
-      String base = s.getBase();
-      if (base.startsWith("http://hl7.org/fhir/Profile/")) {
-        String type = base.substring(28);
-        if (hasLinkFor(type)) 
-          b.append("<td><a href=\""+getLinkFor(type)+"\">"+type+"</a></td>");
-        else
-          b.append("<td>"+type+"</td>");
-      } else {
-        if (base.contains("#")) 
-          base = base.substring(0, base.indexOf("#"));
-        if (definitions.getProfiles().containsKey(base)) {
-          ProfileDefn p = definitions.getProfiles().get(base);
-          b.append("<td><a href=\""+Utilities.changeFileExt((String) p.getSource().getTag("filename"), ".html")+"\">"+Utilities.escapeXml(s.getBase())+"</a></td>");
-        } else {
-          b.append("<td><a href=\""+Utilities.escapeXml(s.getBase())+"\">"+Utilities.escapeXml(s.getBase())+"</a></td>");
-        }
-      }
-      b.append("<td>"+Utilities.escapeXml(s.getPurpose())+"</td>");
-      b.append("</tr>");
-    }
-    b.append("</table>\r\n");
-    return b.toString();
+  private String generateProfileStructureTable(ProfileDefn profile, boolean diff, String filename) throws Exception {
+    String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
+    String deffile = fn+"-definitions.html";
+    return new XhtmlComposer().compose(new ProfileUtilities(workerContext).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, this, fn, !diff));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -4490,12 +4495,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   @Override
   public boolean hasLinkFor(String type) {
-    return isDatatype(type) || definitions.hasResource(type);
+    return isDatatype(type) || definitions.hasResource(type) || definitions.getBaseResources().containsKey(type);
   }
 
   @Override
   public String getLinkFor(String type) throws Exception {
-    if (definitions.hasResource(type)) 
+    if (definitions.hasResource(type) || definitions.getBaseResources().containsKey(type)) 
       return type.toLowerCase()+".html";
     else 
       return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
@@ -4518,18 +4523,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String right = text.substring(text.indexOf("]]]")+3);
       String url = "";
       String[] parts = linkText.split("\\#");
-      Profile p = definitions.getProfileByURL(parts[0]);
-      if (p != null)
-        url = p.getTag("filename")+".html";
-      else if (definitions.hasResource(linkText)) {
-        url = linkText.toLowerCase()+".html#";
-      } else if (definitions.hasElementDefn(linkText)) {
-      	url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
-      } else if (definitions.hasPrimitiveType(linkText)) {
-        url = "datatypes.html#"+linkText;
+      if (parts[0].contains("/ExtensionDefinition/")) {
+        ExtensionDefinitionResult ed = workerContext.getExtensionDefinition(null, parts[0]);
+        if (ed == null)
+          System.out.println("Error: Unresolved logical URL "+linkText);
+        else
+          url = ed.getExtensionDefinition().getTag("filename")+".html";
       } else {
-      	System.out.println("Error: Unresolved logical URL "+linkText);
-//        throw new Exception("Unresolved logical URL "+url);
+        Profile p = new ProfileUtilities(workerContext).getProfile(null, parts[0]);
+        if (p != null)
+          url = p.getTag("filename")+".html";
+        else if (definitions.hasResource(linkText)) {
+          url = linkText.toLowerCase()+".html#";
+        } else if (definitions.hasElementDefn(linkText)) {
+          url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
+        } else if (definitions.hasPrimitiveType(linkText)) {
+          url = "datatypes.html#"+linkText;
+        } else {
+          System.out.println("Error: Unresolved logical URL "+linkText);
+          //        throw new Exception("Unresolved logical URL "+url);
+        }
       }
       text = left+"["+linkText+"]("+url+")"+right;
     }
@@ -4590,11 +4603,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
-  public String getLinkForProfile(Profile profile, String url) {
+  public String getLinkForProfile(Profile profile, String url) throws Exception {
     String fn;
     if (!url.startsWith("#")) {
       String[] path = url.split("#");
-      profile = definitions.getProfileByURL(path[0]);
+      profile = new ProfileUtilities(workerContext).getProfile(null, path[0]);
       if (profile == null && url.startsWith("Profile/"))
         return "hspc-"+url.substring(8)+".html|"+url.substring(8);
     }
@@ -4603,6 +4616,155 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return Utilities.changeFileExt(fn, ".html");
     }
     return null;
+  }
+
+  public String processConformancePackageIncludes(ConformancePackage pack, String src) throws Exception {
+    String workingTitle = null;
+    int level = 0;
+    boolean even = false;
+    
+    while (src.contains("<%") || src.contains("[%"))
+    {
+      int i1 = src.indexOf("<%");
+      int i2 = src.indexOf("%>");
+      if (i1 == -1) {
+        i1 = src.indexOf("[%");
+        i2 = src.indexOf("%]");
+      }
+      String s1 = src.substring(0, i1);
+      String s2 = src.substring(i1 + 2, i2).trim();
+      String s3 = src.substring(i2+2);
+
+      String[] com = s2.split(" ");
+      if (com[0].equals("file"))
+        src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
+      else if (com[0].equals("settitle")) {
+        workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
+        src = s1+s3;
+      }  else if (com[0].equals("reflink")) {
+        src = s1 + reflink(com[1]) + s3;      
+      } else if (com[0].equals("setlevel")) {
+        level = Integer.parseInt(com[1]);
+        src = s1+s3;
+      } else if (com.length != 1)
+        throw new Exception("Instruction <%"+s2+"%> not understood parsing conformance package "+pack.getId());
+      else if (com[0].equals("pageheader"))
+        src = s1+pageHeader(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
+      else if (com[0].equals("header"))
+        src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
+      else if (com[0].equals("newheader"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader.html")+s3;
+      else if (com[0].equals("newheader1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newheader1.html")+s3;
+      else if (com[0].equals("footer"))
+        src = s1+TextFile.fileToString(folders.srcDir + "footer.html")+s3;
+      else if (com[0].equals("newfooter"))
+        src = s1+TextFile.fileToString(folders.srcDir + "newfooter.html")+s3;
+      else if (com[0].equals("footer1"))
+        src = s1+TextFile.fileToString(folders.srcDir + "footer1.html")+s3;
+      else if (com[0].equals("footer2"))
+        src = s1+TextFile.fileToString(folders.srcDir + "footer2.html")+s3;
+      else if (com[0].equals("footer3"))
+        src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
+      else if (com[0].equals("title"))
+        src = s1+(workingTitle == null ? Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1)) : workingTitle)+s3;
+      else if (com[0].equals("xtitle"))
+        src = s1+Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
+      else if (com[0].equals("name"))
+        src = s1+pack.getId()+s3;
+      else if (com[0].equals("canonicalname"))
+        src = s1+makeCanonical(pack.getId())+s3;
+      else if (com[0].equals("version"))
+        src = s1+version+s3;
+      else if (com[0].equals("gendate"))
+        src = s1+Config.DATE_FORMAT().format(new Date())+s3;
+      else if (com[0].equals("maindiv"))
+        src = s1+"<div class=\"content\">"+s3;
+      else if (com[0].equals("/maindiv"))
+        src = s1+"</div>"+s3;
+      else if (com[0].equals("v2Index"))
+        src = s1+genV2Index()+s3;
+      else if (com[0].equals("v3Index-cs"))
+        src = s1+genV3CSIndex()+s3;
+      else if (com[0].equals("v3Index-vs"))
+        src = s1+genV3VSIndex()+s3;
+      else if (com[0].equals("id"))
+        src = s1+pack.getId()+s3;
+      else if (com[0].equals("events"))
+        src = s1 + getEventsTable()+ s3;
+      else if (com[0].equals("resourcecodes"))
+        src = s1 + genResCodes() + s3;
+      else if (com[0].equals("datatypecodes"))
+        src = s1 + genDTCodes() + s3;
+      else if (com[0].equals("allparams"))
+        src = s1 + allParamlist() + s3;      
+      else if (com[0].equals("bindingtable-codelists"))
+        src = s1 + genBindingTable(true) + s3;
+      else if (com[0].equals("bindingtable"))
+        src = s1 + genBindingsTable() + s3;
+      else if (com[0].equals("codeslist"))
+        src = s1 + genCodeSystemsTable() + s3;
+      else if (com[0].equals("valuesetslist"))
+        src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("igvaluesetslist"))
+        src = s1 + genIGValueSetsTable() + s3;
+      else if (com[0].equals("conceptmapslist"))
+        src = s1 + genConceptMapsTable() + s3;
+      else if (com[0].equals("bindingtable-others"))
+        src = s1 + genBindingTable(false) + s3;
+      else if (com[0].equals("resimplall"))
+          src = s1 + genResImplList() + s3;
+      else if (com[0].equals("impllist"))
+        src = s1 + genReferenceImplList() + s3;
+      else if (com[0].equals("igname"))
+        src = s1 + ig.getName() + s3;
+      else if (com[0].equals("breadcrumb"))
+        src = s1 + breadCrumbManager.make(pack.getId()) + s3;
+      else if (com[0].equals("navlist"))
+        src = s1 + breadCrumbManager.navlist(pack.getId(), genlevel(level)) + s3;
+      else if (com[0].equals("breadcrumblist"))
+        src = s1 + breadCrumbManager.makelist(pack.getId(), "package", genlevel(level)) + s3;      
+      else if (com[0].equals("year"))
+        src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
+      else if (com[0].equals("revision"))
+        src = s1 + svnRevision + s3;  
+      else if (com[0].equals("pub-type"))
+        src = s1 + publicationType + s3;      
+      else if (com[0].equals("pub-notice"))
+        src = s1 + publicationNotice + s3;      
+      else if (com[0].equals("level"))
+        src = s1 + genlevel(level) + s3;  
+      else if (com[0].equals("pagepath"))
+        src = s1 + pack.getId() + s3;  
+      else if (com[0].equals("rellink"))
+        src = s1 + Utilities.URLEncode(pack.getId()) + s3;  
+      else if (com[0].equals("baseURL"))
+        src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("description"))
+        src = s1 + Utilities.escapeXml(pack.getDescription()) + s3;  
+      else if (com[0].equals("package-content"))
+        src = s1 + getPackageContent(pack) + s3;  
+      else 
+        throw new Exception("Instruction <%"+s2+"%> not understood parsing conformance package "+pack.getId());
+    }
+    return src;
+  }
+
+  private String getPackageContent(ConformancePackage pack) {
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"lines\">");
+    if (pack.getProfiles().size() > 0) {
+      s.append("<tr><td colspan=\"2\">Profiles: </td></tr>");
+      for (ProfileDefn p : pack.getProfiles())
+        s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td><td>"+Utilities.escapeXml(p.getResource().getDescription())+"</td></tr>");
+    }
+    if (pack.getExtensions().size() > 0) {
+      s.append("<tr><td colspan=\"2\">Extensions: </td></tr>");
+      for (ExtensionDefinition ed : pack.getExtensions())
+        s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td>"+Utilities.escapeXml(ed.getName()+" : "+ed.getDescription())+"</td></tr>");
+    }
+    s.append("</table>");
+    return s.toString();
   }
 
   

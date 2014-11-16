@@ -350,6 +350,8 @@ public class Utilities {
 
 
   public static String fileTitle(String file) {
+    if (file == null)
+      return null;
     String s = new File(file).getName();
     return s.indexOf(".") == -1? s : s.substring(0, s.indexOf("."));
   }

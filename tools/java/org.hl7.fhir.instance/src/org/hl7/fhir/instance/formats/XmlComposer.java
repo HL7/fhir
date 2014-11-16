@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -1891,51 +1891,35 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeDeviceObservationReport(String name, DeviceObservationReport element) throws Exception {
+  private void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeDomainResourceElements(element);
-      composeInstant("instant", element.getInstantElement());
+      composeCodeableConcept("type", element.getType());
       composeIdentifier("identifier", element.getIdentifier());
+      composeInstant("lastSystemChange", element.getLastSystemChangeElement());
       composeReference("source", element.getSource());
-      composeReference("subject", element.getSubject());
-      for (DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent e : element.getVirtualDevice()) 
-        composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponent("virtualDevice", e);
+      composeReference("parent", element.getParent());
+      for (CodeableConcept e : element.getOperationalStatus()) 
+        composeCodeableConcept("operationalStatus", e);
+      composeCodeableConcept("parameterGroup", element.getParameterGroup());
+      composeCodeableConcept("measurementPrinciple", element.getMeasurementPrinciple());
+      for (DeviceComponent.DeviceComponentProductionSpecificationComponent e : element.getProductionSpecification()) 
+        composeDeviceComponentDeviceComponentProductionSpecificationComponent("productionSpecification", e);
+      composeCodeableConcept("languageCode", element.getLanguageCode());
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent element) throws Exception {
+  private void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeCodeableConcept("code", element.getCode());
-      for (DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent e : element.getChannel()) 
-        composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent("channel", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeBackboneElements(element);
-      composeCodeableConcept("code", element.getCode());
-      for (DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent e : element.getMetric()) 
-        composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent("metric", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composeDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent(String name, DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeBackboneElements(element);
-      composeReference("observation", element.getObservation());
+      composeCodeableConcept("specType", element.getSpecType());
+      composeIdentifier("componentId", element.getComponentId());
+      composeString("productionSpec", element.getProductionSpecElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -4010,8 +3994,12 @@ public class XmlComposer extends XmlComposerBase {
       composeId("fhirVersion", element.getFhirVersionElement());
       for (Profile.ProfileMappingComponent e : element.getMapping()) 
         composeProfileProfileMappingComponent("mapping", e);
-      for (Profile.ProfileStructureComponent e : element.getStructure()) 
-        composeProfileProfileStructureComponent("structure", e);
+      composeCode("type", element.getTypeElement());
+      composeUri("base", element.getBaseElement());
+      composeProfileConstraintComponent("snapshot", element.getSnapshot());
+      composeProfileConstraintComponent("differential", element.getDifferential());
+      for (Profile.ProfileSearchParamComponent e : element.getSearchParam()) 
+        composeProfileProfileSearchParamComponent("searchParam", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -4029,24 +4017,6 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeProfileProfileStructureComponent(String name, Profile.ProfileStructureComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeBackboneElements(element);
-      composeCode("type", element.getTypeElement());
-      composeUri("base", element.getBaseElement());
-      composeCode("name", element.getNameElement());
-      composeBoolean("publish", element.getPublishElement());
-      composeString("purpose", element.getPurposeElement());
-      composeProfileConstraintComponent("snapshot", element.getSnapshot());
-      composeProfileConstraintComponent("differential", element.getDifferential());
-      for (Profile.ProfileStructureSearchParamComponent e : element.getSearchParam()) 
-        composeProfileProfileStructureSearchParamComponent("searchParam", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
   private void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
@@ -4058,7 +4028,7 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
-  private void composeProfileProfileStructureSearchParamComponent(String name, Profile.ProfileStructureSearchParamComponent element) throws Exception {
+  private void composeProfileProfileSearchParamComponent(String name, Profile.ProfileSearchParamComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -4569,7 +4539,7 @@ public class XmlComposer extends XmlComposerBase {
       composeCodeableConcept("type", element.getType());
       composeQuantity("capacity", element.getCapacity());
       composeQuantity("specimenQuantity", element.getSpecimenQuantity());
-      composeReference("additive", element.getAdditive());
+      composeType("additive", element.getAdditive());
       xml.close(FHIR_NS, name);
     }
   }
@@ -4893,8 +4863,8 @@ public class XmlComposer extends XmlComposerBase {
       composeDataElement("DataElement", (DataElement)resource);
     else if (resource instanceof Device)
       composeDevice("Device", (Device)resource);
-    else if (resource instanceof DeviceObservationReport)
-      composeDeviceObservationReport("DeviceObservationReport", (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceComponent)
+      composeDeviceComponent("DeviceComponent", (DeviceComponent)resource);
     else if (resource instanceof DeviceUseRequest)
       composeDeviceUseRequest("DeviceUseRequest", (DeviceUseRequest)resource);
     else if (resource instanceof DeviceUseStatement)
@@ -5050,8 +5020,8 @@ public class XmlComposer extends XmlComposerBase {
       composeDataElement(name, (DataElement)resource);
     else if (resource instanceof Device)
       composeDevice(name, (Device)resource);
-    else if (resource instanceof DeviceObservationReport)
-      composeDeviceObservationReport(name, (DeviceObservationReport)resource);
+    else if (resource instanceof DeviceComponent)
+      composeDeviceComponent(name, (DeviceComponent)resource);
     else if (resource instanceof DeviceUseRequest)
       composeDeviceUseRequest(name, (DeviceUseRequest)resource);
     else if (resource instanceof DeviceUseStatement)

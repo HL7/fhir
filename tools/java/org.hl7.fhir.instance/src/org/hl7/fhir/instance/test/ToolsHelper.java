@@ -46,15 +46,12 @@ import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.ProfileUtilities.StrucResult;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -115,15 +112,13 @@ public class ToolsHelper {
     		throw new Exception("Unable to understand address of profile");
     	FHIRClient client = new FHIRSimpleClient();
     	client.initialize(parts[0]);
-    	Profile ae = client.read(Profile.class, parts[1]);
-			ProfileStructureComponent derived = ae.getStructure().get(0);
+    	Profile profile = client.read(Profile.class, parts[1]);
 			ProfileUtilities utils = new ProfileUtilities(context);
-    	StrucResult sr = utils.getStructure(ae, derived.getBase());
-			if (sr == null)
-				throw new Exception("Unable to resolve profile "+derived.getBase());
-			ProfileStructureComponent base = sr.getStructure();
-			utils.generateSnapshot(base, derived, address, ae.getName());
-			client.update(Profile.class, ae, parts[1]);
+    	Profile base = utils.getProfile(profile, profile.getBase());
+			if (base == null)
+				throw new Exception("Unable to resolve profile "+profile.getBase());
+			utils.generateSnapshot(base, profile, address, profile.getName());
+			client.update(Profile.class, profile, parts[1]);
     } else {
     	throw new Exception("not done yet (address = "+address+")");
     }

@@ -84,7 +84,6 @@ import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueCompone
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
@@ -165,12 +164,11 @@ public class NarrativeGenerator {
   private void generateByProfile(DomainResource r, Profile profile, boolean showCodeDetails) throws Exception {
     if (!r.getModifierExtension().isEmpty())
       throw new Exception("Unable to generate narrative for resource of type "+r.getResourceType().toString()+" because it has modifier extensions");
-    ProfileStructureComponent ps = getByName(profile, r.getResourceType().toString());
     
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
-      generateByProfile(r, r, ps.getSnapshot().getElement(), ps.getSnapshot().getElement().get(0), getChildrenForPath(ps.getSnapshot().getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
+      generateByProfile(r, r, profile.getSnapshot().getElement(), profile.getSnapshot().getElement().get(0), getChildrenForPath(profile.getSnapshot().getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
     } catch (Exception e) {
       e.printStackTrace();
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
@@ -560,12 +558,10 @@ public class NarrativeGenerator {
     if (profile == null)
       x.addText("unknown resource " +path);
     else {
-      ProfileStructureComponent struc = profile.getStructure().get(0); // todo: how to do this better?
-
       boolean firstElement = true;
       boolean last = false;
       for (Property p : dres.children()) {
-        ElementDefinition child = getElementDefinition(struc.getSnapshot().getElement(), path+"."+p.getName());
+        ElementDefinition child = getElementDefinition(profile.getSnapshot().getElement(), path+"."+p.getName());
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
             firstElement = false;
@@ -971,14 +967,6 @@ public class NarrativeGenerator {
     return results;
   }
 
-  private ProfileStructureComponent getByName(Profile profile, String name) throws Exception {
-    for (ProfileStructureComponent t : profile.getStructure()) {
-      if (t.getType().equals(name)) {
-        return t;
-      }
-    }
-    throw new Exception("unable to find entry point for "+name);
-  }
 
   public void generate(ConceptMap cm) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");

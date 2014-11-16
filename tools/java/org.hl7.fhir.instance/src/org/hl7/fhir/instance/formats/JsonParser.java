@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3217,61 +3217,53 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DeviceObservationReport parseDeviceObservationReport(JsonObject json) throws Exception {
-    DeviceObservationReport res = new DeviceObservationReport();
+  private DeviceComponent parseDeviceComponent(JsonObject json) throws Exception {
+    DeviceComponent res = new DeviceComponent();
     parseDomainResourceProperties(json, res);
-    if (json.has("instant"))
-      res.setInstantElement(parseInstant(json.get("instant").getAsString()));
-    if (json.has("_instant"))
-      parseElementProperties(json.getAsJsonObject("_instant"), res.getInstantElement());
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("lastSystemChange"))
+      res.setLastSystemChangeElement(parseInstant(json.get("lastSystemChange").getAsString()));
+    if (json.has("_lastSystemChange"))
+      parseElementProperties(json.getAsJsonObject("_lastSystemChange"), res.getLastSystemChangeElement());
     if (json.has("source"))
       res.setSource(parseReference(json.getAsJsonObject("source")));
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("virtualDevice")) {
-      JsonArray array = json.getAsJsonArray("virtualDevice");
+    if (json.has("parent"))
+      res.setParent(parseReference(json.getAsJsonObject("parent")));
+    if (json.has("operationalStatus")) {
+      JsonArray array = json.getAsJsonArray("operationalStatus");
       for (int i = 0; i < array.size(); i++) {
-        res.getVirtualDevice().add(parseDeviceObservationReportDeviceObservationReportVirtualDeviceComponent(array.get(i).getAsJsonObject(), res));
+        res.getOperationalStatus().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("parameterGroup"))
+      res.setParameterGroup(parseCodeableConcept(json.getAsJsonObject("parameterGroup")));
+    if (json.has("measurementPrinciple"))
+      res.setMeasurementPrinciple(parseCodeableConcept(json.getAsJsonObject("measurementPrinciple")));
+    if (json.has("productionSpecification")) {
+      JsonArray array = json.getAsJsonArray("productionSpecification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProductionSpecification().add(parseDeviceComponentDeviceComponentProductionSpecificationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("languageCode"))
+      res.setLanguageCode(parseCodeableConcept(json.getAsJsonObject("languageCode")));
     return res;
   }
 
-  private DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent parseDeviceObservationReportDeviceObservationReportVirtualDeviceComponent(JsonObject json, DeviceObservationReport owner) throws Exception {
-    DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent res = new DeviceObservationReport.DeviceObservationReportVirtualDeviceComponent();
+  private DeviceComponent.DeviceComponentProductionSpecificationComponent parseDeviceComponentDeviceComponentProductionSpecificationComponent(JsonObject json, DeviceComponent owner) throws Exception {
+    DeviceComponent.DeviceComponentProductionSpecificationComponent res = new DeviceComponent.DeviceComponentProductionSpecificationComponent();
     parseBackboneProperties(json, res);
-    if (json.has("code"))
-      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    if (json.has("channel")) {
-      JsonArray array = json.getAsJsonArray("channel");
-      for (int i = 0; i < array.size(); i++) {
-        res.getChannel().add(parseDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
-  private DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent parseDeviceObservationReportDeviceObservationReportVirtualDeviceChannelComponent(JsonObject json, DeviceObservationReport owner) throws Exception {
-    DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent res = new DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("code"))
-      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
-    if (json.has("metric")) {
-      JsonArray array = json.getAsJsonArray("metric");
-      for (int i = 0; i < array.size(); i++) {
-        res.getMetric().add(parseDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
-  private DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent parseDeviceObservationReportDeviceObservationReportVirtualDeviceChannelMetricComponent(JsonObject json, DeviceObservationReport owner) throws Exception {
-    DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent res = new DeviceObservationReport.DeviceObservationReportVirtualDeviceChannelMetricComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("observation"))
-      res.setObservation(parseReference(json.getAsJsonObject("observation")));
+    if (json.has("specType"))
+      res.setSpecType(parseCodeableConcept(json.getAsJsonObject("specType")));
+    if (json.has("componentId"))
+      res.setComponentId(parseIdentifier(json.getAsJsonObject("componentId")));
+    if (json.has("productionSpec"))
+      res.setProductionSpecElement(parseString(json.get("productionSpec").getAsString()));
+    if (json.has("_productionSpec"))
+      parseElementProperties(json.getAsJsonObject("_productionSpec"), res.getProductionSpecElement());
     return res;
   }
 
@@ -6991,10 +6983,22 @@ public class JsonParser extends JsonParserBase {
         res.getMapping().add(parseProfileProfileMappingComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("structure")) {
-      JsonArray array = json.getAsJsonArray("structure");
+    if (json.has("type"))
+      res.setTypeElement(parseCode(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("base"))
+      res.setBaseElement(parseUri(json.get("base").getAsString()));
+    if (json.has("_base"))
+      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
+    if (json.has("snapshot"))
+      res.setSnapshot(parseProfileConstraintComponent(json.getAsJsonObject("snapshot"), res));
+    if (json.has("differential"))
+      res.setDifferential(parseProfileConstraintComponent(json.getAsJsonObject("differential"), res));
+    if (json.has("searchParam")) {
+      JsonArray array = json.getAsJsonArray("searchParam");
       for (int i = 0; i < array.size(); i++) {
-        res.getStructure().add(parseProfileProfileStructureComponent(array.get(i).getAsJsonObject(), res));
+        res.getSearchParam().add(parseProfileProfileSearchParamComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     return res;
@@ -7022,42 +7026,6 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Profile.ProfileStructureComponent parseProfileProfileStructureComponent(JsonObject json, Profile owner) throws Exception {
-    Profile.ProfileStructureComponent res = new Profile.ProfileStructureComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("base"))
-      res.setBaseElement(parseUri(json.get("base").getAsString()));
-    if (json.has("_base"))
-      parseElementProperties(json.getAsJsonObject("_base"), res.getBaseElement());
-    if (json.has("name"))
-      res.setNameElement(parseCode(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("publish"))
-      res.setPublishElement(parseBoolean(json.get("publish").getAsBoolean()));
-    if (json.has("_publish"))
-      parseElementProperties(json.getAsJsonObject("_publish"), res.getPublishElement());
-    if (json.has("purpose"))
-      res.setPurposeElement(parseString(json.get("purpose").getAsString()));
-    if (json.has("_purpose"))
-      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
-    if (json.has("snapshot"))
-      res.setSnapshot(parseProfileConstraintComponent(json.getAsJsonObject("snapshot"), owner));
-    if (json.has("differential"))
-      res.setDifferential(parseProfileConstraintComponent(json.getAsJsonObject("differential"), owner));
-    if (json.has("searchParam")) {
-      JsonArray array = json.getAsJsonArray("searchParam");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSearchParam().add(parseProfileProfileStructureSearchParamComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
   private Profile.ConstraintComponent parseProfileConstraintComponent(JsonObject json, Profile owner) throws Exception {
     Profile.ConstraintComponent res = new Profile.ConstraintComponent();
     parseBackboneProperties(json, res);
@@ -7070,8 +7038,8 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Profile.ProfileStructureSearchParamComponent parseProfileProfileStructureSearchParamComponent(JsonObject json, Profile owner) throws Exception {
-    Profile.ProfileStructureSearchParamComponent res = new Profile.ProfileStructureSearchParamComponent();
+  private Profile.ProfileSearchParamComponent parseProfileProfileSearchParamComponent(JsonObject json, Profile owner) throws Exception {
+    Profile.ProfileSearchParamComponent res = new Profile.ProfileSearchParamComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
@@ -7976,8 +7944,9 @@ public class JsonParser extends JsonParserBase {
       res.setCapacity(parseQuantity(json.getAsJsonObject("capacity")));
     if (json.has("specimenQuantity"))
       res.setSpecimenQuantity(parseQuantity(json.getAsJsonObject("specimenQuantity")));
-    if (json.has("additive"))
-      res.setAdditive(parseReference(json.getAsJsonObject("additive")));
+    Type additive = parseType("additive", json);
+    if (additive != null)
+      res.setAdditive(additive);
     return res;
   }
 
@@ -8497,8 +8466,8 @@ public class JsonParser extends JsonParserBase {
       return parseDataElement(json);
     else if (t.equals("Device"))
       return parseDevice(json);
-    else if (t.equals("DeviceObservationReport"))
-      return parseDeviceObservationReport(json);
+    else if (t.equals("DeviceComponent"))
+      return parseDeviceComponent(json);
     else if (t.equals("DeviceUseRequest"))
       return parseDeviceUseRequest(json);
     else if (t.equals("DeviceUseStatement"))
@@ -8865,7 +8834,7 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Device"))
       return true;
-    if (json.has(prefix+"DeviceObservationReport"))
+    if (json.has(prefix+"DeviceComponent"))
       return true;
     if (json.has(prefix+"DeviceUseRequest"))
       return true;

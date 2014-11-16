@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -213,22 +213,22 @@ public class Supply extends DomainResource {
         protected Quantity quantity;
 
         /**
-         * Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.
+         * Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.
          */
         protected Reference suppliedItem;
 
         /**
-         * The actual object that is the target of the reference (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * The actual object that is the target of the reference (Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
          */
         protected Resource suppliedItemTarget;
 
         /**
-         * The individual responsible for dispensing the medication.
+         * The individual responsible for dispensing the medication, supplier or device.
          */
         protected Reference supplier;
 
         /**
-         * The actual object that is the target of the reference (The individual responsible for dispensing the medication.)
+         * The actual object that is the target of the reference (The individual responsible for dispensing the medication, supplier or device.)
          */
         protected Practitioner supplierTarget;
 
@@ -350,14 +350,14 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @return {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @return {@link #suppliedItem} (Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
          */
         public Reference getSuppliedItem() { 
           return this.suppliedItem;
         }
 
         /**
-         * @param value {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @param value {@link #suppliedItem} (Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
          */
         public SupplyDispenseComponent setSuppliedItem(Reference value) { 
           this.suppliedItem = value;
@@ -365,14 +365,14 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @return {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @return {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
          */
         public Resource getSuppliedItemTarget() { 
           return this.suppliedItemTarget;
         }
 
         /**
-         * @param value {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         * @param value {@link #suppliedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.)
          */
         public SupplyDispenseComponent setSuppliedItemTarget(Resource value) { 
           this.suppliedItemTarget = value;
@@ -380,14 +380,14 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @return {@link #supplier} (The individual responsible for dispensing the medication.)
+         * @return {@link #supplier} (The individual responsible for dispensing the medication, supplier or device.)
          */
         public Reference getSupplier() { 
           return this.supplier;
         }
 
         /**
-         * @param value {@link #supplier} (The individual responsible for dispensing the medication.)
+         * @param value {@link #supplier} (The individual responsible for dispensing the medication, supplier or device.)
          */
         public SupplyDispenseComponent setSupplier(Reference value) { 
           this.supplier = value;
@@ -395,14 +395,14 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @return {@link #supplier} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
+         * @return {@link #supplier} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication, supplier or device.)
          */
         public Practitioner getSupplierTarget() { 
           return this.supplierTarget;
         }
 
         /**
-         * @param value {@link #supplier} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
+         * @param value {@link #supplier} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication, supplier or device.)
          */
         public SupplyDispenseComponent setSupplierTarget(Practitioner value) { 
           this.supplierTarget = value;
@@ -509,8 +509,8 @@ public class Supply extends DomainResource {
           childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of supply that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("suppliedItem", "Reference(Medication|Substance|Device)", "Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
-          childrenList.add(new Property("supplier", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, supplier));
+          childrenList.add(new Property("suppliedItem", "Reference(Medication|Substance|Device)", "Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
+          childrenList.add(new Property("supplier", "Reference(Practitioner)", "The individual responsible for dispensing the medication, supplier or device.", 0, java.lang.Integer.MAX_VALUE, supplier));
           childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
           childrenList.add(new Property("whenHandedOver", "Period", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
           childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));

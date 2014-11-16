@@ -882,6 +882,55 @@ The following types are defined as part of the data types, but are documented el
 [%onthispage Primitive Types#primitive|Data Types#Types|Other Types#other%]
 
 [%file newfooter%]
+
+  <script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+  // happens on IE when running locally    
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-Attachment' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Coding' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-CodeableConcept' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Quantity' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Range' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Ratio' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Period' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-SampledData' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Identifier' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-HumanName' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Address' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-ContactPoint' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Timing' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+    // happens on IE when running locally    
+  }
+  $( '#tabs-Attachment' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Coding' ).tabs('option', 'active', currentTab);
+  $( '#tabs-CodeableConcept' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Quantity' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Range' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Ratio' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Period' ).tabs('option', 'active', currentTab);
+  $( '#tabs-SampledData' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Identifier' ).tabs('option', 'active', currentTab);
+  $( '#tabs-HumanName' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Address' ).tabs('option', 'active', currentTab);
+  $( '#tabs-ContactPoint' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Timing' ).tabs('option', 'active', currentTab);
+}     
+</script>
+
   
 </body>
 </html>

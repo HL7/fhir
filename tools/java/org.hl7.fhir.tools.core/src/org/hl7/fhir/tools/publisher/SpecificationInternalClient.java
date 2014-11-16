@@ -99,22 +99,12 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> T update(Class<T> resourceClass, T resource, String id, List<Coding> tags) {
-    throw new Error("update not supported by the internal specification client");
-  }
-
-  @Override
   public <T extends Resource> boolean delete(Class<T> resourceClass, String id) {
     throw new Error("delete not supported by the internal specification client");
   }
 
   @Override
   public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource) {
-    throw new Error("create not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> OperationOutcome create(Class<T> resourceClass, T resource, List<Coding> tags) {
     throw new Error("create not supported by the internal specification client");
   }
 
@@ -159,26 +149,6 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public List<Coding> getAllTags() {
-    throw new Error("getAllTags not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> getAllTagsForResourceType(Class<T> resourceClass) {
-    throw new Error("getAllTagsForResourceType not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> getTagsForReference(Class<T> resource, String id) {
-    throw new Error("getTagsForResource not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
-    throw new Error("getTagsForResourceVersion not supported by the internal specification client");
-  }
-
-  @Override
   public VersionInfo getVersions() {
     throw new Error("getVersions not supported by the internal specification client");
   }
@@ -201,21 +171,6 @@ public class SpecificationInternalClient implements FHIRClient {
   @Override
   public <T extends Resource> Bundle history() {
     throw new Error("history not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> deleteTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
-    throw new Error("deleteTags not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id) {
-    throw new Error("createTags not supported by the internal specification client");
-  }
-
-  @Override
-  public <T extends Resource> List<Coding> createTags(List<Coding> tags, Class<T> resourceClass, String id, String version) {
-    throw new Error("createTags not supported by the internal specification client");
   }
 
   @Override

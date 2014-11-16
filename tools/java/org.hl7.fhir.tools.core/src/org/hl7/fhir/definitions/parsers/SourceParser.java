@@ -39,6 +39,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -49,6 +50,8 @@ import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
+import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
@@ -63,7 +66,6 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
-import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
@@ -77,6 +79,8 @@ import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.Bundle.BundleType;
+import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
@@ -259,31 +263,16 @@ public class SourceParser {
 		  for (String n : pn) {
 		    loadValueSet(n);
 		  }
-		for (String n : ini.getPropertyNames("profiles")) {
-			loadProfile(n, definitions.getProfiles());
+		for (String n : ini.getPropertyNames("profiles")) { // todo-profile: rename this
+			loadConformancePackages(n, definitions.getConformancePackages());
 		}
 		
 		for (ResourceDefn r : definitions.getResources().values()) {
-		  for (RegisteredProfile p : r.getProfiles()) {
-		    if (p.getType() == ProfileInputType.Spreadsheet) {
-  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
-	  	    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
-		      p.setProfile(sparser.parseProfile(definitions));
-		    } else if (p.getType() == ProfileInputType.Profile) {
-		      XmlParser prsr = new XmlParser();
-		      try {
-		        Profile profile = (Profile) prsr.parse(new CSFileInputStream(p.getFilepath()));
-		        p.setProfile(ProfileGenerator.wrapProfile(profile));
-		      } catch(Exception e) {
-		        logger.log("Failed in profile: " + p.getFilepath(), LogMessageType.Error);
-		        throw e;
-		      }
-		    } else
-		      throw new Exception("Unimplemented profile parser type "+p.getType());
-		    p.getProfile().forceMetadata("id", p.getDestFilenameNoExt());
-		  }
+		  for (ConformancePackage p : r.getConformancePackages()) 
+		    loadConformancePackage(p);
 		}
 	}
+
 
   private void loadMappingSpaces() throws Exception {
     try {
@@ -372,42 +361,64 @@ public class SourceParser {
 	}
 	
 	
-	private void loadProfile(String n, Map<String, ProfileDefn> profiles)
-			throws Exception {
+	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
 	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
 	    try {
-	      ProfileDefn profile = sparser.parseProfile(definitions);
-	      definitions.getProfiles().put(n, profile);
+	      ConformancePackage pack = new ConformancePackage();
+	      pack.setName(n);
+	      pack.setTitle(n);
+	      pack.setSource(spreadsheet.getAbsolutePath());
+	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+        packs.put(n, pack);
+	      sparser.parseConformancePackage(pack, definitions);
 	    } catch (Exception e) {
 	      throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
 	    }
 	  } else {
-	    ProfileDefn profile = new ProfileDefn();
-      try {
-        Resource rf = new XmlParser().parse(new FileInputStream(spreadsheet));
-        if (rf instanceof Bundle) {
-          for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
-            if (ae.getResource() instanceof Profile)
-              profile.setSource((Profile) ae.getResource());
-            else if (ae.getResource() instanceof ExtensionDefinition) {
-              ExtensionDefinition ed = (ExtensionDefinition) ae.getResource();
-              context.seeExtensionDefinition(ed);
-              profile.getExtensions().add(ed.getUrl());
-            }
-          }
-        } else {
-          profile.setSource((Profile) rf);          
-        }
-  	    profile.addMetadata("id", n);
-        definitions.getProfiles().put(n, profile);
-      } catch (Exception e) {
-        throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
-      }
+	    ConformancePackage pack = new ConformancePackage();
+	    pack.setName(n);
+	    parseConformanceDocument(pack, n, spreadsheet);
+      packs.put(n, pack);
 	  }
 	}
 
+
+  private void parseConformanceDocument(ConformancePackage pack, String n, File file) throws Exception {
+    try {
+      Resource rf = new XmlParser().parse(new CSFileInputStream(file));
+      if (!(rf instanceof Bundle))
+        throw new Exception("Error parsing Conformance package: neither a spreadsheet nor a bundle");
+      Bundle b = (Bundle) rf;
+      if (b.getType() != BundleType.DOCUMENT)
+        throw new Exception("Error parsing Conformance package: neither a spreadsheet nor a bundle that is a document");
+      for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
+        if (ae.getResource() instanceof Composition)
+          pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
+        else if (ae.getResource() instanceof Profile)
+          pack.getProfiles().add(new ProfileDefn((Profile) ae.getResource()));
+        else if (ae.getResource() instanceof ExtensionDefinition) {
+          ExtensionDefinition ed = (ExtensionDefinition) ae.getResource();
+          context.seeExtensionDefinition(ed);
+          pack.getExtensions().add(ed);
+        }
+      }
+    } catch (Exception e) {
+      throw new Exception("Error Parsing Conformance Package: '"+n+"': "+e.getMessage(), e);
+    }
+  }
+
+
+  private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
+    if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
+      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
+      sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
+      sparser.parseConformancePackage(ap, definitions);
+    } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
+      parseConformanceDocument(ap, ap.getName(), new File(ap.getSource()));
+  }
+	
 	private void loadGlobalConceptDomains() throws Exception {
 		logger.log("Load Concept Domains", LogMessageType.Process);
 

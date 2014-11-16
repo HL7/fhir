@@ -37,8 +37,8 @@ import org.hl7.fhir.instance.model.Profile;
 public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
    private Map<String, SearchParameter> searchParams = new HashMap<String, SearchParameter>();
-   private List<RegisteredProfile> profiles = new ArrayList<RegisteredProfile>();
    private Map<String, Operation> operations = new HashMap<String, Operation>();
+   private List<ConformancePackage> conformancePackages = new ArrayList<ConformancePackage>();
       
    private String status;
      
@@ -127,10 +127,6 @@ public class ResourceDefn  {
     this.status = status;
   } 
 
-  public List<RegisteredProfile> getProfiles() {
-    return profiles;
-  }
-
   public void setRequirements(String text) {
     this.requirements = text;
     
@@ -159,6 +155,10 @@ public class ResourceDefn  {
 
   public void setPublishedInProfile(boolean value) {
     publishedInProfile = value;
+  }
+
+  public List<ConformancePackage> getConformancePackages() {
+    return conformancePackages;
   }
 
 

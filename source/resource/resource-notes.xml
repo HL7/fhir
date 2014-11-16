@@ -1,5 +1,6 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="id"> </a>
 <h3>Resource Identity</h3>
 
 <p>
@@ -31,6 +32,8 @@ upper and lowercase ASCII letters, numerals, "-" and ".".
 </p>
 
 <a name="metadata"> </a>
+<a name="meta"> </a>
+
 <h3>Resource Metadata</h3>
 <p>
 Each resource contains a set of meta data that provide technical and workflow 
@@ -88,6 +91,9 @@ of them may be required in particular implementations.
 <p>
 The profile, security, and tag elements can be changed by <a href="http.html#meta">a meta interaction</a> without changing the resource version.
 </p>
+  
+  
+<a name="implicitRules"> </a>
   
 <h3>Implicit Rules</h3>
 <p>

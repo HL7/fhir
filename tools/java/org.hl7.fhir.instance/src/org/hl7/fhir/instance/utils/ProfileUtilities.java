@@ -22,8 +22,8 @@ import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Reference;
+import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
@@ -49,26 +49,6 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  *
  */
 public class ProfileUtilities {
-
-  public class StrucResult {
-
-    private Profile profile;
-    private ProfileStructureComponent structure;
-
-    public StrucResult(Profile profile, ProfileStructureComponent structure) {
-      this.profile = profile;
-      this.structure = structure;
-    }
-
-    public Profile getProfile() {
-      return profile;
-    }
-
-    public ProfileStructureComponent getStructure() {
-      return structure;
-    }
-
-  }
 
   private WorkerContext context;
   
@@ -117,7 +97,7 @@ public class ProfileUtilities {
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String typeSimple) throws Exception;
     String resolveBinding(ElementDefinitionBindingComponent binding);
-    String getLinkForProfile(Profile profile, String url);
+    String getLinkForProfile(Profile profile, String url) throws Exception;
   }
 
 
@@ -128,10 +108,10 @@ public class ProfileUtilities {
  * @param path The path of the element within the structure to get the children for
  * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
  */
-  public static Map<String, ElementDefinition> getChildMap(ProfileStructureComponent structure, String path) {
+  public static Map<String, ElementDefinition> getChildMap(Profile profile, String path) {
     HashMap<String, ElementDefinition> res = new HashMap<String, ElementDefinition>(); 
     
-    for (ElementDefinition e : structure.getSnapshot().getElement()) 
+    for (ElementDefinition e : profile.getSnapshot().getElement()) 
     {
       String p = e.getPath();
       
@@ -143,12 +123,12 @@ public class ProfileUtilities {
         if (path.length() > p.length())
         {
           // The path navigates further into the referenced element, so go ahead along the path over there
-          return getChildMap(structure, e.getNameReference()+"."+path.substring(p.length()+1));
+          return getChildMap(profile, e.getNameReference()+"."+path.substring(p.length()+1));
         }
         else
         {
           // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
-          return getChildMap(structure, e.getNameReference());
+          return getChildMap(profile, e.getNameReference());
         }
       } 
       else if (p.startsWith(path+".")) 
@@ -168,8 +148,8 @@ public class ProfileUtilities {
   }
 
   
-  public static Map<String, ElementDefinition> getChildMap(ProfileStructureComponent structure, ElementDefinition element) {
-	  	return getChildMap(structure, element.getPath());
+  public static Map<String, ElementDefinition> getChildMap(Profile profile, ElementDefinition element) {
+	  	return getChildMap(profile, element.getPath());
   }
   
 
@@ -180,19 +160,19 @@ public class ProfileUtilities {
    * @param path The path of the element within the structure to get the children for
    * @return A List containing the element children (all of them are Elements)
    */
-  public static List<ElementDefinition> getChildList(ProfileStructureComponent structure, String path) {
+  public static List<ElementDefinition> getChildList(Profile profile, String path) {
     List<ElementDefinition> res = new ArrayList<ElementDefinition>(); 
     
-    for (ElementDefinition e : structure.getSnapshot().getElement()) 
+    for (ElementDefinition e : profile.getSnapshot().getElement()) 
     {
       String p = e.getPath();
     
       if (!Utilities.noString(e.getNameReference()) && path.startsWith(p)) 
       {
         if (path.length() > p.length())
-          return getChildList(structure, e.getNameReference()+"."+path.substring(p.length()+1));
+          return getChildList(profile, e.getNameReference()+"."+path.substring(p.length()+1));
         else
-          return getChildList(structure, e.getNameReference());
+          return getChildList(profile, e.getNameReference());
       }
       else if (p.startsWith(path+".") && !p.equals(path)) 
       {
@@ -208,7 +188,7 @@ public class ProfileUtilities {
   }
 
   
-  public static List<ElementDefinition> getChildList(ProfileStructureComponent structure, ElementDefinition element) {
+  public static List<ElementDefinition> getChildList(Profile structure, ElementDefinition element) {
 	  	return getChildList(structure, element.getPath());
 	  }
 
@@ -221,7 +201,7 @@ public class ProfileUtilities {
    * @return
    * @throws Exception 
    */
-  public void generateSnapshot(ProfileStructureComponent base, ProfileStructureComponent derived, String url, String profileName) throws Exception {
+  public void generateSnapshot(Profile base, Profile derived, String url, String profileName) throws Exception {
     if (base == null)
       throw new Exception("no base profile provided");
     if (derived == null) 
@@ -280,7 +260,7 @@ public class ProfileUtilities {
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
               if (outcome.getType().size() > 1)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
-              ProfileStructureComponent dt = getStructureForDataType(outcome.getType().get(0));
+              Profile dt = getProfileForDataType(outcome.getType().get(0));
               if (dt == null)
                 throw new Exception(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
               int start = diffCursor;
@@ -437,12 +417,12 @@ public class ProfileUtilities {
   }
 
 
-  private ProfileStructureComponent getStructureForDataType(TypeRefComponent type) {
+  private Profile getProfileForDataType(TypeRefComponent type) {
     if (type.getProfile() != null && !type.getCode().equals("Reference") && !type.getCode().equals("Extension")) 
       throw new Error("handling profiles is not supported yet");
     for (Profile ae : context.getProfiles().values()) {
       if (ae.getName().equals(type.getCode())) {
-        return ae.getStructure().get(0);
+        return ae;
       }
     }
     return null;
@@ -777,13 +757,13 @@ public class ProfileUtilities {
       return (min == null ? "" : Integer.toString(min.getValue())) + ".." + (max == null ? "" : max.getValue());
   }
 
-  public XhtmlNode generateTable(String defFile, ProfileStructureComponent structure, boolean diff, String imageFolder, boolean inlineGraphics, Profile profile, ProfileKnowledgeProvider pkp, String profileBaseFileName, boolean snapshot) throws Exception {
+  public XhtmlNode generateTable(String defFile, Profile profile, boolean diff, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp, String profileBaseFileName, boolean snapshot) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable();
-    List<ElementDefinition> list = diff ? structure.getDifferential().getElement() : structure.getSnapshot().getElement();
+    List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<Profile> profiles = new ArrayList<Profile>();
     profiles.add(profile);    
-    genElement(defFile == null ? null : defFile+"#"+structure.getName()+".", gen, model.getRows(), list.get(0), list, profiles, pkp, diff, profileBaseFileName, null, snapshot);
+    genElement(defFile == null ? null : defFile+"#"+profile.getName()+".", gen, model.getRows(), list.get(0), list, profiles, pkp, diff, profileBaseFileName, null, snapshot);
     return gen.generate(model);
   }
 
@@ -1066,33 +1046,24 @@ public class ProfileUtilities {
     return Utilities.existsInList(value, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "date", "dateTime", "code", "oid", "uuid", "id");
   }
 
-  public static String summarise(Profile p, ProfileKnowledgeProvider pkp) throws Exception {
-//    if (p.getExtensionDefn().isEmpty())
-      return "This profile has constraints on the following resources: "+listStructures(p, pkp);
-//    else if (p.getStructure().isEmpty())
-//      return "This profile defines "+Integer.toString(p.getExtensionDefn().size())+" extensions.";
+//  private static String listStructures(Profile p, ProfileKnowledgeProvider pkp) throws Exception {
+//    StringBuilder b = new StringBuilder();
+//    boolean first = true;
+//    for (ProfileStructureComponent s : p.getStructure()) {
+//      if (first)
+//        first = false;
+//      else
+//        b.append(", ");
+//      if (pkp != null && pkp.hasLinkFor(s.getType()))
+//        b.append("<a href=\""+pkp.getLinkFor(s.getType())+"\">"+s.getType()+"</a>");
 //    else
-//      return "This profile defines "+Integer.toString(p.getExtensionDefn().size())+" extensions and has constraints on the following resources: "+listStructures(p, pkp);
-  }
-
-  private static String listStructures(Profile p, ProfileKnowledgeProvider pkp) throws Exception {
-    StringBuilder b = new StringBuilder();
-    boolean first = true;
-    for (ProfileStructureComponent s : p.getStructure()) {
-      if (first)
-        first = false;
-      else
-        b.append(", ");
-      if (pkp != null && pkp.hasLinkFor(s.getType()))
-        b.append("<a href=\""+pkp.getLinkFor(s.getType())+"\">"+s.getType()+"</a>");
-      else
-        b.append(s.getType());
-    }
-    return b.toString();
-  }
+//        b.append(s.getType());
+//    }
+//    return b.toString();
+//  }
 
 
-  public StrucResult getStructure(Profile source, String url) throws Exception {
+  public Profile getProfile(Profile source, String url) throws Exception {
     Profile profile;
     String code;
     if (url.startsWith("#")) {
@@ -1116,14 +1087,13 @@ public class ProfileUtilities {
       code = parts.length < 2 ? null : parts[1];
     }
 
-    if (profile != null) {
-      ProfileStructureComponent structure = null;
-      for (ProfileStructureComponent s : profile.getStructure()) {
-        if (s.getName().equals(code) || s.getPublish()) 
-          structure = s;
-      }
-      if (structure != null)
-        return new StrucResult(profile, structure);
+  	if (profile == null) 
+  		return null;
+  	if (code == null)
+  		return profile;
+  	for (Resource r : profile.getContained()) {
+  		if (r instanceof Profile && r.getId().equals(code))
+  			return (Profile) r;
     }
     return null;
   }
@@ -1152,4 +1122,5 @@ public class ProfileUtilities {
 //    return null;
 //  }
 //
+  
 }

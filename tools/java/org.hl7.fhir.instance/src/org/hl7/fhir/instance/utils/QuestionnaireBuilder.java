@@ -22,7 +22,6 @@ import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Questionnaire;
@@ -42,7 +41,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
-import org.hl7.fhir.instance.utils.ProfileUtilities.StrucResult;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -100,7 +98,6 @@ public class QuestionnaireBuilder {
   private WorkerContext context;
   private int lastid = 0;
   private Resource resource;
-  private ProfileStructureComponent structure;
   private Profile profile;
   private Questionnaire questionnaire;
   private QuestionnaireAnswers answers;
@@ -125,14 +122,6 @@ public class QuestionnaireBuilder {
 
   public void setReference(Resource resource) {
     this.resource = resource;
-  }
-
-  public ProfileStructureComponent getStructure() {
-    return structure;
-  }
-
-  public void setStructure(ProfileStructureComponent structure) {
-    this.structure = structure;
   }
 
   public Profile getProfile() {
@@ -184,27 +173,11 @@ public class QuestionnaireBuilder {
   }
 
   public void build() throws Exception {
-
-    if (profile.getStructure().isEmpty()) 
-      throw new Exception("QuestionnaireBuilder.build: no structure found");
-
-    if (structure == null) {
-      for (ProfileStructureComponent ps : profile.getStructure()) {
-        if (ps.getPublish())
-          if (structure == null) 
-            structure = ps;
-          else
-            throw new Exception("buildQuestionnaire: if there is more than one published structure in the profile, you must choose one");
-      }
-      if (structure == null) 
-        throw new Exception("buildQuestionnaire: no published structure found");
-    }
-
-    if (!profile.getStructure().contains(structure)) 
-      throw new Exception("buildQuestionnaire: profile/structure mismatch");
+		if (profile == null)
+      throw new Exception("QuestionnaireBuilder.build: no profile found");
 
     if (resource != null)
-      if (!structure.getType().equals(resource.getResourceType().toString()))
+      if (!profile.getType().equals(resource.getResourceType().toString()))
         throw new Exception("Wrong Type");
 
     if (prebuiltQuestionnaire != null)
@@ -224,9 +197,9 @@ public class QuestionnaireBuilder {
     if (prebuiltQuestionnaire != null) {
       // give it a fake group to build
       Questionnaire.GroupComponent group = new Questionnaire.GroupComponent();
-      buildGroup(group, profile, structure, structure.getSnapshot().getElement().get(0), list, answerGroups);
+      buildGroup(group, profile, profile.getSnapshot().getElement().get(0), list, answerGroups);
     } else
-      buildGroup(questionnaire.getGroup(), profile, structure, structure.getSnapshot().getElement().get(0), list, answerGroups);
+      buildGroup(questionnaire.getGroup(), profile, profile.getSnapshot().getElement().get(0), list, answerGroups);
     //
     //     NarrativeGenerator ngen = new NarrativeGenerator(context);
     //     ngen.generate(result);
@@ -274,7 +247,7 @@ public class QuestionnaireBuilder {
     return prefix+Integer.toString(lastid);
   }
 
-  private void buildGroup(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementDefinition element,
+  private void buildGroup(GroupComponent group, Profile profile, ElementDefinition element,
       List<ElementDefinition> parents, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
 	  group.setLinkId(element.getPath()); // todo: this will be wrong when we start slicing
 	  group.setTitle(element.getShort()); // todo - may need to prepend the name tail... 
@@ -290,7 +263,7 @@ public class QuestionnaireBuilder {
     }
 
     // now, we iterate the children
-    List<ElementDefinition> list = ProfileUtilities.getChildList(structure, element);
+    List<ElementDefinition> list = ProfileUtilities.getChildList(profile, element);
     for (ElementDefinition child : list) {
 
       if (!isExempt(element, child) && !parents.contains(child)) {
@@ -304,9 +277,9 @@ public class QuestionnaireBuilder {
         // if the element has a type, we add a question. else we add a group on the basis that
         // it will have children of it's own
         if (child.getType().isEmpty()) 
-          buildGroup(childGroup, profile, structure, child, nparents, nAnswers);
+          buildGroup(childGroup, profile, child, nparents, nAnswers);
         else
-          buildQuestion(childGroup, profile, structure, child, child.getPath(), nAnswers);
+          buildQuestion(childGroup, profile, child, child.getPath(), nAnswers);
       }
     }
   }
@@ -348,7 +321,7 @@ public class QuestionnaireBuilder {
     }
   }
 
-  private void buildQuestion(GroupComponent group, Profile profile, ProfileStructureComponent structure, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
+  private void buildQuestion(GroupComponent group, Profile profile, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
       group.setLinkId(path);
 
       // in this context, we don't have any concepts to mark...
@@ -436,13 +409,13 @@ public class QuestionnaireBuilder {
 	      cc.setDisplay(cc.getCode());
       } else {
         ProfileUtilities pu = new ProfileUtilities(context);
-        StrucResult ps = null;
+        Profile ps = null;
 	      if (!Utilities.noString(t.getProfile())) 
-          ps = pu.getStructure(profile, t.getProfile());
+          ps = pu.getProfile(profile, t.getProfile());
         
-        if (ps != null && ps.getStructure() != null) {
+        if (ps != null) {
 	        cc.setCode(t.getProfile());
-          cc.setDisplay(structure.getName());
+          cc.setDisplay(ps.getType());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
 	        cc.setCode(t.getCode());
@@ -478,11 +451,11 @@ public class QuestionnaireBuilder {
         cc.setSystem("http://hl7.org/fhir/resource-types");
       } else {
         ProfileUtilities pu = new ProfileUtilities(context);
-        StrucResult ps = null;
+        Profile ps = null;
         if (!Utilities.noString(t.getProfile()))
-          ps = pu.getStructure(profile, t.getProfile());
+          ps = pu.getProfile(profile, t.getProfile());
 
-        if (ps != null && ps.getStructure() != null) {
+        if (ps != null) {
           cc.setCode(t.getProfile());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
@@ -986,7 +959,7 @@ public class QuestionnaireBuilder {
     		if (ed != null) {
           if (answerGroups.size() > 0)
             throw new Exception("Debug this");
-    			buildQuestion(group, profile, null, ed.getElementDefinition(), path+".extension["+url+"]", answerGroups);
+    			buildQuestion(group, profile, ed.getElementDefinition(), path+".extension["+url+"]", answerGroups);
         }
       }
     }

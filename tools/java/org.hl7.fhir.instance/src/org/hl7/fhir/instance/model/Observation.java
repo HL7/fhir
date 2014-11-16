@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 08:24+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -768,7 +768,7 @@ public class Observation extends DomainResource {
     protected Enumeration<ObservationReliability> reliability;
 
     /**
-     * Indicates where on the subject's body the observation was made.
+     * Indicates the site on the subject's body where the observation was made ( i.e. the target site).
      */
     protected CodeableConcept bodySite;
 
@@ -1081,14 +1081,14 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #bodySite} (Indicates where on the subject's body the observation was made.)
+     * @return {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
      */
     public CodeableConcept getBodySite() { 
       return this.bodySite;
     }
 
     /**
-     * @param value {@link #bodySite} (Indicates where on the subject's body the observation was made.)
+     * @param value {@link #bodySite} (Indicates the site on the subject's body where the observation was made ( i.e. the target site).)
      */
     public Observation setBodySite(CodeableConcept value) { 
       this.bodySite = value;
@@ -1284,7 +1284,7 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("issued", "instant", "The date and time this observation was made available.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("reliability", "code", "An estimate of the degree to which quality issues have impacted on the value reported.", 0, java.lang.Integer.MAX_VALUE, reliability));
-        childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates where on the subject's body the observation was made.", 0, java.lang.Integer.MAX_VALUE, bodySite));
+        childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The thing the observation is being made about.", 0, java.lang.Integer.MAX_VALUE, subject));

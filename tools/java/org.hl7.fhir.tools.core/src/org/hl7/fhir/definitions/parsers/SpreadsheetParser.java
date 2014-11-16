@@ -36,11 +36,13 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
+import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -51,12 +53,12 @@ import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
+import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
-import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
@@ -119,7 +121,8 @@ public class SpreadsheetParser {
   private WorkerContext context;
   private Calendar genDate;
   private boolean isAbstract;
-
+  private Map<String, BindingSpecification> bindings; // when parsing profiles
+  
 	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract) throws Exception {
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
@@ -273,7 +276,7 @@ public class SpreadsheetParser {
 
 	  readEvents(loadSheet("Events"));
 	  readSearchParams(root, loadSheet("Search"), false);
-	  readProfiles(root, loadSheet("Profiles"));
+	  readPackages(root, loadSheet("Packages")); 
     readExamples(root, loadSheet("Examples"));
 	  readOperations(root, loadSheet("Operations"));
 
@@ -336,46 +339,47 @@ public class SpreadsheetParser {
 	}
 
 	  
-	private void readProfiles(ResourceDefn defn, Sheet sheet) throws Exception {
+	private void readPackages(ResourceDefn defn, Sheet sheet) throws Exception {
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         String name = sheet.getColumn(row, "Name");
         if (name != null && !name.equals("") && !name.startsWith("!")) {
-          String desc = sheet.getColumn(row, "Description");
-//          if (!Utilities.noString(desc))
-//            throw new Exception("Profile " + name + " has a description parsing " + this.name);
-          String title = sheet.getColumn(row, "Filename");
-          String source = sheet.getColumn(row, "Source");
-          if (Utilities.noString(source))
-            source = title;
-          String etitle = sheet.getColumn(row, "Example");
-          ProfileInputType type = readProfileInputType(sheet.getColumn(row, "Type"));
-          File file = new CSFile(folder + source);
-          if (!file.exists())
-            throw new Exception("Profile " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
-          File efile = null;
-          if (!Utilities.noString(etitle)) {
-            efile = new CSFile(folder + etitle);
-            if (!efile.exists())
-              throw new Exception("Profile Example " + name + " file '" + efile.getAbsolutePath() + "' not found parsing " + this.name);
-          }
-          boolean dontDecompose = parseBoolean(sheet.getColumn(row, "noDecompose"), row, false);
-          RegisteredProfile rp = new RegisteredProfile(name, title, source, file.getAbsolutePath(), type);
-          if (efile != null)
-            rp.getExamples().put(etitle, new Example(etitle, Utilities.fileTitle(etitle), "General Example for "+title, efile, ExampleType.XmlFile, true, dontDecompose));
-          defn.getProfiles().add(rp);
+          ConformancePackage pack = new ConformancePackage();
+          pack.setTitle(name);
+          pack.setDescription(sheet.getColumn(row, "Description"));
+          pack.setName(sheet.getColumn(row, "Filename"));
+          pack.setSource(checkFile(sheet, row, "Source", false, pack.getName())); // todo-profile
+          String type = sheet.getColumn(row, "Type");
+          if ("bundle".equalsIgnoreCase(type))
+            pack.setSourceType(ConformancePackageSourceType.Bundle);
+          else if ("spreadsheet".equalsIgnoreCase(type))
+            pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+          else
+            throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
+          String example = checkFile(sheet, row, "Example", true, null); // todo-profile
+          if (example != null)
+            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getName(), new File(example), ExampleType.XmlFile, false));
+          defn.getConformancePackages().add(pack);
         }
       }
     }
   }
 
 
-  private ProfileInputType readProfileInputType(String column) throws Exception {
-    if ("spreadsheet".equals(column)) 
-      return ProfileInputType.Spreadsheet;
-    if ("profile".equals(column)) 
-      return ProfileInputType.Profile;
-    throw new Exception("Unknown value for Profile Filename Type: "+column);
+  private String checkFile(Sheet sheet, int row, String column, boolean canBeNull, String defaultValue) throws Exception {
+    String name = sheet.getColumn(row, column);
+    if (Utilities.noString(name))
+      name = defaultValue;
+    
+    if (Utilities.noString(name)) {
+      if (!canBeNull)
+        throw new Exception("Missing filename for '"+column+"' at "+getLocation(row));
+      return null;
+    }
+    String filename = Utilities.path(folder, name);
+    if (!(new File(filename).exists()))
+      throw new Exception("Unable to find source file "+name);
+    return filename;
   }
 
 
@@ -645,65 +649,67 @@ public class SpreadsheetParser {
   }
 
 
-  public ProfileDefn parseProfile(Definitions definitions) throws Exception {
+	public void parseConformancePackage(ConformancePackage ap, Definitions definitions) throws Exception {
 	  try {
-		isProfile = true;
-		ProfileDefn p = new ProfileDefn();
+	    isProfile = true;
+	    Sheet sheet = loadSheet("Bindings");
+	    if (sheet != null)
+	      bindings = readBindings(sheet);
 
-		Sheet sheet = loadSheet("Metadata");
-		for (int row = 0; row < sheet.rows.size(); row++) {
-			String n = sheet.getColumn(row, "Name");
-			String v = sheet.getColumn(row, "Value");
-			if (n != null && v != null) {
-				if (p.getMetadata().containsKey(n))
-					p.getMetadata().get(n).add(v);
-				else {
-					ArrayList<String> vl = new ArrayList<String>();
-					vl.add(v);
-					p.getMetadata().put(n, vl);
-				}
-			}
-		}
-    this.profileExtensionBase = p.metadata("extension.uri");
-
-    List<String> namedSheets = new ArrayList<String>();
-    
-		if (p.getMetadata().containsKey("published.structure")) {
-		  for (String n : p.getMetadata().get("published.structure")) {
-		    if (!Utilities.noString(n))
-		    parseProfileSheet(definitions, p, n, namedSheets, true);
-		  }
-		}
-    
-		int i = 0;
-    while (i < namedSheets.size()) {
-      parseProfileSheet(definitions, p, namedSheets.get(i), namedSheets, false);
-      i++;
-    }
-
-    sheet = loadSheet("Extensions");
-    if (sheet != null) {
-      int row = 0;
-      while (row < sheet.rows.size()) {
-        if (sheet.getColumn(row, "Code").startsWith("!"))
-          row++;
-        else 
-          row = processExtension(null, sheet, row, definitions, p.metadata("extension.uri"), p);
-      }
-    }
-
-    sheet = loadSheet("Bindings");
-    if (sheet != null)
-      p.getBindings().addAll(readBindings(sheet).values());
+	    sheet = loadSheet("Metadata");
+	    for (int row = 0; row < sheet.rows.size(); row++) {
+	      String n = sheet.getColumn(row, "Name");
+	      String v = sheet.getColumn(row, "Value");
+	      if (n != null && v != null) {
+	        if (ap.getMetadata().containsKey(n))
+	          ap.getMetadata().get(n).add(v);
+	        else {
+	          ArrayList<String> vl = new ArrayList<String>();
+	          vl.add(v);
+	          ap.getMetadata().put(n, vl);
+	        }
+	      }
+	    }
+      if (ap.hasMetadata("name"))
+        ap.setTitle(ap.metadata("name"));
+      if (!ap.hasMetadata("id"))
+        throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" no 'id' found in metadata");
       
-		return p;
+	    this.profileExtensionBase = ap.metadata("extension.uri");
+
+	    List<String> namedSheets = new ArrayList<String>();
+
+	    if (ap.getMetadata().containsKey("published.structure")) {
+	      for (String n : ap.getMetadata().get("published.structure")) {
+	        if (!Utilities.noString(n))
+	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true));
+	      }
+	    }
+
+	    int i = 0;
+	    while (i < namedSheets.size()) {
+	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false));
+	      i++;
+	    }
+
+	    sheet = loadSheet("Extensions");
+	    if (sheet != null) {
+	      int row = 0;
+	      while (row < sheet.rows.size()) {
+	        if (sheet.getColumn(row, "Code").startsWith("!"))
+	          row++;
+	        else 
+	          row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap);
+	      }
+	    }
+
 	  } catch (Exception e) {
-	    throw new Exception("exception parsing "+name+": "+e.getMessage(), e);
+	    throw new Exception("exception parsing pack "+ap.getName()+": "+e.getMessage(), e);
 	  }
 	}
 
 
-  private void parseProfileSheet(Definitions definitions, ProfileDefn p, String n, List<String> namedSheets, boolean published) throws Exception {
+  private ProfileDefn parseProfileSheet(Definitions definitions, ConformancePackage ap, String n, List<String> namedSheets, boolean published) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -737,7 +743,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, p.metadata("extension.uri"), p);
+          row = processExtension(resource.getRoot().getElementByName("extensions"), sheet, row, definitions, ap.metadata("extension.uri"), ap);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -764,7 +770,8 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-    p.getResources().add(resource);
+		ProfileDefn p = new ProfileDefn(ap.getName()+'-'+n, resource.getName(), resource);
+    return p;
   }
 
 	private void readExamples(ResourceDefn defn, Sheet sheet) throws Exception {
@@ -781,20 +788,20 @@ public class SpreadsheetParser {
 					String type = sheet.getColumn(row, "Type");
 					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
-					String pn = sheet.getColumn(row, "Profile");
+					String pn = sheet.getColumn(row, "Profile"); //todo-profile: rename this
 					if (Utilities.noString(pn)) {
-					defn.getExamples().add(new Example(name, id, desc, file, 
-							parseExampleType(type, row),
-							parseBoolean(sheet.getColumn(row, "In Book"), row, false), parseBoolean(sheet.getColumn(row, "noDecompose"), row, false)));
+					  defn.getExamples().add(new Example(name, id, desc, file, 
+					      parseExampleType(type, row),
+					      parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
 					} else {
-					  RegisteredProfile rp = null;
-					  for (RegisteredProfile r : defn.getProfiles()) {
-					    if (r.getName().equals(pn))
-		            rp = r;
+					  ConformancePackage ap = null;
+					  for (ConformancePackage r : defn.getConformancePackages()) {
+					    if (r.getTitle().equals(pn))
+					      ap = r;
 					  }
-					  if (rp == null)
-              throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  rp.getExamples().put(filename, new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false), parseBoolean(sheet.getColumn(row, "noDecompose"), row, false)));
+					  if (ap == null)
+					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
+					  ap.getExamples().add(new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
 					}
 				}
 			}
@@ -805,8 +812,7 @@ public class SpreadsheetParser {
 				throw new Exception("Example (file '" + file.getAbsolutePath()
 						+ "') not found parsing " + this.name);
 			defn.getExamples().add(
-					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile,
-							true, false));
+					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true));
 		}		
 	}
 
@@ -1079,7 +1085,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, ProfileDefn pd) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, ConformancePackage ap) throws Exception {
 	  // first, we build the extension definition
 	  ExtensionDefinition ex = new ExtensionDefinition();
 	  String name = sheet.getColumn(row, "Code");
@@ -1091,7 +1097,8 @@ public class SpreadsheetParser {
 	    throw new Exception("Extension Definition Error: Extension names cannot contain '.': "+name);
 	
 	  ex.setUrl(uri+name);
-	  pd.getExtensions().add(uri+name);
+    ex.setId(tail(ex.getUrl()));
+	  ap.getExtensions().add(ex);
 	  if (context == null) {
       ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
       ex.addContext(sheet.getColumn(row, "Context"));
@@ -1105,17 +1112,17 @@ public class SpreadsheetParser {
     ex.setName(exe.getShortDefn());
     ex.setDescription(exe.getDefinition());
 
-    ex.setPublisher(pd.metadata("author.name"));
-    if (pd.hasMetadata("author.reference"))
-      ex.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pd.metadata("author.reference")));
+    ex.setPublisher(ap.metadata("author.name"));
+    if (ap.hasMetadata("author.reference"))
+      ex.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, ap.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
-    if (pd.hasMetadata("date"))
-      ex.setDateElement(Factory.newDateTime(pd.metadata("date").substring(0, 10)));
+    if (ap.hasMetadata("date"))
+      ex.setDateElement(Factory.newDateTime(ap.metadata("date").substring(0, 10)));
     else
       ex.setDate(new DateAndTime(genDate));
 
-    if (pd.hasMetadata("status")) 
-      ex.setStatus(ExtensionDefinition.ResourceProfileStatus.fromCode(pd.metadata("status")));
+    if (ap.hasMetadata("status")) 
+      ex.setStatus(ExtensionDefinition.ResourceProfileStatus.fromCode(ap.metadata("status")));
    
     row++;
     if (!ex.getUrl().startsWith("http://hl7.org/fhir/ExtensionDefinition/"))
@@ -1178,6 +1185,9 @@ public class SpreadsheetParser {
 	  return row;
 	}
 
+  private String tail(String url) {
+    return url.substring(url.lastIndexOf("/")+1);
+  }
 
   private void parseExtensionElement(Sheet sheet, int row, Definitions definitions, ElementDefn exe) throws Exception {
     String[] card = sheet.getColumn(row, "Card.").split("\\.\\.");

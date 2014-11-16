@@ -709,14 +709,18 @@ public class SvgGenerator extends BaseGenerator {
     } else if (isRoot) {
       xml.open("text");
       xml.text(tn);
-      xml.attribute("class", "diagram-class-title-link");
-      xml.open("tspan");
-      xml.text(" (");
-      xml.attribute("xlink:href", "resources.html");
-      xml.attribute("class", "diagram-class-reference");
-      xml.element("a", "Resource");
-      xml.text(")");
-      xml.close("tspan");
+      if (e.typeCode().equals("Any")) {
+        xml.text(" «Resource»");
+      } else {
+        xml.attribute("class", "diagram-class-title-link");
+        xml.open("tspan");
+        xml.text(" (");
+        xml.attribute("xlink:href", e.typeCode().toLowerCase()+".html");
+        xml.attribute("class", "diagram-class-reference");
+        xml.element("a", e.typeCode());
+        xml.text(")");
+        xml.close("tspan");
+      }
       xml.close("text");
     } else if (e.hasStatedType()) {
       xml.element("text", e.getStatedType());      

@@ -42,7 +42,6 @@ import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class MappingsGenerator {
@@ -86,17 +85,15 @@ public class MappingsGenerator {
 
         s.append("<table class=\"grid\">\r\n");
         
-        for (ProfileStructureComponent ps : profile.getStructure()) {
-          s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(ps.getName())+"</b></td></tr>\r\n");
-          String path = null;
-          for (ElementDefinition e : ps.getSnapshot().getElement()) {
-            if (path == null || !e.getPath().startsWith(path)) {
-              path = null;
-              if (e.getMax() != null && e.getMax().equals("0")) {
-                path = e.getPath()+".";
-              } else
-                genElement(s, e, map.getIdentity());
-            }
+        s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(profile.getName())+"</b></td></tr>\r\n");
+        String path = null;
+        for (ElementDefinition e : profile.getSnapshot().getElement()) {
+          if (path == null || !e.getPath().startsWith(path)) {
+            path = null;
+            if (e.getMax() != null && e.getMax().equals("0")) {
+              path = e.getPath()+".";
+            } else
+              genElement(s, e, map.getIdentity());
           }
         }
         s.append("</table>\r\n");
