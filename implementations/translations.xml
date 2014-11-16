@@ -174,6 +174,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">InformenDiagnostico</translation>
         <translation lang="fr">RapportDiagnostique</translation>
     </item>
+    <item id="Documentation">
+        <translation lang="en">Documentation</translation>
+    </item>
     <item id="DocumentManifest">
         <translation lang="en">DocumentManifest</translation>
         <translation lang="zh">文档清单</translation>

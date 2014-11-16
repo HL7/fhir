@@ -20,8 +20,7 @@
     <system value="http://happyvalley.com/claims"/>
     <value value="12345"/>
   </requestIdentifier>
-</ClaimResponse>
-<!--
+
   <date value="2014-08-16"/>
 
   <organization>
@@ -31,9 +30,10 @@
   <requestOrganization>
     <reference value="Organization/1"/>
   </requestOrganization>
- 
+ </ClaimResponse>
+<!--
   <outcome value="complete"/>
-  
+ 
   <disposition value="Claim settled as per contract."/>
 
   <payeeType>

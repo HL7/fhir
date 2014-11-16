@@ -1,0 +1,49 @@
+<Documentation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+ <id value="654789"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Eligibility</div>
+  </text>
+
+  <identifier>
+     <system value="http://happyvalley.com/elegibility"/>
+     <value value="52345"/>
+  </identifier>
+ 
+  <date value="2014-09-21"/>
+
+  <target>
+    <reference value="Organization/2"/>
+  </target>
+
+  <subject>
+    <reference value="Patient/1"/>
+  </subject>
+
+<!--
+  <detail>
+     <linkId value="1"/>
+	 <contentAttachment>
+		<contentType value="application/pdf" />
+		<data value="base64content" />
+		<title value="accident notes 20100201" />
+	 </contentAttachment>
+     <date value="2010-02-01"/>
+  </detail>
+-->
+ <!--
+  <detail>
+     <linkId value="2"/>
+	 <content>
+	    <attachment>
+		   <contentType value="application/pdf" />
+		   <url value="http://happyvalley.com/docs/AB12345" />
+		   <size value="104274" />
+	    </attachment>
+	 </content>
+     <date value="2010-02-01"/>
+  </detail>
+ -->
+  
+ </Documentation>
