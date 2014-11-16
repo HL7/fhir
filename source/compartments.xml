@@ -226,11 +226,6 @@
     <Cell><Data ss:Type="String">result.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Documentation</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
@@ -423,6 +418,11 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupportingDocumentation</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -492,7 +492,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -500,8 +500,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>76</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
