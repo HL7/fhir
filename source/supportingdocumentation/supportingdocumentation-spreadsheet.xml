@@ -21,10 +21,10 @@
    <SheetName>Invariants</SheetName>
   </SupBook>
   <WindowHeight>7680</WindowHeight>
-  <WindowWidth>20400</WindowWidth>
+  <WindowWidth>28560</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -916,7 +916,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Documentation submission</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">This resource provides the supporting information for an insurance related transaction such as a claim of pre-authorization.</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">This resource provides the supporting information for a process, for example clinical or financial  information related to a claim or pre-authorization.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1432,6 +1432,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1453,7 +1454,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1611,7 +1612,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1</Range>
+   <Range>R5C1,R16C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -1628,13 +1629,6 @@
    <Range>R15C21</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[6]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[6]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -3585,9 +3579,9 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="Profiles">
+ <Worksheet ss:Name="Packages">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Packages!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s104" ss:DefaultRowHeight="15">
@@ -3878,7 +3872,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4336,7 +4331,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
