@@ -3362,6 +3362,9 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(pack.getId() + ".html", "Conformance Package " + pack.getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
+    for (Example ex : pack.getExamples()) {
+      processExample(ex, null, null);
+    }
     // create examples here
 //    if (examples != null) {
 //      for (String en : examples.keySet()) {

@@ -889,7 +889,8 @@ The following types are defined as part of the data types, but are documented el
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
  } catch(exception){ 
-  // happens on IE when running locally    
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
@@ -913,7 +914,8 @@ function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
   } catch(exception){ 
-    // happens on IE when running locally    
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
   }
   $( '#tabs-Attachment' ).tabs('option', 'active', currentTab);
   $( '#tabs-Coding' ).tabs('option', 'active', currentTab);

@@ -87,17 +87,23 @@ import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.CodeableConcept;
+import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
+import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileSearchParamComponent;
+import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -3573,6 +3579,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             for (ExtensionDefinition ed : ap.getExtensions())
               s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td>"+Utilities.escapeXml(ed.getName()+" : "+ed.getDescription())+"</td></tr>");
           }
+          if (ap.getExamples().size() > 0) {
+            s.append("<tr><td colspan=\"2\">Examples: </td></tr>");
+            for (Example ex : ap.getExamples())
+              s.append("<tr><td><a href=\""+ex.getFileTitle()+".html\">"+Utilities.escapeXml(ex.getName())+"</a></td><td>"+Utilities.escapeXml(ex.getDescription())+"</td></tr>");
+          }
         }
       }
     }
@@ -3917,6 +3928,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+filename+s3;
       else if (com[0].equals("rellink"))
         src = s1+filename+s3;
+      else if (com[0].equals("summary"))
+        src = s1+generateHumanSummary(profile.getResource())+s3;
       else if (com[0].equals("profile-examples"))
         src = s1+s3;      
       else if (com[0].equals("profile-extensions-table"))
@@ -3932,6 +3945,138 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String generateHumanSummary(Profile profile) {
+    try {
+      if (profile.getDifferential() == null)
+        return "<p>No Summary, as this profile has no differential</p>";
+
+      StringBuilder tx = new StringBuilder(); // Terminology Bindings
+      StringBuilder card = new StringBuilder(); // mandatory or Excluded fields
+      StringBuilder fixed = new StringBuilder(); // Fixed Values 
+      StringBuilder ext = new StringBuilder(); // extensions
+      StringBuilder slices = new StringBuilder(); // slices
+      for (ElementDefinition ed : profile.getDifferential().getElement()) {
+        if (ed.getBinding() != null) {
+          String s = summariseBinding(ed.getBinding(), ed.getPath(), hasType(ed, "CodeableConcept"));
+          if (s != null)
+            tx.append(s);
+        }
+        if (ed.getMin() == 1)
+          card.append("<li>The element <i>"+ed.getPath()+"</i> is <span color=\"navy\">required</span></li>\r\n");
+        else if ("0".equals(ed.getMax()))
+          card.append("<li>The element <i>"+ed.getPath()+"</i> is <span color=\"red\">prohibited</span></li>\r\n");
+
+        if (ed.getFixed() != null)
+          fixed.append("<li>The element <i>"+ed.getPath()+"</i> value has been fixed to <span color=\"maroon\">"+summariseValue(ed.getFixed())+"</span></li>\r\n");
+        else if (ed.getPattern() != null)
+          fixed.append("<li>The element <i>"+ed.getPath()+"</i> value must match <span color=\"maroon\">"+summariseValue(ed.getPattern())+"</span></li>\r\n");
+
+        if (ed.getPath().endsWith(".extension"))
+          ext.append(summariseExtension(ed.getType(), false, ed.getPath()));
+        else if (ed.getPath().endsWith(".modifierExtension"))
+          ext.append(summariseExtension(ed.getType(), true, ed.getPath()));
+      }
+      StringBuilder res = new StringBuilder();
+      if (tx.length() > 0)
+        res.append("<p><b>Terminology Bindings</b></p>\r\n<ul>\r\n"+tx.toString()+"\r\n</ul>\r\n\r\n");
+      if (card.length() > 0)
+        res.append("<p><b>Required/Prohibited Elements</b></p>\r\n<ul>\r\n"+card.toString()+"\r\n</ul>\r\n\r\n");
+      if (fixed.length() > 0)
+        res.append("<p><b>Fixed Values</b></p>\r\n<ul>\r\n"+fixed.toString()+"\r\n</ul>\r\n\r\n");
+      if (ext.length() > 0)
+        res.append("<p><b>Extensions</b></p>\r\n<ul>\r\n"+ext.toString()+"\r\n</ul>\r\n\r\n");
+      return res.toString();
+    } catch (Exception e) {
+      return "<p><i>"+Utilities.escapeXml(e.getMessage())+"</i></p>";
+    }
+  }
+
+  private Object summariseExtension(List<TypeRefComponent> types, boolean modifier, String path) throws Exception {
+    if (types.size() != 1)
+      throw new Exception("unable to summarise extension (wrong count)");
+    String url = types.get(0).getProfile();
+    ExtensionDefinitionResult ed = workerContext.getExtensionDefinition(null, url);
+    if (ed == null)
+      throw new Exception("unable to summarise extension (no extension found)");
+    return "<li>Use the "+(modifier ? "<b>modifier</b> " : "")+"extension <a href=\""+ed.getExtensionDefinition().getTag("filename")+".html\"><i>"+url+"</i></a> on element <i>"+root(path)+"</i></li>\r\n";    // TODO Auto-generated method stub
+  }
+
+  private boolean hasType(ElementDefinition ed, String tn) {
+    for (TypeRefComponent t : ed.getType()) {
+      if (t.getCode().equals(tn))
+        return true;
+    }
+    return false;
+  }
+
+  private String summariseBinding(ElementDefinitionBindingComponent binding, String path, boolean canDotext) {
+    if (binding.getConformance() == null || binding.getConformance() == BindingConformance.EXAMPLE || binding.getConformance() == BindingConformance.NULL)
+      return null;
+    String desc = binding.getDescription() == null ? describeReference(binding) : binding.getDescription();
+    return "<li><i>"+path+"</i> "+(binding.getConformance() == BindingConformance.PREFERRED ? "should" : "must")+" come from "+desc+"</li>";
+  }
+
+  
+  private String describeReference(ElementDefinitionBindingComponent binding) {
+    if (binding.getReference() instanceof UriType) {
+      UriType uri = (UriType) binding.getReference();
+      return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
+    } if (binding.getReference() instanceof Reference) {
+      Reference ref = (Reference) binding.getReference();
+      String disp = ref.getDisplay();
+      ValueSet vs = workerContext.getValueSets().get(ref.getReference());
+      if (disp == null && vs != null)
+        disp = vs.getName();
+      return "<a href=\""+(vs == null ? ref.getReference() : vs.getTag("filename"))+"\">"+disp+"</a>";
+    }
+    else
+      return "??";
+  }
+
+  private String summariseValue(Type fixed) throws Exception {
+    if (fixed instanceof org.hl7.fhir.instance.model.PrimitiveType)
+      return ((org.hl7.fhir.instance.model.PrimitiveType) fixed).asStringValue();
+    if (fixed instanceof CodeableConcept) 
+      return summarise((CodeableConcept) fixed);
+    if (fixed instanceof Quantity) 
+      return summarise((Quantity) fixed);
+    throw new Exception("Generating text summary of fixed value not yet done for type "+fixed.getClass().getName());
+  }
+
+  private String summarise(Quantity quantity) {
+    String cu = "";
+    if ("http://unitsofmeasure.org/".equals(quantity.getSystem()))
+      cu = " (UCUM: "+quantity.getCode()+")";
+    if ("http://snomed.info/sct".equals(quantity.getSystem()))
+      cu = " (SNOMED CT: "+quantity.getCode()+")";
+    return quantity.getValue().toString()+quantity.getUnits()+cu;
+  }
+
+  private String summarise(CodeableConcept cc) throws Exception {
+    if (cc.getCoding().size() == 1 && cc.getText() == null) {
+      return summarise(cc.getCoding().get(0));
+    } else if (cc.getCoding().size() == 0 && cc.getText() != null) {
+      return "\"" + cc.getText()+"\"";
+    } else 
+      throw new Exception("too complex to describe");
+  }
+
+  private String summarise(Coding coding) throws Exception {
+    if ("http://snomed.info/sct".equals(coding.getSystem()))
+      return "SNOMED CT code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+    if ("http://loinc.org".equals(coding.getSystem()))
+      return "LOINC code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+    if (workerContext.getCodeSystems().containsKey(coding.getSystem())) {
+      ValueSet vs = workerContext.getCodeSystems().get(coding.getSystem());
+      return "<a href=\""+vs.getTag("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+    }
+    throw new Exception("Unknown system "+coding.getSystem()+" generating fixed value description");
+  }
+
+  private String root(String path) {
+    return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
   }
 
   public String processExtensionIncludes(String filename, ExtensionDefinition ed, String xml, String tx, String src, String pagePath) throws Exception {

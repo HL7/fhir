@@ -1677,7 +1677,7 @@ public class ElementDefinition extends Type {
      * @return The minimum number of times this element SHALL appear in the instance.
      */
     public int getMin() { 
-      return this.min == null ? null : this.min.getValue();
+      return this.min == null ? 0 : this.min.getValue();
     }
 
     /**

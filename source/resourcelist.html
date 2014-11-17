@@ -300,7 +300,8 @@ try {
   var currentTabIndex = sessionStorage.getItem('fhir-resourcelist-tab-index');
 }
 catch(exception){ 
-  // happens on IE when running locally    
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
 }
 
 if (!currentTabIndex)
@@ -315,7 +316,8 @@ $( '#tabs' ).tabs({
                sessionStorage.setItem('fhir-resourcelist-tab-index', currentTabIndex);
              }
              catch(exception){ 
-               // happens on IE when running locally    
+              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+                alert(exception);
              }
          }
      });
