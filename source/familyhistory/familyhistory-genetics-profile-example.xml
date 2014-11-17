@@ -6,12 +6,12 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">To do</div>
   </text>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient">
       <!-- Should be 'Bob', but didn't make sense to define a new patient -->
     </display>
-  </subject>
+  </patient>
   <relation id="1">
     <extension url="http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#relationParent">
       <extension url="#relationParent.type">
