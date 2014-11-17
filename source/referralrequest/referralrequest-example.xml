@@ -35,10 +35,10 @@
       <display value="Medium"/>
     </coding>
   </priority>
-  <subject>
+  <patient>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
     <display value="Beverly Weaver"/>
-  </subject>
+  </patient>
   <requester>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
     <display value="Serena Shrink"/>
