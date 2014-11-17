@@ -14,6 +14,10 @@ This profile defines several extensions relevant to the US realm
 <ul>
 <li><b>county</b> - (0..1) A string containing the name of the county</li>
 </ul>
+<h3>Extensions to ContactPoint</h3>
+<ul>
+<li><b>direct</b> - (0..1) A boolean flag indicating that a particular email address can be used with the <a href="http://wiki.directproject.org/Addressing+Specification">Direct Protocol</a></li>
+</ul>
 <p>
 An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.
 </p>

@@ -63,6 +63,20 @@
     <postalCode value="3999"/>
   </address>
   
+  <telecom>
+    <system value="phone"/>
+    <value value="(03) 5555 6473"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-direct">
+      <valueBoolean value="true"/>
+    </extension>
+    <system value="email"/>
+    <value value="person@example.org"/>
+    <use value="work"/>
+  </telecom>
+  
   <active value="true"/>
   
 </Patient>
