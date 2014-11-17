@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="daf-intro"> </a> 
+
+<h1>Introduction</h1>
+<p>
+The nation is reaching a critical mass of HealthIT systems (EHRs, Data Warehouses etc) that comply with data and vocabulary standards. The wide deployment of HealthIT systems has created unique opportunities for providers, provider support teams, healthcare professionals and organizations etc. to access and use the patient data that is already collected during clinical workflows. While the Health IT systems provide many access paths through their pre-defined interactions between a user and the system, they are limited in their support for data queries, APIs, or services to access data sets as needed. Where Health IT systems provide data access, they likely do not use industry standard access methods. Increasing support for this class of data access, using industry standards, would enable other applications to expand the ability of users to create value out of their data without having to rely on the predefined access paths. Allowing access to this data can enable a provider to further analyze the collected data to understand a patient’s overall health, the health of a provider’s collective patient population, and use the data to power innovative new applications and tools to take better care of patients and populations. The Data Access Framework (DAF) Initiative tries to leverage the HL7 FHIR and existing IHE standards to standardize access to information both within the organization and from external organizations. DAF uses existing IHE profiles (XCA, MHD v2) to standardize access to documents such as a CCD, History and Physical Note etc. However DAF uses HL7 FHIR to access granular information such as problem lists, medications, patient demographics.
+</p>
+<p>
+The standards and guidance incorporated into this implementation guide were based on the requirements defined in the 
+<a href="http://wiki.siframework.org/DAF+Use+Cases">DAF Use Cases</a> document.  Users of this implementation guide will benefit greatly from review of the DAF Use Case document. A very high level overview of the DAF actors and their interactions are as shown below:
+</p>
+<img alt="DAF Actors and Interactions" src="daf-actors-and-interactions.png"/>
+<p>
+The actors and their definitions are as follows
+<ul>
+	<li>Query Requestor: The system that initiates the data access. This can be thought of as the client in a client-server interaction. </li>
+	<li>Query Responder: The system that responds to the data access request. This can be thought of as the server in a client-server interaction. </li>
+</ul>
+</p>
+
+<h2>Initiative Overview</h2>
+
+<p>
+The Data Access Framework Initiative identifies and recommends standards for the interoperable representation and 
+transmission of the following using the notion of a Query Stack which modularizes the various layers of the Data Access Framework. The DAF Query Stack using FHIR is as shown in the diagram below.
+</p>
+<img alt="DAF FHIR Query Stack" src="daf-fhir-query-stack.png"/>
+
+<p> The DAF FHIR Implementation Guide will provide requirements and implementation guidance for the various layers of the DAF Query Stack which includes 
+<ul>
+  <li>Queries including structure, vocabularies and value sets</li>
+  <li>Query Results including structure, vocabularies and value sets</li>
+  <li>Transport Requirements</li>
+  <li>Security and Privacy controls required for data access</li>
+</ul>
+</p>
+
+<p>
+This implementation guide provides guidance on the use of Fast Healthcare Interoperability Resources (FHIR) Profile(s) for DAF. The profiles in this implementation guide will be used to meet DAF project objectives of:
+</p>
+<ul>
+  <li>encouraging consistency around how data access is accomplished within and across organizations between healthcare systems.</li>
+  <li>encouraging consistency around what data is accessed including vocabularies and value sets.</li>
+  <li>encouraging consistency around security standards used to allow authentication, authorization and auditing of data access.</li>
+</ul>
+
+<h2>Purpose</h2>
+<p>
+This implementation guide provides implementers with guidance on how to achieve conformance with the standards recommended 
+by the Office of the National Coordinator for Health Information Technology (ONC) Standards &amp; Interoperability Framework 
+(S&amp;I), DAF Initiative.
+</p>
+<p>
+The implementation guide will explain how the FHIR resources (using the defined profiles) can be used to enable data access within and across enterprises.  As well, it will describe secure interaction specifications using Representational State 
+Transfer (REST) services to allow access to the desired resources.
+</p>
+<p>
+The DAF profiles on the resources will identify the resource elements and extensions that must be supported to meet DAF use 
+cases as well as constraints on their use.
+</p>
+
+<p>
+<b>Out of scope for this implementation guide:</b>
+</p>
+<ul>
+  <li>Defining New Resources (semantics and their associated value sets)</li>
+  <li>Describing Patient Matching algorithms</li>
+  <li>Discovery of RESTful Resource endpoints</li>
+  <li>Describing Patient Consent standards</li>
+  <li>Specifying local policies related to data access, data disclosure or auditing</li>
+  <li>Specifying implementation platforms or languages for DAF</li>
+</ul>
+
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

@@ -112,6 +112,10 @@ todo: compartments
         <page title="SDC Introduction" filename="sdc-intro.html"/>
         <page title="SDC Security" filename="sdc-security.html"/>
       </page>
+      <page title="Data Access Framework (DAF)" filename="daf.html">
+        <page title="DAF Introduction" filename="daf-intro.html"/>
+        <page title="DAF Security" filename="daf-security.html"/>
+      </page>
     </page>
   </page>
 
