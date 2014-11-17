@@ -5,9 +5,9 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Biopsy of suspected melanoma L) arm</div>
   </text>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
   <type>
     <coding>
       <system value="http://snomed.info/sct"/>
