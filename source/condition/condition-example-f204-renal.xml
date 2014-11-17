@@ -39,7 +39,7 @@
         <display value="Severe"/> 
     </coding>
  </severity>
- <onsetDate value="2013-03-11"/>
+ <onsetDateTime value="2013-03-11"/>
  <abatementDate value="2013-03-20"/><!--After the nine days of inpatient admission, the problem went in remission-->
  <stage><!--The problem is temporary and will not become permanent renal insufficiency-->
   <summary>
@@ -59,11 +59,11 @@
     </coding>
   </code>
  </location>
- <relatedItem>  
-  <type value="due-to"/><!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->
+ <dueTo>  
+  <!--TODO the difference between "due-to" and "follows" is very unclear in the current documentation-->
   <target>    
      <reference value="Procedure/f201"/>
      <display value="TPF chemotherapy for the sphenoid bone"/>
   </target>
- </relatedItem>
+ </dueTo>
 </Condition>

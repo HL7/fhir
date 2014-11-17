@@ -35,7 +35,7 @@
             <display value="Moderate"/>
         </coding>
     </severity>
-    <onsetDate value="2011-08-05"/>
+    <onsetDateTime value="2011-08-05"/>
     <evidence>
         <code>
             <coding>

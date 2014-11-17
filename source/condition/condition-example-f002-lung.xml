@@ -35,7 +35,7 @@
             <display value="Severe"/>
         </coding>
     </severity>
-    <onsetDate value="2011-05-05"/>
+    <onsetDateTime value="2011-05-05"/>
     <stage>
         <summary>
             <coding>

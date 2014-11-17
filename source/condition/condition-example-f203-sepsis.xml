@@ -47,7 +47,7 @@
         <display value="Moderate to severe"/> 
     </coding>
  </severity>
- <onsetDate value="2013-03-08"/>
+ <onsetDateTime value="2013-03-08"/>
  <evidence>
   <detail>
      <reference value="DiagnosticReport/f202"/>
@@ -63,11 +63,11 @@
     </coding>
   </code>
  </location>
- <relatedItem><!--Bacterial sepsis is due to Staphylococcus Aureus-->
-  <type value="due-to"/>
+ <dueTo><!--Bacterial sepsis is due to Staphylococcus Aureus-->
+  
   <target>
      <reference value="Substance/f202"/>
      <display value="Staphylococcus Aureus"/>
   </target>
- </relatedItem>
+ </dueTo>
 </Condition>

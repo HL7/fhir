@@ -35,7 +35,7 @@
             <display value="Mild to moderate"/>
         </coding>
     </severity>
-    <onsetDate value="2012-02-27"/> <!-- actual diagnose be E.N.T. specialist -->
+    <onsetDateTime value="2012-02-27"/> <!-- actual diagnose be E.N.T. specialist -->
     <evidence>
         <code>
             <coding>

@@ -26,5 +26,5 @@
     <display value="Mild"/>
    </coding>
  </severity>
- <onsetDate value="2012-11-12"/>
+ <onsetDateTime value="2012-11-12"/>
 </Condition>

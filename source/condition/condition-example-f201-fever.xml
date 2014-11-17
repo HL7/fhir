@@ -38,7 +38,7 @@
         <display value="Mild"/> 
     </coding>
  </severity>
- <onsetDate value="2013-04-02"/><!--Problem began on April second-->
+ <onsetDateTime value="2013-04-02"/><!--Problem began on April second-->
  <!--No remission means no <rebatement>-->
  <evidence><!--Problem is confirmed by 39 degrees Celsius-->
   <code>
@@ -62,18 +62,18 @@
     </coding>
   </code>
  </location>
- <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
-  <type value="due-to"/>
+ <dueTo>  <!-- 0..* Causes or precedents for this problem -->
+  
   <target>
      <reference value="Procedure/f201"/>
      <display value="TPF chemokuur"/>
   </target>
- </relatedItem>
- <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
-  <type value="due-to"/>
+ </dueTo>
+ <dueTo>  <!-- 0..* Causes or precedents for this problem -->
+  
   <target>
      <reference value="Condition/f205"/>
      <display value="bacterial infection"/>
   </target>
- </relatedItem>
+ </dueTo>
 </Condition>
