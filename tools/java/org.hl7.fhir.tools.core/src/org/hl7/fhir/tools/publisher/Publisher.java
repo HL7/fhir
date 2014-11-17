@@ -2791,7 +2791,7 @@ public class Publisher implements URIResolver {
     Profile profile = (Profile) ResourceUtilities.getById(profileFeed, ResourceType.Profile, resource.getName());
     for (Example e : resource.getExamples()) {
       try {
-        processExample(e, resource, profile);
+        processExample(e, resource.getName(), profile);
       } catch (Exception ex) {
         throw new Exception("processing " + e.getFileTitle(), ex);
         // throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
@@ -3049,7 +3049,7 @@ public class Publisher implements URIResolver {
     return form;
   }
 
-  private void processExample(Example e, ResourceDefn resource, Profile profile) throws Exception {
+  private void processExample(Example e, String resourceName, Profile profile) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
 
@@ -3198,7 +3198,7 @@ public class Publisher implements URIResolver {
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
         + "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-    html = page.processPageIncludes(n + ".json.html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".json.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
 
     page.getEpub().registerExternal(n + ".json.html");
@@ -3212,7 +3212,7 @@ public class Publisher implements URIResolver {
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n + ".xml.html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     if (e.isInBook()) {
       XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
@@ -3227,7 +3227,7 @@ public class Publisher implements URIResolver {
 
     // now, we create an html page from the narrative
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative);
-    html = page.processPageIncludes(n + ".html", html, resource == null ? "profile-instance:resource:" + rt : "resource-instance:" + resource.getName(), null, null);
+    html = page.processPageIncludes(n + ".html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
     // head =
     // "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
@@ -3363,7 +3363,7 @@ public class Publisher implements URIResolver {
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
     for (Example ex : pack.getExamples()) {
-      processExample(ex, null, null);
+      processExample(ex, resourceName, null);
     }
     // create examples here
 //    if (examples != null) {

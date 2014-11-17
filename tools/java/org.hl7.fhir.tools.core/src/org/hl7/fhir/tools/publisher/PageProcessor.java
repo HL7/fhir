@@ -4142,7 +4142,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+ed.getDescription()+s3;
+        src = s1+Processor.process(Utilities.escapeXml(ed.getDescription()))+s3;
       else if (com[0].equals("status"))
         src = s1+(ed.getStatus() == null ? "??" : ed.getStatus().toCode())+s3;
       else if (com[0].equals("author"))
