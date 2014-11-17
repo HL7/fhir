@@ -6,10 +6,10 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
   </text>
 
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
-  </subject>
+  </patient>
   
   <date value="2011-03-18"/>
 
