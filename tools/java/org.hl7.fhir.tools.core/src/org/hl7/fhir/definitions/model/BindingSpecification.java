@@ -33,6 +33,7 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.utilities.Utilities;
 
 /**
@@ -110,6 +111,7 @@ public class BindingSpecification {
 
   private String v2Map;
   private String v3Map;
+  private ValuesetStatus status;
   
   public String getId() {
     return id;
@@ -384,5 +386,12 @@ public class BindingSpecification {
     this.vsOid = vsOid;
   }
 
+  public ValuesetStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(ValuesetStatus status) {
+    this.status = status;
+  }
   
 }

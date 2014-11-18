@@ -35,6 +35,8 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
@@ -87,6 +89,7 @@ public class BindingsParser {
 	    if (!Utilities.noString(oid))
 	      cd.setVsOid(oid); // no cs oid in this case
 	    cd.setWebSite(sheet.getColumn(row, "Website"));
+      cd.setStatus(ValueSet.ValuesetStatus.fromCode(sheet.getColumn(row, "Status")));
 	    cd.setEmail(sheet.getColumn(row, "Email"));
 	    cd.setV2Map(sheet.getColumn(row, "v2"));
 	    cd.setV3Map(sheet.getColumn(row, "v3"));

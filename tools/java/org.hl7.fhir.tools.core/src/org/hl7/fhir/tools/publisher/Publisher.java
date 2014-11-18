@@ -156,6 +156,7 @@ import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
@@ -4253,8 +4254,7 @@ public class Publisher implements URIResolver {
     if (!Utilities.noString(cd.getCopyright()))
       vs.setCopyright(cd.getCopyright());
 
-    vs.setStatus(ValuesetStatus.DRAFT); // until we publish DSTU, then
-    // .review
+    vs.setStatus(cd.getStatus() != null ? cd.getStatus() : ValuesetStatus.DRAFT); // until we publish DSTU, then .review
     vs.setDateElement(Factory.nowDateTime());
 
     for (String n : cd.getVSSources()) {
@@ -4276,12 +4276,12 @@ public class Publisher implements URIResolver {
         cc.setSystem(n);
         for (DefinedCode c : cd.getCodes()) {
           if (n.equals(c.getSystem())) {
-            CodeType nc = org.hl7.fhir.instance.model.Factory.newCode(c.getCode());
-            cc.addConcept().setCodeElement(nc);
+            ConceptReferenceComponent concept = cc.addConcept();
+            concept.setCode(c.getCode()).setDisplay(c.getDisplay());
             if (!Utilities.noString(c.getComment()))
-              ToolingExtensions.addComment(nc, c.getComment());
+              ToolingExtensions.addComment(concept, c.getComment());
             if (!Utilities.noString(c.getDefinition()))
-              ToolingExtensions.addDefinition(nc, c.getDefinition());
+              ToolingExtensions.addDefinition(concept, c.getDefinition());
           }
         }
       }

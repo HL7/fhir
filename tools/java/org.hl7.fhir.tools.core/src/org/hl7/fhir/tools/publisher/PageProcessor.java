@@ -90,6 +90,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
@@ -617,7 +618,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
-        src = s1 + publicationNotice + s3;      
+        src = s1 + publicationNotice + s3;
+      else if (com[0].equals("vssource"))
+        src = s1 + vsSource(Utilities.fileTitle(file)) + s3;      
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
       else if (com[0].equals("vsexpansion"))
@@ -652,6 +655,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String vsSource(String name) {
+    BindingSpecification cd = definitions.getBindingByReference("#"+name);
+    if (cd == null)
+      return "by the FHIR project";
+    
+    ValueSet vs = cd.getReferredValueSet();    
+    if (vs == null || vs.getTelecom().isEmpty() || vs.getTelecom().get(0).getSystem() != ContactPointSystem.URL || vs.getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
+      return "by the FHIR project";
+    return " at <a href=\""+vs.getTelecom().get(0).getValue()+"\">"+vs.getTelecom().get(0).getValue()+"</a>";
   }
 
   private String orgDT(String name, String xml, String tree, String ref, String ts) {

@@ -542,6 +542,7 @@ public class SpreadsheetParser {
       String oid = sheet.getColumn(row, "Oid");
       if (!Utilities.noString(oid))
         cd.setVsOid(oid); // no cs oid in this case
+      cd.setStatus(ValueSet.ValuesetStatus.fromCode(sheet.getColumn(row, "Status")));
       cd.setWebSite(sheet.getColumn(row, "Website"));
       cd.setEmail(sheet.getColumn(row, "Email"));
       cd.setCopyright(sheet.getColumn(row, "Copyright"));

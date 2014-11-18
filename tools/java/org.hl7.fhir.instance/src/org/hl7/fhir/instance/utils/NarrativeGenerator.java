@@ -1314,7 +1314,7 @@ public class NarrativeGenerator {
       deprecated = deprecated || conceptsHaveDeprecated(c);
       scanLangs(c, langs);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       hasExtensions = addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps) || hasExtensions;
     }    
@@ -1403,7 +1403,7 @@ public class NarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments, boolean deprecated) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean definitions, boolean comments, boolean deprecated) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
@@ -1411,9 +1411,11 @@ public class NarrativeGenerator {
     td = tr.addTag("td");
     b = td.addTag("b");
     b.addText("Display");
-    td = tr.addTag("td");
-    b = td.addTag("b");
-    b.addText("Definition");
+    if (definitions) {
+      td = tr.addTag("td");
+      b = td.addTag("b");
+      b.addText("Definition");
+    }
     if (deprecated) {
       tr.addTag("td").addTag("b").addText("Deprecated");
     }
@@ -1631,12 +1633,14 @@ public class NarrativeGenerator {
       
         XhtmlNode t = li.addTag("table");
         boolean hasComments = false;
+        boolean hasDefinition = false;
         for (ConceptReferenceComponent c : inc.getConcept()) {
           hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
+          hasDefinition = hasDefinition || c.hasExtension(ToolingExtensions.EXT_DEFINITION);
         }
-        if (hasComments)
+        if (hasComments || hasDefinition)
           hasExtensions = true;
-        addTableHeaderRowStandard(t, hasComments, false);
+        addTableHeaderRowStandard(t, hasDefinition, hasComments, false);
         for (ConceptReferenceComponent c : inc.getConcept()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getCode());

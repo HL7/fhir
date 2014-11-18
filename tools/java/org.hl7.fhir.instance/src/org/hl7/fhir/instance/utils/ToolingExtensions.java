@@ -82,7 +82,7 @@ public class ToolingExtensions {
     return ex;
   }
 
-  public static void addComment(CodeType nc, String comment) throws Exception {
+  public static void addComment(Element nc, String comment) throws Exception {
     if (!Utilities.noString(comment))
       nc.getExtension().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
   }
@@ -95,7 +95,7 @@ public class ToolingExtensions {
     nc.getModifierExtension().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
-  public static void addDefinition(CodeType nc, String definition) throws Exception {
+  public static void addDefinition(Element nc, String definition) throws Exception {
     if (!Utilities.noString(definition))
       nc.getExtension().add(Factory.newExtension(EXT_DEFINITION, Factory.newString_(definition), true));   
   }
