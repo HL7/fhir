@@ -1,0 +1,129 @@
+﻿<!DOCTYPE HTML>
+
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    [%file newheader%]
+  </head>
+  <body>
+    [%file newnavbar%]
+    
+    <div class="col-9">
+      
+      <a name="CDA"> </a> 
+      <h2>Clinical Document Architecture (CDA) on FHIR</h2>
+      <h3>What is CDA on FHIR?</h3>
+      CDA on FHIR specifies how to implement CDA with the FHIR <a href="composition.html">Composition</a> resource.<br/>
+      <p>
+             
+        The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange. 
+        A clinical document is a documentation of clinical observations and services, with the following characteristics:
+        <ul>
+          <li>Persistence - A clinical document continues to exist in an unaltered state, for a time period defined by local and regulatory requirements (NOTE: There is a distinct scope of persistence for a clinical document, independent of the persistence of any XML-encoded CDA document instance).</li>
+          <li>Stewardship - A clinical document is maintained by an organization entrusted with its care.</li>
+          <li>Potential for authentication - A clinical document is an assemblage of information that is intended to be legally authenticated.</li>
+          <li>Context - A clinical document establishes the default context for its contents.</li>
+          <li>Wholeness - Authentication of a clinical document applies to the whole and does not apply to portions of the document without the full context of the document.</li>
+          <li>Human readability - A clinical document is human readable.</li>
+        </ul>  
+        A CDA document is a defined and complete information object that can include text, images, sounds, and other multimedia content.
+     </p>
+      
+      <h3> Scope of the CDA</h3>
+      <p>
+        The scope of the CDA is the standardization of clinical documents for exchange....
+      </p>
+      
+      <h3>Background - NO EDITS YET BELOW<</h3>
+      <ul>
+        <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
+        <li><a href="sdc-security.html">Security</a> - Security and privacy rules and considerations</li>
+        <li><a href="http://http://wiki.siframework.org/Structured+Data+Capture+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
+      </ul>
+      
+      <h3>Specification</h3>
+      <p>
+        The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
+      </p>
+      <ul>
+        <li><a href="dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
+        <li><a href="questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
+        <li><a href="questionnaireanswers.html">QuestionnaireAnswers</a> is used to share instance data captured using questionnaire forms</li>
+        <li><a href="valueset.html">ValueSet</a> is used to define allowed values for data elements and for questions in questionnaires</li>
+      </ul>
+      <p>
+        Additional resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="provenance.html">Provenance</a>, 
+        <a href="securityevent.html">SecurityEvent</a> and others are likely to be used in SDC solutions, though
+        no SDC-specific profiles have been created for them.    As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+        <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
+        <!-- Todo: decide how explicit the list of relevant sections needs to be -->
+      </p>
+      <p>
+        The SDC specification consists of the following components:
+      </p>
+      <ul>
+        <li><b>SDC profiles</b> - Profiles on the four FHIR resources used to support the IG requirements:
+          <ul>
+            <li><a href="dataelement-sdc.html">SDC Data Element (DE) Profile</a> - Constraints and extensions for capturing data elements</li>
+            <li><a href="questionnaire-sdc.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
+            <li><a href="questionnaireanswers-sdc.html">SDC Questionnaire Answers Profile</a> - Constraints and extensions for capturing form data instances</li>
+            <li><a href="valueset-sdc.html">SDC Value Set Profile</a> - Constraints and extensions for defining lists of allowed codes</li>
+          </ul>
+        </li>
+        <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
+          CDA and other data sources</li>
+        <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting SDC functionality:
+          <ul>
+            <li><a href="conformance-sdc-de-manager.html">SDC Data Element Manager</a> - Repository for data elements</li>
+            <li><a href="conformance-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing forms</li>
+            <li><a href="conformance-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input</li>
+            <li><a href="conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  Also performs pre-population</li>
+            <li><a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms</li>
+          </ul>
+        </li>
+      </ul>
+      <a name="population"> </a>
+      <h3>Pre-population service</h3>
+      <p>
+        The <a href="questionnaire.html">Questionnaire</a> resource defines a custom operation called <a href="questionnaire-operations.html#populate">populate</a>.
+        This operation supports generating a "blank" <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance based on a specified
+        <a href="questionnaire.html">Questionnaire</a>.  It also allows for the returned questionnaire to be partially or even fully completed based
+        on data passed in to the operation or data already available to the server on which the operation is invoked.
+      </p>
+      <p>
+        For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code> operation 
+        (<a href="conformance-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
+      </p>
+      <ul>
+        <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>subject</code> and <code>content</code></li>
+        <li>Support <code>content</code> parameters consisting of a <a href="http.html#binary">Binary</a> resource containing a C-CDA document</li>
+        <li>Populate the returned <a href="questionnaireanswers.html">QuestionnaireAnswers</a> instance for all questions referencing
+          <a href="dataelement.html">DataElements</a> that are mapped to C-CDA content</li>
+      </ul>
+      <p>
+        Similarly, client systems claiming to support the <code>populate</code> operation (<a href="conformance-sdc-form-filler.html">SDC Form Filler</a>)
+        SHALL, at a minimum:
+      </p>
+      <ul>
+        <li>Be capable of invoking the operation on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
+          as well as indirectly either by <code>identifier</code> or <code>questionnaire</code></li>
+        <li>Support passing a single C-CDA document as a <a href="http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
+      </ul>
+      
+      <p>
+        <b>IMPORTANT:</b>
+      </p>
+      <p>
+        Not all <a href="dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
+        associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
+        because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
+        exactly what piece of information should be extracted from a source system, CCDA document or other data source.  (Inclusion of mappings to specifications
+        such as CCDA is recommended practice whenever possible.)
+      </p>
+      
+    </div>
+    
+    [%file newfooter%]
+    
+  </body>
+</html>
