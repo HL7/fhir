@@ -111,6 +111,9 @@ todo: compartments
       <page title="Structured Data Capture" filename="sdc.html">
         <page title="SDC Introduction" filename="sdc-intro.html"/>
         <page title="SDC Security" filename="sdc-security.html"/>
+         <page title="US Laboratory Order" filename="uslaborder.html"/>
+        <page title="US Laboratory Order - Content" filename="uslaborder-guide.html"/>
+        <!--page title="US Laboratory Order - Vocabulary"="uslaborder-vocab.html"/-->
       </page>
       <page title="Data Access Framework (DAF)" filename="daf.html">
         <page title="DAF Introduction" filename="daf-intro.html"/>
