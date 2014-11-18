@@ -1,17 +1,17 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="Diagnostic Order Event Codes"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="Orders and Observations Working Group"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Additional information about an event that occurred to a diagnostic order"/>
-  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+    <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://loinc.org"/>
+     <system value="http://snomed.info/sct"/>
       <concept>
         <code value="440622005"/>
       </concept>
