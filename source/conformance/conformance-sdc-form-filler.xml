@@ -414,7 +414,7 @@
     <resource>
       <type value="Questionnaire"/>
       <profile>
-        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
+        <reference value="Profile/questionnaire-sdc.xml-StructuredDataCaptureForm"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
