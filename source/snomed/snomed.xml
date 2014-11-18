@@ -2621,6 +2621,12 @@
     <display value="Urine appearance"/>
     <display value="Urine appearance (observable entity)"/>
   </concept>
+  <concept id="26895000" display="Laboratory test order cancelation (procedure)">
+    <display value="Laboratory test order cancelation (procedure)"/>
+    <display value="Laboratory test order cancelation"/>
+    <display value="Laboratory test order cancellation"/>
+    <display value="Laboratory test order cancellation (procedure)"/>
+  </concept>
   <concept id="270427003" display="Patient-initiated encounter">
     <display value="Patient-initiated encounter"/>
     <display value="Patient-initiated encounter (procedure)"/>
@@ -3851,6 +3857,10 @@
     <display value="General medicine (qualifier value)"/>
     <display value="General medicine"/>
   </concept>
+  <concept id="394838008" display="Test request (procedure)">
+    <display value="Test request (procedure)"/>
+    <display value="Test request"/>
+  </concept>
   <concept id="394848005" display="Normal priority">
     <display value="Normal priority (qualifier value)"/>
     <display value="Normal priority"/>
@@ -4690,6 +4700,10 @@
     <display value="Graft specimen from patient (specimen)"/>
     <display value="Graft sample"/>
     <display value="Graft specimen from patient"/>
+  </concept>
+  <concept id="440622005" display="Specimen received (situation)">
+    <display value="Specimen received (situation)"/>
+    <display value="Specimen received"/>
   </concept>
   <concept id="440674008" display="Specimen obtained by lavage (specimen)">
     <display value="Specimen obtained by lavage (specimen)"/>
