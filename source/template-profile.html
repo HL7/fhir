@@ -140,7 +140,7 @@ try {
   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
 }
 catch(exception){ 
-  if navigator.userAgent.toLowerCase().indexof("msie") == -1
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
     alert(exception);
 }
 
@@ -156,7 +156,7 @@ $( '#tabs' ).tabs({
                sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
              catch(exception){ 
-              if navigator.userAgent.toLowerCase().indexof("msie") == -1
+              if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
                 alert(exception);
              }
          }
