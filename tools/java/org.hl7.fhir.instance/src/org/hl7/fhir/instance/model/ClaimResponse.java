@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -798,7 +798,7 @@ public class ClaimResponse extends DomainResource {
         /**
          * List of input service items which this service line is intended to replace.
          */
-        protected List<IntegerType> ssequenceLinkId = new ArrayList<IntegerType>();
+        protected List<IntegerType> sequenceLinkId = new ArrayList<IntegerType>();
 
         /**
          * A code to indicate the Professional Service or Product supplied.
@@ -818,14 +818,14 @@ public class ClaimResponse extends DomainResource {
         /**
          * The adjudications results.
          */
-        protected List<AddedItemAdjudicationComponent> ajudication = new ArrayList<AddedItemAdjudicationComponent>();
+        protected List<AddedItemAdjudicationComponent> adjudication = new ArrayList<AddedItemAdjudicationComponent>();
 
         /**
          * The second tier service adjudications for payor added services.
          */
         protected List<AddedItemsDetailComponent> detail = new ArrayList<AddedItemsDetailComponent>();
 
-        private static final long serialVersionUID = -1498487560L;
+        private static final long serialVersionUID = 1250459395L;
 
       public AddedItemComponent() {
         super();
@@ -837,37 +837,37 @@ public class ClaimResponse extends DomainResource {
       }
 
         /**
-         * @return {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
+         * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public List<IntegerType> getSsequenceLinkId() { 
-          return this.ssequenceLinkId;
+        public List<IntegerType> getSequenceLinkId() { 
+          return this.sequenceLinkId;
         }
 
         /**
-         * @return {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
+         * @return {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
     // syntactic sugar
-        public IntegerType addSsequenceLinkIdElement() {//2 
+        public IntegerType addSequenceLinkIdElement() {//2 
           IntegerType t = new IntegerType();
-          this.ssequenceLinkId.add(t);
+          this.sequenceLinkId.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
+         * @param value {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public AddedItemComponent addSsequenceLinkId(int value) { //1
+        public AddedItemComponent addSequenceLinkId(int value) { //1
           IntegerType t = new IntegerType();
           t.setValue(value);
-          this.ssequenceLinkId.add(t);
+          this.sequenceLinkId.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #ssequenceLinkId} (List of input service items which this service line is intended to replace.)
+         * @param value {@link #sequenceLinkId} (List of input service items which this service line is intended to replace.)
          */
-        public boolean hasSsequenceLinkId(int value) { 
-          for (IntegerType v : this.ssequenceLinkId)
+        public boolean hasSequenceLinkId(int value) { 
+          for (IntegerType v : this.sequenceLinkId)
             if (v.equals(value)) // integer
               return true;
           return false;
@@ -941,19 +941,19 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #ajudication} (The adjudications results.)
+         * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<AddedItemAdjudicationComponent> getAjudication() { 
-          return this.ajudication;
+        public List<AddedItemAdjudicationComponent> getAdjudication() { 
+          return this.adjudication;
         }
 
         /**
-         * @return {@link #ajudication} (The adjudications results.)
+         * @return {@link #adjudication} (The adjudications results.)
          */
     // syntactic sugar
-        public AddedItemAdjudicationComponent addAjudication() { //3
+        public AddedItemAdjudicationComponent addAdjudication() { //3
           AddedItemAdjudicationComponent t = new AddedItemAdjudicationComponent();
-          this.ajudication.add(t);
+          this.adjudication.add(t);
           return t;
         }
 
@@ -976,28 +976,28 @@ public class ClaimResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("ssequenceLinkId", "integer", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, ssequenceLinkId));
+          childrenList.add(new Property("sequenceLinkId", "integer", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("noteNumberLinkId", "integer", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumberLinkId));
-          childrenList.add(new Property("ajudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, ajudication));
+          childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       public AddedItemComponent copy() {
         AddedItemComponent dst = new AddedItemComponent();
         copyValues(dst);
-        dst.ssequenceLinkId = new ArrayList<IntegerType>();
-        for (IntegerType i : ssequenceLinkId)
-          dst.ssequenceLinkId.add(i.copy());
+        dst.sequenceLinkId = new ArrayList<IntegerType>();
+        for (IntegerType i : sequenceLinkId)
+          dst.sequenceLinkId.add(i.copy());
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
         dst.noteNumberLinkId = new ArrayList<IntegerType>();
         for (IntegerType i : noteNumberLinkId)
           dst.noteNumberLinkId.add(i.copy());
-        dst.ajudication = new ArrayList<AddedItemAdjudicationComponent>();
-        for (AddedItemAdjudicationComponent i : ajudication)
-          dst.ajudication.add(i.copy());
+        dst.adjudication = new ArrayList<AddedItemAdjudicationComponent>();
+        for (AddedItemAdjudicationComponent i : adjudication)
+          dst.adjudication.add(i.copy());
         dst.detail = new ArrayList<AddedItemsDetailComponent>();
         for (AddedItemsDetailComponent i : detail)
           dst.detail.add(i.copy());
@@ -1131,9 +1131,9 @@ public class ClaimResponse extends DomainResource {
         /**
          * The adjudications results.
          */
-        protected List<AddedItemDetailAdjudicationComponent> ajudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
+        protected List<AddedItemDetailAdjudicationComponent> adjudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
 
-        private static final long serialVersionUID = -1297101303L;
+        private static final long serialVersionUID = -490018375L;
 
       public AddedItemsDetailComponent() {
         super();
@@ -1175,19 +1175,19 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #ajudication} (The adjudications results.)
+         * @return {@link #adjudication} (The adjudications results.)
          */
-        public List<AddedItemDetailAdjudicationComponent> getAjudication() { 
-          return this.ajudication;
+        public List<AddedItemDetailAdjudicationComponent> getAdjudication() { 
+          return this.adjudication;
         }
 
         /**
-         * @return {@link #ajudication} (The adjudications results.)
+         * @return {@link #adjudication} (The adjudications results.)
          */
     // syntactic sugar
-        public AddedItemDetailAdjudicationComponent addAjudication() { //3
+        public AddedItemDetailAdjudicationComponent addAdjudication() { //3
           AddedItemDetailAdjudicationComponent t = new AddedItemDetailAdjudicationComponent();
-          this.ajudication.add(t);
+          this.adjudication.add(t);
           return t;
         }
 
@@ -1195,7 +1195,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("service", "Coding", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("ajudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, ajudication));
+          childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
         }
 
       public AddedItemsDetailComponent copy() {
@@ -1203,9 +1203,9 @@ public class ClaimResponse extends DomainResource {
         copyValues(dst);
         dst.service = service == null ? null : service.copy();
         dst.fee = fee == null ? null : fee.copy();
-        dst.ajudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
-        for (AddedItemDetailAdjudicationComponent i : ajudication)
-          dst.ajudication.add(i.copy());
+        dst.adjudication = new ArrayList<AddedItemDetailAdjudicationComponent>();
+        for (AddedItemDetailAdjudicationComponent i : adjudication)
+          dst.adjudication.add(i.copy());
         return dst;
       }
 
@@ -1339,7 +1339,7 @@ public class ClaimResponse extends DomainResource {
         protected IntegerType subdetailSequenceLinkId;
 
         /**
-         * Error code detailing processing issues.
+         * An error code,froma specified code system, which details why the claim could not be adjudicated.
          */
         protected Coding code;
 
@@ -1463,14 +1463,14 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #code} (Error code detailing processing issues.)
+         * @return {@link #code} (An error code,froma specified code system, which details why the claim could not be adjudicated.)
          */
         public Coding getCode() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (Error code detailing processing issues.)
+         * @param value {@link #code} (An error code,froma specified code system, which details why the claim could not be adjudicated.)
          */
         public ErrorsComponent setCode(Coding value) { 
           this.code = value;
@@ -1482,7 +1482,7 @@ public class ClaimResponse extends DomainResource {
           childrenList.add(new Property("sequenceLinkId", "integer", "The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("detailSequenceLinkId", "integer", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, detailSequenceLinkId));
           childrenList.add(new Property("subdetailSequenceLinkId", "integer", "The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, subdetailSequenceLinkId));
-          childrenList.add(new Property("code", "Coding", "Error code detailing processing issues.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "Coding", "An error code,froma specified code system, which details why the claim could not be adjudicated.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
       public ErrorsComponent copy() {
@@ -1645,16 +1645,6 @@ public class ClaimResponse extends DomainResource {
     protected List<Identifier> requestIdentifier = new ArrayList<Identifier>();
 
     /**
-     * Transaction status: error, complete.
-     */
-    protected Enumeration<RSLink> outcome;
-
-    /**
-     * A description of the status of the adjudication.
-     */
-    protected StringType disposition;
-
-    /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
     protected Coding ruleset;
@@ -1698,6 +1688,16 @@ public class ClaimResponse extends DomainResource {
      * The actual object that is the target of the reference (The organization which is responsible for the services rendered to the patient.)
      */
     protected Organization requestOrganizationTarget;
+
+    /**
+     * Transaction status: error, complete.
+     */
+    protected Enumeration<RSLink> outcome;
+
+    /**
+     * A description of the status of the adjudication.
+     */
+    protected StringType disposition;
 
     /**
      * Party to be reimbursed: Subscriber, provider, other.
@@ -1774,7 +1774,7 @@ public class ClaimResponse extends DomainResource {
      */
     protected List<NotesComponent> note = new ArrayList<NotesComponent>();
 
-    private static final long serialVersionUID = 265591052L;
+    private static final long serialVersionUID = -724826418L;
 
     public ClaimResponse() {
       super();
@@ -1842,78 +1842,6 @@ public class ClaimResponse extends DomainResource {
       Identifier t = new Identifier();
       this.requestIdentifier.add(t);
       return t;
-    }
-
-    /**
-     * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
-     */
-    public Enumeration<RSLink> getOutcomeElement() { 
-      return this.outcome;
-    }
-
-    /**
-     * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
-     */
-    public ClaimResponse setOutcomeElement(Enumeration<RSLink> value) { 
-      this.outcome = value;
-      return this;
-    }
-
-    /**
-     * @return Transaction status: error, complete.
-     */
-    public RSLink getOutcome() { 
-      return this.outcome == null ? null : this.outcome.getValue();
-    }
-
-    /**
-     * @param value Transaction status: error, complete.
-     */
-    public ClaimResponse setOutcome(RSLink value) { 
-      if (value == null)
-        this.outcome = null;
-      else {
-        if (this.outcome == null)
-          this.outcome = new Enumeration<RSLink>();
-        this.outcome.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
-     */
-    public StringType getDispositionElement() { 
-      return this.disposition;
-    }
-
-    /**
-     * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
-     */
-    public ClaimResponse setDispositionElement(StringType value) { 
-      this.disposition = value;
-      return this;
-    }
-
-    /**
-     * @return A description of the status of the adjudication.
-     */
-    public String getDisposition() { 
-      return this.disposition == null ? null : this.disposition.getValue();
-    }
-
-    /**
-     * @param value A description of the status of the adjudication.
-     */
-    public ClaimResponse setDisposition(String value) { 
-      if (Utilities.noString(value))
-        this.disposition = null;
-      else {
-        if (this.disposition == null)
-          this.disposition = new StringType();
-        this.disposition.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -2069,6 +1997,78 @@ public class ClaimResponse extends DomainResource {
      */
     public ClaimResponse setRequestOrganizationTarget(Organization value) { 
       this.requestOrganizationTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     */
+    public Enumeration<RSLink> getOutcomeElement() { 
+      return this.outcome;
+    }
+
+    /**
+     * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
+     */
+    public ClaimResponse setOutcomeElement(Enumeration<RSLink> value) { 
+      this.outcome = value;
+      return this;
+    }
+
+    /**
+     * @return Transaction status: error, complete.
+     */
+    public RSLink getOutcome() { 
+      return this.outcome == null ? null : this.outcome.getValue();
+    }
+
+    /**
+     * @param value Transaction status: error, complete.
+     */
+    public ClaimResponse setOutcome(RSLink value) { 
+      if (value == null)
+        this.outcome = null;
+      else {
+        if (this.outcome == null)
+          this.outcome = new Enumeration<RSLink>();
+        this.outcome.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
+     */
+    public StringType getDispositionElement() { 
+      return this.disposition;
+    }
+
+    /**
+     * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
+     */
+    public ClaimResponse setDispositionElement(StringType value) { 
+      this.disposition = value;
+      return this;
+    }
+
+    /**
+     * @return A description of the status of the adjudication.
+     */
+    public String getDisposition() { 
+      return this.disposition == null ? null : this.disposition.getValue();
+    }
+
+    /**
+     * @param value A description of the status of the adjudication.
+     */
+    public ClaimResponse setDisposition(String value) { 
+      if (Utilities.noString(value))
+        this.disposition = null;
+      else {
+        if (this.disposition == null)
+          this.disposition = new StringType();
+        this.disposition.setValue(value);
+      }
       return this;
     }
 
@@ -2331,14 +2331,14 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("request", "Reference(OralHealthClaim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("requestIdentifier", "Identifier", "Original request Business Identifer.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
-        childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
-        childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("date", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
         childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
+        childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
+        childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("payeeType", "Coding", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, payeeType));
         childrenList.add(new Property("item", "", "The first tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("additem", "", "The first tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, additem));
@@ -2366,14 +2366,14 @@ public class ClaimResponse extends DomainResource {
         dst.requestIdentifier = new ArrayList<Identifier>();
         for (Identifier i : requestIdentifier)
           dst.requestIdentifier.add(i.copy());
-        dst.outcome = outcome == null ? null : outcome.copy();
-        dst.disposition = disposition == null ? null : disposition.copy();
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.date = date == null ? null : date.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.requestProvider = requestProvider == null ? null : requestProvider.copy();
         dst.requestOrganization = requestOrganization == null ? null : requestOrganization.copy();
+        dst.outcome = outcome == null ? null : outcome.copy();
+        dst.disposition = disposition == null ? null : disposition.copy();
         dst.payeeType = payeeType == null ? null : payeeType.copy();
         dst.item = new ArrayList<ItemsComponent>();
         for (ItemsComponent i : item)

@@ -29,10 +29,11 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
@@ -405,11 +406,21 @@ public class OralHealthClaim extends DomainResource {
         protected List<StringType> preauthref = new ArrayList<StringType>();
 
         /**
+         * The Coverages adjudication details.
+         */
+        protected Reference claimResponse;
+
+        /**
+         * The actual object that is the target of the reference (The Coverages adjudication details.)
+         */
+        protected ClaimResponse claimResponseTarget;
+
+        /**
          * The style (standard) and version of the original material which was converted into this resource.
          */
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = 1945802353L;
+        private static final long serialVersionUID = 1207065968L;
 
       public CoverageComponent() {
         super();
@@ -606,6 +617,36 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
+         * @return {@link #claimResponse} (The Coverages adjudication details.)
+         */
+        public Reference getClaimResponse() { 
+          return this.claimResponse;
+        }
+
+        /**
+         * @param value {@link #claimResponse} (The Coverages adjudication details.)
+         */
+        public CoverageComponent setClaimResponse(Reference value) { 
+          this.claimResponse = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
+         */
+        public ClaimResponse getClaimResponseTarget() { 
+          return this.claimResponseTarget;
+        }
+
+        /**
+         * @param value {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
+         */
+        public CoverageComponent setClaimResponseTarget(ClaimResponse value) { 
+          this.claimResponseTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
         public Coding getOriginalRuleset() { 
@@ -628,6 +669,7 @@ public class OralHealthClaim extends DomainResource {
           childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agrement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("preauthref", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preauthref));
+          childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
           childrenList.add(new Property("originalRuleset", "Coding", "The style (standard) and version of the original material which was converted into this resource.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         }
 
@@ -642,6 +684,7 @@ public class OralHealthClaim extends DomainResource {
         dst.preauthref = new ArrayList<StringType>();
         for (StringType i : preauthref)
           dst.preauthref.add(i.copy());
+        dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         return dst;
       }
@@ -1007,21 +1050,6 @@ public class OralHealthClaim extends DomainResource {
         protected Coding type;
 
         /**
-         * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
-         */
-        protected Coding service;
-
-        /**
-         * The number of repetitions of a service or product.
-         */
-        protected Quantity quantity;
-
-        /**
-         * The date when the enclosed suite of services were performed or completed.
-         */
-        protected DateType serviceDate;
-
-        /**
          * The practitioner who is responsible for the services rendered to the patient.
          */
         protected Reference provider;
@@ -1032,14 +1060,39 @@ public class OralHealthClaim extends DomainResource {
         protected Practitioner providerTarget;
 
         /**
-         * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
+         * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
          */
-        protected Money fee;
+        protected Coding service;
 
         /**
-         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         * The date when the enclosed suite of services were performed or completed.
          */
-        protected Money total;
+        protected DateType serviceDate;
+
+        /**
+         * The number of repetitions of a service or product.
+         */
+        protected Quantity quantity;
+
+        /**
+         * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
+         */
+        protected Money unitPrice;
+
+        /**
+         * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        protected DecimalType factor;
+
+        /**
+         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        protected DecimalType points;
+
+        /**
+         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         */
+        protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
@@ -1071,7 +1124,7 @@ public class OralHealthClaim extends DomainResource {
          */
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = 1304307193L;
+        private static final long serialVersionUID = 1683408733L;
 
       public ItemsComponent() {
         super();
@@ -1132,6 +1185,36 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
+         * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
+         */
+        public Reference getProvider() { 
+          return this.provider;
+        }
+
+        /**
+         * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
+         */
+        public ItemsComponent setProvider(Reference value) { 
+          this.provider = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
+         */
+        public Practitioner getProviderTarget() { 
+          return this.providerTarget;
+        }
+
+        /**
+         * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
+         */
+        public ItemsComponent setProviderTarget(Practitioner value) { 
+          this.providerTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
         public Coding getService() { 
@@ -1143,21 +1226,6 @@ public class OralHealthClaim extends DomainResource {
          */
         public ItemsComponent setService(Coding value) { 
           this.service = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #quantity} (The number of repetitions of a service or product.)
-         */
-        public Quantity getQuantity() { 
-          return this.quantity;
-        }
-
-        /**
-         * @param value {@link #quantity} (The number of repetitions of a service or product.)
-         */
-        public ItemsComponent setQuantity(Quantity value) { 
-          this.quantity = value;
           return this;
         }
 
@@ -1198,62 +1266,119 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
+         * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public Reference getProvider() { 
-          return this.provider;
+        public Quantity getQuantity() { 
+          return this.quantity;
         }
 
         /**
-         * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
+         * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public ItemsComponent setProvider(Reference value) { 
-          this.provider = value;
+        public ItemsComponent setQuantity(Quantity value) { 
+          this.quantity = value;
           return this;
         }
 
         /**
-         * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
+         * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public Practitioner getProviderTarget() { 
-          return this.providerTarget;
+        public Money getUnitPrice() { 
+          return this.unitPrice;
         }
 
         /**
-         * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
+         * @param value {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public ItemsComponent setProviderTarget(Practitioner value) { 
-          this.providerTarget = value;
+        public ItemsComponent setUnitPrice(Money value) { 
+          this.unitPrice = value;
           return this;
         }
 
         /**
-         * @return {@link #fee} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
+         * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public Money getFee() { 
-          return this.fee;
+        public DecimalType getFactorElement() { 
+          return this.factor;
         }
 
         /**
-         * @param value {@link #fee} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
+         * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public ItemsComponent setFee(Money value) { 
-          this.fee = value;
+        public ItemsComponent setFactorElement(DecimalType value) { 
+          this.factor = value;
           return this;
         }
 
         /**
-         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public Money getTotal() { 
-          return this.total;
+        public BigDecimal getFactor() { 
+          return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
-         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public ItemsComponent setTotal(Money value) { 
-          this.total = value;
+        public ItemsComponent setFactor(BigDecimal value) { 
+          if (value == null)
+            this.factor = null;
+          else {
+            if (this.factor == null)
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public DecimalType getPointsElement() { 
+          return this.points;
+        }
+
+        /**
+         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public ItemsComponent setPointsElement(DecimalType value) { 
+          this.points = value;
+          return this;
+        }
+
+        /**
+         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public BigDecimal getPoints() { 
+          return this.points == null ? null : this.points.getValue();
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public ItemsComponent setPoints(BigDecimal value) { 
+          if (value == null)
+            this.points = null;
+          else {
+            if (this.points == null)
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public Money getNet() { 
+          return this.net;
+        }
+
+        /**
+         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public ItemsComponent setNet(Money value) { 
+          this.net = value;
           return this;
         }
 
@@ -1357,12 +1482,14 @@ public class OralHealthClaim extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
-          childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
           childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
-          childrenList.add(new Property("fee", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
+          childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
+          childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
+          childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
+          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subsite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subsite));
@@ -1376,12 +1503,14 @@ public class OralHealthClaim extends DomainResource {
         copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
-        dst.service = service == null ? null : service.copy();
-        dst.quantity = quantity == null ? null : quantity.copy();
-        dst.serviceDate = serviceDate == null ? null : serviceDate.copy();
         dst.provider = provider == null ? null : provider.copy();
-        dst.fee = fee == null ? null : fee.copy();
-        dst.total = total == null ? null : total.copy();
+        dst.service = service == null ? null : service.copy();
+        dst.serviceDate = serviceDate == null ? null : serviceDate.copy();
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
+        dst.factor = factor == null ? null : factor.copy();
+        dst.points = points == null ? null : points.copy();
+        dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.subsite = new ArrayList<Coding>();
@@ -1423,12 +1552,22 @@ public class OralHealthClaim extends DomainResource {
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        protected Money fee;
+        protected Money unitPrice;
 
         /**
-         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        protected Money total;
+        protected DecimalType factor;
+
+        /**
+         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        protected DecimalType points;
+
+        /**
+         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         */
+        protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
@@ -1440,7 +1579,7 @@ public class OralHealthClaim extends DomainResource {
          */
         protected List<SubDetailComponent> subDetail = new ArrayList<SubDetailComponent>();
 
-        private static final long serialVersionUID = -246067624L;
+        private static final long serialVersionUID = 1268522508L;
 
       public DetailComponent() {
         super();
@@ -1531,32 +1670,104 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #fee} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
+         * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public Money getFee() { 
-          return this.fee;
+        public Money getUnitPrice() { 
+          return this.unitPrice;
         }
 
         /**
-         * @param value {@link #fee} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
+         * @param value {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public DetailComponent setFee(Money value) { 
-          this.fee = value;
+        public DetailComponent setUnitPrice(Money value) { 
+          this.unitPrice = value;
           return this;
         }
 
         /**
-         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public Money getTotal() { 
-          return this.total;
+        public DecimalType getFactorElement() { 
+          return this.factor;
         }
 
         /**
-         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DetailComponent setTotal(Money value) { 
-          this.total = value;
+        public DetailComponent setFactorElement(DecimalType value) { 
+          this.factor = value;
+          return this;
+        }
+
+        /**
+         * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public BigDecimal getFactor() { 
+          return this.factor == null ? null : this.factor.getValue();
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public DetailComponent setFactor(BigDecimal value) { 
+          if (value == null)
+            this.factor = null;
+          else {
+            if (this.factor == null)
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public DecimalType getPointsElement() { 
+          return this.points;
+        }
+
+        /**
+         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public DetailComponent setPointsElement(DecimalType value) { 
+          this.points = value;
+          return this;
+        }
+
+        /**
+         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public BigDecimal getPoints() { 
+          return this.points == null ? null : this.points.getValue();
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public DetailComponent setPoints(BigDecimal value) { 
+          if (value == null)
+            this.points = null;
+          else {
+            if (this.points == null)
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public Money getNet() { 
+          return this.net;
+        }
+
+        /**
+         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public DetailComponent setNet(Money value) { 
+          this.net = value;
           return this;
         }
 
@@ -1598,8 +1809,10 @@ public class OralHealthClaim extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("fee", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
+          childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
+          childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
+          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -1611,8 +1824,10 @@ public class OralHealthClaim extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
-        dst.fee = fee == null ? null : fee.copy();
-        dst.total = total == null ? null : total.copy();
+        dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
+        dst.factor = factor == null ? null : factor.copy();
+        dst.points = points == null ? null : points.copy();
+        dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.subDetail = new ArrayList<SubDetailComponent>();
         for (SubDetailComponent i : subDetail)
@@ -1646,19 +1861,29 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The fee for an addtional service or product or charge.
          */
-        protected Money fee;
+        protected Money unitPrice;
 
         /**
-         * The sum of the quantity times the unit fee for an addtional service or product or charge.
+         * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        protected Money total;
+        protected DecimalType factor;
+
+        /**
+         * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        protected DecimalType points;
+
+        /**
+         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         */
+        protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
         protected Coding udi;
 
-        private static final long serialVersionUID = 843495326L;
+        private static final long serialVersionUID = 122809194L;
 
       public SubDetailComponent() {
         super();
@@ -1749,32 +1974,104 @@ public class OralHealthClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #fee} (The fee for an addtional service or product or charge.)
+         * @return {@link #unitPrice} (The fee for an addtional service or product or charge.)
          */
-        public Money getFee() { 
-          return this.fee;
+        public Money getUnitPrice() { 
+          return this.unitPrice;
         }
 
         /**
-         * @param value {@link #fee} (The fee for an addtional service or product or charge.)
+         * @param value {@link #unitPrice} (The fee for an addtional service or product or charge.)
          */
-        public SubDetailComponent setFee(Money value) { 
-          this.fee = value;
+        public SubDetailComponent setUnitPrice(Money value) { 
+          this.unitPrice = value;
           return this;
         }
 
         /**
-         * @return {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public Money getTotal() { 
-          return this.total;
+        public DecimalType getFactorElement() { 
+          return this.factor;
         }
 
         /**
-         * @param value {@link #total} (The sum of the quantity times the unit fee for an addtional service or product or charge.)
+         * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public SubDetailComponent setTotal(Money value) { 
-          this.total = value;
+        public SubDetailComponent setFactorElement(DecimalType value) { 
+          this.factor = value;
+          return this;
+        }
+
+        /**
+         * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public BigDecimal getFactor() { 
+          return this.factor == null ? null : this.factor.getValue();
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public SubDetailComponent setFactor(BigDecimal value) { 
+          if (value == null)
+            this.factor = null;
+          else {
+            if (this.factor == null)
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public DecimalType getPointsElement() { 
+          return this.points;
+        }
+
+        /**
+         * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
+         */
+        public SubDetailComponent setPointsElement(DecimalType value) { 
+          this.points = value;
+          return this;
+        }
+
+        /**
+         * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public BigDecimal getPoints() { 
+          return this.points == null ? null : this.points.getValue();
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public SubDetailComponent setPoints(BigDecimal value) { 
+          if (value == null)
+            this.points = null;
+          else {
+            if (this.points == null)
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public Money getNet() { 
+          return this.net;
+        }
+
+        /**
+         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         */
+        public SubDetailComponent setNet(Money value) { 
+          this.net = value;
           return this;
         }
 
@@ -1799,8 +2096,10 @@ public class OralHealthClaim extends DomainResource {
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("service", "Coding", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("fee", "Money", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("total", "Money", "The sum of the quantity times the unit fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, total));
+          childrenList.add(new Property("unitPrice", "Money", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
+          childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
+          childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
 
@@ -1811,8 +2110,10 @@ public class OralHealthClaim extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.service = service == null ? null : service.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
-        dst.fee = fee == null ? null : fee.copy();
-        dst.total = total == null ? null : total.copy();
+        dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
+        dst.factor = factor == null ? null : factor.copy();
+        dst.points = points == null ? null : points.copy();
+        dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         return dst;
       }
@@ -1952,9 +2253,59 @@ public class OralHealthClaim extends DomainResource {
     protected Identifier identifier;
 
     /**
+     * The version of the specification on which this instance relies.
+     */
+    protected Coding ruleset;
+
+    /**
+     * The version of the specification from which the original instance was created.
+     */
+    protected Coding originalRuleset;
+
+    /**
+     * The date when the enclosed suite of services were performed or completed.
+     */
+    protected DateType date;
+
+    /**
+     * Insurer Identifier, typical BIN number (6 digit).
+     */
+    protected Reference target;
+
+    /**
+     * The actual object that is the target of the reference (Insurer Identifier, typical BIN number (6 digit).)
+     */
+    protected Organization targetTarget;
+
+    /**
+     * The provider which is responsible for the bill, claim pre-determination, pre-authorization.
+     */
+    protected Reference provider;
+
+    /**
+     * The actual object that is the target of the reference (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    protected Practitioner providerTarget;
+
+    /**
+     * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
+     */
+    protected Reference organization;
+
+    /**
+     * The actual object that is the target of the reference (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    protected Organization organizationTarget;
+
+    /**
      * Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
      */
     protected Enumeration<UseLink> use;
+
+    /**
+     * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
+     */
+    protected Coding priority;
 
     /**
      * In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
@@ -1970,46 +2321,6 @@ public class OralHealthClaim extends DomainResource {
      * The actual object that is the target of the reference (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
     protected Practitioner entererTarget;
-
-    /**
-     * Insurer Identifier, typical BIN number (6 digit).
-     */
-    protected Reference insurer;
-
-    /**
-     * The actual object that is the target of the reference (Insurer Identifier, typical BIN number (6 digit).)
-     */
-    protected Organization insurerTarget;
-
-    /**
-     * The version of the specification on which this instance relies.
-     */
-    protected Coding ruleset;
-
-    /**
-     * The version of the specification from which the original instance was created.
-     */
-    protected Coding originalRuleset;
-
-    /**
-     * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
-     */
-    protected Coding priority;
-
-    /**
-     * The date when the enclosed suite of services were performed or completed.
-     */
-    protected DateType date;
-
-    /**
-     * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
-     */
-    protected Reference organization;
-
-    /**
-     * The actual object that is the target of the reference (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
-     */
-    protected Organization organizationTarget;
 
     /**
      * Facility where the services were provided.
@@ -2067,7 +2378,7 @@ public class OralHealthClaim extends DomainResource {
     protected List<Coding> exception = new ArrayList<Coding>();
 
     /**
-     * Name of school.
+     * Name of school for over-aged dependants.
      */
     protected StringType school;
 
@@ -2106,7 +2417,7 @@ public class OralHealthClaim extends DomainResource {
      */
     protected List<Coding> additionalMaterials = new ArrayList<Coding>();
 
-    private static final long serialVersionUID = 524553837L;
+    private static final long serialVersionUID = -1376670187L;
 
     public OralHealthClaim() {
       super();
@@ -2129,6 +2440,162 @@ public class OralHealthClaim extends DomainResource {
      */
     public OralHealthClaim setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #ruleset} (The version of the specification on which this instance relies.)
+     */
+    public Coding getRuleset() { 
+      return this.ruleset;
+    }
+
+    /**
+     * @param value {@link #ruleset} (The version of the specification on which this instance relies.)
+     */
+    public OralHealthClaim setRuleset(Coding value) { 
+      this.ruleset = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #originalRuleset} (The version of the specification from which the original instance was created.)
+     */
+    public Coding getOriginalRuleset() { 
+      return this.originalRuleset;
+    }
+
+    /**
+     * @param value {@link #originalRuleset} (The version of the specification from which the original instance was created.)
+     */
+    public OralHealthClaim setOriginalRuleset(Coding value) { 
+      this.originalRuleset = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #date} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateType getDateElement() { 
+      return this.date;
+    }
+
+    /**
+     * @param value {@link #date} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public OralHealthClaim setDateElement(DateType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date when the enclosed suite of services were performed or completed.
+     */
+    public DateAndTime getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date when the enclosed suite of services were performed or completed.
+     */
+    public OralHealthClaim setDate(DateAndTime value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #target} (Insurer Identifier, typical BIN number (6 digit).)
+     */
+    public Reference getTarget() { 
+      return this.target;
+    }
+
+    /**
+     * @param value {@link #target} (Insurer Identifier, typical BIN number (6 digit).)
+     */
+    public OralHealthClaim setTarget(Reference value) { 
+      this.target = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
+     */
+    public Organization getTargetTarget() { 
+      return this.targetTarget;
+    }
+
+    /**
+     * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
+     */
+    public OralHealthClaim setTargetTarget(Organization value) { 
+      this.targetTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #provider} (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public Reference getProvider() { 
+      return this.provider;
+    }
+
+    /**
+     * @param value {@link #provider} (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public OralHealthClaim setProvider(Reference value) { 
+      this.provider = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public Practitioner getProviderTarget() { 
+      return this.providerTarget;
+    }
+
+    /**
+     * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public OralHealthClaim setProviderTarget(Practitioner value) { 
+      this.providerTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public Reference getOrganization() { 
+      return this.organization;
+    }
+
+    /**
+     * @param value {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public OralHealthClaim setOrganization(Reference value) { 
+      this.organization = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public Organization getOrganizationTarget() { 
+      return this.organizationTarget;
+    }
+
+    /**
+     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
+     */
+    public OralHealthClaim setOrganizationTarget(Organization value) { 
+      this.organizationTarget = value;
       return this;
     }
 
@@ -2165,6 +2632,21 @@ public class OralHealthClaim extends DomainResource {
           this.use = new Enumeration<UseLink>();
         this.use.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
+     */
+    public Coding getPriority() { 
+      return this.priority;
+    }
+
+    /**
+     * @param value {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
+     */
+    public OralHealthClaim setPriority(Coding value) { 
+      this.priority = value;
       return this;
     }
 
@@ -2210,147 +2692,6 @@ public class OralHealthClaim extends DomainResource {
      */
     public OralHealthClaim setEntererTarget(Practitioner value) { 
       this.entererTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #insurer} (Insurer Identifier, typical BIN number (6 digit).)
-     */
-    public Reference getInsurer() { 
-      return this.insurer;
-    }
-
-    /**
-     * @param value {@link #insurer} (Insurer Identifier, typical BIN number (6 digit).)
-     */
-    public OralHealthClaim setInsurer(Reference value) { 
-      this.insurer = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #insurer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
-     */
-    public Organization getInsurerTarget() { 
-      return this.insurerTarget;
-    }
-
-    /**
-     * @param value {@link #insurer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
-     */
-    public OralHealthClaim setInsurerTarget(Organization value) { 
-      this.insurerTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #ruleset} (The version of the specification on which this instance relies.)
-     */
-    public Coding getRuleset() { 
-      return this.ruleset;
-    }
-
-    /**
-     * @param value {@link #ruleset} (The version of the specification on which this instance relies.)
-     */
-    public OralHealthClaim setRuleset(Coding value) { 
-      this.ruleset = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #originalRuleset} (The version of the specification from which the original instance was created.)
-     */
-    public Coding getOriginalRuleset() { 
-      return this.originalRuleset;
-    }
-
-    /**
-     * @param value {@link #originalRuleset} (The version of the specification from which the original instance was created.)
-     */
-    public OralHealthClaim setOriginalRuleset(Coding value) { 
-      this.originalRuleset = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
-     */
-    public Coding getPriority() { 
-      return this.priority;
-    }
-
-    /**
-     * @param value {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
-     */
-    public OralHealthClaim setPriority(Coding value) { 
-      this.priority = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #date} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateType getDateElement() { 
-      return this.date;
-    }
-
-    /**
-     * @param value {@link #date} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public OralHealthClaim setDateElement(DateType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date when the enclosed suite of services were performed or completed.
-     */
-    public DateAndTime getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date when the enclosed suite of services were performed or completed.
-     */
-    public OralHealthClaim setDate(DateAndTime value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateType();
-        this.date.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
-     */
-    public Reference getOrganization() { 
-      return this.organization;
-    }
-
-    /**
-     * @param value {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
-     */
-    public OralHealthClaim setOrganization(Reference value) { 
-      this.organization = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
-     */
-    public Organization getOrganizationTarget() { 
-      return this.organizationTarget;
-    }
-
-    /**
-     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
-     */
-    public OralHealthClaim setOrganizationTarget(Organization value) { 
-      this.organizationTarget = value;
       return this;
     }
 
@@ -2528,14 +2869,14 @@ public class OralHealthClaim extends DomainResource {
     }
 
     /**
-     * @return {@link #school} (Name of school.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
+     * @return {@link #school} (Name of school for over-aged dependants.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
      */
     public StringType getSchoolElement() { 
       return this.school;
     }
 
     /**
-     * @param value {@link #school} (Name of school.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
+     * @param value {@link #school} (Name of school for over-aged dependants.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
      */
     public OralHealthClaim setSchoolElement(StringType value) { 
       this.school = value;
@@ -2543,14 +2884,14 @@ public class OralHealthClaim extends DomainResource {
     }
 
     /**
-     * @return Name of school.
+     * @return Name of school for over-aged dependants.
      */
     public String getSchool() { 
       return this.school == null ? null : this.school.getValue();
     }
 
     /**
-     * @param value Name of school.
+     * @param value Name of school for over-aged dependants.
      */
     public OralHealthClaim setSchool(String value) { 
       if (Utilities.noString(value))
@@ -2700,15 +3041,16 @@ public class OralHealthClaim extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
-        childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
-        childrenList.add(new Property("insurer", "Reference(Organization)", "Insurer Identifier, typical BIN number (6 digit).", 0, java.lang.Integer.MAX_VALUE, insurer));
         childrenList.add(new Property("ruleset", "Coding", "The version of the specification on which this instance relies.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The version of the specification from which the original instance was created.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
-        childrenList.add(new Property("priority", "Coding", "Immediate (STAT), best effort (NORMAL), deferred (DEFER).", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("date", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("target", "Reference(Organization)", "Insurer Identifier, typical BIN number (6 digit).", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("provider", "Reference(Practitioner)", "The provider which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("priority", "Coding", "Immediate (STAT), best effort (NORMAL), deferred (DEFER).", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
+        childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
         childrenList.add(new Property("payee", "", "Theparty to be reimbused for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
@@ -2717,7 +3059,7 @@ public class OralHealthClaim extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("exception", "Coding", "Factors which may influence the applicability of coverage.", 0, java.lang.Integer.MAX_VALUE, exception));
-        childrenList.add(new Property("school", "string", "Name of school.", 0, java.lang.Integer.MAX_VALUE, school));
+        childrenList.add(new Property("school", "string", "Name of school for over-aged dependants.", 0, java.lang.Integer.MAX_VALUE, school));
         childrenList.add(new Property("accident", "date", "Date of an accident which these services are addessing.", 0, java.lang.Integer.MAX_VALUE, accident));
         childrenList.add(new Property("accidentType", "Coding", "Type of accident: work, auto, etc.", 0, java.lang.Integer.MAX_VALUE, accidentType));
         childrenList.add(new Property("interventionException", "Coding", "A list of intervention and exception codes which may influence the adjudication of the claim.", 0, java.lang.Integer.MAX_VALUE, interventionException));
@@ -2731,15 +3073,16 @@ public class OralHealthClaim extends DomainResource {
         OralHealthClaim dst = new OralHealthClaim();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.use = use == null ? null : use.copy();
-        dst.fundsReserve = fundsReserve == null ? null : fundsReserve.copy();
-        dst.enterer = enterer == null ? null : enterer.copy();
-        dst.insurer = insurer == null ? null : insurer.copy();
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
-        dst.priority = priority == null ? null : priority.copy();
         dst.date = date == null ? null : date.copy();
+        dst.target = target == null ? null : target.copy();
+        dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
+        dst.use = use == null ? null : use.copy();
+        dst.priority = priority == null ? null : priority.copy();
+        dst.fundsReserve = fundsReserve == null ? null : fundsReserve.copy();
+        dst.enterer = enterer == null ? null : enterer.copy();
         dst.facility = facility == null ? null : facility.copy();
         dst.payee = payee == null ? null : payee.copy();
         dst.referral = referral == null ? null : referral.copy();

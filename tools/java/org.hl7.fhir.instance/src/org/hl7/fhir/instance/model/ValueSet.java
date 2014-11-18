@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1305,22 +1305,22 @@ public class ValueSet extends DomainResource {
         protected Identifier identifier;
 
         /**
-         * Time valueset expansion happened.
+         * The time at which the expansion was produced by the expanding system.
          */
-        protected InstantType timestamp;
+        protected DateTimeType timestamp;
 
         /**
-         * Codes in the value set.
+         * The codes that are contained in the value set expansion.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
 
-        private static final long serialVersionUID = 1886819543L;
+        private static final long serialVersionUID = 631584613L;
 
       public ValueSetExpansionComponent() {
         super();
       }
 
-      public ValueSetExpansionComponent(InstantType timestamp) {
+      public ValueSetExpansionComponent(DateTimeType timestamp) {
         super();
         this.timestamp = timestamp;
       }
@@ -1341,46 +1341,46 @@ public class ValueSet extends DomainResource {
         }
 
         /**
-         * @return {@link #timestamp} (Time valueset expansion happened.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
+         * @return {@link #timestamp} (The time at which the expansion was produced by the expanding system.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
          */
-        public InstantType getTimestampElement() { 
+        public DateTimeType getTimestampElement() { 
           return this.timestamp;
         }
 
         /**
-         * @param value {@link #timestamp} (Time valueset expansion happened.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
+         * @param value {@link #timestamp} (The time at which the expansion was produced by the expanding system.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
          */
-        public ValueSetExpansionComponent setTimestampElement(InstantType value) { 
+        public ValueSetExpansionComponent setTimestampElement(DateTimeType value) { 
           this.timestamp = value;
           return this;
         }
 
         /**
-         * @return Time valueset expansion happened.
+         * @return The time at which the expansion was produced by the expanding system.
          */
         public DateAndTime getTimestamp() { 
           return this.timestamp == null ? null : this.timestamp.getValue();
         }
 
         /**
-         * @param value Time valueset expansion happened.
+         * @param value The time at which the expansion was produced by the expanding system.
          */
         public ValueSetExpansionComponent setTimestamp(DateAndTime value) { 
             if (this.timestamp == null)
-              this.timestamp = new InstantType();
+              this.timestamp = new DateTimeType();
             this.timestamp.setValue(value);
           return this;
         }
 
         /**
-         * @return {@link #contains} (Codes in the value set.)
+         * @return {@link #contains} (The codes that are contained in the value set expansion.)
          */
         public List<ValueSetExpansionContainsComponent> getContains() { 
           return this.contains;
         }
 
         /**
-         * @return {@link #contains} (Codes in the value set.)
+         * @return {@link #contains} (The codes that are contained in the value set expansion.)
          */
     // syntactic sugar
         public ValueSetExpansionContainsComponent addContains() { //3
@@ -1392,8 +1392,8 @@ public class ValueSet extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("timestamp", "instant", "Time valueset expansion happened.", 0, java.lang.Integer.MAX_VALUE, timestamp));
-          childrenList.add(new Property("contains", "", "Codes in the value set.", 0, java.lang.Integer.MAX_VALUE, contains));
+          childrenList.add(new Property("timestamp", "dateTime", "The time at which the expansion was produced by the expanding system.", 0, java.lang.Integer.MAX_VALUE, timestamp));
+          childrenList.add(new Property("contains", "", "The codes that are contained in the value set expansion.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
       public ValueSetExpansionComponent copy() {

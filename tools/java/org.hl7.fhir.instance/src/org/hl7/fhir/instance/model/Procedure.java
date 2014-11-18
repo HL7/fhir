@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -290,12 +290,12 @@ public class Procedure extends DomainResource {
     /**
      * The person on whom the procedure was performed.
      */
-    protected Reference subject;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The person on whom the procedure was performed.)
      */
-    protected Patient subjectTarget;
+    protected Patient patientTarget;
 
     /**
      * The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.
@@ -367,15 +367,15 @@ public class Procedure extends DomainResource {
      */
     protected StringType notes;
 
-    private static final long serialVersionUID = -1595389997L;
+    private static final long serialVersionUID = -1009620347L;
 
     public Procedure() {
       super();
     }
 
-    public Procedure(Reference subject, CodeableConcept type) {
+    public Procedure(Reference patient, CodeableConcept type) {
       super();
-      this.subject = subject;
+      this.patient = patient;
       this.type = type;
     }
 
@@ -397,32 +397,32 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The person on whom the procedure was performed.)
+     * @return {@link #patient} (The person on whom the procedure was performed.)
      */
-    public Reference getSubject() { 
-      return this.subject;
+    public Reference getPatient() { 
+      return this.patient;
     }
 
     /**
-     * @param value {@link #subject} (The person on whom the procedure was performed.)
+     * @param value {@link #patient} (The person on whom the procedure was performed.)
      */
-    public Procedure setSubject(Reference value) { 
-      this.subject = value;
+    public Procedure setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
      */
-    public Patient getSubjectTarget() { 
-      return this.subjectTarget;
+    public Patient getPatientTarget() { 
+      return this.patientTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person on whom the procedure was performed.)
      */
-    public Procedure setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public Procedure setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -716,7 +716,7 @@ public class Procedure extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The person on whom the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person on whom the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("type", "CodeableConcept", "The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("indication", "CodeableConcept", "The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, indication));
@@ -737,7 +737,7 @@ public class Procedure extends DomainResource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.subject = subject == null ? null : subject.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.type = type == null ? null : type.copy();
         dst.bodySite = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : bodySite)

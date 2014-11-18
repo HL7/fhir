@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
@@ -72,6 +72,7 @@ public enum ResourceType {
     AllergyIntolerance,
     Observation,
     Contract,
+    SupportingDocumentation,
     RelatedPerson,
     Basic,
     Specimen,
@@ -220,6 +221,8 @@ public enum ResourceType {
       return "observation";
     case Contract:
       return "contract";
+    case SupportingDocumentation:
+      return "supportingdocumentation";
     case RelatedPerson:
       return "relatedperson";
     case Basic:

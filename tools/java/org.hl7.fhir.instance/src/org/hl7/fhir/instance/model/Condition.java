@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -111,62 +111,6 @@ public class Condition extends DomainResource {
         return "confirmed";
       if (code == ConditionStatus.REFUTED)
         return "refuted";
-      return "?";
-      }
-    }
-
-    public enum ConditionRelationshipType {
-        DUETO, // this condition follows the identified condition/procedure/substance and is a consequence of it.
-        FOLLOWING, // this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.
-        NULL; // added to help the parsers
-        public static ConditionRelationshipType fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("due-to".equals(codeString))
-          return DUETO;
-        if ("following".equals(codeString))
-          return FOLLOWING;
-        throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DUETO: return "due-to";
-            case FOLLOWING: return "following";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DUETO: return "this condition follows the identified condition/procedure/substance and is a consequence of it.";
-            case FOLLOWING: return "this condition follows the identified condition/procedure/substance, but it is not known whether they are causually linked.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DUETO: return "due-to";
-            case FOLLOWING: return "following";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConditionRelationshipTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("due-to".equals(codeString))
-          return ConditionRelationshipType.DUETO;
-        if ("following".equals(codeString))
-          return ConditionRelationshipType.FOLLOWING;
-        throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == ConditionRelationshipType.DUETO)
-        return "due-to";
-      if (code == ConditionRelationshipType.FOLLOWING)
-        return "following";
       return "?";
       }
     }
@@ -413,16 +357,11 @@ public class Condition extends DomainResource {
 
   }
 
-    public static class ConditionRelatedItemComponent extends BackboneElement {
-        /**
-         * The type of relationship that this condition has to the related item.
-         */
-        protected Enumeration<ConditionRelationshipType> type;
-
+    public static class ConditionDueToComponent extends BackboneElement {
         /**
          * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
          */
-        protected CodeableConcept code;
+        protected CodeableConcept codeableConcept;
 
         /**
          * Target of the relationship.
@@ -434,61 +373,24 @@ public class Condition extends DomainResource {
          */
         protected Resource targetTarget;
 
-        private static final long serialVersionUID = -1173582286L;
+        private static final long serialVersionUID = -864422450L;
 
-      public ConditionRelatedItemComponent() {
+      public ConditionDueToComponent() {
         super();
       }
 
-      public ConditionRelatedItemComponent(Enumeration<ConditionRelationshipType> type) {
-        super();
-        this.type = type;
-      }
-
         /**
-         * @return {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
          */
-        public Enumeration<ConditionRelationshipType> getTypeElement() { 
-          return this.type;
+        public CodeableConcept getCodeableConcept() { 
+          return this.codeableConcept;
         }
 
         /**
-         * @param value {@link #type} (The type of relationship that this condition has to the related item.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
          */
-        public ConditionRelatedItemComponent setTypeElement(Enumeration<ConditionRelationshipType> value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return The type of relationship that this condition has to the related item.
-         */
-        public ConditionRelationshipType getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value The type of relationship that this condition has to the related item.
-         */
-        public ConditionRelatedItemComponent setType(ConditionRelationshipType value) { 
-            if (this.type == null)
-              this.type = new Enumeration<ConditionRelationshipType>();
-            this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public CodeableConcept getCode() { 
-          return this.code;
-        }
-
-        /**
-         * @param value {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
-         */
-        public ConditionRelatedItemComponent setCode(CodeableConcept value) { 
-          this.code = value;
+        public ConditionDueToComponent setCodeableConcept(CodeableConcept value) { 
+          this.codeableConcept = value;
           return this;
         }
 
@@ -502,7 +404,7 @@ public class Condition extends DomainResource {
         /**
          * @param value {@link #target} (Target of the relationship.)
          */
-        public ConditionRelatedItemComponent setTarget(Reference value) { 
+        public ConditionDueToComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -517,23 +419,104 @@ public class Condition extends DomainResource {
         /**
          * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
          */
-        public ConditionRelatedItemComponent setTargetTarget(Resource value) { 
+        public ConditionDueToComponent setTargetTarget(Resource value) { 
           this.targetTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "code", "The type of relationship that this condition has to the related item.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("codeableConcept", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, codeableConcept));
           childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ConditionRelatedItemComponent copy() {
-        ConditionRelatedItemComponent dst = new ConditionRelatedItemComponent();
+      public ConditionDueToComponent copy() {
+        ConditionDueToComponent dst = new ConditionDueToComponent();
         copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.code = code == null ? null : code.copy();
+        dst.codeableConcept = codeableConcept == null ? null : codeableConcept.copy();
+        dst.target = target == null ? null : target.copy();
+        return dst;
+      }
+
+  }
+
+    public static class ConditionOccurredFollowingComponent extends BackboneElement {
+        /**
+         * Code that identifies the target of this relationship. The code takes the place of a detailed instance target.
+         */
+        protected CodeableConcept codeableConcept;
+
+        /**
+         * Target of the relationship.
+         */
+        protected Reference target;
+
+        /**
+         * The actual object that is the target of the reference (Target of the relationship.)
+         */
+        protected Resource targetTarget;
+
+        private static final long serialVersionUID = -864422450L;
+
+      public ConditionOccurredFollowingComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         */
+        public CodeableConcept getCodeableConcept() { 
+          return this.codeableConcept;
+        }
+
+        /**
+         * @param value {@link #codeableConcept} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         */
+        public ConditionOccurredFollowingComponent setCodeableConcept(CodeableConcept value) { 
+          this.codeableConcept = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #target} (Target of the relationship.)
+         */
+        public Reference getTarget() { 
+          return this.target;
+        }
+
+        /**
+         * @param value {@link #target} (Target of the relationship.)
+         */
+        public ConditionOccurredFollowingComponent setTarget(Reference value) { 
+          this.target = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
+         */
+        public Resource getTargetTarget() { 
+          return this.targetTarget;
+        }
+
+        /**
+         * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Target of the relationship.)
+         */
+        public ConditionOccurredFollowingComponent setTargetTarget(Resource value) { 
+          this.targetTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("codeableConcept", "CodeableConcept", "Code that identifies the target of this relationship. The code takes the place of a detailed instance target.", 0, java.lang.Integer.MAX_VALUE, codeableConcept));
+          childrenList.add(new Property("target", "Reference(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
+        }
+
+      public ConditionOccurredFollowingComponent copy() {
+        ConditionOccurredFollowingComponent dst = new ConditionOccurredFollowingComponent();
+        copyValues(dst);
+        dst.codeableConcept = codeableConcept == null ? null : codeableConcept.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
       }
@@ -606,7 +589,7 @@ public class Condition extends DomainResource {
     protected CodeableConcept severity;
 
     /**
-     * Estimated or actual date the condition began, in the opinion of the clinician.
+     * Estimated or actual date or date-time  the condition began, in the opinion of the clinician.
      */
     protected Type onset;
 
@@ -631,16 +614,21 @@ public class Condition extends DomainResource {
     protected List<ConditionLocationComponent> location = new ArrayList<ConditionLocationComponent>();
 
     /**
-     * Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.
+     * Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.
      */
-    protected List<ConditionRelatedItemComponent> relatedItem = new ArrayList<ConditionRelatedItemComponent>();
+    protected List<ConditionDueToComponent> dueTo = new ArrayList<ConditionDueToComponent>();
+
+    /**
+     * Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.
+     */
+    protected List<ConditionOccurredFollowingComponent> occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
 
     /**
      * Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
      */
     protected StringType notes;
 
-    private static final long serialVersionUID = 1848650031L;
+    private static final long serialVersionUID = -2135620529L;
 
     public Condition() {
       super();
@@ -889,14 +877,14 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #onset} (Estimated or actual date the condition began, in the opinion of the clinician.)
+     * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Type getOnset() { 
       return this.onset;
     }
 
     /**
-     * @param value {@link #onset} (Estimated or actual date the condition began, in the opinion of the clinician.)
+     * @param value {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Condition setOnset(Type value) { 
       this.onset = value;
@@ -968,19 +956,36 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
+     * @return {@link #dueTo} (Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.)
      */
-    public List<ConditionRelatedItemComponent> getRelatedItem() { 
-      return this.relatedItem;
+    public List<ConditionDueToComponent> getDueTo() { 
+      return this.dueTo;
     }
 
     /**
-     * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
+     * @return {@link #dueTo} (Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.)
      */
     // syntactic sugar
-    public ConditionRelatedItemComponent addRelatedItem() { //3
-      ConditionRelatedItemComponent t = new ConditionRelatedItemComponent();
-      this.relatedItem.add(t);
+    public ConditionDueToComponent addDueTo() { //3
+      ConditionDueToComponent t = new ConditionDueToComponent();
+      this.dueTo.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #occurredFollowing} (Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.)
+     */
+    public List<ConditionOccurredFollowingComponent> getOccurredFollowing() { 
+      return this.occurredFollowing;
+    }
+
+    /**
+     * @return {@link #occurredFollowing} (Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.)
+     */
+    // syntactic sugar
+    public ConditionOccurredFollowingComponent addOccurredFollowing() { //3
+      ConditionOccurredFollowingComponent t = new ConditionOccurredFollowingComponent();
+      this.occurredFollowing.add(t);
       return t;
     }
 
@@ -1032,12 +1037,13 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("status", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("certainty", "CodeableConcept", "The degree of confidence that this condition is correct.", 0, java.lang.Integer.MAX_VALUE, certainty));
         childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));
-        childrenList.add(new Property("onset[x]", "date|Age", "Estimated or actual date the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
+        childrenList.add(new Property("onset[x]", "dateTime|Age", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
         childrenList.add(new Property("abatement[x]", "date|Age|boolean", "The date or estimated date that the condition resolved or went into remission. This is called 'abatement' because of the many overloaded connotations associated with 'remission' or 'resolution' - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
         childrenList.add(new Property("location", "", "The anatomical location where this condition manifests itself.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("relatedItem", "", "Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.", 0, java.lang.Integer.MAX_VALUE, relatedItem));
+        childrenList.add(new Property("dueTo", "", "Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.", 0, java.lang.Integer.MAX_VALUE, dueTo));
+        childrenList.add(new Property("occurredFollowing", "", "Further conditions, problems, diagnoses, procedures or events or the substance that preceded this Condition.", 0, java.lang.Integer.MAX_VALUE, occurredFollowing));
         childrenList.add(new Property("notes", "string", "Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.", 0, java.lang.Integer.MAX_VALUE, notes));
       }
 
@@ -1065,9 +1071,12 @@ public class Condition extends DomainResource {
         dst.location = new ArrayList<ConditionLocationComponent>();
         for (ConditionLocationComponent i : location)
           dst.location.add(i.copy());
-        dst.relatedItem = new ArrayList<ConditionRelatedItemComponent>();
-        for (ConditionRelatedItemComponent i : relatedItem)
-          dst.relatedItem.add(i.copy());
+        dst.dueTo = new ArrayList<ConditionDueToComponent>();
+        for (ConditionDueToComponent i : dueTo)
+          dst.dueTo.add(i.copy());
+        dst.occurredFollowing = new ArrayList<ConditionOccurredFollowingComponent>();
+        for (ConditionOccurredFollowingComponent i : occurredFollowing)
+          dst.occurredFollowing.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         return dst;
       }

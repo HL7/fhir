@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -404,12 +404,12 @@ public class FamilyHistory extends DomainResource {
     /**
      * The person who this history concerns.
      */
-    protected Reference subject;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The person who this history concerns.)
      */
-    protected Patient subjectTarget;
+    protected Patient patientTarget;
 
     /**
      * The date (and possibly time) when the family history was taken.
@@ -426,15 +426,15 @@ public class FamilyHistory extends DomainResource {
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
 
-    private static final long serialVersionUID = 1904472144L;
+    private static final long serialVersionUID = -586509986L;
 
     public FamilyHistory() {
       super();
     }
 
-    public FamilyHistory(Reference subject) {
+    public FamilyHistory(Reference patient) {
       super();
-      this.subject = subject;
+      this.patient = patient;
     }
 
     /**
@@ -455,32 +455,32 @@ public class FamilyHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The person who this history concerns.)
+     * @return {@link #patient} (The person who this history concerns.)
      */
-    public Reference getSubject() { 
-      return this.subject;
+    public Reference getPatient() { 
+      return this.patient;
     }
 
     /**
-     * @param value {@link #subject} (The person who this history concerns.)
+     * @param value {@link #patient} (The person who this history concerns.)
      */
-    public FamilyHistory setSubject(Reference value) { 
-      this.subject = value;
+    public FamilyHistory setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this history concerns.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this history concerns.)
      */
-    public Patient getSubjectTarget() { 
-      return this.subjectTarget;
+    public Patient getPatientTarget() { 
+      return this.patientTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who this history concerns.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who this history concerns.)
      */
-    public FamilyHistory setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public FamilyHistory setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -576,7 +576,7 @@ public class FamilyHistory extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the family history was taken.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("note", "string", "Conveys information about family history not specific to individual relations.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("relation", "", "The related person. Each FamilyHistory resource contains the entire family history for a single person.", 0, java.lang.Integer.MAX_VALUE, relation));
@@ -588,7 +588,7 @@ public class FamilyHistory extends DomainResource {
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
-        dst.subject = subject == null ? null : subject.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.date = date == null ? null : date.copy();
         dst.note = note == null ? null : note.copy();
         dst.relation = new ArrayList<FamilyHistoryRelationComponent>();

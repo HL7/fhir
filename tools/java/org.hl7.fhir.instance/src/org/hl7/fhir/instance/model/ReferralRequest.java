@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -163,12 +163,12 @@ public class ReferralRequest extends DomainResource {
     /**
      * The patient who is the subject of a referral or transfer of care request.
      */
-    protected Reference subject;
+    protected Reference patient;
 
     /**
      * The actual object that is the target of the reference (The patient who is the subject of a referral or transfer of care request.)
      */
-    protected Patient subjectTarget;
+    protected Patient patientTarget;
 
     /**
      * The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).
@@ -235,7 +235,7 @@ public class ReferralRequest extends DomainResource {
      */
     protected Period fulfillmentTime;
 
-    private static final long serialVersionUID = 624419520L;
+    private static final long serialVersionUID = 404401742L;
 
     public ReferralRequest() {
       super();
@@ -341,32 +341,32 @@ public class ReferralRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
+     * @return {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Reference getSubject() { 
-      return this.subject;
+    public Reference getPatient() { 
+      return this.patient;
     }
 
     /**
-     * @param value {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
+     * @param value {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setSubject(Reference value) { 
-      this.subject = value;
+    public ReferralRequest setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Patient getSubjectTarget() { 
-      return this.subjectTarget;
+    public Patient getPatientTarget() { 
+      return this.patientTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public ReferralRequest setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -604,7 +604,7 @@ public class ReferralRequest extends DomainResource {
         childrenList.add(new Property("type", "CodeableConcept", "An indication of the type of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("specialty", "CodeableConcept", "Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("priority", "CodeableConcept", "An indication of the urgency of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, priority));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("requester", "Reference(Practitioner|Organization|Patient)", "The healthcare provider or provider organization who/which initaited the referral/transfer of care request. Can also be  Patient (a self referral).", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("recipient", "Reference(Practitioner|Organization)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter at which the request for referral or transfer of care is initiated.", 0, java.lang.Integer.MAX_VALUE, encounter));
@@ -626,7 +626,7 @@ public class ReferralRequest extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.specialty = specialty == null ? null : specialty.copy();
         dst.priority = priority == null ? null : priority.copy();
-        dst.subject = subject == null ? null : subject.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.requester = requester == null ? null : requester.copy();
         dst.recipient = new ArrayList<Reference>();
         for (Reference i : recipient)

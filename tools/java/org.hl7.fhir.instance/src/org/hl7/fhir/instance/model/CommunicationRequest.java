@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 14, 2014 22:13+1100 for FHIR v0.3.0
+// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -283,7 +283,7 @@ public class CommunicationRequest extends DomainResource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The type of message such as alert, notification, reminder, instruction, etc….
+     * The type of message such as alert, notification, reminder, instruction, etc.
      */
     protected CodeableConcept category;
 
@@ -406,14 +406,14 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (The type of message such as alert, notification, reminder, instruction, etc….)
+     * @return {@link #category} (The type of message such as alert, notification, reminder, instruction, etc.)
      */
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
     /**
-     * @param value {@link #category} (The type of message such as alert, notification, reminder, instruction, etc….)
+     * @param value {@link #category} (The type of message such as alert, notification, reminder, instruction, etc.)
      */
     public CommunicationRequest setCategory(CodeableConcept value) { 
       this.category = value;
@@ -777,7 +777,7 @@ public class CommunicationRequest extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique ID of this request for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be auto-generated, if needed, by CDS system. Does not need to be the actual ID of the source system.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("category", "CodeableConcept", "The type of message such as alert, notification, reminder, instruction, etc….", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("category", "CodeableConcept", "The type of message such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("sender", "Reference(Patient|Practitioner|Device|RelatedPerson|Organization)", "The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
         childrenList.add(new Property("recipient", "Reference(Patient|Device|RelatedPerson|Practitioner)", "The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("messagePart", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, messagePart));
