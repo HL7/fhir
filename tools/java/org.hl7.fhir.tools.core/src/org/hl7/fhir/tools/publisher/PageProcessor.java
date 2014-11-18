@@ -3334,89 +3334,91 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("<p>URL: [base]/"+resource.getName()+"/$"+n+"</p>\r\n");
       if (op.isInstance())
         b.append("<p>URL: [base]/"+resource.getName()+"/[id]/$"+n+"</p>\r\n");
-      b.append("<p>Parameters:</p>\r\n");
-      b.append("<table class=\"grid\">\r\n");
-      b.append("<tr><td>");
-      b.append("<b>Name</b>");
-      b.append("</td><td>");
-      b.append("<b>Use</b>");
-      b.append("</td><td>");
-      b.append("<b>Cardinality</b>");
-      b.append("</td><td>");
-      b.append("<b>Type</b>");
-      b.append("</td><td>");
-      b.append("<b>Profile</b>");
-      b.append("</td><td>");
-      b.append("<b>Documentation</b>");
-      b.append("</td></tr>");
-      for (OperationParameter p : op.getParameters()) {
+      if (!op.getParameters().isEmpty()) {
+        b.append("<p>Parameters:</p>\r\n");
+        b.append("<table class=\"grid\">\r\n");
         b.append("<tr><td>");
-        b.append(p.getName());
+        b.append("<b>Name</b>");
         b.append("</td><td>");
-        b.append(p.getUse());
+        b.append("<b>Use</b>");
         b.append("</td><td>");
-        b.append(p.describeCardinality());
+        b.append("<b>Cardinality</b>");
         b.append("</td><td>");
-        String t = p.getType();
-        if (definitions.hasResource(t)) {
-          b.append("<a href=\"");
-          b.append(t.toLowerCase());
-          b.append(".html\">");
-          b.append(t);
-          b.append("</a>");
-          
-        } else if (definitions.hasPrimitiveType(t)) {
-          b.append("<a href=\"datatypes.html#");
-          b.append(t);
-          b.append("\">");
-          b.append(t);
-          b.append("</a>");
-          
-        } else if (definitions.hasElementDefn(t)) {
-          b.append("<a href=\"");
-          b.append(GeneratorUtils.getSrcFile(t, false));
-          b.append(".html#");
-          b.append(t);
-          b.append("\">");
-          b.append(t);
-          b.append("</a>");
-          
-        } else if (SearchParameter.isType(t)) {
-          b.append("<a href=\"search.html#");
-          b.append(t);
-          b.append("\">");
-          b.append(t);
-          b.append("</a>");
-          
-        } else if (t.startsWith("Reference(")) {
-          b.append("<a href=\"references.html#Resource\">Resource</a>");
-          String pn = t.substring(0, t.length()-1).substring(9);
-          b.append("(");
-          boolean first = true;
-          for (String tn : pn.split("\\|")) {
-            if (first)
-              first = false;
-            else
-              b.append("|");
-            b.append("<a href=\"");
-            b.append(tn.toLowerCase());
-            b.append(".html\">");
-            b.append(tn);
-            b.append("</a>");
-          }
-          b.append(")");
-        } else {
-          b.append(t);
-        }
+        b.append("<b>Type</b>");
         b.append("</td><td>");
-        if (p.getProfile() != null) {
-        	b.append(p.getProfile());
-        }
+        b.append("<b>Profile</b>");
         b.append("</td><td>");
-        b.append(processMarkdown(p.getDoc()));
+        b.append("<b>Documentation</b>");
         b.append("</td></tr>");
+        for (OperationParameter p : op.getParameters()) {
+          b.append("<tr><td>");
+          b.append(p.getName());
+          b.append("</td><td>");
+          b.append(p.getUse());
+          b.append("</td><td>");
+          b.append(p.describeCardinality());
+          b.append("</td><td>");
+          String t = p.getType();
+          if (definitions.hasResource(t)) {
+            b.append("<a href=\"");
+            b.append(t.toLowerCase());
+            b.append(".html\">");
+            b.append(t);
+            b.append("</a>");
+
+          } else if (definitions.hasPrimitiveType(t)) {
+            b.append("<a href=\"datatypes.html#");
+            b.append(t);
+            b.append("\">");
+            b.append(t);
+            b.append("</a>");
+
+          } else if (definitions.hasElementDefn(t)) {
+            b.append("<a href=\"");
+            b.append(GeneratorUtils.getSrcFile(t, false));
+            b.append(".html#");
+            b.append(t);
+            b.append("\">");
+            b.append(t);
+            b.append("</a>");
+
+          } else if (SearchParameter.isType(t)) {
+            b.append("<a href=\"search.html#");
+            b.append(t);
+            b.append("\">");
+            b.append(t);
+            b.append("</a>");
+
+          } else if (t.startsWith("Reference(")) {
+            b.append("<a href=\"references.html#Resource\">Resource</a>");
+            String pn = t.substring(0, t.length()-1).substring(9);
+            b.append("(");
+            boolean first = true;
+            for (String tn : pn.split("\\|")) {
+              if (first)
+                first = false;
+              else
+                b.append("|");
+              b.append("<a href=\"");
+              b.append(tn.toLowerCase());
+              b.append(".html\">");
+              b.append(tn);
+              b.append("</a>");
+            }
+            b.append(")");
+          } else {
+            b.append(t);
+          }
+          b.append("</td><td>");
+          if (p.getProfile() != null) {
+            b.append(p.getProfile());
+          }
+          b.append("</td><td>");
+          b.append(processMarkdown(p.getDoc()));
+          b.append("</td></tr>");
+        }
+        b.append("</table>\r\n");
       }
-      b.append("</table>\r\n");
       b.append(processMarkdown(op.getFooter())+"\r\n");
       b.append("<p></p>");
     }
