@@ -527,9 +527,9 @@ This same pattern is often encountered with immigrants, who retain their real na
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;use value="official" /&gt;
+  &lt;family value="Sczypinski" /&gt;
   &lt;given value="Piotr" /&gt;
   &lt;given value="Andre" /&gt;
-  &lt;family value="Sczypinski" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
   &lt;use value="usual" /&gt;
@@ -734,6 +734,175 @@ her mother, her father or other family names as specified by naming laws of the 
 </pre>
 </div>
 
+<h4>W3C International Examples</h4>
+<p>
+These examples are taken from the <a href="http://www.w3.org/International/questions/qa-personal-names">W3C International Examples</a>, 
+which should be consulted for further information. 
+</p>
+
+<p>
+A patronymic is "The part of a name that links to the genealogy":
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;text value=&quot;Björk Guðmundsdóttir&quot;/&gt;
+  &lt;family value=&quot;Guðmundsdóttir&quot;/&gt;
+  &lt;given value=&quot;Björk&quot;/&gt;
+&lt;/name&gt;
+</pre>  
+
+<p>
+A patronymic with a "son/daughter of" appellation:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;text value=&quot;Isa bin Osman&quot;/&gt;
+  &lt;family value=&quot;bin Osman&quot;/&gt;
+  &lt;given value=&quot;Isa&quot;/&gt;
+&lt;/name&gt;
+</pre>  
+<p>
+Note: The family name may also be given as two different family names. 
+</p>
+
+<p>
+A chinese name with a generational name:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;text value=&quot;毛泽东&quot;/&gt; &lt;!-- left to right --&gt;
+  &lt;family value=&quot;毛&quot;/&gt;
+  &lt;given value=&quot;泽&quot;/&gt;
+  &lt;given value=&quot;东&quot;/&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;text value=&quot;Mao Ze Dong&quot;/&gt; &lt;!-- left to right --&gt;
+  &lt;family value=&quot;Mao&quot;/&gt;
+  &lt;given value=&quot;Ze&quot;/&gt;
+  &lt;given value=&quot;Dong&quot;/&gt;
+&lt;/name&gt;
+</pre>  
+<p>
+<i>Todo: is there a need to identify the given name that is the generational name</i>.
+</p>
+
+<p>
+Additional Western name (see also example above):
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;family value="Yao" /&gt;
+  &lt;given value="Ming" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="usual" /&gt;
+  &lt;given value="Fred" /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+Multiple Family names:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Carreño" /&gt;
+  &lt;family value="Quiñones" /&gt;
+  &lt;given value="María-Jose" /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+Brazillian Example:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Eduardo" /&gt;
+  &lt;family value="Santos" /&gt;
+  &lt;family value="Tavares" /&gt;
+  &lt;family value="Melo" /&gt;
+  &lt;family value="Silva" /&gt;
+  &lt;given value="José" /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+Russian Examples (using Cyrillic):
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Николаевич" /&gt;
+  &lt;family value="Ельцин" /&gt;
+  &lt;given value="Борис" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;family value="Иосифовна" /&gt;
+  &lt;family value="Ельцина" /&gt;
+  &lt;given value="Наина" /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+Example with Initial:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;family value="Public" /&gt;
+  &lt;given value="John" /&gt;
+  &lt;given value="Q." /&gt;
+&lt;/name&gt;
+</pre>
+
+<p>
+Other Examples:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;text value="Velikkakathu Sankaran Achuthanandan"/&gt;
+  &lt;family value="Velikkakathu" /&gt;
+  &lt;given value="Sankaran" /&gt;
+  &lt;given value="Achuthanandan" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;text value="Kogaddu Birappa Timappa Nair"/&gt;
+  &lt;family value="Nair" /&gt;
+  &lt;given value="Birappa" /&gt;
+  &lt;given value="Timappa" /&gt;
+  &lt;prefix value="Kogaddu" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;text value="Aditya Pratap Singh Chauhan"/&gt;
+  &lt;family value="Singh" /&gt;
+  &lt;given value="Aditya" /&gt;
+  &lt;given value="Pratap" /&gt;
+  &lt;suffix value="Chauhan" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;text value="Madurai Mani Iyer"/&gt;
+  &lt;given value="Mani" /&gt;
+  &lt;prefix value="Madurai" /&gt;
+  &lt;suffix value="Iyer" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;text value="Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini"/&gt;
+  &lt;family value="ibn Nidal" /&gt;
+  &lt;family value="ibn Abdulaziz" /&gt;
+  &lt;given value="Muhammad" /&gt;
+  &lt;given value="al-Jamil" /&gt;
+  &lt;prefix value="Abu Karim" /&gt;
+  &lt;suffix value="al-Filistini" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+<i>Todo: need to discuss this with Indian / Arabic implementers</i>.
+Note that collecting and storing the <i>text</i> element makes the 
+primary purpose of the structured parts for index/searching, and 
+fidelity of the name parts is not critical.
+</p>
+
+
+
+
 <a name="Address"></a>
 <a name="address"></a>
 <h3 style="margin-bottom: 1px">
@@ -784,7 +953,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 </pre>
 </div>
 
-Holmfirth
+
 
 
 
