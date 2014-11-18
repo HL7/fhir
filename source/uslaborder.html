@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      [%file newheader%]
+   </head>
+   <body>
+      [%file newnavbar%]
+      <div class="col-9">
+         <a name="USLabOrder"> </a> 
+         <h2>USLabOrder Implementation Guide</h2>
+         <p>
+            The USLabOrder Implementation Guide consists of the IG, the profiles, operations, value sets and conformance
+            statements it defines.  This implementation guide is prepared as a U.S. Realm Specification on behalf of the HL7 Orders and Observation Workgroup. Its scope is US Realm ambulatory care and is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for ordering clinical laboratory results.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Laboratory+Orders+Interface+Initiative">The Standards and Interoperability (S and I) Framework Laboratory Orders Interface Initiative</a> and the<a href="http://wiki.hl7.org/index.php?title=Laboratory_Order_Conceptual_Specification#Executive_Summary"> HL7 Lab Order Conceptual Specification </a>.
+            <!-- EH  What about the  IHE Laboratory-Clinical Communication Profile (LCC
+               http://wiki.ihe.net/index.php?title=LCC_Long_Proposal_-_wiki
+               -->
+            However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.
+         </p>
+         <h3>Draft for Comment Ballot</h3>
+         <p>
+            This guide will be balloted together with the FHIR specification itself as part of the
+            second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
+         </p>
+         <h3>Background</h3>
+         <ul>
+            <li><a href="uslaborder-guide.html#uslaborder-guide">USLabOrder Guide</a> - the entire document</li>
+            <li><a href="uslaborder-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
+            <li><a href="uslaborder-guide.html#audience">Audience</a>- Who is the target audience for this Implemention Guide</li>
+            <li><a href="uslaborder-guide.html#conventions">Conventions</a>- The conventions the guide adheres to </li>
+            <li><a href="uslaborder-guide.html#usecase">Use case</a>- Describes the Scope, Assumptions, Pre and Post Conditions and Use Cases for this guide</li>
+            <li><a href="uslaborder-guide.html#definitions">Definitions</a> - Definitions used in describing for this guide</li>
+            <li><a href="uslaborder-guide.html#scope">Scope</a>- Describes the Scope for this guide</li>
+            <li><a href="uslaborder-guide.html#inscope">In scope</a>-List of what is in scope for this guide </li>
+            <li><a href="uslaborder-guide.html#outscope">Out of scope</a>-List of what is out of scope for this guide </li>
+            <li><a href="uslaborder-guide.html#actors">Actors</a>- Describes the actors for the use cases </li>
+            <li><a href="uslaborder-guide.html#usecasesandcontext">Use cases and context</a>- Specific use cases and context for this guide </li>
+            <li><a href="uslaborder-guide.html#userstory">User story</a>- Narrative for the use case  </li>
+            <li><a href="uslaborder-guide.html#assumptions">Assumptions</a>- Assumptions </li>
+            <li><a href="uslaborder-guide.html#preconditions">Pre-conditions</a>- Pre-conditions </li>
+            <li><a href="uslaborder-guide.html#postconditions">Post-conditions</a>- Post-conditions</li>
+            <li><a href="uslaborder-guide.html#scen1">Scenario 1</a>- Descripton of first use case for this guide</li>
+            <li><a href="uslaborder-guide.html#scen2">Scenario 2</a>- Descripton of first use case for this guide</li>
+            <li><a href="uslaborder-guide.html#scen3">Scenario 3</a>- Descripton of first use case for this guide</li>
+            <li><a href="uslaborder-guide.html#fnreq">Functional requirements</a>-  todo </li>
+            <li><a href="uslaborder-guide.html#scen4">Scenario 4</a>- Descripton of first use case for this guide</li>
+            <li><a href="uslaborder-guide.html#keytechdecisions">Key technical decisions</a>- List of key technical decisions in creating this guide</li>
+            <li><a href="uslaborder-guide.html#profile">Profiles</a>- list of resources for which profiles have been created for this guide  </li>
+            <li><a href="uslaborder-guide.html#vocabstandards">Vocabulary standards</a>- information about codes and code system used</li>
+            <li><a href="uslaborder-guide.html#implementationscope">Implementation scope</a>- todo </li>
+            <li><a href="uslaborder-guide.html#aoe">Ask on Order Questions</a>- Guidance on how to include ask at order questions in the DiagnosticOrder</li>
+            <li><a href="uslaborder-guide.html#specialcondsideration">Special considerations</a> -todo </li>
+            <li><a href="uslaborder-guide.html#priorresults">Prior results </a>- Guidance on how to include ask at order questions in the DiagnosticOrder</li>
+            <li><a href="uslaborder-guide.html#errorhandling">Error Handling</a>- Guidance on error handling using the REST API</li>
+            <li><a href="uslaborder-guide.html#addlguidance">Additional Guidance</a>-Information on CLIA</li>
+            <li><a href="uslaborder-guide.html#glossary">Glossary</a>- Glossary of laboratory term as defined for use in this guide</li>
+         </ul>
+         <h3>Specification</h3>
+         <p>
+            The <i>USLabOrder Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard. 
+            Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+            <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. apply.
+         </p>
+         <p> It makes use of the following resources:</p>
+         <ul>
+            <li><a href="conformance.html">Conformance </a>is used to define additional constraints in the lab order</li>
+            <li><a href="diagnosticorder.html">DiagnosticOrder</a> is used to define the laboratory order </li>
+            <li><a href="diagnosticreport.html">DiagnosticReport</a> is used to define the laboratory results report in the case of prior results</li>
+            <li><a href="observation.html">Observation</a> is used to record individual test measurements for ask at order questions (AOE) and in the case of prior results</li>
+            <li><a href="organization.html">Organization</a> is used to define the provider's office, clnic, lab or hospital.</li>
+            <li><a href="media.html">Media</a> is used to define reports (e.g. pdfs) for supplying previous results</li>
+            <li><a href="patient.html">Patient</a> is used to define the patient</li>
+            <li><a href="practitioner.html">Practitioner</a> is used to define the provider who ordered the lab test(s)</li>
+            <li><a href="specimen.html">Specimen</a> is used to define the what when and how the specimen was collected</li>
+            <li><a href="valueset.html">Value Set</a> is used to define allowed values for data elements in the lab order</li>
+         </ul>
+         <p>
+            This list is not meant to be exhaustive as additional resources may also to be used in USLabOrder solutions.  
+            <!-- Todo: decide how explicit the list of relevant sections needs to be -->
+         </p>
+         <p>
+            The USLabOrder specification consists of the following components:
+         </p>
+         <ul>
+         <li>
+            <b>USLabOrder profiles</b> - Profiles on the seven FHIR resources used to support the IG requirements:
+            <ul>
+               <li><a href="diagnosticorder.html">DiagnosticOrder</a>Constraints and extensions for the USRealm laboratory ordering</li>
+               <li><a href="diagnosticreport.html">DiagnosticReport</a> Constraints and extensions for USRealm laboratory results reporting</li>
+               <li><a href="observation.html">Observation</a> Constraints and extensions for ask at order questions (AOE) and US Realm laboratory test observations</li>
+               <li><a href="patient.html">Patient</a>Constraints and extensions to the patient resource for USRealm laboratory ordering and resulting</li>
+               <li><a href="organization.html">Organization</a>Constraints and extensions to define the provider's office, clnic, lab or hospital for USRealm laboratory ordering and resulting.</li>
+               <li><a href="specimen.html">Specimen</a> Constraints and extensions to define the specimen attributes for for USRealm laboratory ordering</li>
+               <li><a href="media.html">Media</a> Constraints and extensions to define attachments (e.g. pdfs) for supplying results</li>
+            </ul>
+         </li>
+         <li><a href="#todo">Some USLabOrder Operation</a> - todo - may not need</li>
+         <li>
+            <b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting USLabOrder functionality:
+            <ul>
+               <li><a href="conformance-uslaborder-orderer.html">USLabOrder orderer conformance</a> - Some conformance stuff for orderer - todo</li>
+               <li><a href="conformance-uslaborder-filler.html">USLabOrder laboratory conformance</a> - Some conformance stuff for filler - todo</li>
+            </ul>
+         </li>
+         <li>
+            <b>Value Sets</b> - Definitions of value sets for the following dataelements:
+            <ul>
+               <li><a href="#todo">Some USLabOrder valuset</a> - todo</li>
+            </ul>
+          </li>
+         <li>
+            <b>Examples</b> - Examples Instances of USLabOrders:
+            <ul>
+               <li><a href="#todo">Some USLabOrder example </a> - todo</li>
+            </ul>
+         </li>
+         </ul>
+      </div>
+      [%file newfooter%]
+   </body>
+</html>
