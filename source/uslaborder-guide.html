@@ -1,0 +1,670 @@
+<!DOCTYPE HTML>
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      [%file newheader%]
+   </head>
+   <body>
+      [%file newnavbar%]
+      <div class="col-9">
+         <a name="uslaborder-guide"> </a> 
+         <a name="purpose"></a>
+         <h2>Purpose</h2>
+         <p>
+            The Laboratory Orders Interface Initiative focuses on identifying the requirements, specifications and 
+            standards, and on providing the implementation guidance for electronic ordering of laboratory tests in 
+            the US Realm. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a 
+            particular implementation of Electronic Health Record System (EHR-S) to use standardized structured 
+            data in a defined inter-organizational laboratory transaction. The Use Case requirements are directed at 
+            laboratory test orders between an Ambulatory Provider's EHR-S and a Laboratory's Laboratory 
+            Information System (LIS). Future versions of this guide may harmonize with existing guides to extend 
+            interoperability of laboratory results across care settings, e.g., acute care.
+         </p>
+         <a name="audience"></a>
+         <h2>Audience</h2>
+         <p>
+            This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements an specific extensions
+            relative to the Laboratory Orders Interface (LOI) initiative and HL7 Lab Order Conceptual Specification. Users of this guide must be familiar with the details of the FHIR Specification and resource 
+            processing. This guide is not intended to be a tutorial on that subject. 
+         </p>
+         <a name="conventions"></a>
+         <h2>Conventions</h2>
+         <p>
+            This guide adheres to the following conventions: 
+         </p>
+         <ul>
+            <li>The guide is constructed assuming the implementer has access to the FHIR Specification. Although some information from the standard is included in this implementation guide, much information from the standard has not been repeated here. </li>
+            <li>The guide is constructed assuming the implementer SHALL conform to the <a href="http://hl7-fhir.github.io/http.html"> FHIR RESTful API</a></li>
+            <!-- EH:  todo create the messaging and document version of uslaborder-->
+            <li>The rules defined in the FHIR Conformance Profile were used to document the use case for, and constraints applied to, the resources described in this guide. </li>
+         </ul>
+         <!--  EH not needed :  The rules outlined in HL7 2.7.1, Chapter 2B, Section 2B5, Conformance Using Message Profiles, 
+            were used to document the use case for, and constraints applied to, the messages described in this 
+            guide. -->
+         <!--  EH not needed :  • Data types have been described separately from the fields that use the data types.  -->
+         <!--  EH not needed :  •o conformance information is provided for fully optional message elements and segments ("O") or 
+            unsupported message elements and segments ("X"). This includes cardinality, value sets and 
+            descriptive information. Implementers who want to use optional message elements should refer to 
+            the base HL7 V2.5.1 Standard to determine how these optional message elements will be used. 
+            Conformance information is provided when a conditional predicate resolves to an "R" or "RE" on 
+            either the "a" or "b" part of the expression, regardless of the opposite value, e.g., C(R/O). 
+            -->
+         <!--  EH not needed : This guide provides conditional predicates for some fields; note that the condition may be dependent 
+            on data elements that are marked as "O" (optional). In these cases, the interpretation by the reader 
+            should be "if the optional element is used, then these additional constraints are now required." That 
+            is, if the optional element is present, then these additional constraints are now active. This guidance 
+            is included as it is logically true but these conditional elements are not tested. -->
+         <!--  EH not needed : This guide uses "X" as a conformance usage indicator very sparingly. Where the underlying standard 
+            indicates the segments/field/component is present for backwards compatibility ("B") or withdrawn 
+            ("W") an "X" will be used. A small number of other message elements that are clearly out of scope 
+            for the use case have been given the "X" usage. All other message elements have either been further 
+            constrained to R/RE/C(a/b) or have been left as "O" to enable trading partners to explore additional 
+            capabilities. Note that without a clearly agreed to complementary profile between trading partners, 
+            an EHR that is compliant with this implementation guide does not have to send any elements marked 
+            as an "O", nor does a receiver of a lab order that is compliant with this implementation guide have to 
+            process any elements marked as an "O". Neither trading partner can mandate the other to accept any 
+            such complementary profiles to enable basic laboratory orders interfacing "out-of-the-box".  -->
+         <!--  EH not needed : <h3>1.3.2 MESSAGE ELEMENT ATTRIBUTES </h3>-->
+         <!--  EH not needed : 1.3.3  KEYWORDS -->
+         <!--  EH not needed : 1.3.4  USAGE CONFORMANCE TESTING RECOMMENDATIONS  -->
+         <a name="usecase"></a>
+         <h2>Use Case - Ambulatory Care Setting</h2>
+         <p>
+            This use case was developed as a collaborative effort between the HHS/ONC Standards and 
+            Interoperability Framework Laboratory Orders Initiative, the California Health Care Foundation, and the 
+            HL7 Orders and Observations Work Group. 
+         </p>
+         <p>
+            This guide defines the following terms from the historic paper-based workflows in relation to the 
+            supported use cases for electronic exchange of laboratory order information to the OML message 
+            structure as: 
+         </p>
+         <a name="definitions"></a>
+         <h3>Definitions </h3>
+         <ul>
+            <li><b>Measurement</b> - a single observation value or calculation recorded using a single Observation Resource. Note that multiple representations of the same measurement may require multiple observation 
+               segments, e.g., quantitative and qualitative statement of the same measurement. 
+            </li>
+            <li><b>Orderable Test or Laboratory Order </b>- a DiagnosticOrder Resource item requesting 
+               one or more measurements (Observation Resources). 
+            </li>
+            <li><b>Requisition</b> - One or more Orderable Test(s) transmitted as a new or appended DiagnosticOrder Resource. </li>
+         </ul>
+         <br></br>
+         <p>
+            <b>Figure 1: todo</b>
+         </p>
+         <img alt="definitions" src="todo"/>
+         <!--EH is figure needed here?-->
+         <a name="scope"></a>
+         <h3>Scope </h3>
+         <p>EHR-S and a LIS in an ambulatory care setting. This includes new, scheduled, add-on laboratory orders 
+         and the cancellation of laboratory orders that were previously placed. 
+         This Use Case has four scenarios: </p>
+         <ul>
+            <li>Scenario 1: Electronic Ordering of New or Scheduled Laboratory Test(s) </li>
+            <li>Scenario 2: Electronic Ordering of Add-On Laboratory Test(s)</li>
+            <li>Scenario 3: Requesting the Cancellation of a Previously Placed Laboratory Order by the Order 
+               Placer 
+            </li>
+            <li>Scenario 4: Laboratory Cancellation of a Previously Placed Laboratory Order </li>
+         </ul>
+         <a name="inscope"></a>
+         <h4>In Scope</h4>
+         <ul>
+            <li>Electronic ordering of laboratory tests and/or panels in the ambulatory setting for the US Realm. </li>
+            <li>Defining the core data elements required for ordering ambulatory laboratory tests and/or panels. </li>
+            <li>Laboratory Order Placer (i.e., Ordering Provider) may designate other non-order placers to receive results. </li>
+            <li>Harmonization of data elements that are used in both laboratory orders and results.</li>
+         </ul>
+         <a name="outscope"></a>
+         <h4>Out of Scope</h4>
+         <ul>
+            <li>Requesting Status on a Previously Placed Laboratory Order Electronic ordering of laboratory tests and/or panels in an acute care setting, internally within a laboratory, referral orders placed between laboratories, and laboratory orders outside the US Realm. 
+            <ul>
+               <li>Note that the authors of this guide did not validate whether constraints on components should be loosened to support these use cases. This will be addressed in a future version, including definition of minimal incremental profiles to support these use cases. Until such time, implementers are not discouraged from attempting to use this guide for those use cases but should recognize that they may not be able to remain fully conformant. The authors invite comments from implementers on their experience to inform the next version. </li>
+            </ul></li>
+            <li>Concepts related to: order queues, clearing houses, or other transport-level mechanisms and protocols that may be used to transfer or hold laboratory orders for later retrieval by a laboratory selected to perform the laboratory service. </li>
+            <li>Multi-order status requests (for one patient or multiple patients). </li>
+            <li>Specification of the required/supported error condition codes as part of acknowledgements in REST or with a FHIR Resource. </li>
+            <!-- EH check if this is accurate for REST-->
+            <li>Laboratory orders not transmitted electronically. </li>
+            <li>Secondary uses of laboratory order data. </li>
+            <li>The human mechanisms required to resolve differences between the order identifier and the specimen label. </li>
+            <li>Specimen labeling and transport. </li>
+            <li>Physical transport level confirmations. </li>
+            <li>Interactions between the LIS and EHR System for add-on orders beyond the transmission of the order (to address scenarios such as insufficient specimen or late arrivals of add-on orders).</li>
+         </ul>
+         <a name="actors"></a>
+         <h2>Actors</h2>
+         <p>
+            There are two actors that have responsibilities related to the conformance profiles defined in this 
+            document: 
+         </p>
+         <ul>
+            <li>Laboratory Order Sender - The originator of the DiagnosticOrder Resource Instance that declares conformance to "RESTful FHIR" and
+               FHIR profiles defined in this guide. This actor is the Organization Resource referenced through the .orderer (Practioner) Resource within FHIR. 
+            </li>
+            <!-- EH discuss whether should use the dot notation to refer to elements  e.g. .orderer-->
+            <li>Laboratory Order Receiver - A receiver of the DiagnosticOrder Resource Instance that declares conformance 
+               to conformance to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticOrder Resource Instance or the linked resources).
+            </li>
+         </ul>
+         <a name="usecasesandcontext"></a>
+         <h2>Orders for Ambulatory Care Use Case and Context Diagrams </h2>
+         <p><b>Figure 2-1. Use Case Diagram</b></p>
+         <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-usecasediagram"/>
+         <p><b>Figure 2-2. Context Diagram</b></p>
+         <img alt="Figure 2-2. Context Diagram" src="uslaborder-contextdiagram"/>
+         <a name="userstory"></a>
+         <h3>User Story</h3>
+         <p>
+            <!--  EH not needed here at least :  Laboratory orders interfaces automate the electronic communication of test order information between 
+               EHR Systems and LIS. To date, there is no consistent implementation guidance available for electronic 
+               laboratory order interfaces across the ambulatory setting. Implementation guidance that defines the 
+               communication (the message structure, data elements, and vocabularies) of laboratory orders between an 
+               EHR System and an LIS, based on accepted industry standards, can:
+               
+               Improve care delivery and clinical outcomes through the tight coupling of order and result 
+               messages; 
+               Reduce implementation efforts and costs; 
+               Reduce on-going support and maintenance-related activities and costs; and 
+               Provide an extensible foundation for use in other settings such as acute care and public health. 
+               
+                -->
+         </p>
+         <a name="assumptions"></a>
+         <h4>Use Case Assumptions</h4>
+         <ul>
+            <li>Providers (.orderer) securely access clinical information through an EHR system. </li>
+            <li>Users have a need to exchange laboratory order data between ambulatory care EHRs and 
+               laboratories. 
+            </li>
+            <li>An EHR system has the ability to manage a laboratory order, including generating the laboratory 
+               requisition and sending it to a laboratory. 
+            </li>
+            <li>Requisitions are defined by laboratory practice and their exact instantiation is determined 
+               by trading partner agreement. 
+            </li>
+            <li>An EHR system is capable of generating an order electronically and is capable of receiving and 
+               processing acknowledgements, results and cancellations. 
+            </li>
+            <li>A LIS is capable of receiving orders and cancellation requests, and generating 
+               acknowledgements and cancelation notifications. 
+            </li>
+            <li>The Laboratory is capable of receiving laboratory orders electronically and in standardized 
+               structured format. 
+            </li>
+            <li>The EHR System and LIS both use data models that include discrete representations of patients, 
+               clinician end-users, laboratory requisitions, laboratory orders (which include tests and panels), 
+               and laboratory test results (minimally at the level of individual analytes). 
+            </li>
+            <li>The  <a href="todo">USLabResult Profile</a>
+            and the USLabOrder Profile will be 
+            synchronized with the goal that a laboratory that receives an order conforming to the USLabOrder Profile should 
+            be capable of responding with a message conforming to the USLabResult Profile. 
+            </li>
+            <li>Appropriate security and transport protocols, patient identification methodology, order 
+               identification methodology, patient consent, privacy and security procedures, coding, 
+               vocabulary, error handling, and normalization standards have been agreed to by all relevant 
+               participants. 
+            </li>
+            <li>Legal and governance issues regarding data access authorizations, data ownership, and data use 
+               are in effect. 
+            </li>
+            <li>Established network and policy infrastructure exists to enable consistent, appropriate, and 
+               accurate information exchange across provider systems, data repositories and locator services. 
+               This includes, but is not limited to: 
+            
+            <ul>
+               <li>Methods to identify and authenticate users; </li>
+               <li>Methods to identify and determine Providers of care; </li>
+               <li>Methods to enforce data access authorization policies; </li>
+               <li>Methods to ensure the veracity of data; </li>
+            </ul></li>
+            <li>Detailed audit trails are kept as necessary by all participating systems. </li>
+            <li>Security and privacy policies, procedures and practices are commonly implemented to support 
+               acceptable levels of patient privacy and security; i.e. HIPAA, HITECH and EHR certification 
+               criteria. 
+            </li>
+         </ul>
+         <a name="preconditions"></a>
+         <h4>Pre-Conditions</h4>
+         <p><b>Note</b>: The pre- and post-conditions may not apply to all scenarios. </p>
+         <ul>
+            <li>The Provider (.orderer) has performed all of the necessary checks for medical necessity, 
+               insurance eligibility and any needed pre-authorizations. 
+            </li>
+            <li>After a Provider (.orderer) enters a laboratory order, the EHR system generates an 
+               electronic laboratory requisition containing pertinent information as well as appropriate 
+               identifiers, such as patient, order, and specimen. 
+            </li>
+            <li>The Laboratory's test compendium has been entered (manually or via automation) into the EHR 
+               system. 
+            </li>
+            <li>Information for the cancellation requests for laboratory orders has been accurately captured 
+               within the EHR System. 
+            </li>
+            <li>All appropriate billing information is available within the EHR system. </li>
+            <li>Specimens are labeled in accordance with established policies and procedures for specimen 
+               submission and can be linked to the order
+               <sup>4</sup>
+            </li>
+         </ul>
+         <p><sup>4</sup>CLSI. Specimen Labels: Content and Location, Fonts, and Label Orientation; Approved Standard. CLSI document AUTO12-A. Wayne, PA: Clinical and 
+            Laboratory Standards Institute; 2011; ISBN 1-56238-748-0; ISSN 0273-3099, Volume 31 Number 7. 
+         </p>
+         <a name="postconditions"></a>
+         <h4>Post-Conditions</h4>
+         <ul>
+            <li>Laboratory orders are successfully transmitted electronically from the Provider's (.orderer) EHR System to the Laboratory's LIS. The Receiving Laboratory electronically 
+               transmits acknowledgement of receipt of the laboratory order. The received order may be placed 
+               into an electronic queue for further processing depending on laboratory workflow (although 
+               order queues are out of scope for this Use Case). 
+            </li>
+            <li>Specimen(s) associated with the laboratory order are collected and, if necessary, transported to 
+               the laboratory. 
+            </li>
+            <li>The laboratory processes the laboratory order and associated specimen(s). This step may include 
+               retrieval and processing of laboratory orders from a queue or list of received orders. Order 
+               queues may be used in the LIS to hold electronic laboratory orders until associated specimens are
+               received and the appropriate patient matching and registration occur (although order queues are 
+               out of scope for this Use Case). After patient matching and registration, the electronic order may 
+               be electronically processed in the LIS. 
+            </li>
+            <li>If the laboratory order and specimen(s) are satisfactory for testing the laboratory will perform, or
+               attempt to perform, the test(s). 
+            </li>
+            <li>The laboratory test result is obtained, entered/released in the LIS, and sent to the Provider's 
+               (.orderer) EHR System. This is covered within the Laboratory Results Interface Use 
+               Case. 
+            </li>
+            <li>Successfully transmit laboratory order cancellation request from the Provider's (.orderer) 
+               EHR system to the Laboratory's LIS. 
+            </li>
+            <li>The Laboratory's LIS has electronically received the laboratory order cancellation request. </li>
+            <li>The Laboratory's cancellation of a requisition (one or more orders) or an individual order has 
+               been electronically received by the Provider's (.orderer) EHR System. Note that 
+               cancellation of part of an order must be done through a DiagnosticResult Resource as defined in the USLabResult Profile. 
+            </li>
+         </ul>
+         <a name="scen1"></a>
+         <h4>Scenario 1 - Electronic Ordering Of New Or Scheduled 
+            Laboratory Test(S) 
+         </h4>
+         <p>Using an EHR System, a Provider (Order Placer) orders one or more new laboratory tests or scheduled 
+            laboratory tests (including future tests) to be performed by a laboratory. 
+         </p>
+         <h5>Functional Requirements</h5>
+         <p>todo</p>
+         <!--EH:  need to rework for REST  acknowledgment codes -->
+         <h5>Sequence Diagram</h5>
+         <p>
+            <b>Figure N-N: Scenario 1 Sequence Diagram</b>
+         </p>
+         <img alt="Electronic Ordering Of New Or Scheduled 
+            Laboratory Test(S) " src="todo"/>
+         <!--EH:  need to rework for REST  acknowledgment codes -->
+         <a name="scen2"></a>
+         <h4> Scenario 2 - Electronic Ordering Of Add-On Laboratory Test(S)</h4>
+         <p>Using an EHR System, a Provider (Order Placer) adds one or more additional tests to a previously 
+            transmitted test requisition. 
+            Note that if there is no need to relate the additional order to the specimen associated with a prior order, 
+            the regular new order must be followed. 
+            At the time the provider requests an order to be added, this may occur when the specimen is already 
+            drawn or still needs to be drawn. The provider may not know which situation is in place. 
+            Therefore, this guide suggests that until there is more clarity on how the provider's ordering system is 
+            updated with specimen collection information, the provider's add-on order request is communicated as a 
+            regular order and may use, if known: 
+         </p>
+         <ul>
+            <li>The .identifier, when using non-unique order numbers, of the original order; and/or </li>
+            <li>The .identifier that was used when the original order was placed; and/or</li>
+            <li>The Specimen.identifier or other specimen data of the specimen the order is intended to be added to.</li>
+         </ul>
+         <p>
+            Using the first two methods make it appear, other than the transaction date/time, as if the order was 
+            placed together and consistent with the original order. 
+            The third method clearly associates the new order with the same specimen that was already collected for 
+            a prior order. Note that depending on the state of the order fulfillment, the Laboratory may not be able to 
+            perform the requested test against the intended specimen as it may be too late for a number of reasons 
+            (e.g., insufficient specimen, specimen too old). 
+         </p>
+         <a name="scen3"></a>
+         <h4> Scenario 3 - Requesting The Cancellation Of A Previously Placed 
+            Laboratory Order 
+         </h4>
+         <p>The Provider (.orderer) determines that one or more orders from a previously transmitted 
+            electronic laboratory requisition needs to be cancelled and requests via the EHR that the Laboratory 
+            cancel the performance of the laboratory order(s). 
+            Since the Provider does not know how far the Laboratory has progressed with the performance of the 
+            test, or may not even have received the specimen, the Provider must use the USLabOrder DiagnosticOrder Cancel 
+            Profile. 
+            The Laboratory determines whether the test can be cancelled, or whether the order has progressed too 
+            far to cancel.  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.
+            Once the Provider receives any preliminary or final results, the test cannot be cancelled anymore and the 
+            Provider shall not use the USLabOrder DiagnosticOrder Cancel 
+            Profile.  anymore. 
+         </p>
+         <!-- EH  need to discuss this once wrok out the cancel profile -->
+         <a name="fnreq"></a>
+         <h5>Functional Requirements</h5>
+         <p>todo</p>
+         <!--EH:  need to rework for REST  acknowledgment codes -->
+         <h5>Sequence Diagram</h5>
+         <p>
+            <b>Figure N-N: Scenario 3 Sequence Diagram</b>
+         </p>
+         <img alt="Requesting The Cancellation Of A Previously Placed 
+            Laboratory Order" src="todo"/>
+         <!--EH:  need to rework for REST  acknowledgment codes -->
+         <a name="scen4"></a>
+         <h4>Scenario 4 - Laboratory Cancellation Of A Previously Placed 
+            Laboratory Order 
+         </h4>
+         <p>
+            The Laboratory may cancel laboratory orders and send a cancellation notification 
+            message to the Provider (Order Placer) because it is unable to perform the laboratory order, independent 
+            of the Provider requesting cancellation. This applies to an original/initial order or an add-on order. 
+            Laboratories can cancel a test request received by the LIS (or queue for this purpose) any time before the 
+            test report (preliminary or final) is transmitted to the provider(s).  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.   See that Implmentation Guide for details.  <!-- EH  need to discuss this once wrok out the cancel profile -->
+         </p>
+         <a name="keytechdecisions"></a>
+         <h2>Key Technical Decisions</h2>
+         <!-- EH not needed : One of the primary features of this implementation guide is its focus on key points of broad 
+            interoperability. The HL7 implementation guides in Sections 1.2.1  
+            Relevant Laboratory Implementation Guides and 1.2.2 Requisite Knowledge informed the content of 
+            this specification as analysis indicated that none of the candidate guides could satisfy the use case 
+            requirements without some adjustment. This guide is the result of combining the best practices from th
+            current body of work while making further adjustment to meet the needs of ambulatory ordering and 
+            preparing for increased consistency of laboratory orders across care settings. -->
+         <a name="profile"></a>  
+         <h3>Profile And Component Architecture </h3>
+         <!-- also in uslaborder.html-->
+         <p>This guide uses FHIR profiles on the following resource to define a minimum set of requirements to enable the 
+            successful exchange of laboratory orders:</p>
+         <ul>
+            <li>DiagnosticOrder</li>
+            <li>DiagnosticReport</li>
+            <li>Organization</li>
+            <li>Media</li>
+            <li>Organization</li>
+            <li>Patient</li>
+            <li>Practitioner</li>
+            <li>Specimen</li>
+         </ul>
+         <p>
+         The main objective is to ensure that EHR systems and 
+         Laboratory systems can exchange laboratory orders with minimum if any modifications from one 
+         combination to another combination of software, while maintaining flexibility to enable software 
+         developers to provide more capabilities using the same core Resource definitions.</p>
+         <!--EH not needed: 2.7.2  USE OF ISO OBJECT IDENTIFIER (OID) 
+            OIDs, or Object Identifiers, provide a strong identifier that uniquely identifies the object in question and 
+            is global in scope. Examples of information that OIDs can identify are items about patients, orders, 
+            providers and organizations. This means the identifier includes enough information to remain unique 
+            when taken out of the context within which the identifier was created. The ISO OID specification 
+            (ISO/IEC 8824:1990(E)) is the globally accepted technology for this purpose and is recommended as the 
+            means to satisfy the requirement for a universally unique identifier. 
+            This guide defines a Globally Unique Component (LOI_GU_Component) (see Section 2.9.1.2) that 
+            prescribes the use of an ISO Object Identifier (OID) for a specific set of fields. 
+            The GU/NG profile definition discusses use of OIDs for identifiers' assigning authority only. Other 
+            identifiers could use OIDs as well for the assigning authority. Note that OIDs are not intended to be used 
+            to identify a coding system as referenced in CWE-03/CWE-06 and further enumerated in . -->
+         <a name="vocabstandards"></a>
+         <h3>Use Of Vocabulary Standards</h3>
+         <p>This guide calls for specific vocabulary standards for the exchange of laboratory information such as 
+            LOINC and SNOMED. Standard vocabularies, particularly coded laboratory tests and their results, 
+            enable automated decision support for patient healthcare, as well as for public health surveillance of 
+            populations. Value Sets resource are provided as part of this implementation.
+         </p>
+         <!--EH not needed:2.7.4  FIELD LENGTH AND TRUNCATION 
+            This guide is silent as to the field length definition conventions, lengths, and truncation rules and directs 
+            the reader to HL7 Version 2.7.1, Chapter 2 Control for informative guidance.  -->
+         <a name="implementationscope"></a>
+         <h3>Scope Of Implementation</h3>
+         <!--EH not needed: The base standard indicates that receiving applications "…shall process (save/print/archive/etc.)…". For
+            order-specific segments, e.g., ORC, OBR, SPM, this typically means saving that data. For other 
+            segments, e.g., MSH, the receiving application may not always have to save the data as the segment is 
+            focused on ensuring the order-specific data arrives in the appropriate place and therefore may have 
+            shorter-term value. -->
+         <p>Due to receiving system variations and need, this guide does not specifically indicate for each field 
+            whether to store it or not. This is left to the individual system's scope and purpose.
+         </p>
+         <a name="aoe"></a>
+         <h3>Ask At Order Entry (AOE) Observations </h3>
+         <p>Ask at Order Entry (AOE) responses are recorded as observations that provide critical information for 
+            the calculation or interpretation of some lab results or to satisfy state and federal health agency 
+            mandated information gathering requirements, e.g., for blood lead testing. Not every order will have the 
+            need for AOE questions and associated observations. The lab will indicate if and which AOEs to include 
+            with the order in their test compendium. 
+            Examples of the type of information gathered from a patient include employment information, 
+            pregnancy status, the date of the last menstrual period, mother's age, and questions about family and 
+            personal history. In some cases there may be AOEs that request the outcome of previous results phrased 
+            as a question, e.g., "Was your previous pap abnormal?" 
+            AOE responses can take several formats, including but not limited to</p> 
+         <ul>
+            <li>Yes/No (and coded) to answer questions like "Is this your first pregnancy?" </li>
+            <li>A code drawn from a value set to provide a coded response to, e.g., "What ethnicity do you 
+               consider yourself to be?" 
+            </li>
+            <li>A number with units for the mother's age </li>
+            <li>A date format for the patient's last menstrual period.</li>
+         </ul>
+         <p> .supportinginformation element with type Reference(Observation) must be used in the DiagnosticOrder Resource to convey these Ask at Order Entry questions.</p>
+         <p>Although not strictly asked at order entry, other supporting clinical information about the patient 
+            collected during specimen collection, e.g., fasting status of the patient, are considered AOE observations 
+            for purposes of this guide and must be communicated using the  .supportinginformation element with type Reference(Observation) as well. 
+         </p>
+         <p>LOINC shall be used as the standard coding system for AOE questions if an appropriate and valid 
+            LOINC code exists. The LOINC and local code describing the question will be placed in Observation.name element.  Appropriate and valid status is defined in the LOINC Manual Section 11.2 Classification of LOINC Term Status. If a local coding system is in use, both the LOINC and the local 
+            code should also be sent to help with identification of coding issues. When no valid LOINC exists, the local code may be the only code sent. 
+         </p>
+         <a name="specialcondsideration"></a>
+         <h4>Special Considerations</h4>
+         <p>
+            Note that various Ask at Order Entry questions may appear to have specific elements in FHIR Resources.
+            When a clinically relevant value is asked through an Ask at Order Entry question it 
+            must be conveyed through the OBX segments as described above as these values are used for 
+            clinical interpretations rather than through a seemingly similar FHIR element.
+            The following provide specific examples and guidance whether to use a FHIR element or the supportinginformation element with type Reference(Observation).
+            This is list is not meant to be exhaustive: </p>
+         <ul>
+            <li>Date of Birth - Always use Patient.birthDate and should never be asked as an AOE as 
+               there is only one at any point in time. 
+            </li>
+            <li>The extension us-core-race(http://hl7.org/fhir/ExtensionDefinition/us-core-race) is provided for demographic (administrative/billing), not clinical use and is bound to define five race categories as  prescribed by federal standards. The 
+               lab must provide an AOE for those tests where Race drives the interpretation of results. The 
+               value must be determined by the Ordering Provider and must be sent as the .supportinginformation element with type Reference(Observation). Note that state and/or national regulations may dictate other behaviors.
+            </li>
+            <li>The extension us-core-ethnicity(http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supportinginformation element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
+         </ul>
+         <p> More specific race and ethnicity values are available, but not limited to, 
+         those found   <a href="http://hl7-fhir.github.io/v3/Race/index.html">v3 Code System Race</a> and  <a href="http://hl7-fhir.github.io/v3/Ethnicity/index.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
+         </p>
+         <!--EH not needed: 2.7.6.2  EXAMPLES 
+            Example AOE using OBX for blood lead test in adults; the highlighted 1 and 2 indicate how to use 
+            OBX-4 (Observation Sub-ID) to link the Name to an Address when more than one employer is 
+            communicated.   ( will provide examples elsewhere )-->
+         <a name="priorresults"></a>
+         <h3>Communication Of Other Clinical Information Or Prior Results </h3>
+         <p>
+            Should the need arise to send results not obtained at the time of order entry or specimen collection 
+            and/or those requiring full results report structure such as culture/sensitivity reports.  Use the USlabOrder DiagnosticReport priorResults extension.
+            <!-- todo --> 
+         </p>
+         <!--EH not needed: 2.7.8  ACKNOWLEDGEMENTS 
+            This guide requires support for Acknowledgement messages in general and the application level ACK in 
+            particular in order to guarantee delivery to intended recipient. The diagram in Figure 2-6. 
+            Acknowledgement Flow Diagram summarizes the flow of Acknowledgements from the results sender 
+            (LIS) to the results receiver (EHR-S) and back. Blue arrows represent the order/cancel message flow. 
+            Yellow arrows represent the System Level Acknowledgement for the result message flowing through the 
+            different gateways. Red arrows represent the Application Level Acknowledgement for the order/cancel 
+            message. The numbers for O = Order indicate the step in the respective flow. For example the step 
+            marked O2a/b indicates that for the flow of the Order/Cancel message - the blue arrow labeled OML 
+            and its related System Level ACK, the yellow arrow between Gateway 2 and Gateway 1 this would be 
+            step 2.  
+              (REST takes care of this )-->
+         <a name="errorhandling"></a>
+         <h2>Error Handling</h2>
+         <p>TODO</p>
+         <!--EH needed?  these are covered by functional requirments  ? 2.7.9  ERROR HANDLING -->
+         <!-- EH  Not needed: 2.8  Referenced Profiles - Antecedents-->
+         <!--- EH  Not needed: 2.9  Conformance to this Guide  (covered in the actual profiles -->
+         <!--- EH  Not needed: 3  DATA TYPES  ( covered in spec and defined extensions-->
+         <!--  EH  Not needed: 4  MESSAGES-->
+         <!-- EH  Defined in specification- new document for this section: 5  CODE SYSTEMS AND VALUE SETS -->
+         <!-- EH  Examples will be given in spec  APPENDIX A.   LABORATORY ORDER MESSAGE DEVELOPMENT RESOURCES  -->
+         <a name="addlguidance"></a>
+         <!-- EH   APPENDIX B.   ADDITIONAL IMPLEMENTATION GUIDANCE - OTHER -->
+         <h2>Additional Implementation Guidance - Other</h2>
+         <h3>Clinical Laboratory Improvement Amendments Considerations </h3>
+         <p>In the United States, clinical laboratory testing of human specimens is regulated by the Clinical 
+            Laboratory Improvements Amendments of 1988 (CLIA). Several sections of the regulations 
+            implementing CLIA impact how electronic laboratory data is formatted for the US Realm and these are 
+            outlined in this section. Impacted areas include mandatory test request requirements. 
+            <a href="http://wwwn.cdc.gov/clia/regs/toc.aspx">CLIA Regulation Specifics</a>. 
+         </p>
+         <h3>Mandatory Ordering Requirements</h3>
+         <p><a href="http://wwwn.cdc.gov/clia/regs/subpart_k.aspx493.1241">Section 493.1241 of the CLIA Regulations</a> requires the laboratory to have a written or electronic request 
+            for patient testing from an authorized person, and defines items that must appear as part of a clinical 
+            laboratory test request . The laboratory may 
+            accept oral requests for laboratory tests if it solicits a written or electronic authorization within 30 days 
+            of the oral request and maintains the authorization or documentation of its efforts to obtain the 
+            authorization. 
+         </p>
+         <p><a href="http://www.cms.hhs.gov/CLIA/downloads/apcsubk2.pdf">Interpretative guidelines on the elements required in a test requisition </a>. Specific fields impacted include the following:</p>
+         <table>
+            <tr>
+               <th>FHIR element</th>
+               <th>CLIA Requirement.</th>
+            </tr>
+            <tr>
+               <td>Patient.name</td>
+               <td>The patient's name or unique patient identifier.</td>
+            </tr>
+            <tr>
+               <td>Patient.gender</td>
+               <td>The sex and age or date of birth of the patient.</td>
+            </tr>
+            <tr>
+               <td>DiagnosticOrder.orderer</td>
+               <td>The name and address or other suitable identifiers of the authorized person requesting the test.</td>
+            </tr>
+            <tr>
+               <td>DiagnosticOrder.orderer</td>
+               <td>The individual responsible for using the test results.</td>
+            </tr>
+            <tr>
+               <td>Practitioner.organization</td>
+               <td>The name and address of the laboratory submitting the specimen.</td>
+            </tr>
+            <tr>
+               <td>Practitioner.telecom|Organization.telecom</td>
+               <td>Contact person to enable the reporting of imminently life threatening laboratory results or panic or alert values.</td>
+            </tr>
+            <tr>
+               <td>DiagnosticOrder.name</td>
+               <td>The test(s) to be performed.</td>
+            </tr>
+            <tr>
+               <td>DiagnosticOrder.supportingInformation</td>
+               <td>For Pap smears, the patient's last menstrual period, and indication of whether the patient had a previous abnormal report, treatment or biopsy.</td>
+            </tr>
+            <tr>
+               <td>Specimen.type</td>
+               <td>The source (type) of the specimen, when appropriate.</td>
+            </tr>
+            <tr>
+               <td>Specimen.collection.collected[x]</td>
+               <td>The date and, if appropriate, time of specimen collection.</td>
+            </tr>
+            <tr>
+               <td>DiagnosticOrder.supportingInformation</td>
+               <td>Any additional information relevant and necessary for a specific test to ensure accurate and timely testing and reporting of results, including interpretation, if applicable.</td>
+            </tr>
+         </table>
+         <a name="glossary"></a>
+         <h3>Glossary</h3>
+         <ul>
+            <li><b>Analyte:  </b>Component represented in the name of a measurable quantity. It is the most granular level at which 
+               measurements are made and always represented using a single Observation segment group 
+            </li>
+            <li><b>Cancellation:  </b>Act of cancelling the order. </li>
+            <li><b>Electronic Health Record:  </b>Clinical information for a specific patient that is stored electronically within an EHR-S. 
+               Electronic Health Record 
+               System (EHR-S) 
+               This IG uses this term in the same context as stated in the "HL7 EHR System Functional Model White 
+               Paper" Section 4 Definitions (HL7 2004 www.hl7.org): 
+               "It is important to note that the DSTU does not attempt to establish another definition for EHR Systems, 
+               but chooses to utilize existing definitions that include the concept of EHR Systems as a system (at least 
+               one) or a system-of- systems that cooperatively meet the needs of the end user." 
+            </li>
+            <li><b>Future Order:  </b>A future order is an order with a start date/time where that start date/time indicates the earliest time the 
+               specimen can be collected. 
+            </li>
+            <li><b>Laboratory:  </b>A facility or organization that performs laboratory testing on specimens for the purpose of providing 
+               information for the diagnosis, prevention, treatment of disease or impairment, or assessment of health for 
+               humans. 
+               Laboratory Information 
+               System (LIS) 
+               An information system that receives, processes, and stores information related to laboratory processes. 
+               LIS may interface with HIS and EHR applications. 
+               This definition is very minimal and omits many features and capabilities that are typically associated with 
+               laboratory information systems. This minimal characterization is intentional, as to include the broadest 
+               possible set of LIS systems in the use case. The minimal nature of the definition by no means excludes 
+               LIS with significantly greater capabilities. 
+            </li>
+            <!-- EH - do we need this here? <li><b>Laboratory Message:  </b>An electronic communication between a Laboratory Order System and a Laboratory Information System 
+               related to laboratory testing. Laboratory messages may be used to request that one or more tests be 
+               performed, to change previous requests for testing, to report the cancellation of requested tests, or to 
+               report the results of requested tests. 
+            </li> -->
+            <li><b>Laboratory Order:  </b>a DiagnosticOrder Resource item requesting  one or more measurements (Observation Resources). Synonymous with a Requisition when referring to a single DiagnosticOrder Resource item. </li>
+            <li><b>Laboratory Order System:  </b>Software, either stand-alone or as part of an EHR system, used by a Provider (Order Placer) to 			manage a  laboratory order, including generating the laboratory requisition and sending it to a laboratory. 
+               Typically a laboratory order system is an integral part of an order management system that enables users 
+               to manage orders for many different types of services, procedures, supplies, etc. Since this guide only 
+               focuses on data exchange relative to laboratory orders it is purposely using a very limited definition. 
+            </li>
+            <li><b>Laboratory Requisition:  </b>A set of information that constitutes an official request for one or more laboratory tests to be performed on 
+               an individual patient. A laboratory requisition is specified in a clinical setting and communicated to a 
+               laboratory as a discrete paper or electronic artifact. Laboratory requisitions always include at least one 
+               test order. In terms of a FHIR order transaction it represents one or more DiagnosticOrders Resource item(s). 
+            </li>
+            <li><b>Newborn:  </b>The precise cutoff when a patient is considered a newborn or an infant is subject to interpretation and this 
+               guide does not intend to provide a definitive answer to that. For further background the reader is directed 
+               to the following resources: 
+            
+            <ul>
+               <li>Mosby's Medical Dictionary, 8th edition. &copy; 2009, Elsevier </li>
+               <li>World Health Organization - provides standardization for perinatal definitions </li>
+               <li>Management of Hyperbilirubinemia in the Newborn Infant 35 or More Weeks of Gestation </li>
+               <li> <a href="http:/pediatrics.aappublications.org/content/114/1/297.full.html ">http:/pediatrics.aappublications.org/content/114/1/297.full.html</a></li>
+            </ul>
+            </li>
+             <li><b>Orderable Test:  </b>A request to perform an individual test or panel. It always refers to a single  DiagnosticOrder Resource item. and 		may have one or more associated analytes (bservations). 
+            </li>
+            <li><b>Panel:  </b>While there are differences in the meanings of the terms "panel" among various laboratories, for the 
+               purposes of this guide, it is defined as a grouping of procedures that measure multiple analytes from a 
+               single specimen (or multiple specimens in some cases) and can be requested through one laboratory 
+               order. This is also referred to as a battery. For example, a CBC or a urinalysis may be referred to as a 
+               panel. 
+            </li>
+            <li><b>Order Set:  </b>A set of laboratory orders that involve multiple tests and panels and that may require multiple specimens, 
+               but can be requested as a single unit for convenience. For example, a "diabetic order set profile" might 
+               include a CBC, a glycosylated hemoglobin test, and a urinalysis. The term "panel" is frequently used 
+               interchangeably with "order set", thus an order set profile that contains a variety of laboratory test orders 
+               that may be on its own or be combined with other test orders (e.g., radiology image, consult, etc.) can be 
+               considered an order set. Order sets shall not be communicated to the laboratory. 
+               Request for Cancellation 
+               (RFC) 
+               Request by the Provider (Order Placer) not to perform the order. 
+            </li>
+            <li><b>Test:  </b>A medical procedure or named set of related procedures that involves analyzing one analyte using a 
+               single sample of blood, urine, or other specimen from a patient for the purpose of diagnosing a disease or 
+               medical condition, planning or evaluating treatment, or monitoring the course of a disease.
+            </li>
+         </ul>
+      </div>
+      [%file newfooter%]
+   </body>
+</html>
