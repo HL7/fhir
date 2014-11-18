@@ -36,6 +36,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XhtmlGeneratorAdorner;
@@ -98,7 +99,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
       throw new Exception("Type unknown: "+parts[0]);
     if (parts[1].startsWith("@"))
       throw new Exception("Invalid syntax: "+parts[1]);
-    if (parts[1].length() < 1 || parts[1].length() > 36)
+    if (parts[1].length() < 1 || parts[1].length() > IdType.MAX_LENGTH)
       throw new Exception("Invalid syntax: "+parts[1]);
     if (!parts[1].matches(FormatUtilities.ID_REGEX))
       return null;
@@ -107,7 +108,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         return null;
       if (parts.length != 4 || parts[3].startsWith("@")) 
         throw new Exception("Invalid syntax: "+parts[3]);
-      if (parts[3].length() < 1 || parts[3].length() > 36)
+      if (parts[3].length() < 1 || parts[3].length() > IdType.MAX_LENGTH)
         throw new Exception("Invalid syntax: "+parts[3]);
       if (!parts[3].matches(FormatUtilities.ID_REGEX))
         throw new Exception("Invalid syntax: "+parts[3]);

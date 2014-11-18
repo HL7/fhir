@@ -34,6 +34,8 @@ package org.hl7.fhir.instance.model;
 public class IdType extends PrimitiveType {
 
   private static final long serialVersionUID = 8363122970864385593L;
+
+  public static final int MAX_LENGTH = 64;
   
 	/**
 	 * The value of the id

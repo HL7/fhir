@@ -289,7 +289,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
         ValueSet vs = page.getValueSets().get(cd.getReference());
         String pp = (String) vs.getTag("path");
-        return cd.getBindingStrength().toString()+": <a href=\""+pp.replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
+        return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+cd.getBindingStrength().toString()+")";
+      } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs")) {
+          ValueSet vs = page.getValueSets().get(cd.getReference());
+          String pp = (String) vs.getTag("path");
+          return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+cd.getBindingStrength().toString()+")";
       } else if (cd.getReferredValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
           return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
