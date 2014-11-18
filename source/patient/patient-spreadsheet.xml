@@ -4783,14 +4783,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">everything.scope</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">manually specify Oauth scopes - for testing purposes</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">This parameter is defined to allow testing of the effect of possible OAuth scopes on insecure systems. This parameter should be removed prior to operational use, but operational systems should use OAUth to authorise uses of this operation, and SHALL not allow this parameter to override the OAuth scopes</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5339,7 +5339,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
