@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+  <id value="daf-queryresponder"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>DAF Query Responder</h2>
+      <p>(Requirements Definition)</p>
+      <p>Published: 2014-11-19 (draft)</p>
+      <p>Published by: <b>
+          <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">U.S. Office of the National Coordinator (ONC)</a>
+        </b>
+      </p>
+      <p>This profile defines the expected capabilities of the <i>DAF Query Responder</i> actor when conforming to the ONC's <a href="daf.html">Data Access Framework FHIR implementation guide</a>.  This role is responsible for responding to query requests from DAF Query Requestor actor. The DAF Query Responder MUST process the query requests and provide valid or error responses which contain one or more FHIR resources conforming to profiles outlined in <a href="daf.html">DAF implementation guide.</a></p>
+      <h2>General</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>FHIR Version:</th>
+            <td>0.8</td>
+          </tr>
+          <tr>
+            <th>Supported formats:</th>
+            <td>xml, json</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>REST  behavior</h2>
+      <p>The DAF Query Responder MUST support all the resource profiles outlined by the <a href="daf.html">DAF implementation guide.</a> The DAF Query Responder MUST respond to DAF queries from DAF Query Requestor actor. In addition the DAF Query Responder MUST implement all the vocabularies and value set constraints defined by the individual resource profiles. The DAF Query Responder MUST implement REST behavior according to the <a href="http://hl7.org/implement/standards/fhir/http.html">FHIR specification</a> and provide valid or error responses to query requests.</p>
+      <p>
+        <b>Security:</b>
+      </p>
+      <p>Implementations must meet the security requirements documented in the <a href="daf-security.html">DAF implementation guide</a>.</p>
+      <h3>RESTful Operations Summary</h3>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Resource Name</th>
+            <th>Search</th>
+            <th>Read</th>
+            <th>Read Version</th>
+            <th>Instance History</th>
+            <th>Resource History</th>
+            <th>Validate</th>
+            <th>Create</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Patient</th>
+            <td>
+              <a title="Allows discovery of Patient resources based on different search criteria" href="#Patient-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific Patients by id" href="#Patient-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a Patient" href="#Patient-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to Patient over time" href="#Patient-history-instance">SHOULD</a>
+            </td>
+            <td/>
+            <td>
+              <a title="Allows verification that data is valid prior to submission - useful for some workflows." href="#Patient-validate">MAY</a>
+            </td>
+            <td>
+              <a title="Allows submission of a new Patient resource instance" href="#Patient-create">MAY</a>
+            </td>
+            <td>
+              <a title="Allows revision of an existing Patient resource instance." href="#Patient-update">MAY</a>
+            </td>
+            <td>
+              <a title="Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner." href="#Patient-delete">MAY</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <br/>
+      <h3>
+        <a href="patient.html">Patient</a>
+      </h3>
+      <h4>Interactions</h4>
+      <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Conformance</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <a name="Patient-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>SHALL</td>
+            <td>
+              <p>Allows discovery of existing Patient resources using different search criteria</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-read"> </a>
+              <span>read</span>
+            </th>
+            <td>SHALL</td>
+            <td>
+              <p>Allows retrieval of a specific Patients by id</p>
+            </td>
+          </tr>
+		  <tr>
+            <th>
+              <a name="Patient-history-instance"> </a>
+              <span>history-instance</span>
+            </th>
+            <td>SHOULD</td>
+            <td>
+              <p>Allows review of changes to Patient instance over time</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-vread"> </a>
+              <span>vread</span>
+            </th>
+            <td>SHOULD</td>
+            <td>
+              <p>Allows retrieval of a historical version of a Patient</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-create"> </a>
+              <span>create</span>
+            </th>
+            <td>MAY</td>
+            <td>
+              <p>Allows submission of a new Patient resource instance</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-update"> </a>
+              <span>update</span>
+            </th>
+            <td>MAY</td>
+            <td>
+              <p>Allows revision of an existing Patient resource instance.</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-delete"> </a>
+              <span>delete</span>
+            </th>
+            <td>MAY</td>
+            <td>
+              <p>Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="Patient-validate"> </a>
+              <span>validate</span>
+            </th>
+            <td>MAY</td>
+            <td>
+              <p>Allows verification that Patient instance data is valid prior to submission - useful for some workflows.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <br/>
+    </div>
+  </text>
+  <name value="DAF Query Responder"/>
+  <publisher value="U.S. Office of the National Coordinator (ONC)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
+  </telecom>
+  <description value="This profile defines the expected capabilities of the ''DAF Query Responder'' actor when conforming to the ONC's [[daf|Data Access Framework FHIR implementation guide]].  This actor responds to queries from the ''DAF Query Requestor'' actor. The responses contains one or more FHIR resources conforming to profiles outlined in DAF implementation guide."/>
+  <status value="draft"/>
+  <date value="2014-11-19"/>
+  <fhirVersion value="0.8"/>
+  <acceptUnknown value="false"/>
+  <format value="xml"/>
+  <format value="json"/>
+  <rest>
+    <mode value="server"/>
+    <documentation value="The DAF Query Responder MUST support all the resource profiles outlined by the DAF implementation guide. The DAF Query Responder MUST respond to DAF queries from DAF Query Requestor actor. In addition the DAF Query Responder MUST implement all the vocabularies and value set constraints defined by the individual resource profiles used by DAF. The DAF Query Responder MUST implement REST behavior according to the FHIR specification."/>
+    <security>
+      <description value="Implementations must meet the security requirements documented in the [[daf-security|DAF implementation guide]]."/>
+    </security>
+    <resource>
+      <type value="Patient"/>
+      <profile>
+        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing Patient resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific Patients by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to Patient instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a Patient instance"/>
+      </interaction>
+	  <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="create"/>
+        <documentation value="Allows submission of a new Patient resource instance"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="update"/>
+        <documentation value="Allows revision of an existing Patient resource instance."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="validate"/>
+        <documentation value="Allows verification that data is valid prior to submission - useful for some workflows."/>
+      </interaction>
+    </resource>
+  </rest>
+</Conformance>
