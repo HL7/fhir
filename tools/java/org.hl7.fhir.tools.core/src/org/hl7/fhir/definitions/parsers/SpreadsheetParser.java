@@ -887,7 +887,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants) throws Exception {
+  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
 		if (path.startsWith("!"))
@@ -929,10 +929,12 @@ public class SpreadsheetParser {
 		}
 		String c = sheet.getColumn(row, "Card.");
 		if (c == null || c.equals("")) {
-			if (!isRoot)
+			if (!isRoot && !profile)
 				throw new Exception("Missing cardinality");
-			e.setMinCardinality(1);
-			e.setMaxCardinality(1);
+			if (isRoot) {
+			  e.setMinCardinality(1);
+			  e.setMaxCardinality(1);
+			}
 		} else {
 			String[] card = c.split("\\.\\.");
 			if (card.length != 2 || !Utilities.IsInteger(card[0]) || (!"*".equals(card[1]) && !Utilities.IsInteger(card[1])))
