@@ -19,55 +19,94 @@ namespace Hl7.Fhir.Model
     //TODO: Add functionality to make relative references absolute and vice versa using fhir-base url
     public static class BundleExtensions
     {
-        public static IEnumerable<Resource> FindItemByReference(this Bundle bundle, Uri reference)
-        {
-            var id = reference;
-
-            if (!id.IsAbsoluteUri)
-            {
-                if (bundle.Base == null)
-                    throw Error.Argument("reference", "Reference is a relative uri, so it needs a fhir-base link to be able to find entries by id or selflink");
-
-                id = new Uri(new Uri(bundle.Base), id);
-            }
-
-            if (bundle.Item == null) return Enumerable.Empty<Resource>();
-
-            var byId = bundle.Item.ById(id);
-            var bySelf = bundle.Item.BySelfLink(id);
-
-            if(bySelf != null)
-                return byId.Concat(new List<Resource> { bySelf });
-            else
-                return byId;
-        }
-
         /// <summary>
-        /// Filter all BundleEntries with the given id.
+        /// Find all BundleEntries with the given id.
         /// </summary>
-        /// <param name="id">Id of the Resource, as given in the BundleEntry's id</param>
-        /// <param name="entries">List of bundle entries to filter on</param>
+        /// <param name="bundle">Bundle to search in</param>
+        /// <param name="type">Type of resource to search for</param>
+        /// <param name="id">The (deleted) resource's id to find</param>
+        /// <param name="includeDeleted">Indicates whether the search should include deleted entries in the list</param>
         /// <returns>A list of BundleEntries with the given id, or an empty list if none were found.</returns>
-        public static IEnumerable<Resource> ById(this IEnumerable<Resource> entries, Uri id)
+        public static IEnumerable<Bundle.BundleEntryComponent> FindEntryById(this Bundle bundle, string type, string id, bool includeDeleted = false)
         {
-            if (!id.IsAbsoluteUri) throw Error.Argument("id", "Id must be an absolute uri");
+            if (id == null) throw Error.ArgumentNull("id");
+            if (type == null) throw Error.ArgumentNull("resource");
 
-            return entries.Where(be => Uri.Equals(be.Id, id));
+            if (bundle.Entry == null) return Enumerable.Empty<Bundle.BundleEntryComponent>();
+
+            return bundle.Entry.Where(be => (includeDeleted && be.Deleted != null && be.Deleted.Id == id && be.Deleted.Type == type) || 
+                (be.Resource != null && be.Resource.Meta != null && be.Resource.Meta.Id == id && be.Resource.ResourceName == type));
         }
 
 
         /// <summary>
-        /// Filter all ResourceEntries with the given id.
+        /// Find all Resources in a Bundle with the given id.
         /// </summary>
-        /// <typeparam name="T">Type of Resource to filter</typeparam>
-        /// <param name="res">List of resources to filter on</param>
-        /// <param name="id">Id of the Resource, as given in the ResourceEntry's id</param>
-        /// <returns>A list of typed ResourceEntries with the given id, or an empty list if none were found.</returns>
-        public static IEnumerable<T> ById<T>(this IEnumerable<Resource> res, Uri id) where T : Resource, new()
+        /// <param name="bundle">Bundle to search in</param>
+        /// <param name="type">Type of resource to search for</param>
+        /// <param name="id">The resource's id to find</param>
+        /// <returns>A list of Resources with the given id, or an empty list if none were found.</returns>
+        public static IEnumerable<Resource> FindResourceById(this Bundle bundle, string type, string id)
         {
-            if (!id.IsAbsoluteUri) throw Error.Argument("id", "Id must be an absolute uri");
+            if (id == null) throw Error.ArgumentNull("id");
+            if (bundle.Entry == null) return Enumerable.Empty<Resource>();
 
-            return res.Where(re => Uri.Equals(re.Id, id) && re is T).Cast<T>();
+            return FindEntryById(bundle, type, id).Where(be => be.Resource != null).Select(be => be.Resource);
+        }
+
+        /// <summary>
+        /// Find all Resources in a Bundle with the given id.
+        /// </summary>
+        /// <param name="bundle">Bundle to search in</param>
+        /// <param name="id">The resource's id to find</param>
+        /// <returns>A list of Resources with the given id, or an empty list if none were found.</returns>
+        public static IEnumerable<T> FindResourceById<T>(this Bundle bundle, string id) where T:Resource
+        {
+            if (id == null) throw Error.ArgumentNull("id");
+            if (bundle.Entry == null) return Enumerable.Empty<T>();
+
+            return FindResourceById(bundle, Resource.GetResourceTypeName(typeof(T)), id).Cast<T>();
+        }
+
+
+        internal static string BuildUrlForEntry(this Bundle.BundleEntryComponent entry, string baseUrl = null)
+        {
+            var url = entry.Base ?? baseUrl;
+
+            if (url != null && !url.EndsWith("/")) url += "/";
+
+            if (entry.Deleted != null)
+            {
+                return url + entry.Deleted.Type + "/" + entry.Deleted.Id;
+            }
+            else
+            {
+                return url + entry.Resource.ResourceName + "/" + entry.Resource.Id;
+            }
+        }
+
+
+        private static bool matchesUrl(this Uri endpoint, Uri path)
+        {
+            if (endpoint.IsAbsoluteUri && path.IsAbsoluteUri) return endpoint == path;
+            if (endpoint.IsAbsoluteUri && !path.IsAbsoluteUri) return endpoint.IsBaseOf(path);
+            
+            return endpoint.ToString() == path.ToString();
+        }
+
+        /// <summary>
+        /// Find all Resources in a Bundle with the given url.
+        /// </summary>
+        /// <param name="bundle">Bundle to search in</param>
+        /// <param name="id">The resource's id to find</param>
+        /// <returns>A list of Resources with the given id, or an empty list if none were found.</returns>
+        public static IEnumerable<Bundle.BundleEntryComponent> FindEntryByUrl(this Bundle bundle, Uri reference, bool includeDeleted = false)
+        {
+            if (reference == null) throw Error.ArgumentNull("reference");
+            if (bundle.Entry == null) return Enumerable.Empty<Bundle.BundleEntryComponent>();
+
+            var url = reference.ToString();
+            return bundle.Entry.Where(be => matchesUrl(reference, new Uri(be.BuildUrlForEntry(),UriKind.RelativeOrAbsolute)));
         }
 
 
@@ -77,27 +116,10 @@ namespace Hl7.Fhir.Model
         /// <param name="entries">List of bundle entries to filter on</param>
         /// <param name="self">Sel-link id of the Resource, as given in the BundleEntry's link with rel='self'.</param>
         /// <returns>A list of BundleEntries with the given self-link id, or an empty list if none were found.</returns>
-        public static Resource BySelfLink(this IEnumerable<Resource> entries, Uri self)
+        public static Resource FindEntryByVersionUrl(this Bundle bundle, Uri version)
         {
-            if (!self.IsAbsoluteUri) throw Error.Argument("self", "Must be an absolute uri");
-
-            return entries.FirstOrDefault(be => be.Meta != null && Uri.Equals(be.Meta.VersionId, self));
-        }
-
-
-        /// <summary>
-        /// Find the ResourceEntry with a given self-link id.
-        /// </summary>
-        /// <typeparam name="T">Type of Resource to find</typeparam>
-        /// <param name="res">List of resources to filter on</param>
-        /// <param name="self">Sel-link id of the Resource, as given in the BundleEntry's link with rel='self'.</param>
-        /// <returns>A list of ResourceEntries with the given self-link id. Returns
-        /// the empty list if none were found.</returns>
-        public static T BySelfLink<T>(this IEnumerable<Resource> res, Uri self) where T : Resource, new()
-        {
-            if (!self.IsAbsoluteUri) throw Error.Argument("id", "Must be an absolute uri");
-
-            return res.FirstOrDefault(re => re.Meta != null && Uri.Equals(re.Meta.VersionId, self)) as T ;
+            throw new NotImplementedException();
+            // Cannot do this, unless we add a versionId to the Entry.Deleted element.
         }
 
 

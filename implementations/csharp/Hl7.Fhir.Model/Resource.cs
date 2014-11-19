@@ -35,6 +35,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -44,6 +45,21 @@ namespace Hl7.Fhir.Model
     public abstract partial class Resource : Hl7.Fhir.Validation.IValidatableObject, 
                 IDeepCopyable, IDeepComparable
     {
+        public static string GetResourceTypeName(Resource resource)
+        {
+            if (resource == null) throw Error.ArgumentNull("resource");
+
+            return GetResourceTypeName(resource.GetType());
+        }
+
+        public static string GetResourceTypeName(Type type)
+        {
+            return type.Name;       // trivial now, but might be a map
+        }
+
+
+        public string ResourceName { get { return GetResourceTypeName(this); } }
+
         public abstract IDeepCopyable DeepCopy();
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
