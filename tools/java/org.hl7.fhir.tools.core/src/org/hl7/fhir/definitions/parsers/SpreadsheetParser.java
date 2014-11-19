@@ -172,7 +172,7 @@ public class SpreadsheetParser {
 		if (sheet == null)
 		  throw new Exception("No Sheet found for Data Elements");
 		for (int row = 0; row < sheet.rows.size(); row++) {
-			processLine(resource, sheet, row, invariants);
+			processLine(resource, sheet, row, invariants, false);
 		}
 
 		if (invariants != null) {
@@ -727,7 +727,7 @@ public class SpreadsheetParser {
     if (sheet == null)
       throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
     for (int row = 0; row < sheet.rows.size(); row++) {
-      ElementDefn e = processLine(resource, sheet, row, invariants);
+      ElementDefn e = processLine(resource, sheet, row, invariants, true);
       if (e != null) 
         for (TypeRef t : e.getTypes()) {
           if (t.getProfile() != null && !t.getName().equals("Extension") && t.getProfile().startsWith("#")) { 
