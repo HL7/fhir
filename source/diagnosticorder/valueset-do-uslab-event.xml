@@ -1,0 +1,34 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="USLAB Diagnostic Order Event Codes"/>
+	<publisher value="Orders and Observations Working Group"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+	<description value="US Realm ambulatory care event codes that correspond the Use cases outlined in the USLabOrder Implementation Guide"/>
+	<status value="draft"/>
+	<define>
+		<system value="http://hl7.org/fhir/uslab-event"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="new-request"/>
+			<display value="new request"/>
+			<definition value="a Provider (.orderer) orders one or more new laboratory tests or scheduled laboratory tests (including future tests) to be performed by a laboratory. "/>
+		</concept>
+		<concept>
+			<code value="add-on-request"/>
+			<display value="add-on request"/>
+			<definition value="a Provider (.orderer) adds one or more additional tests to a previously transmitted test requisition."/>
+		</concept>
+		<concept>
+			<code value="orderer-cancel"/>
+			<display value="orderer cancel"/>
+			<definition value="The Provider (.orderer)  requests cancelation of previously ordered test"/>
+		</concept>
+		<concept>
+			<code value="lab-cancel"/>
+			<display value="laboratory cancel"/>
+			<definition value="The laboratory cancels a previously ordered test"/>
+		</concept>
+	</define>
+</ValueSet>
