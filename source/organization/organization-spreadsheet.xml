@@ -10,8 +10,11 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-10-21T23:40:16Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
    <Path>\\ERICHPLAPTOP\Users\Users\Brett A Marquard\Documents\FHIR_WorkSpace\FHIR_BUILD_LIVE\source\templates\Invariants</Path>
@@ -27,6 +30,7 @@
   <WindowTopY>2565</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3602,7 +3606,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4:R100C4</Range>
    <Type>List</Type>
-   <Value>'\\ERICHPLAPTOP\Users\Users\Brett A Marquard\Documents\FHIR_WorkSpace\FHIR_BUILD_LIVE\source\templates\[Invariants]Invariants'!RC[-3]:R[48]C[-3]</Value>
+   <Value>'\\ERICHPLAPTOP\Users\Users\Brett A Marquard\Documents\FHIR_WorkSpace\FHIR_BUILD_LIVE\source\templates\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -5660,10 +5664,10 @@
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font></ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s113"><Data ss:Type="String">US Laboratory Organization Profile</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">org-uslab-profile.xml</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">org-uslab-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"/>
@@ -5922,7 +5926,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
