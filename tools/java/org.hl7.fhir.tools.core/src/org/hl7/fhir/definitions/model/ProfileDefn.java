@@ -34,8 +34,6 @@ public class ProfileDefn {
 
   private String title; // human readable name
   private String id; // id in the resource, which is also the file name root
-  private String introduction;
-  private String notes;
   private Profile resource;
   private ResourceDefn defn; // temporary, until we get around to building the resource 
     
@@ -65,22 +63,6 @@ public class ProfileDefn {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public String getIntroduction() {
-    return introduction;
-  }
-
-  public void setIntroduction(String introduction) {
-    this.introduction = introduction;
-  }
-
-  public String getNotes() {
-    return notes;
-  }
-
-  public void setNotes(String notes) {
-    this.notes = notes;
   }
 
   public Profile getResource() {

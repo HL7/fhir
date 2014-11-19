@@ -26,6 +26,8 @@ public class ConformancePackage {
   private List<Example> examples = new ArrayList<Example>(); // a file that is the example  
   private ConformancePackageSourceType sourceType;
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
+  private String introduction;
+  private String notes;
   
   // content
   private List<ProfileDefn> profiles = new ArrayList<ProfileDefn>();
@@ -124,6 +126,22 @@ public class ConformancePackage {
     return metadata("id");
   }
 
+
+  public String getIntroduction() {
+    return introduction;
+  }
+
+  public void setIntroduction(String introduction) {
+    this.introduction = introduction;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 
   
   
