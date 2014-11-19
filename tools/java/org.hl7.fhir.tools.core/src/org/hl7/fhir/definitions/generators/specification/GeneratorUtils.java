@@ -80,7 +80,7 @@ public class GeneratorUtils {
     if (name.equals("Extension"))
       return "extensibility";
     if (name.equals("Resource"))
-      return "references";
+      return "resource";
     if (name.equals("Reference") && definitions)
       return "base";
     if (name.equals("Reference"))
