@@ -1,0 +1,6 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+For the initial scope, this DeviceMetricObservation profile is only applicable to describe a measurement that is produced by any medical device that implements or derives from the ISO/IEEE 11073 standard.
+
+</div>
