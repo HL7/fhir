@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 [%settitle Resource Index%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -143,7 +144,7 @@
          </p>
          <ul>
             <li>Laboratory Order Sender - The originator of the DiagnosticOrder Resource Instance that declares conformance to "RESTful FHIR" and
-               FHIR profiles defined in this guide. This actor is the Organization Resource referenced through the .orderer (Practioner) Resource within FHIR. 
+               FHIR profiles defined in this guide. This actor is the Organization Resource referenced through the .orderer (Practitioner) Resource within FHIR. 
             </li>
             <!-- EH discuss whether should use the dot notation to refer to elements  e.g. .orderer-->
             <li>Laboratory Order Receiver - A receiver of the DiagnosticOrder Resource Instance that declares conformance 
@@ -367,7 +368,7 @@
             message to the Provider (Order Placer) because it is unable to perform the laboratory order, independent 
             of the Provider requesting cancellation. This applies to an original/initial order or an add-on order. 
             Laboratories can cancel a test request received by the LIS (or queue for this purpose) any time before the 
-            test report (preliminary or final) is transmitted to the provider(s).  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.   See that Implmentation Guide for details.  <!-- EH  need to discuss this once wrok out the cancel profile -->
+            test report (preliminary or final) is transmitted to the provider(s).  Laboratories must use the USLabReport DiagnosticResult Cancel Profile.   See that Implementation Guide for details.  <!-- EH  need to discuss this once wrok out the cancel profile -->
          </p>
          <a name="keytechdecisions"></a>
          <h2>Key Technical Decisions</h2>
@@ -450,10 +451,10 @@
             <li>A number with units for the mother's age </li>
             <li>A date format for the patient's last menstrual period.</li>
          </ul>
-         <p> .supportinginformation element with type Reference(Observation) must be used in the DiagnosticOrder Resource to convey these Ask at Order Entry questions.</p>
+         <p> .supporting information element with type Reference(Observation) must be used in the DiagnosticOrder Resource to convey these Ask at Order Entry questions.</p>
          <p>Although not strictly asked at order entry, other supporting clinical information about the patient 
             collected during specimen collection, e.g., fasting status of the patient, are considered AOE observations 
-            for purposes of this guide and must be communicated using the  .supportinginformation element with type Reference(Observation) as well. 
+            for purposes of this guide and must be communicated using the  .supporting information element with type Reference(Observation) as well. 
          </p>
          <p>LOINC shall be used as the standard coding system for AOE questions if an appropriate and valid 
             LOINC code exists. The LOINC and local code describing the question will be placed in Observation.name element.  Appropriate and valid status is defined in the LOINC Manual Section 11.2 Classification of LOINC Term Status. If a local coding system is in use, both the LOINC and the local 
@@ -466,7 +467,7 @@
             When a clinically relevant value is asked through an Ask at Order Entry question it 
             must be conveyed through the OBX segments as described above as these values are used for 
             clinical interpretations rather than through a seemingly similar FHIR element.
-            The following provide specific examples and guidance whether to use a FHIR element or the supportinginformation element with type Reference(Observation).
+            The following provide specific examples and guidance whether to use a FHIR element or the supporting information element with type Reference(Observation).
             This is list is not meant to be exhaustive: </p>
          <ul>
             <li>Date of Birth - Always use Patient.birthDate and should never be asked as an AOE as 
@@ -474,9 +475,9 @@
             </li>
             <li>The extension us-core-race(http://hl7.org/fhir/ExtensionDefinition/us-core-race) is provided for demographic (administrative/billing), not clinical use and is bound to define five race categories as  prescribed by federal standards. The 
                lab must provide an AOE for those tests where Race drives the interpretation of results. The 
-               value must be determined by the Ordering Provider and must be sent as the .supportinginformation element with type Reference(Observation). Note that state and/or national regulations may dictate other behaviors.
+               value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation). Note that state and/or national regulations may dictate other behaviors.
             </li>
-            <li>The extension us-core-ethnicity(http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supportinginformation element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
+            <li>The extension us-core-ethnicity(http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity) is provided for demographic (administrative/billing), not clinical use and is bound to specify two ethnicity categories as  prescribed by federal standards. The lab must provide an AOE where Ethnicity drives the interpretation of results. The value must be determined by the Ordering Provider and must be sent as the .supporting information element with type Reference(Observation.  Note that state and/or national regulations may dictate other behaviors. </li>
          </ul>
          <p> More specific race and ethnicity values are available, but not limited to, 
          those found   <a href="http://hl7-fhir.github.io/v3/Race/index.html">v3 Code System Race</a> and  <a href="http://hl7-fhir.github.io/v3/Ethnicity/index.html"> v3 Code System Ethnicity</a>.<!-- Eh todo see if these value set align with the text-->
