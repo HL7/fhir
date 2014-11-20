@@ -1,5 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-
+<p>
+Note: for technical compatibility reasons, the <i>Parameters</i> resouce inherits from 
+<a href="resource.html">Resource</a>, but since the parameter exchange format has no
+end point and/or persistence, it never has an id, a versionId, or a lastUpdated. 
+The other features of Resource (tags, profiles, security labels, language etc) may
+have use when operations are executed.
+</p>
 </div>

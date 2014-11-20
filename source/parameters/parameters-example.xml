@@ -6,6 +6,11 @@
   </parameter> 
   <parameter>
     <name value="end"/>
-    <valueDate value="2012-01-01"/>
+    <resource>
+      <Binary>
+        <contentType value="text/plain"/>
+        <content value="VGhpcyBpcyBhIHRlc3QgZXhhbXBsZQ=="/>
+      </Binary>
+    </resource>
   </parameter> 
 </Parameters>

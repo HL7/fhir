@@ -37,7 +37,7 @@ Operations have the following general properties:
 
 <p>
 Note: the definition of these services does not prevent the use of other 
-kinds of services not dependent on or integrated with the RESTful API.
+kinds of services that are not dependent on and/or not integrated with the RESTful API.
 </p>
 
 <a name="defined"> </a>
@@ -71,16 +71,10 @@ For each parameter, the following information is needed:
 <ul>
  <li>Name - the name of the operation. For implementer convenience, the name should be a valid token (see below)</li>
  <li>Use - In | Out | Both</li>
- <li>Type - a data type, a search parameter type, a resource type, or "Document". Out parameters must have a type which is a resource</li>
+ <li>Type - a data type or a resource type</li>
+ <li>Profile - a profile that applies additional restrictions about the resource</li>
  <li>Documentation - describes its use</li>
 </ul>
-
-<p>
-Note that search parameter types are allowed for use where the parameter is used as a search parameter
-i.e. to link between the context of operations, and a set of existing resources that the operation refers
-to, where as data types and resources are used to provide information directly to the operation. The
-definition of a parameter should make its use clear.
-</p>
 
 <a name="executing"> </a>
 
@@ -100,30 +94,24 @@ The URL for an operation end-point depends on its context:
 
 <p>
 In the general case, an operation is invoked by performing an HTTP POST to the operation end-point.
-The content of the body is a <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2">multipart/form-data</a> that 
-contains the parameters for the operation. Where the parameter type is a data type or resources, the content
-may be represented as either json or xml; for a datatype, the root name of the object is the 
-name of the parameter. 
+The format of the submitted content is the special <a href="parameters.html">Parameters</a> format - a list 
+of named parameters (the "in" parameters). For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
 </p>
 <p>
-Some notes about this format:
-</p>
-<ul>
- <li>For resources and data types, a Content-Type header SHOULD be provided, but may not be if the content is submitted by an HTML form</li>
- <li>For an example of an operation, see <a href="op-example-request.html">the value set expansion request example</a></li>
-</ul>
-
-<p>
-If there is only one complex parameter (e.g. a parameter where the representation is XML or JSON, not a search parameter),
-then the operation can be performed by an HTTP POST with the complex parameter as the body of the post, and the 
-other parameters appended to the URL in the search portion of the URL (e.g. after the "?").
+Note that the same arrangement as the RESTful interface applies
+in regard to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
-If there are no complex parameters to the operation, and the operation is idempotent (see 
-<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification definition of idempotent</a>), 
-the operation may be invoked by performing an HTTP GET operation where all the parameters are appended to the URL in the search portion of the URL (e.g. after the "?").
+If there are no parameters with complex types (including resourcse) to the operation, and the operation 
+is idempotent (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification 
+definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where 
+all the parameters are appended to the URL in the search portion of the URL (e.g. after the "?").
+Servers SHALL support this method of invocation.
 </p>
-
+<p>
+Servers MAY choose to support submission of the parameters multi-part form method as well, 
+which can be useful for allowing testing of an operation using HTML forms.
+</p>
 
 <a name="response"> </a>
 
@@ -131,28 +119,29 @@ the operation may be invoked by performing an HTTP GET operation where all the p
 
 <p>
 If the operation succeeds, the HTTP Status code is 200 OK. An
-HTTP status code if 4xx or 5xx indicates an error. User agents should 
-note that servers may issue redirects etc to authenticate the client 
-in response to an operation request.
+HTTP status code if 4xx or 5xx indicates an error, and an 
+<a href="operationoutcome.html">OperationOutcome</a> may be returned. 
+User agents should note that servers may issue redirects etc to 
+authenticate the client in response to an operation request.
 </p>
 
 <p>
-The result of the operation is a <a href="extras.html#bundle">bundle</a> containing 
-zero or more resources. Note that the same arrangement as the RESTful interface applies
-in regard to <a href="http.html#mime-type">content types</a>.
+In the general case, an operation response uses the same
+<a href="parameters.html">Parameters</a> format one or more
+named parameters (the "out" parameters). 
 </p>
 <p>
-Identifying out parameters by name....
-
+If there is only one out parameter, which is a resource, 
+and it has the name "return" then the parameter format is 
+not used, and the response is simply the resource itself.
 </p>
 <p>
 The resources that are returned by the operation may be 
 retained and made available in the resource repository 
 on the operation server. In that case, the server will 
-provide the identity of the resource in the bundle ientry identifiers. When
-resources that are not persisted are returned in an atom feed,
-they should be assigned a cid: identifier that will never 
-be re-used.
+provide the identity of the resource in the returned resources. When
+resources that are not persisted are returned in the response,
+they will have no id property.
 </p>
 
 </div>

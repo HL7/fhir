@@ -24,7 +24,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3826,7 +3826,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4973,7 +4972,7 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">expand.expansion</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">expand.return</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
@@ -5094,36 +5093,36 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">validate.outcome</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">validate.result</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">The result of the validation. If there is no errors, the code is deemed to be validated ok</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">True if the concept details supplied are valid</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">validate.message</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">Error details, if result = false. If this is provided when result = true, the message carries hints and wanrings</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">validate.display</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">If the concept is valid, the server should return the valid display names for this concept</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5487,6 +5486,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5507,8 +5507,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

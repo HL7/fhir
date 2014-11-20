@@ -2146,10 +2146,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       n = n.substring(0, n.indexOf('-'));
 
     boolean hasOps = !definitions.getResourceByName(title).getOperations().isEmpty();
+    boolean hasExamples = !definitions.getResourceByName(title).getExamples().isEmpty();
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
     b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    if (hasExamples)
+      b.append(makeHeaderTab("Examples", n+"-examples.html", "operations".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -3229,6 +3232,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+produceExamples(resource)+s3;
       else if (com[0].equals("profiles")) 
         src = s1+produceProfiles(resource)+s3;
+      else if (com[0].equals("wg")) 
+        src = s1+(resource.getWg() == null ? "" : "<p>This resource cultivated by the <a _target=\"blank\" href=\""+resource.getWg().getUrl()+"\">"+resource.getWg().getName()+"</a> Work Group</p>\r\n")+s3;
       else if (com[0].equals("example-list")) 
         src = s1+produceExampleList(resource)+s3;
       else if (com[0].equals("examples-book")) 
@@ -3382,13 +3387,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             b.append(t);
             b.append("</a>");
 
-          } else if (SearchParameter.isType(t)) {
-            b.append("<a href=\"search.html#");
-            b.append(t);
-            b.append("\">");
-            b.append(t);
-            b.append("</a>");
-
           } else if (t.startsWith("Reference(")) {
             b.append("<a href=\"references.html#Resource\">Resource</a>");
             String pn = t.substring(0, t.length()-1).substring(9);
@@ -3415,6 +3413,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           }
           b.append("</td><td>");
           b.append(processMarkdown(p.getDoc()));
+          if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
+            b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
           b.append("</td></tr>");
         }
         b.append("</table>\r\n");
@@ -3426,6 +3426,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   
+  private boolean isOnlyOutParameter(List<OperationParameter> parameters, OperationParameter p) {
+    for (OperationParameter q : parameters)
+      if (q != p && q.getUse().equals("out"))
+        return false;
+    return p.getUse().equals("out");
+  }
+
   private String getReferences(String name) throws Exception {
     List<String> refs = new ArrayList<String>();
     for (String rn : definitions.sortedResourceNames()) {

@@ -963,7 +963,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Operation Request or Response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">This special resource type is used to rpresent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it. </Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">The parameters that may be used are defined by the OperationDefinition resource</Data><NamedCell
@@ -3286,7 +3286,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

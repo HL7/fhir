@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-10-21T23:40:16Z</LastSaved>
+  <LastSaved>2014-11-20T11:43:32Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -19,6 +19,10 @@
   <SupBook>
    <Path>Invariants</Path>
    <SheetName>Invariants</SheetName>
+  </SupBook>
+  <SupBook>
+   <Path>Profiles</Path>
+   <SheetName>Profiles</SheetName>
   </SupBook>
   <WindowHeight>2580</WindowHeight>
   <WindowWidth>9870</WindowWidth>
@@ -4583,36 +4587,36 @@
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">translate.outcome</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">translate.result</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">If the translation is successful, the translation is represented as an extension (uri = [[[http://hl7.org/fhir/ExtensionDefinition/translation]]]) of type Coding on the operation outcome, or else an error must be returned. Hints and warnings may be returned in either case</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">True if the concept could be translated</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">translate.message</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Error details, if result = false. If this is provided when result = true, the message carries hints and wanrings</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">translate.outcome</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The translation outcome</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5073,7 +5077,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5535,28 +5540,24 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Label for profile&#10;Comment the row by starting with '!'</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Label for profile&#10;Comment the row by starting with '!'</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Filename</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Name of the resulting profile resource-something-profile.xml or ???profile.spreadsheet.xml</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Name of the resulting profile resource-something-profile.xml or ???profile.spreadsheet.xml</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Source</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Name of profile spreadsheet or XML file.  Defaults to same as Filename&#10;</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Name of profile spreadsheet or XML file.  Defaults to same as Filename&#10;</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Type</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font></ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s116"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
@@ -5826,8 +5827,6 @@
    <CellRangeList/>
    <Value>&quot;spreadsheet,profile&quot;</Value>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
-  </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R40C4</Range>
    <Condition>

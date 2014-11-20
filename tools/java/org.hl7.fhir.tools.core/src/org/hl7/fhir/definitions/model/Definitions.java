@@ -68,7 +68,8 @@ public class Definitions {
 	private Map<String, TypeDefn> structures = new HashMap<String, TypeDefn>();
 	private Map<String, TypeDefn> infrastructure = new HashMap<String, TypeDefn>();
   private Map<String, ResourceDefn> baseResources = new HashMap<String, ResourceDefn>();
-	private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
+  private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
+  private Map<String, WorkGroup> workgroups = new HashMap<String, WorkGroup>();
 
 	// conformance packages not owned by a particular resource
   private Map<String, ConformancePackage> packs = new HashMap<String, ConformancePackage>();
@@ -345,6 +346,10 @@ public class Definitions {
 
   public String getSourceFile(String type) {
     return null;
+  }
+
+  public Map<String, WorkGroup> getWorkgroups() {
+    return workgroups;
   }
 
 //  public Profile getProfileByURL(String url) {

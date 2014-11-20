@@ -68,6 +68,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
 import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
 import org.hl7.fhir.definitions.parsers.converters.ConstrainedTypeConverter;
@@ -192,6 +193,7 @@ public class SourceParser {
 		logger.log("Loading", LogMessageType.Process);
 
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
+		loadWorkGroups();
 		loadMappingSpaces();
 		loadGlobalConceptDomains();
 		eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
@@ -232,7 +234,7 @@ public class SourceParser {
 		// basic infrastructure
     for (String n : ini.getPropertyNames("resource-infrastructure")) {
       ResourceDefn r = loadResource(n, null, true);
-      String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\/");
+      String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\,");
       if (parts[0].equals("abstract"))
         r.setAbstract(true);
       definitions.getBaseResources().put(parts[1], r);
@@ -277,6 +279,18 @@ public class SourceParser {
 		    loadConformancePackage(p);
 		}
 	}
+
+
+  private void loadWorkGroups() {
+    String[] wgs = ini.getPropertyNames("wg-info");
+    for (String wg : wgs) {
+     String s = ini.getStringProperty("wg-info", wg);
+     int i = s.indexOf(" ");
+     String url = s.substring(0, i);
+     String name = s.substring(i+1).trim();
+     definitions.getWorkgroups().put(wg, new WorkGroup(wg, name, url));
+    }    
+  }
 
 
   private void loadMappingSpaces() throws Exception {
@@ -572,7 +586,8 @@ public class SourceParser {
 		} catch (Exception e) {
 		  throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
 		}
-
+		root.setWg(definitions.getWorkgroups().get(ini.getStringProperty("workgroups", root.getName().toLowerCase())));
+		
 		for (EventDefn e : sparser.getEvents())
 			processEvent(e, root.getRoot());
 

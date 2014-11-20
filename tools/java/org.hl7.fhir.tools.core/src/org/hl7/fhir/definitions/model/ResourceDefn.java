@@ -42,6 +42,7 @@ public class ResourceDefn  {
       
    private String status;
    private boolean abstract_;
+   private WorkGroup wg;
      
    private String name = null;
    
@@ -170,5 +171,12 @@ public class ResourceDefn  {
     this.abstract_ = abstract_;
   }
 
+  public WorkGroup getWg() {
+    return wg;
+  }
+
+  public void setWg(WorkGroup wg) {
+    this.wg = wg;
+  }
 
 }

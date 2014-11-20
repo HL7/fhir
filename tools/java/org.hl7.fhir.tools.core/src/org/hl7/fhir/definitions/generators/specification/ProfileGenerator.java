@@ -363,8 +363,10 @@ public class ProfileGenerator {
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
     p.setName(r.getRoot().getName());
-    p.setPublisher("HL7 FHIR Standard");
+    p.setPublisher("HL7 FHIR Project"+(r.getWg() == null ? "" : " ("+r.getWg().getName()+")"));
     p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    if (r.getWg() != null)
+      p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
     p.setDescription("Base Profile for "+r.getRoot().getName()+" Resource");
     p.setRequirements(r.getRequirements());
     p.setDate(new DateAndTime(genDate));
