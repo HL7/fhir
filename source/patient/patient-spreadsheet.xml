@@ -3806,13 +3806,10 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-<<<<<<< .mine
      <ActiveRow>36</ActiveRow>
      <ActiveCol>14</ActiveCol>
-=======
      <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
->>>>>>> .r3485
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
