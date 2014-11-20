@@ -44,6 +44,8 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.tools.implementations.java.JavaParserXmlGenerator.JavaGenClass;
+import org.hl7.fhir.utilities.Utilities;
 
 public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, AbstractResource, Constraint, Backbone }
@@ -109,7 +111,12 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
 
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
-      generate(n.getRoot(), JavaGenClass.AbstractResource);
+      generate(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
+      if (!n.isAbstract()) {
+        String nn = javaClassName(n.getName());
+        reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(\""+n.getName()+"\", ("+nn+")resource);\r\n");
+        regn.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(name, ("+nn+")resource);\r\n");
+      }
     }
     
     for (String s : definitions.sortedResourceNames()) {
@@ -341,7 +348,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     
     write("  private void compose"+upFirst(tn).replace(".", "")+"Attributes("+tn+" element) throws Exception {\r\n");
-    if (!n.typeCode().equals("Any"))
+    if (!Utilities.noString(n.typeCode()))
       write("    compose"+n.typeCode()+"Attributes(element);\r\n");
       
     for (ElementDefn e : n.getElements()) { 
@@ -353,7 +360,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("  }\r\n\r\n");
     
     write("  private void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
-    if (!n.typeCode().equals("Any"))
+    if (!Utilities.noString(n.typeCode()))
     write("    compose"+n.typeCode()+"Elements(element);\r\n");
     
     for (ElementDefn e : n.getElements()) {

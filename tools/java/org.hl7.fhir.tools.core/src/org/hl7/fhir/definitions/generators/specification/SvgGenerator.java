@@ -709,7 +709,7 @@ public class SvgGenerator extends BaseGenerator {
     } else if (isRoot) {
       xml.open("text");
       xml.text(tn);
-      if (e.typeCode().equals("Any")) {
+      if (Utilities.noString(e.typeCode())) {
         xml.text(" «Resource»");
       } else {
         xml.attribute("class", "diagram-class-title-link");

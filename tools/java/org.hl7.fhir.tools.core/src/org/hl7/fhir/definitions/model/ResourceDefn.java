@@ -41,6 +41,7 @@ public class ResourceDefn  {
    private List<ConformancePackage> conformancePackages = new ArrayList<ConformancePackage>();
       
    private String status;
+   private boolean abstract_;
      
    private String name = null;
    
@@ -159,6 +160,14 @@ public class ResourceDefn  {
 
   public List<ConformancePackage> getConformancePackages() {
     return conformancePackages;
+  }
+
+  public boolean isAbstract() {
+    return abstract_;
+  }
+
+  public void setAbstract(boolean abstract_) {
+    this.abstract_ = abstract_;
   }
 
 

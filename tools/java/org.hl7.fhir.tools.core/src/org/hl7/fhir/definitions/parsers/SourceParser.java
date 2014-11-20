@@ -230,8 +230,13 @@ public class SourceParser {
 		eCoreParseResults.getType().addAll( sortTypes(allFhirComposites) );
 		
 		// basic infrastructure
-    for (String n : ini.getPropertyNames("resource-infrastructure"))
-      definitions.getBaseResources().put(ini.getStringProperty("resource-infrastructure", n), loadResource(n, null, true));
+    for (String n : ini.getPropertyNames("resource-infrastructure")) {
+      ResourceDefn r = loadResource(n, null, true);
+      String[] parts = ini.getStringProperty("resource-infrastructure", n).split("\\/");
+      if (parts[0].equals("abstract"))
+        r.setAbstract(true);
+      definitions.getBaseResources().put(parts[1], r);
+    }
 		
     logger.log("Load Resources", LogMessageType.Process);
 		for (String n : ini.getPropertyNames("resources"))

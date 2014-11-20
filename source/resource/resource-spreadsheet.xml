@@ -20,11 +20,15 @@
    <Path>Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
+  <SupBook>
+   <Path>\work\org.hl7.fhir\build\source\parameters\Profiles</Path>
+   <SheetName>Profiles</SheetName>
+  </SupBook>
   <WindowHeight>2580</WindowHeight>
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -969,8 +973,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Any</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3361,12 +3364,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3374,15 +3378,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4376,7 +4379,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5517,7 +5519,8 @@
  </Worksheet>
  <Worksheet ss:Name="Packages">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='\work\org.hl7.fhir\build\source\parameters\[Profiles]Profiles'!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
@@ -5529,28 +5532,24 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">Name</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Label for profile&#10;Comment the row by starting with '!'</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Label for profile&#10;Comment the row by starting with '!'</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Filename</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Name of the resulting profile resource-something-profile.xml or ???profile.spreadsheet.xml</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Name of the resulting profile resource-something-profile.xml or ???profile.spreadsheet.xml</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Source</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Name of profile spreadsheet or XML file.  Defaults to same as Filename&#10;</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Name of profile spreadsheet or XML file.  Defaults to same as Filename&#10;</Font></ss:Data></Comment></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Type</Data><Comment
       ss:Author="Lloyd McKenzie"><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40"><Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font></ss:Data></Comment><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font></ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s114"/>
+    <Cell ss:StyleID="s115"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"/>
@@ -5820,8 +5819,6 @@
    <CellRangeList/>
    <Value>&quot;spreadsheet,profile&quot;</Value>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
-  </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R40C4</Range>
    <Condition>

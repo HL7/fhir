@@ -50,7 +50,7 @@ public class TableGenerator extends BaseGenerator {
       row.getCells().add(gen.new Cell()); 
   
       row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
-      if (e.typeCode().equals("Any"))
+      if (Utilities.noString(e.typeCode()))
         row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
       else
         row.getCells().add(gen.new Cell(null, e.typeCode().toLowerCase()+".html", e.typeCode(), null, null)); 

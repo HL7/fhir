@@ -109,6 +109,14 @@ public class XSDBaseGenerator {
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn r = definitions.getBaseResources().get(n);
       genResource(n, r);
+      if (!r.isAbstract()) {
+        write("  <xs:element name=\""+r.getName()+"\" type=\""+r.getName()+"\">\r\n");
+        write("    <xs:annotation>\r\n");
+        write("      <xs:documentation>"+Utilities.escapeXml(r.getDefinition())+"</xs:documentation>\r\n");
+        write("    </xs:annotation>\r\n");
+        write("  </xs:element>\r\n");
+        
+      }
     }
     for (BindingSpecification b : definitions.getBindings().values())
       if ((b.getUseContexts().size() > 1 && b.getBinding() == Binding.CodeList) || definitions.getCommonBindings().contains(b))
@@ -425,7 +433,7 @@ public class XSDBaseGenerator {
   private void genResource(String name, ResourceDefn res) throws Exception {
     enums.clear();
     enumDefs.clear();
-    boolean isBase = res.getRoot().typeCode().equals("Any");
+    boolean isBase = Utilities.noString(res.getRoot().typeCode());
     write("  <xs:complexType name=\"" + name + "\">\r\n");
     write("    <xs:annotation>\r\n");
     write("      <xs:documentation>"+Utilities.escapeXml(res.getDefinition())+"</xs:documentation>\r\n");

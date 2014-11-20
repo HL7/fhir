@@ -205,6 +205,7 @@ todo: compartments
 
     <page type="resource" resource="MessageHeader"/>
     <page type="resource" resource="OperationOutcome"/>
+    <page type="resource" resource="Parameters"/>
     <page type="resource" resource="Query"/>
     <page type="resource" resource="Subscription"/>
     

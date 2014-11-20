@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -572,20 +572,26 @@ public class Bundle extends Resource {
         protected IdType id;
 
         /**
+         * Version id for releted resource.
+         */
+        protected IdType versionId;
+
+        /**
          * The date/time that the resource was deleted.
          */
         protected InstantType instant;
 
-        private static final long serialVersionUID = 1677488073L;
+        private static final long serialVersionUID = 1013425873L;
 
       public BundleEntryDeletedComponent() {
         super();
       }
 
-      public BundleEntryDeletedComponent(CodeType type, IdType id, InstantType instant) {
+      public BundleEntryDeletedComponent(CodeType type, IdType id, IdType versionId, InstantType instant) {
         super();
         this.type = type;
         this.id = id;
+        this.versionId = versionId;
         this.instant = instant;
       }
 
@@ -654,6 +660,38 @@ public class Bundle extends Resource {
         }
 
         /**
+         * @return {@link #versionId} (Version id for releted resource.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+         */
+        public IdType getVersionIdElement() { 
+          return this.versionId;
+        }
+
+        /**
+         * @param value {@link #versionId} (Version id for releted resource.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+         */
+        public BundleEntryDeletedComponent setVersionIdElement(IdType value) { 
+          this.versionId = value;
+          return this;
+        }
+
+        /**
+         * @return Version id for releted resource.
+         */
+        public String getVersionId() { 
+          return this.versionId == null ? null : this.versionId.getValue();
+        }
+
+        /**
+         * @param value Version id for releted resource.
+         */
+        public BundleEntryDeletedComponent setVersionId(String value) { 
+            if (this.versionId == null)
+              this.versionId = new IdType();
+            this.versionId.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #instant} (The date/time that the resource was deleted.). This is the underlying object with id, value and extensions. The accessor "getInstant" gives direct access to the value
          */
         public InstantType getInstantElement() { 
@@ -689,6 +727,7 @@ public class Bundle extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of resource that was deleted (required to construct the identity).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("id", "id", "The id of the resource that was deleted.", 0, java.lang.Integer.MAX_VALUE, id));
+          childrenList.add(new Property("versionId", "id", "Version id for releted resource.", 0, java.lang.Integer.MAX_VALUE, versionId));
           childrenList.add(new Property("instant", "instant", "The date/time that the resource was deleted.", 0, java.lang.Integer.MAX_VALUE, instant));
         }
 
@@ -697,6 +736,7 @@ public class Bundle extends Resource {
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.id = id == null ? null : id.copy();
+        dst.versionId = versionId == null ? null : versionId.copy();
         dst.instant = instant == null ? null : instant.copy();
         return dst;
       }

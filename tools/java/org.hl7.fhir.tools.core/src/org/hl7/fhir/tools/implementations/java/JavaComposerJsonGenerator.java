@@ -48,6 +48,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.implementations.java.JavaParserJsonGenerator.JavaGenClass;
+import org.hl7.fhir.utilities.Utilities;
 
 public class JavaComposerJsonGenerator extends OutputStreamWriter {
   public enum JavaGenClass { Structure, Type, Resource, AbstractResource, Constraint, Backbone }
@@ -111,7 +112,12 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
-      generate(n.getRoot(), JavaGenClass.AbstractResource);
+      generate(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
+      if (!n.isAbstract()) {
+        String nn = javaClassName(n.getName());
+        reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(\""+n.getName()+"\", ("+nn+")resource);\r\n");
+        regn.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(name, ("+nn+")resource);\r\n");
+      }
     }
     
     for (String s : definitions.sortedResourceNames()) {
@@ -327,7 +333,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     
     write("  private void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
-    if (!n.typeCode().equals("Any")) 
+    if (!Utilities.noString(n.typeCode())) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     for (ElementDefn e : n.getElements()) 
       genElement(n, e, JavaGenClass.Backbone);

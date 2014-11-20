@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.utilities.Utilities;
 
 public class JavaParserXmlGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, AbstractResource, BackboneElement, Constraint }
@@ -113,7 +114,12 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
-      generate(n.getRoot(), JavaGenClass.AbstractResource);  
+      generate(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
+      if (!n.isAbstract()) {
+        reg.append("    else if (xpp.getName().equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(xpp);\r\n");
+        regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(xpp);\r\n");
+        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+      }
     }
     
     for (String s : definitions.sortedResourceNames()) {
@@ -371,7 +377,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
     
     write("  private void parse"+upFirst(tn).replace(".", "")+"Attributes(XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
-    if (!n.typeCode().equals("Any"))
+    if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Attributes(xpp, res);\r\n");
 
     for (ElementDefn e : n.getElements()) {
@@ -391,7 +397,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       }
     }
     write("    } else\r\n"); 
-    if (n.typeCode().equals("Any"))
+    if (Utilities.noString(n.typeCode()))
       write("        return false;\r\n"); 
     else
       write("    return parse"+n.typeCode()+"Content(eventType, xpp, res);\r\n");

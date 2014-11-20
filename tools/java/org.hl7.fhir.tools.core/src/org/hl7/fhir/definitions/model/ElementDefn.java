@@ -76,6 +76,8 @@ public class ElementDefn {
 	private String profileName; // only in a profile, for slicing
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
   private Type example;
+  private Type defaultValue;
+  private String meaningWhenMissing;
   private Type fixed; // only in a profile
   private Type pattern; // only in a profile
 	private ElementDefinition derivation;
@@ -778,8 +780,23 @@ public class ElementDefn {
 
   public void setSliceDescription(String sliceDescription) {
     this.sliceDescription = sliceDescription;
+  }
+
+  public Type getDefaultValue() {
+    return defaultValue;
+  }
+
+  public void setDefaultValue(Type defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  public String getMeaningWhenMissing() {
+    return meaningWhenMissing;
+  }
+
+  public void setMeaningWhenMissing(String meaningWhenMissing) {
+    this.meaningWhenMissing = meaningWhenMissing;
   }	
-	
   
 }
 

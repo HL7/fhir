@@ -358,7 +358,7 @@ public class SpreadsheetParser {
             throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
           String example = checkFile(sheet, row, "Example", true, null); // todo-profile
           if (example != null)
-            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getName(), new File(example), ExampleType.XmlFile, false));
+            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getName(), new File(example), ExampleType.XmlFile, false, isAbstract));
           defn.getConformancePackages().add(pack);
         }
       }
@@ -793,7 +793,7 @@ public class SpreadsheetParser {
 					if (Utilities.noString(pn)) {
 					  defn.getExamples().add(new Example(name, id, desc, file, 
 					      parseExampleType(type, row),
-					      parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					      parseBoolean(sheet.getColumn(row, "In Book"), row, false), isAbstract));
 					} else {
 					  ConformancePackage ap = null;
 					  for (ConformancePackage r : defn.getConformancePackages()) {
@@ -802,7 +802,7 @@ public class SpreadsheetParser {
 					  }
 					  if (ap == null)
 					    throw new Exception("Example " + name + " profile '" + pn + "' not found parsing " + this.name);
-					  ap.getExamples().add(new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false)));
+					  ap.getExamples().add(new Example(filename, id, desc, file, parseExampleType(type, row), parseBoolean(sheet.getColumn(row, "In Book"), row, false), isAbstract));
 					}
 				}
 			}
@@ -813,7 +813,7 @@ public class SpreadsheetParser {
 				throw new Exception("Example (file '" + file.getAbsolutePath()
 						+ "') not found parsing " + this.name);
 			defn.getExamples().add(
-					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true));
+					new Example("General", "example", "Example of " + title, file, ExampleType.XmlFile, true, isAbstract));
 		}		
 	}
 
@@ -1025,6 +1025,9 @@ public class SpreadsheetParser {
 		if (isProfile) {
       e.setFixed(processValue(sheet, row, "Value", e));
       e.setPattern(processValue(sheet, row, "Pattern", e));
+		} else {
+      e.setDefaultValue(processValue(sheet, row, "Default Value", e));
+      e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
 		}
 		return e;
 	}

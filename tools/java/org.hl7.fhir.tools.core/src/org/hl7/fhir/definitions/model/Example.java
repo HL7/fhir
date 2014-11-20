@@ -61,7 +61,7 @@ public class Example {
 	  }
   
   
-  public Example(String name, String id, String description, File path, ExampleType type, boolean inBook) throws Exception {
+  public Example(String name, String id, String description, File path, ExampleType type, boolean inBook, boolean noId) throws Exception {
     super();
     this.name = name;
     this.id = id;
@@ -90,7 +90,7 @@ public class Example {
         throw new Exception("unable to read "+path.getAbsolutePath()+": "+e.getMessage(), e);
       }
     }
-    if (xml != null) {
+    if (xml != null && !noId) {
       if (!Utilities.noString(id)) {
         if (XMLUtil.getNamedChild(xml.getDocumentElement(), "id") == null)
           throw new Exception("no id element (looking for '"+id+"' from "+path.getName());

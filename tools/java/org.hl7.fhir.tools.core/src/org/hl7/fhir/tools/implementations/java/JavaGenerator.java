@@ -117,9 +117,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn root = definitions.getBaseResources().get(n); 
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, true);
+      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, root.isAbstract());
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
+      if (!root.isAbstract())
+        jFactoryGen.registerReference(n,  root.getName());
     }
     
     for (String n : definitions.getResources().keySet()) {
@@ -240,6 +242,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
         output.write(",");
       output.write("\r\n    "+n);
     }
+    for (String n : definitions.getBaseResources().keySet()) {
+      if (!definitions.getBaseResources().get(n).isAbstract()) {
+        output.write(",");
+        output.write("\r\n    "+n);
+      }
+    }
     output.write(";\r\n\r\n");
 
     output.write("\r\n    public String getPath() {;\r\n");
@@ -247,6 +255,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getResources().keySet()) {
       output.write("    case "+n+":\r\n");
       output.write("      return \""+n.toLowerCase()+"\";\r\n");
+    }
+    for (String n : definitions.getBaseResources().keySet()) {
+      if (!definitions.getBaseResources().get(n).isAbstract()) {
+        output.write("    case "+n+":\r\n");
+        output.write("      return \""+n.toLowerCase()+"\";\r\n");
+      }
     }
 
     output.write("    }\r\n      return null;\r\n");

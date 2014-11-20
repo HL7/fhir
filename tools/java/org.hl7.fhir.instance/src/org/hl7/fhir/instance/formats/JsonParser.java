@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -617,6 +617,13 @@ public class JsonParser extends JsonParserBase {
       res.setNameReferenceElement(parseString(json.get("nameReference").getAsString()));
     if (json.has("_nameReference"))
       parseElementProperties(json.getAsJsonObject("_nameReference"), res.getNameReferenceElement());
+    Type defaultValue = parseType("defaultValue", json);
+    if (defaultValue != null)
+      res.setDefaultValue(defaultValue);
+    if (json.has("meaningWhenMissing"))
+      res.setMeaningWhenMissingElement(parseString(json.get("meaningWhenMissing").getAsString()));
+    if (json.has("_meaningWhenMissing"))
+      parseElementProperties(json.getAsJsonObject("_meaningWhenMissing"), res.getMeaningWhenMissingElement());
     Type fixed = parseType("fixed", json);
     if (fixed != null)
       res.setFixed(fixed);
@@ -985,6 +992,33 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_use"), res.getUseElement());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
+    return res;
+  }
+
+  private Parameters parseParameters(JsonObject json) throws Exception {
+    Parameters res = new Parameters();
+    parseResourceProperties(json, res);
+    if (json.has("parameter")) {
+      JsonArray array = json.getAsJsonArray("parameter");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameter().add(parseParametersParametersParameterComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    return res;
+  }
+
+  private Parameters.ParametersParameterComponent parseParametersParametersParameterComponent(JsonObject json, Parameters owner) throws Exception {
+    Parameters.ParametersParameterComponent res = new Parameters.ParametersParameterComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    Type value = parseType("value", json);
+    if (value != null)
+      res.setValue(value);
+    if (json.has("resource"))
+      res.setResource(parseResource(json.getAsJsonObject("resource")));
     return res;
   }
 
@@ -1462,6 +1496,10 @@ public class JsonParser extends JsonParserBase {
       res.setIdElement(parseId(json.get("id").getAsString()));
     if (json.has("_id"))
       parseElementProperties(json.getAsJsonObject("_id"), res.getIdElement());
+    if (json.has("versionId"))
+      res.setVersionIdElement(parseId(json.get("versionId").getAsString()));
+    if (json.has("_versionId"))
+      parseElementProperties(json.getAsJsonObject("_versionId"), res.getVersionIdElement());
     if (json.has("instant"))
       res.setInstantElement(parseInstant(json.get("instant").getAsString()));
     if (json.has("_instant"))
@@ -3253,7 +3291,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("parameterGroup"))
       res.setParameterGroup(parseCodeableConcept(json.getAsJsonObject("parameterGroup")));
     if (json.has("measurementPrinciple"))
-      res.setMeasurementPrinciple(parseCodeableConcept(json.getAsJsonObject("measurementPrinciple")));
+      res.setMeasurementPrincipleElement(parseEnumeration(json.get("measurementPrinciple").getAsString(), DeviceComponent.MeasurementPrinciple.NULL, new DeviceComponent.MeasurementPrincipleEnumFactory()));
+    if (json.has("_measurementPrinciple"))
+      parseElementProperties(json.getAsJsonObject("_measurementPrinciple"), res.getMeasurementPrincipleElement());
     if (json.has("productionSpecification")) {
       JsonArray array = json.getAsJsonArray("productionSpecification");
       for (int i = 0; i < array.size(); i++) {
@@ -8527,7 +8567,9 @@ public class JsonParser extends JsonParserBase {
     String t = json.get("resourceType").getAsString();
     if (Utilities.noString(t))
       throw new Exception("Unable to find resource type - maybe not a FHIR resource?");
-    if (t.equals("Alert"))
+    if (t.equals("Parameters"))
+      return parseParameters(json);
+    else if (t.equals("Alert"))
       return parseAlert(json);
     else if (t.equals("AllergyIntolerance"))
       return parseAllergyIntolerance(json);
@@ -8896,6 +8938,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"HumanName"))
       return true;
     if (json.has(prefix+"ContactPoint"))
+      return true;
+    if (json.has(prefix+"Parameters"))
       return true;
     if (json.has(prefix+"Alert"))
       return true;

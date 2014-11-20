@@ -44,6 +44,8 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.tools.implementations.java.JavaParserXmlGenerator.JavaGenClass;
+import org.hl7.fhir.utilities.Utilities;
 
 public class JavaParserJsonGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, AbstractResource, Constraint, Backbone }
@@ -114,7 +116,12 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     
     for (String s : definitions.getBaseResources().keySet()) {
       ResourceDefn n = definitions.getBaseResources().get(s);
-      generate(n.getRoot(), JavaGenClass.AbstractResource);
+      generate(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
+      if (!n.isAbstract()) {
+        reg.append("    else if (t.equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(json);\r\n");
+        regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+javaClassName(n.getName())+"(xpp);\r\n");
+        regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+      }
     }
         
     for (String s : definitions.sortedResourceNames()) {
@@ -319,7 +326,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     
     write("  private void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws Exception {\r\n");
     
-    if (!n.typeCode().equals("Any"))
+    if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
 
     boolean first = true;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -483,6 +483,8 @@ public class XmlComposer extends XmlComposerBase {
       for (ElementDefinition.TypeRefComponent e : element.getType()) 
         composeElementDefinitionTypeRefComponent("type", e);
       composeString("nameReference", element.getNameReferenceElement());
+      composeType("defaultValue", element.getDefaultValue());
+      composeString("meaningWhenMissing", element.getMeaningWhenMissingElement());
       composeType("fixed", element.getFixed());
       composeType("pattern", element.getPattern());
       composeType("example", element.getExample());
@@ -650,6 +652,33 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getUseElement() != null)
         composeEnumeration("use", element.getUseElement(), new ContactPoint.ContactPointUseEnumFactory());
       composePeriod("period", element.getPeriod());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeParameters(String name, Parameters element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      for (Parameters.ParametersParameterComponent e : element.getParameter()) 
+        composeParametersParametersParameterComponent("parameter", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeString("name", element.getNameElement());
+      composeType("value", element.getValue());
+      if (element.getResource() != null) {
+        xml.open(FHIR_NS, "resource");
+        composeResource(element.getResource());
+        xml.close(FHIR_NS, "resource");
+      }
       xml.close(FHIR_NS, name);
     }
   }
@@ -930,6 +959,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeCode("type", element.getTypeElement());
       composeId("id", element.getIdElement());
+      composeId("versionId", element.getVersionIdElement());
       composeInstant("instant", element.getInstantElement());
       xml.close(FHIR_NS, name);
     }
@@ -1915,7 +1945,8 @@ public class XmlComposer extends XmlComposerBase {
       for (CodeableConcept e : element.getOperationalStatus()) 
         composeCodeableConcept("operationalStatus", e);
       composeCodeableConcept("parameterGroup", element.getParameterGroup());
-      composeCodeableConcept("measurementPrinciple", element.getMeasurementPrinciple());
+      if (element.getMeasurementPrincipleElement() != null)
+        composeEnumeration("measurementPrinciple", element.getMeasurementPrincipleElement(), new DeviceComponent.MeasurementPrincipleEnumFactory());
       for (DeviceComponent.DeviceComponentProductionSpecificationComponent e : element.getProductionSpecification()) 
         composeDeviceComponentDeviceComponentProductionSpecificationComponent("productionSpecification", e);
       composeCodeableConcept("languageCode", element.getLanguageCode());
@@ -4879,7 +4910,9 @@ public class XmlComposer extends XmlComposerBase {
 
   @Override
   protected void composeResource(Resource resource) throws Exception {
-    if (resource instanceof Alert)
+    if (resource instanceof Parameters)
+      composeParameters("Parameters", (Parameters)resource);
+    else if (resource instanceof Alert)
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance("AllergyIntolerance", (AllergyIntolerance)resource);
@@ -5038,7 +5071,9 @@ public class XmlComposer extends XmlComposerBase {
   }
 
   protected void composeResource(String name, Resource resource) throws Exception {
-    if (resource instanceof Alert)
+    if (resource instanceof Parameters)
+      composeParameters(name, (Parameters)resource);
+    else if (resource instanceof Alert)
       composeAlert(name, (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(name, (AllergyIntolerance)resource);

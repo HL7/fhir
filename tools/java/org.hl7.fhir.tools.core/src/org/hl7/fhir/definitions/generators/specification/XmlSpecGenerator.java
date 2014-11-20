@@ -173,7 +173,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		} else 
 		  write("&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
-      if (!root.typeCode().equals("Any")) {
+      if (!Utilities.noString(root.typeCode())) {
         write(" &lt;!-- from <a href=\"resource.html\">Resource</a>: <a href=\"resource.html#id\">id</a>, <a href=\"resource.html#meta\">meta</a>, <a href=\"resource.html#implicitRules\">implicitRules</a>, and <a href=\"resource.html#language\">language</a> -->\r\n");
         if (root.typeCode().equals("DomainResource"))
           write(" &lt;!-- from <a href=\"domainresource.html\">DomainResource</a>: <a href=\"narrative.html#Narrative\">text</a>, <a href=\"references.html#contained\">contained</a>, <a href=\"extensibility.html\">extension</a>, and <a href=\"extensibility.html#modifierExtension\">modifierExtension</a> -->\r\n");

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <parameter>
+    <name value="start"/>
+    <valueDate value="2010-01-01"/>
+  </parameter> 
+  <parameter>
+    <name value="end"/>
+    <valueDate value="2012-01-01"/>
+  </parameter> 
+</Parameters>

@@ -106,7 +106,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		jdoc("", root.getDefinition());
 		classname = upFirst(name);
 		if (clss == JavaGenClass.Resource)
-			write("public "+(isAbstract? "abstract " : "")+"class "+upFirst(name)+" extends "+(root.typeCode().equals("Any") ? "Base" : root.typeCode())+" {\r\n");
+			write("public "+(isAbstract? "abstract " : "")+"class "+upFirst(name)+" extends "+(Utilities.noString(root.typeCode()) ? "Base" : root.typeCode())+" {\r\n");
     else if (clss == JavaGenClass.Structure)
       write("public class "+upFirst(name)+" extends Element {\r\n");
     else if (clss == JavaGenClass.BackboneElement)
@@ -160,7 +160,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  write("    return ResourceType."+root.getName()+";\r\n");
 		  write("   }\r\n");
 		  write("\r\n"); 
-		} else if (isAbstract && root.typeCode().equals("Any")) {
+		} else if (isAbstract && Utilities.noString(root.typeCode())) {
 		  write(" public abstract ResourceType getResourceType();\r\n");
 		}
 		write("\r\n");

@@ -201,6 +201,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
     tableRowMarkdown("Comments", d.getComments());
     tableRow("Max Length", null, d.getMaxLengthElement() == null ? null : Integer.toString(d.getMaxLength()));
+    tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
+    tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
     tableRowNE("Fixed Value", null, encodeValue(d.getFixed()));
     tableRowNE("Pattern Value", null, encodeValue(d.getPattern()));
     tableRow("Example", null, encodeValue(d.getExample()));
@@ -373,6 +375,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		else
 		  tableRowNE("Type", "datatypes.html", type);
 		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
+    tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
+    tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
+
 		tableRowNE("Requirements", null, page.processMarkdown(e.getRequirements()));
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())

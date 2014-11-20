@@ -29,13 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
     public static Resource createReference(String name) throws Exception {
         if ("Condition".equals(name))
             return new Condition();
+        if ("Parameters".equals(name))
+            return new Parameters();
         if ("Supply".equals(name))
             return new Supply();
         if ("ProcedureRequest".equals(name))

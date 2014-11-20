@@ -720,6 +720,7 @@ public class ProfileGenerator {
     
     ce.setFixed(e.getFixed());
     ce.setPattern(e.getPattern());
+    ce.setDefaultValue(e.getDefaultValue());
     ce.setExample(e.getExample());
     
     // we don't know mustSupport here

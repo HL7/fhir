@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Nov 18, 2014 14:45+1100 for FHIR v0.3.0
+// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1292,6 +1292,16 @@ public class ElementDefinition extends Type {
     protected StringType nameReference;
 
     /**
+     * The value that should be used if there is no value stated in the instance.
+     */
+    protected org.hl7.fhir.instance.model.Type defaultValue;
+
+    /**
+     * The Implicit meaning that is to be understood when this element is missing.
+     */
+    protected StringType meaningWhenMissing;
+
+    /**
      * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
      */
     protected org.hl7.fhir.instance.model.Type fixed;
@@ -1346,7 +1356,7 @@ public class ElementDefinition extends Type {
      */
     protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
 
-    private static final long serialVersionUID = -507072475L;
+    private static final long serialVersionUID = -427804353L;
 
     public ElementDefinition() {
       super();
@@ -1784,6 +1794,57 @@ public class ElementDefinition extends Type {
     }
 
     /**
+     * @return {@link #defaultValue} (The value that should be used if there is no value stated in the instance.)
+     */
+    public org.hl7.fhir.instance.model.Type getDefaultValue() { 
+      return this.defaultValue;
+    }
+
+    /**
+     * @param value {@link #defaultValue} (The value that should be used if there is no value stated in the instance.)
+     */
+    public ElementDefinition setDefaultValue(org.hl7.fhir.instance.model.Type value) { 
+      this.defaultValue = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #meaningWhenMissing} (The Implicit meaning that is to be understood when this element is missing.). This is the underlying object with id, value and extensions. The accessor "getMeaningWhenMissing" gives direct access to the value
+     */
+    public StringType getMeaningWhenMissingElement() { 
+      return this.meaningWhenMissing;
+    }
+
+    /**
+     * @param value {@link #meaningWhenMissing} (The Implicit meaning that is to be understood when this element is missing.). This is the underlying object with id, value and extensions. The accessor "getMeaningWhenMissing" gives direct access to the value
+     */
+    public ElementDefinition setMeaningWhenMissingElement(StringType value) { 
+      this.meaningWhenMissing = value;
+      return this;
+    }
+
+    /**
+     * @return The Implicit meaning that is to be understood when this element is missing.
+     */
+    public String getMeaningWhenMissing() { 
+      return this.meaningWhenMissing == null ? null : this.meaningWhenMissing.getValue();
+    }
+
+    /**
+     * @param value The Implicit meaning that is to be understood when this element is missing.
+     */
+    public ElementDefinition setMeaningWhenMissing(String value) { 
+      if (Utilities.noString(value))
+        this.meaningWhenMissing = null;
+      else {
+        if (this.meaningWhenMissing == null)
+          this.meaningWhenMissing = new StringType();
+        this.meaningWhenMissing.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #fixed} (Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.)
      */
     public org.hl7.fhir.instance.model.Type getFixed() { 
@@ -2073,6 +2134,8 @@ public class ElementDefinition extends Type {
         childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
         childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("nameReference", "string", "Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, nameReference));
+        childrenList.add(new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
+        childrenList.add(new Property("meaningWhenMissing", "string", "The Implicit meaning that is to be understood when this element is missing.", 0, java.lang.Integer.MAX_VALUE, meaningWhenMissing));
         childrenList.add(new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, java.lang.Integer.MAX_VALUE, fixed));
         childrenList.add(new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-senstive, accent-sensitive, etc.).", 0, java.lang.Integer.MAX_VALUE, pattern));
         childrenList.add(new Property("example[x]", "*", "An example value for this element.", 0, java.lang.Integer.MAX_VALUE, example));
@@ -2108,6 +2171,8 @@ public class ElementDefinition extends Type {
         for (TypeRefComponent i : type)
           dst.type.add(i.copy());
         dst.nameReference = nameReference == null ? null : nameReference.copy();
+        dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
+        dst.meaningWhenMissing = meaningWhenMissing == null ? null : meaningWhenMissing.copy();
         dst.fixed = fixed == null ? null : fixed.copy();
         dst.pattern = pattern == null ? null : pattern.copy();
         dst.example = example == null ? null : example.copy();
