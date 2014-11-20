@@ -21,29 +21,27 @@
     <reference value="Patient/1"/>
   </subject>
 
-<!--
   <detail>
      <linkId value="1"/>
 	 <contentAttachment>
 		<contentType value="application/pdf" />
-		<data value="base64content" />
-		<title value="accident notes 20100201" />
+		<data value="SGVsbG8=" />
+		<title value="accident notes 20100201.pdf" />
 	 </contentAttachment>
-     <date value="2010-02-01"/>
+     <dateTime value="2010-02-01"/>
   </detail>
--->
- <!--
+
+ 
   <detail>
      <linkId value="2"/>
-	 <content>
-	    <attachment>
-		   <contentType value="application/pdf" />
-		   <url value="http://happyvalley.com/docs/AB12345" />
-		   <size value="104274" />
-	    </attachment>
-	 </content>
-     <date value="2010-02-01"/>
+	 <contentAttachment>
+		<contentType value="application/pdf" />
+		<url value="http://happyvalley.com/docs/AB12345" />
+		<size value="104274" />
+		<hash value="SGVsbG8gdGhlcmU=" />
+	 </contentAttachment>
+     <dateTime value="2010-02-01T10:57:34+01:00"/>
   </detail>
- -->
+ 
   
  </SupportingDocumentation>

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-16T05:07:01Z</LastSaved>
+  <LastSaved>2014-11-20T00:41:33Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1412,11 +1412,11 @@
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">SupportingDocumentation.detail.date</Data></Cell>
+    <Cell><Data ss:Type="String">SupportingDocumentation.detail.dateTime</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Creation date</Data></Cell>
-    <Cell><Data ss:Type="String">The date when the material was created.</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Creation date and time</Data></Cell>
+    <Cell><Data ss:Type="String">The date and optionally time when the material was created.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1436,7 +1436,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1450,11 +1450,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
