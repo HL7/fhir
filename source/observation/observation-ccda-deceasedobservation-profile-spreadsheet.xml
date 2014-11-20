@@ -14,7 +14,7 @@
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\Users\HL7\FHIR\CCDA-FHIR Templates\observation-ccdatemplate-profile-spreadsheet-backupcopy.xml</Path>
+   <Path>\\ERICHPLAPTOP\Users\Users\HL7\FHIR\CCDA-FHIR Templates\observation-ccdatemplate-profile-spreadsheet-backupcopy.xml</Path>
    <SheetName>Metadata</SheetName>
    <SheetName>CCDATemplateName</SheetName>
    <SheetName>Invariants</SheetName>
@@ -23,6 +23,30 @@
    <SheetName>Search</SheetName>
    <SheetName>NamedValidationRanges</SheetName>
    <SheetName>FullDefinitionsMapping</SheetName>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>0</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>1</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>2</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>3</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>4</SheetIndex>
+   </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>5</SheetIndex>
+   </Xct>
    <Xct>
     <Count>5</Count>
     <SheetIndex>6</SheetIndex>
@@ -57,15 +81,18 @@
      <Text>value set</Text>
     </Crn>
    </Xct>
+   <Xct>
+    <Count>0</Count>
+    <SheetIndex>7</SheetIndex>
+   </Xct>
   </SupBook>
   <WindowHeight>5865</WindowHeight>
   <WindowWidth>19260</WindowWidth>
-  <WindowTopX>-30</WindowTopX>
-  <WindowTopY>1200</WindowTopY>
+  <WindowTopX>1785</WindowTopX>
+  <WindowTopY>7605</WindowTopY>
   <TabRatio>971</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -937,7 +964,7 @@
  </Styles>
  <Names>
   <NamedRange ss:Name="BINDNG"
-   ss:RefersTo="='\Users\HL7\FHIR\CCDA-FHIR Templates\[observation-ccdatemplate-profile-spreadsheet-backupcopy.xml]NamedValidationRanges'!R1C6:R5C6"/>
+   ss:RefersTo="='\\ERICHPLAPTOP\Users\Users\HL7\FHIR\CCDA-FHIR Templates\[observation-ccdatemplate-profile-spreadsheet-backupcopy.xml]NamedValidationRanges'!R1C6:R5C6"/>
   <NamedRange ss:Name="CONTEXT" ss:RefersTo="=NamedValidationRanges!R1C9:R27C9"/>
   <NamedRange ss:Name="CONTEXTTYPE" ss:RefersTo="=NamedValidationRanges!R1C8:R4C8"/>
   <NamedRange ss:Name="DISCRIMINATOR"
@@ -3659,12 +3686,13 @@
    </Print>
    <TabColorIndex>10</TabColorIndex>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3672,15 +3700,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>5</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3819,7 +3847,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C1</Range>
+   <Range>R14C1,R14C5,R10C10</Range>
    <Condition>
     <Value1>RC7=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3830,25 +3858,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C1</Range>
-   <Condition>
-    <Value1>LEFT(RC5,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C5</Range>
-   <Condition>
-    <Value1>RC7=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC5=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R14C5</Range>
+   <Range>R14C1,R14C5,R10C10</Range>
    <Condition>
     <Value1>LEFT(RC5,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -3859,24 +3869,6 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C10</Range>
-   <Condition>
-    <Value1>RC7=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC5=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C10</Range>
-   <Condition>
-    <Value1>LEFT(RC5,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -5550,7 +5542,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -11378,7 +11369,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C1</Range>
+   <Range>R26C1,R26C5</Range>
    <Condition>
     <Value1>RC7=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -11389,25 +11380,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C1</Range>
-   <Condition>
-    <Value1>LEFT(RC5,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C5</Range>
-   <Condition>
-    <Value1>RC7=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC5=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C5</Range>
+   <Range>R26C1,R26C5</Range>
    <Condition>
     <Value1>LEFT(RC5,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
