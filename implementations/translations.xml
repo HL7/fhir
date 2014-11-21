@@ -452,6 +452,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Remesa</translation>
         <translation lang="fr">Remise</translation>
     </item>
+    <item id="Reversal">
+        <translation lang="en">Reversal</translation>
+    </item>
     <item id="RiskAssessment">
         <translation lang="en">RiskAssessment</translation>
     </item>
