@@ -36,13 +36,14 @@ import org.hl7.fhir.instance.model.Profile;
 
 public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
-   private Map<String, SearchParameter> searchParams = new HashMap<String, SearchParameter>();
+   private Map<String, SearchParameterDefn> searchParams = new HashMap<String, SearchParameterDefn>();
    private Map<String, Operation> operations = new HashMap<String, Operation>();
    private List<ConformancePackage> conformancePackages = new ArrayList<ConformancePackage>();
       
    private String status;
    private boolean abstract_;
    private WorkGroup wg;
+   private ConformancePackage conformancePack;
      
    private String name = null;
    
@@ -117,7 +118,7 @@ public class ResourceDefn  {
     return examples;
   }
 
-  public Map<String, SearchParameter> getSearchParams() {
+  public Map<String, SearchParameterDefn> getSearchParams() {
     return searchParams;
   }
 
@@ -177,6 +178,14 @@ public class ResourceDefn  {
 
   public void setWg(WorkGroup wg) {
     this.wg = wg;
+  }
+
+  public ConformancePackage getConformancePack() {
+    return conformancePack;
+  }
+
+  public void setConformancePack(ConformancePackage conformancePack) {
+    this.conformancePack = conformancePack;
   }
 
 }

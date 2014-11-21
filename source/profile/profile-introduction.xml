@@ -9,14 +9,9 @@ repositories of profile definitions, compared with each other, and used as the b
 for code, report and UI generation. 
 </p>
 <p>
-Profile resources have four main parts:
+Profile resources have a metadata section that describes the profile, and 
+supports registry searching and they define and describe how a Resource or Data Type is used.
 </p>
-<ol>
- <li>A metadata section the describes the profile, and supports registry searching</li>
- <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
- <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
- <li><i>Search Criteria Definitions</i> that define additional mechanisms for searching resources</li>
-</ol>
 <p>
 Note that  as part of the specification itself, a <a href="downloads.html#profiles">full 
 set of profiles</a> for all resources and data types is published.
@@ -30,6 +25,7 @@ HL7 hosts one for public registration of FHIR profiles at (yet to be done).
 <ul>
  <li>Profiles are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
  <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
+ <li>Profiles can use <a href="extensiondefinitions.html">Extension Definitions</a> when specifying how a resource is used</li>
 </ul>
 
 </div> 

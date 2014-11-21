@@ -52,11 +52,11 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -80,7 +80,7 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileSearchParamComponent;
+import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
@@ -358,7 +358,7 @@ public class ProfileGenerator {
     throw new Exception("Unable to find snapshot for "+baseType);
   }
 
-  public Profile generate(ResourceDefn r, Calendar genDate) throws Exception {
+  public Profile generate(ConformancePackage pack, ResourceDefn r, Calendar genDate) throws Exception {
     Profile p = new Profile();
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
@@ -389,8 +389,7 @@ public class ProfileGenerator {
     names.addAll(r.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      SearchParameter param = r.getSearchParams().get(pn);
-      makeSearchParam(p, r.getName(), param);
+      makeSearchParam(pack, p, r.getName(), r.getSearchParams().get(pn));
     }
     containedSlices.clear();
 
@@ -450,8 +449,7 @@ public class ProfileGenerator {
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      SearchParameter param = resource.getSearchParams().get(pn);
-      makeSearchParam(p, resource.getName(), param);
+      makeSearchParam(pack, p, resource.getName(), resource.getSearchParams().get(pn));
     }
     reset();
     // ok, c is the differential. now we make the snapshot
@@ -467,38 +465,45 @@ public class ProfileGenerator {
     return p;
   }
 
-  private Profile.SearchParamType getSearchParamType(SearchType type) {
+  private SearchParameter.SearchParamType getSearchParamType(SearchParameterDefn.SearchType type) {
     switch (type) {
     case number:
-      return Profile.SearchParamType.NUMBER;
+      return SearchParameter.SearchParamType.NUMBER;
     case string:
-      return Profile.SearchParamType.STRING;
+      return SearchParameter.SearchParamType.STRING;
     case date:
-      return Profile.SearchParamType.DATE;
+      return SearchParameter.SearchParamType.DATE;
     case reference:
-      return Profile.SearchParamType.REFERENCE;
+      return SearchParameter.SearchParamType.REFERENCE;
     case token:
-      return Profile.SearchParamType.TOKEN;
+      return SearchParameter.SearchParamType.TOKEN;
     case composite:
-      return Profile.SearchParamType.COMPOSITE;
+      return SearchParameter.SearchParamType.COMPOSITE;
     case quantity:
-      return Profile.SearchParamType.QUANTITY;
+      return SearchParameter.SearchParamType.QUANTITY;
     }
     return null;
   }
 
-  private void makeSearchParam(Profile p, String rn, SearchParameter i) {
-    ProfileSearchParamComponent result = new ProfileSearchParamComponent();
-    result.setName(i.getCode());
-    result.setType(getSearchParamType(i.getType()));
-    result.setDocumentation(i.getDescription());
-    String xpath = i.getXPath();
+  private void makeSearchParam(ConformancePackage pack, Profile p, String rn, SearchParameterDefn spd) {
+    SearchParameter sp = new SearchParameter();
+    sp.setId(rn.toLowerCase()+"-"+spd.getCode());
+    sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
+    sp.setName(spd.getCode());
+    sp.setPublisher(p.getPublisher());
+    for (ContactPoint tc : p.getTelecom()) 
+      sp.getTelecom().add(tc.copy());
+    sp.setBase(p.getName());
+    sp.setType(getSearchParamType(spd.getType()));
+    sp.setDescription(spd.getDescription());
+    String xpath = spd.getXPath();
     if (xpath != null) {
       if (xpath.contains("[x]"))
         xpath = convertToXpath(xpath);
-      result.setXpath(xpath);
+      sp.setXpath(xpath);
     }
-    p.getSearchParam().add(result);
+    // todo: SearchParameter.target
+    pack.getSearchParameters().add(sp);
   }
 
 

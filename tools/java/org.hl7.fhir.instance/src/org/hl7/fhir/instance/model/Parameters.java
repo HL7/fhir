@@ -29,13 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 /**
- * This special resource type is used to rpresent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
+ * This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
  */
 public class Parameters extends Resource {
 

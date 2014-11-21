@@ -8,6 +8,7 @@ import java.util.Map;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -32,6 +33,7 @@ public class ConformancePackage {
   private List<ProfileDefn> profiles = new ArrayList<ProfileDefn>();
   private List<ExtensionDefinition> extensions = new ArrayList<ExtensionDefinition>();
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
+  private List<SearchParameter> searchParameters = new ArrayList<SearchParameter>();
     
   public String getTitle() {
     return title;
@@ -132,6 +134,9 @@ public class ConformancePackage {
   }
   public String getDescription() {
     return metadata("description");
+  }
+  public List<SearchParameter> getSearchParameters() {
+    return searchParameters;
   }
 
   

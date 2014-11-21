@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -101,112 +101,6 @@ public class Profile extends DomainResource {
         return "active";
       if (code == ResourceProfileStatus.RETIRED)
         return "retired";
-      return "?";
-      }
-    }
-
-    public enum SearchParamType {
-        NUMBER, // Search parameter SHALL be a number (a whole number, or a decimal).
-        DATE, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
-        STRING, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-        TOKEN, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
-        REFERENCE, // A reference to another resource.
-        COMPOSITE, // A composite search parameter that combines a search on two values together.
-        QUANTITY, // A search parameter that searches on a quantity.
-        NULL; // added to help the parsers
-        public static SearchParamType fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("number".equals(codeString))
-          return NUMBER;
-        if ("date".equals(codeString))
-          return DATE;
-        if ("string".equals(codeString))
-          return STRING;
-        if ("token".equals(codeString))
-          return TOKEN;
-        if ("reference".equals(codeString))
-          return REFERENCE;
-        if ("composite".equals(codeString))
-          return COMPOSITE;
-        if ("quantity".equals(codeString))
-          return QUANTITY;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case NUMBER: return "number";
-            case DATE: return "date";
-            case STRING: return "string";
-            case TOKEN: return "token";
-            case REFERENCE: return "reference";
-            case COMPOSITE: return "composite";
-            case QUANTITY: return "quantity";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case NUMBER: return "Search parameter SHALL be a number (a whole number, or a decimal).";
-            case DATE: return "Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.";
-            case STRING: return "Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.";
-            case TOKEN: return "Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a '|', depending on the modifier used.";
-            case REFERENCE: return "A reference to another resource.";
-            case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
-            case QUANTITY: return "A search parameter that searches on a quantity.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case NUMBER: return "number";
-            case DATE: return "date";
-            case STRING: return "string";
-            case TOKEN: return "token";
-            case REFERENCE: return "reference";
-            case COMPOSITE: return "composite";
-            case QUANTITY: return "quantity";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class SearchParamTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("number".equals(codeString))
-          return SearchParamType.NUMBER;
-        if ("date".equals(codeString))
-          return SearchParamType.DATE;
-        if ("string".equals(codeString))
-          return SearchParamType.STRING;
-        if ("token".equals(codeString))
-          return SearchParamType.TOKEN;
-        if ("reference".equals(codeString))
-          return SearchParamType.REFERENCE;
-        if ("composite".equals(codeString))
-          return SearchParamType.COMPOSITE;
-        if ("quantity".equals(codeString))
-          return SearchParamType.QUANTITY;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == SearchParamType.NUMBER)
-        return "number";
-      if (code == SearchParamType.DATE)
-        return "date";
-      if (code == SearchParamType.STRING)
-        return "string";
-      if (code == SearchParamType.TOKEN)
-        return "token";
-      if (code == SearchParamType.REFERENCE)
-        return "reference";
-      if (code == SearchParamType.COMPOSITE)
-        return "composite";
-      if (code == SearchParamType.QUANTITY)
-        return "quantity";
       return "?";
       }
     }
@@ -448,238 +342,6 @@ public class Profile extends DomainResource {
 
   }
 
-    public static class ProfileSearchParamComponent extends BackboneElement {
-        /**
-         * The name of the standard or custom search parameter.
-         */
-        protected StringType name;
-
-        /**
-         * The type of value a search parameter refers to, and how the content is interpreted.
-         */
-        protected Enumeration<SearchParamType> type;
-
-        /**
-         * A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
-         */
-        protected StringType documentation;
-
-        /**
-         * An XPath expression that returns a set of elements for the search parameter.
-         */
-        protected StringType xpath;
-
-        /**
-         * Types of resource (if a resource is referenced).
-         */
-        protected List<CodeType> target = new ArrayList<CodeType>();
-
-        private static final long serialVersionUID = -1550477651L;
-
-      public ProfileSearchParamComponent() {
-        super();
-      }
-
-      public ProfileSearchParamComponent(StringType name, Enumeration<SearchParamType> type, StringType documentation) {
-        super();
-        this.name = name;
-        this.type = type;
-        this.documentation = documentation;
-      }
-
-        /**
-         * @return {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public StringType getNameElement() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public ProfileSearchParamComponent setNameElement(StringType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of the standard or custom search parameter.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of the standard or custom search parameter.
-         */
-        public ProfileSearchParamComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public Enumeration<SearchParamType> getTypeElement() { 
-          return this.type;
-        }
-
-        /**
-         * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public ProfileSearchParamComponent setTypeElement(Enumeration<SearchParamType> value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return The type of value a search parameter refers to, and how the content is interpreted.
-         */
-        public SearchParamType getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value The type of value a search parameter refers to, and how the content is interpreted.
-         */
-        public ProfileSearchParamComponent setType(SearchParamType value) { 
-            if (this.type == null)
-              this.type = new Enumeration<SearchParamType>();
-            this.type.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
-         */
-        public StringType getDocumentationElement() { 
-          return this.documentation;
-        }
-
-        /**
-         * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
-         */
-        public ProfileSearchParamComponent setDocumentationElement(StringType value) { 
-          this.documentation = value;
-          return this;
-        }
-
-        /**
-         * @return A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
-         */
-        public String getDocumentation() { 
-          return this.documentation == null ? null : this.documentation.getValue();
-        }
-
-        /**
-         * @param value A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
-         */
-        public ProfileSearchParamComponent setDocumentation(String value) { 
-            if (this.documentation == null)
-              this.documentation = new StringType();
-            this.documentation.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
-         */
-        public StringType getXpathElement() { 
-          return this.xpath;
-        }
-
-        /**
-         * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
-         */
-        public ProfileSearchParamComponent setXpathElement(StringType value) { 
-          this.xpath = value;
-          return this;
-        }
-
-        /**
-         * @return An XPath expression that returns a set of elements for the search parameter.
-         */
-        public String getXpath() { 
-          return this.xpath == null ? null : this.xpath.getValue();
-        }
-
-        /**
-         * @param value An XPath expression that returns a set of elements for the search parameter.
-         */
-        public ProfileSearchParamComponent setXpath(String value) { 
-          if (Utilities.noString(value))
-            this.xpath = null;
-          else {
-            if (this.xpath == null)
-              this.xpath = new StringType();
-            this.xpath.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public List<CodeType> getTarget() { 
-          return this.target;
-        }
-
-        /**
-         * @return {@link #target} (Types of resource (if a resource is referenced).)
-         */
-    // syntactic sugar
-        public CodeType addTargetElement() {//2 
-          CodeType t = new CodeType();
-          this.target.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public ProfileSearchParamComponent addTarget(String value) { //1
-          CodeType t = new CodeType();
-          t.setValue(value);
-          this.target.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #target} (Types of resource (if a resource is referenced).)
-         */
-        public boolean hasTarget(String value) { 
-          for (CodeType v : this.target)
-            if (v.equals(value)) // code
-              return true;
-          return false;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("documentation", "string", "A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
-          childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
-        }
-
-      public ProfileSearchParamComponent copy() {
-        ProfileSearchParamComponent dst = new ProfileSearchParamComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        dst.type = type == null ? null : type.copy();
-        dst.documentation = documentation == null ? null : documentation.copy();
-        dst.xpath = xpath == null ? null : xpath.copy();
-        dst.target = new ArrayList<CodeType>();
-        for (CodeType i : target)
-          dst.target.add(i.copy());
-        return dst;
-      }
-
-  }
-
     /**
      * The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
      */
@@ -770,12 +432,7 @@ public class Profile extends DomainResource {
      */
     protected ConstraintComponent differential;
 
-    /**
-     * Additional search parameters defined for this structure that implementations can support and/or make use of.
-     */
-    protected List<ProfileSearchParamComponent> searchParam = new ArrayList<ProfileSearchParamComponent>();
-
-    private static final long serialVersionUID = -407540206L;
+    private static final long serialVersionUID = 1933307310L;
 
     public Profile() {
       super();
@@ -1303,23 +960,6 @@ public class Profile extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
-     */
-    public List<ProfileSearchParamComponent> getSearchParam() { 
-      return this.searchParam;
-    }
-
-    /**
-     * @return {@link #searchParam} (Additional search parameters defined for this structure that implementations can support and/or make use of.)
-     */
-    // syntactic sugar
-    public ProfileSearchParamComponent addSearchParam() { //3
-      ProfileSearchParamComponent t = new ProfileSearchParamComponent();
-      this.searchParam.add(t);
-      return t;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
@@ -1340,7 +980,6 @@ public class Profile extends DomainResource {
         childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
         childrenList.add(new Property("differential", "@Profile.snapshot", "A differential view is expressed relative to the base profile - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
-        childrenList.add(new Property("searchParam", "", "Additional search parameters defined for this structure that implementations can support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
       }
 
       public Profile copy() {
@@ -1372,9 +1011,6 @@ public class Profile extends DomainResource {
         dst.base = base == null ? null : base.copy();
         dst.snapshot = snapshot == null ? null : snapshot.copy();
         dst.differential = differential == null ? null : differential.copy();
-        dst.searchParam = new ArrayList<ProfileSearchParamComponent>();
-        for (ProfileSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy());
         return dst;
       }
 

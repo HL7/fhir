@@ -36,7 +36,7 @@ public class LoincToDEConvertor {
 		if (args.length == 0) {
 			System.out.println("FHIR LOINC to CDE convertor. ");
 			System.out.println("");
-			System.out.println("This tool converts from LOINC to A set of CommonDataElement definitions.");
+			System.out.println("This tool converts from LOINC to A set of DataElement definitions.");
 			System.out.println("");
 			System.out.println("Usage: [jar(path?)] [dest] (-defn [definitions]) where: ");
 			System.out.println("* [dest] is a file name of the bundle to produce");

@@ -45,8 +45,8 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -67,7 +67,7 @@ public class ResourceValidator extends BaseValidator {
   
   
   public class Usage {
-    public Set<SearchParameter.SearchType> usage= new HashSet<SearchParameter.SearchType>();
+    public Set<SearchParameterDefn.SearchType> usage= new HashSet<SearchParameterDefn.SearchType>();
   }
   
  
@@ -145,7 +145,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     if (parent.getRoot().getElementByName("patient") != null && parent.getRoot().getElementByName("patient").typeCode().startsWith("Reference"))
       rule(errors, "structure", parent.getName(), parent.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
-    for (org.hl7.fhir.definitions.model.SearchParameter p : parent.getSearchParams().values()) {
+    for (org.hl7.fhir.definitions.model.SearchParameterDefn p : parent.getSearchParams().values()) {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());
       usages.get(p.getCode()).usage.add(p.getType());

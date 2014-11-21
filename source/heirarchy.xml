@@ -217,6 +217,7 @@ todo: compartments
     <page type="resource" resource="Profile"/>
     <page type="resource" resource="OperationDefinition"/>
     <page type="resource" resource="ExtensionDefinition"/>
+    <page type="resource" resource="SearchParameter"/>
     <page type="resource" resource="DataElement"/>
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="NamingSystem"/>

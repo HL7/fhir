@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2013-07-04T21:40:49Z</Created>
   <LastSaved>2014-10-30T03:14:40Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -108,7 +108,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="91" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="92" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -398,6 +398,9 @@
     <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SearchParameter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SecurityEvent</Data></Cell>
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
    </Row>
@@ -493,7 +496,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -501,7 +504,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>70</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

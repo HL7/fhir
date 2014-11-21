@@ -51,7 +51,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -879,7 +879,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       con7.append("  TARGETS_"+tn+" : Array["+tn+"] of TFhirResourceTypeSet = (");
 
       List<String> names = new ArrayList<String>();
-      Map<String, SearchParameter> params = new HashMap<String, SearchParameter>();
+      Map<String, SearchParameterDefn> params = new HashMap<String, SearchParameterDefn>();
       names.addAll(r.getSearchParams().keySet());
       params.putAll(r.getSearchParams());
       String pn = r.getRoot().typeCode();
@@ -894,7 +894,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       int l = names.size();
       int i = 0;
       for (String name : names) {
-        SearchParameter p = params.get(name);
+        SearchParameterDefn p = params.get(name);
         i++;
         String n = p.getCode().replace("$", "_");
         String d = Utilities.normaliseEolns(p.getDescription());

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.IntegerType;
@@ -4048,8 +4048,6 @@ public class XmlComposer extends XmlComposerBase {
       composeUri("base", element.getBaseElement());
       composeProfileConstraintComponent("snapshot", element.getSnapshot());
       composeProfileConstraintComponent("differential", element.getDifferential());
-      for (Profile.ProfileSearchParamComponent e : element.getSearchParam()) 
-        composeProfileProfileSearchParamComponent("searchParam", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -4074,22 +4072,6 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       for (ElementDefinition e : element.getElement()) 
         composeElementDefinition("element", e);
-      xml.close(FHIR_NS, name);
-    }
-  }
-
-  private void composeProfileProfileSearchParamComponent(String name, Profile.ProfileSearchParamComponent element) throws Exception {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.open(FHIR_NS, name);
-      composeBackboneElements(element);
-      composeString("name", element.getNameElement());
-      if (element.getTypeElement() != null)
-        composeEnumeration("type", element.getTypeElement(), new Profile.SearchParamTypeEnumFactory());
-      composeString("documentation", element.getDocumentationElement());
-      composeString("xpath", element.getXpathElement());
-      for (CodeType e : element.getTarget()) 
-        composeCode("target", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -4380,6 +4362,28 @@ public class XmlComposer extends XmlComposerBase {
       composeDecimal("relativeRisk", element.getRelativeRiskElement());
       composeType("when", element.getWhen());
       composeString("rationale", element.getRationaleElement());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSearchParameter(String name, SearchParameter element) throws Exception {
+    if (element != null) {
+      composeDomainResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeDomainResourceElements(element);
+      composeUri("url", element.getUrlElement());
+      composeString("name", element.getNameElement());
+      composeString("publisher", element.getPublisherElement());
+      for (ContactPoint e : element.getTelecom()) 
+        composeContactPoint("telecom", e);
+      composeString("requirements", element.getRequirementsElement());
+      composeCode("base", element.getBaseElement());
+      if (element.getTypeElement() != null)
+        composeEnumeration("type", element.getTypeElement(), new SearchParameter.SearchParamTypeEnumFactory());
+      composeString("description", element.getDescriptionElement());
+      composeString("xpath", element.getXpathElement());
+      for (CodeType e : element.getTarget()) 
+        composeCode("target", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -4747,7 +4751,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeInteger("linkId", element.getLinkIdElement());
       composeType("content", element.getContent());
-      composeDate("date", element.getDateElement());
+      composeDateTime("dateTime", element.getDateTimeElement());
       xml.close(FHIR_NS, name);
     }
   }
@@ -5048,6 +5052,8 @@ public class XmlComposer extends XmlComposerBase {
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof RiskAssessment)
       composeRiskAssessment("RiskAssessment", (RiskAssessment)resource);
+    else if (resource instanceof SearchParameter)
+      composeSearchParameter("SearchParameter", (SearchParameter)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
     else if (resource instanceof Slot)
@@ -5209,6 +5215,8 @@ public class XmlComposer extends XmlComposerBase {
       composeRelatedPerson(name, (RelatedPerson)resource);
     else if (resource instanceof RiskAssessment)
       composeRiskAssessment(name, (RiskAssessment)resource);
+    else if (resource instanceof SearchParameter)
+      composeSearchParameter(name, (SearchParameter)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent(name, (SecurityEvent)resource);
     else if (resource instanceof Slot)

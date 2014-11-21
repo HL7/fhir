@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -6186,8 +6186,6 @@ public class XmlParser extends XmlParserBase {
         res.setSnapshot(parseProfileConstraintComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("differential")) {
         res.setDifferential(parseProfileConstraintComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
-        res.getSearchParam().add(parseProfileProfileSearchParamComponent(xpp, res));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -6226,30 +6224,6 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("element")) {
         res.getElement().add(parseElementDefinition(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    return res;
-  }
-
-  private Profile.ProfileSearchParamComponent parseProfileProfileSearchParamComponent(XmlPullParser xpp, Profile owner) throws Exception {
-    Profile.ProfileSearchParamComponent res = new Profile.ProfileSearchParamComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setTypeElement(parseEnumeration(xpp, Profile.SearchParamType.NULL, new Profile.SearchParamTypeEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
-        res.setDocumentationElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpath")) {
-        res.setXpathElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("target")) {
-        res.getTarget().add(parseCode(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -6693,6 +6667,40 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rationale")) {
         res.setRationaleElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    return res;
+  }
+
+  private SearchParameter parseSearchParameter(XmlPullParser xpp) throws Exception {
+    SearchParameter res = new SearchParameter();
+    parseDomainResourceAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("url")) {
+        res.setUrlElement(parseUri(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
+        res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("publisher")) {
+        res.setPublisherElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("telecom")) {
+        res.getTelecom().add(parseContactPoint(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
+        res.setRequirementsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("base")) {
+        res.setBaseElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setTypeElement(parseEnumeration(xpp, SearchParameter.SearchParamType.NULL, new SearchParameter.SearchParamTypeEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
+        res.setDescriptionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpath")) {
+        res.setXpathElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("target")) {
+        res.getTarget().add(parseCode(xpp));
+      } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
@@ -7266,8 +7274,8 @@ public class XmlParser extends XmlParserBase {
         res.setLinkIdElement(parseInteger(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "content")) {
         res.setContent(parseType("content", xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
-        res.setDateElement(parseDate(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dateTime")) {
+        res.setDateTimeElement(parseDateTime(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -7660,6 +7668,8 @@ public class XmlParser extends XmlParserBase {
       return parseRelatedPerson(xpp);
     else if (xpp.getName().equals("RiskAssessment"))
       return parseRiskAssessment(xpp);
+    else if (xpp.getName().equals("SearchParameter"))
+      return parseSearchParameter(xpp);
     else if (xpp.getName().equals("SecurityEvent"))
       return parseSecurityEvent(xpp);
     else if (xpp.getName().equals("Slot"))
@@ -7980,6 +7990,8 @@ public class XmlParser extends XmlParserBase {
       return parseRelatedPerson(xpp);
     else if (type.equals("RiskAssessment"))
       return parseRiskAssessment(xpp);
+    else if (type.equals("SearchParameter"))
+      return parseSearchParameter(xpp);
     else if (type.equals("SecurityEvent"))
       return parseSecurityEvent(xpp);
     else if (type.equals("Slot"))
@@ -8205,6 +8217,8 @@ public class XmlParser extends XmlParserBase {
     if (xpp.getName().equals(prefix+"RelatedPerson"))
       return true;
     if (xpp.getName().equals(prefix+"RiskAssessment"))
+      return true;
+    if (xpp.getName().equals(prefix+"SearchParameter"))
       return true;
     if (xpp.getName().equals(prefix+"SecurityEvent"))
       return true;

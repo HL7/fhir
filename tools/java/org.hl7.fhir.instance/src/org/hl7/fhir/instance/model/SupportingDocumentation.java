@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 20, 2014 16:26+1100 for FHIR v0.3.0
+// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -50,11 +50,11 @@ public class SupportingDocumentation extends DomainResource {
         protected Type content;
 
         /**
-         * The date when the material was created.
+         * The date and optionally time when the material was created.
          */
-        protected DateType date;
+        protected DateTimeType dateTime;
 
-        private static final long serialVersionUID = -779251474L;
+        private static final long serialVersionUID = -132176946L;
 
       public SupportingDocumentationDetailComponent() {
         super();
@@ -114,37 +114,37 @@ public class SupportingDocumentation extends DomainResource {
         }
 
         /**
-         * @return {@link #date} (The date when the material was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         * @return {@link #dateTime} (The date and optionally time when the material was created.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DateType getDateElement() { 
-          return this.date;
+        public DateTimeType getDateTimeElement() { 
+          return this.dateTime;
         }
 
         /**
-         * @param value {@link #date} (The date when the material was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+         * @param value {@link #dateTime} (The date and optionally time when the material was created.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public SupportingDocumentationDetailComponent setDateElement(DateType value) { 
-          this.date = value;
+        public SupportingDocumentationDetailComponent setDateTimeElement(DateTimeType value) { 
+          this.dateTime = value;
           return this;
         }
 
         /**
-         * @return The date when the material was created.
+         * @return The date and optionally time when the material was created.
          */
-        public DateAndTime getDate() { 
-          return this.date == null ? null : this.date.getValue();
+        public DateAndTime getDateTime() { 
+          return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
-         * @param value The date when the material was created.
+         * @param value The date and optionally time when the material was created.
          */
-        public SupportingDocumentationDetailComponent setDate(DateAndTime value) { 
+        public SupportingDocumentationDetailComponent setDateTime(DateAndTime value) { 
           if (value == null)
-            this.date = null;
+            this.dateTime = null;
           else {
-            if (this.date == null)
-              this.date = new DateType();
-            this.date.setValue(value);
+            if (this.dateTime == null)
+              this.dateTime = new DateTimeType();
+            this.dateTime.setValue(value);
           }
           return this;
         }
@@ -153,7 +153,7 @@ public class SupportingDocumentation extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("linkId", "integer", "A link Id for the response to reference.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("content[x]", "Reference(Any)|Attachment", "The attached content.", 0, java.lang.Integer.MAX_VALUE, content));
-          childrenList.add(new Property("date", "date", "The date when the material was created.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("dateTime", "dateTime", "The date and optionally time when the material was created.", 0, java.lang.Integer.MAX_VALUE, dateTime));
         }
 
       public SupportingDocumentationDetailComponent copy() {
@@ -161,7 +161,7 @@ public class SupportingDocumentation extends DomainResource {
         copyValues(dst);
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.content = content == null ? null : content.copy();
-        dst.date = date == null ? null : date.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
         return dst;
       }
 

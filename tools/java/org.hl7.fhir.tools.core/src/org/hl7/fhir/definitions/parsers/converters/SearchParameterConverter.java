@@ -39,17 +39,17 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SearchParameterConverter {
-  public static List<SearchParameter> buildSearchParametersFromFhirModel(Collection<org.hl7.fhir.definitions.model.SearchParameter> searchParameters) {
+  public static List<SearchParameter> buildSearchParametersFromFhirModel(Collection<org.hl7.fhir.definitions.model.SearchParameterDefn> searchParameters) {
     List<SearchParameter> result = new ArrayList<SearchParameter>();
 
-    for (org.hl7.fhir.definitions.model.SearchParameter searchParameter : searchParameters) {
+    for (org.hl7.fhir.definitions.model.SearchParameterDefn searchParameter : searchParameters) {
       result.add(buildSearchParameterFromFhirModel(searchParameter));
     }
 
     return result;
   }
 
-  public static SearchParameter buildSearchParameterFromFhirModel(org.hl7.fhir.definitions.model.SearchParameter searchParameter) {
+  public static SearchParameter buildSearchParameterFromFhirModel(org.hl7.fhir.definitions.model.SearchParameterDefn searchParameter) {
     SearchParameter result = FhirFactory.eINSTANCE.createSearchParameter();
 
     result.setName(searchParameter.getCode());

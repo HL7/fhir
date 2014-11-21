@@ -458,6 +458,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="AdverseReactionRisk">
         <translation lang="en">AdverseReactionRisk</translation>
     </item>
+    <item id="SearchParameter">
+        <translation lang="en">SearchParameter</translation>
+    </item>
     <item id="SecurityEvent">
         <translation lang="en">SecurityEvent</translation>
         <translation lang="zh">安全事件</translation>

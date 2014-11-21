@@ -60,8 +60,8 @@ import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.FormatUtilities;
@@ -429,7 +429,7 @@ public class SpreadsheetParser {
           String d = sheet.getColumn(row, "Description");
           SearchType t = readSearchType(sheet.getColumn(row, "Type"), row);
           List<String> pn = new ArrayList<String>(); 
-          SearchParameter sp = null;
+          SearchParameterDefn sp = null;
           if (t == SearchType.composite) {
             String[] pl = sheet.getColumn(row, "Path").split("\\&");
             if (Utilities.noString(d)) 
@@ -447,7 +447,7 @@ public class SpreadsheetParser {
                   throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
               }
               pn.add(p);
-              sp = new SearchParameter(n, d, t);
+              sp = new SearchParameterDefn(n, d, t);
               sp.getComposites().addAll(pn);
             }
           } else {
@@ -475,7 +475,7 @@ public class SpreadsheetParser {
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
 
-            sp = new SearchParameter(n, d, t);
+            sp = new SearchParameterDefn(n, d, t);
             sp.getPaths().addAll(pn);
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));

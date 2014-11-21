@@ -598,6 +598,12 @@ public class ProfileUtilities {
       // profiles cannot change : isModifier
       if (src.getBinding() != null)
         dst.setBinding(src.getBinding().copy());
+      if (src.getIsSummaryElement() != null)
+        dst.setIsSummaryElement(src.getIsSummaryElement().copy());
+      if (src.getDefaultValue() != null)
+        dst.setDefaultValue(src.getDefaultValue().copy());
+      if (src.getMeaningWhenMissingElement() != null)
+        dst.setMeaningWhenMissingElement(src.getMeaningWhenMissingElement().copy());
       
       // todo: is this actually right? 
       if (!src.getType().isEmpty()) {
@@ -824,20 +830,17 @@ public class ProfileUtilities {
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
             generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile(), pkp, profile);
           } else {
-            String name = tail(extDefn.getElementDefinition().getPath());
+            String name = urltail(element.getType().get(0).getProfile());
             left.getPieces().get(0).setText(name);
-            left.getPieces().get(0).setHint("Extension URL = "+profile.getUrl()+"#"+extDefn.getElementDefinition().getPath());
+            // left.getPieces().get(0).setReference((String) extDefn.getExtensionDefinition().getTag("filename"));
+            left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, extDefn.getElementDefinition(), used), null, null));
             genTypes(gen, pkp, row, extDefn.getElementDefinition(), profileBaseFileName, profile);
             generateDescription(gen, row, element, extDefn.getElementDefinition(), used.used, null, null, pkp, profile);
         }
-      } else if (element != null) {
-          row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
-          genTypes(gen, pkp, row, element, profileBaseFileName, profile);
-          generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
       } else {
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
-          row.getCells().add(gen.new Cell());
+          genTypes(gen, pkp, row, element, profileBaseFileName, profile);
           generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
       }
     } else {
@@ -879,6 +882,17 @@ public class ProfileUtilities {
       }
       }
     }
+
+
+  private String urltail(String path) {
+    if (path.contains("#"))
+      return path.substring(path.lastIndexOf('#')+1);
+    if (path.contains("/"))
+      return path.substring(path.lastIndexOf('/')+1);
+    else
+      return path;
+
+  }
 
 
   private boolean standardExtensionSlicing(ElementDefinition element) {

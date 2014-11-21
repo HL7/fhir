@@ -33,7 +33,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-public class SearchParameter {
+public class SearchParameterDefn {
   public enum SearchType {
     composite, // search parameter is a composite of others
     number,  // search parameter must be a simple name 
@@ -72,14 +72,14 @@ public class SearchParameter {
     return type;
   }
   
-  public SearchParameter(String code, String description, SearchType type) {
+  public SearchParameterDefn(String code, String description, SearchType type) {
     super();
     this.code = code;
     this.description = description;
     this.type = type;
   }
   
-  public SearchParameter addPath(String value) {
+  public SearchParameterDefn addPath(String value) {
     paths.add(value);
     return this;
   }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/searchparameter.xsd">
+  <id value="example"/>
+  <name value="Example Search Parameter"/>
+  <publisher value="HL7 FHIR Project"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <!-- this is the canonical definition for the _id search parameter -->
+  <base value="Resource"/>
+  <type value="token"/>
+  <description value="Search by resource identifier - e.g. same as the read interaction, ubut can return included resources"/>
+  <xpath value="f:id"/>
+</SearchParameter>

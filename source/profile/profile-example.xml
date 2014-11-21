@@ -225,10 +225,8 @@
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
   <status value="draft"/>
   <date value="2012-05-12"/>
-  <structure>
-    <type value="DiagnosticReport"/>
-    <name value="LipidProfile"/>
-    <publish value="true"/>
+  <type value="DiagnosticReport"/>
+  <snapshot>
     <element>
       <path value="DiagnosticReport"/>
       <name value="LipidProfile"/>
@@ -2314,5 +2312,5 @@ The context of use may additionally require a code from a particular system (Unl
         </type>
         <isModifier value="false"/>
     </element>
-  </structure>
+  </snapshot>
 </Profile>

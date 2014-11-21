@@ -76,8 +76,8 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
@@ -100,10 +100,10 @@ import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
-import org.hl7.fhir.instance.model.Profile.ProfileSearchParamComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -3508,7 +3508,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
       for (String name : names)  {
-        SearchParameter p = resource.getSearchParams().get(name);
+        SearchParameterDefn p = resource.getSearchParams().get(name);
         b.append("<tr><td>"+p.getCode()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
@@ -3529,7 +3529,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       names.addAll(resource.getSearchParams().keySet());
       Collections.sort(names);
       for (String name : names)  {
-        SearchParameter p = resource.getSearchParams().get(name);
+        SearchParameterDefn p = resource.getSearchParams().get(name);
         b.append("<tr><td>"+p.getCode()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+presentPaths(p.getPaths())+(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
@@ -3537,8 +3537,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String getSearch(Profile profile) {
-    if (profile.getSearchParam().size() == 0)
+  private String getSearch(ConformancePackage pack) {
+    if (pack.getSearchParameters().size() == 0)
       return "";
     else {
       StringBuilder b = new StringBuilder();
@@ -3547,15 +3547,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
-      for (ProfileSearchParamComponent t : profile.getSearchParam())
+      for (SearchParameter t : pack.getSearchParameters())
         names.add(t.getName());
       Collections.sort(names);
       for (String name : names)  {
-        ProfileSearchParamComponent p = null;
-        for (ProfileSearchParamComponent t : profile.getSearchParam())
+        SearchParameter p = null;
+        for (SearchParameter t : pack.getSearchParameters())
           if (t.getName().equals(name))
             p = t;
-        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(p.getDocumentation())+"</td><td>"+(p.getXpath() == null ? "" : p.getXpath())+"</td></tr>\r\n");
+        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+(p.getXpath() == null ? "" : p.getXpath())+"</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
@@ -3941,8 +3941,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+definitionsProfile(profile.getResource())+s3;
       else if (com[0].equals("profile.review"))
         src = s1+profileReviewLink(profile)+s3;
-      else if (com[0].equals("profile.search"))
-        src = s1+getSearch(profile.getResource())+s3;
       else if (com[0].equals("profile.tx"))
         src = s1+getTerminologyNotes(profile.getResource())+s3;
       else if (com[0].equals("profile.inv"))
@@ -4920,6 +4918,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.escapeXml(pack.getDescription()) + s3;  
       else if (com[0].equals("package-content"))
         src = s1 + getPackageContent(pack) + s3;  
+      else if (com[0].equals("package.search"))
+        src = s1+getSearch(pack)+s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing conformance package "+pack.getId());
     }

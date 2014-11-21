@@ -87,6 +87,7 @@ import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
 import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
@@ -102,8 +103,8 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
@@ -591,7 +592,8 @@ public class Publisher implements URIResolver {
 
     page.log(" ...process profiles (resources)", LogMessageType.Process);
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r, page.getGenDate()));
+      r.setConformancePack(makeConformancePack(r));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r.getConformancePack(), r, page.getGenDate()));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
@@ -636,6 +638,12 @@ public class Publisher implements URIResolver {
           validateProfile((Profile) rd);
         }
       } 
+  }
+
+  private ConformancePackage makeConformancePack(ResourceDefn r) {
+    ConformancePackage result = new ConformancePackage();
+    result.setTitle("Base Conformance Package for "+r.getName());
+    return result;
   }
 
   private void validateProfile(Profile rd) throws Exception {
@@ -949,7 +957,7 @@ public class Publisher implements URIResolver {
         genConfOp(conf, res, TypeRestfulInteraction.CREATE);
         genConfOp(conf, res, TypeRestfulInteraction.SEARCHTYPE);
 
-        for (SearchParameter i : rd.getSearchParams().values()) {
+        for (SearchParameterDefn i : rd.getSearchParams().values()) {
           res.getSearchParam().add(makeSearchParam(conf, rn, i));
         }
       }
@@ -976,7 +984,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
+  private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setName(i.getCode());
     result.setDefinition("http://hl7.org/fhir/Profile/" + rn+"#"+rn+"."+i.getCode());
@@ -3834,7 +3842,7 @@ public class Publisher implements URIResolver {
     }
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
-      for (SearchParameter sp : r.getSearchParams().values()) {
+      for (SearchParameterDefn sp : r.getSearchParams().values()) {
         if (!sp.isWorks() && !sp.getCode().equals("_id")) {
           //          page.log(
           //              "Search Parameter '" + rn + "." + sp.getCode() + "' had no found values in any example. Consider reviewing the path (" + sp.getXPath() + ")",
@@ -3979,7 +3987,7 @@ public class Publisher implements URIResolver {
 
   private void testSearchParameters(Element e) throws Exception {
     ResourceDefn r = page.getDefinitions().getResourceByName(e.getNodeName());
-    for (SearchParameter sp : r.getSearchParams().values()) {
+    for (SearchParameterDefn sp : r.getSearchParams().values()) {
 
       if (sp.getXPath() != null) {
         try {
