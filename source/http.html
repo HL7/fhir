@@ -490,50 +490,6 @@ list into pages if appropriate. The server MAY also return an OperationOutcome r
 if one is sent it SHALL not include any errors, and it shall be marked with an <a href="bundle-definitions.html#Bundle.entry.status">entry status</a> of <a href="??">"include"</a>.
 </p>
 
-<!-- todo-bundle: move to an operation (task ##)
-<a name="validate"> </a>
-<a name="validation"> </a>
-<h3>validate</h3>
-<p>
-The validate interaction checks whether the attached content would be acceptable as an 
-update to an existing resource. The interaction is performed by an HTTP POST command as shown:
-</p>
-<pre>
-  POST [base]/[type]/_validate{/[id]}
-</pre>
-<p>
-The content is first checked against the general specification and against the conformance 
-profile that applies to the application. Then, if the optional [id] section is 
-also provided, the resource is considered as a proposed update to the specific resource, 
-and additional instance specific rules such as referential integrity 
-and update logic (including version control) are applied as well. 
-</p>
-<p>
-The client can ask the server to validate against a particular resource by attaching
-a <a href="resource.html#tags">profile tag</a> to the resource. This is an assertion that 
-the resource conforms to the specified profile(s), and the server can check this. 
-</p>
-<p>
-How much checking to perform as part of the validation operation is at the 
-discretion of the server. The server SHALL check all the things it requires
-of the resource as part of its normal operations, and MAY choose to validate
-the resource against the schema and schematron provided as part of this
-specification, and/or other profiles, including the one specified by the 
-client.
-</p>
-<p>
-The return content has one of the following values:
-</p>
-<ul>
- <li><b>400 Bad Request</b> - resource could not be parsed or had some basic FHIR validation error</li>
- <li><b>200 OK</b> - resource passed all validation rules</li>
- <li><b>422 Unprocessable Entity</b> - the resource was valid, but as a proposed update, it violates applicable FHIR profiles or server business rules</li>
-</ul>
-<p>
-Unless the result is 200 OK, the response SHALL include an <a href="operationoutcome.html">OperationOutcome</a> resource that lists the issues found on validation.
-</p>
--->
-
 <a name="conformance"> </a>
 <h3>conformance</h3>
 <p>
@@ -1019,7 +975,6 @@ These tables present a summary of the interactions described here.
 <tr><td>delete</td>     <td>/[type]/[id]</td>                <td>DELETE</td>       <td>N/A</td>          <td>N/A</td>      <td>N/A</td>    <td>N/A</td></tr>
 <tr><td>search</td>     <td>/[type]/_search? or /[type]?</td>    <td>GET</td>          <td>N/A</td>         <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>search-all</td>	<td>/</td>                   		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>validate</td>   <td>/[type]/_validate{/[id]}</td>       <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
 <tr><td>history</td>	<td>/[type]/[id]/_history</td> 		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-type</td><td>/[type]/_history</td> 		  	  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>history-all</td><td>/_history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
@@ -1053,7 +1008,6 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td>delete</td>       <td>N/A</td>          <td>N/A</td>                <td>N/A</td>      <td>N/A</td>              <td>204, 405, 404</td></tr>
 <tr><td>search</td>       <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 403</td></tr>
 <tr><td>search-all</td>   <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 403</td></tr>
-<tr><td>validate</td>     <td>N/A or R</td>     <td>N/A or OperationOutcome</td> <td>N/A</td>      <td>N/A</td>              <td>400</td></tr>
 <tr><td>history</td>   	  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>history-type</td> <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>history-all</td>  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
