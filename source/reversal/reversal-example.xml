@@ -1,0 +1,43 @@
+<Reversal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+ <id value="87654"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Eligibility</div>
+  </text>
+
+  <identifier>
+       <system value="http://happyvalley.com/reversal"/>
+    <value value="76543"/>
+  </identifier>
+ 
+  <date value="2014-08-16"/>
+
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+  
+  <requestIdentifier>
+    <system value="http://happyvalley.com/claims"/>
+    <value value="12345"/>
+  </requestIdentifier>
+
+  <responseIdentifier>
+    <system value="http://www.BenefitsInc.com/fhir/remittance"/>
+    <value value="R3500"/>
+  </responseIdentifier>
+  
+ <coverage>
+   <sequence value="1"/>
+   <focal value="true"/>
+   <coverage>
+     <reference value="Coverage/9876B1"/>
+   </coverage>
+   <relationship>
+     <code value="self"/>
+   </relationship>
+ </coverage>
+
+  <nullify value="false"/>
+
+ </Reversal>
