@@ -3,11 +3,22 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The Remittance resource provides application level error or application level adjudication results which are the result of processing a submitted 
-disciplineClaim which is the functional corollary of a Claim, Pre-Determination or a Pre-Authorization.
-
-The Remittance resource is the response for the submission of: OralHealthClaim, VisionClaim ... as well as ReversalRequests.
-
+The ClaimResponse resource provides application level error or application level adjudication results
+ which are the result of processing a submitted disciplineClaim which is the functional corollary of 
+ a Claim, Pre-Determination or a Pre-Authorization.
+ </p>
+ <p>
+ This is the adjudicated response to a Claim, Pre-determination or Pre-Authorization. The strength 
+ of the payment aspect of the response is matching to the strength of the original request. For a 
+ Claim the adjudication indicates payment which is intended to be made, for Pre-Authorization and 
+ Pre-Determination no payment will actually be made however funds may be reserved to settle a claim 
+ submitted later. Only an actual claim may be expected to result in actual payment.
+ </p>
+<p>
+The ClaimResponse resource is the response for the submission of: OralHealthClaim, VisionClaim etc. 
+and Reversals.
+</p>
+<p>
 Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>

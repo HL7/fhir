@@ -7,7 +7,15 @@
 <b>DRAFT PLACEHOLDER</b>
 The ExplanationOfBenefit resource combines key information from a Claim, a ClaimResponse and optional Account information to inform 
 a patient of the goods and services rendered by a provider and the settlement made under the patients coverage in respect of that Claim.
-
+</p>
+<p>
+This is the logical combination of the Claim, Claim Response and some Coverage accounting information
+ in respect of a single payor prepared for consumption by the subscriber and/or patient. It is not 
+ simply a series of pointers to referred-to content models, is a physical subset scoped to the 
+ adjudication by a single payor which details the services rendered, the amounts to be settled and 
+ to whom, and optionally the coverage used and/or remaining.
+</p>
+<p>
 Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>

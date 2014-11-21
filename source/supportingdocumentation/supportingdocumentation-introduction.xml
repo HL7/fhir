@@ -3,10 +3,15 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-
 The SupportingDocumentation resource supplies a suite of supporting information for an identified business purpose, such as a Claim or
  other financial process, where the supporting information is provided as content or references to external locations.
-
+</p>
+<p>
+This is the submission of information, (images, xrays, documents, reports) in support of a 
+submitted processing request or information exchange. The information may be actually contained within or 
+referred to some other location by the SupportingDocumentation resource.
+</p>
+<p>
 Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
