@@ -860,7 +860,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String s : names) {
       ConformancePackage ap = definitions.getConformancePackages().get(s);
       b.append("  <tr>\r\n");
-      b.append("    <td><a href=\""+ap.getName()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      b.append("    <td><a href=\""+ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
       b.append("    <td>"+Utilities.escapeXml(ap.getDescription())+"</td>\r\n");
       b.append(" </tr>\r\n");
     }
@@ -3609,7 +3609,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //          }
 //        }
         s.append("  <tr>\r\n");
-        s.append("    <td><a href=\""+Utilities.changeFileExt(ap.getName(), ".html")+"\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+        s.append("    <td><a href=\""+ap.getId().toLowerCase()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
         s.append("    <td>"+Utilities.escapeXml(ap.getDescription())+"</td>\r\n");
         s.append(" </tr>\r\n");
       }

@@ -386,7 +386,6 @@ public class SourceParser {
 	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
 	    try {
 	      ConformancePackage pack = new ConformancePackage();
-	      pack.setName(n);
 	      pack.setTitle(n);
 	      pack.setSource(spreadsheet.getAbsolutePath());
 	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
@@ -397,7 +396,6 @@ public class SourceParser {
 	    }
 	  } else {
 	    ConformancePackage pack = new ConformancePackage();
-	    pack.setName(n);
 	    parseConformanceDocument(pack, n, spreadsheet);
       packs.put(n, pack);
 	  }
@@ -431,11 +429,11 @@ public class SourceParser {
 
   private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
+      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions);
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
-      parseConformanceDocument(ap, ap.getName(), new File(ap.getSource()));
+      parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()));
   }
 	
 	private void loadGlobalConceptDomains() throws Exception {

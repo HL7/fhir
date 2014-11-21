@@ -616,11 +616,11 @@ public class Publisher implements URIResolver {
     // we have profiles scoped by resources, and stand alone profiles
     for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
       for (ProfileDefn p : ap.getProfiles())
-        processProfile(ap, p, ap.getName());
+        processProfile(ap, p, ap.getId());
     for (ResourceDefn r : page.getDefinitions().getResources().values())       
       for (ConformancePackage ap : r.getConformancePackages())      
         for (ProfileDefn p : ap.getProfiles())
-          processProfile(ap, p, ap.getName());
+          processProfile(ap, p, ap.getId());
 
     // now, validate the profiles
     for (ConformancePackage ap : page.getDefinitions().getConformancePackages().values())
@@ -719,7 +719,7 @@ public class Publisher implements URIResolver {
         page.getProfiles().put(profile.getResource().getUrl(), profile.getResource());
       }
     if (!Utilities.noString(filename))
-      profile.getResource().setTag("filename", filename);
+      profile.getResource().setTag("filename", filename+".html");
   }
 
   public Profile getSnapShotForProfile(String base) throws Exception {
@@ -3363,7 +3363,7 @@ public class Publisher implements URIResolver {
 
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-conformance-pack.html");
     src = page.processConformancePackageIncludes(pack, src, intro, notes);
-    page.getEpub().registerFile(pack.getId() + ".html", "Conformance Package " + pack.getName(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(pack.getId().toLowerCase() + ".html", "Conformance Package " + pack.getId(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + pack.getId() + ".html");
 
     for (Example ex : pack.getExamples()) {

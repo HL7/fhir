@@ -347,8 +347,7 @@ public class SpreadsheetParser {
           ConformancePackage pack = new ConformancePackage();
           pack.setTitle(name);
           pack.setDescription(sheet.getColumn(row, "Description"));
-          pack.setName(sheet.getColumn(row, "Filename"));
-          pack.setSource(checkFile(sheet, row, "Source", false, pack.getName())); // todo-profile
+          pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
           String type = sheet.getColumn(row, "Type");
           if ("bundle".equalsIgnoreCase(type))
             pack.setSourceType(ConformancePackageSourceType.Bundle);
@@ -358,7 +357,7 @@ public class SpreadsheetParser {
             throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
           String example = checkFile(sheet, row, "Example", true, null); // todo-profile
           if (example != null)
-            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getName(), new File(example), ExampleType.XmlFile, false, isAbstract));
+            pack.getExamples().add(new Example(example, Utilities.fileTitle(example), "General Example for "+pack.getSource(), new File(example), ExampleType.XmlFile, false, isAbstract));
           defn.getConformancePackages().add(pack);
         }
       }
@@ -675,6 +674,11 @@ public class SpreadsheetParser {
         ap.setTitle(ap.metadata("name"));
       if (!ap.hasMetadata("id"))
         throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" no 'id' found in metadata");
+      if (!ap.metadata("id").matches(FormatUtilities.ID_REGEX))
+        throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" 'id' is not a valid id");
+
+      if (!ap.metadata("id").equals(ap.metadata("id").toLowerCase()))
+        throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" 'id' must be all lowercase");
       
 	    this.profileExtensionBase = ap.metadata("extension.uri");
 
@@ -705,7 +709,7 @@ public class SpreadsheetParser {
 	    }
 
 	  } catch (Exception e) {
-	    throw new Exception("exception parsing pack "+ap.getName()+": "+e.getMessage(), e);
+	    throw new Exception("exception parsing pack "+ap.getSource()+": "+e.getMessage(), e);
 	  }
 	}
 
@@ -771,7 +775,7 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ProfileDefn p = new ProfileDefn(ap.getName()+'-'+n, resource.getName(), resource);
+		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getName(), resource);
     return p;
   }
 

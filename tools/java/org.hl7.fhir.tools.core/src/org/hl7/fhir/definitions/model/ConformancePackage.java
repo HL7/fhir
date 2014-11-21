@@ -19,7 +19,6 @@ public class ConformancePackage {
   }
 
   // settings
-  private String name; // base filename in the spec
   private String title; // what it's called to humans
   private String description; // some descriptional text
   private String source; // the file to parse
@@ -34,12 +33,6 @@ public class ConformancePackage {
   private List<ExtensionDefinition> extensions = new ArrayList<ExtensionDefinition>();
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
     
-  public String getName() {
-    return name;
-  }
-  public void setName(String name) {
-    this.name = name;
-  }
   public String getDescription() {
     return description;
   }
