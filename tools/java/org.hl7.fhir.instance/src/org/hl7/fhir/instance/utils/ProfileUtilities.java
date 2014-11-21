@@ -598,7 +598,13 @@ public class ProfileUtilities {
       // profiles cannot change : isModifier
       if (src.getBinding() != null)
         dst.setBinding(src.getBinding().copy());
-      
+      if (src.getIsSummaryElement() != null)
+        dst.setIsSummaryElement(src.getIsSummaryElement().copy());
+      if (src.getDefaultValue() != null)
+        dst.setDefaultValue(src.getDefaultValue().copy());
+      if (src.getMeaningWhenMissingElement() != null)
+        dst.setMeaningWhenMissingElement(src.getMeaningWhenMissingElement().copy());
+
       // todo: is this actually right? 
       if (!src.getType().isEmpty()) {
         dst.getType().clear();
@@ -624,7 +630,7 @@ public class ProfileUtilities {
         if (!found)
           dst.getConstraint().add(s);
       }
-    }
+    }   
   }
   
   public XhtmlNode generateExtensionTable(String defFile, ExtensionDefinition ed, String imageFolder, boolean inlineGraphics, ProfileKnowledgeProvider pkp) throws Exception {
@@ -777,70 +783,67 @@ public class ProfileUtilities {
     if (!onlyInformationIsMapping(all, element)) { 
       Row row = gen.new Row();
       row.setAnchor(element.getPath());
-    boolean hasDef = element != null;
+      boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension") || s.equals("modifierExtension")) { 
         row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
-    } else if (!hasDef || element.getType().size() == 0)
+      } else if (!hasDef || element.getType().size() == 0)
         row.setIcon("icon_element.gif", HeirarchicalTableGenerator.TEXT_ICON_ELEMENT);
-    else if (hasDef && element.getType().size() > 1) {
-      if (allTypesAre(element.getType(), "Reference"))
+      else if (hasDef && element.getType().size() > 1) {
+        if (allTypesAre(element.getType(), "Reference"))
           row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
+        else
+          row.setIcon("icon_choice.gif", HeirarchicalTableGenerator.TEXT_ICON_CHOICE);
+      } else if (hasDef && element.getType().get(0).getCode().startsWith("@"))
+        row.setIcon("icon_reuse.png", HeirarchicalTableGenerator.TEXT_ICON_REUSE);
+      else if (hasDef && isPrimitive(element.getType().get(0).getCode()))
+        row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
+      else if (hasDef && isReference(element.getType().get(0).getCode()))
+        row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
+      else if (hasDef && isDataType(element.getType().get(0).getCode()))
+        row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
       else
-        row.setIcon("icon_choice.gif", HeirarchicalTableGenerator.TEXT_ICON_CHOICE);
-    } else if (hasDef && element.getType().get(0).getCode().startsWith("@"))
-      row.setIcon("icon_reuse.png", HeirarchicalTableGenerator.TEXT_ICON_REUSE);
-    else if (hasDef && isPrimitive(element.getType().get(0).getCode()))
-      row.setIcon("icon_primitive.png", HeirarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
-    else if (hasDef && isReference(element.getType().get(0).getCode()))
-      row.setIcon("icon_reference.png", HeirarchicalTableGenerator.TEXT_ICON_REFERENCE);
-    else if (hasDef && isDataType(element.getType().get(0).getCode()))
-      row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
-    else
-      row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
-    String ref = defPath == null ? null : defPath + makePathLink(element);
-    UnusedTracker used = new UnusedTracker();
-    used.used = true;
+        row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
+      String ref = defPath == null ? null : defPath + makePathLink(element);
+      UnusedTracker used = new UnusedTracker();
+      used.used = true;
       Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getFormal(), null);
-    row.getCells().add(left);
-    Cell gc = gen.new Cell();
-    row.getCells().add(gc);
-    if (element != null && element.getIsModifier())
-      gc.addImage("modifier.png", "This element is a modifier element", "M");
-    if (element != null && element.getMustSupport()) 
-      gc.addImage("mustsupport.png", "This element must be supported", "S");
-    if (element != null && element.getIsSummary()) 
-      gc.addImage("summary.png", "This element is included in summaries", "Σ");
-    if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty())) 
-      gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
-  
-    ExtensionDefinitionResult extDefn = null;
-    if (ext) {
-      if (element != null && element.getType().size() == 1 && element.getType().get(0).getProfile() != null) {
-        extDefn = context.getExtensionDefinition(null, element.getType().get(0).getProfile());
-        if (extDefn == null) {
+      row.getCells().add(left);
+      Cell gc = gen.new Cell();
+      row.getCells().add(gc);
+      if (element != null && element.getIsModifier())
+        gc.addImage("modifier.png", "This element is a modifier element", "M");
+      if (element != null && element.getMustSupport()) 
+        gc.addImage("mustsupport.png", "This element must be supported", "S");
+      if (element != null && element.getIsSummary()) 
+        gc.addImage("summary.png", "This element is included in summaries", "Σ");
+      if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty())) 
+        gc.addImage("lock.png", "This element has or is affected by some invariants", "I");
+
+      ExtensionDefinitionResult extDefn = null;
+      if (ext) {
+        if (element != null && element.getType().size() == 1 && element.getType().get(0).getProfile() != null) {
+          extDefn = context.getExtensionDefinition(null, element.getType().get(0).getProfile());
+          if (extDefn == null) {
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
             generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile(), pkp, profile);
           } else {
-            String name = tail(extDefn.getElementDefinition().getPath());
+            String name = urltail(element.getType().get(0).getProfile());
             left.getPieces().get(0).setText(name);
-            left.getPieces().get(0).setHint("Extension URL = "+profile.getUrl()+"#"+extDefn.getElementDefinition().getPath());
+            // left.getPieces().get(0).setReference((String) extDefn.getExtensionDefinition().getTag("filename"));
+            left.getPieces().get(0).setHint("Extension URL = "+element.getType().get(0).getProfile());
             row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, extDefn.getElementDefinition(), used), null, null));
             genTypes(gen, pkp, row, extDefn.getElementDefinition(), profileBaseFileName, profile);
             generateDescription(gen, row, element, extDefn.getElementDefinition(), used.used, null, null, pkp, profile);
-        }
-      } else if (element != null) {
+          }
+        } else{
           row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
           genTypes(gen, pkp, row, element, profileBaseFileName, profile);
           generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
+        }
       } else {
-          row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
-          row.getCells().add(gen.new Cell());
-          generateDescription(gen, row, element, null, used.used, null, null, pkp, profile);
-      }
-    } else {
         row.getCells().add(gen.new Cell(null, null, !hasDef ? null : describeCardinality(element, null, used), null, null));
         if (hasDef)
           genTypes(gen, pkp, row, element, profileBaseFileName, profile);
@@ -878,6 +881,17 @@ public class ProfileUtilities {
             genElement(defPath, gen, row.getSubRows(), child, all, profiles, pkp, showMissing, profileBaseFileName, true, false);
       }
     }
+  }
+
+
+  private String urltail(String path) {
+    if (path.contains("#"))
+      return path.substring(path.lastIndexOf('#')+1);
+    if (path.contains("/"))
+      return path.substring(path.lastIndexOf('/')+1);
+    else
+      return path;
+
   }
 
 

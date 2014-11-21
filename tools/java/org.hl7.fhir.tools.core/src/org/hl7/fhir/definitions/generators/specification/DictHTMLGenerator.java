@@ -58,7 +58,6 @@ import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
-import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -86,13 +85,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
 	    if (isProfiledExtension(ec)) {
 	      String name = profile.getName()+"."+ makePathLink(ec);
-	      String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
-	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-	      ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
-	      if (extDefn == null)
+        ExtensionDefinitionResult extDefn = page.getWorkerContext().getExtensionDefinition(null, ec.getType().get(0).getProfile());
+	      if (extDefn == null) {
+	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  null, ec);
-	      else
+	      } else {
+	        String title = ec.getPath() + " (<a href=\""+extDefn.getExtensionDefinition().getTag("filename")+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
+	      }
 	    } else {
 	      String name = profile.getName()+"."+ makePathLink(ec);
 	      String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
@@ -158,7 +160,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       }
       b.append("</li>");
     }
-    tableRow("Slicing", "profiling.html#slicing", "This element introduces a set of slices. The slicing rules are: <ul> "+b.toString()+"</ul>");
+    tableRowNE("Slicing", "profiling.html#slicing", "This element introduces a set of slices. The slicing rules are: <ul> "+b.toString()+"</ul>");
   }
 
   private String makePathLink(ElementDefinition element) {
@@ -173,20 +175,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     return ec.getType().size() == 1 && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).getProfile() != null;
   }
 
-  private void generateExtension(ExtensionDefinition ed) throws Exception {
-    write("<p><a name=\"i0\"><b>Extension</b></a></p>\r\n");
-    write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+ed.getUrl()+"\"> </a><b>Extension "+ed.getName()+"</b></td></tr>\r\n");
-    generateElementInner(null, ed, ed.getElement().get(0));
-    if (ed.getElement().size() > 1) {
-      for (int i = 1; i < ed.getElement().size(); i++) {
-        ElementDefinition ec = ed.getElement().get(i);
-        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\"extension."+ec.getPath()+"\"> </a><b>&nbsp;"+ec.getPath()+"</b></td></tr>\r\n");
-        generateElementInner(null, ed, ec);
-      }
-    }
-    write("</table>\r\n");
-  }
-    
   private void generateElementInner(Profile profile, ExtensionDefinition ed, ElementDefinition d) throws Exception {
     tableRowMarkdown("Definition", d.getFormal());
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
@@ -263,10 +251,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     b.append(t.getCode());
     b.append("</a>");
     if (t.getProfile() != null) {
-      b.append("<a href=\"todo.html\">");
-      b.append("(Profile = "+t.getProfile()+")");
-      b.append("</a>");
-      
+      Profile p = page.getWorkerContext().getProfiles().get(t.getProfile());
+      if (p == null)
+        b.append("(Profile = "+t.getProfile()+")");
+      else {
+        b.append("(Profile = ");
+        b.append("<a href=\""+p.getTag("filename")+"\">");
+        b.append("(Profile = "+t.getProfile()+")");
+        b.append("</a>");
+        b.append(")");
+      }      
     }
   }
 
@@ -332,8 +326,12 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   private String summariseConditions(List<IdType> conditions) {
     if (conditions.isEmpty())
       return "";
-    else
-      return " ?";
+    else {
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (IdType t : conditions)
+        b.append("Inv-"+t.getValue());
+      return " This element is affected by the following invariants: "+b.toString();
+    }
   }
 
   private String describeCardinality(ElementDefinition d) {

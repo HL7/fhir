@@ -36,18 +36,18 @@ contexts of use. Typically, these adaptations specify:
 </ul>
 <p>
 Note that because of the nature of the healthcare eco-system, there may be multiple 
-overlapping set of adaptation - by healthcare domain, by country, by institution, and/or by vendor/implementation. 
+overlapping set of adaptations - by healthcare domain, by country, by institution, and/or by vendor/implementation. 
 </p>
 <p>
 Typically, adaptations (either actual implementations or specifications - sometimes called "Implementation Guides")
 both restrict and extend APIs, resources and terminologies. FHIR provides a set of resources that 
-represent the decisions that have been made, and to build useful services from them. These
-resources are known as the reflection resources. These reflection resources allow you to:
+represent the decisions that have been made, and allows implementers to build useful services from them. These
+resources are known as the conformance resources. These comformance resources allow implementers to:
 </p>
 <ul>
  <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular use , and provide additional details about how the API calls are used (<a href="conformance.html">Conformance</a> Resource)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification 
-   (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="parameterdefinition.html">ParameterDefinition</a> Resource</li>
+   (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource</li>
  <li>Identify specific elements in resources that are not used (<a href="profile.html">Profile</a> Resource)</li>
  <li>Describe how existing elements in resources are used (Profile resource)</li>
  <li>Define new elements that are used resources or data types (Profile resource)</li>
@@ -58,7 +58,7 @@ resources are known as the reflection resources. These reflection resources allo
 </ul>
 <p>
 These need to be used following the policies discussed below, and also 
-following the basic concepts for extension are described in <a href="extensibility.html">"Extensibility"</a>. 
+following the basic concepts for extension that are described in <a href="extensibility.html">"Extensibility"</a>. 
 For implementer convenience, the specification itself publishes its base definitions using these same resources.
 </p>
 
@@ -72,7 +72,7 @@ interaction itself - to retrieve the server's conformance statement. Beyond that
 API calls are relevant to their use case.
 </p>
 <p>
-In addition the operations that FHIR provides, servers may provide additional 
+In addition to the operations that FHIR provides, servers may provide additional 
 operations that are not part of the FHIR specification. Implementers can safely do this 
 by appending a custom operation name prefixed with '$' to an existing FHIR URL, as the <a href="operations.html">Operations
 framework</a> does. The Conformance resource supports defining what OperationDefinitions make use of particular
@@ -98,10 +98,8 @@ safely be used in addition to those defined in this specification.
 <h3>Extending and Restricting Resources</h3>
 
 <p>
-Extending and restricted resources is done with a "Profile" resource. 
-Profile resources can declare extensions and detail where in a resource
-structure they can be used. The Profile resource can also define
-additional rules about how the elements in a resource are used. 
+Extending and restricted resources is done with a "Profile" resource, which is a statement of rules about 
+how the elements in a resource are used, and where extensions are used in a resource. 
 </p>
 
 <h3>Limitations of Use</h3>
@@ -133,16 +131,16 @@ see <a href="resources.html#ruleset">Restricted Understanding of Resources</a>.
 </p>
  
 
-<h3>Structure</h3>
+<h3>Using Profiles</h3>
 <p>
-A profile specifies one or more sets of restrictions ("structures") on the content of a FHIR resource or data type. 
-Each structure has a name (unique in the scope of the profile) that is used 
-to reference the structure. The following kinds of statements can be made about how an element is used:
+A profile specifies a set of restrictions on the content of a FHIR resource or data type. 
+Profiles are identified by their canonical URL, which should be the URL at which they 
+are published. The following kinds of statements can be made about how an element is used:
 </p>
 <ul>
  <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
  <li>Ruling out use of an element by setting its maximum cardinality to 0</li>
- <li>•	Restricting the contents of an element to a single fixed value</li>
+ <li>Restricting the contents of an element to a single fixed value</li>
  <li>Making additional invariants on the content of nested elements within the resource (expressed as XPath statements)</li>
  <li>Restricting the types for an element that allows multiple types</li>
  <li>Requiring a typed element or the target of a resource reference to conform to another structure profile (declared in the same profile, or elsewhere)</li>
@@ -158,7 +156,7 @@ these restrictions can be enforced by tooling (and are by the FHIR tooling), but
 others (e.g. alignment of changes to descriptive text) cannot be automatically enforced.
 </p>
 <p>
-A structure definition consists of a linear list of element declarations. The inherent 
+A profile contains a linear list of element declarations. The inherent 
 nested structure of the elements is derived from the <i>path</i> value of each element. 
 For instance, a sequence of the element paths like this:
 </p>
@@ -182,8 +180,8 @@ defines the following structure:
 <p>
 or its JSON equivalent. The structure is coherent - children are never 
 implied, and the path statements are always in order. The element list is 
-a linear list rather than being explicitly nested because profile structures
-are frequently used in multiple places within a single profile, and this re-use
+a linear list rather than being explicitly nested because element definitions
+are frequently re-used in multiple places within a single profile, and this re-use
 is easier with a flat structure.
 </p>
 
@@ -191,7 +189,7 @@ is easier with a flat structure.
 <h3>Differential vs Snapshot</h3>
  
 <p>
-Structures may contain either a differential statement, a snapshot
+Profiles may contain either a differential statement, a snapshot
 statement or both.
 </p>
 <p>Differential statements describe only the differences that they make 
@@ -208,14 +206,14 @@ full structure).
 In order to properly understand a differential structure, it must be 
 applied to the profile on which it is based. In order to save
 tools from needing to support this operation (which is computationally intensive - and 
-impossible if the base structure is not available), a structure 
+impossible if the base structure is not available), a Profile 
 can also carry a "snapshot" - a fully calculated form of the
 structure that is not dependent on any other structure. The FHIR
 project provides tools for the common platforms that can populate
 a snapshot from a differential.
 </p>
 <p>
-Structures can contain both a differential and a snapshot view. 
+Profiles can contain both a differential and a snapshot view. 
 In fact, this is the most useful form - the differential 
 form serves the authoring process, while the snapshot serves
 the implementation tooling. Profile resources used in operational
@@ -384,34 +382,32 @@ See also <a href="profiling-examples.html">examples of slicing and discriminator
 <a name="extensions"> </a>
 <h3>Extension Definitions</h3>
 <p>
-A profile can also define extensions. Some profiles only define extensions and others define 
-extensions as part of defining one or more structures. For an extension definition, the 
-profile defines the "name" that identifies the extension. The full URL that refers to the 
-extension when it is used in a resource is the Profile.URL and 
-then # + the name.
+An extension definition defines the url that identifies the extension
+and which is used to refers to the extension definition when it is used 
+in a resource.
 </p>
 <p>
 The extension definition also defines the context where the extension can be used (usually
 a particular path or a data type) and then defines the extension element using the same details used to 
-profile the structural elements. This means that a single extension can be defined once and used on 
-different Resource and/or datatypes, e.g. one would only have to define an extension for “hair color” 
-once, and then specify it can be used on both Patient and Practitioner.
-</p>
-<p>
-Note that in the case of a profile that defines an extension and then uses it, the
-extension will appear both in the extension definition section and in one or more places
-in the structure(s) defined by the profile.
+profile the structural elements that are part of resources. This means that a single extension 
+can be defined once and used on different Resource and/or datatypes, e.g. one would only have to 
+define an extension for “hair color” once, and then specify it can be used on both Patient and Practitioner.
 </p>
 <p>
 For further discussion of defining and using extensions, along with some examples, 
 see <a href="extensibility.html">Extensibility</a>. 
 </p>
 
-<h4>Using Extensions in Structures</h4>
+<h4>Using Extensions in Profiles</h4>
 <p>
-Defining an extension means that it can be used in FHIR instances somewhere. To actually 
-prescribe the use of an extension in an instance, the extension list on the resource 
-needs to be sliced. This is shown in <a href="extensibility-examples.html#sliceextensions">the extensibility examples</a></p>
+Once defined, an extension can be used in an instance of a resource 
+without any Profile declaring that it can, should or must be, but 
+Profiles can be used to describe how an extension is used.
+</p>
+<p>
+To actually prescribe the use of an extension in an instance, the extension list 
+on the resource needs to be sliced. This is shown in <a href="extensibility-examples.html#sliceextensions">the extensibility 
+examples</a></p>
 <p>
 Note that the minimum cardinality of an extension SHALL be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
@@ -532,7 +528,8 @@ If creating a profile based on another profile, Must Support can be changed from
 <a name="search"> </a>
 <h3>Search Criteria</h3>
 <p>
-The final thing profiles can do is to define additional search criteria.  New search criteria fall into one of four categories:
+The final thing implementations can do is to define search criteria in addition to those defined in the specification itself.  
+Search criteria fall into one of four categories:
 </p>
 <ol>
   <li>Enabling search on core elements that don't have standard search criteria defined (e.g. searching Observation by normal range)</li>
@@ -540,12 +537,15 @@ The final thing profiles can do is to define additional search criteria.  New se
   <li>Enabling search on a particular extension</li>
   <li>Enabling search that doesn't correspond to a single element but rather a combination of elements or computation on an element.  E.g. searching for patients by age</li>
 </ol>
-<!-- TODO: Anything else we should say here? -->
+<p>
+Additional Search Parameters can be defined using the <a href="searchparameter">SearchParameter</a> resource.
+</p>
 
 </div>
 
 [%file newfooter%]
 </body>
 </html>
+
 
 

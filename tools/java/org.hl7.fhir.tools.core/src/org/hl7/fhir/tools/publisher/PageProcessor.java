@@ -2131,7 +2131,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+    b.append(makeHeaderTab("Packages", n+"-packages.html", "packages".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -3867,9 +3867,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(profile.getResource().getName()) : workingTitle)+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml("Profile: "+profile.getTitle()) : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(profile.getResource().getName()) : Utilities.escapeXml(workingTitle))+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml("Profile: "+profile.getTitle()) : Utilities.escapeXml(workingTitle))+s3;
       else if (com[0].equals("profiletitle"))
         src = s1+Utilities.escapeXml(pack.metadata("name"))+s3;
       else if (com[0].equals("filetitle"))
@@ -4839,7 +4839,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
-        src = s1+(workingTitle == null ? Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1)) : workingTitle)+s3;
+        src = s1+(workingTitle == null ? Utilities.escapeXml(pack.getTitle()+" (Conformance Package)") : workingTitle)+s3;
       else if (com[0].equals("xtitle"))
         src = s1+Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
       else if (com[0].equals("name"))
@@ -4930,14 +4930,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"lines\">");
     if (pack.getProfiles().size() > 0) {
-      s.append("<tr><td colspan=\"2\">Profiles: </td></tr>");
+      s.append("<tr><td colspan=\"2\"><b>Profiles</b>: </td></tr>");
       for (ProfileDefn p : pack.getProfiles())
         s.append("<tr><td><a href=\""+p.getId()+".html\">"+Utilities.escapeXml(p.getTitle())+"</a></td><td>"+Utilities.escapeXml(p.getResource().getDescription())+"</td></tr>");
     }
     if (pack.getExtensions().size() > 0) {
-      s.append("<tr><td colspan=\"2\">Extensions: </td></tr>");
+      s.append("<tr><td colspan=\"2\"><b>Extensions</b>: </td></tr>");
       for (ExtensionDefinition ed : pack.getExtensions())
-        s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td>"+Utilities.escapeXml(ed.getName()+" : "+ed.getDescription())+"</td></tr>");
+        s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td><b>"+Utilities.escapeXml(ed.getName())+"</b> : "+Utilities.escapeXml(ed.getDescription())+"</td></tr>");
     }
     s.append("</table>");
     return s.toString();

@@ -422,8 +422,9 @@ public class ProfileGenerator {
     if (pack.hasMetadata("author.reference"))
       p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pack.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
-    if (pack.hasMetadata("description"))
-      p.setDescription(pack.metadata("description"));
+    p.setDescription(resource.getRoot().getShortDefn());    
+    if (p.getDescriptionElement() == null && pack.hasMetadata("description"))
+      p.setDescription(pack.metadata("description")+" : "+p.getName());
     if (pack.hasMetadata("requirements"))
       p.setRequirements(pack.metadata("requirements"));
 

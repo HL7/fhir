@@ -5,17 +5,7 @@
 
 <ul>
 
-<li>The name of a resource constraint (Profile.structure.name) is used as a logical target for both internal and external references to the profile.
- <ul>
-   <li>A internal reference is made from Profile.structure.element.definition.type.profile to re-use the constraints declared in another structure, either in the same profile or another. If the reference is 
-     within the same resource, the uri is a relative reference with the form #[name]. If the reference is to another resource, it should be either an absolute URI that termintes with a #[name] </li>
-   <li>An external reference is one made to the profile from a <a href="conformance.html">Conformance Statement</a> or a <a href="resource.html#tags">Profile Assertions</a>. 
-   For these references, the [#name] portion is optional. If there is no #name portion, the reference doesn't identify a particular structural definition in the instance, 
-   and it is an error if there is more than one matching structure for the resource type in context that might apply when the Profile reference is used</li>
- </ul> 
-</li>
-  
-<li>The constraint statement has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
+<li>The profile has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
 
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 
@@ -24,7 +14,7 @@ When the type of the element is fixed in the underlying resource definitions, it
 
 <li>The definition (short, formal, comments and the mappings) for an element is provided so that the resource profile can provide a more specific definition for the field in a specific context. 
   For instance, the underlying resource definition might be "Result value" and the more specific resource definition could be "Plasma Cholesterol Test Value".
-  The meaning needs to be consistent with the underlying definition, but narrower - a constraint on it.</li>
+  The meaning needs to be consistent with the underlying definition, but can be narrower - a constraint on it.</li>
   
 <li>For an element with a maximum cardinality of 1, there can only be one entry in the value list, which is either a literal fixed type (with an element name matching the type of the fixed value) or a name,
   which is a reference to a named constraint pattern. If the element has a maximum cardinality of &gt;1, then there can be multiple values - again, either fixed values with a type or a named constraint. 
@@ -47,7 +37,13 @@ though the maximum one still does.
 </ul>
 
 <h3>Common Mapping Targets</h3>
-<!-- This needs some sort of description - not sure why this is here -->
+<p>
+Profiles are able to map resource elements to concepts in other definition systems. Generally these are used to 
+map the elements to local implementation models, data paths, and concepts. However they are also used to map
+to other standards and published terminologies. These are the standard URIs used for common targets of the 
+mapping:
+</p>
+
 <table class="lines">
   <tr><td>http://loinc.org</td><td>LOINC code for the element</td></tr>
   <tr><td>http://snomed.info</td><td>SNOMED CT code for the element</td></tr>
@@ -76,7 +72,7 @@ extension code as the XML name and sliced lists are renamed to use the
 Profile.resource.element.name as the XML element name. Profiles are only suitable
 for this use if they ensure that there are no clashing extension names when
 the extension definition spaces are ignored and that the sliced list names are 
-appropriate.<!-- Any reason we limit this to only XML? -->
+appropriate.<!-- Any reason we limit this to only XML? - because transforms are XML things -->
 </p>
 
 <p>

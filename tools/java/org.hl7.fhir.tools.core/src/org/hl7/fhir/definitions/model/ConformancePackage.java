@@ -9,6 +9,7 @@ import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 // a named set of profiles and extensions
 // most resource defitions have one or two of these, and there are some others as well (e.g. CDA)
@@ -20,7 +21,6 @@ public class ConformancePackage {
 
   // settings
   private String title; // what it's called to humans
-  private String description; // some descriptional text
   private String source; // the file to parse
   private List<Example> examples = new ArrayList<Example>(); // a file that is the example  
   private ConformancePackageSourceType sourceType;
@@ -33,12 +33,6 @@ public class ConformancePackage {
   private List<ExtensionDefinition> extensions = new ArrayList<ExtensionDefinition>();
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
     
-  public String getDescription() {
-    return description;
-  }
-  public void setDescription(String description) {
-    this.description = description;
-  }
   public String getTitle() {
     return title;
   }
@@ -107,11 +101,12 @@ public class ConformancePackage {
   public List<ValueSet> getValuesets() {
     return valuesets;
   }
-  public void loadFromComposition(Composition c, String source) {
+  public void loadFromComposition(Composition c, String source) throws Exception {
     putMetadata("id", c.getId());
     putMetadata("date", c.getDate().toString());
     putMetadata("title", c.getTitle());
     putMetadata("status", c.getStatus().toCode());
+    putMetadata("description", new XhtmlComposer().compose(c.getText().getDiv()));
     title = c.getTitle();
     this.source = source;
   }
@@ -134,6 +129,9 @@ public class ConformancePackage {
 
   public void setNotes(String notes) {
     this.notes = notes;
+  }
+  public String getDescription() {
+    return metadata("description");
   }
 
   

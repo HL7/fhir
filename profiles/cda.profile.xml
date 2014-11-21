@@ -11,7 +11,7 @@
         <id value="cda"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">Todo: generated narrative?</div>
+          <div xmlns="http://www.w3.org/1999/xhtml">A package of profiles that describe how CDA maps to FHIR</div>
         </text>
         <date value="2014-11-16T08:46:00+11:00"/>
         <type>

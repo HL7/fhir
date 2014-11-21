@@ -346,7 +346,6 @@ public class SpreadsheetParser {
         if (name != null && !name.equals("") && !name.startsWith("!")) {
           ConformancePackage pack = new ConformancePackage();
           pack.setTitle(name);
-          pack.setDescription(sheet.getColumn(row, "Description"));
           pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
           String type = sheet.getColumn(row, "Type");
           if ("bundle".equalsIgnoreCase(type))
@@ -775,7 +774,7 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getName(), resource);
+		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource);
     return p;
   }
 
