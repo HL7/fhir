@@ -189,6 +189,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="Eligibility">
         <translation lang="en">Eligibility</translation>
     </item>
+    <item id="EligibilityResponse">
+        <translation lang="en">EligibilityResponse</translation>
+    </item>
     <item id="Encounter">
         <translation lang="en">Encounter</translation>
         <translation lang="zh">就诊</translation>
