@@ -506,6 +506,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="StatusRequest">
         <translation lang="en">StatusRequest</translation>
     </item>
+    <item id="StatusResponse">
+        <translation lang="en">StatusResponse</translation>
+    </item>
     <item id="Study">
         <translation lang="en">Study</translation>
         <translation lang="zh">检查</translation>
