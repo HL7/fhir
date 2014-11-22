@@ -231,6 +231,7 @@ todo: compartments
     <page type="resource" resource="ExplanationOfBenefit"/>
     <page type="resource" resource="OralHealthClaim"/>
     <page type="resource" resource="Reversal"/>
+    <page type="resource" resource="StatusRequest"/>
     <page type="resource" resource="SupportingDocumentation"/>
   </page>
 </page>
