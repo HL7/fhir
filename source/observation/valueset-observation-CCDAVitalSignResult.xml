@@ -9,7 +9,8 @@
 	<!--Value Set: HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC
 		Code System(s)  LOINC 2.16.840.1.113883.6.1  Note the base resource does not allow for display terms -Gforge ticket Item and expansion doesn;t allow for time less than a seconde for instantiation so assume is to be machine generated.-->
 	<description
-		value="This value set indicates the allowed vital sign result types. The vocabulary selected for this value set align with requirements in the Meaningful Use (MU) Stage 2."/>
+		value="This value set indicates the allowed vital sign result types. The vocabulary selected for this value set align with requirements in the Meaningful Use (MU) Stage 2. 
+		Note the concept Blood pressure systolic and diastolic (55284-4) is used to group the related observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4). It SHALL NOT be used alone."/>
 	<copyright
 		value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
 	<status value="active"/>
@@ -24,6 +25,9 @@
 			</concept>
 			<concept>
 				<code value="2710-2"/>
+			</concept>
+			<concept>
+				<code value="55284-4"/>
 			</concept>
 			<concept>
 				<code value="8480-6"/>
@@ -52,6 +56,7 @@
 			<concept>
 				<code value="3140-1"/>
 			</concept>
+			
 		</include>
 	</compose>
 </ValueSet>
