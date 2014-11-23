@@ -3,7 +3,7 @@
 
  <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ExplanationOfBenefit</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
   </text>
 
   <identifier>
@@ -22,7 +22,7 @@
 
   <outcome value="complete"/>
   
-  <disposition value="Claim settled as per contract."/>
+  <disposition value="Policy is currently in-force."/>
  
   <date value="2014-08-16"/>
 
