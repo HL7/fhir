@@ -230,6 +230,7 @@ todo: compartments
     <page type="resource" resource="EligibilityResponse"/>
     <page type="resource" resource="ExplanationOfBenefit"/>
     <page type="resource" resource="Enrollment"/>
+    <page type="resource" resource="EnrollmentResponse"/>
     <page type="resource" resource="OralHealthClaim"/>
     <page type="resource" resource="Reversal"/>
     <page type="resource" resource="StatusRequest"/>

@@ -201,6 +201,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="Enrollment">
         <translation lang="en">Enrollment</translation>
     </item>
+    <item id="EnrollmentResponse">
+        <translation lang="en">EnrollmentResponse</translation>
+    </item>
     <item id="ExplanationOfBenefit">
         <translation lang="en">ExplanationOfBenefit</translation>
     </item>
