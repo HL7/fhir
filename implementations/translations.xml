@@ -537,7 +537,7 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="en">User</translation>
         <translation lang="zh">用户</translation>
         <translation lang="es">Usuario</translation>
-        <translation lang="fr">Utilsateur</translation>
+        <translation lang="fr">Utilisateur</translation>
     </item>
     <item id="ValueSet">
         <translation lang="en">ValueSet</translation>
