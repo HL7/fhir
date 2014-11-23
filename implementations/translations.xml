@@ -389,6 +389,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Paciente</translation>
         <translation lang="fr">Patient</translation>
     </item>
+     <item id="PendedRequest">
+        <translation lang="en">PendedRequest</translation>
+    </item>
     <item id="Picture">
         <translation lang="en">Picture</translation>
         <translation lang="zh">图片</translation>
