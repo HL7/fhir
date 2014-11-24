@@ -63,7 +63,7 @@ Notes:
  <li>The <i>url</i> is a mandatory attribute / property and identifies a retrievable <a href="extensiondefinition.html">extension definition</a> that defines the content and meaning of the extension.</li>
  <li>An extension SHALL have either a value (i.e. a [x] element) or sub-extensions. If present, the [x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented diffferent (see <a href="#modifier">below</a>)</li>
- <li>The <i>value[x]</i> element has an actual name of "value" and then the titlecased name of one of these defined types, and it's contents are those ss defined for that type:
+ <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and it's contents are those as defined for that type:
   <ul class="dense">
    <li><a href="datatypes.html#integer">Integer</a></li>
    <li><a href="datatypes.html#decimal">Decimal</a></li>
@@ -479,5 +479,33 @@ Use the following rules as a guideline for handling resources:
 </div>
 
 [%file newfooter%]
+
+
+  <script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-Extension' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+  }
+  $( '#tabs-Extension' ).tabs('option', 'active', currentTab);
+}     
+</script>
+
 </body>
 </html>
