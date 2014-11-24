@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      [%file newheader%]
+   </head>
+   <body>
+      [%file newnavbar%]
+      <div class="col-9">
+         <a name="USLab"> </a> 
+         <h2>USLab Implementation</h2>
+         <p>
+            The <i>USLab Implementation</i> consists of the guidance documentation,  profiles, operations, value sets and conformance
+            statements it defines.  This implementation has been prepared as a U.S. Realm Specification on behalf of the HL7 Orders and Observation Workgroup. There are three Profiles that cover three use cases listed below:   
+         </p>
+         <ol>
+            <li>
+               <b>Laboratory Test Ordering in the US Realm ambulatory care setting (USLabOrder)- </b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for ordering clinical laboratory tests.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Laboratory+Orders+Interface+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Orders Interface (LOI) Initiative</a> and the<a href="http://wiki.hl7.org/index.php?title=Laboratory_Order_Conceptual_Specification#Executive_Summary"> HL7 Lab Order Conceptual Specification </a>.
+               <!-- EH  What about the  IHE Laboratory-Clinical Communication Profile (LCC
+                  http://wiki.ihe.net/index.php?title=LCC_Long_Proposal_-_wiki
+                  -->
+               However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.
+               <h4><a href="uslaborder-guide.html">USLabOrder Documentation</a></h4>
+               <ul>
+                  <!--
+                     <li><a href="uslaborder-guide.html#uslaborder-guide">USLabOrder Guide</a> - The entire document</li>
+                              -->
+                  <li><a href="uslaborder-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
+                  <!--
+                     <li><a href="uslaborder-guide.html#audience">Audience</a>- Who is the target audience for this Implemention Guide</li>
+                              <li><a href="uslaborder-guide.html#conventions">Conventions</a>- The conventions the guide adheres to </li>
+                              -->
+                  <li><a href="uslaborder-guide.html#usecase">Use case</a>- Describes the Scope, Assumptions, Pre and Post Conditions and Use Cases for this guide</li>
+                  <!--
+                     <li><a href="uslaborder-guide.html#definitions">Definitions</a> - Definitions used in describing for this guide</li>
+                                <li><a href="uslaborder-guide.html#scope">Scope</a>- Describes the Scope for this guide</li>
+                                <li><a href="uslaborder-guide.html#inscope">In scope</a>-List of what is in scope for this guide </li>
+                                <li><a href="uslaborder-guide.html#outscope">Out of scope</a>-List of what is out of scope for this guide </li>
+                                <li><a href="uslaborder-guide.html#actors">Actors</a>- Describes the actors for the use cases </li>
+                                <li><a href="uslaborder-guide.html#usecasesandcontext">Use cases and context</a>- Specific use cases and context for this guide </li>
+                                <li><a href="uslaborder-guide.html#userstory">User story</a>- Narrative for the use case  </li>
+                                <li><a href="uslaborder-guide.html#assumptions">Assumptions</a>- Assumptions </li>
+                                <li><a href="uslaborder-guide.html#preconditions">Pre-conditions</a>- Pre-conditions </li>
+                                <li><a href="uslaborder-guide.html#postconditions">Post-conditions</a>- Post-conditions</li>
+                                <li><a href="uslaborder-guide.html#scen1">Scenario 1</a>- Descripton of first use case for this guide</li>
+                                <li><a href="uslaborder-guide.html#scen2">Scenario 2</a>- Descripton of first use case for this guide</li>
+                                <li><a href="uslaborder-guide.html#scen3">Scenario 3</a>- Descripton of first use case for this guide</li>
+                                <li><a href="uslaborder-guide.html#fnreq">Functional requirements</a>-  todo </li>
+                                <li><a href="uslaborder-guide.html#scen4">Scenario 4</a>- Descripton of first use case for this guide</li>
+                              -->  
+                  <li><a href="uslaborder-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
+                  <!--
+                     <li><a href="uslaborder-guide.html#profile">Profiles</a>- list of resources for which profiles have been created for this guide  </li>
+                                <li><a href="uslaborder-guide.html#vocabstandards">Vocabulary standards</a>- information about codes and code system used</li>
+                                <li><a href="uslaborder-guide.html#implementationscope">Implementation scope</a>- todo </li>
+                                <li><a href="uslaborder-guide.html#aoe">Ask on Order Questions</a>- Guidance on how to include ask at order questions in the DiagnosticOrder</li>
+                                <li><a href="uslaborder-guide.html#specialcondsideration">Special considerations</a> -todo </li>
+                                <li><a href="uslaborder-guide.html#priorresults">Prior results </a>- Guidance on how to include ask at order questions in the DiagnosticOrder</li>
+                                <li><a href="uslaborder-guide.html#errorhandling">Error Handling</a>- Guidance on error handling using the REST API</li>
+                               -->
+                  <li><a href="uslaborder-guide.html#addlguidance">Additional Guidance</a>-Information on CLIA and Glossary of laboratory terms defined for this implementation</li>
+                  <!-- 
+                     <li><a href="uslaborder-guide.html#glossary">Glossary</a>- Glossary of laboratory term as defined for use in this guide</li>
+                            -->
+                  
+               </ul>
+               </li>
+             
+            <li>
+               <b>Laboratory Test Reporting in the US Realm ambulatory care setting (USLab Report) -</b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for reporting clinical laboratory results to ordering providers.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Lab+Results+Interface+(LRI)+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Results Interface (LRI) Initiative</a> and the<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=59"> HL7 V3 Lab Normative Standard </a>.  However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.  
+               <h4><a href="uslabreport-guide.html">USLabReport Documentation</a></h4>
+               <ul>
+            <li><a href="uslabreport-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
+            <li><a href="uslabreport-guide.html#usecase">Use case</a>- Describes the Scope, Assumptions, Pre and Post Conditions and Use Cases for this guide</li>
+            <li><a href="uslabreport-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
+            <li><a href="uslabreport-guide.html#addlguidance">Additional Guidance</a>-Information on Add-on and Reflex testing ( Including Culture and Sensitivities),  CLIA, and Glossary of laboratory terms defined for this implementation</li>
+            </ul>
+            </li>
+       
+            <li>
+               <b>US Realm Laboratory Reporting to Public Health (USLabPHReport) -</b>  This use case is based upon existing regulatory requirements for laboratories to report "reportable" laboratory test results to local public health agencies.  The content has been modeled after the same content as the USLabResult above and the HL7 Public Health and Emergency Care Workgroup (PHER) <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=329">HL7 Version 2.5.1 Implementation Guide: Electronic Laboratory Reporting  (ELR) to Public Health, Release 2 </a>.
+               <h4><a href="uslabphreport-guide.html">USLabPHResult Documentation</a></h4>
+               <ul>
+                  <li><a href="uslabphreport-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
+                  <li><a href="uslabphreport-guide.html#usecase">Use case</a>- Describes the Scope, Assumptions, Pre and Post Conditions and Use Cases for this guide</li>
+                  <li><a href="uslabphreport-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
+                  <li><a href="uslabphreport-guide.html#addlguidance">Additional Guidance</a>-Information on CLIA and Glossary of laboratory terms defined for this implementation</li>
+               </ul>
+            </li>
+           
+         </ol>
+         <h3>Draft for Comment Ballot</h3>
+         <p>
+            This guide will be balloted together with the FHIR specification itself as part of the
+            second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
+         </p>
+         
+         <h3>Specification</h3>
+         <p>
+            The <i>USLab Implementation</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard. 
+            Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+            <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. apply.
+         </p>
+         <p> It makes use of the following resources:</p>
+         <ul>
+            <li><a href="attachment.html">Attachment</a> is used to provide PDF and CDA attachments for supplying results, previous results or clinically relevant information.</li>
+            <li><a href="condition.html">Condition</a> is used to record reasons for performing the requested test and possibly other clinically relevant information to the laboratorian or pathologist.</li>
+            <li><a href="conformance.html">Conformance </a>is used to define additional constraints </li>
+            <li><a href="diagnosticorder.html">DiagnosticOrder</a> is used to define the laboratory order</li>
+            <li><a href="diagnosticreport.html">DiagnosticReport</a> is used to define the laboratory results report</li>
+            <li><a href="observation.html">Observation</a> is used to record individual test measurements or interpretations, or other clincally relevant observations</li>
+            <li><a href="organization.html">Organization</a> is used to define the provider's office, clinic, lab or hospital.</li>
+            <li><a href="media.html">Media</a> is used to provide images for results</li>
+            <li><a href="patient.html">Patient</a> is used to define the patient</li>
+            <li><a href="practitioner.html">Practitioner</a> is used to define the provider who ordered the lab test(s)</li>
+            <li><a href="specimen.html">Specimen</a> is used to define the what when and how the specimen was collected</li>
+            <li><a href="valueset.html">Value Set</a> is used to define allowed values for data elements</li>
+         </ul>
+         <p>
+            This list is not meant to be exhaustive as additional resources may also to be used in <i>USLab Implementation</i> solutions.  
+            <!-- Todo: decide how explicit the list of relevant sections needs to be -->
+         </p>
+         <p>
+            The <i>USLab Implementation</i>r specification consists of the following components:
+         </p>
+         <ul>
+            <li>
+               <b>USLab Implementation profiles</b> - Profiles on the eight FHIR resources used to support the IG requirements:
+               <ul>
+                  <li><a href="cond-uslab.html">Condition</a> Constraints and extensions for providing condition information for laboratory ordering</li>
+                  <li><a href="do-uslab.html">DiagnosticOrder</a> Constraints and extensions for the laboratory ordering</li>
+                  <li><a href="dr-uslab.html">DiagnosticReport</a> Constraints and extensions for laboratory results reporting</li>
+                  <li><a href="obs-uslab.html">Observation</a> Constraints and extensions for laboratory test and ask at order questions (AOE)</li>
+                  <li><a href="patient-uslab.html">Patient</a> Constraints and extensions for patient demographic information for laboratory ordering and resulting</li>
+                  <li><a href="pract-uslab.html">Practitioner</a> Constraints and extensions for the test orderer information and nonordering provider information</li>
+                  <li><a href="org-uslab.html">Organization</a> Constraints and extensions to define the orderer's organization, the performing laboratory, and third party organization. </li>
+                  <li><a href="spec-uslab.html">Specimen</a> Constraints and extensions to define the specimen attributes for laboratory ordering</li>
+               </ul>
+            </li>
+  
+            <li><a href="#todo">Some USLabOrder Operation</a> - todo - may not need</li>
+   
+            <li>
+               <b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting USLab Implementation  functionality:
+               <ul>
+                  <li><a href="conformance-uslaborder-orderer.html">USLabOrder orderer conformance</a> - Some conformance stuff for orderer - todo</li>
+                  <li><a href="conformance-uslaborder-filler.html">USLabOrder laboratory conformance</a> - Some conformance stuff for filler - todo</li>
+                  <li><a href="conformance-uslabreport-sender.html">USLabOrder orderer conformance</a> - Some conformance stuff for report sender - todo</li>
+                  <li><a href="conformance-uslabreport-receiver.html">USLabOrder laboratory conformance</a> - Some conformance stuff for report receiver - todo</li>
+
+               </ul>
+            </li>
+            <li>
+               <b>Value Sets</b> - Definitions of USLab value sets for the following data elements:
+               <ul>
+                  <li><a href="valueset-do-uslab-event.html">USLABDOEvent Value Set</a> Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Case</li>
+               </ul>
+            </li>
+            <li>
+               <b>Examples</b> - Examples Instances of <i>USLab Implementation</i> Resource Bundles:
+               <ul>
+                  <li><a href="#todo">Some USLabOrder Bundle example </a> - todo</li>
+                    <li><a href="#todo">Some USLabReport Bundle example </a> - todo</li>
+                     <li><a href="#todo">Some USLabPHReport Bundle example </a> - todo</li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+      [%file newfooter%]
+   </body>
+</html>

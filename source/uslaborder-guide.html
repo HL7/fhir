@@ -12,20 +12,20 @@
          <a name="purpose"></a>
          <h2>Purpose</h2>
          <p>
-            The Laboratory Orders Interface Initiative focuses on identifying the requirements, specifications and 
+            The FHIR USLab Order Implementation focuses on identifying the requirements, specifications and 
             standards, and on providing the implementation guidance for electronic ordering of laboratory tests in 
-            the US Realm. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a 
+            the US Realm using <a href="http://hl7-fhir.github.io/http.html">the FHIR in the RESTful framework</a>. The scope of the Laboratory Orders Interface Use Case includes requirements to enable a 
             particular implementation of Electronic Health Record System (EHR-S) to use standardized structured 
             data in a defined inter-organizational laboratory transaction. The Use Case requirements are directed at 
             laboratory test orders between an Ambulatory Provider's EHR-S and a Laboratory's Laboratory 
-            Information System (LIS). Future versions of this guide may harmonize with existing guides to extend 
+            Information System (LIS). Future versions of this implementation  may harmonize with existing guides to extend 
             interoperability of laboratory results across care settings, e.g., acute care.
          </p>
          <a name="audience"></a>
          <h2>Audience</h2>
          <p>
-            This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements an specific extensions
-            relative to the Laboratory Orders Interface (LOI) initiative and HL7 Lab Order Conceptual Specification. Users of this guide must be familiar with the details of the FHIR Specification and resource 
+            This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements and specific extensions
+            relative to the Laboratory Results Interface (LRI) initiative and HL7 Lab Order Conceptual Specification. Users of this guide must be familiar with the details of the FHIR Specification and resource 
             processing. This guide is not intended to be a tutorial on that subject. 
          </p>
          <a name="conventions"></a>
@@ -147,8 +147,8 @@
                FHIR profiles defined in this guide. This actor is the Organization Resource referenced through the .orderer (Practitioner) Resource within FHIR. 
             </li>
             <!-- EH discuss whether should use the dot notation to refer to elements  e.g. .orderer-->
-            <li>Laboratory Order Receiver - A receiver of the DiagnosticOrder Resource Instance that declares conformance 
-               to conformance to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticOrder Resource Instance or the linked resources).
+            <li>Laboratory Order Receiver - The receiver of the DiagnosticOrder Resource Instance that declares conformance 
+               to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticOrder Resource Instance or the linked resources).
             </li>
          </ul>
          <a name="usecasesandcontext"></a>
