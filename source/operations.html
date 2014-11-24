@@ -174,7 +174,7 @@ operations are performed like this:
  <li>The message data item refers to a <a href="parameters.html">Parameters</a>
   format that carries the in parameters for the operation. If there are no parameters,
   the message SHOULD have no data element</li>
- <li>The sender accepts the message (see <a href="message.html#asynchronous">Asynchronous messaging</a></li>
+ <li>The sender accepts the message (see <a href="message.html#asynchronous">Asynchronous messaging</a>)</li>
  <li>When the operation has been executed, the processor sends back one or more messages</li>
  <li>Each message is a bundle of type = message that contains a message header that refers to the id of the original message</li>
  <li>If the operation fails, the MessageHeader.response.code must indicate failure, and an <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned as well</li>
