@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 
-
-[%settitle Extended Operations on the RESTful API%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+[%settitle Extended Operations on the RESTful API%]
 <head>
 [%file newheader%]
 </head>
@@ -77,8 +76,15 @@ For each parameter, the following information is needed:
 </ul>
 
 <a name="executing"> </a>
+<a name="synchronous"> </a>
 
-<h3>Executing an Operation</h3>
+<h3>Executing an Operation Synchronously</h3>
+
+<p>
+Most commonly, operations are executed synchronously - the client sends a request
+to the server with the operation in parameters, and the server replies with the 
+operation out parameters. 
+</p>
 
 <p>
 The URL for an operation end-point depends on its context:
@@ -144,6 +150,42 @@ resources that are not persisted are returned in the response,
 they will have no id property.
 </p>
 
+<a name="asynchronous"> </a>
+
+<!-- todo: add async/sync to the operation definition -->
+
+<h3>Executing an Operation Asynchronously</h3>
+
+<p>
+Operations can also be executed asynchronously. In this case, the 
+requester sends a message requesting that an operation be executed,
+and the destination system subsequently sends a message back with 
+the results of the operation. 
+</p>
+<p>
+Given the increased complexity of the asynchronous use case, the 
+implementation has increased complexity. As a summary, asynchronous
+operations are performed like this: 
+</p>
+<ul>
+ <li>The requester contructs a message (a bundle with type = message)</li>
+ <li>The message header has an event.system of http://blame-Lloyd.com/operations</li>
+ <li>The event.code is the URL of the operation definition</li>
+ <li>The message data item refers to a <a href="parameters.html">Parameters</a>
+  format that carries the in parameters for the operation. If there are no parameters,
+  the message SHOULD have no data element</li>
+ <li>The sender accepts the message (see <a href="message.html#asynchronous">Asynchronous messaging</a></li>
+ <li>When the operation has been executed, the processor sends back one or more messages</li>
+ <li>Each message is a bundle of type = message that contains a message header that refers to the id of the original message</li>
+ <li>If the operation fails, the MessageHeader.response.code must indicate failure, and an <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned as well</li>
+ <li>If there is only one out parameter, which is a resource, and it has the name "return", then the data of the message is the return resource</li>
+ <li>Else the message data will refer to a <a href="parameters.html">Parameters</a>
+  format that carries the out parameters for the operation. If there are no parameters,
+  the message SHOULD have no data element</li>
+</ul>
+<p>
+Todo: fill out with details and examples.
+</p>
 </div>
 
 [%file newfooter%]
