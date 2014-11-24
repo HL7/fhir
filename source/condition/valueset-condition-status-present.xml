@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><h2>ConditionStatusPresent</h2><p>The clinical status of the Condition or diagnosis</p><p>This value set defines its own terms in the system http://hl7.org/fhir/condition-status</p><table><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>
+    <tr><td>provisional<a name="provisional"> </a></td><td/><td>This is a tentative diagnosis - still a candidate that is under consideration.</td></tr><tr><td>working<a name="working"> </a></td><td/><td>The patient is being treated on the basis that this is the condition, but it is still not confirmed.</td></tr><tr><td>confirmed<a name="confirmed"> </a></td><td/><td>There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.</td></tr></table></div>
+  </text>
+  <identifier value="http://hl7.org/fhir/vs/condition-status-present"/>
+  <name value="ConditionStatusPresent"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
+  </telecom>	
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="fhir@lists.hl7.org"/>
+  </telecom>
+  <description value="The clinical status of the Condition or diagnosis for present or non-refuted occurrence"/>
+  <status value="draft"/>
+  <date value="2014-10-28T18:09:16.978+10:00"/>
+  <compose>
+   <include>
+    <system value="http://hl7.org/fhir/condition-status"/>
+    <concept>
+      <code value="provisional"/>
+    </concept>
+    <concept>
+      <code value="working"/>
+    </concept>
+    <concept>
+      <code value="confirmed"/>
+    </concept>
+   </include>
+  </compose>
+</ValueSet>

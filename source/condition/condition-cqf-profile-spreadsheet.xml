@@ -24,11 +24,12 @@
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Data Elements</Path>
    <SheetName>Data Elements</SheetName>
   </SupBook>
-  <WindowHeight>7680</WindowHeight>
-  <WindowWidth>20460</WindowWidth>
+  <WindowHeight>6870</WindowHeight>
+  <WindowWidth>18330</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1470,10 +1471,11 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">confirmed</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ValuesetConditionStatusPresent</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3969,7 +3971,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3987,8 +3989,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4044,7 +4046,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R3C6:R12C24,R13C18:R14C24,R13C6:R14C6,R30C1:R102C24,R15C6:R27C24,R3C1:R27C5,R13C8:R14C16</Range>
+   <Range>R2C1:R2C24,R13C18:R14C24,R13C6:R14C6,R30C1:R102C24,R15C6:R27C24,R3C1:R27C5,R13C8:R14C16,R3C6:R12C24</Range>
    <Condition>
     <Value1>RC5=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4097,7 +4099,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C24,R3C6:R12C24,R13C18:R14C24,R13C6:R14C6,R30C1:R102C24,R15C6:R27C24,R3C1:R27C5,R28C3:R29C3,R13C8:R14C16</Range>
+   <Range>R2C1:R2C24,R13C18:R14C24,R13C6:R14C6,R30C1:R102C24,R15C6:R27C24,R3C1:R27C5,R28C3:R29C3,R13C8:R14C16,R3C6:R12C24</Range>
    <Condition>
     <Value1>LEFT(RC3,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -9948,12 +9950,12 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ValuesetConditionStatusPresent</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Value set for Condition status for a condition occurrence</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">N</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-condition-status-present</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -10428,8 +10430,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
