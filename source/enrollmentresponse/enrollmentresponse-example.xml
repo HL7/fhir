@@ -15,11 +15,6 @@
 	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
   </request>
   
-  <requestIdentifier>
-    <system value="http://happyvalley.com/enrollment"/>
-    <value value="22345"/>
-  </requestIdentifier>
-
   <outcome value="complete"/>
   
   <disposition value="Dependant added to policy."/>

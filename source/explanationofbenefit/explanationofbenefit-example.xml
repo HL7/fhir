@@ -15,11 +15,6 @@
 	<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
   </request>
   
-  <requestIdentifier>
-    <system value="http://happyvalley.com/claims"/>
-    <value value="12345"/>
-  </requestIdentifier>
-
   <outcome value="complete"/>
   
   <disposition value="Claim settled as per contract."/>

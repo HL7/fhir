@@ -17,11 +17,6 @@
     <reference value="Organization/1"/>
   </organization>
   
-  <requestIdentifier>
-    <system value="http://happyvalley.com/claims"/>
-    <value value="12345"/>
-  </requestIdentifier>
-
   <exclude value="SupportingDocumentation"/>
   <exclude value="Reconciliation"/>
   

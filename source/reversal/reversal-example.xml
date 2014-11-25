@@ -17,16 +17,10 @@
     <reference value="Organization/1"/>
   </organization>
   
-  <requestIdentifier>
-    <system value="http://happyvalley.com/claims"/>
-    <value value="12345"/>
-  </requestIdentifier>
+  <request>
+    <reference value="http://BenefitsInc.com/fhir/oralhealthclaim/12345"/>
+  </request>
 
-  <responseIdentifier>
-    <system value="http://www.BenefitsInc.com/fhir/remittance"/>
-    <value value="R3500"/>
-  </responseIdentifier>
-  
  <coverage>
    <sequence value="1"/>
    <focal value="true"/>

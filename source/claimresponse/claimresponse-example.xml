@@ -13,13 +13,8 @@
   </identifier>
 
   <request>
-	<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
+    <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
   </request>
-  
-  <requestIdentifier>
-    <system value="http://happyvalley.com/claims"/>
-    <value value="12345"/>
-  </requestIdentifier>
 
   <date value="2014-08-16"/>
 
