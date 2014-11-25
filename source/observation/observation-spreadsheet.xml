@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-11-20T23:50:06Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -26,8 +26,8 @@
   </SupBook>
   <WindowHeight>13020</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopX>-4350</WindowTopX>
+  <WindowTopY>420</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
@@ -6097,7 +6097,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">US Laboratory Observation Profile</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">obs-uslab-profile.xml</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">obs-uslab.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">obs-uslab-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
@@ -6292,8 +6292,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>19</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

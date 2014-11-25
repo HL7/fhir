@@ -1,0 +1,17 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="US Laboratory Observation Profile Interpretation Codes"/>
+  
+  <publisher value="HL7 International - Orders and Observations WG"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines the set of Codes identifying interpretations of observations"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+    </include>
+  </compose>
+</ValueSet>
+
