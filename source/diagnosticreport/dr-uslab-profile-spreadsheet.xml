@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-25T01:18:37Z</LastSaved>
+  <LastSaved>2014-11-25T06:39:23Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
@@ -92,6 +92,7 @@
   <WindowTopY>-15</WindowTopY>
   <TabRatio>914</TabRatio>
   <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1113,14 +1114,14 @@
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="78" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s87" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="120"/>
-   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="177.75"/>
+   <Column ss:StyleID="s87" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:StyleID="s87" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s88" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="177.75"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s89" ss:Width="227.25"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="35.25"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="46.5" ss:Span="1"/>
-   <Column ss:Index="10" ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:Index="10" ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="224.25"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="60" ss:Span="1"/>
@@ -1723,7 +1724,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Patient){USlabPatient}</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(patient){USlabPatient}|Reference(Patient){USlabPHPatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2037,7 +2038,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Observation){USlabObs}</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Reference(Observation){USLabObsCode}|Reference(Observation){USLabObsQuantity}|Reference(Observation){USLabObsOther}|Reference(Observation){USLabObsRatio}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3434,9 +3435,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>6</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3444,6 +3445,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>6</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3451,8 +3453,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>26</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3508,7 +3509,7 @@
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C6:R15C6,R17C6:R23C6,R2C5:R15C5,R2C13:R19C13,R27C6:R77C6,R17C5:R77C5,R21C13:R77C13,R2C1:R77C3,R2C14:R77C25,R2C7:R77C12,R14C4</Range>
+   <Range>R5C6:R15C6,R17C6:R23C6,R2C13:R19C13,R27C6:R77C6,R17C5:R77C5,R21C13:R77C13,R2C1:R77C3,R2C14:R77C25,R2C7:R77C12,R14C4,R2C5:R15C5</Range>
    <Condition>
     <Value1>RC8=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3554,7 +3555,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C6:R15C6,R17C6:R23C6,R2C5:R15C5,R2C13:R19C13,R27C6:R77C6,R17C5:R77C5,R21C13:R77C13,R2C1:R77C3,R2C14:R77C25,R2C7:R77C12,R14C4</Range>
+   <Range>R5C6:R15C6,R17C6:R23C6,R2C13:R19C13,R27C6:R77C6,R17C5:R77C5,R21C13:R77C13,R2C1:R77C3,R2C14:R77C25,R2C7:R77C12,R14C4,R2C5:R15C5</Range>
    <Condition>
     <Value1>LEFT(RC6,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
@@ -3618,42 +3619,6 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C5</Range>
-   <Condition>
-    <Value1>RC8=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC6=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C5</Range>
-   <Condition>
-    <Value1>LEFT(RC6,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C5</Range>
-   <Condition>
-    <Value1>RC8=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC6=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R6C5</Range>
-   <Condition>
-    <Value1>LEFT(RC6,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
