@@ -178,7 +178,6 @@
    <NamedRange ss:Name="dateTime" ss:RefersTo="=Imports!R10C1"/>
    <NamedRange ss:Name="id" ss:RefersTo="='String Patterns'!R5C1"/>
    <NamedRange ss:Name="oid" ss:RefersTo="='String Patterns'!R3C1"/>
-   <NamedRange ss:Name="sid" ss:RefersTo="='String Patterns'!#REF!"/>
    <NamedRange ss:Name="uuid" ss:RefersTo="='String Patterns'!R4C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
