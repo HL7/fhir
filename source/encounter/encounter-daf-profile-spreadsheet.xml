@@ -1067,10 +1067,10 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="encounter-DAF">
+ <Worksheet ss:Name="encounter-daf">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='encounter-DAF'!R1C1:R100C24" ss:Hidden="1"/>
+    ss:RefersTo="='encounter-daf'!R1C1:R100C24" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
@@ -3897,8 +3897,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
