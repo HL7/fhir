@@ -24,8 +24,8 @@
    <Path>Profiles</Path>
    <SheetName>Profiles</SheetName>
   </SupBook>
-  <WindowHeight>13020</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9885</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
@@ -5638,9 +5638,9 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">encounter-DAF</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">encounter-DAF.xml</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">encounter-DAF-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">encounter-daf</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">encounter-daf.xml</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">encounter-daf-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5894,7 +5894,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
