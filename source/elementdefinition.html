@@ -42,7 +42,7 @@ Further Commentary
 </div>
 
 <h2>Interpretation of ElementDefinition in different contexts</h2>
-<p>The pseudo-datatype <code>ElementDefinition</code> is used both in <code>StructureDefinition</code> and <code>ExtensionDefinition</code>, and even within  those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used.</p>
+<p>The pseudo-datatype <code>ElementDefinition</code> is used both in <a href="profile.html">Profile</a> and <a href="extensiondefinition.html">ExtensionDefinition</a>, and even within  those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used.</p>
 <!-- ### Visual
 <table>
 	<tr><th>Element</th><th>Root element<br/>of a structure</th><th>Nested element<br/>in structure
@@ -65,18 +65,23 @@ Further Commentary
 <li><code>slicing</code> may not be used</li>
 <li><code>min</code> and <code>max</code> may not be used</li>
 <li><code>type</code> is set to &quot;Resource&quot; for constraints on Resources, &quot;Element&quot; for constraints on data types</li>
+<!-- no - DomainResource for many resources now. otherwise ok -->
 <li><code>nameReference</code> may not be used</li>
 <li><code>fixed</code>, <code>pattern</code> indicate a value that an instance of a while complex type constrained by this structure must match. May be used instead of applying constraints to the nested elements of the datatype.</li>
 <li><code>example</code> example value for a complex type in an instance that complies to the structure</li>
 <li><code>maxLength</code> may not be used</li>
+<!-- could be used on a primitive? -->
 <li><code>mustSupport</code> may not be used</li>
 <li><code>isModifier</code> may not be used</li>
 <li><code>isSummary</code> may not be used</li>
 <li><code>binding</code> may not be used</li>
+<!-- can be in a data types profile -->
+
 </ul>
 <h3>Nested element in a structure</h3>
 <ul>
 <li><code>representation</code> may only be used on elements of a primitive type (and currently only on the &quot;value&quot; element of FHIR primitive types and &quot;url&quot; element of Extension)</li>
+<!-- only be agreement with both ITS and MnM and FHIR core -->
 <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered the slicing entry</li>
 <li><code>mustSupport</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
 <li><code>isModifier</code> must be the same as the base definition for the datatype or Resource</li>
@@ -86,7 +91,7 @@ Further Commentary
 <p>The <code>ElementDefinition</code> is understood to be the set of constraints to be used for the &quot;open&quot; slice, i.e. when the slice is open, this definition is used as a constraint on elements in the instance that are not part of a slice and belong to the open portion of the slice. Its use follows the &quot;normal case&quot;, except:</p>
 <ul>
 <li><code>representation</code> may not be used</li>
-<li><code>name</code> may not be used?</li>
+<li><code>name</code> may not be used?</li> <!-- no, you could reuse a set of slicing -->
 <li><code>slicing</code> must be present</li>
 <li><code>min</code> and <code>max</code> are considered to govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
 <li><code>isModifier</code> must be the same as the base definition for the datatype or Resource</li>
@@ -94,10 +99,10 @@ Further Commentary
 </ul>
 <h3>Only element in a simple extension</h3>
 <ul>
-<li><code>path</code> is equal to ExtensionDefinition.name</li>
+<li><code>path</code> is equal to ExtensionDefinition.name</li> <!--- no, "Extension" -->
 <li><code>representation</code> may not be used</li>
-<li><code>name</code> may not be used</li>
-<li><code>slicing</code> may be used to express constraints on the use of specific types when the element allows a choice of type (name ends in [x])</li>
+<li><code>name</code> may not be used</li> 
+<li><code>slicing</code> may be used to express constraints on the use of specific types when the element allows a choice of type (name ends in [x])</li> <!-- didn't mention [x] above -->
 <li><code>min</code>, <code>max</code> defines the allowed number of occurrences of this extension in an instance. Actual use in the target context of an extension may governed by slicing the (modifier)extension element of the target and must be compatible with this number. Note that having a min &gt; 0 can only be guaranteed where such slicing rules are in place in the target.</li>
 <li><code>type</code> indicates the (choice of) types of the extension's value</li>
 <li><code>nameReference</code> may not be used</li>
@@ -107,7 +112,7 @@ Further Commentary
 </ul>
 <h3>First (root) element in a complex extension</h3>
 <ul>
-<li><code>path</code> is equal to ExtensionDefinition.name</li>
+<li><code>path</code> is equal to ExtensionDefinition.name</li> <!--- no, "Extension" -->
 <li><code>representation</code> may not be used</li>
 <li><code>name</code> may not be used</li>
 <li><code>slicing</code> may not be used</li>
@@ -117,15 +122,15 @@ Further Commentary
 <li><code>fixed</code>, <code>pattern</code> may not be used. (Lloyd may describe a usecase)</li>
 <li><code>example</code> example value for the complex extension in an instance</li>
 <li><code>maxLength</code> may not be used</li>
-<li><code>mustSupport</code> may not be used</li>
+<li><code>mustSupport</code> may not be used</li> 
 <li><code>isModifier</code> indicates whether the extension appears in the &lt;extension&gt; of &lt;modifierExtension&gt; element in the instance. If it is not present it defaults to &quot;false&quot;</li>
 <li><code>isSummary</code> indicates whether the extension will appear in a summary (depends on modifierExtension?)</li>
 <li><code>binding</code> may not be used</li>
 </ul>
 <h3>Nested element in a complex extension</h3>
 <ul>
-<li><code>representation</code> may not be used</li>
-<li><code>slicing</code> may be used to express constraints on the use of specific types when the element allows a choice of type (name ends in [x])</li>
+<li><code>representation</code> may not be used</li> 
+<li><code>slicing</code> may be used to express constraints on the use of specific types when the element allows a choice of type (name ends in [x])</li> <!-- don't understand this use case. just define a single type -->
 <li><code>mustSupport</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
 <li><code>isModifier</code> may be used, but if it is not present it defaults to &quot;false&quot;</li>
 </ul>
