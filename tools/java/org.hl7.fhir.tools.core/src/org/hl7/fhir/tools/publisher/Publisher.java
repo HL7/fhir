@@ -3608,7 +3608,9 @@ public class Publisher implements URIResolver {
       return new XhtmlComposer().compose(doc);
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      TextFile.stringToFile(src, "c:\\temp\\dump.html");
+      //TextFile.stringToFile(src, "c:\\temp\\dump.html");
+      TextFile.stringToFile(src, Utilities.appendSlash(System.getProperty("user.dir")) + "fhir-error-dump.html");
+        
       throw new Exception("Exception inserting section numbers in " + link + ": " + e.getMessage(), e);
     }
   }
