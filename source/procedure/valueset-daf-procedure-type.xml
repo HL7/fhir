@@ -1,0 +1,24 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="dafEncounterType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate the type
+    of procedure: a specific code indicating type of procedure performed (NEED TO ADD CPT)."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct/"/>
+    </include>
+   <include>
+     <system value="http://hl7.org/fhir/sid/icd-10"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-type"/>
+    </include>
+  </compose>
+</ValueSet>
+
