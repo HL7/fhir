@@ -6,7 +6,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This example value set defines a set of codes that can be used to indicate the type
+  <description value="This value set defines a set of codes that can be used to indicate the type
     of encounter: a specific code indicating type of service provided NEED TO ADD CPT."/>
   <status value="draft"/>
   <compose>
