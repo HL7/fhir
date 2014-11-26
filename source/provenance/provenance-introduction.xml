@@ -15,7 +15,7 @@ Security Event resources are often (though not exclusively) created by the appli
 </div>
 
 <div>
-<h2>Relationship with other resources</h2>
+<h2>Boundaries and Relationships</h2>
 <p>
 Many other FHIR resources contain some elements that represent information
 about how the resource was obtained, and therefore thay overlap with the 
@@ -25,6 +25,7 @@ provenance resource should be used where additional information is required,
 though overlap can occur. 
 </p>
 </div>
+
 <div>
 <h2>Background and Context</h2>
 <p>
