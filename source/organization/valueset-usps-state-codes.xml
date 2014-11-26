@@ -1,0 +1,78 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="USPS Two Letter Alphabetic Codes"/>
+  <!--USPSState-->
+  <publisher value="HL7 International - Orders and Observations WG"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines two letter USPS alphabetic codes."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="https://www.usps.com/"/>
+      <concept><code value="AK"/> <display value="Alaska"></display></concept>
+<concept><code value="AL"/> <display value="Alabama"></display></concept>
+<concept><code value="AR"/> <display value="Arkansas"></display></concept>
+<concept><code value="AS"/> <display value="American Samoa"></display></concept>
+<concept><code value="AZ"/> <display value="Arizona"></display></concept>
+<concept><code value="CA"/> <display value="California"></display></concept>
+<concept><code value="CO"/> <display value="Colorado"></display></concept>
+<concept><code value="CT"/> <display value="Connecticut"></display></concept>
+<concept><code value="DC"/> <display value="District of Columbia"></display></concept>
+<concept><code value="DE"/> <display value="Delaware"></display></concept>
+<concept><code value="FL"/> <display value="Florida"></display></concept>
+<concept><code value="FM"/> <display value="Federated States of Micronesia"></display></concept>
+<concept><code value="GA"/> <display value="Georgia"></display></concept>
+<concept><code value="GU"/> <display value="Guam"></display></concept>
+<concept><code value="HI"/> <display value="Hawaii"></display></concept>
+<concept><code value="IA"/> <display value="Iowa"></display></concept>
+<concept><code value="ID"/> <display value="Idaho"></display></concept>
+<concept><code value="IL"/> <display value="Illinois"></display></concept>
+<concept><code value="IN"/> <display value="Indiana"></display></concept>
+<concept><code value="KS"/> <display value="Kansas"></display></concept>
+<concept><code value="KY"/> <display value="Kentucky"></display></concept>
+<concept><code value="LA"/> <display value="Louisiana"></display></concept>
+<concept><code value="MA"/> <display value="Massachusetts"></display></concept>
+<concept><code value="MD"/> <display value="Maryland"></display></concept>
+<concept><code value="ME"/> <display value="Maine"></display></concept>
+<concept><code value="MH"/> <display value="Marshall Islands"></display></concept>
+<concept><code value="MI"/> <display value="Michigan"></display></concept>
+<concept><code value="MN"/> <display value="Minnesota"></display></concept>
+<concept><code value="MO"/> <display value="Missouri"></display></concept>
+<concept><code value="MP"/> <display value="Northern Mariana Islands"></display></concept>
+<concept><code value="MS"/> <display value="Mississippi"></display></concept>
+<concept><code value="MT"/> <display value="Montana"></display></concept>
+<concept><code value="NC"/> <display value="North Carolina"></display></concept>
+<concept><code value="ND"/> <display value="North Dakota"></display></concept>
+<concept><code value="NE"/> <display value="Nebraska"></display></concept>
+<concept><code value="NH"/> <display value="New Hampshire"></display></concept>
+<concept><code value="NJ"/> <display value="New Jersey"></display></concept>
+<concept><code value="NM"/> <display value="New Mexico"></display></concept>
+<concept><code value="NV"/> <display value="Nevada"></display></concept>
+<concept><code value="NY"/> <display value="New York"></display></concept>
+<concept><code value="OH"/> <display value="Ohio"></display></concept>
+<concept><code value="OK"/> <display value="Oklahoma"></display></concept>
+<concept><code value="OR"/> <display value="Oregon"></display></concept>
+<concept><code value="PA"/> <display value="Pennsylvania"></display></concept>
+<concept><code value="PR"/> <display value="Puerto Rico"></display></concept>
+<concept><code value="PW"/> <display value="Palau"></display></concept>
+<concept><code value="RI"/> <display value="Rhode Island"></display></concept>
+<concept><code value="SC"/> <display value="South Carolina"></display></concept>
+<concept><code value="SD"/> <display value="South Dakota"></display></concept>
+<concept><code value="TN"/> <display value="Tennessee"></display></concept>
+<concept><code value="TX"/> <display value="Texas"></display></concept>
+<concept><code value="UM"/> <display value="U.S. Minor Outlying Islands"></display></concept>
+<concept><code value="UT"/> <display value="Utah"></display></concept>
+<concept><code value="VA"/> <display value="Virginia"></display></concept>
+<concept><code value="VI"/> <display value="Virgin Islands of the U.S."></display></concept>
+<concept><code value="VT"/> <display value="Vermont"></display></concept>
+<concept><code value="WA"/> <display value="Washington"></display></concept>
+<concept><code value="WI"/> <display value="Wisconsin"></display></concept>
+<concept><code value="WV"/> <display value="West Virginia"></display></concept>
+<concept><code value="WY"/> <display value="Wyoming"></display></concept>
+
+    </include>
+  </compose>
+</ValueSet>
+
