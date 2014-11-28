@@ -141,7 +141,7 @@
                   <li>Including the use case where public health is the originator of the order for testing.</li>
                </ul>
             </li>
-            <li>•	Sending laboratory test results as standardized structured data so they can be incorporated that way into a Public Health Disease Surveillance System (DSS). </li>
+            <li>Sending laboratory test results as standardized structured data so they can be incorporated that way into a Public Health Disease Surveillance System (DSS). </li>
             <!--EH needed ?
                <li>Supporting Stage 2,3 certification criteria and Meaningful Use (MU) requirements by developing
                requirements for an interface that enables the incorporation of clinical laboratory test results into
@@ -227,8 +227,9 @@
             </li>
             <!--EH not needed
                <li>All relevant parties have agreed on a structured laboratory test results message format.</li>
-               -->
+             
             <li>This Use Case covers all <a href="#addlguidance">CLIA reporting requirements</a> </li>
+			  -->
             <li>For the specimen collection process the data included in the dataset considerations table 6 are assumed to be available and reported in the result.  </li>
             <li>Legal and governance issues regarding data access authorizations, data ownership, and data use are in effect.  </li>
             <li>
@@ -337,8 +338,10 @@
          </p>
          <ol>
             <li>If the result is related to a reportable condition and the laboratory provides a LOINC code, </li>
-            <li>Meaningful Use Stage requires the EHR to send the LOINC code to public health.  If the LOINC code is the only code sent to the lab in OBX-3, then the EHR must store and retain
+            <li>Meaningful Use Stage requires the EHR to send the LOINC code to public health.
+            <!-- EH: OOS for Lab to PH:  If the LOINC code is the only code sent to the lab in OBX-3, then the EHR must store and retain
                that code to satisfy CLIA reporting requirements.
+			-->
             </li>
             <li>LOINC codes may be used for secondary data exchange purposes and other partner exchange
                agreements.
@@ -346,7 +349,9 @@
          </ol>
          <h3>SNOMED CT</h3>
          <p>The use of the <a href="http://snomed.info/sct">SNOMED-CT</a> code system is required
-            where a SNOMED-CT concept code is available for Observation.valueCodeableConcept,  i.e. the actiual coded result.   If a local coding system is in use, a local code should also be sent in addition to the SNOMED-CT concept code to help with identification of coding issues. When no valid SNOMED-CT exists the local code may be the only code sent.  to satisfy CLIA reporting requirements, It also recommended that the Observation.valueCodeableConcept.text element is used if laboratory's original text which is used for printing and/or display is different from the code display value.
+            where a SNOMED-CT concept code is available for Observation.valueCodeableConcept,  i.e. the actiual coded result.   If a local coding system is in use, a local code should also be sent in addition to the SNOMED-CT concept code to help with identification of coding issues. When no valid SNOMED-CT exists the local code may be the only code sent.
+            <!-- EH: OOS for Lab to PH:   to satisfy CLIA reporting requirements, It also recommended that the Observation.valueCodeableConcept.text element is used if laboratory's original text which is used for printing and/or display is different from the code display value. 
+			-->
          </p>
          <p>SNOMED CT is required for specimen source term elements, Specimen.type and Specimen.Collection.sourceSite where a SNOMED-CT concept code is available.</p>
          <h3>UCUM</h3>
@@ -430,7 +435,8 @@
             outlined in this section. Impacted areas include mandatory test request requirements.
             <a href="http://wwwn.cdc.gov/clia/regs/toc.aspx">CLIA Regulation Specifics</a>.
          </p>
-         <h3>Mandatory Ordering Requirements</h3>
+         <!-- EH not needed: OOS for lab to PH reporting 
+<h3>Mandatory Ordering Requirements</h3>
          <p><a href="http://wwwn.cdc.gov/clia/regs/subpart_k.aspx493.1241">Section 493.1241 of the CLIA Regulations</a> requires the laboratory to have a written or electronic request
             for patient testing from an authorized person, and defines items that must appear as part of a clinical
             laboratory test request . The laboratory may
@@ -524,12 +530,12 @@
             </tr>
             <tr>
                <td>Observation.UnsatisfactorySpecimenReason (extension)</td>
-               <!--EH - need to find best plae for this at repor level or obs level or at speicmen level -->
                <td>To specify the
                   reason for specimen rejection..
                </td>
             </tr>
          </table>
+         -->
          <a name="clsi-definitions"></a>
          <h3>CLSI Definitions - Quantitative, Semi-quantitative, Qualitative Results </h3>
          <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">defnitions</a> were derived from the CLSI website:
