@@ -116,9 +116,13 @@ todo: compartments
                     <page title="DAF Introduction" filename="daf-intro.html"/>
                     <page title="DAF Security" filename="daf-security.html"/>
                 </page>
-                <page title="US Laboratory Implementation" filename="uslab.html">
+                <page title="US Laboratory Order Implementation" filename="uslaborder.html">
                     <page title="USLabOrder Documentation" filename="uslaborder-guide.html"/>
+                </page>
+                 <page title="US Laboratory Result Implementation" filename="uslabresult.html">
                     <page title="USLabResult Documentation" filename="uslabresult-guide.html"/>
+                </page>
+                <page title="US Laboratory Report to Public Health Implementation" filename="uslabphresult.html">
                     <page title="USLabPHResult Documentation" filename="uslabphresult-guide.html"/>
                 </page>
             </page>
