@@ -7,7 +7,7 @@
  <li>Each instance may have a url and an attachment. Both represent the same information, but using different 
    approaches. The URL is a reference to a WADO-RS service that makes the instance available, while the attachment 
    is a reference to a FHIR resource (<a href="media.html">Media</a>, <a href="composition.html">Composition</a>, etc).</li>
- <li>This resource follows DICOM practice in useing OIDs for elements such as instance type rather than codes.</li>  
+ <li>This resource follows DICOM practice in using OIDs for elements such as instance type rather than codes.</li>  
 </ul>
 
 <h3>Use Case</h3>
