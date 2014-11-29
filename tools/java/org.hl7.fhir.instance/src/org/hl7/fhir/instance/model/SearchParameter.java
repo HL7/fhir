@@ -29,25 +29,55 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A Search Parameter that defines a named search item that can be used to search/filter on a resource.
  */
+@ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
 public class SearchParameter extends DomainResource {
 
     public enum SearchParamType {
-        NUMBER, // Search parameter SHALL be a number (a whole number, or a decimal).
-        DATE, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
-        STRING, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-        TOKEN, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
-        REFERENCE, // A reference to another resource.
-        COMPOSITE, // A composite search parameter that combines a search on two values together.
-        QUANTITY, // A search parameter that searches on a quantity.
-        NULL; // added to help the parsers
+        /**
+         * Search parameter SHALL be a number (a whole number, or a decimal).
+         */
+        NUMBER, 
+        /**
+         * Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
+         */
+        DATE, 
+        /**
+         * Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
+         */
+        STRING, 
+        /**
+         * Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
+         */
+        TOKEN, 
+        /**
+         * A reference to another resource.
+         */
+        REFERENCE, 
+        /**
+         * A composite search parameter that combines a search on two values together.
+         */
+        COMPOSITE, 
+        /**
+         * A search parameter that searches on a quantity.
+         */
+        QUANTITY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -76,6 +106,18 @@ public class SearchParameter extends DomainResource {
             case REFERENCE: return "reference";
             case COMPOSITE: return "composite";
             case QUANTITY: return "quantity";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NUMBER: return "";
+            case DATE: return "";
+            case STRING: return "";
+            case TOKEN: return "";
+            case REFERENCE: return "";
+            case COMPOSITE: return "";
+            case QUANTITY: return "";
             default: return "?";
           }
         }
@@ -148,54 +190,74 @@ public class SearchParameter extends DomainResource {
     /**
      * The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.
      */
+    @Child(name="url", type={UriType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="Literal URL used to reference this search parameter", formalDefinition="The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements." )
     protected UriType url;
 
     /**
      * The name of the standard or custom search parameter.
      */
+    @Child(name="name", type={StringType.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Name of search parameter", formalDefinition="The name of the standard or custom search parameter." )
     protected StringType name;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the search parameter.
      */
+    @Child(name="publisher", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the search parameter." )
     protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
+    protected List<ContactPoint> telecom;
 
     /**
      * The Scope and Usage that this search parameter was created to meet.
      */
+    @Child(name="requirements", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Why this search parameter is defined", formalDefinition="The Scope and Usage that this search parameter was created to meet." )
     protected StringType requirements;
 
     /**
      * The base resource type that this search parameter refers to.
      */
+    @Child(name="base", type={CodeType.class}, order=4, min=1, max=1)
+    @Description(shortDefinition="The resource type this search parameter applies to", formalDefinition="The base resource type that this search parameter refers to." )
     protected CodeType base;
 
     /**
      * The type of value a search parameter refers to, and how the content is interpreted.
      */
+    @Child(name="type", type={CodeType.class}, order=5, min=1, max=1)
+    @Description(shortDefinition="number | date | string | token | reference | composite | quantity", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
     protected Enumeration<SearchParamType> type;
 
     /**
      * A description of the search parameters and how it used.
      */
+    @Child(name="description", type={StringType.class}, order=6, min=1, max=1)
+    @Description(shortDefinition="Documentation for  search parameter", formalDefinition="A description of the search parameters and how it used." )
     protected StringType description;
 
     /**
      * An XPath expression that returns a set of elements for the search parameter.
      */
+    @Child(name="xpath", type={StringType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="XPath that extracts the values", formalDefinition="An XPath expression that returns a set of elements for the search parameter." )
     protected StringType xpath;
 
     /**
      * Types of resource (if a resource is referenced).
      */
-    protected List<CodeType> target = new ArrayList<CodeType>();
+    @Child(name="target", type={CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
+    protected List<CodeType> target;
 
-    private static final long serialVersionUID = -1253152574L;
+    private static final long serialVersionUID = -720598887L;
 
     public SearchParameter() {
       super();
@@ -214,7 +276,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #url} (The URL at which this search parameter is (or will be) published, and which is used to reference this profile in conformance statements.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType();
       return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
@@ -246,7 +321,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #name} (The name of the standard or custom search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -278,7 +366,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType();
       return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
@@ -314,7 +415,18 @@ public class SearchParameter extends DomainResource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -323,6 +435,8 @@ public class SearchParameter extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -331,7 +445,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public StringType getRequirementsElement() { 
+      if (this.requirements == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.requirements");
+        else if (Configuration.doAutoCreate())
+          this.requirements = new StringType();
       return this.requirements;
+    }
+
+    public boolean hasRequirementsElement() { 
+      return this.requirements != null && !this.requirements.isEmpty();
+    }
+
+    public boolean hasRequirements() { 
+      return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
@@ -367,7 +494,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
     public CodeType getBaseElement() { 
+      if (this.base == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.base");
+        else if (Configuration.doAutoCreate())
+          this.base = new CodeType();
       return this.base;
+    }
+
+    public boolean hasBaseElement() { 
+      return this.base != null && !this.base.isEmpty();
+    }
+
+    public boolean hasBase() { 
+      return this.base != null && !this.base.isEmpty();
     }
 
     /**
@@ -399,7 +539,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<SearchParamType> getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new Enumeration<SearchParamType>();
       return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -431,7 +584,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #description} (A description of the search parameters and how it used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -463,7 +629,20 @@ public class SearchParameter extends DomainResource {
      * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
      */
     public StringType getXpathElement() { 
+      if (this.xpath == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.xpath");
+        else if (Configuration.doAutoCreate())
+          this.xpath = new StringType();
       return this.xpath;
+    }
+
+    public boolean hasXpathElement() { 
+      return this.xpath != null && !this.xpath.isEmpty();
+    }
+
+    public boolean hasXpath() { 
+      return this.xpath != null && !this.xpath.isEmpty();
     }
 
     /**
@@ -499,7 +678,18 @@ public class SearchParameter extends DomainResource {
      * @return {@link #target} (Types of resource (if a resource is referenced).)
      */
     public List<CodeType> getTarget() { 
+      if (this.target == null)
+        this.target = new ArrayList<CodeType>();
       return this.target;
+    }
+
+    public boolean hasTarget() { 
+      if (this.target == null)
+        return false;
+      for (CodeType item : this.target)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -508,6 +698,8 @@ public class SearchParameter extends DomainResource {
     // syntactic sugar
     public CodeType addTargetElement() {//2 
       CodeType t = new CodeType();
+      if (this.target == null)
+        this.target = new ArrayList<CodeType>();
       this.target.add(t);
       return t;
     }
@@ -518,6 +710,8 @@ public class SearchParameter extends DomainResource {
     public SearchParameter addTarget(String value) { //1
       CodeType t = new CodeType();
       t.setValue(value);
+      if (this.target == null)
+        this.target = new ArrayList<CodeType>();
       this.target.add(t);
       return this;
     }
@@ -526,6 +720,8 @@ public class SearchParameter extends DomainResource {
      * @param value {@link #target} (Types of resource (if a resource is referenced).)
      */
     public boolean hasTarget(String value) { 
+      if (this.target == null)
+        return false;
       for (CodeType v : this.target)
         if (v.equals(value)) // code
           return true;
@@ -552,17 +748,21 @@ public class SearchParameter extends DomainResource {
         dst.url = url == null ? null : url.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.base = base == null ? null : base.copy();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
-        dst.target = new ArrayList<CodeType>();
-        for (CodeType i : target)
-          dst.target.add(i.copy());
+        if (target != null) {
+          dst.target = new ArrayList<CodeType>();
+          for (CodeType i : target)
+            dst.target.add(i.copy());
+        };
         return dst;
       }
 
@@ -570,11 +770,30 @@ public class SearchParameter extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (url == null || url.isEmpty()) && (name == null || name.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty()) && (requirements == null || requirements.isEmpty())
+           && (base == null || base.isEmpty()) && (type == null || type.isEmpty()) && (description == null || description.isEmpty())
+           && (xpath == null || xpath.isEmpty()) && (target == null || target.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.SearchParameter;
    }
 
+  @SearchParamDefinition(name="description", path="SearchParameter.description", description="Documentation for  search parameter", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="SearchParameter.name", description="Name of search parameter", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="target", path="SearchParameter.target", description="Types of resource (if a resource reference)", type="token" )
+  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="base", path="SearchParameter.base", description="The resource type this search parameter applies to", type="token" )
+  public static final String SP_BASE = "base";
+  @SearchParamDefinition(name="type", path="SearchParameter.type", description="number | date | string | token | reference | composite | quantity", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="url", path="SearchParameter.url", description="Literal URL used to reference this search parameter", type="token" )
+  public static final String SP_URL = "url";
 
 }
 

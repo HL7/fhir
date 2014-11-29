@@ -116,7 +116,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 	
   private void scan(ExtensionDefinition exd, String url, Map<String, BindingSpecification> tx) throws Exception {
     for (ElementDefinition ed : exd.getElement()) {
-      if (ed.getBinding() != null) {
+      if (ed.hasBinding()) {
         BindingSpecification cd = getConceptDomainByNameOrNull(tx, ed.getBinding().getName());
         if (cd != null) {
           if (!txusages.containsKey(cd)) {
@@ -198,13 +198,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
               ValueSet vs = page.getValueSets().get(cd.getReference());
-              String pp = (String) vs.getTag("path");
+              String pp = (String) vs.getUserData("path");
               if (pp == null)
                 throw new Exception("unknown path on "+cd.getReference());
               write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
                 ValueSet vs = page.getValueSets().get(cd.getReference());
-                String pp = (String) vs.getTag("path");
+                String pp = (String) vs.getUserData("path");
                 write("<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
               BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+cd.getReference().substring(23), cd);
@@ -237,7 +237,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     String ref = def.getReference() instanceof UriType ? ((UriType) def.getReference()).asStringValue() : ((Reference) def.getReference()).getReference();
     ValueSet vs = page.getValueSets().get(ref);
     if (vs != null) {
-      String pp = (String) vs.getTag("path");
+      String pp = (String) vs.getUserData("path");
       return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
     }
     if (ref.startsWith("http:") || ref.startsWith("https:"))
@@ -288,11 +288,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         return cd.getDescription();
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
         ValueSet vs = page.getValueSets().get(cd.getReference());
-        String pp = (String) vs.getTag("path");
+        String pp = (String) vs.getUserData("path");
         return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+cd.getBindingStrength().toString()+")";
       } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs")) {
           ValueSet vs = page.getValueSets().get(cd.getReference());
-          String pp = (String) vs.getTag("path");
+          String pp = (String) vs.getUserData("path");
           return "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+cd.getDefinition()+"</a> ("+cd.getBindingStrength().toString()+")";
       } else if (cd.getReferredValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))

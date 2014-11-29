@@ -70,7 +70,8 @@ public class Property {
 	  this.definition = definition;
 	  this.minCardinality = minCardinality;
 	  this.maxCardinality = maxCardinality;
-	  this.values.addAll(values);
+	  if (values != null)
+	    this.values.addAll(values);
   }
 
 	/**

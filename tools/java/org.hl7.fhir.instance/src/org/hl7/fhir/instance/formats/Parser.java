@@ -32,8 +32,10 @@ package org.hl7.fhir.instance.formats;
 
 
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 
 
@@ -54,6 +56,33 @@ public interface Parser {
    * parse content that is known to be a meta (from one of the meta operations)  
    */
   public ResourceMetaComponent parseMeta(InputStream input) throws Exception;
+
+	/**
+	 * This method is used by the publication tooling to stop the xhrtml narrative being generated. 
+	 * It is not valid to use in production use. The tooling uses it to generation json/xml representations in html that are not cluttered by escaped html representations of the html representation
+	 */
+	public void setSuppressXhtml(String message);
+
+	/**
+	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 */
+	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception;
+	public String composeString(Resource resource, boolean pretty) throws Exception;
+	public byte[] composeBytes(Resource resource, boolean pretty) throws Exception;
+
+	/**
+	 * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
+	 */
+	public void compose(OutputStream stream, ResourceMetaComponent meta, boolean pretty) throws Exception;
+	public String composeString(ResourceMetaComponent meta, boolean pretty) throws Exception;
+	public byte[] composeBytes(ResourceMetaComponent meta, boolean pretty) throws Exception;
+
+	/**
+	 * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 */
+	public void compose(OutputStream stream, Type type, boolean pretty) throws Exception;
+  public String composeString(Type type, boolean pretty) throws Exception;
+	public byte[] composeBytes(Type type, boolean pretty) throws Exception;
 
 
 }

@@ -117,7 +117,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn root = definitions.getBaseResources().get(n); 
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, root.isAbstract());
+      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, root.isAbstract(), null);
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
       if (!root.isAbstract())
@@ -127,7 +127,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getResources().keySet()) {
       ResourceDefn root = definitions.getResourceByName(n); 
       JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, false);
+      jrg.generate(root.getRoot(), javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Resource, null, genDate, version, false, root.getSearchParams());
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
       jFactoryGen.registerReference(n,  root.getName());
@@ -136,7 +136,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getInfrastructure().keySet()) {
       ElementDefn root = definitions.getInfrastructure().get(n); 
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Structure, null, genDate, version, false);
+      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Structure, null, genDate, version, false, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
       jFactoryGen.registerType(n,  root.getName());
@@ -144,7 +144,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n); 
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Type, null, genDate, version, false);
+      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Type, null, genDate, version, false, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
       if (root.typeCode().equals("GenericType")) {
@@ -162,7 +162,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       ElementDefn root = definitions.getTypes().get(cd.getBaseType()); 
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions);
       jgen.setInheritedHash(hashes.get(cd.getBaseType()));
-      jgen.generate(root, javaClassName(cd.getName()), definitions.getBindings(), JavaGenClass.Constraint, cd, genDate, version, false);
+      jgen.generate(root, javaClassName(cd.getName()), definitions.getBindings(), JavaGenClass.Constraint, cd, genDate, version, false, null);
       jFactoryGen.registerType(cd.getName(), cd.getName()); 
       hashes.put(cd.getName(), Long.toString(jgen.getHashSum()));
       jgen.close();
@@ -171,19 +171,19 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     for (String n : definitions.getStructures().keySet()) {
       ElementDefn root = definitions.getStructures().get(n); 
       JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions);
-      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Type, null, genDate, version, false);
+      jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Type, null, genDate, version, false, null);
       jFactoryGen.registerType(n,  root.getName());
       jgen.close();
     }
     
     JavaParserXmlGenerator jParserGenX = new JavaParserXmlGenerator(new FileOutputStream(javaParserDir+"XmlParser.java"));
     jParserGenX.generate(definitions, version, genDate);    
+    jParserGenX.generateComposer();
+    jParserGenX.finish();
     JavaParserJsonGenerator jParserGenJ = new JavaParserJsonGenerator(new FileOutputStream(javaParserDir+"JsonParser.java"));
-    jParserGenJ.generate(definitions, version, genDate);    
-    JavaComposerXmlGenerator jComposerGen = new JavaComposerXmlGenerator(new FileOutputStream(javaParserDir+"XmlComposer.java"));
-    jComposerGen.generate(definitions, version, genDate);    
-    JavaComposerJsonGenerator jjComposerGen = new JavaComposerJsonGenerator(new FileOutputStream(javaParserDir+"JsonComposer.java"));
-    jjComposerGen.generate(definitions, version, genDate);    
+    jParserGenJ.generateParser(definitions, version, genDate);    
+    jParserGenJ.generateComposer();
+    jParserGenJ.finish();
     jFactoryGen.generate(version, genDate);
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
@@ -204,8 +204,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
     
     zip.close();
-    jjComposerGen.close();
-    jComposerGen.close();
     jParserGenX.close();
     jParserGenJ.close();
     jFactoryGen.close();

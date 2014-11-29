@@ -29,22 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
  */
+@ResourceDef(name="Organization", profile="http://hl7.org/fhir/Profile/Organization")
 public class Organization extends DomainResource {
 
     public enum AdministrativeGender {
-        MALE, // Male
-        FEMALE, // Female
-        OTHER, // Other
-        UNKNOWN, // Unknown
-        NULL; // added to help the parsers
+        /**
+         * Male
+         */
+        MALE, 
+        /**
+         * Female
+         */
+        FEMALE, 
+        /**
+         * Other
+         */
+        OTHER, 
+        /**
+         * Unknown
+         */
+        UNKNOWN, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +85,15 @@ public class Organization extends DomainResource {
             case FEMALE: return "female";
             case OTHER: return "other";
             case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case MALE: return "";
+            case FEMALE: return "";
+            case OTHER: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -115,33 +145,44 @@ public class Organization extends DomainResource {
       }
     }
 
+    @Block()
     public static class OrganizationContactComponent extends BackboneElement {
         /**
          * Indicates a purpose for which the contact can be reached.
          */
+        @Child(name="purpose", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="The type of contact", formalDefinition="Indicates a purpose for which the contact can be reached." )
         protected CodeableConcept purpose;
 
         /**
          * A name associated with the contact.
          */
+        @Child(name="name", type={HumanName.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="A name associated with the contact", formalDefinition="A name associated with the contact." )
         protected HumanName name;
 
         /**
          * A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.
          */
-        protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+        @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Contact details (telephone, email, etc)  for a contact", formalDefinition="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted." )
+        protected List<ContactPoint> telecom;
 
         /**
          * Visiting or postal addresses for the contact.
          */
+        @Child(name="address", type={Address.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Visiting or postal addresses for the contact", formalDefinition="Visiting or postal addresses for the contact." )
         protected Address address;
 
         /**
          * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
+        @Child(name="gender", type={CodeType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." )
         protected Enumeration<AdministrativeGender> gender;
 
-        private static final long serialVersionUID = -1196460915L;
+        private static final long serialVersionUID = -1433864122L;
 
       public OrganizationContactComponent() {
         super();
@@ -151,7 +192,16 @@ public class Organization extends DomainResource {
          * @return {@link #purpose} (Indicates a purpose for which the contact can be reached.)
          */
         public CodeableConcept getPurpose() { 
+          if (this.purpose == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrganizationContactComponent.purpose");
+            else if (Configuration.doAutoCreate())
+              this.purpose = new CodeableConcept();
           return this.purpose;
+        }
+
+        public boolean hasPurpose() { 
+          return this.purpose != null && !this.purpose.isEmpty();
         }
 
         /**
@@ -166,7 +216,16 @@ public class Organization extends DomainResource {
          * @return {@link #name} (A name associated with the contact.)
          */
         public HumanName getName() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrganizationContactComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new HumanName();
           return this.name;
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -181,7 +240,18 @@ public class Organization extends DomainResource {
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
         public List<ContactPoint> getTelecom() { 
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
+        }
+
+        public boolean hasTelecom() { 
+          if (this.telecom == null)
+            return false;
+          for (ContactPoint item : this.telecom)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -190,6 +260,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
         }
@@ -198,7 +270,16 @@ public class Organization extends DomainResource {
          * @return {@link #address} (Visiting or postal addresses for the contact.)
          */
         public Address getAddress() { 
+          if (this.address == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrganizationContactComponent.address");
+            else if (Configuration.doAutoCreate())
+              this.address = new Address();
           return this.address;
+        }
+
+        public boolean hasAddress() { 
+          return this.address != null && !this.address.isEmpty();
         }
 
         /**
@@ -213,7 +294,20 @@ public class Organization extends DomainResource {
          * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
         public Enumeration<AdministrativeGender> getGenderElement() { 
+          if (this.gender == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrganizationContactComponent.gender");
+            else if (Configuration.doAutoCreate())
+              this.gender = new Enumeration<AdministrativeGender>();
           return this.gender;
+        }
+
+        public boolean hasGenderElement() { 
+          return this.gender != null && !this.gender.isEmpty();
+        }
+
+        public boolean hasGender() { 
+          return this.gender != null && !this.gender.isEmpty();
         }
 
         /**
@@ -259,12 +353,20 @@ public class Organization extends DomainResource {
         copyValues(dst);
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (name == null || name.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (gender == null || gender.isEmpty())
+          ;
       }
 
   }
@@ -272,31 +374,43 @@ public class Organization extends DomainResource {
     /**
      * Identifier for the organization that is used to identify the organization across multiple disparate systems.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Identifies this organization  across multiple systems", formalDefinition="Identifier for the organization that is used to identify the organization across multiple disparate systems." )
+    protected List<Identifier> identifier;
 
     /**
      * A name associated with the organization.
      */
+    @Child(name="name", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Name used for the organization", formalDefinition="A name associated with the organization." )
     protected StringType name;
 
     /**
      * The kind of organization that this is.
      */
+    @Child(name="type", type={CodeableConcept.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Kind of organization", formalDefinition="The kind of organization that this is." )
     protected CodeableConcept type;
 
     /**
      * A contact detail for the organization.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A contact detail for the organization", formalDefinition="A contact detail for the organization." )
+    protected List<ContactPoint> telecom;
 
     /**
      * An address for the organization.
      */
-    protected List<Address> address = new ArrayList<Address>();
+    @Child(name="address", type={Address.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="An address for the organization", formalDefinition="An address for the organization." )
+    protected List<Address> address;
 
     /**
      * The organization of which this organization forms a part.
      */
+    @Child(name="partOf", type={Organization.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="The organization of which this organization forms a part", formalDefinition="The organization of which this organization forms a part." )
     protected Reference partOf;
 
     /**
@@ -307,24 +421,30 @@ public class Organization extends DomainResource {
     /**
      * Contact for the organization for a certain purpose.
      */
-    protected List<OrganizationContactComponent> contact = new ArrayList<OrganizationContactComponent>();
+    @Child(name="contact", type={}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact for the organization for a certain purpose", formalDefinition="Contact for the organization for a certain purpose." )
+    protected List<OrganizationContactComponent> contact;
 
     /**
      * Location(s) the organization uses to provide services.
      */
-    protected List<Reference> location = new ArrayList<Reference>();
+    @Child(name="location", type={Location.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Location(s) the organization uses to provide services", formalDefinition="Location(s) the organization uses to provide services." )
+    protected List<Reference> location;
     /**
      * The actual objects that are the target of the reference (Location(s) the organization uses to provide services.)
      */
-    protected List<Location> locationTarget = new ArrayList<Location>();
+    protected List<Location> locationTarget;
 
 
     /**
      * Whether the organization's record is still in active use.
      */
+    @Child(name="active", type={BooleanType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Whether the organization's record is still in active use", formalDefinition="Whether the organization's record is still in active use." )
     protected BooleanType active;
 
-    private static final long serialVersionUID = 462842125L;
+    private static final long serialVersionUID = -75313696L;
 
     public Organization() {
       super();
@@ -334,7 +454,18 @@ public class Organization extends DomainResource {
      * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -343,6 +474,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -351,7 +484,20 @@ public class Organization extends DomainResource {
      * @return {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Organization.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -387,7 +533,16 @@ public class Organization extends DomainResource {
      * @return {@link #type} (The kind of organization that this is.)
      */
     public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Organization.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -402,7 +557,18 @@ public class Organization extends DomainResource {
      * @return {@link #telecom} (A contact detail for the organization.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -411,6 +577,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -419,7 +587,18 @@ public class Organization extends DomainResource {
      * @return {@link #address} (An address for the organization.)
      */
     public List<Address> getAddress() { 
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
       return this.address;
+    }
+
+    public boolean hasAddress() { 
+      if (this.address == null)
+        return false;
+      for (Address item : this.address)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -428,6 +607,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
     public Address addAddress() { //3
       Address t = new Address();
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
       this.address.add(t);
       return t;
     }
@@ -436,7 +617,16 @@ public class Organization extends DomainResource {
      * @return {@link #partOf} (The organization of which this organization forms a part.)
      */
     public Reference getPartOf() { 
+      if (this.partOf == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Organization.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOf = new Reference();
       return this.partOf;
+    }
+
+    public boolean hasPartOf() { 
+      return this.partOf != null && !this.partOf.isEmpty();
     }
 
     /**
@@ -451,6 +641,11 @@ public class Organization extends DomainResource {
      * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization of which this organization forms a part.)
      */
     public Organization getPartOfTarget() { 
+      if (this.partOfTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Organization.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOfTarget = new Organization();
       return this.partOfTarget;
     }
 
@@ -466,7 +661,18 @@ public class Organization extends DomainResource {
      * @return {@link #contact} (Contact for the organization for a certain purpose.)
      */
     public List<OrganizationContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<OrganizationContactComponent>();
       return this.contact;
+    }
+
+    public boolean hasContact() { 
+      if (this.contact == null)
+        return false;
+      for (OrganizationContactComponent item : this.contact)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -475,6 +681,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
     public OrganizationContactComponent addContact() { //3
       OrganizationContactComponent t = new OrganizationContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<OrganizationContactComponent>();
       this.contact.add(t);
       return t;
     }
@@ -483,7 +691,18 @@ public class Organization extends DomainResource {
      * @return {@link #location} (Location(s) the organization uses to provide services.)
      */
     public List<Reference> getLocation() { 
+      if (this.location == null)
+        this.location = new ArrayList<Reference>();
       return this.location;
+    }
+
+    public boolean hasLocation() { 
+      if (this.location == null)
+        return false;
+      for (Reference item : this.location)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -492,6 +711,8 @@ public class Organization extends DomainResource {
     // syntactic sugar
     public Reference addLocation() { //3
       Reference t = new Reference();
+      if (this.location == null)
+        this.location = new ArrayList<Reference>();
       this.location.add(t);
       return t;
     }
@@ -500,6 +721,8 @@ public class Organization extends DomainResource {
      * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Location(s) the organization uses to provide services.)
      */
     public List<Location> getLocationTarget() { 
+      if (this.locationTarget == null)
+        this.locationTarget = new ArrayList<Location>();
       return this.locationTarget;
     }
 
@@ -509,6 +732,8 @@ public class Organization extends DomainResource {
      */
     public Location addLocationTarget() { 
       Location r = new Location();
+      if (this.locationTarget == null)
+        this.locationTarget = new ArrayList<Location>();
       this.locationTarget.add(r);
       return r;
     }
@@ -517,7 +742,20 @@ public class Organization extends DomainResource {
      * @return {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public BooleanType getActiveElement() { 
+      if (this.active == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Organization.active");
+        else if (Configuration.doAutoCreate())
+          this.active = new BooleanType();
       return this.active;
+    }
+
+    public boolean hasActiveElement() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    public boolean hasActive() { 
+      return this.active != null && !this.active.isEmpty();
     }
 
     /**
@@ -565,24 +803,34 @@ public class Organization extends DomainResource {
       public Organization copy() {
         Organization dst = new Organization();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
-        dst.address = new ArrayList<Address>();
-        for (Address i : address)
-          dst.address.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
+        if (address != null) {
+          dst.address = new ArrayList<Address>();
+          for (Address i : address)
+            dst.address.add(i.copy());
+        };
         dst.partOf = partOf == null ? null : partOf.copy();
-        dst.contact = new ArrayList<OrganizationContactComponent>();
-        for (OrganizationContactComponent i : contact)
-          dst.contact.add(i.copy());
-        dst.location = new ArrayList<Reference>();
-        for (Reference i : location)
-          dst.location.add(i.copy());
+        if (contact != null) {
+          dst.contact = new ArrayList<OrganizationContactComponent>();
+          for (OrganizationContactComponent i : contact)
+            dst.contact.add(i.copy());
+        };
+        if (location != null) {
+          dst.location = new ArrayList<Reference>();
+          for (Reference i : location)
+            dst.location.add(i.copy());
+        };
         dst.active = active == null ? null : active.copy();
         return dst;
       }
@@ -591,11 +839,30 @@ public class Organization extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
+           && (type == null || type.isEmpty()) && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty())
+           && (partOf == null || partOf.isEmpty()) && (contact == null || contact.isEmpty()) && (location == null || location.isEmpty())
+           && (active == null || active.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Organization;
    }
 
+  @SearchParamDefinition(name="phonetic", path="", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
+  public static final String SP_PHONETIC = "phonetic";
+  @SearchParamDefinition(name="partof", path="Organization.partOf", description="Search all organizations that are part of the given organization", type="reference" )
+  public static final String SP_PARTOF = "partof";
+  @SearchParamDefinition(name="name", path="Organization.name", description="A portion of the organization's name", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="active", path="Organization.active", description="Whether the organization's record is active", type="token" )
+  public static final String SP_ACTIVE = "active";
+  @SearchParamDefinition(name="type", path="Organization.type", description="A code for the type of organization", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="Organization.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

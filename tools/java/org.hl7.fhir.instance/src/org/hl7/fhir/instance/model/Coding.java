@@ -29,44 +29,60 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A reference to a code defined by a terminology system.
  */
+@DatatypeDef(name="Coding")
 public class Coding extends Type {
 
     /**
      * The identification of the code system that defines the meaning of the symbol in the code.
      */
+    @Child(name="system", type={UriType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Identity of the terminology system", formalDefinition="The identification of the code system that defines the meaning of the symbol in the code." )
     protected UriType system;
 
     /**
      * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
+    @Child(name="version", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Version of the system - if relevant", formalDefinition="The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged." )
     protected StringType version;
 
     /**
      * A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).
      */
+    @Child(name="code", type={CodeType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Symbol in syntax defined by the system", formalDefinition="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)." )
     protected CodeType code;
 
     /**
      * A representation of the meaning of the code in the system, following the rules of the system.
      */
+    @Child(name="display", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Representation defined by the system", formalDefinition="A representation of the meaning of the code in the system, following the rules of the system." )
     protected StringType display;
 
     /**
      * Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
+    @Child(name="primary", type={BooleanType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="If this code was chosen directly by the user", formalDefinition="Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays)." )
     protected BooleanType primary;
 
     /**
      * The set of possible coded values this coding was chosen from or constrained by.
      */
+    @Child(name="valueSet", type={ValueSet.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Set this coding was chosen from", formalDefinition="The set of possible coded values this coding was chosen from or constrained by." )
     protected Reference valueSet;
 
     /**
@@ -84,7 +100,20 @@ public class Coding extends Type {
      * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public UriType getSystemElement() { 
+      if (this.system == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.system");
+        else if (Configuration.doAutoCreate())
+          this.system = new UriType();
       return this.system;
+    }
+
+    public boolean hasSystemElement() { 
+      return this.system != null && !this.system.isEmpty();
+    }
+
+    public boolean hasSystem() { 
+      return this.system != null && !this.system.isEmpty();
     }
 
     /**
@@ -120,7 +149,20 @@ public class Coding extends Type {
      * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType();
       return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
     }
 
     /**
@@ -156,7 +198,20 @@ public class Coding extends Type {
      * @return {@link #code} (A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public CodeType getCodeElement() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeType();
       return this.code;
+    }
+
+    public boolean hasCodeElement() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
     }
 
     /**
@@ -192,7 +247,20 @@ public class Coding extends Type {
      * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
     public StringType getDisplayElement() { 
+      if (this.display == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.display");
+        else if (Configuration.doAutoCreate())
+          this.display = new StringType();
       return this.display;
+    }
+
+    public boolean hasDisplayElement() { 
+      return this.display != null && !this.display.isEmpty();
+    }
+
+    public boolean hasDisplay() { 
+      return this.display != null && !this.display.isEmpty();
     }
 
     /**
@@ -228,7 +296,20 @@ public class Coding extends Type {
      * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).). This is the underlying object with id, value and extensions. The accessor "getPrimary" gives direct access to the value
      */
     public BooleanType getPrimaryElement() { 
+      if (this.primary == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.primary");
+        else if (Configuration.doAutoCreate())
+          this.primary = new BooleanType();
       return this.primary;
+    }
+
+    public boolean hasPrimaryElement() { 
+      return this.primary != null && !this.primary.isEmpty();
+    }
+
+    public boolean hasPrimary() { 
+      return this.primary != null && !this.primary.isEmpty();
     }
 
     /**
@@ -264,7 +345,16 @@ public class Coding extends Type {
      * @return {@link #valueSet} (The set of possible coded values this coding was chosen from or constrained by.)
      */
     public Reference getValueSet() { 
+      if (this.valueSet == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.valueSet");
+        else if (Configuration.doAutoCreate())
+          this.valueSet = new Reference();
       return this.valueSet;
+    }
+
+    public boolean hasValueSet() { 
+      return this.valueSet != null && !this.valueSet.isEmpty();
     }
 
     /**
@@ -279,6 +369,11 @@ public class Coding extends Type {
      * @return {@link #valueSet} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The set of possible coded values this coding was chosen from or constrained by.)
      */
     public ValueSet getValueSetTarget() { 
+      if (this.valueSetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Coding.valueSet");
+        else if (Configuration.doAutoCreate())
+          this.valueSetTarget = new ValueSet();
       return this.valueSetTarget;
     }
 
@@ -314,6 +409,12 @@ public class Coding extends Type {
 
       protected Coding typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
+           && (code == null || code.isEmpty()) && (display == null || display.isEmpty()) && (primary == null || primary.isEmpty())
+           && (valueSet == null || valueSet.isEmpty());
       }
 
 

@@ -29,50 +29,68 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
  */
+@DatatypeDef(name="SampledData")
 public class SampledData extends Type {
 
     /**
      * The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.
      */
+    @Child(name="origin", type={Quantity.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="Zero value and units", formalDefinition="The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series." )
     protected Quantity origin;
 
     /**
      * The length of time between sampling times, measured in milliseconds.
      */
+    @Child(name="period", type={DecimalType.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Number of milliseconds between samples", formalDefinition="The length of time between sampling times, measured in milliseconds." )
     protected DecimalType period;
 
     /**
      * A correction factor that is applied to the sampled data points before they are added to the origin.
      */
+    @Child(name="factor", type={DecimalType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Multiply data by this before adding to origin", formalDefinition="A correction factor that is applied to the sampled data points before they are added to the origin." )
     protected DecimalType factor;
 
     /**
      * The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
      */
+    @Child(name="lowerLimit", type={DecimalType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Lower limit of detection", formalDefinition="The lower limit of detection of the measured points. This is needed if any of the data points have the value 'L' (lower than detection limit)." )
     protected DecimalType lowerLimit;
 
     /**
      * The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
      */
+    @Child(name="upperLimit", type={DecimalType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Upper limit of detection", formalDefinition="The upper limit of detection of the measured points. This is needed if any of the data points have the value 'U' (higher than detection limit)." )
     protected DecimalType upperLimit;
 
     /**
      * The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
+    @Child(name="dimensions", type={IntegerType.class}, order=4, min=1, max=1)
+    @Description(shortDefinition="Number of sample points at each time point", formalDefinition="The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once." )
     protected IntegerType dimensions;
 
     /**
      * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
+    @Child(name="data", type={StringType.class}, order=5, min=1, max=1)
+    @Description(shortDefinition="Decimal values with spaces, or 'E' | 'U' | 'L'", formalDefinition="A series of data points which are decimal values separated by a single space (character u20). The special values 'E' (error), 'L' (below detection limit) and 'U' (above detection limit) can also be used in place of a decimal value." )
     protected StringType data;
 
     private static final long serialVersionUID = 173820410L;
@@ -93,7 +111,16 @@ public class SampledData extends Type {
      * @return {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
      */
     public Quantity getOrigin() { 
+      if (this.origin == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.origin");
+        else if (Configuration.doAutoCreate())
+          this.origin = new Quantity();
       return this.origin;
+    }
+
+    public boolean hasOrigin() { 
+      return this.origin != null && !this.origin.isEmpty();
     }
 
     /**
@@ -108,7 +135,20 @@ public class SampledData extends Type {
      * @return {@link #period} (The length of time between sampling times, measured in milliseconds.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
      */
     public DecimalType getPeriodElement() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new DecimalType();
       return this.period;
+    }
+
+    public boolean hasPeriodElement() { 
+      return this.period != null && !this.period.isEmpty();
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
     }
 
     /**
@@ -140,7 +180,20 @@ public class SampledData extends Type {
      * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
     public DecimalType getFactorElement() { 
+      if (this.factor == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.factor");
+        else if (Configuration.doAutoCreate())
+          this.factor = new DecimalType();
       return this.factor;
+    }
+
+    public boolean hasFactorElement() { 
+      return this.factor != null && !this.factor.isEmpty();
+    }
+
+    public boolean hasFactor() { 
+      return this.factor != null && !this.factor.isEmpty();
     }
 
     /**
@@ -176,7 +229,20 @@ public class SampledData extends Type {
      * @return {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).). This is the underlying object with id, value and extensions. The accessor "getLowerLimit" gives direct access to the value
      */
     public DecimalType getLowerLimitElement() { 
+      if (this.lowerLimit == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.lowerLimit");
+        else if (Configuration.doAutoCreate())
+          this.lowerLimit = new DecimalType();
       return this.lowerLimit;
+    }
+
+    public boolean hasLowerLimitElement() { 
+      return this.lowerLimit != null && !this.lowerLimit.isEmpty();
+    }
+
+    public boolean hasLowerLimit() { 
+      return this.lowerLimit != null && !this.lowerLimit.isEmpty();
     }
 
     /**
@@ -212,7 +278,20 @@ public class SampledData extends Type {
      * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
     public DecimalType getUpperLimitElement() { 
+      if (this.upperLimit == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.upperLimit");
+        else if (Configuration.doAutoCreate())
+          this.upperLimit = new DecimalType();
       return this.upperLimit;
+    }
+
+    public boolean hasUpperLimitElement() { 
+      return this.upperLimit != null && !this.upperLimit.isEmpty();
+    }
+
+    public boolean hasUpperLimit() { 
+      return this.upperLimit != null && !this.upperLimit.isEmpty();
     }
 
     /**
@@ -248,7 +327,20 @@ public class SampledData extends Type {
      * @return {@link #dimensions} (The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.). This is the underlying object with id, value and extensions. The accessor "getDimensions" gives direct access to the value
      */
     public IntegerType getDimensionsElement() { 
+      if (this.dimensions == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.dimensions");
+        else if (Configuration.doAutoCreate())
+          this.dimensions = new IntegerType();
       return this.dimensions;
+    }
+
+    public boolean hasDimensionsElement() { 
+      return this.dimensions != null && !this.dimensions.isEmpty();
+    }
+
+    public boolean hasDimensions() { 
+      return this.dimensions != null && !this.dimensions.isEmpty();
     }
 
     /**
@@ -280,7 +372,20 @@ public class SampledData extends Type {
      * @return {@link #data} (A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
     public StringType getDataElement() { 
+      if (this.data == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SampledData.data");
+        else if (Configuration.doAutoCreate())
+          this.data = new StringType();
       return this.data;
+    }
+
+    public boolean hasDataElement() { 
+      return this.data != null && !this.data.isEmpty();
+    }
+
+    public boolean hasData() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
     /**
@@ -334,6 +439,12 @@ public class SampledData extends Type {
 
       protected SampledData typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (origin == null || origin.isEmpty()) && (period == null || period.isEmpty())
+           && (factor == null || factor.isEmpty()) && (lowerLimit == null || lowerLimit.isEmpty()) && (upperLimit == null || upperLimit.isEmpty())
+           && (dimensions == null || dimensions.isEmpty()) && (data == null || data.isEmpty());
       }
 
 

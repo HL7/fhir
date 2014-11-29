@@ -71,7 +71,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 
       handleDefine(source);
-      if (source.getCompose() != null) 
+      if (source.hasCompose()) 
         handleCompose(source.getCompose());
 
       for (ValueSetExpansionContainsComponent c : codes) {
@@ -202,7 +202,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 	
 	private void handleDefine(ValueSet vs) {
-	  if (vs.getDefine() != null) {
+	  if (vs.hasDefine()) {
       // simple case: just generate the return
     	for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) 
     		addDefinedCode(vs, vs.getDefine().getSystem(), c);

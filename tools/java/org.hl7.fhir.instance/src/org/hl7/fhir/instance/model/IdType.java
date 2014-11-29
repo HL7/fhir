@@ -79,4 +79,12 @@ public class IdType extends PrimitiveType {
   public String asStringValue() {
     return value;
   }
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
+	
 }

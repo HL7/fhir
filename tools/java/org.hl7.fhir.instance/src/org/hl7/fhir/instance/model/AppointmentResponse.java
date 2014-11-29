@@ -29,24 +29,51 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
  */
+@ResourceDef(name="AppointmentResponse", profile="http://hl7.org/fhir/Profile/AppointmentResponse")
 public class AppointmentResponse extends DomainResource {
 
     public enum Participantstatus {
-        ACCEPTED, // The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
-        DECLINED, // The appointment participant has declined the appointment.
-        TENTATIVE, // The appointment participant has tentatively accepted the appointment.
-        INPROCESS, // The participant has in-process the appointment.
-        COMPLETED, // The participant has completed the appointment.
-        NEEDSACTION, // This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
-        NULL; // added to help the parsers
+        /**
+         * The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
+         */
+        ACCEPTED, 
+        /**
+         * The appointment participant has declined the appointment.
+         */
+        DECLINED, 
+        /**
+         * The appointment participant has tentatively accepted the appointment.
+         */
+        TENTATIVE, 
+        /**
+         * The participant has in-process the appointment.
+         */
+        INPROCESS, 
+        /**
+         * The participant has completed the appointment.
+         */
+        COMPLETED, 
+        /**
+         * This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
+         */
+        NEEDSACTION, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static Participantstatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -72,6 +99,17 @@ public class AppointmentResponse extends DomainResource {
             case INPROCESS: return "in-process";
             case COMPLETED: return "completed";
             case NEEDSACTION: return "needs-action";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACCEPTED: return "";
+            case DECLINED: return "";
+            case TENTATIVE: return "";
+            case INPROCESS: return "";
+            case COMPLETED: return "";
+            case NEEDSACTION: return "";
             default: return "?";
           }
         }
@@ -138,11 +176,15 @@ public class AppointmentResponse extends DomainResource {
     /**
      * This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    protected List<Identifier> identifier;
 
     /**
      * Parent appointment that this response is replying to.
      */
+    @Child(name="appointment", type={Appointment.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Parent appointment that this response is replying to", formalDefinition="Parent appointment that this response is replying to." )
     protected Reference appointment;
 
     /**
@@ -153,41 +195,55 @@ public class AppointmentResponse extends DomainResource {
     /**
      * Role of participant in the appointment.
      */
-    protected List<CodeableConcept> participantType = new ArrayList<CodeableConcept>();
+    @Child(name="participantType", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Role of participant in the appointment", formalDefinition="Role of participant in the appointment." )
+    protected List<CodeableConcept> participantType;
 
     /**
      * A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.
      */
-    protected List<Reference> individual = new ArrayList<Reference>();
+    @Child(name="individual", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device", formalDefinition="A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device." )
+    protected List<Reference> individual;
     /**
      * The actual objects that are the target of the reference (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
-    protected List<Resource> individualTarget = new ArrayList<Resource>();
+    protected List<Resource> individualTarget;
 
 
     /**
      * Participation status of the Patient.
      */
+    @Child(name="participantStatus", type={CodeType.class}, order=3, min=1, max=1)
+    @Description(shortDefinition="accepted | declined | tentative | in-process | completed | needs-action", formalDefinition="Participation status of the Patient." )
     protected Enumeration<Participantstatus> participantStatus;
 
     /**
      * Additional comments about the appointment.
      */
+    @Child(name="comment", type={StringType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Additional comments about the appointment", formalDefinition="Additional comments about the appointment." )
     protected StringType comment;
 
     /**
      * Date/Time that the appointment is to take place.
      */
+    @Child(name="start", type={InstantType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Date/Time that the appointment is to take place", formalDefinition="Date/Time that the appointment is to take place." )
     protected InstantType start;
 
     /**
      * Date/Time that the appointment is to conclude.
      */
+    @Child(name="end", type={InstantType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Date/Time that the appointment is to conclude", formalDefinition="Date/Time that the appointment is to conclude." )
     protected InstantType end;
 
     /**
      * Who recorded the appointment response.
      */
+    @Child(name="lastModifiedBy", type={Practitioner.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Who recorded the appointment response", formalDefinition="Who recorded the appointment response." )
     protected Reference lastModifiedBy;
 
     /**
@@ -198,9 +254,11 @@ public class AppointmentResponse extends DomainResource {
     /**
      * Date when the response was recorded or last updated.
      */
+    @Child(name="lastModified", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Date when the response was recorded or last updated", formalDefinition="Date when the response was recorded or last updated." )
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 319665824L;
+    private static final long serialVersionUID = 1948503527L;
 
     public AppointmentResponse() {
       super();
@@ -216,7 +274,18 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -225,6 +294,8 @@ public class AppointmentResponse extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -233,7 +304,16 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #appointment} (Parent appointment that this response is replying to.)
      */
     public Reference getAppointment() { 
+      if (this.appointment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.appointment");
+        else if (Configuration.doAutoCreate())
+          this.appointment = new Reference();
       return this.appointment;
+    }
+
+    public boolean hasAppointment() { 
+      return this.appointment != null && !this.appointment.isEmpty();
     }
 
     /**
@@ -248,6 +328,11 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #appointment} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Parent appointment that this response is replying to.)
      */
     public Appointment getAppointmentTarget() { 
+      if (this.appointmentTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.appointment");
+        else if (Configuration.doAutoCreate())
+          this.appointmentTarget = new Appointment();
       return this.appointmentTarget;
     }
 
@@ -263,7 +348,18 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #participantType} (Role of participant in the appointment.)
      */
     public List<CodeableConcept> getParticipantType() { 
+      if (this.participantType == null)
+        this.participantType = new ArrayList<CodeableConcept>();
       return this.participantType;
+    }
+
+    public boolean hasParticipantType() { 
+      if (this.participantType == null)
+        return false;
+      for (CodeableConcept item : this.participantType)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -272,6 +368,8 @@ public class AppointmentResponse extends DomainResource {
     // syntactic sugar
     public CodeableConcept addParticipantType() { //3
       CodeableConcept t = new CodeableConcept();
+      if (this.participantType == null)
+        this.participantType = new ArrayList<CodeableConcept>();
       this.participantType.add(t);
       return t;
     }
@@ -280,7 +378,18 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #individual} (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
     public List<Reference> getIndividual() { 
+      if (this.individual == null)
+        this.individual = new ArrayList<Reference>();
       return this.individual;
+    }
+
+    public boolean hasIndividual() { 
+      if (this.individual == null)
+        return false;
+      for (Reference item : this.individual)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -289,6 +398,8 @@ public class AppointmentResponse extends DomainResource {
     // syntactic sugar
     public Reference addIndividual() { //3
       Reference t = new Reference();
+      if (this.individual == null)
+        this.individual = new ArrayList<Reference>();
       this.individual.add(t);
       return t;
     }
@@ -297,6 +408,8 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #individual} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
      */
     public List<Resource> getIndividualTarget() { 
+      if (this.individualTarget == null)
+        this.individualTarget = new ArrayList<Resource>();
       return this.individualTarget;
     }
 
@@ -304,7 +417,20 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #participantStatus} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
     public Enumeration<Participantstatus> getParticipantStatusElement() { 
+      if (this.participantStatus == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.participantStatus");
+        else if (Configuration.doAutoCreate())
+          this.participantStatus = new Enumeration<Participantstatus>();
       return this.participantStatus;
+    }
+
+    public boolean hasParticipantStatusElement() { 
+      return this.participantStatus != null && !this.participantStatus.isEmpty();
+    }
+
+    public boolean hasParticipantStatus() { 
+      return this.participantStatus != null && !this.participantStatus.isEmpty();
     }
 
     /**
@@ -336,7 +462,20 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
+      if (this.comment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.comment");
+        else if (Configuration.doAutoCreate())
+          this.comment = new StringType();
       return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
@@ -372,7 +511,20 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
     public InstantType getStartElement() { 
+      if (this.start == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.start");
+        else if (Configuration.doAutoCreate())
+          this.start = new InstantType();
       return this.start;
+    }
+
+    public boolean hasStartElement() { 
+      return this.start != null && !this.start.isEmpty();
+    }
+
+    public boolean hasStart() { 
+      return this.start != null && !this.start.isEmpty();
     }
 
     /**
@@ -408,7 +560,20 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
     public InstantType getEndElement() { 
+      if (this.end == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.end");
+        else if (Configuration.doAutoCreate())
+          this.end = new InstantType();
       return this.end;
+    }
+
+    public boolean hasEndElement() { 
+      return this.end != null && !this.end.isEmpty();
+    }
+
+    public boolean hasEnd() { 
+      return this.end != null && !this.end.isEmpty();
     }
 
     /**
@@ -444,7 +609,16 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #lastModifiedBy} (Who recorded the appointment response.)
      */
     public Reference getLastModifiedBy() { 
+      if (this.lastModifiedBy == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.lastModifiedBy");
+        else if (Configuration.doAutoCreate())
+          this.lastModifiedBy = new Reference();
       return this.lastModifiedBy;
+    }
+
+    public boolean hasLastModifiedBy() { 
+      return this.lastModifiedBy != null && !this.lastModifiedBy.isEmpty();
     }
 
     /**
@@ -474,7 +648,20 @@ public class AppointmentResponse extends DomainResource {
      * @return {@link #lastModified} (Date when the response was recorded or last updated.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
     public DateTimeType getLastModifiedElement() { 
+      if (this.lastModified == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AppointmentResponse.lastModified");
+        else if (Configuration.doAutoCreate())
+          this.lastModified = new DateTimeType();
       return this.lastModified;
+    }
+
+    public boolean hasLastModifiedElement() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
+    }
+
+    public boolean hasLastModified() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
     }
 
     /**
@@ -523,16 +710,22 @@ public class AppointmentResponse extends DomainResource {
       public AppointmentResponse copy() {
         AppointmentResponse dst = new AppointmentResponse();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.appointment = appointment == null ? null : appointment.copy();
-        dst.participantType = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : participantType)
-          dst.participantType.add(i.copy());
-        dst.individual = new ArrayList<Reference>();
-        for (Reference i : individual)
-          dst.individual.add(i.copy());
+        if (participantType != null) {
+          dst.participantType = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : participantType)
+            dst.participantType.add(i.copy());
+        };
+        if (individual != null) {
+          dst.individual = new ArrayList<Reference>();
+          for (Reference i : individual)
+            dst.individual.add(i.copy());
+        };
         dst.participantStatus = participantStatus == null ? null : participantStatus.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.start = start == null ? null : start.copy();
@@ -546,11 +739,25 @@ public class AppointmentResponse extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (appointment == null || appointment.isEmpty())
+           && (participantType == null || participantType.isEmpty()) && (individual == null || individual.isEmpty())
+           && (participantStatus == null || participantStatus.isEmpty()) && (comment == null || comment.isEmpty())
+           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (lastModifiedBy == null || lastModifiedBy.isEmpty())
+           && (lastModified == null || lastModified.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.AppointmentResponse;
    }
 
+  @SearchParamDefinition(name="partstatus", path="AppointmentResponse.participantStatus", description="The overall status of the appointment", type="token" )
+  public static final String SP_PARTSTATUS = "partstatus";
+  @SearchParamDefinition(name="subject", path="AppointmentResponse.individual", description="The subject that the appointment response replies for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="appointment", path="AppointmentResponse.appointment", description="The appointment that the response is attached to", type="reference" )
+  public static final String SP_APPOINTMENT = "appointment";
 
 }
 

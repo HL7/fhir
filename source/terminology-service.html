@@ -24,7 +24,6 @@ and SHALL conform to this conformance statement: [link to be provided].
 <h3>Notes from Michael Lawley's talk at HL7 Australia - issues to be addressed</h3>
 <ul>
   <li> value sets identified by URIs or URLs?</li>
-  <li> mention difference between namespace in snomed and this description?</li>
   <li> make rules about repeating codes more obvious (Michael didn't see them)</li>
   <li> make it more obvious when you'd use define. </li>
   <li> also make it more obvious how to publish the list of supported code systems</li>
@@ -40,50 +39,64 @@ and SHALL conform to this conformance statement: [link to be provided].
 
 <h3>Security</h3>
 <p>
-For the operational services, OAuth is generally not an appropriate form of security 
-for an infrastructural service like a terminology server. A terminology server may 
-choose not to authenticate the clients in any fashion, but can do so in order to limit 
-or account for usage.  Since terminology servers do not directly handle patient 
-information, it is not necessary to protect the communications with SSL, but hackers 
-may be able to infer information about patients to observing the kind of codes that 
-are retrieved, so encryption, possibly with client verification of credentials, is 
-still recommended. 
+Generally, SSL SHOULD be used for all production health care data exchange. 
+Even though terminology servers do not directly handle patient information, 
+hackers may still be able to infer information about patients by observing 
+the codes and concepts that the terminology service is asked about, so 
+encryption, is still recommended. 
+</p>
+<p>
+A terminology server may choose not to authenticate the clients/users in any fashion, 
+but can do so in order to limit or account for usage. 
 For a value set maintenance server that allows terminologies to be edited, 
 some form of <a href="security.html">authorization and/or authentication would be appropriate</a>.
+This specification does not require any particular approach to security. 
+</p>
+<p>
+<i>Note to reviewers: can we? it would increase interoperability if we could bind 
+to a particular approach. If we said, for the operations, SSL+server certs 
+mandatory, use client certificates if you want to authenticate the clients, 
+and to use Smart on FHIR for editing value sets and concept maps, is there 
+any problems with that?</i>
 </p>
 
-<h3>Terminology Maintenance</h3>
+
+<h3>Basic Concepts</h3>
 <p>
-The FHIR specification is based two key concepts:
+The FHIR terminology specification is based two key concepts:
 </p>
 <ul>
 <li> <b>code system</b> - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology)</li>
 <li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
 </ul>
-<p>Note: Proper differentiation between a code system and a value set is important. For instance, it's not unusual 
+<p>
+Note: Proper differentiation between a code system and a value set is important. For instance, it's not unusual 
 to see a mixed list of codes containing a set of LOINC codes with some additional in-house codes, with no explicit 
 differentiation between them; only the fact that code happens to look like a LOINC code betrays it's origin. 
 In FHIR, on the other hand, each code system that defines codes has a URL, and the codes they define are a pair 
-("Code Pair") - a name with a namespace. So in this example, there is two code systems: <a href="loinc.html">LOINC</a>
+("Code Pair") - a name with a namespace. So in the case of this mixed list, there is two code systems: <a href="loinc.html">LOINC</a>
 and a local one (e.g. http://example.com/codesystems/additional-test-codes). 
-Then there's a value set which says that it includes some codes from each of those two namespaces - a set of 
-Code Pairs. The value set itself gets a URL as an identifier (e.g. http://example.com/fhir/ValueSet/test-codes) 
+Then there's a single value set for the mixed list that says that it includes codes from each of 
+those two namespaces - a set of Code Pairs. The value set itself gets a URL as an identifier (e.g. http://example.com/fhir/ValueSet/test-codes) 
 - this identifies the set of Code Pairs, but is never used as the namespace in a actual code pair. 
 In FHIR, Code Pairs are always represented as "code" and "system", except for the simple type "code" 
 data type where the namespace (e.g. the system element/property) is fixed in the schema and not 
 represented explicitly. The URL in a system element is always a reference to a code system, 
 not to the value set. 
 </p>
-<p>Users wishing for more information about the underlying principles may wish to consult the Core Principles (link)
+<p>
+Further reading:
 </p>
+<ul>
+ <li><a href="terminologies.html">Using codes in FHIR</a></li>
+ <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">V3 Core Principles</a></li>
+ <li>SNOMED CT <a href="http://ihtsdo.org/fileadmin/user_upload/doc/">technical documentation</a>. Note; "namespace" is used differentyl here from the way it is used by IHTSDO</li>
+</ul>
 
 <p>
-The basic administrative unit that underlies the terminology service is the <a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">ConceptMap</a> resources.
-A terminology service is a simply a set of functions built on the definitions provided by a set of value set and concept map resources.
-</p>
-<p>
-In addition to value sets, the other resource that contributes to the terminology service is a <a href="conceptmap.html">concept map</a>. 
-The server can use the concept maps to augment the information provided through the value sets and the inherently known terminologies. 
+A terminology service is a simply a set of functions built on the definitions provided by a set of
+<a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">ConceptMap</a> resources, with
+additional inherently known terminologies providing support.
 </p>
 
 <h4>External Code Systems</h4>
@@ -94,13 +107,14 @@ and then used in a value set by quoting the correct namespace. The FHIR specific
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g. 
 <a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>). 
 These code systems are often large, and have many internally defined properties that are part of their 
-formal definitions. Inline code systems are not appropriate for these code systems; FHIR does not provide 
-an formal representation at all. Instead, it is assumed that these are externally known to the 
+formal definitions. Inline code systems in Value Set resources are not an appropriate way to define 
+these code systems; FHIR does not provide a formal representation at all. Instead, these terminologies
+provide their own distribution formats, and it is assumed that they are externally known to the 
 terminology server.
 </p>
 <p>
 Most useful terminology servers will make one or more of these external code systems available for use 
-within the value sets that they manage. The list of additional terminologies that a terminology supports 
+within the value sets that they manage. The list of additional terminologies that a terminology server supports 
 beyond those defined in it's value sets is published to clients by (still to figure out how this works). 
 </p>
 
@@ -117,8 +131,15 @@ logical information for a terminology:
 </ul>
 <p>
 The FHIR specification itself defines these things for common terminologies (including 
-<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>). 
+<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>),
+and provides the Value Set infrastructure for supporting typical relatively simple small code systems. 
 </p>
+<p>
+<i>Implementers Note: Implementers interested in working with existing published terminologies for 
+which the Value Set infrastructure is not suitable should discuss their needs with HL7 to get the
+list above extended.</i>
+</p>
+
 <p>
 Note: A terminology service may choose to expose additional external code system specific 
 related functionality such as exploration, or structured search, but these services are 
@@ -145,18 +166,18 @@ they might be quite complex (e.g. all codes with a particular property from an u
 a code system). 
 </p>
 <p>
-A FHIR enabled application can simply ask the server to figure out all the details, and give it a list 
+A FHIR enabled application can simply ask the server to figure out all the details, and return it a list 
 of the current codes in the value set. This is known as "expanding" the valueset, which is <a href="valueset-operations.html#expand">a formally
 defined operation</a>. As a summary, the client passes the server the following information:
 </p>
 <ul> 
  <li> the value set (either by it's URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
- <li> A text filter to use to restrict the codes that are returned (e.g. user input text)</li>
- <li> (Optionally) A date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
+ <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g. user input text)</li>
+ <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 
 <p>
-The server returns a value set that contains the current list of codes (or an 
+The server returns a value set that contains the current list of codes that meet the filter criteria (or an 
 <a href="operationoutcome.html">OperationOutcome</a> with an error if the expansion fails). 
 Note that some value sets expand to many thousands of codes, or even an infinite number, 
 and for these, the server SHOULD return an <a href="issue-type.html#too-costly">error code 
@@ -168,8 +189,8 @@ to reduce the number of codes returned.
 </p>
 <ul>
  <li> get a list of codes to display in a User interface (e.g. a drop down interface)</li>
- <li> a variation on this is to offer the user a text box to type in. As they type, call the expand operation to provide the user with a list of matching codes/concepts (like a browser search) </li> 
- <li> fetch a list of codes to use when generating software code</li>
+ <li> a variation on this is to offer the user a text box to type in. As the user types, call the expand operation to provide the user with a list of matching codes/concepts (like a browser search) </li> 
+ <li> fetch a list of codes to use when generating software programming instructions</li>
  <li> get a list of codes so that software can check whether a code is valid or not in a particular context</li>
 </ul>
 
@@ -177,15 +198,15 @@ to reduce the number of codes returned.
 <h3>Value Set Validation</h3>
 <p>
 As described above, one of the ways to determine whether a code is in a value set is to expand 
-the value set, and see if the code is in the expansion. However this is not an efficient way to 
-test whether a code is valid, and for some value sets (e.g. with infinite number of members), 
-it cannot work. Instead, a FHIR terminology server provides a "validate" operation. 
-The client passes the server the following information:
+the value set, and then look at the returned codes to see if the code is in the expansion. 
+However this is not an efficient way to test whether a code is valid, and for some value sets 
+(e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server 
+provides a "validate" operation. The client passes the server the following information:
 </p>
 <ul>
  <li> the value set (either by it's URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
  <li> the code value (either a code+system, a Coding data type, or a CodeableConcept</li>
- <li> A date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
+ <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 <p>
 The server returns a true/false indicating whether the code/concept is valid, and a list 

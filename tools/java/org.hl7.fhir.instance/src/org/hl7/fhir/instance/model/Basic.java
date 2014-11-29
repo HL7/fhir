@@ -29,28 +29,40 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
+@ResourceDef(name="Basic", profile="http://hl7.org/fhir/Profile/Basic")
 public class Basic extends DomainResource {
 
     /**
      * Identifier assigned to the resource for business purposes, outside the context of FHIR.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Business identifier", formalDefinition="Identifier assigned to the resource for business purposes, outside the context of FHIR." )
+    protected List<Identifier> identifier;
 
     /**
      * Identifies the 'type' of resource - equivalent to the resource name for other resources.
      */
+    @Child(name="code", type={CodeableConcept.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Kind of Resource", formalDefinition="Identifies the 'type' of resource - equivalent to the resource name for other resources." )
     protected CodeableConcept code;
 
     /**
      * Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.
      */
+    @Child(name="subject", type={}, order=1, min=0, max=1)
+    @Description(shortDefinition="Identifies the", formalDefinition="Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce." )
     protected Reference subject;
 
     /**
@@ -61,6 +73,8 @@ public class Basic extends DomainResource {
     /**
      * Indicates who was responsible for creating the resource instance.
      */
+    @Child(name="author", type={Practitioner.class, Patient.class, RelatedPerson.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Who created", formalDefinition="Indicates who was responsible for creating the resource instance." )
     protected Reference author;
 
     /**
@@ -71,9 +85,11 @@ public class Basic extends DomainResource {
     /**
      * Identifies when the resource was first created.
      */
+    @Child(name="created", type={DateType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="When created", formalDefinition="Identifies when the resource was first created." )
     protected DateType created;
 
-    private static final long serialVersionUID = -58884148L;
+    private static final long serialVersionUID = 916539354L;
 
     public Basic() {
       super();
@@ -88,7 +104,18 @@ public class Basic extends DomainResource {
      * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -97,6 +124,8 @@ public class Basic extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -105,7 +134,16 @@ public class Basic extends DomainResource {
      * @return {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
      */
     public CodeableConcept getCode() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Basic.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeableConcept();
       return this.code;
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
     }
 
     /**
@@ -120,7 +158,16 @@ public class Basic extends DomainResource {
      * @return {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Basic.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -150,7 +197,16 @@ public class Basic extends DomainResource {
      * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
     public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Basic.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference();
       return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
     }
 
     /**
@@ -180,7 +236,20 @@ public class Basic extends DomainResource {
      * @return {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
     public DateType getCreatedElement() { 
+      if (this.created == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Basic.created");
+        else if (Configuration.doAutoCreate())
+          this.created = new DateType();
       return this.created;
+    }
+
+    public boolean hasCreatedElement() { 
+      return this.created != null && !this.created.isEmpty();
+    }
+
+    public boolean hasCreated() { 
+      return this.created != null && !this.created.isEmpty();
     }
 
     /**
@@ -224,9 +293,11 @@ public class Basic extends DomainResource {
       public Basic copy() {
         Basic dst = new Basic();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.author = author == null ? null : author.copy();
@@ -238,11 +309,25 @@ public class Basic extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
+           && (subject == null || subject.isEmpty()) && (author == null || author.isEmpty()) && (created == null || created.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Basic;
    }
 
+  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="subject", path="Basic.subject", description="Identifies the", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
+  public static final String SP_CODE = "code";
 
 }
 

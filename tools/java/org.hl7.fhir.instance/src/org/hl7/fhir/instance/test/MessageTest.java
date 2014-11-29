@@ -4,9 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-import org.hl7.fhir.instance.formats.Composer;
-import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.Parser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Resource;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class MessageTest {
 		Bundle feed = new Bundle();
 		
 		// Serialize Atom Feed
-		Composer comp = new JsonComposer();
+		Parser comp = new JsonParser();
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		comp.compose(os, feed, false);
 		String json = os.toString();

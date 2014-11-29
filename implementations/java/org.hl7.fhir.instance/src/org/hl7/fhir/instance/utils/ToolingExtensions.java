@@ -249,9 +249,9 @@ public class ToolingExtensions {
   }
 
   public static void setOID(ValueSetDefineComponent define, String oid) throws Exception {
-    define.getExtension().add(Factory.newExtension(EXT_IDENTIFIER, Factory.newUri(oid), false));       
+    define.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
   }
   public static void setOID(ValueSet vs, String oid) throws Exception {
-    vs.getExtension().add(Factory.newExtension(EXT_IDENTIFIER, Factory.newUri(oid), false));       
+    vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
   }
 }

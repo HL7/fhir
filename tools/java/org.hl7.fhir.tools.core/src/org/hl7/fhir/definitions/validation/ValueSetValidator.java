@@ -32,9 +32,9 @@ public class ValueSetValidator {
 
   private Set<String> getListOfSources(ValueSet vs) {
     Set<String> sources = new HashSet<String>();
-    if (vs.getDefine() != null)
+    if (vs.hasDefine())
       sources.add(vs.getDefine().getSystem());
-    if (vs.getCompose() != null) {
+    if (vs.hasCompose()) {
       for (ConceptSetComponent imp : vs.getCompose().getInclude()) 
         sources.add(imp.getSystem());
       for (ConceptSetComponent imp : vs.getCompose().getExclude()) 

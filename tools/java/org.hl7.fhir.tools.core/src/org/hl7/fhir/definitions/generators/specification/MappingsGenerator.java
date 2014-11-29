@@ -78,7 +78,7 @@ public class MappingsGenerator {
       for (ProfileMappingComponent map : profile.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
-        if (map.getComments() != null)
+        if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri()))   
           s.append(definitions.getMapTypes().get(map.getUri()).getPreamble());
@@ -90,7 +90,7 @@ public class MappingsGenerator {
         for (ElementDefinition e : profile.getSnapshot().getElement()) {
           if (path == null || !e.getPath().startsWith(path)) {
             path = null;
-            if (e.getMax() != null && e.getMax().equals("0")) {
+            if (e.hasMax() && e.getMax().equals("0")) {
               path = e.getPath()+".";
             } else
               genElement(s, e, map.getIdentity());
@@ -110,7 +110,7 @@ public class MappingsGenerator {
       for (ExtensionDefinitionMappingComponent map : ed.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
-        if (map.getComments() != null)
+        if (map.hasComments())
           s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri()))   
           s.append(definitions.getMapTypes().get(map.getUri()).getPreamble());
@@ -122,7 +122,7 @@ public class MappingsGenerator {
         for (ElementDefinition e : ed.getElement()) {
           if (path == null || !e.getPath().startsWith(path)) {
             path = null;
-            if (e.getMax() != null && e.getMax().equals("0")) {
+            if (e.hasMax() && e.getMax().equals("0")) {
               path = e.getPath()+".";
             } else
               genElement(s, e, map.getIdentity());

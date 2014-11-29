@@ -29,24 +29,35 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A request to perform an action.
  */
+@ResourceDef(name="Order", profile="http://hl7.org/fhir/Profile/Order")
 public class Order extends DomainResource {
 
+    @Block()
     public static class OrderWhenComponent extends BackboneElement {
         /**
          * Code specifies when request should be done. The code may simply be a priority code.
          */
+        @Child(name="code", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Code specifies when request should be done. The code may simply be a priority code", formalDefinition="Code specifies when request should be done. The code may simply be a priority code." )
         protected CodeableConcept code;
 
         /**
          * A formal schedule.
          */
+        @Child(name="schedule", type={Timing.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="A formal schedule", formalDefinition="A formal schedule." )
         protected Timing schedule;
 
         private static final long serialVersionUID = 307115287L;
@@ -59,7 +70,16 @@ public class Order extends DomainResource {
          * @return {@link #code} (Code specifies when request should be done. The code may simply be a priority code.)
          */
         public CodeableConcept getCode() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrderWhenComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new CodeableConcept();
           return this.code;
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
@@ -74,7 +94,16 @@ public class Order extends DomainResource {
          * @return {@link #schedule} (A formal schedule.)
          */
         public Timing getSchedule() { 
+          if (this.schedule == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrderWhenComponent.schedule");
+            else if (Configuration.doAutoCreate())
+              this.schedule = new Timing();
           return this.schedule;
+        }
+
+        public boolean hasSchedule() { 
+          return this.schedule != null && !this.schedule.isEmpty();
         }
 
         /**
@@ -99,21 +128,32 @@ public class Order extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (code == null || code.isEmpty()) && (schedule == null || schedule.isEmpty())
+          ;
+      }
+
   }
 
     /**
      * Identifiers assigned to this order by the orderer or by the receiver.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Identifiers assigned to this order by the orderer or by the receiver", formalDefinition="Identifiers assigned to this order by the orderer or by the receiver." )
+    protected List<Identifier> identifier;
 
     /**
      * When the order was made.
      */
+    @Child(name="date", type={DateTimeType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="When the order was made", formalDefinition="When the order was made." )
     protected DateTimeType date;
 
     /**
      * Patient this order is about.
      */
+    @Child(name="subject", type={Patient.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Patient this order is about", formalDefinition="Patient this order is about." )
     protected Reference subject;
 
     /**
@@ -124,6 +164,8 @@ public class Order extends DomainResource {
     /**
      * Who initiated the order.
      */
+    @Child(name="source", type={Practitioner.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Who initiated the order", formalDefinition="Who initiated the order." )
     protected Reference source;
 
     /**
@@ -134,6 +176,8 @@ public class Order extends DomainResource {
     /**
      * Who is intended to fulfill the order.
      */
+    @Child(name="target", type={Organization.class, Device.class, Practitioner.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Who is intended to fulfill the order", formalDefinition="Who is intended to fulfill the order." )
     protected Reference target;
 
     /**
@@ -144,11 +188,15 @@ public class Order extends DomainResource {
     /**
      * Text - why the order was made.
      */
+    @Child(name="reason", type={CodeableConcept.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Text - why the order was made", formalDefinition="Text - why the order was made." )
     protected Type reason;
 
     /**
      * If required by policy.
      */
+    @Child(name="authority", type={}, order=5, min=0, max=1)
+    @Description(shortDefinition="If required by policy", formalDefinition="If required by policy." )
     protected Reference authority;
 
     /**
@@ -159,19 +207,23 @@ public class Order extends DomainResource {
     /**
      * When order should be fulfilled.
      */
+    @Child(name="when", type={}, order=6, min=0, max=1)
+    @Description(shortDefinition="When order should be fulfilled", formalDefinition="When order should be fulfilled." )
     protected OrderWhenComponent when;
 
     /**
      * What action is being ordered.
      */
-    protected List<Reference> detail = new ArrayList<Reference>();
+    @Child(name="detail", type={}, order=7, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="What action is being ordered", formalDefinition="What action is being ordered." )
+    protected List<Reference> detail;
     /**
      * The actual objects that are the target of the reference (What action is being ordered.)
      */
-    protected List<Resource> detailTarget = new ArrayList<Resource>();
+    protected List<Resource> detailTarget;
 
 
-    private static final long serialVersionUID = -1949835634L;
+    private static final long serialVersionUID = 400955487L;
 
     public Order() {
       super();
@@ -181,7 +233,18 @@ public class Order extends DomainResource {
      * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -190,6 +253,8 @@ public class Order extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -198,7 +263,20 @@ public class Order extends DomainResource {
      * @return {@link #date} (When the order was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -234,7 +312,16 @@ public class Order extends DomainResource {
      * @return {@link #subject} (Patient this order is about.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -249,6 +336,11 @@ public class Order extends DomainResource {
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient this order is about.)
      */
     public Patient getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.subject");
+        else if (Configuration.doAutoCreate())
+          this.subjectTarget = new Patient();
       return this.subjectTarget;
     }
 
@@ -264,7 +356,16 @@ public class Order extends DomainResource {
      * @return {@link #source} (Who initiated the order.)
      */
     public Reference getSource() { 
+      if (this.source == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.source");
+        else if (Configuration.doAutoCreate())
+          this.source = new Reference();
       return this.source;
+    }
+
+    public boolean hasSource() { 
+      return this.source != null && !this.source.isEmpty();
     }
 
     /**
@@ -279,6 +380,11 @@ public class Order extends DomainResource {
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who initiated the order.)
      */
     public Practitioner getSourceTarget() { 
+      if (this.sourceTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.source");
+        else if (Configuration.doAutoCreate())
+          this.sourceTarget = new Practitioner();
       return this.sourceTarget;
     }
 
@@ -294,7 +400,16 @@ public class Order extends DomainResource {
      * @return {@link #target} (Who is intended to fulfill the order.)
      */
     public Reference getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new Reference();
       return this.target;
+    }
+
+    public boolean hasTarget() { 
+      return this.target != null && !this.target.isEmpty();
     }
 
     /**
@@ -328,6 +443,28 @@ public class Order extends DomainResource {
     }
 
     /**
+     * @return {@link #reason} (Text - why the order was made.)
+     */
+    public CodeableConcept getReasonCodeableConcept() throws Exception { 
+      if (!(this.reason instanceof CodeableConcept))
+        throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
+      return (CodeableConcept) this.reason;
+    }
+
+    /**
+     * @return {@link #reason} (Text - why the order was made.)
+     */
+    public Reference getReasonReference() throws Exception { 
+      if (!(this.reason instanceof Reference))
+        throw new Exception("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
+      return (Reference) this.reason;
+    }
+
+    public boolean hasReason() { 
+      return this.reason != null && !this.reason.isEmpty();
+    }
+
+    /**
      * @param value {@link #reason} (Text - why the order was made.)
      */
     public Order setReason(Type value) { 
@@ -339,7 +476,16 @@ public class Order extends DomainResource {
      * @return {@link #authority} (If required by policy.)
      */
     public Reference getAuthority() { 
+      if (this.authority == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.authority");
+        else if (Configuration.doAutoCreate())
+          this.authority = new Reference();
       return this.authority;
+    }
+
+    public boolean hasAuthority() { 
+      return this.authority != null && !this.authority.isEmpty();
     }
 
     /**
@@ -369,7 +515,16 @@ public class Order extends DomainResource {
      * @return {@link #when} (When order should be fulfilled.)
      */
     public OrderWhenComponent getWhen() { 
+      if (this.when == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Order.when");
+        else if (Configuration.doAutoCreate())
+          this.when = new OrderWhenComponent();
       return this.when;
+    }
+
+    public boolean hasWhen() { 
+      return this.when != null && !this.when.isEmpty();
     }
 
     /**
@@ -384,7 +539,18 @@ public class Order extends DomainResource {
      * @return {@link #detail} (What action is being ordered.)
      */
     public List<Reference> getDetail() { 
+      if (this.detail == null)
+        this.detail = new ArrayList<Reference>();
       return this.detail;
+    }
+
+    public boolean hasDetail() { 
+      if (this.detail == null)
+        return false;
+      for (Reference item : this.detail)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -393,6 +559,8 @@ public class Order extends DomainResource {
     // syntactic sugar
     public Reference addDetail() { //3
       Reference t = new Reference();
+      if (this.detail == null)
+        this.detail = new ArrayList<Reference>();
       this.detail.add(t);
       return t;
     }
@@ -401,6 +569,8 @@ public class Order extends DomainResource {
      * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. What action is being ordered.)
      */
     public List<Resource> getDetailTarget() { 
+      if (this.detailTarget == null)
+        this.detailTarget = new ArrayList<Resource>();
       return this.detailTarget;
     }
 
@@ -420,9 +590,11 @@ public class Order extends DomainResource {
       public Order copy() {
         Order dst = new Order();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.date = date == null ? null : date.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.source = source == null ? null : source.copy();
@@ -430,9 +602,11 @@ public class Order extends DomainResource {
         dst.reason = reason == null ? null : reason.copy();
         dst.authority = authority == null ? null : authority.copy();
         dst.when = when == null ? null : when.copy();
-        dst.detail = new ArrayList<Reference>();
-        for (Reference i : detail)
-          dst.detail.add(i.copy());
+        if (detail != null) {
+          dst.detail = new ArrayList<Reference>();
+          for (Reference i : detail)
+            dst.detail.add(i.copy());
+        };
         return dst;
       }
 
@@ -440,11 +614,36 @@ public class Order extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (date == null || date.isEmpty())
+           && (subject == null || subject.isEmpty()) && (source == null || source.isEmpty()) && (target == null || target.isEmpty())
+           && (reason == null || reason.isEmpty()) && (authority == null || authority.isEmpty()) && (when == null || when.isEmpty())
+           && (detail == null || detail.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Order;
    }
 
+  @SearchParamDefinition(name="authority", path="Order.authority", description="If required by policy", type="reference" )
+  public static final String SP_AUTHORITY = "authority";
+  @SearchParamDefinition(name="detail", path="Order.detail", description="What action is being ordered", type="reference" )
+  public static final String SP_DETAIL = "detail";
+  @SearchParamDefinition(name="patient", path="Order.subject", description="Patient this order is about", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="source", path="Order.source", description="Who initiated the order", type="reference" )
+  public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="subject", path="Order.subject", description="Patient this order is about", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="when", path="Order.when.schedule", description="A formal schedule", type="date" )
+  public static final String SP_WHEN = "when";
+  @SearchParamDefinition(name="target", path="Order.target", description="Who is intended to fulfill the order", type="reference" )
+  public static final String SP_TARGET = "target";
+  @SearchParamDefinition(name="when_code", path="Order.when.code", description="Code specifies when request should be done. The code may simply be a priority code", type="token" )
+  public static final String SP_WHENCODE = "when_code";
+  @SearchParamDefinition(name="date", path="Order.date", description="When the order was made", type="date" )
+  public static final String SP_DATE = "date";
 
 }
 

@@ -29,27 +29,35 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
  */
+@DatatypeDef(name="CodeableConcept")
 public class CodeableConcept extends Type {
 
     /**
      * A reference to a code defined by a terminology system.
      */
-    protected List<Coding> coding = new ArrayList<Coding>();
+    @Child(name="coding", type={Coding.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Code defined by a terminology system", formalDefinition="A reference to a code defined by a terminology system." )
+    protected List<Coding> coding;
 
     /**
      * A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
+    @Child(name="text", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Plain text representation of the concept", formalDefinition="A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user." )
     protected StringType text;
 
-    private static final long serialVersionUID = -642628655L;
+    private static final long serialVersionUID = 760353246L;
 
     public CodeableConcept() {
       super();
@@ -59,7 +67,18 @@ public class CodeableConcept extends Type {
      * @return {@link #coding} (A reference to a code defined by a terminology system.)
      */
     public List<Coding> getCoding() { 
+      if (this.coding == null)
+        this.coding = new ArrayList<Coding>();
       return this.coding;
+    }
+
+    public boolean hasCoding() { 
+      if (this.coding == null)
+        return false;
+      for (Coding item : this.coding)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -68,6 +87,8 @@ public class CodeableConcept extends Type {
     // syntactic sugar
     public Coding addCoding() { //3
       Coding t = new Coding();
+      if (this.coding == null)
+        this.coding = new ArrayList<Coding>();
       this.coding.add(t);
       return t;
     }
@@ -76,7 +97,20 @@ public class CodeableConcept extends Type {
      * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
     public StringType getTextElement() { 
+      if (this.text == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CodeableConcept.text");
+        else if (Configuration.doAutoCreate())
+          this.text = new StringType();
       return this.text;
+    }
+
+    public boolean hasTextElement() { 
+      return this.text != null && !this.text.isEmpty();
+    }
+
+    public boolean hasText() { 
+      return this.text != null && !this.text.isEmpty();
     }
 
     /**
@@ -117,15 +151,22 @@ public class CodeableConcept extends Type {
       public CodeableConcept copy() {
         CodeableConcept dst = new CodeableConcept();
         copyValues(dst);
-        dst.coding = new ArrayList<Coding>();
-        for (Coding i : coding)
-          dst.coding.add(i.copy());
+        if (coding != null) {
+          dst.coding = new ArrayList<Coding>();
+          for (Coding i : coding)
+            dst.coding.add(i.copy());
+        };
         dst.text = text == null ? null : text.copy();
         return dst;
       }
 
       protected CodeableConcept typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (coding == null || coding.isEmpty()) && (text == null || text.isEmpty())
+          ;
       }
 
 

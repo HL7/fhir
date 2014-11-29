@@ -26,10 +26,10 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
 
   @Override
   public boolean codeInValueSet(String system, String code) throws ETooCostly {
-    if (valueset.getDefine() != null && system.equals(valueset.getDefine().getSystem()) && codeInDefine(valueset.getDefine().getConcept(), code, valueset.getDefine().getCaseSensitive()))
+    if (valueset.hasDefine() && system.equals(valueset.getDefine().getSystem()) && codeInDefine(valueset.getDefine().getConcept(), code, valueset.getDefine().getCaseSensitive()))
      return true;
 
-    if (valueset.getCompose() != null) {
+    if (valueset.hasCompose()) {
       boolean ok = false;
       for (UriType uri : valueset.getCompose().getImport()) {
         ok = ok || inImport(uri.getValue(), system, code);

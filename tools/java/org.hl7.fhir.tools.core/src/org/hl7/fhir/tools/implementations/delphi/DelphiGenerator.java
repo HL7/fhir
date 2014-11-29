@@ -192,7 +192,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     for (String s : definitions.sortedResourceNames()) {
       ResourceDefn n = definitions.getResources().get(s);
       generate(n.getRoot(), "TFhir"+n.getRoot().typeCode(), true, ClassCategory.Resource);
-//      genResource(n, "TFhir"+n.getName(), "TFhir"+n.getRoot().typeCode(), ClassCategory.Resource);
+      generateSearchEnums(n);
       prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
       srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
       prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
@@ -202,9 +202,9 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeConst.enumConsts.add("  FHIR_GENERATED_VERSION = '"+version+"';\r\n");
     defCodeConst.enumConsts.add("  FHIR_GENERATED_REVISION = '"+svnRevision+"';\r\n");
     defCodeConst.enumConsts.add("  FHIR_GENERATED_DATE = '"+new SimpleDateFormat("yyyyMMddHHmmss").format(genDate)+"';\r\n");
-    defCodeRes.append("  {@Class TFhirResourceFactory : TFHIRBaseFactory\r\n");
-    defCodeRes.append("     FHIR factory: class constructors and general useful builders\r\n");
-    defCodeRes.append("  }\r\n");
+    defCodeRes.classDefs.add("  {@Class TFhirResourceFactory : TFHIRBaseFactory\r\n");
+    defCodeRes.classDefs.add("     FHIR factory: class constructors and general useful builders\r\n");
+    defCodeRes.classDefs.add("  }\r\n");
     defCodeRes.classDefs.add(" TFhirResourceFactory = class (TFHIRBaseFactory)\r\n  public\r\n"+factoryIntf.toString()+"    function makeByName(const name : String) : TFHIRBase;\r\n  end;\r\n");
     types.add("TFhirResourceFactory");
     defCodeRes.classImpls.add(factoryImpl.toString());
@@ -883,7 +883,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       names.addAll(r.getSearchParams().keySet());
       params.putAll(r.getSearchParams());
       String pn = r.getRoot().typeCode();
-      while (!pn.equals("Any")) {
+      while (!Utilities.noString(pn)) {
         ResourceDefn rd = definitions.getBaseResources().get(pn);
         names.addAll(rd.getSearchParams().keySet());
         params.putAll(rd.getSearchParams());
@@ -1244,7 +1244,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  if (elem = nil) then\r\n    exit;\r\n");
     if (isElement)
       if (category == ClassCategory.Resource)
-        prsrImpl.append("  composeResourceAttributes(xml, elem);\r\n");
+        prsrImpl.append("  compose"+parent+"Attributes(xml, elem);\r\n");
       else
         prsrImpl.append("  composeElementAttributes(xml, elem);\r\n");
     prsrImpl.append(workingComposerXA.toString());        
@@ -1252,7 +1252,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  xml.open(name);\r\n");
     if (isElement)
       if (category == ClassCategory.Resource)
-        prsrImpl.append("  composeResourceChildren(xml, elem);\r\n");
+        prsrImpl.append("  compose"+parent+"Children(xml, elem);\r\n");
       else if (category == ClassCategory.Component)
         prsrImpl.append("  composeBackboneElementChildren(xml, elem);\r\n");
       else
@@ -1280,7 +1280,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  try\r\n");
     if (isElement) {
       if (category == ClassCategory.Resource)
-        prsrImpl.append("    ParseResourceProperties(jsn, result);\r\n");
+        prsrImpl.append("    Parse"+parent+"Properties(jsn, result);\r\n");
       else if (category == ClassCategory.Component)
         prsrImpl.append("    ParseBackboneElementProperties(jsn, result);\r\n");
       else
@@ -1320,7 +1320,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           "  json.valueObject(name);\r\n");
     if (isElement)
       if (category == ClassCategory.Resource)
-        prsrImpl.append("  ComposeResourceProperties(json, elem);\r\n");
+        prsrImpl.append("  Compose"+parent+"Properties(json, elem);\r\n");
       else if (category == ClassCategory.Component)
         prsrImpl.append("  ComposeBackboneElementProperties(json, elem);\r\n");
       else
@@ -3256,12 +3256,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean doesTest() {
-    return false; // todo-bundle doesCompile();
+    return false; // doesCompile();
   }
 
   @Override
   public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
 
+    if (exe == null)
+      exe = Utilities.path(Utilities.getDirectoryForFile(Utilities.getDirectoryForFile(rootDir)), "implementations", "pascal", "fhirtest.exe");
+    if (!(new File(exe).exists()))
+      throw new Exception("Delphi tool helper executeable not found "+exe);
     List<String> command = new ArrayList<String>();
     command.add(exe);
     command.add(sourceFile);

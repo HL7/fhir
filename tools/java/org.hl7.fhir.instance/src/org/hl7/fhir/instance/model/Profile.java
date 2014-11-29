@@ -29,21 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions.
  */
+@ResourceDef(name="Profile", profile="http://hl7.org/fhir/Profile/Profile")
 public class Profile extends DomainResource {
 
     public enum ResourceProfileStatus {
-        DRAFT, // This profile is still under development.
-        ACTIVE, // This profile is ready for normal use.
-        RETIRED, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
-        NULL; // added to help the parsers
+        /**
+         * This profile is still under development.
+         */
+        DRAFT, 
+        /**
+         * This profile is ready for normal use.
+         */
+        ACTIVE, 
+        /**
+         * This profile has been deprecated, withdrawn or superseded and should no longer be used.
+         */
+        RETIRED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -60,6 +78,14 @@ public class Profile extends DomainResource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -105,25 +131,34 @@ public class Profile extends DomainResource {
       }
     }
 
+    @Block()
     public static class ProfileMappingComponent extends BackboneElement {
         /**
          * An Internal id that is used to identify this mapping set when specific mappings are made.
          */
+        @Child(name="identity", type={IdType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Internal id when this mapping is used", formalDefinition="An Internal id that is used to identify this mapping set when specific mappings are made." )
         protected IdType identity;
 
         /**
          * A URI that identifies the specification that this mapping is expressed to.
          */
+        @Child(name="uri", type={UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Identifies what this mapping refers to", formalDefinition="A URI that identifies the specification that this mapping is expressed to." )
         protected UriType uri;
 
         /**
          * A name for the specification that is being mapped to.
          */
+        @Child(name="name", type={StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Names what this mapping refers to", formalDefinition="A name for the specification that is being mapped to." )
         protected StringType name;
 
         /**
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
+        @Child(name="comments", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Versions, Issues, Scope limitations etc", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
         protected StringType comments;
 
         private static final long serialVersionUID = 299630820L;
@@ -141,7 +176,20 @@ public class Profile extends DomainResource {
          * @return {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
         public IdType getIdentityElement() { 
+          if (this.identity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProfileMappingComponent.identity");
+            else if (Configuration.doAutoCreate())
+              this.identity = new IdType();
           return this.identity;
+        }
+
+        public boolean hasIdentityElement() { 
+          return this.identity != null && !this.identity.isEmpty();
+        }
+
+        public boolean hasIdentity() { 
+          return this.identity != null && !this.identity.isEmpty();
         }
 
         /**
@@ -173,7 +221,20 @@ public class Profile extends DomainResource {
          * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public UriType getUriElement() { 
+          if (this.uri == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProfileMappingComponent.uri");
+            else if (Configuration.doAutoCreate())
+              this.uri = new UriType();
           return this.uri;
+        }
+
+        public boolean hasUriElement() { 
+          return this.uri != null && !this.uri.isEmpty();
+        }
+
+        public boolean hasUri() { 
+          return this.uri != null && !this.uri.isEmpty();
         }
 
         /**
@@ -209,7 +270,20 @@ public class Profile extends DomainResource {
          * @return {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProfileMappingComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -245,7 +319,20 @@ public class Profile extends DomainResource {
          * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
         public StringType getCommentsElement() { 
+          if (this.comments == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProfileMappingComponent.comments");
+            else if (Configuration.doAutoCreate())
+              this.comments = new StringType();
           return this.comments;
+        }
+
+        public boolean hasCommentsElement() { 
+          return this.comments != null && !this.comments.isEmpty();
+        }
+
+        public boolean hasComments() { 
+          return this.comments != null && !this.comments.isEmpty();
         }
 
         /**
@@ -295,15 +382,23 @@ public class Profile extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
+           && (name == null || name.isEmpty()) && (comments == null || comments.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class ConstraintComponent extends BackboneElement {
         /**
          * Captures constraints on each element within the resource.
          */
-        protected List<ElementDefinition> element = new ArrayList<ElementDefinition>();
+        @Child(name="element", type={ElementDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Definition of elements in the resource (if no profile)", formalDefinition="Captures constraints on each element within the resource." )
+        protected List<ElementDefinition> element;
 
-        private static final long serialVersionUID = -1136379017L;
+        private static final long serialVersionUID = 53896641L;
 
       public ConstraintComponent() {
         super();
@@ -313,7 +408,18 @@ public class Profile extends DomainResource {
          * @return {@link #element} (Captures constraints on each element within the resource.)
          */
         public List<ElementDefinition> getElement() { 
+          if (this.element == null)
+            this.element = new ArrayList<ElementDefinition>();
           return this.element;
+        }
+
+        public boolean hasElement() { 
+          if (this.element == null)
+            return false;
+          for (ElementDefinition item : this.element)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -322,6 +428,8 @@ public class Profile extends DomainResource {
     // syntactic sugar
         public ElementDefinition addElement() { //3
           ElementDefinition t = new ElementDefinition();
+          if (this.element == null)
+            this.element = new ArrayList<ElementDefinition>();
           this.element.add(t);
           return t;
         }
@@ -334,10 +442,16 @@ public class Profile extends DomainResource {
       public ConstraintComponent copy() {
         ConstraintComponent dst = new ConstraintComponent();
         copyValues(dst);
-        dst.element = new ArrayList<ElementDefinition>();
-        for (ElementDefinition i : element)
-          dst.element.add(i.copy());
+        if (element != null) {
+          dst.element = new ArrayList<ElementDefinition>();
+          for (ElementDefinition i : element)
+            dst.element.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (element == null || element.isEmpty());
       }
 
   }
@@ -345,94 +459,130 @@ public class Profile extends DomainResource {
     /**
      * The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
      */
+    @Child(name="url", type={UriType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="Literal URL used to reference this profile", formalDefinition="The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems." )
     protected UriType url;
 
     /**
      * Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Other identifiers for the profile", formalDefinition="Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI)." )
+    protected List<Identifier> identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
      */
+    @Child(name="version", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Logical id for this version of the profile", formalDefinition="The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the Profile.
      */
+    @Child(name="name", type={StringType.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="Informal name for this profile", formalDefinition="A free text natural language name identifying the Profile." )
     protected StringType name;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the profile.
      */
+    @Child(name="publisher", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the profile." )
     protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
+    protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the profile and its use.
      */
+    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Natural language description of the profile", formalDefinition="A free text natural language description of the profile and its use." )
     protected StringType description;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    protected List<Coding> code = new ArrayList<Coding>();
+    @Child(name="code", type={Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
+    protected List<Coding> code;
 
     /**
      * The status of the profile.
      */
+    @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the profile." )
     protected Enumeration<ResourceProfileStatus> status;
 
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
+    @Child(name="experimental", type={BooleanType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that this version of the profile was published.
      */
+    @Child(name="date", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Date for this version of the profile", formalDefinition="The date that this version of the profile was published." )
     protected DateTimeType date;
 
     /**
      * The Scope and Usage that this profile was created to meet.
      */
+    @Child(name="requirements", type={StringType.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Scope and Usage this profile is for", formalDefinition="The Scope and Usage that this profile was created to meet." )
     protected StringType requirements;
 
     /**
      * The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.
      */
+    @Child(name="fhirVersion", type={IdType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="FHIR Version this profile targets", formalDefinition="The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version." )
     protected IdType fhirVersion;
 
     /**
      * An external specification that the content is mapped to.
      */
-    protected List<ProfileMappingComponent> mapping = new ArrayList<ProfileMappingComponent>();
+    @Child(name="mapping", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External specification that the content is mapped to", formalDefinition="An external specification that the content is mapped to." )
+    protected List<ProfileMappingComponent> mapping;
 
     /**
      * The Resource or Data type being described.
      */
+    @Child(name="type", type={CodeType.class}, order=13, min=1, max=1)
+    @Description(shortDefinition="The Resource or Data Type being described", formalDefinition="The Resource or Data type being described." )
     protected CodeType type;
 
     /**
      * The structure that is the base on which this set of constraints is derived from.
      */
+    @Child(name="base", type={UriType.class}, order=14, min=0, max=1)
+    @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="The structure that is the base on which this set of constraints is derived from." )
     protected UriType base;
 
     /**
      * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.
      */
+    @Child(name="snapshot", type={}, order=15, min=0, max=1)
+    @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile." )
     protected ConstraintComponent snapshot;
 
     /**
      * A differential view is expressed relative to the base profile - a statement of differences that it applies.
      */
+    @Child(name="differential", type={ConstraintComponent.class}, order=16, min=0, max=1)
+    @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base profile - a statement of differences that it applies." )
     protected ConstraintComponent differential;
 
-    private static final long serialVersionUID = 1933307310L;
+    private static final long serialVersionUID = -1737882057L;
 
     public Profile() {
       super();
@@ -450,7 +600,20 @@ public class Profile extends DomainResource {
      * @return {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType();
       return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
@@ -482,7 +645,18 @@ public class Profile extends DomainResource {
      * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -491,6 +665,8 @@ public class Profile extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -499,7 +675,20 @@ public class Profile extends DomainResource {
      * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType();
       return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
     }
 
     /**
@@ -535,7 +724,20 @@ public class Profile extends DomainResource {
      * @return {@link #name} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -567,7 +769,20 @@ public class Profile extends DomainResource {
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType();
       return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
@@ -603,7 +818,18 @@ public class Profile extends DomainResource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -612,6 +838,8 @@ public class Profile extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -620,7 +848,20 @@ public class Profile extends DomainResource {
      * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -656,7 +897,18 @@ public class Profile extends DomainResource {
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
     public List<Coding> getCode() { 
+      if (this.code == null)
+        this.code = new ArrayList<Coding>();
       return this.code;
+    }
+
+    public boolean hasCode() { 
+      if (this.code == null)
+        return false;
+      for (Coding item : this.code)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -665,6 +917,8 @@ public class Profile extends DomainResource {
     // syntactic sugar
     public Coding addCode() { //3
       Coding t = new Coding();
+      if (this.code == null)
+        this.code = new ArrayList<Coding>();
       this.code.add(t);
       return t;
     }
@@ -673,7 +927,20 @@ public class Profile extends DomainResource {
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<ResourceProfileStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ResourceProfileStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -705,7 +972,20 @@ public class Profile extends DomainResource {
      * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType();
       return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
@@ -741,7 +1021,20 @@ public class Profile extends DomainResource {
      * @return {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -777,7 +1070,20 @@ public class Profile extends DomainResource {
      * @return {@link #requirements} (The Scope and Usage that this profile was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public StringType getRequirementsElement() { 
+      if (this.requirements == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.requirements");
+        else if (Configuration.doAutoCreate())
+          this.requirements = new StringType();
       return this.requirements;
+    }
+
+    public boolean hasRequirementsElement() { 
+      return this.requirements != null && !this.requirements.isEmpty();
+    }
+
+    public boolean hasRequirements() { 
+      return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
@@ -813,7 +1119,20 @@ public class Profile extends DomainResource {
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this profile is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 0.3.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public IdType getFhirVersionElement() { 
+      if (this.fhirVersion == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.fhirVersion");
+        else if (Configuration.doAutoCreate())
+          this.fhirVersion = new IdType();
       return this.fhirVersion;
+    }
+
+    public boolean hasFhirVersionElement() { 
+      return this.fhirVersion != null && !this.fhirVersion.isEmpty();
+    }
+
+    public boolean hasFhirVersion() { 
+      return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
     /**
@@ -849,7 +1168,18 @@ public class Profile extends DomainResource {
      * @return {@link #mapping} (An external specification that the content is mapped to.)
      */
     public List<ProfileMappingComponent> getMapping() { 
+      if (this.mapping == null)
+        this.mapping = new ArrayList<ProfileMappingComponent>();
       return this.mapping;
+    }
+
+    public boolean hasMapping() { 
+      if (this.mapping == null)
+        return false;
+      for (ProfileMappingComponent item : this.mapping)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -858,6 +1188,8 @@ public class Profile extends DomainResource {
     // syntactic sugar
     public ProfileMappingComponent addMapping() { //3
       ProfileMappingComponent t = new ProfileMappingComponent();
+      if (this.mapping == null)
+        this.mapping = new ArrayList<ProfileMappingComponent>();
       this.mapping.add(t);
       return t;
     }
@@ -866,7 +1198,20 @@ public class Profile extends DomainResource {
      * @return {@link #type} (The Resource or Data type being described.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public CodeType getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeType();
       return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -898,7 +1243,20 @@ public class Profile extends DomainResource {
      * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
     public UriType getBaseElement() { 
+      if (this.base == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.base");
+        else if (Configuration.doAutoCreate())
+          this.base = new UriType();
       return this.base;
+    }
+
+    public boolean hasBaseElement() { 
+      return this.base != null && !this.base.isEmpty();
+    }
+
+    public boolean hasBase() { 
+      return this.base != null && !this.base.isEmpty();
     }
 
     /**
@@ -934,7 +1292,16 @@ public class Profile extends DomainResource {
      * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
      */
     public ConstraintComponent getSnapshot() { 
+      if (this.snapshot == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.snapshot");
+        else if (Configuration.doAutoCreate())
+          this.snapshot = new ConstraintComponent();
       return this.snapshot;
+    }
+
+    public boolean hasSnapshot() { 
+      return this.snapshot != null && !this.snapshot.isEmpty();
     }
 
     /**
@@ -949,7 +1316,16 @@ public class Profile extends DomainResource {
      * @return {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
      */
     public ConstraintComponent getDifferential() { 
+      if (this.differential == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.differential");
+        else if (Configuration.doAutoCreate())
+          this.differential = new ConstraintComponent();
       return this.differential;
+    }
+
+    public boolean hasDifferential() { 
+      return this.differential != null && !this.differential.isEmpty();
     }
 
     /**
@@ -986,27 +1362,35 @@ public class Profile extends DomainResource {
         Profile dst = new Profile();
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
-        dst.code = new ArrayList<Coding>();
-        for (Coding i : code)
-          dst.code.add(i.copy());
+        if (code != null) {
+          dst.code = new ArrayList<Coding>();
+          for (Coding i : code)
+            dst.code.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
-        dst.mapping = new ArrayList<ProfileMappingComponent>();
-        for (ProfileMappingComponent i : mapping)
-          dst.mapping.add(i.copy());
+        if (mapping != null) {
+          dst.mapping = new ArrayList<ProfileMappingComponent>();
+          for (ProfileMappingComponent i : mapping)
+            dst.mapping.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.base = base == null ? null : base.copy();
         dst.snapshot = snapshot == null ? null : snapshot.copy();
@@ -1018,11 +1402,44 @@ public class Profile extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (description == null || description.isEmpty())
+           && (code == null || code.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
+           && (date == null || date.isEmpty()) && (requirements == null || requirements.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
+           && (mapping == null || mapping.isEmpty()) && (type == null || type.isEmpty()) && (base == null || base.isEmpty())
+           && (snapshot == null || snapshot.isEmpty()) && (differential == null || differential.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Profile;
    }
 
+  @SearchParamDefinition(name="valueset", path="Profile.snapshot.element.binding.reference[x]", description="A vocabulary binding code", type="reference" )
+  public static final String SP_VALUESET = "valueset";
+  @SearchParamDefinition(name="status", path="Profile.status", description="The current status of the profile", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="description", path="Profile.description", description="Text search in the description of the profile", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="name", path="Profile.name", description="Name of the profile", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="code", path="Profile.code", description="A code for the profile", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="type", path="Profile.type", description="Type of resource that is constrained in the profile", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="date", path="Profile.date", description="The profile publication date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Profile.identifier", description="The identifier of the profile", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="url", path="Profile.url", description="Literal URL used to reference this profile", type="token" )
+  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="publisher", path="Profile.publisher", description="Name of the publisher of the profile", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="version", path="Profile.version", description="The version identifier of the profile", type="token" )
+  public static final String SP_VERSION = "version";
 
 }
 

@@ -353,7 +353,7 @@ public class ProfileGenerator {
   
   private Profile getTypeSnapshot(String baseType) throws Exception {
     Profile p = definitions.getElementDefn(baseType).getProfile();
-    if (p != null && p.getType().equals(baseType) && p.getSnapshot() != null)
+    if (p != null && p.getType().equals(baseType) && p.hasSnapshot())
       return p;
     throw new Exception("Unable to find snapshot for "+baseType);
   }
@@ -422,7 +422,7 @@ public class ProfileGenerator {
       p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, pack.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     p.setDescription(resource.getRoot().getShortDefn());    
-    if (p.getDescriptionElement() == null && pack.hasMetadata("description"))
+    if (!p.hasDescriptionElement() && pack.hasMetadata("description"))
       p.setDescription(pack.metadata("description")+" : "+p.getName());
     if (pack.hasMetadata("requirements"))
       p.setRequirements(pack.metadata("requirements"));

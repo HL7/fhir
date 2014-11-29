@@ -6,4 +6,5 @@ public abstract class PrimitiveType extends Type {
 
 	public abstract String asStringValue();
   
+  public abstract boolean hasValue();  
 }

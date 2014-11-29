@@ -42,7 +42,7 @@ public class IntegerType extends PrimitiveType {
 	/**
 	 * the actual value of the number
 	 */
-	private int value;
+	private java.lang.Integer value;
 	/**
 	 * The exact representation of the number on the wire. i.e. does it have leading zeros. 
 	 * This SHOULD not be used, but is provided in case it's absolutely needed
@@ -108,6 +108,13 @@ public class IntegerType extends PrimitiveType {
   @Override
   public String asStringValue() {
     return original != null ? original : java.lang.Integer.toString(value);
+  }
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+  public boolean hasValue() {
+    return value != null;
   }
 
 }

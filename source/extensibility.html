@@ -248,13 +248,13 @@ Implementers should avoid the use of modifier extensions where possible.  Any us
 carefully considered against its possible downstream consequences. However, implementers
 are often forced into these situations by the business arrangements around
 the use of resources, so this specification creates a framework for handling these cases.
+If modifier extensions are present, an application cannot safely process the resource unless it knows
+what the extension means for its own use of the data.
 </p>
 <p>
-If modifier extensions are present, an application cannot safely process the resource unless it knows
-what the extension means for its own use of the data. This specification allows for 
-such modifier elements to be included at the base of a resource or in any elements
+This specification allows for such modifier elements to be included at the base of a resource or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams).
+diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions.
 </p>
 <p>
 In XML, these modifier elements are represented using an element named "modifierExtension", which has same content as the 

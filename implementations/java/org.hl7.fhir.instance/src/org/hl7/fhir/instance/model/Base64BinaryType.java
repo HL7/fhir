@@ -82,4 +82,13 @@ public class Base64BinaryType extends PrimitiveType {
   public String asStringValue() {
     return new String(value);
   }
+  
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
+	
 }

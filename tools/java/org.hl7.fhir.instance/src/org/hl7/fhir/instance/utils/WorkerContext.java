@@ -163,6 +163,13 @@ public class WorkerContext {
     return res;
   }
 
+  public static WorkerContext fromClassPath() throws Exception {
+    WorkerContext res = new WorkerContext();
+    res.loadFromStream(WorkerContext.class.getResourceAsStream("validation.zip"));
+    return res;
+  }
+
+
 
   public static WorkerContext fromDefinitions(Map<String, byte[]> source) throws Exception {
     WorkerContext res = new WorkerContext();
@@ -175,7 +182,11 @@ public class WorkerContext {
   }
 
   private void loadFromPack(String path) throws Exception {
-    ZipInputStream zip = new ZipInputStream(new CSFileInputStream(path));
+    loadFromStream(new CSFileInputStream(path));
+  }
+  
+  private void loadFromStream(InputStream stream) throws Exception {
+    ZipInputStream zip = new ZipInputStream(stream);
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
       if (ze.getName().endsWith(".xml")) { 
@@ -214,7 +225,7 @@ public class WorkerContext {
 
   public void seeValueSet(ValueSet vs) {
 	  valueSets.put(vs.getIdentifier(), vs);
-        if (vs.getDefine() != null) {
+	  if (vs.hasDefine()) {
 	    codeSystems.put(vs.getDefine().getSystem().toString(), vs);
         }
       }

@@ -31,9 +31,12 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.hl7.fhir.instance.model;
 
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+
 /**
  * Primitive type "boolean" in FHIR "true" or "false"
  */
+@DatatypeDef(name="boolean")
 public class BooleanType extends PrimitiveType {
 
   private static final long serialVersionUID = 2983474044199586731L;
@@ -83,5 +86,14 @@ public class BooleanType extends PrimitiveType {
   public String asStringValue() {
     return value.toString();
   }
+	
+
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
 	
 }

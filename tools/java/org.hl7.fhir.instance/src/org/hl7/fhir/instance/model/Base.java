@@ -8,19 +8,18 @@ import java.util.Map;
 
 public abstract class Base implements Serializable {
 
-	
-  private Map<String, Object> tags; // allow users to add extra information to the class
+  private Map<String, Object> userData; // allow users to add extra information to the class
   
-  public Object getTag(String name) {
-    if (tags == null)
+  public Object getUserData(String name) {
+    if (userData == null)
       return null;
-    return tags.get(name);
+    return userData.get(name);
   }
   
-  public void setTag(String name, Object value) {
-    if (tags == null)
-      tags = new HashMap<String, Object>();
-    tags.put(name, value);
+  public void setUserData(String name, Object value) {
+    if (userData == null)
+      userData = new HashMap<String, Object>();
+    userData.put(name, value);
   }
 
 	protected abstract void listChildren(List<Property> result) ;
@@ -57,6 +56,9 @@ public abstract class Base implements Serializable {
       if (c.getName().equals(name) || (c.getName().endsWith("[x]") && name.startsWith(c.getName())))
         return c.values;
     return new ArrayList<Base>();
+  }
+	public boolean isEmpty() {
+	  return true; // userData does not count
   }  
   
 }

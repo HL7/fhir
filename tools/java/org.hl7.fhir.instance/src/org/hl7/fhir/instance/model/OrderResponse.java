@@ -29,27 +29,63 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A response to an order.
  */
+@ResourceDef(name="OrderResponse", profile="http://hl7.org/fhir/Profile/OrderResponse")
 public class OrderResponse extends DomainResource {
 
     public enum OrderOutcomeCode {
-        PENDING, // The order is known, but no processing has occurred at this time.
-        REVIEW, // The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review).
-        REJECTED, // The order was rejected because of a workflow/business logic reason.
-        ERROR, // The order was unable to be processed because of a technical error (i.e. unexpected error).
-        ACCEPTED, // The order has been accepted, and work is in progress.
-        CANCELLED, // Processing the order was halted at the initiators request.
-        REPLACED, // The order has been cancelled and replaced by another.
-        ABORTED, // Processing the order was stopped because of some workflow/business logic reason.
-        COMPLETE, // The order has been completed.
-        NULL; // added to help the parsers
+        /**
+         * The order is known, but no processing has occurred at this time.
+         */
+        PENDING, 
+        /**
+         * The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review).
+         */
+        REVIEW, 
+        /**
+         * The order was rejected because of a workflow/business logic reason.
+         */
+        REJECTED, 
+        /**
+         * The order was unable to be processed because of a technical error (i.e. unexpected error).
+         */
+        ERROR, 
+        /**
+         * The order has been accepted, and work is in progress.
+         */
+        ACCEPTED, 
+        /**
+         * Processing the order was halted at the initiators request.
+         */
+        CANCELLED, 
+        /**
+         * The order has been cancelled and replaced by another.
+         */
+        REPLACED, 
+        /**
+         * Processing the order was stopped because of some workflow/business logic reason.
+         */
+        ABORTED, 
+        /**
+         * The order has been completed.
+         */
+        COMPLETE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static OrderOutcomeCode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -84,6 +120,20 @@ public class OrderResponse extends DomainResource {
             case REPLACED: return "replaced";
             case ABORTED: return "aborted";
             case COMPLETE: return "complete";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PENDING: return "";
+            case REVIEW: return "";
+            case REJECTED: return "";
+            case ERROR: return "";
+            case ACCEPTED: return "";
+            case CANCELLED: return "";
+            case REPLACED: return "";
+            case ABORTED: return "";
+            case COMPLETE: return "";
             default: return "?";
           }
         }
@@ -168,11 +218,15 @@ public class OrderResponse extends DomainResource {
     /**
      * Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Identifiers assigned to this order by the orderer or by the receiver", formalDefinition="Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems." )
+    protected List<Identifier> identifier;
 
     /**
      * A reference to the order that this is in response to.
      */
+    @Child(name="request", type={Order.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="The order that this is a response to", formalDefinition="A reference to the order that this is in response to." )
     protected Reference request;
 
     /**
@@ -183,11 +237,15 @@ public class OrderResponse extends DomainResource {
     /**
      * The date and time at which this order response was made (created/posted).
      */
+    @Child(name="date", type={DateTimeType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="When the response was made", formalDefinition="The date and time at which this order response was made (created/posted)." )
     protected DateTimeType date;
 
     /**
      * The person, organization, or device credited with making the response.
      */
+    @Child(name="who", type={Practitioner.class, Organization.class, Device.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Who made the response", formalDefinition="The person, organization, or device credited with making the response." )
     protected Reference who;
 
     /**
@@ -198,29 +256,37 @@ public class OrderResponse extends DomainResource {
     /**
      * A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.
      */
+    @Child(name="authority", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="If required by policy", formalDefinition="A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection." )
     protected Type authority;
 
     /**
      * What this response says about the status of the original order.
      */
+    @Child(name="code", type={CodeType.class}, order=4, min=1, max=1)
+    @Description(shortDefinition="pending | review | rejected | error | accepted | cancelled | replaced | aborted | complete", formalDefinition="What this response says about the status of the original order." )
     protected Enumeration<OrderOutcomeCode> code;
 
     /**
      * Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
+    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Additional description of the response", formalDefinition="Additional description about the response - e.g. a text description provided by a human user when making decisions about the order." )
     protected StringType description;
 
     /**
      * Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
      */
-    protected List<Reference> fulfillment = new ArrayList<Reference>();
+    @Child(name="fulfillment", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Details of the outcome of performing the order", formalDefinition="Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order." )
+    protected List<Reference> fulfillment;
     /**
      * The actual objects that are the target of the reference (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
-    protected List<Resource> fulfillmentTarget = new ArrayList<Resource>();
+    protected List<Resource> fulfillmentTarget;
 
 
-    private static final long serialVersionUID = 499827481L;
+    private static final long serialVersionUID = 557384358L;
 
     public OrderResponse() {
       super();
@@ -236,7 +302,18 @@ public class OrderResponse extends DomainResource {
      * @return {@link #identifier} (Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -245,6 +322,8 @@ public class OrderResponse extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -253,7 +332,16 @@ public class OrderResponse extends DomainResource {
      * @return {@link #request} (A reference to the order that this is in response to.)
      */
     public Reference getRequest() { 
+      if (this.request == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.request");
+        else if (Configuration.doAutoCreate())
+          this.request = new Reference();
       return this.request;
+    }
+
+    public boolean hasRequest() { 
+      return this.request != null && !this.request.isEmpty();
     }
 
     /**
@@ -268,6 +356,11 @@ public class OrderResponse extends DomainResource {
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the order that this is in response to.)
      */
     public Order getRequestTarget() { 
+      if (this.requestTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.request");
+        else if (Configuration.doAutoCreate())
+          this.requestTarget = new Order();
       return this.requestTarget;
     }
 
@@ -283,7 +376,20 @@ public class OrderResponse extends DomainResource {
      * @return {@link #date} (The date and time at which this order response was made (created/posted).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -319,7 +425,16 @@ public class OrderResponse extends DomainResource {
      * @return {@link #who} (The person, organization, or device credited with making the response.)
      */
     public Reference getWho() { 
+      if (this.who == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.who");
+        else if (Configuration.doAutoCreate())
+          this.who = new Reference();
       return this.who;
+    }
+
+    public boolean hasWho() { 
+      return this.who != null && !this.who.isEmpty();
     }
 
     /**
@@ -353,6 +468,28 @@ public class OrderResponse extends DomainResource {
     }
 
     /**
+     * @return {@link #authority} (A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.)
+     */
+    public CodeableConcept getAuthorityCodeableConcept() throws Exception { 
+      if (!(this.authority instanceof CodeableConcept))
+        throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.authority.getClass().getName()+" was encountered");
+      return (CodeableConcept) this.authority;
+    }
+
+    /**
+     * @return {@link #authority} (A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.)
+     */
+    public Reference getAuthorityReference() throws Exception { 
+      if (!(this.authority instanceof Reference))
+        throw new Exception("Type mismatch: the type Reference was expected, but "+this.authority.getClass().getName()+" was encountered");
+      return (Reference) this.authority;
+    }
+
+    public boolean hasAuthority() { 
+      return this.authority != null && !this.authority.isEmpty();
+    }
+
+    /**
      * @param value {@link #authority} (A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.)
      */
     public OrderResponse setAuthority(Type value) { 
@@ -364,7 +501,20 @@ public class OrderResponse extends DomainResource {
      * @return {@link #code} (What this response says about the status of the original order.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public Enumeration<OrderOutcomeCode> getCodeElement() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new Enumeration<OrderOutcomeCode>();
       return this.code;
+    }
+
+    public boolean hasCodeElement() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
     }
 
     /**
@@ -396,7 +546,20 @@ public class OrderResponse extends DomainResource {
      * @return {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrderResponse.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -432,7 +595,18 @@ public class OrderResponse extends DomainResource {
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
     public List<Reference> getFulfillment() { 
+      if (this.fulfillment == null)
+        this.fulfillment = new ArrayList<Reference>();
       return this.fulfillment;
+    }
+
+    public boolean hasFulfillment() { 
+      if (this.fulfillment == null)
+        return false;
+      for (Reference item : this.fulfillment)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -441,6 +615,8 @@ public class OrderResponse extends DomainResource {
     // syntactic sugar
     public Reference addFulfillment() { //3
       Reference t = new Reference();
+      if (this.fulfillment == null)
+        this.fulfillment = new ArrayList<Reference>();
       this.fulfillment.add(t);
       return t;
     }
@@ -449,6 +625,8 @@ public class OrderResponse extends DomainResource {
      * @return {@link #fulfillment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
     public List<Resource> getFulfillmentTarget() { 
+      if (this.fulfillmentTarget == null)
+        this.fulfillmentTarget = new ArrayList<Resource>();
       return this.fulfillmentTarget;
     }
 
@@ -467,18 +645,22 @@ public class OrderResponse extends DomainResource {
       public OrderResponse copy() {
         OrderResponse dst = new OrderResponse();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.request = request == null ? null : request.copy();
         dst.date = date == null ? null : date.copy();
         dst.who = who == null ? null : who.copy();
         dst.authority = authority == null ? null : authority.copy();
         dst.code = code == null ? null : code.copy();
         dst.description = description == null ? null : description.copy();
-        dst.fulfillment = new ArrayList<Reference>();
-        for (Reference i : fulfillment)
-          dst.fulfillment.add(i.copy());
+        if (fulfillment != null) {
+          dst.fulfillment = new ArrayList<Reference>();
+          for (Reference i : fulfillment)
+            dst.fulfillment.add(i.copy());
+        };
         return dst;
       }
 
@@ -486,11 +668,30 @@ public class OrderResponse extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (request == null || request.isEmpty())
+           && (date == null || date.isEmpty()) && (who == null || who.isEmpty()) && (authority == null || authority.isEmpty())
+           && (code == null || code.isEmpty()) && (description == null || description.isEmpty()) && (fulfillment == null || fulfillment.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.OrderResponse;
    }
 
+  @SearchParamDefinition(name="patient", path="", description="The patient the reuqest order is related to", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="fulfillment", path="OrderResponse.fulfillment", description="Details of the outcome of performing the order", type="reference" )
+  public static final String SP_FULFILLMENT = "fulfillment";
+  @SearchParamDefinition(name="request", path="OrderResponse.request", description="The order that this is a response to", type="reference" )
+  public static final String SP_REQUEST = "request";
+  @SearchParamDefinition(name="code", path="OrderResponse.code", description="pending | review | rejected | error | accepted | cancelled | replaced | aborted | complete", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="OrderResponse.date", description="When the response was made", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="who", path="OrderResponse.who", description="Who made the response", type="reference" )
+  public static final String SP_WHO = "who";
 
 }
 

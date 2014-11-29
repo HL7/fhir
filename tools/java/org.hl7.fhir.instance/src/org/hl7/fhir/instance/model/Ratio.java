@@ -29,23 +29,31 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A relationship of two Quantity values - expressed as a numerator and a denominator.
  */
+@DatatypeDef(name="Ratio")
 public class Ratio extends Type {
 
     /**
      * The value of the numerator.
      */
+    @Child(name="numerator", type={Quantity.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Numerator value", formalDefinition="The value of the numerator." )
     protected Quantity numerator;
 
     /**
      * The value of the denominator.
      */
+    @Child(name="denominator", type={Quantity.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Denominator value", formalDefinition="The value of the denominator." )
     protected Quantity denominator;
 
     private static final long serialVersionUID = 479922563L;
@@ -58,7 +66,16 @@ public class Ratio extends Type {
      * @return {@link #numerator} (The value of the numerator.)
      */
     public Quantity getNumerator() { 
+      if (this.numerator == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Ratio.numerator");
+        else if (Configuration.doAutoCreate())
+          this.numerator = new Quantity();
       return this.numerator;
+    }
+
+    public boolean hasNumerator() { 
+      return this.numerator != null && !this.numerator.isEmpty();
     }
 
     /**
@@ -73,7 +90,16 @@ public class Ratio extends Type {
      * @return {@link #denominator} (The value of the denominator.)
      */
     public Quantity getDenominator() { 
+      if (this.denominator == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Ratio.denominator");
+        else if (Configuration.doAutoCreate())
+          this.denominator = new Quantity();
       return this.denominator;
+    }
+
+    public boolean hasDenominator() { 
+      return this.denominator != null && !this.denominator.isEmpty();
     }
 
     /**
@@ -100,6 +126,11 @@ public class Ratio extends Type {
 
       protected Ratio typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (numerator == null || numerator.isEmpty()) && (denominator == null || denominator.isEmpty())
+          ;
       }
 
 

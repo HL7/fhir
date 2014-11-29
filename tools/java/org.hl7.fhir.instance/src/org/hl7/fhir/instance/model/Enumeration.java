@@ -88,4 +88,14 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType {
       }
     return value.toString();
   }
+  
+	public boolean isEmpty() {
+		return super.isEmpty() && (value == null || value.toString().equals("NULL"));
+	}
+
+	public boolean hasValue() {
+		return value != null & !value.toString().equals("NULL");
+	}
+	
+
 }

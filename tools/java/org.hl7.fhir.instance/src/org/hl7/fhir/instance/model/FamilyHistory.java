@@ -29,53 +29,74 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Significant health events and conditions for people related to the subject relevant in the context of care for the subject.
  */
+@ResourceDef(name="FamilyHistory", profile="http://hl7.org/fhir/Profile/FamilyHistory")
 public class FamilyHistory extends DomainResource {
 
+    @Block()
     public static class FamilyHistoryRelationComponent extends BackboneElement {
         /**
          * This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
          */
+        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="The family member described", formalDefinition="This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'." )
         protected StringType name;
 
         /**
          * The type of relationship this person has to the patient (father, mother, brother etc.).
          */
+        @Child(name="relationship", type={CodeableConcept.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Relationship to the subject", formalDefinition="The type of relationship this person has to the patient (father, mother, brother etc.)." )
         protected CodeableConcept relationship;
 
         /**
          * The actual or approximate date of birth of the relative.
          */
+        @Child(name="born", type={Period.class, DateType.class, StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="(approximate) date of birth", formalDefinition="The actual or approximate date of birth of the relative." )
         protected Type born;
 
         /**
          * The actual or approximate age of the relative at the time the family history is recorded.
          */
+        @Child(name="age", type={Age.class, Range.class, StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="(approximate) age", formalDefinition="The actual or approximate age of the relative at the time the family history is recorded." )
         protected Type age;
 
         /**
          * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.
          */
+        @Child(name="deceased", type={BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Dead? How old/when?", formalDefinition="If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set." )
         protected Type deceased;
 
         /**
          * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
          */
+        @Child(name="note", type={StringType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="General note about related person", formalDefinition="This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible." )
         protected StringType note;
 
         /**
          * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
          */
-        protected List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+        @Child(name="condition", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
+        protected List<FamilyHistoryRelationConditionComponent> condition;
 
-        private static final long serialVersionUID = 555328374L;
+        private static final long serialVersionUID = 211772865L;
 
       public FamilyHistoryRelationComponent() {
         super();
@@ -90,7 +111,20 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -126,7 +160,16 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #relationship} (The type of relationship this person has to the patient (father, mother, brother etc.).)
          */
         public CodeableConcept getRelationship() { 
+          if (this.relationship == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.relationship");
+            else if (Configuration.doAutoCreate())
+              this.relationship = new CodeableConcept();
           return this.relationship;
+        }
+
+        public boolean hasRelationship() { 
+          return this.relationship != null && !this.relationship.isEmpty();
         }
 
         /**
@@ -145,6 +188,37 @@ public class FamilyHistory extends DomainResource {
         }
 
         /**
+         * @return {@link #born} (The actual or approximate date of birth of the relative.)
+         */
+        public Period getBornPeriod() throws Exception { 
+          if (!(this.born instanceof Period))
+            throw new Exception("Type mismatch: the type Period was expected, but "+this.born.getClass().getName()+" was encountered");
+          return (Period) this.born;
+        }
+
+        /**
+         * @return {@link #born} (The actual or approximate date of birth of the relative.)
+         */
+        public DateType getBornDateType() throws Exception { 
+          if (!(this.born instanceof DateType))
+            throw new Exception("Type mismatch: the type DateType was expected, but "+this.born.getClass().getName()+" was encountered");
+          return (DateType) this.born;
+        }
+
+        /**
+         * @return {@link #born} (The actual or approximate date of birth of the relative.)
+         */
+        public StringType getBornStringType() throws Exception { 
+          if (!(this.born instanceof StringType))
+            throw new Exception("Type mismatch: the type StringType was expected, but "+this.born.getClass().getName()+" was encountered");
+          return (StringType) this.born;
+        }
+
+        public boolean hasBorn() { 
+          return this.born != null && !this.born.isEmpty();
+        }
+
+        /**
          * @param value {@link #born} (The actual or approximate date of birth of the relative.)
          */
         public FamilyHistoryRelationComponent setBorn(Type value) { 
@@ -157,6 +231,37 @@ public class FamilyHistory extends DomainResource {
          */
         public Type getAge() { 
           return this.age;
+        }
+
+        /**
+         * @return {@link #age} (The actual or approximate age of the relative at the time the family history is recorded.)
+         */
+        public Age getAgeAge() throws Exception { 
+          if (!(this.age instanceof Age))
+            throw new Exception("Type mismatch: the type Age was expected, but "+this.age.getClass().getName()+" was encountered");
+          return (Age) this.age;
+        }
+
+        /**
+         * @return {@link #age} (The actual or approximate age of the relative at the time the family history is recorded.)
+         */
+        public Range getAgeRange() throws Exception { 
+          if (!(this.age instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.age.getClass().getName()+" was encountered");
+          return (Range) this.age;
+        }
+
+        /**
+         * @return {@link #age} (The actual or approximate age of the relative at the time the family history is recorded.)
+         */
+        public StringType getAgeStringType() throws Exception { 
+          if (!(this.age instanceof StringType))
+            throw new Exception("Type mismatch: the type StringType was expected, but "+this.age.getClass().getName()+" was encountered");
+          return (StringType) this.age;
+        }
+
+        public boolean hasAge() { 
+          return this.age != null && !this.age.isEmpty();
         }
 
         /**
@@ -175,6 +280,55 @@ public class FamilyHistory extends DomainResource {
         }
 
         /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
+        public BooleanType getDeceasedBooleanType() throws Exception { 
+          if (!(this.deceased instanceof BooleanType))
+            throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.deceased.getClass().getName()+" was encountered");
+          return (BooleanType) this.deceased;
+        }
+
+        /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
+        public Age getDeceasedAge() throws Exception { 
+          if (!(this.deceased instanceof Age))
+            throw new Exception("Type mismatch: the type Age was expected, but "+this.deceased.getClass().getName()+" was encountered");
+          return (Age) this.deceased;
+        }
+
+        /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
+        public Range getDeceasedRange() throws Exception { 
+          if (!(this.deceased instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.deceased.getClass().getName()+" was encountered");
+          return (Range) this.deceased;
+        }
+
+        /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
+        public DateType getDeceasedDateType() throws Exception { 
+          if (!(this.deceased instanceof DateType))
+            throw new Exception("Type mismatch: the type DateType was expected, but "+this.deceased.getClass().getName()+" was encountered");
+          return (DateType) this.deceased;
+        }
+
+        /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
+        public StringType getDeceasedStringType() throws Exception { 
+          if (!(this.deceased instanceof StringType))
+            throw new Exception("Type mismatch: the type StringType was expected, but "+this.deceased.getClass().getName()+" was encountered");
+          return (StringType) this.deceased;
+        }
+
+        public boolean hasDeceased() { 
+          return this.deceased != null && !this.deceased.isEmpty();
+        }
+
+        /**
          * @param value {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
          */
         public FamilyHistoryRelationComponent setDeceased(Type value) { 
@@ -186,7 +340,20 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
         public StringType getNoteElement() { 
+          if (this.note == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.note");
+            else if (Configuration.doAutoCreate())
+              this.note = new StringType();
           return this.note;
+        }
+
+        public boolean hasNoteElement() { 
+          return this.note != null && !this.note.isEmpty();
+        }
+
+        public boolean hasNote() { 
+          return this.note != null && !this.note.isEmpty();
         }
 
         /**
@@ -222,7 +389,18 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
          */
         public List<FamilyHistoryRelationConditionComponent> getCondition() { 
+          if (this.condition == null)
+            this.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
           return this.condition;
+        }
+
+        public boolean hasCondition() { 
+          if (this.condition == null)
+            return false;
+          for (FamilyHistoryRelationConditionComponent item : this.condition)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -231,6 +409,8 @@ public class FamilyHistory extends DomainResource {
     // syntactic sugar
         public FamilyHistoryRelationConditionComponent addCondition() { //3
           FamilyHistoryRelationConditionComponent t = new FamilyHistoryRelationConditionComponent();
+          if (this.condition == null)
+            this.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
           this.condition.add(t);
           return t;
         }
@@ -255,33 +435,50 @@ public class FamilyHistory extends DomainResource {
         dst.age = age == null ? null : age.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
         dst.note = note == null ? null : note.copy();
-        dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
-        for (FamilyHistoryRelationConditionComponent i : condition)
-          dst.condition.add(i.copy());
+        if (condition != null) {
+          dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+          for (FamilyHistoryRelationConditionComponent i : condition)
+            dst.condition.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (relationship == null || relationship.isEmpty())
+           && (born == null || born.isEmpty()) && (age == null || age.isEmpty()) && (deceased == null || deceased.isEmpty())
+           && (note == null || note.isEmpty()) && (condition == null || condition.isEmpty());
       }
 
   }
 
+    @Block()
     public static class FamilyHistoryRelationConditionComponent extends BackboneElement {
         /**
          * The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.
          */
+        @Child(name="type", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Condition suffered by relation", formalDefinition="The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system." )
         protected CodeableConcept type;
 
         /**
          * Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
          */
+        @Child(name="outcome", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="deceased | permanent disability | etc.", formalDefinition="Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation." )
         protected CodeableConcept outcome;
 
         /**
          * Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
          */
+        @Child(name="onset", type={Age.class, Range.class, StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="When condition first manifested", formalDefinition="Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence." )
         protected Type onset;
 
         /**
          * An area where general notes can be placed about this specific condition.
          */
+        @Child(name="note", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Extra information about condition", formalDefinition="An area where general notes can be placed about this specific condition." )
         protected StringType note;
 
         private static final long serialVersionUID = -1664709272L;
@@ -299,7 +496,16 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #type} (The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.)
          */
         public CodeableConcept getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeableConcept();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -314,7 +520,16 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #outcome} (Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.)
          */
         public CodeableConcept getOutcome() { 
+          if (this.outcome == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.outcome");
+            else if (Configuration.doAutoCreate())
+              this.outcome = new CodeableConcept();
           return this.outcome;
+        }
+
+        public boolean hasOutcome() { 
+          return this.outcome != null && !this.outcome.isEmpty();
         }
 
         /**
@@ -333,6 +548,37 @@ public class FamilyHistory extends DomainResource {
         }
 
         /**
+         * @return {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
+         */
+        public Age getOnsetAge() throws Exception { 
+          if (!(this.onset instanceof Age))
+            throw new Exception("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
+          return (Age) this.onset;
+        }
+
+        /**
+         * @return {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
+         */
+        public Range getOnsetRange() throws Exception { 
+          if (!(this.onset instanceof Range))
+            throw new Exception("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
+          return (Range) this.onset;
+        }
+
+        /**
+         * @return {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
+         */
+        public StringType getOnsetStringType() throws Exception { 
+          if (!(this.onset instanceof StringType))
+            throw new Exception("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
+          return (StringType) this.onset;
+        }
+
+        public boolean hasOnset() { 
+          return this.onset != null && !this.onset.isEmpty();
+        }
+
+        /**
          * @param value {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
          */
         public FamilyHistoryRelationConditionComponent setOnset(Type value) { 
@@ -344,7 +590,20 @@ public class FamilyHistory extends DomainResource {
          * @return {@link #note} (An area where general notes can be placed about this specific condition.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
          */
         public StringType getNoteElement() { 
+          if (this.note == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.note");
+            else if (Configuration.doAutoCreate())
+              this.note = new StringType();
           return this.note;
+        }
+
+        public boolean hasNoteElement() { 
+          return this.note != null && !this.note.isEmpty();
+        }
+
+        public boolean hasNote() { 
+          return this.note != null && !this.note.isEmpty();
         }
 
         /**
@@ -394,16 +653,25 @@ public class FamilyHistory extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (outcome == null || outcome.isEmpty())
+           && (onset == null || onset.isEmpty()) && (note == null || note.isEmpty());
+      }
+
   }
 
     /**
      * This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Id(s) for this record", formalDefinition="This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    protected List<Identifier> identifier;
 
     /**
      * The person who this history concerns.
      */
+    @Child(name="patient", type={Patient.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Patient history is about", formalDefinition="The person who this history concerns." )
     protected Reference patient;
 
     /**
@@ -414,19 +682,25 @@ public class FamilyHistory extends DomainResource {
     /**
      * The date (and possibly time) when the family history was taken.
      */
+    @Child(name="date", type={DateTimeType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="When history was captured/updated", formalDefinition="The date (and possibly time) when the family history was taken." )
     protected DateTimeType date;
 
     /**
      * Conveys information about family history not specific to individual relations.
      */
+    @Child(name="note", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Additional details not covered elsewhere", formalDefinition="Conveys information about family history not specific to individual relations." )
     protected StringType note;
 
     /**
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
-    protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
+    @Child(name="relation", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Relative described by history", formalDefinition="The related person. Each FamilyHistory resource contains the entire family history for a single person." )
+    protected List<FamilyHistoryRelationComponent> relation;
 
-    private static final long serialVersionUID = -586509986L;
+    private static final long serialVersionUID = 1010516594L;
 
     public FamilyHistory() {
       super();
@@ -441,7 +715,18 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #identifier} (This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -450,6 +735,8 @@ public class FamilyHistory extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -458,7 +745,16 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #patient} (The person who this history concerns.)
      */
     public Reference getPatient() { 
+      if (this.patient == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyHistory.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference();
       return this.patient;
+    }
+
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
@@ -473,6 +769,11 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who this history concerns.)
      */
     public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyHistory.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient();
       return this.patientTarget;
     }
 
@@ -488,7 +789,20 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #date} (The date (and possibly time) when the family history was taken.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyHistory.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -524,7 +838,20 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #note} (Conveys information about family history not specific to individual relations.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
     public StringType getNoteElement() { 
+      if (this.note == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyHistory.note");
+        else if (Configuration.doAutoCreate())
+          this.note = new StringType();
       return this.note;
+    }
+
+    public boolean hasNoteElement() { 
+      return this.note != null && !this.note.isEmpty();
+    }
+
+    public boolean hasNote() { 
+      return this.note != null && !this.note.isEmpty();
     }
 
     /**
@@ -560,7 +887,18 @@ public class FamilyHistory extends DomainResource {
      * @return {@link #relation} (The related person. Each FamilyHistory resource contains the entire family history for a single person.)
      */
     public List<FamilyHistoryRelationComponent> getRelation() { 
+      if (this.relation == null)
+        this.relation = new ArrayList<FamilyHistoryRelationComponent>();
       return this.relation;
+    }
+
+    public boolean hasRelation() { 
+      if (this.relation == null)
+        return false;
+      for (FamilyHistoryRelationComponent item : this.relation)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -569,6 +907,8 @@ public class FamilyHistory extends DomainResource {
     // syntactic sugar
     public FamilyHistoryRelationComponent addRelation() { //3
       FamilyHistoryRelationComponent t = new FamilyHistoryRelationComponent();
+      if (this.relation == null)
+        this.relation = new ArrayList<FamilyHistoryRelationComponent>();
       this.relation.add(t);
       return t;
     }
@@ -585,15 +925,19 @@ public class FamilyHistory extends DomainResource {
       public FamilyHistory copy() {
         FamilyHistory dst = new FamilyHistory();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.patient = patient == null ? null : patient.copy();
         dst.date = date == null ? null : date.copy();
         dst.note = note == null ? null : note.copy();
-        dst.relation = new ArrayList<FamilyHistoryRelationComponent>();
-        for (FamilyHistoryRelationComponent i : relation)
-          dst.relation.add(i.copy());
+        if (relation != null) {
+          dst.relation = new ArrayList<FamilyHistoryRelationComponent>();
+          for (FamilyHistoryRelationComponent i : relation)
+            dst.relation.add(i.copy());
+        };
         return dst;
       }
 
@@ -601,11 +945,21 @@ public class FamilyHistory extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
+           && (date == null || date.isEmpty()) && (note == null || note.isEmpty()) && (relation == null || relation.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.FamilyHistory;
    }
 
+  @SearchParamDefinition(name="patient", path="FamilyHistory.patient", description="The identity of a subject to list family history items for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="date", path="FamilyHistory.date", description="When history was captured/updated", type="date" )
+  public static final String SP_DATE = "date";
 
 }
 

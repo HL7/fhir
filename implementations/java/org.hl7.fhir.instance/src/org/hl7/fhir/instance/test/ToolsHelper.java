@@ -44,9 +44,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.Profile;
@@ -261,10 +259,10 @@ public class ToolsHelper {
     JsonParser pj = new JsonParser();
     Resource rf = p.parse(in);
     ByteArrayOutputStream json = new ByteArrayOutputStream();
-    new JsonComposer().compose(json, rf, true);
+    new JsonParser().compose(json, rf, true);
     TextFile.stringToFile(new String(json.toByteArray()), Utilities.changeFileExt(dest.getAbsolutePath(), ".json"));
     rf = pj.parse(new ByteArrayInputStream(json.toByteArray()));
-    new XmlComposer().compose(new FileOutputStream(dest), rf, true);
+    new XmlParser().compose(new FileOutputStream(dest), rf, true);
   }
 
   public String executeJson(String[] args) throws Exception {
@@ -279,7 +277,7 @@ public class ToolsHelper {
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
     Resource rf = p.parse(in);
-    JsonComposer json = new JsonComposer();
+    JsonParser json = new JsonParser();
     json.compose(new FileOutputStream(dest), rf, true);
     json.setCanonical(true);
     json.compose(new FileOutputStream(destc), rf, false);
@@ -299,7 +297,7 @@ public class ToolsHelper {
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
     Resource rf = p.parse(in);
-    XmlComposer cxml = new XmlComposer();
+    XmlParser cxml = new XmlParser();
     cxml.setCanonical(true);
     cxml.compose(new FileOutputStream(dest), rf, false);
   }

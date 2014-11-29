@@ -31,7 +31,7 @@ public class ResourceUtilities {
 	}
 	
 	public static String getErrorDescription(OperationOutcome error) {  
-		if (error.getText() != null && error.getText().getDiv() != null)
+		if (error.hasText() && error.getText().hasDiv())
 			return new XhtmlComposer().setXmlOnly(true).composePlainText(error.getText().getDiv());
 		
 		StringBuilder b = new StringBuilder();
@@ -81,7 +81,7 @@ public class ResourceUtilities {
     return null;  }
 
   public static ResourceMetaComponent meta(Resource resource) {
-    if (resource.getMeta() == null)
+    if (!resource.hasMeta())
       resource.setMeta(new ResourceMetaComponent());
     return resource.getMeta();
   }

@@ -91,6 +91,11 @@ procedure BuildNarrative(vs : TFhirValueSet); overload;
 Function removeCaseAndAccents(s : String) : String;
 
 type
+  TFHIRProfileStructureHolder = TFhirProfileSnapshot;
+  TFHIRProfileStructureElement = TFhirElementDefinition;
+  TFhirProfileStructureElementList = TFhirElementDefinitionList;
+  TFhirProfileStructureElementDefinitionBinding = TFhirElementDefinitionBinding;
+
   TResourceWithReference = class (TAdvObject)
   private
     FReference: String;
@@ -115,7 +120,11 @@ type
   end;
 
   TFHIRResourceHelper = class helper for TFHIRResource
+  private
+    function GetXmlId: String;
+    procedure SetmlId(const Value: String);
   public
+    property xmlId : String read GetXmlId write SetmlId;
   end;
 
   TFHIRDomainResourceHelper = class helper (TFHIRResourceHelper) for TFHIRDomainResource
@@ -1528,6 +1537,18 @@ begin
   FResource := Value;
 end;
 
+
+{ TFHIRResourceHelper }
+
+function TFHIRResourceHelper.GetXmlId: String;
+begin
+  result := id;
+end;
+
+procedure TFHIRResourceHelper.SetmlId(const Value: String);
+begin
+  id := value;
+end;
 
 end.
 

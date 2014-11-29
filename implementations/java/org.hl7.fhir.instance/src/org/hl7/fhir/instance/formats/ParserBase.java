@@ -32,6 +32,7 @@ package org.hl7.fhir.instance.formats;
 
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -41,6 +42,7 @@ import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -139,6 +141,44 @@ public abstract class ParserBase extends FormatUtilities implements Parser {
 
   protected String parseUuidPrimitive(String value) {
     return value;
+  }
+
+
+  protected String xhtmlMessage;
+  
+  @Override
+  public void setSuppressXhtml(String message) {
+    xhtmlMessage = message;    
+  }
+
+  public String composeString(Resource resource, boolean pretty) throws Exception {
+    return new String(composeBytes(resource, pretty));
+  }
+
+  public byte[] composeBytes(Resource resource, boolean pretty) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    compose(bytes, resource, true);
+    return bytes.toByteArray();
+  }
+
+  public String composeString(ResourceMetaComponent meta, boolean pretty) throws Exception {
+    return new String(composeBytes(meta, pretty));
+  }
+
+  public byte[] composeBytes(ResourceMetaComponent meta, boolean pretty) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    compose(bytes, meta, true);
+    return bytes.toByteArray();
+  }
+  
+  public String composeString(Type type, boolean pretty) throws Exception {
+    return new String(composeBytes(type, pretty));
+  }
+
+  public byte[] composeBytes(Type type, boolean pretty) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    compose(bytes, type, true);
+    return bytes.toByteArray();
   }
 
 }

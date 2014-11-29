@@ -29,43 +29,60 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Nov 26, 2014 22:29+0100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Base Resource for everything.
  */
+@ResourceDef(name="Resource", profile="http://hl7.org/fhir/Profile/Resource")
 public abstract class Resource extends Base {
 
+    @Block()
     public static class ResourceMetaComponent extends BackboneElement {
         /**
          * The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.
          */
+        @Child(name="versionId", type={IdType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Version specific identifier", formalDefinition="The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted." )
         protected IdType versionId;
 
         /**
          * When the resource last changed - e.g. when the version changed.
          */
+        @Child(name="lastUpdated", type={InstantType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="When the resource version last changed", formalDefinition="When the resource last changed - e.g. when the version changed." )
         protected InstantType lastUpdated;
 
         /**
          * A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.
          */
-        protected List<UriType> profile = new ArrayList<UriType>();
+        @Child(name="profile", type={UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url." )
+        protected List<UriType> profile;
 
         /**
          * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
          */
-        protected List<Coding> security = new ArrayList<Coding>();
+        @Child(name="security", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Security Labels applied to this resource", formalDefinition="Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure." )
+        protected List<Coding> security;
 
         /**
          * Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
          */
-        protected List<Coding> tag = new ArrayList<Coding>();
+        @Child(name="tag", type={Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Tags applied", formalDefinition="Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource." )
+        protected List<Coding> tag;
 
-        private static final long serialVersionUID = 136876122L;
+        private static final long serialVersionUID = 650918851L;
 
       public ResourceMetaComponent() {
         super();
@@ -75,7 +92,20 @@ public abstract class Resource extends Base {
          * @return {@link #versionId} (The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
          */
         public IdType getVersionIdElement() { 
+          if (this.versionId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ResourceMetaComponent.versionId");
+            else if (Configuration.doAutoCreate())
+              this.versionId = new IdType();
           return this.versionId;
+        }
+
+        public boolean hasVersionIdElement() { 
+          return this.versionId != null && !this.versionId.isEmpty();
+        }
+
+        public boolean hasVersionId() { 
+          return this.versionId != null && !this.versionId.isEmpty();
         }
 
         /**
@@ -111,7 +141,20 @@ public abstract class Resource extends Base {
          * @return {@link #lastUpdated} (When the resource last changed - e.g. when the version changed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
          */
         public InstantType getLastUpdatedElement() { 
+          if (this.lastUpdated == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ResourceMetaComponent.lastUpdated");
+            else if (Configuration.doAutoCreate())
+              this.lastUpdated = new InstantType();
           return this.lastUpdated;
+        }
+
+        public boolean hasLastUpdatedElement() { 
+          return this.lastUpdated != null && !this.lastUpdated.isEmpty();
+        }
+
+        public boolean hasLastUpdated() { 
+          return this.lastUpdated != null && !this.lastUpdated.isEmpty();
         }
 
         /**
@@ -147,7 +190,18 @@ public abstract class Resource extends Base {
          * @return {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
          */
         public List<UriType> getProfile() { 
+          if (this.profile == null)
+            this.profile = new ArrayList<UriType>();
           return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          if (this.profile == null)
+            return false;
+          for (UriType item : this.profile)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -156,6 +210,8 @@ public abstract class Resource extends Base {
     // syntactic sugar
         public UriType addProfileElement() {//2 
           UriType t = new UriType();
+          if (this.profile == null)
+            this.profile = new ArrayList<UriType>();
           this.profile.add(t);
           return t;
         }
@@ -166,6 +222,8 @@ public abstract class Resource extends Base {
         public ResourceMetaComponent addProfile(String value) { //1
           UriType t = new UriType();
           t.setValue(value);
+          if (this.profile == null)
+            this.profile = new ArrayList<UriType>();
           this.profile.add(t);
           return this;
         }
@@ -174,6 +232,8 @@ public abstract class Resource extends Base {
          * @param value {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
          */
         public boolean hasProfile(String value) { 
+          if (this.profile == null)
+            return false;
           for (UriType v : this.profile)
             if (v.equals(value)) // uri
               return true;
@@ -184,7 +244,18 @@ public abstract class Resource extends Base {
          * @return {@link #security} (Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.)
          */
         public List<Coding> getSecurity() { 
+          if (this.security == null)
+            this.security = new ArrayList<Coding>();
           return this.security;
+        }
+
+        public boolean hasSecurity() { 
+          if (this.security == null)
+            return false;
+          for (Coding item : this.security)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -193,6 +264,8 @@ public abstract class Resource extends Base {
     // syntactic sugar
         public Coding addSecurity() { //3
           Coding t = new Coding();
+          if (this.security == null)
+            this.security = new ArrayList<Coding>();
           this.security.add(t);
           return t;
         }
@@ -201,7 +274,18 @@ public abstract class Resource extends Base {
          * @return {@link #tag} (Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
          */
         public List<Coding> getTag() { 
+          if (this.tag == null)
+            this.tag = new ArrayList<Coding>();
           return this.tag;
+        }
+
+        public boolean hasTag() { 
+          if (this.tag == null)
+            return false;
+          for (Coding item : this.tag)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -210,6 +294,8 @@ public abstract class Resource extends Base {
     // syntactic sugar
         public Coding addTag() { //3
           Coding t = new Coding();
+          if (this.tag == null)
+            this.tag = new ArrayList<Coding>();
           this.tag.add(t);
           return t;
         }
@@ -228,16 +314,28 @@ public abstract class Resource extends Base {
         copyValues(dst);
         dst.versionId = versionId == null ? null : versionId.copy();
         dst.lastUpdated = lastUpdated == null ? null : lastUpdated.copy();
-        dst.profile = new ArrayList<UriType>();
-        for (UriType i : profile)
-          dst.profile.add(i.copy());
-        dst.security = new ArrayList<Coding>();
-        for (Coding i : security)
-          dst.security.add(i.copy());
-        dst.tag = new ArrayList<Coding>();
-        for (Coding i : tag)
-          dst.tag.add(i.copy());
+        if (profile != null) {
+          dst.profile = new ArrayList<UriType>();
+          for (UriType i : profile)
+            dst.profile.add(i.copy());
+        };
+        if (security != null) {
+          dst.security = new ArrayList<Coding>();
+          for (Coding i : security)
+            dst.security.add(i.copy());
+        };
+        if (tag != null) {
+          dst.tag = new ArrayList<Coding>();
+          for (Coding i : tag)
+            dst.tag.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (versionId == null || versionId.isEmpty()) && (lastUpdated == null || lastUpdated.isEmpty())
+           && (profile == null || profile.isEmpty()) && (security == null || security.isEmpty()) && (tag == null || tag.isEmpty())
+          ;
       }
 
   }
@@ -245,21 +343,29 @@ public abstract class Resource extends Base {
     /**
      * The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.
      */
+    @Child(name="id", type={IdType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Logical id of this artefact", formalDefinition="The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes." )
     protected IdType id;
 
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
      */
+    @Child(name="meta", type={}, order=0, min=0, max=1)
+    @Description(shortDefinition="Metadata about the resource", formalDefinition="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource." )
     protected ResourceMetaComponent meta;
 
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
      */
+    @Child(name="implicitRules", type={UriType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="A set of rules under which this content was created", formalDefinition="A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content." )
     protected UriType implicitRules;
 
     /**
      * The base language in which the resource is written.
      */
+    @Child(name="language", type={CodeType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Language of the resource content", formalDefinition="The base language in which the resource is written." )
     protected CodeType language;
 
     private static final long serialVersionUID = -519506254L;
@@ -272,7 +378,20 @@ public abstract class Resource extends Base {
      * @return {@link #id} (The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
      */
     public IdType getIdElement() { 
+      if (this.id == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Resource.id");
+        else if (Configuration.doAutoCreate())
+          this.id = new IdType();
       return this.id;
+    }
+
+    public boolean hasIdElement() { 
+      return this.id != null && !this.id.isEmpty();
+    }
+
+    public boolean hasId() { 
+      return this.id != null && !this.id.isEmpty();
     }
 
     /**
@@ -308,7 +427,16 @@ public abstract class Resource extends Base {
      * @return {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.)
      */
     public ResourceMetaComponent getMeta() { 
+      if (this.meta == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Resource.meta");
+        else if (Configuration.doAutoCreate())
+          this.meta = new ResourceMetaComponent();
       return this.meta;
+    }
+
+    public boolean hasMeta() { 
+      return this.meta != null && !this.meta.isEmpty();
     }
 
     /**
@@ -323,7 +451,20 @@ public abstract class Resource extends Base {
      * @return {@link #implicitRules} (A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.). This is the underlying object with id, value and extensions. The accessor "getImplicitRules" gives direct access to the value
      */
     public UriType getImplicitRulesElement() { 
+      if (this.implicitRules == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Resource.implicitRules");
+        else if (Configuration.doAutoCreate())
+          this.implicitRules = new UriType();
       return this.implicitRules;
+    }
+
+    public boolean hasImplicitRulesElement() { 
+      return this.implicitRules != null && !this.implicitRules.isEmpty();
+    }
+
+    public boolean hasImplicitRules() { 
+      return this.implicitRules != null && !this.implicitRules.isEmpty();
     }
 
     /**
@@ -359,7 +500,20 @@ public abstract class Resource extends Base {
      * @return {@link #language} (The base language in which the resource is written.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
     public CodeType getLanguageElement() { 
+      if (this.language == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Resource.language");
+        else if (Configuration.doAutoCreate())
+          this.language = new CodeType();
       return this.language;
+    }
+
+    public boolean hasLanguageElement() { 
+      return this.language != null && !this.language.isEmpty();
+    }
+
+    public boolean hasLanguage() { 
+      return this.language != null && !this.language.isEmpty();
     }
 
     /**
@@ -407,7 +561,12 @@ public abstract class Resource extends Base {
         dst.language = language == null ? null : language.copy();
       }
 
- public abstract ResourceType getResourceType();
+      public boolean isEmpty() {
+        return super.isEmpty() && (id == null || id.isEmpty()) && (meta == null || meta.isEmpty()) && (implicitRules == null || implicitRules.isEmpty())
+           && (language == null || language.isEmpty());
+      }
+
+  public abstract ResourceType getResourceType();
 
 }
 

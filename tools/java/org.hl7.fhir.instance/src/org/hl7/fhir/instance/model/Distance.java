@@ -29,11 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
+@DatatypeDef(name="Distance")
 public class Distance extends Quantity {
 
     private static final long serialVersionUID = -483422721L;
@@ -51,6 +53,12 @@ public class Distance extends Quantity {
 
       protected Distance typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (value == null || value.isEmpty()) && (comparator == null || comparator.isEmpty())
+           && (units == null || units.isEmpty()) && (system == null || system.isEmpty()) && (code == null || code.isEmpty())
+          ;
       }
 
 

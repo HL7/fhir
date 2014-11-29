@@ -10,7 +10,6 @@ import java.util.List;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Coding;
@@ -180,7 +179,7 @@ public class SentinelWorker {
     ini.save();
     System.out.println(master.getEntry().size() == 1 ? "1 update found" : Integer.toString(master.getEntry().size())+" updates found");
 
-    new XmlComposer().compose(new FileOutputStream(getWorkingFileName()), master, false);
+    new XmlParser().compose(new FileOutputStream(getWorkingFileName()), master, false);
     if (master.getEntry().isEmpty())
       ini.setStringProperty(server, "cursor", "", null);
     else

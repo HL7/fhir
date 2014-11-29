@@ -29,21 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A set of information summarized from a list of other resources.
  */
+@ResourceDef(name="List_", profile="http://hl7.org/fhir/Profile/List_")
 public class List_ extends DomainResource {
 
     public enum ListMode {
-        WORKING, // This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
-        SNAPSHOT, // This list was prepared as a snapshot. It should not be assumed to be current.
-        CHANGES, // The list is prepared as a statement of changes that have been made or recommended.
-        NULL; // added to help the parsers
+        /**
+         * This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
+         */
+        WORKING, 
+        /**
+         * This list was prepared as a snapshot. It should not be assumed to be current.
+         */
+        SNAPSHOT, 
+        /**
+         * The list is prepared as a statement of changes that have been made or recommended.
+         */
+        CHANGES, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ListMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -60,6 +78,14 @@ public class List_ extends DomainResource {
             case WORKING: return "working";
             case SNAPSHOT: return "snapshot";
             case CHANGES: return "changes";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case WORKING: return "";
+            case SNAPSHOT: return "";
+            case CHANGES: return "";
             default: return "?";
           }
         }
@@ -105,25 +131,34 @@ public class List_ extends DomainResource {
       }
     }
 
+    @Block()
     public static class ListEntryComponent extends BackboneElement {
         /**
          * The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.
          */
-        protected List<CodeableConcept> flag = new ArrayList<CodeableConcept>();
+        @Child(name="flag", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Workflow information about this item", formalDefinition="The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list." )
+        protected List<CodeableConcept> flag;
 
         /**
          * True if this item is marked as deleted in the list.
          */
+        @Child(name="deleted", type={BooleanType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="If this item is actually marked as deleted", formalDefinition="True if this item is marked as deleted in the list." )
         protected BooleanType deleted;
 
         /**
          * When this item was added to the list.
          */
+        @Child(name="date", type={DateTimeType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="When item added to list", formalDefinition="When this item was added to the list." )
         protected DateTimeType date;
 
         /**
          * A reference to the actual resource from which data was derived.
          */
+        @Child(name="item", type={}, order=4, min=1, max=1)
+        @Description(shortDefinition="Actual entry", formalDefinition="A reference to the actual resource from which data was derived." )
         protected Reference item;
 
         /**
@@ -131,7 +166,7 @@ public class List_ extends DomainResource {
          */
         protected Resource itemTarget;
 
-        private static final long serialVersionUID = 1219106973L;
+        private static final long serialVersionUID = -27973283L;
 
       public ListEntryComponent() {
         super();
@@ -146,7 +181,18 @@ public class List_ extends DomainResource {
          * @return {@link #flag} (The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.)
          */
         public List<CodeableConcept> getFlag() { 
+          if (this.flag == null)
+            this.flag = new ArrayList<CodeableConcept>();
           return this.flag;
+        }
+
+        public boolean hasFlag() { 
+          if (this.flag == null)
+            return false;
+          for (CodeableConcept item : this.flag)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -155,6 +201,8 @@ public class List_ extends DomainResource {
     // syntactic sugar
         public CodeableConcept addFlag() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.flag == null)
+            this.flag = new ArrayList<CodeableConcept>();
           this.flag.add(t);
           return t;
         }
@@ -163,7 +211,20 @@ public class List_ extends DomainResource {
          * @return {@link #deleted} (True if this item is marked as deleted in the list.). This is the underlying object with id, value and extensions. The accessor "getDeleted" gives direct access to the value
          */
         public BooleanType getDeletedElement() { 
+          if (this.deleted == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ListEntryComponent.deleted");
+            else if (Configuration.doAutoCreate())
+              this.deleted = new BooleanType();
           return this.deleted;
+        }
+
+        public boolean hasDeletedElement() { 
+          return this.deleted != null && !this.deleted.isEmpty();
+        }
+
+        public boolean hasDeleted() { 
+          return this.deleted != null && !this.deleted.isEmpty();
         }
 
         /**
@@ -199,7 +260,20 @@ public class List_ extends DomainResource {
          * @return {@link #date} (When this item was added to the list.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
         public DateTimeType getDateElement() { 
+          if (this.date == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ListEntryComponent.date");
+            else if (Configuration.doAutoCreate())
+              this.date = new DateTimeType();
           return this.date;
+        }
+
+        public boolean hasDateElement() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        public boolean hasDate() { 
+          return this.date != null && !this.date.isEmpty();
         }
 
         /**
@@ -235,7 +309,16 @@ public class List_ extends DomainResource {
          * @return {@link #item} (A reference to the actual resource from which data was derived.)
          */
         public Reference getItem() { 
+          if (this.item == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ListEntryComponent.item");
+            else if (Configuration.doAutoCreate())
+              this.item = new Reference();
           return this.item;
+        }
+
+        public boolean hasItem() { 
+          return this.item != null && !this.item.isEmpty();
         }
 
         /**
@@ -272,13 +355,20 @@ public class List_ extends DomainResource {
       public ListEntryComponent copy() {
         ListEntryComponent dst = new ListEntryComponent();
         copyValues(dst);
-        dst.flag = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : flag)
-          dst.flag.add(i.copy());
+        if (flag != null) {
+          dst.flag = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : flag)
+            dst.flag.add(i.copy());
+        };
         dst.deleted = deleted == null ? null : deleted.copy();
         dst.date = date == null ? null : date.copy();
         dst.item = item == null ? null : item.copy();
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (flag == null || flag.isEmpty()) && (deleted == null || deleted.isEmpty())
+           && (date == null || date.isEmpty()) && (item == null || item.isEmpty());
       }
 
   }
@@ -286,16 +376,22 @@ public class List_ extends DomainResource {
     /**
      * Identifier for the List assigned for business purposes outside the context of FHIR.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Business identifier", formalDefinition="Identifier for the List assigned for business purposes outside the context of FHIR." )
+    protected List<Identifier> identifier;
 
     /**
      * This code defines the purpose of the list - why it was created.
      */
+    @Child(name="code", type={CodeableConcept.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="What the purpose of this list is", formalDefinition="This code defines the purpose of the list - why it was created." )
     protected CodeableConcept code;
 
     /**
      * The common subject (or patient) of the resources that are in the list, if there is one.
      */
+    @Child(name="subject", type={Patient.class, Group.class, Device.class, Location.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="If all resources have the same subject", formalDefinition="The common subject (or patient) of the resources that are in the list, if there is one." )
     protected Reference subject;
 
     /**
@@ -306,6 +402,8 @@ public class List_ extends DomainResource {
     /**
      * The entity responsible for deciding what the contents of the list were.
      */
+    @Child(name="source", type={Practitioner.class, Patient.class, Device.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Who and/or what defined the list contents", formalDefinition="The entity responsible for deciding what the contents of the list were." )
     protected Reference source;
 
     /**
@@ -316,29 +414,39 @@ public class List_ extends DomainResource {
     /**
      * The date that the list was prepared.
      */
+    @Child(name="date", type={DateTimeType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="When the list was prepared", formalDefinition="The date that the list was prepared." )
     protected DateTimeType date;
 
     /**
      * Whether items in the list have a meaningful order.
      */
+    @Child(name="ordered", type={BooleanType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Whether items in the list have a meaningful order", formalDefinition="Whether items in the list have a meaningful order." )
     protected BooleanType ordered;
 
     /**
      * How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
      */
+    @Child(name="mode", type={CodeType.class}, order=5, min=1, max=1)
+    @Description(shortDefinition="working | snapshot | changes", formalDefinition="How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted." )
     protected Enumeration<ListMode> mode;
 
     /**
      * Entries in this list.
      */
-    protected List<ListEntryComponent> entry = new ArrayList<ListEntryComponent>();
+    @Child(name="entry", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Entries in the list", formalDefinition="Entries in this list." )
+    protected List<ListEntryComponent> entry;
 
     /**
      * If the list is empty, why the list is empty.
      */
+    @Child(name="emptyReason", type={CodeableConcept.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Why list is empty", formalDefinition="If the list is empty, why the list is empty." )
     protected CodeableConcept emptyReason;
 
-    private static final long serialVersionUID = -918829646L;
+    private static final long serialVersionUID = 1475323442L;
 
     public List_() {
       super();
@@ -353,7 +461,18 @@ public class List_ extends DomainResource {
      * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -362,6 +481,8 @@ public class List_ extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -370,7 +491,16 @@ public class List_ extends DomainResource {
      * @return {@link #code} (This code defines the purpose of the list - why it was created.)
      */
     public CodeableConcept getCode() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeableConcept();
       return this.code;
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
     }
 
     /**
@@ -385,7 +515,16 @@ public class List_ extends DomainResource {
      * @return {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -415,7 +554,16 @@ public class List_ extends DomainResource {
      * @return {@link #source} (The entity responsible for deciding what the contents of the list were.)
      */
     public Reference getSource() { 
+      if (this.source == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.source");
+        else if (Configuration.doAutoCreate())
+          this.source = new Reference();
       return this.source;
+    }
+
+    public boolean hasSource() { 
+      return this.source != null && !this.source.isEmpty();
     }
 
     /**
@@ -445,7 +593,20 @@ public class List_ extends DomainResource {
      * @return {@link #date} (The date that the list was prepared.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -481,7 +642,20 @@ public class List_ extends DomainResource {
      * @return {@link #ordered} (Whether items in the list have a meaningful order.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
      */
     public BooleanType getOrderedElement() { 
+      if (this.ordered == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.ordered");
+        else if (Configuration.doAutoCreate())
+          this.ordered = new BooleanType();
       return this.ordered;
+    }
+
+    public boolean hasOrderedElement() { 
+      return this.ordered != null && !this.ordered.isEmpty();
+    }
+
+    public boolean hasOrdered() { 
+      return this.ordered != null && !this.ordered.isEmpty();
     }
 
     /**
@@ -517,7 +691,20 @@ public class List_ extends DomainResource {
      * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
      */
     public Enumeration<ListMode> getModeElement() { 
+      if (this.mode == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.mode");
+        else if (Configuration.doAutoCreate())
+          this.mode = new Enumeration<ListMode>();
       return this.mode;
+    }
+
+    public boolean hasModeElement() { 
+      return this.mode != null && !this.mode.isEmpty();
+    }
+
+    public boolean hasMode() { 
+      return this.mode != null && !this.mode.isEmpty();
     }
 
     /**
@@ -549,7 +736,18 @@ public class List_ extends DomainResource {
      * @return {@link #entry} (Entries in this list.)
      */
     public List<ListEntryComponent> getEntry() { 
+      if (this.entry == null)
+        this.entry = new ArrayList<ListEntryComponent>();
       return this.entry;
+    }
+
+    public boolean hasEntry() { 
+      if (this.entry == null)
+        return false;
+      for (ListEntryComponent item : this.entry)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -558,6 +756,8 @@ public class List_ extends DomainResource {
     // syntactic sugar
     public ListEntryComponent addEntry() { //3
       ListEntryComponent t = new ListEntryComponent();
+      if (this.entry == null)
+        this.entry = new ArrayList<ListEntryComponent>();
       this.entry.add(t);
       return t;
     }
@@ -566,7 +766,16 @@ public class List_ extends DomainResource {
      * @return {@link #emptyReason} (If the list is empty, why the list is empty.)
      */
     public CodeableConcept getEmptyReason() { 
+      if (this.emptyReason == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create List_.emptyReason");
+        else if (Configuration.doAutoCreate())
+          this.emptyReason = new CodeableConcept();
       return this.emptyReason;
+    }
+
+    public boolean hasEmptyReason() { 
+      return this.emptyReason != null && !this.emptyReason.isEmpty();
     }
 
     /**
@@ -593,18 +802,22 @@ public class List_ extends DomainResource {
       public List_ copy() {
         List_ dst = new List_();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.source = source == null ? null : source.copy();
         dst.date = date == null ? null : date.copy();
         dst.ordered = ordered == null ? null : ordered.copy();
         dst.mode = mode == null ? null : mode.copy();
-        dst.entry = new ArrayList<ListEntryComponent>();
-        for (ListEntryComponent i : entry)
-          dst.entry.add(i.copy());
+        if (entry != null) {
+          dst.entry = new ArrayList<ListEntryComponent>();
+          for (ListEntryComponent i : entry)
+            dst.entry.add(i.copy());
+        };
         dst.emptyReason = emptyReason == null ? null : emptyReason.copy();
         return dst;
       }
@@ -613,11 +826,32 @@ public class List_ extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
+           && (subject == null || subject.isEmpty()) && (source == null || source.isEmpty()) && (date == null || date.isEmpty())
+           && (ordered == null || ordered.isEmpty()) && (mode == null || mode.isEmpty()) && (entry == null || entry.isEmpty())
+           && (emptyReason == null || emptyReason.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.List;
    }
 
+  @SearchParamDefinition(name="patient", path="List.subject", description="If all resources have the same subject", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="source", path="List.source", description="Who and/or what defined the list contents", type="reference" )
+  public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="subject", path="List.subject", description="If all resources have the same subject", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="item", path="List.entry.item", description="Actual entry", type="reference" )
+  public static final String SP_ITEM = "item";
+  @SearchParamDefinition(name="code", path="List.code", description="What the purpose of this list is", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="List.date", description="When the list was prepared", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="empty-reason", path="List.emptyReason", description="Why list is empty", type="token" )
+  public static final String SP_EMPTYREASON = "empty-reason";
 
 }
 

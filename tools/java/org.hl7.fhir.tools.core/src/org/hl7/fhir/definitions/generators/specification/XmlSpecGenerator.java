@@ -45,7 +45,7 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -497,11 +497,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
 				        ValueSet vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-	              String pp = (String) vs.getTag("path");
+	              String pp = (String) vs.getUserData("path");
 				        write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
 	                ValueSet vs = page.getValueSets().get(bs.getReference());
-	                String pp = (String) vs.getTag("path");
+	                String pp = (String) vs.getUserData("path");
 	                write("<a href=\""+(vs == null ? "??" : pp.replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
 				        BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
@@ -635,13 +635,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         write("&gt; <span style=\"color: Gray\">&lt;!--</span>");
         writeCardinality(elem);
         write(" ");
-        ElementDefinitionBindingComponent bs = elem.getBinding();
-        if (bs != null && bs.getReference() != null) {
-          ValueSet vs = resolveValueSet(bs.getReference());
+        
+        if (elem.hasBinding() && elem.getBinding().hasReference()) {
+          ValueSet vs = resolveValueSet(elem.getBinding().getReference());
           if (vs != null)
-            write("<span style=\"color: navy\"><a href=\""+vs.getTag("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+            write("<span style=\"color: navy\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
           else
-            write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+            write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         } else
           write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
         write(" <span style=\"color: Gray\">--!&gt; </span>\r\n");
@@ -719,39 +719,28 @@ public class XmlSpecGenerator extends OutputStreamWriter {
               + Utilities.escapeXml(elem.getShort())
               + "</span></a> ");
         } else {
-          if (elem.getMax() != null && elem.getMax().equals("0")) 
+          if (elem.hasMax() && elem.getMax().equals("0")) 
             write("<span style=\"text-decoration: line-through\">");
-          ElementDefinitionBindingComponent bs = elem.getBinding();
-          if (bs != null && bs.getReference() != null) {
-            ValueSet vs = resolveValueSet(bs.getReference());
+          if (elem.hasBinding() && elem.getBinding().hasReference()) {
+            ValueSet vs = resolveValueSet(elem.getBinding().getReference());
             if (vs != null)
-              write("<span style=\"color: navy\"><a href=\""+vs.getTag("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+              write("<span style=\"color: navy\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
             else
-              write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
           } else
             write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
-          if (elem.getMax() != null && elem.getMax().equals("0")) 
+          if (elem.hasMax() && elem.getMax().equals("0")) 
             write("</span>");
         }
       } else {
         if ("*".equals(elem.getMax()) && !listed) { // isNolist()) {
-          //        if (usesCompositeType(elem)) {
-          //          write(" <span style=\"color: Gray\">&lt;!--");
-          //          writeCardinality(elem);
-          //          if (elem.getMax() != null && elem.getMax().equals("0")) 
-          //            write("<span style=\"text-decoration: line-through\">");
-          //          write("" + Utilities.escapeXml(elem.getShort()));
-          //          if (elem.getMax() != null && elem.getMax().equals("0")) 
-          //            write("</span>");
-          //          write(" --&gt;</span>");
-          //        } else 
-          if (elem.getShort() != null) {
+          if (elem.hasShort()) {
             write(" <span style=\"color: Gray\">&lt;!--");
             writeCardinality(elem);
-            if (elem.getMax() != null && elem.getMax().equals("0")) 
+            if (elem.hasMax() && elem.getMax().equals("0")) 
               write("<span style=\"text-decoration: line-through\">");
             write(" " + Utilities.escapeXml(elem.getShort()));
-            if (elem.getMax() != null && elem.getMax().equals("0")) 
+            if (elem.hasMax() && elem.getMax().equals("0")) 
               write("</span>");
             write(" --&gt;</span>");
           } else {
@@ -759,13 +748,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             writeCardinality(elem);
             write(" --&gt;</span>");
           }
-        } else if (elem.getShort() != null) {
+        } else if (elem.hasShort()) {
           write(" <span style=\"color: Gray\">&lt;!--");
           writeCardinality(elem);
-          if (elem.getMax() != null && elem.getMax().equals("0")) 
+          if (elem.hasMax()  && elem.getMax().equals("0")) 
             write("<span style=\"text-decoration: line-through\">");
           write(" "+Utilities.escapeXml(elem.getShort()));
-          if (elem.getMax() != null && elem.getMax().equals("0")) 
+          if (elem.hasMax() && elem.getMax().equals("0")) 
             write("</span>");
           write(" --&gt;</span>");
         }
@@ -1021,7 +1010,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       b.append(" ");
     String ind = b.toString();
 
-    XmlComposer xml = new XmlComposer();
+    XmlParser xml = new XmlParser();
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     xml.compose(bs, value);
     bs.close();

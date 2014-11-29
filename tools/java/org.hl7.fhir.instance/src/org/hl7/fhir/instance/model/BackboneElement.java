@@ -56,8 +56,16 @@ public abstract class BackboneElement extends Element {
    * @return true if there are any modifier extensions or any extensions
    */
 	@Override
+  public boolean hasExtension() {
+    return modifierExtension.size() > 0 || super.hasExtension();
+  }
+
+  /**
+   * @return true if there are any modifier extensions or any extensions
+   */
+	@Override
   public boolean hasExtensions() {
-    return modifierExtension.size() > 0 || super.hasExtensions();
+    return modifierExtension.size() > 0 || super.hasExtension();
   }
 
 	/**
@@ -93,7 +101,7 @@ public abstract class BackboneElement extends Element {
   /**
    * @return true if there are any modifier extensions
    */
-  public boolean hasModifierExtensions() {
+  public boolean hasModifierExtension() {
     return modifierExtension.size() > 0;
   }
 	

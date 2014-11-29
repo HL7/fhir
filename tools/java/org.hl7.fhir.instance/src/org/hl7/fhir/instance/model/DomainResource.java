@@ -29,36 +29,50 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * 
  */
+@ResourceDef(name="DomainResource", profile="http://hl7.org/fhir/Profile/DomainResource")
 public abstract class DomainResource extends Resource {
 
     /**
      * A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
      */
+    @Child(name="text", type={Narrative.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Text summary of the resource, for human interpretation", formalDefinition="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it 'clinically safe' for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety." )
     protected Narrative text;
 
     /**
      * These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.
      */
-    protected List<Resource> contained = new ArrayList<Resource>();
+    @Child(name="contained", type={Resource.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contained, inline Resources", formalDefinition="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope." )
+    protected List<Resource> contained;
 
     /**
      * May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.
      */
-    protected List<Extension> extension = new ArrayList<Extension>();
+    @Child(name="extension", type={Extension.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Additional Content defined by implementations", formalDefinition="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension." )
+    protected List<Extension> extension;
 
     /**
      * May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
      */
-    protected List<Extension> modifierExtension = new ArrayList<Extension>();
+    @Child(name="modifierExtension", type={Extension.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Extensions that cannot be ignored", formalDefinition="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions." )
+    protected List<Extension> modifierExtension;
 
-    private static final long serialVersionUID = 1245268918L;
+    private static final long serialVersionUID = -970285559L;
 
     public DomainResource() {
       super();
@@ -68,7 +82,16 @@ public abstract class DomainResource extends Resource {
      * @return {@link #text} (A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it "clinically safe" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.)
      */
     public Narrative getText() { 
+      if (this.text == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DomainResource.text");
+        else if (Configuration.doAutoCreate())
+          this.text = new Narrative();
       return this.text;
+    }
+
+    public boolean hasText() { 
+      return this.text != null && !this.text.isEmpty();
     }
 
     /**
@@ -83,7 +106,18 @@ public abstract class DomainResource extends Resource {
      * @return {@link #contained} (These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.)
      */
     public List<Resource> getContained() { 
+      if (this.contained == null)
+        this.contained = new ArrayList<Resource>();
       return this.contained;
+    }
+
+    public boolean hasContained() { 
+      if (this.contained == null)
+        return false;
+      for (Resource item : this.contained)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -93,7 +127,18 @@ public abstract class DomainResource extends Resource {
      * @return {@link #extension} (May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.)
      */
     public List<Extension> getExtension() { 
+      if (this.extension == null)
+        this.extension = new ArrayList<Extension>();
       return this.extension;
+    }
+
+    public boolean hasExtension() { 
+      if (this.extension == null)
+        return false;
+      for (Extension item : this.extension)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -102,6 +147,8 @@ public abstract class DomainResource extends Resource {
     // syntactic sugar
     public Extension addExtension() { //3
       Extension t = new Extension();
+      if (this.extension == null)
+        this.extension = new ArrayList<Extension>();
       this.extension.add(t);
       return t;
     }
@@ -110,7 +157,18 @@ public abstract class DomainResource extends Resource {
      * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
      */
     public List<Extension> getModifierExtension() { 
+      if (this.modifierExtension == null)
+        this.modifierExtension = new ArrayList<Extension>();
       return this.modifierExtension;
+    }
+
+    public boolean hasModifierExtension() { 
+      if (this.modifierExtension == null)
+        return false;
+      for (Extension item : this.modifierExtension)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -119,6 +177,8 @@ public abstract class DomainResource extends Resource {
     // syntactic sugar
     public Extension addModifierExtension() { //3
       Extension t = new Extension();
+      if (this.modifierExtension == null)
+        this.modifierExtension = new ArrayList<Extension>();
       this.modifierExtension.add(t);
       return t;
     }
@@ -134,15 +194,27 @@ public abstract class DomainResource extends Resource {
 
       public void copyValues(DomainResource dst) {
         dst.text = text == null ? null : text.copy();
-        dst.contained = new ArrayList<Resource>();
-        for (Resource i : contained)
-          dst.contained.add(i.copy());
-        dst.extension = new ArrayList<Extension>();
-        for (Extension i : extension)
-          dst.extension.add(i.copy());
-        dst.modifierExtension = new ArrayList<Extension>();
-        for (Extension i : modifierExtension)
-          dst.modifierExtension.add(i.copy());
+        if (contained != null) {
+          dst.contained = new ArrayList<Resource>();
+          for (Resource i : contained)
+            dst.contained.add(i.copy());
+        };
+        if (extension != null) {
+          dst.extension = new ArrayList<Extension>();
+          for (Extension i : extension)
+            dst.extension.add(i.copy());
+        };
+        if (modifierExtension != null) {
+          dst.modifierExtension = new ArrayList<Extension>();
+          for (Extension i : modifierExtension)
+            dst.modifierExtension.add(i.copy());
+        };
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (text == null || text.isEmpty()) && (contained == null || contained.isEmpty())
+           && (extension == null || extension.isEmpty()) && (modifierExtension == null || modifierExtension.isEmpty())
+          ;
       }
 
 

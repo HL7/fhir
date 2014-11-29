@@ -29,23 +29,31 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A time period defined by a start and end date and optionally time.
  */
+@DatatypeDef(name="Period")
 public class Period extends Type {
 
     /**
      * The start of the period. The boundary is inclusive.
      */
+    @Child(name="start", type={DateTimeType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Starting time with inclusive boundary", formalDefinition="The start of the period. The boundary is inclusive." )
     protected DateTimeType start;
 
     /**
      * The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
+    @Child(name="end", type={DateTimeType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="End time with inclusive boundary, if not ongoing", formalDefinition="The end of the period. If the end of the period is missing, it means that the period is ongoing." )
     protected DateTimeType end;
 
     private static final long serialVersionUID = 649791751L;
@@ -58,7 +66,20 @@ public class Period extends Type {
      * @return {@link #start} (The start of the period. The boundary is inclusive.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
     public DateTimeType getStartElement() { 
+      if (this.start == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Period.start");
+        else if (Configuration.doAutoCreate())
+          this.start = new DateTimeType();
       return this.start;
+    }
+
+    public boolean hasStartElement() { 
+      return this.start != null && !this.start.isEmpty();
+    }
+
+    public boolean hasStart() { 
+      return this.start != null && !this.start.isEmpty();
     }
 
     /**
@@ -94,7 +115,20 @@ public class Period extends Type {
      * @return {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
     public DateTimeType getEndElement() { 
+      if (this.end == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Period.end");
+        else if (Configuration.doAutoCreate())
+          this.end = new DateTimeType();
       return this.end;
+    }
+
+    public boolean hasEndElement() { 
+      return this.end != null && !this.end.isEmpty();
+    }
+
+    public boolean hasEnd() { 
+      return this.end != null && !this.end.isEmpty();
     }
 
     /**
@@ -142,6 +176,11 @@ public class Period extends Type {
 
       protected Period typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
+          ;
       }
 
 

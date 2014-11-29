@@ -29,23 +29,44 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
+@ResourceDef(name="OralHealthClaim", profile="http://hl7.org/fhir/Profile/OralHealthClaim")
 public class OralHealthClaim extends DomainResource {
 
     public enum UseLink {
-        COMPLETE, // The treatment is complete and this represents a Claim for the services.
-        PROPOSED, // The treatment is proposed and this represents a Pre-authorization for the services.
-        EXPLORATORY, // The treatment is proposed and this represents a Pre-determination for the services.
-        OTHER, // A locally defined or otherwise resolved status.
-        NULL; // added to help the parsers
+        /**
+         * The treatment is complete and this represents a Claim for the services.
+         */
+        COMPLETE, 
+        /**
+         * The treatment is proposed and this represents a Pre-authorization for the services.
+         */
+        PROPOSED, 
+        /**
+         * The treatment is proposed and this represents a Pre-determination for the services.
+         */
+        EXPLORATORY, 
+        /**
+         * A locally defined or otherwise resolved status.
+         */
+        OTHER, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static UseLink fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -65,6 +86,15 @@ public class OralHealthClaim extends DomainResource {
             case PROPOSED: return "proposed";
             case EXPLORATORY: return "exploratory";
             case OTHER: return "other";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case COMPLETE: return "";
+            case PROPOSED: return "";
+            case EXPLORATORY: return "";
+            case OTHER: return "";
             default: return "?";
           }
         }
@@ -116,15 +146,20 @@ public class OralHealthClaim extends DomainResource {
       }
     }
 
+    @Block()
     public static class PayeeComponent extends BackboneElement {
         /**
          * Party to be reimbursed: Subscriber, provider, other.
          */
+        @Child(name="type", type={Coding.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
         protected Coding type;
 
         /**
          * The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).
          */
+        @Child(name="provider", type={Practitioner.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Provider who is the payee", formalDefinition="The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned)." )
         protected Reference provider;
 
         /**
@@ -135,6 +170,8 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).
          */
+        @Child(name="organization", type={Organization.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Organization who is the payee", formalDefinition="The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned)." )
         protected Reference organization;
 
         /**
@@ -145,6 +182,8 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).
          */
+        @Child(name="person", type={Patient.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Other person who is the payee", formalDefinition="The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned)." )
         protected Reference person;
 
         /**
@@ -162,7 +201,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #type} (Party to be reimbursed: Subscriber, provider, other.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -177,7 +225,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #provider} (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Reference getProvider() { 
+          if (this.provider == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.provider");
+            else if (Configuration.doAutoCreate())
+              this.provider = new Reference();
           return this.provider;
+        }
+
+        public boolean hasProvider() { 
+          return this.provider != null && !this.provider.isEmpty();
         }
 
         /**
@@ -192,6 +249,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Practitioner getProviderTarget() { 
+          if (this.providerTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.provider");
+            else if (Configuration.doAutoCreate())
+              this.providerTarget = new Practitioner();
           return this.providerTarget;
         }
 
@@ -207,7 +269,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #organization} (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Reference getOrganization() { 
+          if (this.organization == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.organization");
+            else if (Configuration.doAutoCreate())
+              this.organization = new Reference();
           return this.organization;
+        }
+
+        public boolean hasOrganization() { 
+          return this.organization != null && !this.organization.isEmpty();
         }
 
         /**
@@ -222,6 +293,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Organization getOrganizationTarget() { 
+          if (this.organizationTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.organization");
+            else if (Configuration.doAutoCreate())
+              this.organizationTarget = new Organization();
           return this.organizationTarget;
         }
 
@@ -237,7 +313,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #person} (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Reference getPerson() { 
+          if (this.person == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.person");
+            else if (Configuration.doAutoCreate())
+              this.person = new Reference();
           return this.person;
+        }
+
+        public boolean hasPerson() { 
+          return this.person != null && !this.person.isEmpty();
         }
 
         /**
@@ -252,6 +337,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #person} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
         public Patient getPersonTarget() { 
+          if (this.personTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.person");
+            else if (Configuration.doAutoCreate())
+              this.personTarget = new Patient();
           return this.personTarget;
         }
 
@@ -281,17 +371,28 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (provider == null || provider.isEmpty())
+           && (organization == null || organization.isEmpty()) && (person == null || person.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class DiagnosisComponent extends BackboneElement {
         /**
          * Sequence of diagnosis.
          */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Sequence of diagnosis", formalDefinition="Sequence of diagnosis." )
         protected IntegerType sequence;
 
         /**
          * The diagnosis.
          */
+        @Child(name="diagnosis", type={Coding.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Patient's list of diagnosis", formalDefinition="The diagnosis." )
         protected Coding diagnosis;
 
         private static final long serialVersionUID = -935927954L;
@@ -310,7 +411,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #sequence} (Sequence of diagnosis.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType();
           return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
@@ -342,7 +456,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #diagnosis} (The diagnosis.)
          */
         public Coding getDiagnosis() { 
+          if (this.diagnosis == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
+            else if (Configuration.doAutoCreate())
+              this.diagnosis = new Coding();
           return this.diagnosis;
+        }
+
+        public boolean hasDiagnosis() { 
+          return this.diagnosis != null && !this.diagnosis.isEmpty();
         }
 
         /**
@@ -367,22 +490,34 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class CoverageComponent extends BackboneElement {
         /**
          * A service line item.
          */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Service instance identifier", formalDefinition="A service line item." )
         protected IntegerType sequence;
 
         /**
          * The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.
          */
+        @Child(name="focal", type={BooleanType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against." )
         protected BooleanType focal;
 
         /**
          * Reference to the program or plan identification, underwriter or payor.
          */
+        @Child(name="coverage", type={Coverage.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Insurance information", formalDefinition="Reference to the program or plan identification, underwriter or payor." )
         protected Reference coverage;
 
         /**
@@ -393,21 +528,29 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The contract number of a business agrement which describes the terms and conditions.
          */
+        @Child(name="businessArrangement", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agrement which describes the terms and conditions." )
         protected StringType businessArrangement;
 
         /**
          * The relationship of the patient to the subscriber.
          */
+        @Child(name="relationship", type={Coding.class}, order=5, min=1, max=1)
+        @Description(shortDefinition="Patient relationship to subscriber", formalDefinition="The relationship of the patient to the subscriber." )
         protected Coding relationship;
 
         /**
          * A list of references from the Insurer to which these services pertain.
          */
-        protected List<StringType> preauthref = new ArrayList<StringType>();
+        @Child(name="preauthref", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Pre-Authorization/Determination Reference", formalDefinition="A list of references from the Insurer to which these services pertain." )
+        protected List<StringType> preauthref;
 
         /**
          * The Coverages adjudication details.
          */
+        @Child(name="claimResponse", type={ClaimResponse.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Adjudication results", formalDefinition="The Coverages adjudication details." )
         protected Reference claimResponse;
 
         /**
@@ -418,9 +561,11 @@ public class OralHealthClaim extends DomainResource {
         /**
          * The style (standard) and version of the original material which was converted into this resource.
          */
+        @Child(name="originalRuleset", type={Coding.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
         protected Coding originalRuleset;
 
-        private static final long serialVersionUID = 1207065968L;
+        private static final long serialVersionUID = 450222500L;
 
       public CoverageComponent() {
         super();
@@ -438,7 +583,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType();
           return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
@@ -470,7 +628,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
         public BooleanType getFocalElement() { 
+          if (this.focal == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.focal");
+            else if (Configuration.doAutoCreate())
+              this.focal = new BooleanType();
           return this.focal;
+        }
+
+        public boolean hasFocalElement() { 
+          return this.focal != null && !this.focal.isEmpty();
+        }
+
+        public boolean hasFocal() { 
+          return this.focal != null && !this.focal.isEmpty();
         }
 
         /**
@@ -502,7 +673,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
         public Reference getCoverage() { 
+          if (this.coverage == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.coverage");
+            else if (Configuration.doAutoCreate())
+              this.coverage = new Reference();
           return this.coverage;
+        }
+
+        public boolean hasCoverage() { 
+          return this.coverage != null && !this.coverage.isEmpty();
         }
 
         /**
@@ -517,6 +697,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
          */
         public Coverage getCoverageTarget() { 
+          if (this.coverageTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.coverage");
+            else if (Configuration.doAutoCreate())
+              this.coverageTarget = new Coverage();
           return this.coverageTarget;
         }
 
@@ -532,7 +717,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #businessArrangement} (The contract number of a business agrement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
         public StringType getBusinessArrangementElement() { 
+          if (this.businessArrangement == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
+            else if (Configuration.doAutoCreate())
+              this.businessArrangement = new StringType();
           return this.businessArrangement;
+        }
+
+        public boolean hasBusinessArrangementElement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
+        }
+
+        public boolean hasBusinessArrangement() { 
+          return this.businessArrangement != null && !this.businessArrangement.isEmpty();
         }
 
         /**
@@ -568,7 +766,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #relationship} (The relationship of the patient to the subscriber.)
          */
         public Coding getRelationship() { 
+          if (this.relationship == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.relationship");
+            else if (Configuration.doAutoCreate())
+              this.relationship = new Coding();
           return this.relationship;
+        }
+
+        public boolean hasRelationship() { 
+          return this.relationship != null && !this.relationship.isEmpty();
         }
 
         /**
@@ -583,7 +790,18 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
         public List<StringType> getPreauthref() { 
+          if (this.preauthref == null)
+            this.preauthref = new ArrayList<StringType>();
           return this.preauthref;
+        }
+
+        public boolean hasPreauthref() { 
+          if (this.preauthref == null)
+            return false;
+          for (StringType item : this.preauthref)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -592,6 +810,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
         public StringType addPreauthrefElement() {//2 
           StringType t = new StringType();
+          if (this.preauthref == null)
+            this.preauthref = new ArrayList<StringType>();
           this.preauthref.add(t);
           return t;
         }
@@ -602,6 +822,8 @@ public class OralHealthClaim extends DomainResource {
         public CoverageComponent addPreauthref(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
+          if (this.preauthref == null)
+            this.preauthref = new ArrayList<StringType>();
           this.preauthref.add(t);
           return this;
         }
@@ -610,6 +832,8 @@ public class OralHealthClaim extends DomainResource {
          * @param value {@link #preauthref} (A list of references from the Insurer to which these services pertain.)
          */
         public boolean hasPreauthref(String value) { 
+          if (this.preauthref == null)
+            return false;
           for (StringType v : this.preauthref)
             if (v.equals(value)) // string
               return true;
@@ -620,7 +844,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #claimResponse} (The Coverages adjudication details.)
          */
         public Reference getClaimResponse() { 
+          if (this.claimResponse == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
+            else if (Configuration.doAutoCreate())
+              this.claimResponse = new Reference();
           return this.claimResponse;
+        }
+
+        public boolean hasClaimResponse() { 
+          return this.claimResponse != null && !this.claimResponse.isEmpty();
         }
 
         /**
@@ -635,6 +868,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
          */
         public ClaimResponse getClaimResponseTarget() { 
+          if (this.claimResponseTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
+            else if (Configuration.doAutoCreate())
+              this.claimResponseTarget = new ClaimResponse();
           return this.claimResponseTarget;
         }
 
@@ -650,7 +888,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
         public Coding getOriginalRuleset() { 
+          if (this.originalRuleset == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
+            else if (Configuration.doAutoCreate())
+              this.originalRuleset = new Coding();
           return this.originalRuleset;
+        }
+
+        public boolean hasOriginalRuleset() { 
+          return this.originalRuleset != null && !this.originalRuleset.isEmpty();
         }
 
         /**
@@ -681,30 +928,47 @@ public class OralHealthClaim extends DomainResource {
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
-        dst.preauthref = new ArrayList<StringType>();
-        for (StringType i : preauthref)
-          dst.preauthref.add(i.copy());
+        if (preauthref != null) {
+          dst.preauthref = new ArrayList<StringType>();
+          for (StringType i : preauthref)
+            dst.preauthref.add(i.copy());
+        };
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
+           && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
+           && (relationship == null || relationship.isEmpty()) && (preauthref == null || preauthref.isEmpty())
+           && (claimResponse == null || claimResponse.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class MissingTeethComponent extends BackboneElement {
         /**
          * The code identifying which tooth is missing.
          */
+        @Child(name="tooth", type={Coding.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Tooth Code", formalDefinition="The code identifying which tooth is missing." )
         protected Coding tooth;
 
         /**
          * Missing reason may be: E-extraction, O-other.
          */
+        @Child(name="reason", type={Coding.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Reason for missing", formalDefinition="Missing reason may be: E-extraction, O-other." )
         protected Coding reason;
 
         /**
          * The date of the extraction either known from records or patient reported estimate.
          */
+        @Child(name="extractiondate", type={DateType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Date of Extraction", formalDefinition="The date of the extraction either known from records or patient reported estimate." )
         protected DateType extractiondate;
 
         private static final long serialVersionUID = -1311739967L;
@@ -722,7 +986,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #tooth} (The code identifying which tooth is missing.)
          */
         public Coding getTooth() { 
+          if (this.tooth == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.tooth");
+            else if (Configuration.doAutoCreate())
+              this.tooth = new Coding();
           return this.tooth;
+        }
+
+        public boolean hasTooth() { 
+          return this.tooth != null && !this.tooth.isEmpty();
         }
 
         /**
@@ -737,7 +1010,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #reason} (Missing reason may be: E-extraction, O-other.)
          */
         public Coding getReason() { 
+          if (this.reason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.reason");
+            else if (Configuration.doAutoCreate())
+              this.reason = new Coding();
           return this.reason;
+        }
+
+        public boolean hasReason() { 
+          return this.reason != null && !this.reason.isEmpty();
         }
 
         /**
@@ -752,7 +1034,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #extractiondate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractiondate" gives direct access to the value
          */
         public DateType getExtractiondateElement() { 
+          if (this.extractiondate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MissingTeethComponent.extractiondate");
+            else if (Configuration.doAutoCreate())
+              this.extractiondate = new DateType();
           return this.extractiondate;
+        }
+
+        public boolean hasExtractiondateElement() { 
+          return this.extractiondate != null && !this.extractiondate.isEmpty();
+        }
+
+        public boolean hasExtractiondate() { 
+          return this.extractiondate != null && !this.extractiondate.isEmpty();
         }
 
         /**
@@ -800,42 +1095,62 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (tooth == null || tooth.isEmpty()) && (reason == null || reason.isEmpty())
+           && (extractiondate == null || extractiondate.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class OrthodonticPlanComponent extends BackboneElement {
         /**
          * The intended start date for service.
          */
+        @Child(name="start", type={DateType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Start date", formalDefinition="The intended start date for service." )
         protected DateType start;
 
         /**
          * The estimated first examination fee.
          */
+        @Child(name="examFee", type={Money.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="First exam fee", formalDefinition="The estimated first examination fee." )
         protected Money examFee;
 
         /**
          * The estimated diagnostic fee.
          */
+        @Child(name="diagnosticFee", type={Money.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Diagnostic phase fee", formalDefinition="The estimated diagnostic fee." )
         protected Money diagnosticFee;
 
         /**
          * The estimated initial payment.
          */
+        @Child(name="initialPayment", type={Money.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Initial payment", formalDefinition="The estimated initial payment." )
         protected Money initialPayment;
 
         /**
          * The estimated treatment duration in months.
          */
+        @Child(name="durationMonths", type={IntegerType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Duration in months", formalDefinition="The estimated treatment duration in months." )
         protected IntegerType durationMonths;
 
         /**
          * The anticipated number of payments.
          */
+        @Child(name="paymentCount", type={IntegerType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Anticipated number of payments", formalDefinition="The anticipated number of payments." )
         protected IntegerType paymentCount;
 
         /**
          * The anticipated payment amount.
          */
+        @Child(name="periodicPayment", type={Money.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Anticipated payment", formalDefinition="The anticipated payment amount." )
         protected Money periodicPayment;
 
         private static final long serialVersionUID = 1892827159L;
@@ -848,7 +1163,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #start} (The intended start date for service.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
          */
         public DateType getStartElement() { 
+          if (this.start == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.start");
+            else if (Configuration.doAutoCreate())
+              this.start = new DateType();
           return this.start;
+        }
+
+        public boolean hasStartElement() { 
+          return this.start != null && !this.start.isEmpty();
+        }
+
+        public boolean hasStart() { 
+          return this.start != null && !this.start.isEmpty();
         }
 
         /**
@@ -884,7 +1212,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #examFee} (The estimated first examination fee.)
          */
         public Money getExamFee() { 
+          if (this.examFee == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.examFee");
+            else if (Configuration.doAutoCreate())
+              this.examFee = new Money();
           return this.examFee;
+        }
+
+        public boolean hasExamFee() { 
+          return this.examFee != null && !this.examFee.isEmpty();
         }
 
         /**
@@ -899,7 +1236,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #diagnosticFee} (The estimated diagnostic fee.)
          */
         public Money getDiagnosticFee() { 
+          if (this.diagnosticFee == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.diagnosticFee");
+            else if (Configuration.doAutoCreate())
+              this.diagnosticFee = new Money();
           return this.diagnosticFee;
+        }
+
+        public boolean hasDiagnosticFee() { 
+          return this.diagnosticFee != null && !this.diagnosticFee.isEmpty();
         }
 
         /**
@@ -914,7 +1260,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #initialPayment} (The estimated initial payment.)
          */
         public Money getInitialPayment() { 
+          if (this.initialPayment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.initialPayment");
+            else if (Configuration.doAutoCreate())
+              this.initialPayment = new Money();
           return this.initialPayment;
+        }
+
+        public boolean hasInitialPayment() { 
+          return this.initialPayment != null && !this.initialPayment.isEmpty();
         }
 
         /**
@@ -929,7 +1284,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #durationMonths} (The estimated treatment duration in months.). This is the underlying object with id, value and extensions. The accessor "getDurationMonths" gives direct access to the value
          */
         public IntegerType getDurationMonthsElement() { 
+          if (this.durationMonths == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.durationMonths");
+            else if (Configuration.doAutoCreate())
+              this.durationMonths = new IntegerType();
           return this.durationMonths;
+        }
+
+        public boolean hasDurationMonthsElement() { 
+          return this.durationMonths != null && !this.durationMonths.isEmpty();
+        }
+
+        public boolean hasDurationMonths() { 
+          return this.durationMonths != null && !this.durationMonths.isEmpty();
         }
 
         /**
@@ -965,7 +1333,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #paymentCount} (The anticipated number of payments.). This is the underlying object with id, value and extensions. The accessor "getPaymentCount" gives direct access to the value
          */
         public IntegerType getPaymentCountElement() { 
+          if (this.paymentCount == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.paymentCount");
+            else if (Configuration.doAutoCreate())
+              this.paymentCount = new IntegerType();
           return this.paymentCount;
+        }
+
+        public boolean hasPaymentCountElement() { 
+          return this.paymentCount != null && !this.paymentCount.isEmpty();
+        }
+
+        public boolean hasPaymentCount() { 
+          return this.paymentCount != null && !this.paymentCount.isEmpty();
         }
 
         /**
@@ -1001,7 +1382,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #periodicPayment} (The anticipated payment amount.)
          */
         public Money getPeriodicPayment() { 
+          if (this.periodicPayment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OrthodonticPlanComponent.periodicPayment");
+            else if (Configuration.doAutoCreate())
+              this.periodicPayment = new Money();
           return this.periodicPayment;
+        }
+
+        public boolean hasPeriodicPayment() { 
+          return this.periodicPayment != null && !this.periodicPayment.isEmpty();
         }
 
         /**
@@ -1036,22 +1426,36 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (start == null || start.isEmpty()) && (examFee == null || examFee.isEmpty())
+           && (diagnosticFee == null || diagnosticFee.isEmpty()) && (initialPayment == null || initialPayment.isEmpty())
+           && (durationMonths == null || durationMonths.isEmpty()) && (paymentCount == null || paymentCount.isEmpty())
+           && (periodicPayment == null || periodicPayment.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class ItemsComponent extends BackboneElement {
         /**
          * A service line number.
          */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected IntegerType sequence;
 
         /**
          * The type of product or service.
          */
+        @Child(name="type", type={Coding.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Group or type of product or service", formalDefinition="The type of product or service." )
         protected Coding type;
 
         /**
          * The practitioner who is responsible for the services rendered to the patient.
          */
+        @Child(name="provider", type={Practitioner.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
         protected Reference provider;
 
         /**
@@ -1062,69 +1466,95 @@ public class OralHealthClaim extends DomainResource {
         /**
          * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
          */
+        @Child(name="service", type={Coding.class}, order=4, min=1, max=1)
+        @Description(shortDefinition="Item Code", formalDefinition="If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
          * The date when the enclosed suite of services were performed or completed.
          */
+        @Child(name="serviceDate", type={DateType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Date of Service", formalDefinition="The date when the enclosed suite of services were performed or completed." )
         protected DateType serviceDate;
 
         /**
          * The number of repetitions of a service or product.
          */
+        @Child(name="quantity", type={Quantity.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected Quantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
+        @Child(name="unitPrice", type={Money.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
+        @Child(name="factor", type={DecimalType.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
+        @Child(name="points", type={DecimalType.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
+        @Child(name="net", type={Money.class}, order=10, min=0, max=1)
+        @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
+        @Child(name="udi", type={Coding.class}, order=11, min=0, max=1)
+        @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
         /**
          * Physical service site on the patient (limb, tooth, etc).
          */
+        @Child(name="bodySite", type={Coding.class}, order=12, min=0, max=1)
+        @Description(shortDefinition="Service Location", formalDefinition="Physical service site on the patient (limb, tooth, etc)." )
         protected Coding bodySite;
 
         /**
          * A region or surface of the site, eg. limb region or tooth surface(s).
          */
-        protected List<Coding> subsite = new ArrayList<Coding>();
+        @Child(name="subsite", type={Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, eg. limb region or tooth surface(s)." )
+        protected List<Coding> subsite;
 
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
          */
-        protected List<Coding> modifier = new ArrayList<Coding>();
+        @Child(name="modifier", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." )
+        protected List<Coding> modifier;
 
         /**
          * Second tier of goods and services.
          */
-        protected List<DetailComponent> detail = new ArrayList<DetailComponent>();
+        @Child(name="detail", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
+        protected List<DetailComponent> detail;
 
         /**
          * The materials and placement date of prior fixed prosthesis.
          */
+        @Child(name="prosthesis", type={}, order=16, min=0, max=1)
+        @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = 1683408733L;
+        private static final long serialVersionUID = -1561435930L;
 
       public ItemsComponent() {
         super();
@@ -1141,7 +1571,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType();
           return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
@@ -1173,7 +1616,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #type} (The type of product or service.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -1188,7 +1640,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
          */
         public Reference getProvider() { 
+          if (this.provider == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.provider");
+            else if (Configuration.doAutoCreate())
+              this.provider = new Reference();
           return this.provider;
+        }
+
+        public boolean hasProvider() { 
+          return this.provider != null && !this.provider.isEmpty();
         }
 
         /**
@@ -1203,6 +1664,11 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
          */
         public Practitioner getProviderTarget() { 
+          if (this.providerTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.provider");
+            else if (Configuration.doAutoCreate())
+              this.providerTarget = new Practitioner();
           return this.providerTarget;
         }
 
@@ -1218,7 +1684,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
         public Coding getService() { 
+          if (this.service == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.service");
+            else if (Configuration.doAutoCreate())
+              this.service = new Coding();
           return this.service;
+        }
+
+        public boolean hasService() { 
+          return this.service != null && !this.service.isEmpty();
         }
 
         /**
@@ -1233,7 +1708,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #serviceDate} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getServiceDate" gives direct access to the value
          */
         public DateType getServiceDateElement() { 
+          if (this.serviceDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.serviceDate");
+            else if (Configuration.doAutoCreate())
+              this.serviceDate = new DateType();
           return this.serviceDate;
+        }
+
+        public boolean hasServiceDateElement() { 
+          return this.serviceDate != null && !this.serviceDate.isEmpty();
+        }
+
+        public boolean hasServiceDate() { 
+          return this.serviceDate != null && !this.serviceDate.isEmpty();
         }
 
         /**
@@ -1269,7 +1757,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
         public Quantity getQuantity() { 
+          if (this.quantity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.quantity");
+            else if (Configuration.doAutoCreate())
+              this.quantity = new Quantity();
           return this.quantity;
+        }
+
+        public boolean hasQuantity() { 
+          return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
@@ -1284,7 +1781,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
         public Money getUnitPrice() { 
+          if (this.unitPrice == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.unitPrice");
+            else if (Configuration.doAutoCreate())
+              this.unitPrice = new Money();
           return this.unitPrice;
+        }
+
+        public boolean hasUnitPrice() { 
+          return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
@@ -1299,7 +1805,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
         public DecimalType getFactorElement() { 
+          if (this.factor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.factor");
+            else if (Configuration.doAutoCreate())
+              this.factor = new DecimalType();
           return this.factor;
+        }
+
+        public boolean hasFactorElement() { 
+          return this.factor != null && !this.factor.isEmpty();
+        }
+
+        public boolean hasFactor() { 
+          return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
@@ -1335,7 +1854,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
+          if (this.points == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.points");
+            else if (Configuration.doAutoCreate())
+              this.points = new DecimalType();
           return this.points;
+        }
+
+        public boolean hasPointsElement() { 
+          return this.points != null && !this.points.isEmpty();
+        }
+
+        public boolean hasPoints() { 
+          return this.points != null && !this.points.isEmpty();
         }
 
         /**
@@ -1371,7 +1903,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
+          if (this.net == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.net");
+            else if (Configuration.doAutoCreate())
+              this.net = new Money();
           return this.net;
+        }
+
+        public boolean hasNet() { 
+          return this.net != null && !this.net.isEmpty();
         }
 
         /**
@@ -1386,7 +1927,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
         public Coding getUdi() { 
+          if (this.udi == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.udi");
+            else if (Configuration.doAutoCreate())
+              this.udi = new Coding();
           return this.udi;
+        }
+
+        public boolean hasUdi() { 
+          return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
@@ -1401,7 +1951,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #bodySite} (Physical service site on the patient (limb, tooth, etc).)
          */
         public Coding getBodySite() { 
+          if (this.bodySite == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.bodySite");
+            else if (Configuration.doAutoCreate())
+              this.bodySite = new Coding();
           return this.bodySite;
+        }
+
+        public boolean hasBodySite() { 
+          return this.bodySite != null && !this.bodySite.isEmpty();
         }
 
         /**
@@ -1416,7 +1975,18 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #subsite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
         public List<Coding> getSubsite() { 
+          if (this.subsite == null)
+            this.subsite = new ArrayList<Coding>();
           return this.subsite;
+        }
+
+        public boolean hasSubsite() { 
+          if (this.subsite == null)
+            return false;
+          for (Coding item : this.subsite)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1425,6 +1995,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
         public Coding addSubsite() { //3
           Coding t = new Coding();
+          if (this.subsite == null)
+            this.subsite = new ArrayList<Coding>();
           this.subsite.add(t);
           return t;
         }
@@ -1433,7 +2005,18 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
          */
         public List<Coding> getModifier() { 
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
           return this.modifier;
+        }
+
+        public boolean hasModifier() { 
+          if (this.modifier == null)
+            return false;
+          for (Coding item : this.modifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1442,6 +2025,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
         public Coding addModifier() { //3
           Coding t = new Coding();
+          if (this.modifier == null)
+            this.modifier = new ArrayList<Coding>();
           this.modifier.add(t);
           return t;
         }
@@ -1450,7 +2035,18 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #detail} (Second tier of goods and services.)
          */
         public List<DetailComponent> getDetail() { 
+          if (this.detail == null)
+            this.detail = new ArrayList<DetailComponent>();
           return this.detail;
+        }
+
+        public boolean hasDetail() { 
+          if (this.detail == null)
+            return false;
+          for (DetailComponent item : this.detail)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1459,6 +2055,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
         public DetailComponent addDetail() { //3
           DetailComponent t = new DetailComponent();
+          if (this.detail == null)
+            this.detail = new ArrayList<DetailComponent>();
           this.detail.add(t);
           return t;
         }
@@ -1467,7 +2065,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #prosthesis} (The materials and placement date of prior fixed prosthesis.)
          */
         public ProsthesisComponent getProsthesis() { 
+          if (this.prosthesis == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.prosthesis");
+            else if (Configuration.doAutoCreate())
+              this.prosthesis = new ProsthesisComponent();
           return this.prosthesis;
+        }
+
+        public boolean hasProsthesis() { 
+          return this.prosthesis != null && !this.prosthesis.isEmpty();
         }
 
         /**
@@ -1513,73 +2120,110 @@ public class OralHealthClaim extends DomainResource {
         dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
-        dst.subsite = new ArrayList<Coding>();
-        for (Coding i : subsite)
-          dst.subsite.add(i.copy());
-        dst.modifier = new ArrayList<Coding>();
-        for (Coding i : modifier)
-          dst.modifier.add(i.copy());
-        dst.detail = new ArrayList<DetailComponent>();
-        for (DetailComponent i : detail)
-          dst.detail.add(i.copy());
+        if (subsite != null) {
+          dst.subsite = new ArrayList<Coding>();
+          for (Coding i : subsite)
+            dst.subsite.add(i.copy());
+        };
+        if (modifier != null) {
+          dst.modifier = new ArrayList<Coding>();
+          for (Coding i : modifier)
+            dst.modifier.add(i.copy());
+        };
+        if (detail != null) {
+          dst.detail = new ArrayList<DetailComponent>();
+          for (DetailComponent i : detail)
+            dst.detail.add(i.copy());
+        };
         dst.prosthesis = prosthesis == null ? null : prosthesis.copy();
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
+           && (provider == null || provider.isEmpty()) && (service == null || service.isEmpty()) && (serviceDate == null || serviceDate.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subsite == null || subsite.isEmpty())
+           && (modifier == null || modifier.isEmpty()) && (detail == null || detail.isEmpty()) && (prosthesis == null || prosthesis.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class DetailComponent extends BackboneElement {
         /**
          * A service line number.
          */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected IntegerType sequence;
 
         /**
          * The type of product or service.
          */
+        @Child(name="type", type={Coding.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Group or type of product or service", formalDefinition="The type of product or service." )
         protected Coding type;
 
         /**
          * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
          */
+        @Child(name="service", type={Coding.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Additional item codes", formalDefinition="If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
          * The number of repetitions of a service or product.
          */
+        @Child(name="quantity", type={Quantity.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected Quantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
+        @Child(name="unitPrice", type={Money.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
+        @Child(name="factor", type={DecimalType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
+        @Child(name="points", type={DecimalType.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
+        @Child(name="net", type={Money.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
+        @Child(name="udi", type={Coding.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
         /**
          * Third tier of goods and services.
          */
-        protected List<SubDetailComponent> subDetail = new ArrayList<SubDetailComponent>();
+        @Child(name="subDetail", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
+        protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = 1268522508L;
+        private static final long serialVersionUID = -342502025L;
 
       public DetailComponent() {
         super();
@@ -1596,7 +2240,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType();
           return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
@@ -1628,7 +2285,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #type} (The type of product or service.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -1643,7 +2309,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
         public Coding getService() { 
+          if (this.service == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.service");
+            else if (Configuration.doAutoCreate())
+              this.service = new Coding();
           return this.service;
+        }
+
+        public boolean hasService() { 
+          return this.service != null && !this.service.isEmpty();
         }
 
         /**
@@ -1658,7 +2333,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
         public Quantity getQuantity() { 
+          if (this.quantity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.quantity");
+            else if (Configuration.doAutoCreate())
+              this.quantity = new Quantity();
           return this.quantity;
+        }
+
+        public boolean hasQuantity() { 
+          return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
@@ -1673,7 +2357,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
         public Money getUnitPrice() { 
+          if (this.unitPrice == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.unitPrice");
+            else if (Configuration.doAutoCreate())
+              this.unitPrice = new Money();
           return this.unitPrice;
+        }
+
+        public boolean hasUnitPrice() { 
+          return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
@@ -1688,7 +2381,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
         public DecimalType getFactorElement() { 
+          if (this.factor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.factor");
+            else if (Configuration.doAutoCreate())
+              this.factor = new DecimalType();
           return this.factor;
+        }
+
+        public boolean hasFactorElement() { 
+          return this.factor != null && !this.factor.isEmpty();
+        }
+
+        public boolean hasFactor() { 
+          return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
@@ -1724,7 +2430,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
+          if (this.points == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.points");
+            else if (Configuration.doAutoCreate())
+              this.points = new DecimalType();
           return this.points;
+        }
+
+        public boolean hasPointsElement() { 
+          return this.points != null && !this.points.isEmpty();
+        }
+
+        public boolean hasPoints() { 
+          return this.points != null && !this.points.isEmpty();
         }
 
         /**
@@ -1760,7 +2479,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
+          if (this.net == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.net");
+            else if (Configuration.doAutoCreate())
+              this.net = new Money();
           return this.net;
+        }
+
+        public boolean hasNet() { 
+          return this.net != null && !this.net.isEmpty();
         }
 
         /**
@@ -1775,7 +2503,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
         public Coding getUdi() { 
+          if (this.udi == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DetailComponent.udi");
+            else if (Configuration.doAutoCreate())
+              this.udi = new Coding();
           return this.udi;
+        }
+
+        public boolean hasUdi() { 
+          return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
@@ -1790,7 +2527,18 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #subDetail} (Third tier of goods and services.)
          */
         public List<SubDetailComponent> getSubDetail() { 
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
           return this.subDetail;
+        }
+
+        public boolean hasSubDetail() { 
+          if (this.subDetail == null)
+            return false;
+          for (SubDetailComponent item : this.subDetail)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1799,6 +2547,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
         public SubDetailComponent addSubDetail() { //3
           SubDetailComponent t = new SubDetailComponent();
+          if (this.subDetail == null)
+            this.subDetail = new ArrayList<SubDetailComponent>();
           this.subDetail.add(t);
           return t;
         }
@@ -1829,58 +2579,86 @@ public class OralHealthClaim extends DomainResource {
         dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
-        dst.subDetail = new ArrayList<SubDetailComponent>();
-        for (SubDetailComponent i : subDetail)
-          dst.subDetail.add(i.copy());
+        if (subDetail != null) {
+          dst.subDetail = new ArrayList<SubDetailComponent>();
+          for (SubDetailComponent i : subDetail)
+            dst.subDetail.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
+           && (service == null || service.isEmpty()) && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty()) && (subDetail == null || subDetail.isEmpty());
       }
 
   }
 
+    @Block()
     public static class SubDetailComponent extends BackboneElement {
         /**
          * A service line number.
          */
+        @Child(name="sequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Service instance", formalDefinition="A service line number." )
         protected IntegerType sequence;
 
         /**
          * The type of product or service.
          */
+        @Child(name="type", type={Coding.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Type of product or service", formalDefinition="The type of product or service." )
         protected Coding type;
 
         /**
          * The fee for an addtional service or product or charge.
          */
+        @Child(name="service", type={Coding.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an addtional service or product or charge." )
         protected Coding service;
 
         /**
          * The number of repetitions of a service or product.
          */
+        @Child(name="quantity", type={Quantity.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected Quantity quantity;
 
         /**
          * The fee for an addtional service or product or charge.
          */
+        @Child(name="unitPrice", type={Money.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an addtional service or product or charge." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
+        @Child(name="factor", type={DecimalType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
+        @Child(name="points", type={DecimalType.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
+        @Child(name="net", type={Money.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
+        @Child(name="udi", type={Coding.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
         private static final long serialVersionUID = 122809194L;
@@ -1900,7 +2678,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
         public IntegerType getSequenceElement() { 
+          if (this.sequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.sequence");
+            else if (Configuration.doAutoCreate())
+              this.sequence = new IntegerType();
           return this.sequence;
+        }
+
+        public boolean hasSequenceElement() { 
+          return this.sequence != null && !this.sequence.isEmpty();
+        }
+
+        public boolean hasSequence() { 
+          return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
@@ -1932,7 +2723,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #type} (The type of product or service.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -1947,7 +2747,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #service} (The fee for an addtional service or product or charge.)
          */
         public Coding getService() { 
+          if (this.service == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.service");
+            else if (Configuration.doAutoCreate())
+              this.service = new Coding();
           return this.service;
+        }
+
+        public boolean hasService() { 
+          return this.service != null && !this.service.isEmpty();
         }
 
         /**
@@ -1962,7 +2771,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
         public Quantity getQuantity() { 
+          if (this.quantity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.quantity");
+            else if (Configuration.doAutoCreate())
+              this.quantity = new Quantity();
           return this.quantity;
+        }
+
+        public boolean hasQuantity() { 
+          return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
@@ -1977,7 +2795,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #unitPrice} (The fee for an addtional service or product or charge.)
          */
         public Money getUnitPrice() { 
+          if (this.unitPrice == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.unitPrice");
+            else if (Configuration.doAutoCreate())
+              this.unitPrice = new Money();
           return this.unitPrice;
+        }
+
+        public boolean hasUnitPrice() { 
+          return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
@@ -1992,7 +2819,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
         public DecimalType getFactorElement() { 
+          if (this.factor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.factor");
+            else if (Configuration.doAutoCreate())
+              this.factor = new DecimalType();
           return this.factor;
+        }
+
+        public boolean hasFactorElement() { 
+          return this.factor != null && !this.factor.isEmpty();
+        }
+
+        public boolean hasFactor() { 
+          return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
@@ -2028,7 +2868,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
+          if (this.points == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.points");
+            else if (Configuration.doAutoCreate())
+              this.points = new DecimalType();
           return this.points;
+        }
+
+        public boolean hasPointsElement() { 
+          return this.points != null && !this.points.isEmpty();
+        }
+
+        public boolean hasPoints() { 
+          return this.points != null && !this.points.isEmpty();
         }
 
         /**
@@ -2064,7 +2917,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
+          if (this.net == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.net");
+            else if (Configuration.doAutoCreate())
+              this.net = new Money();
           return this.net;
+        }
+
+        public boolean hasNet() { 
+          return this.net != null && !this.net.isEmpty();
         }
 
         /**
@@ -2079,7 +2941,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
         public Coding getUdi() { 
+          if (this.udi == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SubDetailComponent.udi");
+            else if (Configuration.doAutoCreate())
+              this.udi = new Coding();
           return this.udi;
+        }
+
+        public boolean hasUdi() { 
+          return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
@@ -2118,22 +2989,36 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
+           && (service == null || service.isEmpty()) && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
+           && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
+           && (udi == null || udi.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class ProsthesisComponent extends BackboneElement {
         /**
          * Is this the initial placement of a fixed prosthesis?.
          */
+        @Child(name="initial", type={BooleanType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Is this the initial service", formalDefinition="Is this the initial placement of a fixed prosthesis?." )
         protected BooleanType initial;
 
         /**
          * Date of the initial placement.
          */
+        @Child(name="priorDate", type={DateType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Initial service Date", formalDefinition="Date of the initial placement." )
         protected DateType priorDate;
 
         /**
          * Material of the prior denture or bridge prosthesis. (Oral).
          */
+        @Child(name="priorMaterial", type={Coding.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Prosthetic Material", formalDefinition="Material of the prior denture or bridge prosthesis. (Oral)." )
         protected Coding priorMaterial;
 
         private static final long serialVersionUID = 1739349641L;
@@ -2146,7 +3031,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #initial} (Is this the initial placement of a fixed prosthesis?.). This is the underlying object with id, value and extensions. The accessor "getInitial" gives direct access to the value
          */
         public BooleanType getInitialElement() { 
+          if (this.initial == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProsthesisComponent.initial");
+            else if (Configuration.doAutoCreate())
+              this.initial = new BooleanType();
           return this.initial;
+        }
+
+        public boolean hasInitialElement() { 
+          return this.initial != null && !this.initial.isEmpty();
+        }
+
+        public boolean hasInitial() { 
+          return this.initial != null && !this.initial.isEmpty();
         }
 
         /**
@@ -2182,7 +3080,20 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #priorDate} (Date of the initial placement.). This is the underlying object with id, value and extensions. The accessor "getPriorDate" gives direct access to the value
          */
         public DateType getPriorDateElement() { 
+          if (this.priorDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProsthesisComponent.priorDate");
+            else if (Configuration.doAutoCreate())
+              this.priorDate = new DateType();
           return this.priorDate;
+        }
+
+        public boolean hasPriorDateElement() { 
+          return this.priorDate != null && !this.priorDate.isEmpty();
+        }
+
+        public boolean hasPriorDate() { 
+          return this.priorDate != null && !this.priorDate.isEmpty();
         }
 
         /**
@@ -2218,7 +3129,16 @@ public class OralHealthClaim extends DomainResource {
          * @return {@link #priorMaterial} (Material of the prior denture or bridge prosthesis. (Oral).)
          */
         public Coding getPriorMaterial() { 
+          if (this.priorMaterial == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProsthesisComponent.priorMaterial");
+            else if (Configuration.doAutoCreate())
+              this.priorMaterial = new Coding();
           return this.priorMaterial;
+        }
+
+        public boolean hasPriorMaterial() { 
+          return this.priorMaterial != null && !this.priorMaterial.isEmpty();
         }
 
         /**
@@ -2245,31 +3165,46 @@ public class OralHealthClaim extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (initial == null || initial.isEmpty()) && (priorDate == null || priorDate.isEmpty())
+           && (priorMaterial == null || priorMaterial.isEmpty());
+      }
+
   }
 
     /**
      * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
      */
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Claim number", formalDefinition="The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number." )
     protected Identifier identifier;
 
     /**
      * The version of the specification on which this instance relies.
      */
+    @Child(name="ruleset", type={Coding.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Current specification followed", formalDefinition="The version of the specification on which this instance relies." )
     protected Coding ruleset;
 
     /**
      * The version of the specification from which the original instance was created.
      */
+    @Child(name="originalRuleset", type={Coding.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Original specification followed", formalDefinition="The version of the specification from which the original instance was created." )
     protected Coding originalRuleset;
 
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
+    @Child(name="date", type={DateType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateType date;
 
     /**
      * Insurer Identifier, typical BIN number (6 digit).
      */
+    @Child(name="target", type={Organization.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Insurer", formalDefinition="Insurer Identifier, typical BIN number (6 digit)." )
     protected Reference target;
 
     /**
@@ -2280,6 +3215,8 @@ public class OralHealthClaim extends DomainResource {
     /**
      * The provider which is responsible for the bill, claim pre-determination, pre-authorization.
      */
+    @Child(name="provider", type={Practitioner.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Responsible provider", formalDefinition="The provider which is responsible for the bill, claim pre-determination, pre-authorization." )
     protected Reference provider;
 
     /**
@@ -2290,6 +3227,8 @@ public class OralHealthClaim extends DomainResource {
     /**
      * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
      */
+    @Child(name="organization", type={Organization.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the bill, claim pre-determination, pre-authorization." )
     protected Reference organization;
 
     /**
@@ -2300,21 +3239,29 @@ public class OralHealthClaim extends DomainResource {
     /**
      * Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
      */
+    @Child(name="use", type={CodeType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="complete | proposed | exploratory | other", formalDefinition="Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination)." )
     protected Enumeration<UseLink> use;
 
     /**
      * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
      */
+    @Child(name="priority", type={Coding.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Desired processing priority", formalDefinition="Immediate (STAT), best effort (NORMAL), deferred (DEFER)." )
     protected Coding priority;
 
     /**
      * In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
      */
+    @Child(name="fundsReserve", type={Coding.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Funds requested to be reserved", formalDefinition="In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested." )
     protected Coding fundsReserve;
 
     /**
      * Person who created the invoice/claim/pre-determination or pre-authorization.
      */
+    @Child(name="enterer", type={Practitioner.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Author", formalDefinition="Person who created the invoice/claim/pre-determination or pre-authorization." )
     protected Reference enterer;
 
     /**
@@ -2325,6 +3272,8 @@ public class OralHealthClaim extends DomainResource {
     /**
      * Facility where the services were provided.
      */
+    @Child(name="facility", type={Location.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Servicing Facility", formalDefinition="Facility where the services were provided." )
     protected Reference facility;
 
     /**
@@ -2335,11 +3284,15 @@ public class OralHealthClaim extends DomainResource {
     /**
      * Theparty to be reimbused for the services.
      */
+    @Child(name="payee", type={}, order=11, min=0, max=1)
+    @Description(shortDefinition="Payee", formalDefinition="Theparty to be reimbused for the services." )
     protected PayeeComponent payee;
 
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
+    @Child(name="referral", type={ReferralRequest.class}, order=12, min=0, max=1)
+    @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Reference referral;
 
     /**
@@ -2350,16 +3303,22 @@ public class OralHealthClaim extends DomainResource {
     /**
      * Ordered list of patient diagnosis for which care is sought.
      */
-    protected List<DiagnosisComponent> diagnosis = new ArrayList<DiagnosisComponent>();
+    @Child(name="diagnosis", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
+    protected List<DiagnosisComponent> diagnosis;
 
     /**
      * List of patient conditions for which care is sought.
      */
-    protected List<Coding> condition = new ArrayList<Coding>();
+    @Child(name="condition", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="List of presenting Conditions", formalDefinition="List of patient conditions for which care is sought." )
+    protected List<Coding> condition;
 
     /**
      * Patient Resource.
      */
+    @Child(name="patient", type={Patient.class}, order=15, min=1, max=1)
+    @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
     protected Reference patient;
 
     /**
@@ -2370,54 +3329,74 @@ public class OralHealthClaim extends DomainResource {
     /**
      * Financial instrument by which payment information for health care.
      */
-    protected List<CoverageComponent> coverage = new ArrayList<CoverageComponent>();
+    @Child(name="coverage", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
+    protected List<CoverageComponent> coverage;
 
     /**
      * Factors which may influence the applicability of coverage.
      */
-    protected List<Coding> exception = new ArrayList<Coding>();
+    @Child(name="exception", type={Coding.class}, order=17, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Eligibility exceptions", formalDefinition="Factors which may influence the applicability of coverage." )
+    protected List<Coding> exception;
 
     /**
      * Name of school for over-aged dependants.
      */
+    @Child(name="school", type={StringType.class}, order=18, min=0, max=1)
+    @Description(shortDefinition="Name of School", formalDefinition="Name of school for over-aged dependants." )
     protected StringType school;
 
     /**
      * Date of an accident which these services are addessing.
      */
+    @Child(name="accident", type={DateType.class}, order=19, min=0, max=1)
+    @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addessing." )
     protected DateType accident;
 
     /**
      * Type of accident: work, auto, etc.
      */
+    @Child(name="accidentType", type={Coding.class}, order=20, min=0, max=1)
+    @Description(shortDefinition="Accident Type", formalDefinition="Type of accident: work, auto, etc." )
     protected Coding accidentType;
 
     /**
      * A list of intervention and exception codes which may influence the adjudication of the claim.
      */
-    protected List<Coding> interventionException = new ArrayList<Coding>();
+    @Child(name="interventionException", type={Coding.class}, order=21, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Intervention and exception code (Pharma)", formalDefinition="A list of intervention and exception codes which may influence the adjudication of the claim." )
+    protected List<Coding> interventionException;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    protected List<MissingTeethComponent> missingteeth = new ArrayList<MissingTeethComponent>();
+    @Child(name="missingteeth", type={}, order=22, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Missing Teeth", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
+    protected List<MissingTeethComponent> missingteeth;
 
     /**
      * The highlevel detail sof an Orthodonic Treatment Plan.
      */
+    @Child(name="orthoPlan", type={}, order=23, min=0, max=1)
+    @Description(shortDefinition="Orthodontic Treatment Plan", formalDefinition="The highlevel detail sof an Orthodonic Treatment Plan." )
     protected OrthodonticPlanComponent orthoPlan;
 
     /**
      * First tier of goods and services.
      */
-    protected List<ItemsComponent> item = new ArrayList<ItemsComponent>();
+    @Child(name="item", type={}, order=24, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Goods and Servcies", formalDefinition="First tier of goods and services." )
+    protected List<ItemsComponent> item;
 
     /**
      * Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
      */
-    protected List<Coding> additionalMaterials = new ArrayList<Coding>();
+    @Child(name="additionalMaterials", type={Coding.class}, order=25, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
+    protected List<Coding> additionalMaterials;
 
-    private static final long serialVersionUID = -1376670187L;
+    private static final long serialVersionUID = -456977630L;
 
     public OralHealthClaim() {
       super();
@@ -2432,7 +3411,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
      */
     public Identifier getIdentifier() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new Identifier();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
@@ -2447,7 +3435,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #ruleset} (The version of the specification on which this instance relies.)
      */
     public Coding getRuleset() { 
+      if (this.ruleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.ruleset");
+        else if (Configuration.doAutoCreate())
+          this.ruleset = new Coding();
       return this.ruleset;
+    }
+
+    public boolean hasRuleset() { 
+      return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
@@ -2462,7 +3459,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #originalRuleset} (The version of the specification from which the original instance was created.)
      */
     public Coding getOriginalRuleset() { 
+      if (this.originalRuleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.originalRuleset");
+        else if (Configuration.doAutoCreate())
+          this.originalRuleset = new Coding();
       return this.originalRuleset;
+    }
+
+    public boolean hasOriginalRuleset() { 
+      return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
@@ -2477,7 +3483,20 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #date} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -2513,7 +3532,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #target} (Insurer Identifier, typical BIN number (6 digit).)
      */
     public Reference getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new Reference();
       return this.target;
+    }
+
+    public boolean hasTarget() { 
+      return this.target != null && !this.target.isEmpty();
     }
 
     /**
@@ -2528,6 +3556,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
      */
     public Organization getTargetTarget() { 
+      if (this.targetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.target");
+        else if (Configuration.doAutoCreate())
+          this.targetTarget = new Organization();
       return this.targetTarget;
     }
 
@@ -2543,7 +3576,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #provider} (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
     public Reference getProvider() { 
+      if (this.provider == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.provider");
+        else if (Configuration.doAutoCreate())
+          this.provider = new Reference();
       return this.provider;
+    }
+
+    public boolean hasProvider() { 
+      return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
@@ -2558,6 +3600,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
     public Practitioner getProviderTarget() { 
+      if (this.providerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.provider");
+        else if (Configuration.doAutoCreate())
+          this.providerTarget = new Practitioner();
       return this.providerTarget;
     }
 
@@ -2573,7 +3620,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
     public Reference getOrganization() { 
+      if (this.organization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.organization");
+        else if (Configuration.doAutoCreate())
+          this.organization = new Reference();
       return this.organization;
+    }
+
+    public boolean hasOrganization() { 
+      return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
@@ -2588,6 +3644,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
     public Organization getOrganizationTarget() { 
+      if (this.organizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.organization");
+        else if (Configuration.doAutoCreate())
+          this.organizationTarget = new Organization();
       return this.organizationTarget;
     }
 
@@ -2603,7 +3664,20 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #use} (Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
     public Enumeration<UseLink> getUseElement() { 
+      if (this.use == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.use");
+        else if (Configuration.doAutoCreate())
+          this.use = new Enumeration<UseLink>();
       return this.use;
+    }
+
+    public boolean hasUseElement() { 
+      return this.use != null && !this.use.isEmpty();
+    }
+
+    public boolean hasUse() { 
+      return this.use != null && !this.use.isEmpty();
     }
 
     /**
@@ -2639,7 +3713,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
      */
     public Coding getPriority() { 
+      if (this.priority == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.priority");
+        else if (Configuration.doAutoCreate())
+          this.priority = new Coding();
       return this.priority;
+    }
+
+    public boolean hasPriority() { 
+      return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
@@ -2654,7 +3737,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #fundsReserve} (In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.)
      */
     public Coding getFundsReserve() { 
+      if (this.fundsReserve == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.fundsReserve");
+        else if (Configuration.doAutoCreate())
+          this.fundsReserve = new Coding();
       return this.fundsReserve;
+    }
+
+    public boolean hasFundsReserve() { 
+      return this.fundsReserve != null && !this.fundsReserve.isEmpty();
     }
 
     /**
@@ -2669,7 +3761,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #enterer} (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
     public Reference getEnterer() { 
+      if (this.enterer == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.enterer");
+        else if (Configuration.doAutoCreate())
+          this.enterer = new Reference();
       return this.enterer;
+    }
+
+    public boolean hasEnterer() { 
+      return this.enterer != null && !this.enterer.isEmpty();
     }
 
     /**
@@ -2684,6 +3785,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #enterer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
     public Practitioner getEntererTarget() { 
+      if (this.entererTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.enterer");
+        else if (Configuration.doAutoCreate())
+          this.entererTarget = new Practitioner();
       return this.entererTarget;
     }
 
@@ -2699,7 +3805,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #facility} (Facility where the services were provided.)
      */
     public Reference getFacility() { 
+      if (this.facility == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.facility");
+        else if (Configuration.doAutoCreate())
+          this.facility = new Reference();
       return this.facility;
+    }
+
+    public boolean hasFacility() { 
+      return this.facility != null && !this.facility.isEmpty();
     }
 
     /**
@@ -2714,6 +3829,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #facility} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Facility where the services were provided.)
      */
     public Location getFacilityTarget() { 
+      if (this.facilityTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.facility");
+        else if (Configuration.doAutoCreate())
+          this.facilityTarget = new Location();
       return this.facilityTarget;
     }
 
@@ -2729,7 +3849,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #payee} (Theparty to be reimbused for the services.)
      */
     public PayeeComponent getPayee() { 
+      if (this.payee == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.payee");
+        else if (Configuration.doAutoCreate())
+          this.payee = new PayeeComponent();
       return this.payee;
+    }
+
+    public boolean hasPayee() { 
+      return this.payee != null && !this.payee.isEmpty();
     }
 
     /**
@@ -2744,7 +3873,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #referral} (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
     public Reference getReferral() { 
+      if (this.referral == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.referral");
+        else if (Configuration.doAutoCreate())
+          this.referral = new Reference();
       return this.referral;
+    }
+
+    public boolean hasReferral() { 
+      return this.referral != null && !this.referral.isEmpty();
     }
 
     /**
@@ -2759,6 +3897,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #referral} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
     public ReferralRequest getReferralTarget() { 
+      if (this.referralTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.referral");
+        else if (Configuration.doAutoCreate())
+          this.referralTarget = new ReferralRequest();
       return this.referralTarget;
     }
 
@@ -2774,7 +3917,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
      */
     public List<DiagnosisComponent> getDiagnosis() { 
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
       return this.diagnosis;
+    }
+
+    public boolean hasDiagnosis() { 
+      if (this.diagnosis == null)
+        return false;
+      for (DiagnosisComponent item : this.diagnosis)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2783,6 +3937,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public DiagnosisComponent addDiagnosis() { //3
       DiagnosisComponent t = new DiagnosisComponent();
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
       this.diagnosis.add(t);
       return t;
     }
@@ -2791,7 +3947,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #condition} (List of patient conditions for which care is sought.)
      */
     public List<Coding> getCondition() { 
+      if (this.condition == null)
+        this.condition = new ArrayList<Coding>();
       return this.condition;
+    }
+
+    public boolean hasCondition() { 
+      if (this.condition == null)
+        return false;
+      for (Coding item : this.condition)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2800,6 +3967,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public Coding addCondition() { //3
       Coding t = new Coding();
+      if (this.condition == null)
+        this.condition = new ArrayList<Coding>();
       this.condition.add(t);
       return t;
     }
@@ -2808,7 +3977,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #patient} (Patient Resource.)
      */
     public Reference getPatient() { 
+      if (this.patient == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference();
       return this.patient;
+    }
+
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
@@ -2823,6 +4001,11 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
     public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient();
       return this.patientTarget;
     }
 
@@ -2838,7 +4021,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #coverage} (Financial instrument by which payment information for health care.)
      */
     public List<CoverageComponent> getCoverage() { 
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
       return this.coverage;
+    }
+
+    public boolean hasCoverage() { 
+      if (this.coverage == null)
+        return false;
+      for (CoverageComponent item : this.coverage)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2847,6 +4041,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public CoverageComponent addCoverage() { //3
       CoverageComponent t = new CoverageComponent();
+      if (this.coverage == null)
+        this.coverage = new ArrayList<CoverageComponent>();
       this.coverage.add(t);
       return t;
     }
@@ -2855,7 +4051,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #exception} (Factors which may influence the applicability of coverage.)
      */
     public List<Coding> getException() { 
+      if (this.exception == null)
+        this.exception = new ArrayList<Coding>();
       return this.exception;
+    }
+
+    public boolean hasException() { 
+      if (this.exception == null)
+        return false;
+      for (Coding item : this.exception)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2864,6 +4071,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public Coding addException() { //3
       Coding t = new Coding();
+      if (this.exception == null)
+        this.exception = new ArrayList<Coding>();
       this.exception.add(t);
       return t;
     }
@@ -2872,7 +4081,20 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #school} (Name of school for over-aged dependants.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
      */
     public StringType getSchoolElement() { 
+      if (this.school == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.school");
+        else if (Configuration.doAutoCreate())
+          this.school = new StringType();
       return this.school;
+    }
+
+    public boolean hasSchoolElement() { 
+      return this.school != null && !this.school.isEmpty();
+    }
+
+    public boolean hasSchool() { 
+      return this.school != null && !this.school.isEmpty();
     }
 
     /**
@@ -2908,7 +4130,20 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #accident} (Date of an accident which these services are addessing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
      */
     public DateType getAccidentElement() { 
+      if (this.accident == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.accident");
+        else if (Configuration.doAutoCreate())
+          this.accident = new DateType();
       return this.accident;
+    }
+
+    public boolean hasAccidentElement() { 
+      return this.accident != null && !this.accident.isEmpty();
+    }
+
+    public boolean hasAccident() { 
+      return this.accident != null && !this.accident.isEmpty();
     }
 
     /**
@@ -2944,7 +4179,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #accidentType} (Type of accident: work, auto, etc.)
      */
     public Coding getAccidentType() { 
+      if (this.accidentType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.accidentType");
+        else if (Configuration.doAutoCreate())
+          this.accidentType = new Coding();
       return this.accidentType;
+    }
+
+    public boolean hasAccidentType() { 
+      return this.accidentType != null && !this.accidentType.isEmpty();
     }
 
     /**
@@ -2959,7 +4203,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #interventionException} (A list of intervention and exception codes which may influence the adjudication of the claim.)
      */
     public List<Coding> getInterventionException() { 
+      if (this.interventionException == null)
+        this.interventionException = new ArrayList<Coding>();
       return this.interventionException;
+    }
+
+    public boolean hasInterventionException() { 
+      if (this.interventionException == null)
+        return false;
+      for (Coding item : this.interventionException)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2968,6 +4223,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public Coding addInterventionException() { //3
       Coding t = new Coding();
+      if (this.interventionException == null)
+        this.interventionException = new ArrayList<Coding>();
       this.interventionException.add(t);
       return t;
     }
@@ -2976,7 +4233,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #missingteeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
     public List<MissingTeethComponent> getMissingteeth() { 
+      if (this.missingteeth == null)
+        this.missingteeth = new ArrayList<MissingTeethComponent>();
       return this.missingteeth;
+    }
+
+    public boolean hasMissingteeth() { 
+      if (this.missingteeth == null)
+        return false;
+      for (MissingTeethComponent item : this.missingteeth)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2985,6 +4253,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public MissingTeethComponent addMissingteeth() { //3
       MissingTeethComponent t = new MissingTeethComponent();
+      if (this.missingteeth == null)
+        this.missingteeth = new ArrayList<MissingTeethComponent>();
       this.missingteeth.add(t);
       return t;
     }
@@ -2993,7 +4263,16 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #orthoPlan} (The highlevel detail sof an Orthodonic Treatment Plan.)
      */
     public OrthodonticPlanComponent getOrthoPlan() { 
+      if (this.orthoPlan == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OralHealthClaim.orthoPlan");
+        else if (Configuration.doAutoCreate())
+          this.orthoPlan = new OrthodonticPlanComponent();
       return this.orthoPlan;
+    }
+
+    public boolean hasOrthoPlan() { 
+      return this.orthoPlan != null && !this.orthoPlan.isEmpty();
     }
 
     /**
@@ -3008,7 +4287,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #item} (First tier of goods and services.)
      */
     public List<ItemsComponent> getItem() { 
+      if (this.item == null)
+        this.item = new ArrayList<ItemsComponent>();
       return this.item;
+    }
+
+    public boolean hasItem() { 
+      if (this.item == null)
+        return false;
+      for (ItemsComponent item : this.item)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3017,6 +4307,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public ItemsComponent addItem() { //3
       ItemsComponent t = new ItemsComponent();
+      if (this.item == null)
+        this.item = new ArrayList<ItemsComponent>();
       this.item.add(t);
       return t;
     }
@@ -3025,7 +4317,18 @@ public class OralHealthClaim extends DomainResource {
      * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
     public List<Coding> getAdditionalMaterials() { 
+      if (this.additionalMaterials == null)
+        this.additionalMaterials = new ArrayList<Coding>();
       return this.additionalMaterials;
+    }
+
+    public boolean hasAdditionalMaterials() { 
+      if (this.additionalMaterials == null)
+        return false;
+      for (Coding item : this.additionalMaterials)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3034,6 +4337,8 @@ public class OralHealthClaim extends DomainResource {
     // syntactic sugar
     public Coding addAdditionalMaterials() { //3
       Coding t = new Coding();
+      if (this.additionalMaterials == null)
+        this.additionalMaterials = new ArrayList<Coding>();
       this.additionalMaterials.add(t);
       return t;
     }
@@ -3086,35 +4391,51 @@ public class OralHealthClaim extends DomainResource {
         dst.facility = facility == null ? null : facility.copy();
         dst.payee = payee == null ? null : payee.copy();
         dst.referral = referral == null ? null : referral.copy();
-        dst.diagnosis = new ArrayList<DiagnosisComponent>();
-        for (DiagnosisComponent i : diagnosis)
-          dst.diagnosis.add(i.copy());
-        dst.condition = new ArrayList<Coding>();
-        for (Coding i : condition)
-          dst.condition.add(i.copy());
+        if (diagnosis != null) {
+          dst.diagnosis = new ArrayList<DiagnosisComponent>();
+          for (DiagnosisComponent i : diagnosis)
+            dst.diagnosis.add(i.copy());
+        };
+        if (condition != null) {
+          dst.condition = new ArrayList<Coding>();
+          for (Coding i : condition)
+            dst.condition.add(i.copy());
+        };
         dst.patient = patient == null ? null : patient.copy();
-        dst.coverage = new ArrayList<CoverageComponent>();
-        for (CoverageComponent i : coverage)
-          dst.coverage.add(i.copy());
-        dst.exception = new ArrayList<Coding>();
-        for (Coding i : exception)
-          dst.exception.add(i.copy());
+        if (coverage != null) {
+          dst.coverage = new ArrayList<CoverageComponent>();
+          for (CoverageComponent i : coverage)
+            dst.coverage.add(i.copy());
+        };
+        if (exception != null) {
+          dst.exception = new ArrayList<Coding>();
+          for (Coding i : exception)
+            dst.exception.add(i.copy());
+        };
         dst.school = school == null ? null : school.copy();
         dst.accident = accident == null ? null : accident.copy();
         dst.accidentType = accidentType == null ? null : accidentType.copy();
-        dst.interventionException = new ArrayList<Coding>();
-        for (Coding i : interventionException)
-          dst.interventionException.add(i.copy());
-        dst.missingteeth = new ArrayList<MissingTeethComponent>();
-        for (MissingTeethComponent i : missingteeth)
-          dst.missingteeth.add(i.copy());
+        if (interventionException != null) {
+          dst.interventionException = new ArrayList<Coding>();
+          for (Coding i : interventionException)
+            dst.interventionException.add(i.copy());
+        };
+        if (missingteeth != null) {
+          dst.missingteeth = new ArrayList<MissingTeethComponent>();
+          for (MissingTeethComponent i : missingteeth)
+            dst.missingteeth.add(i.copy());
+        };
         dst.orthoPlan = orthoPlan == null ? null : orthoPlan.copy();
-        dst.item = new ArrayList<ItemsComponent>();
-        for (ItemsComponent i : item)
-          dst.item.add(i.copy());
-        dst.additionalMaterials = new ArrayList<Coding>();
-        for (Coding i : additionalMaterials)
-          dst.additionalMaterials.add(i.copy());
+        if (item != null) {
+          dst.item = new ArrayList<ItemsComponent>();
+          for (ItemsComponent i : item)
+            dst.item.add(i.copy());
+        };
+        if (additionalMaterials != null) {
+          dst.additionalMaterials = new ArrayList<Coding>();
+          for (Coding i : additionalMaterials)
+            dst.additionalMaterials.add(i.copy());
+        };
         return dst;
       }
 
@@ -3122,11 +4443,34 @@ public class OralHealthClaim extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
+           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
+           && (use == null || use.isEmpty()) && (priority == null || priority.isEmpty()) && (fundsReserve == null || fundsReserve.isEmpty())
+           && (enterer == null || enterer.isEmpty()) && (facility == null || facility.isEmpty()) && (payee == null || payee.isEmpty())
+           && (referral == null || referral.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
+           && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty())
+           && (exception == null || exception.isEmpty()) && (school == null || school.isEmpty()) && (accident == null || accident.isEmpty())
+           && (accidentType == null || accidentType.isEmpty()) && (interventionException == null || interventionException.isEmpty())
+           && (missingteeth == null || missingteeth.isEmpty()) && (orthoPlan == null || orthoPlan.isEmpty())
+           && (item == null || item.isEmpty()) && (additionalMaterials == null || additionalMaterials.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.OralHealthClaim;
    }
 
+  @SearchParamDefinition(name="patient", path="OralHealthClaim.patient", description="Patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="priority", path="OralHealthClaim.priority", description="Processing priority requested", type="token" )
+  public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="use", path="OralHealthClaim.use", description="The kind of financial resource", type="token" )
+  public static final String SP_USE = "use";
+  @SearchParamDefinition(name="identifier", path="OralHealthClaim.identifier", description="The primary identifier of the financial resource", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

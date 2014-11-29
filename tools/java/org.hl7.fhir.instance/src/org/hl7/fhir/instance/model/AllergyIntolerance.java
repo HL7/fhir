@@ -29,22 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
  */
+@ResourceDef(name="AllergyIntolerance", profile="http://hl7.org/fhir/Profile/AllergyIntolerance")
 public class AllergyIntolerance extends DomainResource {
 
     public enum AllergyIntoleranceStatus {
-        UNCONFIRMED, // A low level of certainty about the propensity for a reaction to the identified Substance.
-        CONFIRMED, // A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
-        RESOLVED, // A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
-        REFUTED, // A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
-        NULL; // added to help the parsers
+        /**
+         * A low level of certainty about the propensity for a reaction to the identified Substance.
+         */
+        UNCONFIRMED, 
+        /**
+         * A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
+         */
+        CONFIRMED, 
+        /**
+         * A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
+         */
+        RESOLVED, 
+        /**
+         * A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+         */
+        REFUTED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AllergyIntoleranceStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +85,15 @@ public class AllergyIntolerance extends DomainResource {
             case CONFIRMED: return "confirmed";
             case RESOLVED: return "resolved";
             case REFUTED: return "refuted";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case UNCONFIRMED: return "";
+            case CONFIRMED: return "";
+            case RESOLVED: return "";
+            case REFUTED: return "";
             default: return "?";
           }
         }
@@ -116,9 +146,18 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     public enum AllergyIntoleranceCriticality {
-        LOW, // The potential clinical impact of a future reaction is estimated as low risk. Future exposure to the Substance is considered a relative contra-indication.
-        HIGH, // The potential clinical impact of a future reaction is estimated as high risk. Future exposure to the Substance may be considered an absolute contra-indication.
-        NULL; // added to help the parsers
+        /**
+         * The potential clinical impact of a future reaction is estimated as low risk. Future exposure to the Substance is considered a relative contra-indication.
+         */
+        LOW, 
+        /**
+         * The potential clinical impact of a future reaction is estimated as high risk. Future exposure to the Substance may be considered an absolute contra-indication.
+         */
+        HIGH, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AllergyIntoleranceCriticality fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -132,6 +171,13 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case LOW: return "low";
             case HIGH: return "high";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case LOW: return "";
+            case HIGH: return "";
             default: return "?";
           }
         }
@@ -172,9 +218,18 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     public enum AllergyIntoleranceType {
-        IMMUNE, // Immune mediated reaction, including allergic reactions and hypersensitivities.
-        NONIMMUNE, // A non-immune mediated reaction, which can include pseudoallergic reactions, side effects, intolerances, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
-        NULL; // added to help the parsers
+        /**
+         * Immune mediated reaction, including allergic reactions and hypersensitivities.
+         */
+        IMMUNE, 
+        /**
+         * A non-immune mediated reaction, which can include pseudoallergic reactions, side effects, intolerances, drug toxicities (eg to Gentamicin), drug-drug interactions, food-drug interactions, and drug-disease interactions.
+         */
+        NONIMMUNE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AllergyIntoleranceType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -188,6 +243,13 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case IMMUNE: return "immune";
             case NONIMMUNE: return "non-immune";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case IMMUNE: return "";
+            case NONIMMUNE: return "";
             default: return "?";
           }
         }
@@ -228,10 +290,22 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     public enum AllergyIntoleranceCategory {
-        FOOD, // Any substance consumed to provide nutritional support for the body.
-        MEDICATION, // Substances administered to achieve a physiological effect.
-        ENVIRONMENT, // Substances that are encountered in the environment.
-        NULL; // added to help the parsers
+        /**
+         * Any substance consumed to provide nutritional support for the body.
+         */
+        FOOD, 
+        /**
+         * Substances administered to achieve a physiological effect.
+         */
+        MEDICATION, 
+        /**
+         * Substances that are encountered in the environment.
+         */
+        ENVIRONMENT, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AllergyIntoleranceCategory fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -248,6 +322,14 @@ public class AllergyIntolerance extends DomainResource {
             case FOOD: return "food";
             case MEDICATION: return "medication";
             case ENVIRONMENT: return "environment";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case FOOD: return "";
+            case MEDICATION: return "";
+            case ENVIRONMENT: return "";
             default: return "?";
           }
         }
@@ -294,10 +376,22 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     public enum ReactionEventCertainty {
-        UNLIKELY, // There is a low level of clinical certainty that the reaction was caused by the identified Substance.
-        LIKELY, // There is a high level of clinical certainty that the reaction was caused by the identified Substance.
-        CONFIRMED, // There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
-        NULL; // added to help the parsers
+        /**
+         * There is a low level of clinical certainty that the reaction was caused by the identified Substance.
+         */
+        UNLIKELY, 
+        /**
+         * There is a high level of clinical certainty that the reaction was caused by the identified Substance.
+         */
+        LIKELY, 
+        /**
+         * There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
+         */
+        CONFIRMED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ReactionEventCertainty fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -314,6 +408,14 @@ public class AllergyIntolerance extends DomainResource {
             case UNLIKELY: return "unlikely";
             case LIKELY: return "likely";
             case CONFIRMED: return "confirmed";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case UNLIKELY: return "";
+            case LIKELY: return "";
+            case CONFIRMED: return "";
             default: return "?";
           }
         }
@@ -360,10 +462,22 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     public enum ReactionEventSeverity {
-        MILD, // Causes mild physiological effects.
-        MODERATE, // Causes moderate physiological effects.
-        SEVERE, // Causes severe physiological effects.
-        NULL; // added to help the parsers
+        /**
+         * Causes mild physiological effects.
+         */
+        MILD, 
+        /**
+         * Causes moderate physiological effects.
+         */
+        MODERATE, 
+        /**
+         * Causes severe physiological effects.
+         */
+        SEVERE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ReactionEventSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -380,6 +494,14 @@ public class AllergyIntolerance extends DomainResource {
             case MILD: return "mild";
             case MODERATE: return "moderate";
             case SEVERE: return "severe";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case MILD: return "";
+            case MODERATE: return "";
+            case SEVERE: return "";
             default: return "?";
           }
         }
@@ -425,53 +547,72 @@ public class AllergyIntolerance extends DomainResource {
       }
     }
 
+    @Block()
     public static class AllergyIntoleranceEventComponent extends BackboneElement {
         /**
          * Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.
          */
+        @Child(name="substance", type={CodeableConcept.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Specific substance considered to be responsible for event", formalDefinition="Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance." )
         protected CodeableConcept substance;
 
         /**
          * Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.
          */
+        @Child(name="certainty", type={CodeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="unlikely | likely | confirmed - clinical certainty about the specific substance", formalDefinition="Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event." )
         protected Enumeration<ReactionEventCertainty> certainty;
 
         /**
          * Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.
          */
-        protected List<CodeableConcept> manifestation = new ArrayList<CodeableConcept>();
+        @Child(name="manifestation", type={CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Clinical symptoms/signs associated with the Event", formalDefinition="Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event." )
+        protected List<CodeableConcept> manifestation;
 
         /**
          * Text description about the Reaction as a whole, including details of the manifestation if required.
          */
+        @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Description of the event as a whole", formalDefinition="Text description about the Reaction as a whole, including details of the manifestation if required." )
         protected StringType description;
 
         /**
          * Record of the date and/or time of the onset of the Reaction.
          */
+        @Child(name="onset", type={DateTimeType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Date(/time) when manifestations showed", formalDefinition="Record of the date and/or time of the onset of the Reaction." )
         protected DateTimeType onset;
 
         /**
          * The amount of time that the Adverse Reaction persisted.
          */
+        @Child(name="duration", type={Duration.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="How long Manifestations persisted", formalDefinition="The amount of time that the Adverse Reaction persisted." )
         protected Duration duration;
 
         /**
          * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
+        @Child(name="severity", type={CodeType.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="mild | moderate | severe (of event as a whole)", formalDefinition="Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations." )
         protected Enumeration<ReactionEventSeverity> severity;
 
         /**
          * Identification of the route by which the subject was exposed to the substance.
          */
+        @Child(name="exposureRoute", type={CodeableConcept.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="How the subject was exposed to the substance", formalDefinition="Identification of the route by which the subject was exposed to the substance." )
         protected CodeableConcept exposureRoute;
 
         /**
          * Additional text about the Adverse Reaction event not captured in other fields.
          */
+        @Child(name="comment", type={StringType.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Text about event not captured in other fields", formalDefinition="Additional text about the Adverse Reaction event not captured in other fields." )
         protected StringType comment;
 
-        private static final long serialVersionUID = 536798130L;
+        private static final long serialVersionUID = -1773271720L;
 
       public AllergyIntoleranceEventComponent() {
         super();
@@ -481,7 +622,16 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.)
          */
         public CodeableConcept getSubstance() { 
+          if (this.substance == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.substance");
+            else if (Configuration.doAutoCreate())
+              this.substance = new CodeableConcept();
           return this.substance;
+        }
+
+        public boolean hasSubstance() { 
+          return this.substance != null && !this.substance.isEmpty();
         }
 
         /**
@@ -496,7 +646,20 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #certainty} (Statement about the degree of clinical certainty that the Specific Substance was the cause of the Manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
          */
         public Enumeration<ReactionEventCertainty> getCertaintyElement() { 
+          if (this.certainty == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.certainty");
+            else if (Configuration.doAutoCreate())
+              this.certainty = new Enumeration<ReactionEventCertainty>();
           return this.certainty;
+        }
+
+        public boolean hasCertaintyElement() { 
+          return this.certainty != null && !this.certainty.isEmpty();
+        }
+
+        public boolean hasCertainty() { 
+          return this.certainty != null && !this.certainty.isEmpty();
         }
 
         /**
@@ -532,7 +695,18 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #manifestation} (Clinical symptoms and/or signs that are observed or associated with the Adverse Reaction Event.)
          */
         public List<CodeableConcept> getManifestation() { 
+          if (this.manifestation == null)
+            this.manifestation = new ArrayList<CodeableConcept>();
           return this.manifestation;
+        }
+
+        public boolean hasManifestation() { 
+          if (this.manifestation == null)
+            return false;
+          for (CodeableConcept item : this.manifestation)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -541,6 +715,8 @@ public class AllergyIntolerance extends DomainResource {
     // syntactic sugar
         public CodeableConcept addManifestation() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.manifestation == null)
+            this.manifestation = new ArrayList<CodeableConcept>();
           this.manifestation.add(t);
           return t;
         }
@@ -549,7 +725,20 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #description} (Text description about the Reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -585,7 +774,20 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #onset} (Record of the date and/or time of the onset of the Reaction.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
          */
         public DateTimeType getOnsetElement() { 
+          if (this.onset == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.onset");
+            else if (Configuration.doAutoCreate())
+              this.onset = new DateTimeType();
           return this.onset;
+        }
+
+        public boolean hasOnsetElement() { 
+          return this.onset != null && !this.onset.isEmpty();
+        }
+
+        public boolean hasOnset() { 
+          return this.onset != null && !this.onset.isEmpty();
         }
 
         /**
@@ -621,7 +823,16 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #duration} (The amount of time that the Adverse Reaction persisted.)
          */
         public Duration getDuration() { 
+          if (this.duration == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.duration");
+            else if (Configuration.doAutoCreate())
+              this.duration = new Duration();
           return this.duration;
+        }
+
+        public boolean hasDuration() { 
+          return this.duration != null && !this.duration.isEmpty();
         }
 
         /**
@@ -636,7 +847,20 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #severity} (Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
         public Enumeration<ReactionEventSeverity> getSeverityElement() { 
+          if (this.severity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.severity");
+            else if (Configuration.doAutoCreate())
+              this.severity = new Enumeration<ReactionEventSeverity>();
           return this.severity;
+        }
+
+        public boolean hasSeverityElement() { 
+          return this.severity != null && !this.severity.isEmpty();
+        }
+
+        public boolean hasSeverity() { 
+          return this.severity != null && !this.severity.isEmpty();
         }
 
         /**
@@ -672,7 +896,16 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #exposureRoute} (Identification of the route by which the subject was exposed to the substance.)
          */
         public CodeableConcept getExposureRoute() { 
+          if (this.exposureRoute == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.exposureRoute");
+            else if (Configuration.doAutoCreate())
+              this.exposureRoute = new CodeableConcept();
           return this.exposureRoute;
+        }
+
+        public boolean hasExposureRoute() { 
+          return this.exposureRoute != null && !this.exposureRoute.isEmpty();
         }
 
         /**
@@ -687,7 +920,20 @@ public class AllergyIntolerance extends DomainResource {
          * @return {@link #comment} (Additional text about the Adverse Reaction event not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
         public StringType getCommentElement() { 
+          if (this.comment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AllergyIntoleranceEventComponent.comment");
+            else if (Configuration.doAutoCreate())
+              this.comment = new StringType();
           return this.comment;
+        }
+
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
         }
 
         /**
@@ -737,9 +983,11 @@ public class AllergyIntolerance extends DomainResource {
         copyValues(dst);
         dst.substance = substance == null ? null : substance.copy();
         dst.certainty = certainty == null ? null : certainty.copy();
-        dst.manifestation = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : manifestation)
-          dst.manifestation.add(i.copy());
+        if (manifestation != null) {
+          dst.manifestation = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : manifestation)
+            dst.manifestation.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
         dst.onset = onset == null ? null : onset.copy();
         dst.duration = duration == null ? null : duration.copy();
@@ -749,21 +997,35 @@ public class AllergyIntolerance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (substance == null || substance.isEmpty()) && (certainty == null || certainty.isEmpty())
+           && (manifestation == null || manifestation.isEmpty()) && (description == null || description.isEmpty())
+           && (onset == null || onset.isEmpty()) && (duration == null || duration.isEmpty()) && (severity == null || severity.isEmpty())
+           && (exposureRoute == null || exposureRoute.isEmpty()) && (comment == null || comment.isEmpty())
+          ;
+      }
+
   }
 
     /**
      * This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Ids for this item", formalDefinition="This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    protected List<Identifier> identifier;
 
     /**
      * Date when the sensitivity was recorded.
      */
+    @Child(name="recordedDate", type={DateTimeType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="When recorded", formalDefinition="Date when the sensitivity was recorded." )
     protected DateTimeType recordedDate;
 
     /**
      * Indicates who has responsibility for the record.
      */
+    @Child(name="recorder", type={Practitioner.class, Patient.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Indicates who has responsibility for the record." )
     protected Reference recorder;
 
     /**
@@ -774,6 +1036,8 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * The patient who has the allergy or intolerance.
      */
+    @Child(name="subject", type={Patient.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="Who the sensitivity is for", formalDefinition="The patient who has the allergy or intolerance." )
     protected Reference subject;
 
     /**
@@ -784,44 +1048,60 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk.
      */
+    @Child(name="substance", type={CodeableConcept.class}, order=3, min=1, max=1)
+    @Description(shortDefinition="Substance, (or class) considered to be responsible for risk", formalDefinition="Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk." )
     protected CodeableConcept substance;
 
     /**
      * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
      */
+    @Child(name="status", type={CodeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="unconfirmed | confirmed | resolved | refuted", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceStatus> status;
 
     /**
      * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
      */
+    @Child(name="criticality", type={CodeType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="low | high - Estimated potential clinical harm", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceCriticality> criticality;
 
     /**
      * Identification of the underlying physiological mechanism for the Reaction Risk.
      */
+    @Child(name="type", type={CodeType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="immune | non-immune - Underlying mechanism (if known)", formalDefinition="Identification of the underlying physiological mechanism for the Reaction Risk." )
     protected Enumeration<AllergyIntoleranceType> type;
 
     /**
      * Category of the identified Substance.
      */
+    @Child(name="category", type={CodeType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="food | medication | environment - Category of Substance", formalDefinition="Category of the identified Substance." )
     protected Enumeration<AllergyIntoleranceCategory> category;
 
     /**
      * Represents the date and/or time of the last known occurence of a reaction event.
      */
+    @Child(name="lastOccurence", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Date(/time) of last known occurence of a reaction", formalDefinition="Represents the date and/or time of the last known occurence of a reaction event." )
     protected DateTimeType lastOccurence;
 
     /**
      * Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
      */
+    @Child(name="comment", type={StringType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Additional text not captured in other fields", formalDefinition="Additional narrative about the propensity for the Adverse Reaction, not captured in other fields." )
     protected StringType comment;
 
     /**
      * Details about each Adverse Reaction Event linked to exposure to the identified Substance.
      */
-    protected List<AllergyIntoleranceEventComponent> event = new ArrayList<AllergyIntoleranceEventComponent>();
+    @Child(name="event", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Adverse Reaction Events linked to exposure to substance", formalDefinition="Details about each Adverse Reaction Event linked to exposure to the identified Substance." )
+    protected List<AllergyIntoleranceEventComponent> event;
 
-    private static final long serialVersionUID = -1433178694L;
+    private static final long serialVersionUID = -571844748L;
 
     public AllergyIntolerance() {
       super();
@@ -837,7 +1117,18 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -846,6 +1137,8 @@ public class AllergyIntolerance extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -854,7 +1147,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
     public DateTimeType getRecordedDateElement() { 
+      if (this.recordedDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.recordedDate");
+        else if (Configuration.doAutoCreate())
+          this.recordedDate = new DateTimeType();
       return this.recordedDate;
+    }
+
+    public boolean hasRecordedDateElement() { 
+      return this.recordedDate != null && !this.recordedDate.isEmpty();
+    }
+
+    public boolean hasRecordedDate() { 
+      return this.recordedDate != null && !this.recordedDate.isEmpty();
     }
 
     /**
@@ -890,7 +1196,16 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #recorder} (Indicates who has responsibility for the record.)
      */
     public Reference getRecorder() { 
+      if (this.recorder == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.recorder");
+        else if (Configuration.doAutoCreate())
+          this.recorder = new Reference();
       return this.recorder;
+    }
+
+    public boolean hasRecorder() { 
+      return this.recorder != null && !this.recorder.isEmpty();
     }
 
     /**
@@ -920,7 +1235,16 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #subject} (The patient who has the allergy or intolerance.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -935,6 +1259,11 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who has the allergy or intolerance.)
      */
     public Patient getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.subject");
+        else if (Configuration.doAutoCreate())
+          this.subjectTarget = new Patient();
       return this.subjectTarget;
     }
 
@@ -950,7 +1279,16 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #substance} (Identification of a substance, or a class of substances, that is considered to be responsible for the Adverse reaction risk.)
      */
     public CodeableConcept getSubstance() { 
+      if (this.substance == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.substance");
+        else if (Configuration.doAutoCreate())
+          this.substance = new CodeableConcept();
       return this.substance;
+    }
+
+    public boolean hasSubstance() { 
+      return this.substance != null && !this.substance.isEmpty();
     }
 
     /**
@@ -965,7 +1303,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<AllergyIntoleranceStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -1001,7 +1352,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCriticality> getCriticalityElement() { 
+      if (this.criticality == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.criticality");
+        else if (Configuration.doAutoCreate())
+          this.criticality = new Enumeration<AllergyIntoleranceCriticality>();
       return this.criticality;
+    }
+
+    public boolean hasCriticalityElement() { 
+      return this.criticality != null && !this.criticality.isEmpty();
+    }
+
+    public boolean hasCriticality() { 
+      return this.criticality != null && !this.criticality.isEmpty();
     }
 
     /**
@@ -1037,7 +1401,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #type} (Identification of the underlying physiological mechanism for the Reaction Risk.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceType> getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new Enumeration<AllergyIntoleranceType>();
       return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -1073,7 +1450,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
     public Enumeration<AllergyIntoleranceCategory> getCategoryElement() { 
+      if (this.category == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.category");
+        else if (Configuration.doAutoCreate())
+          this.category = new Enumeration<AllergyIntoleranceCategory>();
       return this.category;
+    }
+
+    public boolean hasCategoryElement() { 
+      return this.category != null && !this.category.isEmpty();
+    }
+
+    public boolean hasCategory() { 
+      return this.category != null && !this.category.isEmpty();
     }
 
     /**
@@ -1109,7 +1499,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #lastOccurence} (Represents the date and/or time of the last known occurence of a reaction event.). This is the underlying object with id, value and extensions. The accessor "getLastOccurence" gives direct access to the value
      */
     public DateTimeType getLastOccurenceElement() { 
+      if (this.lastOccurence == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.lastOccurence");
+        else if (Configuration.doAutoCreate())
+          this.lastOccurence = new DateTimeType();
       return this.lastOccurence;
+    }
+
+    public boolean hasLastOccurenceElement() { 
+      return this.lastOccurence != null && !this.lastOccurence.isEmpty();
+    }
+
+    public boolean hasLastOccurence() { 
+      return this.lastOccurence != null && !this.lastOccurence.isEmpty();
     }
 
     /**
@@ -1145,7 +1548,20 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #comment} (Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
+      if (this.comment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create AllergyIntolerance.comment");
+        else if (Configuration.doAutoCreate())
+          this.comment = new StringType();
       return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
@@ -1181,7 +1597,18 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #event} (Details about each Adverse Reaction Event linked to exposure to the identified Substance.)
      */
     public List<AllergyIntoleranceEventComponent> getEvent() { 
+      if (this.event == null)
+        this.event = new ArrayList<AllergyIntoleranceEventComponent>();
       return this.event;
+    }
+
+    public boolean hasEvent() { 
+      if (this.event == null)
+        return false;
+      for (AllergyIntoleranceEventComponent item : this.event)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1190,6 +1617,8 @@ public class AllergyIntolerance extends DomainResource {
     // syntactic sugar
     public AllergyIntoleranceEventComponent addEvent() { //3
       AllergyIntoleranceEventComponent t = new AllergyIntoleranceEventComponent();
+      if (this.event == null)
+        this.event = new ArrayList<AllergyIntoleranceEventComponent>();
       this.event.add(t);
       return t;
     }
@@ -1213,9 +1642,11 @@ public class AllergyIntolerance extends DomainResource {
       public AllergyIntolerance copy() {
         AllergyIntolerance dst = new AllergyIntolerance();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.recordedDate = recordedDate == null ? null : recordedDate.copy();
         dst.recorder = recorder == null ? null : recorder.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -1226,9 +1657,11 @@ public class AllergyIntolerance extends DomainResource {
         dst.category = category == null ? null : category.copy();
         dst.lastOccurence = lastOccurence == null ? null : lastOccurence.copy();
         dst.comment = comment == null ? null : comment.copy();
-        dst.event = new ArrayList<AllergyIntoleranceEventComponent>();
-        for (AllergyIntoleranceEventComponent i : event)
-          dst.event.add(i.copy());
+        if (event != null) {
+          dst.event = new ArrayList<AllergyIntoleranceEventComponent>();
+          for (AllergyIntoleranceEventComponent i : event)
+            dst.event.add(i.copy());
+        };
         return dst;
       }
 
@@ -1236,11 +1669,51 @@ public class AllergyIntolerance extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (recordedDate == null || recordedDate.isEmpty())
+           && (recorder == null || recorder.isEmpty()) && (subject == null || subject.isEmpty()) && (substance == null || substance.isEmpty())
+           && (status == null || status.isEmpty()) && (criticality == null || criticality.isEmpty())
+           && (type == null || type.isEmpty()) && (category == null || category.isEmpty()) && (lastOccurence == null || lastOccurence.isEmpty())
+           && (comment == null || comment.isEmpty()) && (event == null || event.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.AllergyIntolerance;
    }
 
+  @SearchParamDefinition(name="status", path="AllergyIntolerance.status", description="unconfirmed | confirmed | resolved | refuted", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="AllergyIntolerance.subject", description="Who the sensitivity is for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="onset", path="AllergyIntolerance.event.onset", description="Date(/time) when manifestations showed", type="date" )
+  public static final String SP_ONSET = "onset";
+  @SearchParamDefinition(name="last-date", path="AllergyIntolerance.lastOccurence", description="Date(/time) of last known occurence of a reaction", type="date" )
+  public static final String SP_LASTDATE = "last-date";
+  @SearchParamDefinition(name="severity", path="AllergyIntolerance.event.severity", description="mild | moderate | severe (of event as a whole)", type="token" )
+  public static final String SP_SEVERITY = "severity";
+  @SearchParamDefinition(name="type", path="AllergyIntolerance.type", description="immune | non-immune - Underlying mechanism (if known)", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="date", path="AllergyIntolerance.recordedDate", description="When recorded", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="substance", path="AllergyIntolerance.substance|AllergyIntolerance.event.substance", description="Substance, (or class) considered to be responsible for risk", type="token" )
+  public static final String SP_SUBSTANCE = "substance";
+  @SearchParamDefinition(name="criticality", path="AllergyIntolerance.criticality", description="low | high - Estimated potential clinical harm", type="token" )
+  public static final String SP_CRITICALITY = "criticality";
+  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment - Category of Substance", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="duration", path="AllergyIntolerance.event.duration", description="How long Manifestations persisted", type="quantity" )
+  public static final String SP_DURATION = "duration";
+  @SearchParamDefinition(name="patient", path="AllergyIntolerance.subject", description="Who the sensitivity is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="recorder", path="AllergyIntolerance.recorder", description="Who recorded the sensitivity", type="reference" )
+  public static final String SP_RECORDER = "recorder";
+  @SearchParamDefinition(name="route", path="AllergyIntolerance.event.exposureRoute", description="How the subject was exposed to the substance", type="token" )
+  public static final String SP_ROUTE = "route";
+  @SearchParamDefinition(name="identifier", path="AllergyIntolerance.identifier", description="External Ids for this item", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="manifestation", path="AllergyIntolerance.event.manifestation", description="Clinical symptoms/signs associated with the Event", type="token" )
+  public static final String SP_MANIFESTATION = "manifestation";
 
 }
 

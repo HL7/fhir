@@ -33,18 +33,12 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 uses
-  SysUtils, Classes,
-  StringSupport, BytesSupport,
-  Json,
-  FHIRBase,
-  FHIRTypes,
-  FHIRResources,
-  DateAndTime,
-  AdvMemories,
-  AdvStringBuilders,
-  AdvObjects,
-  AdvObjectLists;
+  FHIRTypes, FHIRResources;
 
+type
+  TFHIRAtomCategoryList = TFHIRCodingList;
+
+(*
 type
   {@Class TFHIRAtomLink
     A Atom Link - type and url
@@ -486,9 +480,11 @@ type
     property entries : TFHIRAtomEntryList read Fentries;
 
   end;
+*)
 
 implementation
 
+(*
 { TFHIRAtomBase }
 
 function TFHIRAtomBase.Clone: TFHIRAtomBase;
@@ -1212,5 +1208,7 @@ function TFHIRAtomCategory.Link: TFHIRAtomCategory;
 begin
   result := TFHIRAtomCategory(Inherited Link);
 end;
+
+*)
 
 end.

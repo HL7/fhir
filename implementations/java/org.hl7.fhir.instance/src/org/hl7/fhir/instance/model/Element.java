@@ -34,6 +34,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import org.hl7.fhir.utilities.Utilities;
+
 /**
  * The base element as defined in FHIR: an id attribute or property, and extensions. 
  * All FHIR classes that represent resource content inherit from this 
@@ -48,43 +50,53 @@ public abstract class Element extends Base {
 	/**
 	 * xml:id (or "id" in json) - the target id for internal references
 	 */
-	private String xmlId;
+	private String elementId;
 	
 	/**
 	 * Extensions on this element
 	 */
-  private List<Extension> extension = new ArrayList<Extension>();
+  private List<Extension> extension;
   
-  /** extensions for convenience **/
-  
-  private List<String> xmlComments; // used to allow rough round-tripping of content
+  /**
+   * Round tracking xml comments for testing convenience
+   */
+  private List<String> formatComments; // used to allow rough round-tripping of content
  
   /**
    * @return xml:id (or "id" in json) - the target id for internal references
    */
-	public String getXmlId() {
-		return xmlId;
+	public String getElementId() {
+		return elementId;
 	}
 
 	/**
 	 * @param xmlId xml:id (or "id" in json) - the target id for internal references
 	 */
-	public void setXmlId(String xmlId) {
-		this.xmlId = xmlId;
+	public void setElementId(String xmlId) {
+		this.elementId = xmlId;
 	}
 	
 	/**
 	 * @return Extensions on this element
 	 */
   public List<Extension> getExtension() {
+  	if (extension == null)
+  		extension = new ArrayList<Extension>();
     return extension;
   }
   
   /**
    * @return true if there are extensions on this element
    */
+  public boolean hasExtension() {
+    return extension != null && extension.size() > 0;
+  }
+	
+  /**
+   * @return true if there are extensions on this element
+   */
   public boolean hasExtensions() {
-    return extension.size() > 0;
+    return extension != null && extension.size() > 0;
   }
 	
   /**
@@ -92,7 +104,7 @@ public abstract class Element extends Base {
    * @return true if the named extension is on this element
    */
   public boolean hasExtension(String name) {
-    if (name == null)
+    if (name == null || extension == null)
       return false;
     for (Extension e : extension) {
       if (name.equals(e.getUrl()))
@@ -106,7 +118,7 @@ public abstract class Element extends Base {
    * @return The extension, if on this element, else null
    */
   public Extension getExtension(String name) {
-    if (name == null)
+    if (name == null || extension == null)
       return null;
     for (Extension e : extension) {
       if (name.equals(e.getUrl()))
@@ -116,6 +128,8 @@ public abstract class Element extends Base {
   }
   
   public void setStringExtension(String uri, String value) {
+  	if (extension == null)
+  		extension = new ArrayList<Extension>();
     Extension ext = getExtension(uri);
     if (ext != null)
       ext.setValue(new StringType(value));
@@ -133,26 +147,39 @@ public abstract class Element extends Base {
   }
 
  
-  public List<String> getXmlComments() {
-    if (xmlComments == null)
-      xmlComments = new ArrayList<String>();
-    return xmlComments;
+  public boolean hasFormatComment() {
+  	return (formatComments != null && !formatComments.isEmpty());
+  }
+  
+  public List<String> getFormatComments() {
+    if (formatComments == null)
+    	formatComments = new ArrayList<String>();
+    return formatComments;
   }  
 
 
   public void copyValues(Element dst) {
-  	dst.xmlId = xmlId;
-  	
-    dst.extension = new ArrayList<Extension>();
-    for (Extension i : extension)
-      dst.extension.add(i.copy());
-    
-    if (xmlComments == null || xmlComments.isEmpty())
-    	dst.xmlComments = null;
+  	dst.elementId = elementId;
+
+  	if (extension != null) {
+  		dst.extension = new ArrayList<Extension>();
+  		for (Extension i : extension)
+  			dst.extension.add(i.copy());
+  	}
+    if (formatComments == null || formatComments.isEmpty())
+    	dst.formatComments = null;
     else { 
-      dst.xmlComments = new ArrayList<String>();
-      dst.xmlComments.addAll(xmlComments);    	
+      dst.formatComments = new ArrayList<String>();
+      dst.formatComments.addAll(formatComments);    	
     }
+  }
+
+	public boolean isEmpty() {
+	  return elementId == null && (extension == null || extension.isEmpty());
+  }
+
+	public boolean hasElementId() {
+	  return !Utilities.noString(elementId);
   }
 
 }

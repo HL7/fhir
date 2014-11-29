@@ -157,7 +157,7 @@ public class WebMaker {
         String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"vs"+File.separator+ref;
         buildRedirect(n, bs.getReference()+".html", dn);
         ValueSet vs = bs.getReferredValueSet();
-        if (vs != null && vs.getDefine() != null && vs.getDefine().getSystem().startsWith("http://hl7.org/fhir")) {
+        if (vs != null && vs.hasDefine() && vs.getDefine().getSystem().startsWith("http://hl7.org/fhir")) {
           dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+vs.getDefine().getSystem().substring(20).replace("/", "\\");
           buildRedirect(n, bs.getReference()+".html", dn);          
         }

@@ -29,30 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * This special resource type is used to represent [operation](operations.html] request and response. It has no other use, and there is no RESTful end=point associated with it.
  */
+@ResourceDef(name="Parameters", profile="http://hl7.org/fhir/Profile/Parameters")
 public class Parameters extends Resource {
 
+    @Block()
     public static class ParametersParameterComponent extends BackboneElement {
         /**
          * The name of the parameter (reference to the operation definition).
          */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name from the definition", formalDefinition="The name of the parameter (reference to the operation definition)." )
         protected StringType name;
 
         /**
          * If the parameter is a data type.
          */
+        @Child(name="value", type={}, order=2, min=0, max=1)
+        @Description(shortDefinition="If parameter is a data type", formalDefinition="If the parameter is a data type." )
         protected org.hl7.fhir.instance.model.Type value;
 
         /**
          * If the parameter is a whole resource.
          */
+        @Child(name="resource", type={Resource.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="If parameter is a whole resource", formalDefinition="If the parameter is a whole resource." )
         protected Resource resource;
 
         private static final long serialVersionUID = 1120601371L;
@@ -70,7 +83,20 @@ public class Parameters extends Resource {
          * @return {@link #name} (The name of the parameter (reference to the operation definition).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ParametersParameterComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -105,6 +131,10 @@ public class Parameters extends Resource {
           return this.value;
         }
 
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
         /**
          * @param value {@link #value} (If the parameter is a data type.)
          */
@@ -118,6 +148,10 @@ public class Parameters extends Resource {
          */
         public Resource getResource() { 
           return this.resource;
+        }
+
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
@@ -144,14 +178,21 @@ public class Parameters extends Resource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+           && (resource == null || resource.isEmpty());
+      }
+
   }
 
     /**
      * A parameter passed to or received from the operation.
      */
-    protected List<ParametersParameterComponent> parameter = new ArrayList<ParametersParameterComponent>();
+    @Child(name="parameter", type={}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Operation Parameter", formalDefinition="A parameter passed to or received from the operation." )
+    protected List<ParametersParameterComponent> parameter;
 
-    private static final long serialVersionUID = -648184030L;
+    private static final long serialVersionUID = -1495940293L;
 
     public Parameters() {
       super();
@@ -161,7 +202,18 @@ public class Parameters extends Resource {
      * @return {@link #parameter} (A parameter passed to or received from the operation.)
      */
     public List<ParametersParameterComponent> getParameter() { 
+      if (this.parameter == null)
+        this.parameter = new ArrayList<ParametersParameterComponent>();
       return this.parameter;
+    }
+
+    public boolean hasParameter() { 
+      if (this.parameter == null)
+        return false;
+      for (ParametersParameterComponent item : this.parameter)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -170,6 +222,8 @@ public class Parameters extends Resource {
     // syntactic sugar
     public ParametersParameterComponent addParameter() { //3
       ParametersParameterComponent t = new ParametersParameterComponent();
+      if (this.parameter == null)
+        this.parameter = new ArrayList<ParametersParameterComponent>();
       this.parameter.add(t);
       return t;
     }
@@ -182,14 +236,20 @@ public class Parameters extends Resource {
       public Parameters copy() {
         Parameters dst = new Parameters();
         copyValues(dst);
-        dst.parameter = new ArrayList<ParametersParameterComponent>();
-        for (ParametersParameterComponent i : parameter)
-          dst.parameter.add(i.copy());
+        if (parameter != null) {
+          dst.parameter = new ArrayList<ParametersParameterComponent>();
+          for (ParametersParameterComponent i : parameter)
+            dst.parameter.add(i.copy());
+        };
         return dst;
       }
 
       protected Parameters typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (parameter == null || parameter.isEmpty());
       }
 
   @Override

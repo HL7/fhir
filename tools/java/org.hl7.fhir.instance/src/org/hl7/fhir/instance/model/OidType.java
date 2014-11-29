@@ -53,4 +53,10 @@ public class OidType extends UriType {
 		dst.value = value;
 		return dst;
 	}
+	
+	
+	public boolean hasValue() {
+		return value != null;
+	}
+	
 }

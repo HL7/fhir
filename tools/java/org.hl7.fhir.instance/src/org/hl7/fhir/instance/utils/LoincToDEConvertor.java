@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -123,7 +123,7 @@ public class LoincToDEConvertor {
 	}
 
 	private void saveBundle() throws Exception {
-		XmlComposer xml = new XmlComposer();
+		XmlParser xml = new XmlParser();
 		xml.compose(new FileOutputStream(dest), bundle, true);
 	}
 

@@ -29,24 +29,32 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Optional Extensions Element - found in all resources.
  */
+@DatatypeDef(name="Extension")
 public class Extension extends Element {
 
     /**
      * Source of the definition for the extension code - a logical name or a URL.
      */
+    @Child(name="url", type={UriType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="identifies the meaning of the extension", formalDefinition="Source of the definition for the extension code - a logical name or a URL." )
     protected UriType url;
 
     /**
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
      */
+    @Child(name="value", type={}, order=0, min=0, max=1)
+    @Description(shortDefinition="Value of extension", formalDefinition="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." )
     protected org.hl7.fhir.instance.model.Type value;
 
     private static final long serialVersionUID = 86382982L;
@@ -64,7 +72,20 @@ public class Extension extends Element {
      * @return {@link #url} (Source of the definition for the extension code - a logical name or a URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Extension.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType();
       return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
@@ -99,6 +120,10 @@ public class Extension extends Element {
       return this.value;
     }
 
+    public boolean hasValue() { 
+      return this.value != null && !this.value.isEmpty();
+    }
+
     /**
      * @param value {@link #value} (Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).)
      */
@@ -123,6 +148,11 @@ public class Extension extends Element {
 
       protected Extension typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (url == null || url.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
 

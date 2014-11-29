@@ -67,11 +67,8 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.hl7.fhir.instance.formats.Composer;
-import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Coding;
@@ -381,13 +378,13 @@ public class ClientUtils {
 		byte[] byteArray = null;
 		try {
 			baos = new ByteArrayOutputStream();
-			Composer composer = null;
+			Parser parser = null;
 			if(isJson) {
-				composer = new JsonComposer();
+				parser = new JsonParser();
 			} else {
-				composer = new XmlComposer();
+				parser = new XmlParser();
 			}
-			composer.compose(baos, resource, pretty);
+			parser.compose(baos, resource, pretty);
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -406,13 +403,13 @@ public class ClientUtils {
 		byte[] byteArray = null;
 		try {
 			baos = new ByteArrayOutputStream();
-			Composer composer = null;
+			Parser parser = null;
 			if(isJson) {
-				composer = new JsonComposer();
+				parser = new JsonParser();
 			} else {
-				composer = new XmlComposer();
+				parser = new XmlParser();
 			}
-			composer.compose(baos, feed, pretty);
+			parser.compose(baos, feed, pretty);
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -494,7 +491,7 @@ public class ClientUtils {
     w.write(boundary);
     w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n\r\n");
     w.close(); 
-    new JsonComposer().compose(b, resource, false);
+    new JsonParser().compose(b, resource, false);
     w = new OutputStreamWriter(b, "UTF-8");  
     w.write("\r\n--");
     w.write(boundary);

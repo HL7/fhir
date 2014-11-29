@@ -29,30 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient.  E.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
  */
+@ResourceDef(name="Contraindication", profile="http://hl7.org/fhir/Profile/Contraindication")
 public class Contraindication extends DomainResource {
 
+    @Block()
     public static class ContraindicationMitigationComponent extends BackboneElement {
         /**
          * Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified contraindication.
          */
+        @Child(name="action", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="What mitigation?", formalDefinition="Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified contraindication." )
         protected CodeableConcept action;
 
         /**
          * Indicates when the mitigating action was documented.
          */
+        @Child(name="date", type={DateTimeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Date committed", formalDefinition="Indicates when the mitigating action was documented." )
         protected DateTimeType date;
 
         /**
          * Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.
          */
+        @Child(name="author", type={Practitioner.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Who is committing?", formalDefinition="Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring." )
         protected Reference author;
 
         /**
@@ -75,7 +88,16 @@ public class Contraindication extends DomainResource {
          * @return {@link #action} (Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified contraindication.)
          */
         public CodeableConcept getAction() { 
+          if (this.action == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContraindicationMitigationComponent.action");
+            else if (Configuration.doAutoCreate())
+              this.action = new CodeableConcept();
           return this.action;
+        }
+
+        public boolean hasAction() { 
+          return this.action != null && !this.action.isEmpty();
         }
 
         /**
@@ -90,7 +112,20 @@ public class Contraindication extends DomainResource {
          * @return {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
         public DateTimeType getDateElement() { 
+          if (this.date == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContraindicationMitigationComponent.date");
+            else if (Configuration.doAutoCreate())
+              this.date = new DateTimeType();
           return this.date;
+        }
+
+        public boolean hasDateElement() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        public boolean hasDate() { 
+          return this.date != null && !this.date.isEmpty();
         }
 
         /**
@@ -126,7 +161,16 @@ public class Contraindication extends DomainResource {
          * @return {@link #author} (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
         public Reference getAuthor() { 
+          if (this.author == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContraindicationMitigationComponent.author");
+            else if (Configuration.doAutoCreate())
+              this.author = new Reference();
           return this.author;
+        }
+
+        public boolean hasAuthor() { 
+          return this.author != null && !this.author.isEmpty();
         }
 
         /**
@@ -141,6 +185,11 @@ public class Contraindication extends DomainResource {
          * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
         public Practitioner getAuthorTarget() { 
+          if (this.authorTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContraindicationMitigationComponent.author");
+            else if (Configuration.doAutoCreate())
+              this.authorTarget = new Practitioner();
           return this.authorTarget;
         }
 
@@ -168,11 +217,18 @@ public class Contraindication extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (action == null || action.isEmpty()) && (date == null || date.isEmpty())
+           && (author == null || author.isEmpty());
+      }
+
   }
 
     /**
      * Indicates the patient whose record the contraindication is associated with.
      */
+    @Child(name="patient", type={Patient.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Associated patient", formalDefinition="Indicates the patient whose record the contraindication is associated with." )
     protected Reference patient;
 
     /**
@@ -183,36 +239,48 @@ public class Contraindication extends DomainResource {
     /**
      * Identifies the general type of issue identified.
      */
+    @Child(name="category", type={CodeableConcept.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="E.g. Drug-drug, duplicate therapy, etc.", formalDefinition="Identifies the general type of issue identified." )
     protected CodeableConcept category;
 
     /**
      * Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
+    @Child(name="severity", type={CodeType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="high | medium | low", formalDefinition="Indicates the degree of importance associated with the identified issue based on the potential impact on the patient." )
     protected CodeType severity;
 
     /**
      * Indicates the resource representing the current activity or proposed activity that.
      */
-    protected List<Reference> implicated = new ArrayList<Reference>();
+    @Child(name="implicated", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Problem resource", formalDefinition="Indicates the resource representing the current activity or proposed activity that." )
+    protected List<Reference> implicated;
     /**
      * The actual objects that are the target of the reference (Indicates the resource representing the current activity or proposed activity that.)
      */
-    protected List<Resource> implicatedTarget = new ArrayList<Resource>();
+    protected List<Resource> implicatedTarget;
 
 
     /**
      * A textual explanation of the contraindication.
      */
+    @Child(name="detail", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Description and context", formalDefinition="A textual explanation of the contraindication." )
     protected StringType detail;
 
     /**
      * The date or date-time when the contraindication was initially identified.
      */
+    @Child(name="date", type={DateTimeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="When identified", formalDefinition="The date or date-time when the contraindication was initially identified." )
     protected DateTimeType date;
 
     /**
      * Identifies the provider or software that identified the.
      */
+    @Child(name="author", type={Practitioner.class, Device.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Who found issue?", formalDefinition="Identifies the provider or software that identified the." )
     protected Reference author;
 
     /**
@@ -223,19 +291,25 @@ public class Contraindication extends DomainResource {
     /**
      * Business identifier associated with the contraindication record.
      */
+    @Child(name="identifier", type={Identifier.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Unique id for the contraindication", formalDefinition="Business identifier associated with the contraindication record." )
     protected Identifier identifier;
 
     /**
      * The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.
      */
+    @Child(name="reference", type={UriType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Authority for issue", formalDefinition="The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified." )
     protected UriType reference;
 
     /**
      * Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
      */
-    protected List<ContraindicationMitigationComponent> mitigation = new ArrayList<ContraindicationMitigationComponent>();
+    @Child(name="mitigation", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Step taken to address", formalDefinition="Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action." )
+    protected List<ContraindicationMitigationComponent> mitigation;
 
-    private static final long serialVersionUID = -1374855035L;
+    private static final long serialVersionUID = 528603336L;
 
     public Contraindication() {
       super();
@@ -245,7 +319,16 @@ public class Contraindication extends DomainResource {
      * @return {@link #patient} (Indicates the patient whose record the contraindication is associated with.)
      */
     public Reference getPatient() { 
+      if (this.patient == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference();
       return this.patient;
+    }
+
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
@@ -260,6 +343,11 @@ public class Contraindication extends DomainResource {
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the patient whose record the contraindication is associated with.)
      */
     public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient();
       return this.patientTarget;
     }
 
@@ -275,7 +363,16 @@ public class Contraindication extends DomainResource {
      * @return {@link #category} (Identifies the general type of issue identified.)
      */
     public CodeableConcept getCategory() { 
+      if (this.category == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.category");
+        else if (Configuration.doAutoCreate())
+          this.category = new CodeableConcept();
       return this.category;
+    }
+
+    public boolean hasCategory() { 
+      return this.category != null && !this.category.isEmpty();
     }
 
     /**
@@ -290,7 +387,20 @@ public class Contraindication extends DomainResource {
      * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
     public CodeType getSeverityElement() { 
+      if (this.severity == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.severity");
+        else if (Configuration.doAutoCreate())
+          this.severity = new CodeType();
       return this.severity;
+    }
+
+    public boolean hasSeverityElement() { 
+      return this.severity != null && !this.severity.isEmpty();
+    }
+
+    public boolean hasSeverity() { 
+      return this.severity != null && !this.severity.isEmpty();
     }
 
     /**
@@ -326,7 +436,18 @@ public class Contraindication extends DomainResource {
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that.)
      */
     public List<Reference> getImplicated() { 
+      if (this.implicated == null)
+        this.implicated = new ArrayList<Reference>();
       return this.implicated;
+    }
+
+    public boolean hasImplicated() { 
+      if (this.implicated == null)
+        return false;
+      for (Reference item : this.implicated)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -335,6 +456,8 @@ public class Contraindication extends DomainResource {
     // syntactic sugar
     public Reference addImplicated() { //3
       Reference t = new Reference();
+      if (this.implicated == null)
+        this.implicated = new ArrayList<Reference>();
       this.implicated.add(t);
       return t;
     }
@@ -343,6 +466,8 @@ public class Contraindication extends DomainResource {
      * @return {@link #implicated} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the resource representing the current activity or proposed activity that.)
      */
     public List<Resource> getImplicatedTarget() { 
+      if (this.implicatedTarget == null)
+        this.implicatedTarget = new ArrayList<Resource>();
       return this.implicatedTarget;
     }
 
@@ -350,7 +475,20 @@ public class Contraindication extends DomainResource {
      * @return {@link #detail} (A textual explanation of the contraindication.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
     public StringType getDetailElement() { 
+      if (this.detail == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.detail");
+        else if (Configuration.doAutoCreate())
+          this.detail = new StringType();
       return this.detail;
+    }
+
+    public boolean hasDetailElement() { 
+      return this.detail != null && !this.detail.isEmpty();
+    }
+
+    public boolean hasDetail() { 
+      return this.detail != null && !this.detail.isEmpty();
     }
 
     /**
@@ -386,7 +524,20 @@ public class Contraindication extends DomainResource {
      * @return {@link #date} (The date or date-time when the contraindication was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -422,7 +573,16 @@ public class Contraindication extends DomainResource {
      * @return {@link #author} (Identifies the provider or software that identified the.)
      */
     public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference();
       return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
     }
 
     /**
@@ -452,7 +612,16 @@ public class Contraindication extends DomainResource {
      * @return {@link #identifier} (Business identifier associated with the contraindication record.)
      */
     public Identifier getIdentifier() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new Identifier();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
@@ -467,7 +636,20 @@ public class Contraindication extends DomainResource {
      * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the contraindication identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
     public UriType getReferenceElement() { 
+      if (this.reference == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contraindication.reference");
+        else if (Configuration.doAutoCreate())
+          this.reference = new UriType();
       return this.reference;
+    }
+
+    public boolean hasReferenceElement() { 
+      return this.reference != null && !this.reference.isEmpty();
+    }
+
+    public boolean hasReference() { 
+      return this.reference != null && !this.reference.isEmpty();
     }
 
     /**
@@ -503,7 +685,18 @@ public class Contraindication extends DomainResource {
      * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the contraindicaiton from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
     public List<ContraindicationMitigationComponent> getMitigation() { 
+      if (this.mitigation == null)
+        this.mitigation = new ArrayList<ContraindicationMitigationComponent>();
       return this.mitigation;
+    }
+
+    public boolean hasMitigation() { 
+      if (this.mitigation == null)
+        return false;
+      for (ContraindicationMitigationComponent item : this.mitigation)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -512,6 +705,8 @@ public class Contraindication extends DomainResource {
     // syntactic sugar
     public ContraindicationMitigationComponent addMitigation() { //3
       ContraindicationMitigationComponent t = new ContraindicationMitigationComponent();
+      if (this.mitigation == null)
+        this.mitigation = new ArrayList<ContraindicationMitigationComponent>();
       this.mitigation.add(t);
       return t;
     }
@@ -536,17 +731,21 @@ public class Contraindication extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.category = category == null ? null : category.copy();
         dst.severity = severity == null ? null : severity.copy();
-        dst.implicated = new ArrayList<Reference>();
-        for (Reference i : implicated)
-          dst.implicated.add(i.copy());
+        if (implicated != null) {
+          dst.implicated = new ArrayList<Reference>();
+          for (Reference i : implicated)
+            dst.implicated.add(i.copy());
+        };
         dst.detail = detail == null ? null : detail.copy();
         dst.date = date == null ? null : date.copy();
         dst.author = author == null ? null : author.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.reference = reference == null ? null : reference.copy();
-        dst.mitigation = new ArrayList<ContraindicationMitigationComponent>();
-        for (ContraindicationMitigationComponent i : mitigation)
-          dst.mitigation.add(i.copy());
+        if (mitigation != null) {
+          dst.mitigation = new ArrayList<ContraindicationMitigationComponent>();
+          for (ContraindicationMitigationComponent i : mitigation)
+            dst.mitigation.add(i.copy());
+        };
         return dst;
       }
 
@@ -554,11 +753,29 @@ public class Contraindication extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (patient == null || patient.isEmpty()) && (category == null || category.isEmpty())
+           && (severity == null || severity.isEmpty()) && (implicated == null || implicated.isEmpty())
+           && (detail == null || detail.isEmpty()) && (date == null || date.isEmpty()) && (author == null || author.isEmpty())
+           && (identifier == null || identifier.isEmpty()) && (reference == null || reference.isEmpty())
+           && (mitigation == null || mitigation.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Contraindication;
    }
 
+  @SearchParamDefinition(name="category", path="Contraindication.category", description="E.g. Drug-drug, duplicate therapy, etc.", type="token" )
+  public static final String SP_CATEGORY = "category";
+  @SearchParamDefinition(name="implicated", path="Contraindication.implicated", description="Problem resource", type="reference" )
+  public static final String SP_IMPLICATED = "implicated";
+  @SearchParamDefinition(name="patient", path="Contraindication.patient", description="Associated patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="date", path="Contraindication.date", description="When identified", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Contraindication.identifier", description="Unique id for the contraindication", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

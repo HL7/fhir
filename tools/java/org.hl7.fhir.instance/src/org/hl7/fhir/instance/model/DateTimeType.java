@@ -78,4 +78,12 @@ public class DateTimeType extends PrimitiveType {
     return value.toString();  
   }
 
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
+	
 }

@@ -29,23 +29,42 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A human-readable formatted text, including images.
  */
+@DatatypeDef(name="Narrative")
 public class Narrative extends Element {
 
     public enum NarrativeStatus {
-        GENERATED, // The contents of the narrative are entirely generated from the structured data in the resource.
-        EXTENSIONS, // The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions.
-        ADDITIONAL, // The contents of the narrative contain additional information not found in the structured data.
-        EMPTY, // the contents of the narrative are some equivalent of "No human-readable text provided for this resource".
-        NULL; // added to help the parsers
+        /**
+         * The contents of the narrative are entirely generated from the structured data in the resource.
+         */
+        GENERATED, 
+        /**
+         * The contents of the narrative are entirely generated from the structured data in the resource and some of the content is generated from extensions.
+         */
+        EXTENSIONS, 
+        /**
+         * The contents of the narrative contain additional information not found in the structured data.
+         */
+        ADDITIONAL, 
+        /**
+         * the contents of the narrative are some equivalent of "No human-readable text provided for this resource".
+         */
+        EMPTY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static NarrativeStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -65,6 +84,15 @@ public class Narrative extends Element {
             case EXTENSIONS: return "extensions";
             case ADDITIONAL: return "additional";
             case EMPTY: return "empty";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case GENERATED: return "";
+            case EXTENSIONS: return "";
+            case ADDITIONAL: return "";
+            case EMPTY: return "";
             default: return "?";
           }
         }
@@ -119,11 +147,15 @@ public class Narrative extends Element {
     /**
      * The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
      */
+    @Child(name="status", type={CodeType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="generated | extensions | additional", formalDefinition="The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data." )
     protected Enumeration<NarrativeStatus> status;
 
     /**
      * The actual narrative content, a stripped down version of XHTML.
      */
+    @Child(name="div", type={}, order=0, min=1, max=1)
+    @Description(shortDefinition="Limited xhtml content", formalDefinition="The actual narrative content, a stripped down version of XHTML." )
     protected XhtmlNode div;
 
     private static final long serialVersionUID = 1463852859L;
@@ -142,7 +174,20 @@ public class Narrative extends Element {
      * @return {@link #status} (The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<NarrativeStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Narrative.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<NarrativeStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -174,7 +219,16 @@ public class Narrative extends Element {
      * @return {@link #div} (The actual narrative content, a stripped down version of XHTML.)
      */
     public XhtmlNode getDiv() { 
+      if (this.div == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Narrative.div");
+        else if (Configuration.doAutoCreate())
+          this.div = new XhtmlNode();
       return this.div;
+    }
+
+    public boolean hasDiv() { 
+      return this.div != null && !this.div.isEmpty();
     }
 
     /**
@@ -200,6 +254,11 @@ public class Narrative extends Element {
 
       protected Narrative typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (status == null || status.isEmpty()) && (div == null || div.isEmpty())
+          ;
       }
 
 

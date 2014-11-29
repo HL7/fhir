@@ -77,4 +77,12 @@ public class UriType extends PrimitiveType {
     return value;
   }
 
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
+	
 }

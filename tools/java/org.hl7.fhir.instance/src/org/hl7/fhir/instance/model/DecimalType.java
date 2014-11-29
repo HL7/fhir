@@ -36,7 +36,7 @@ import java.math.BigDecimal;
 /**
  * Primitive type "decimal" in FHIR: A rational number
  */
-public class DecimalType extends Type {
+public class DecimalType extends PrimitiveType {
 
   private static final long serialVersionUID = 2006555241525096267L;
 
@@ -105,4 +105,17 @@ public class DecimalType extends Type {
 	  return value == null ? null : value.toString();
   }
 
+	public boolean isEmpty() {
+		return super.isEmpty() && value == null;
+	}
+
+	public boolean hasValue() {
+		return value != null;
+	}
+
+	@Override
+  public String asStringValue() {
+	  return hasValue() ? value.toString() : "";
+  }
+	
 }

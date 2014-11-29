@@ -42,7 +42,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -91,16 +91,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  null, ec);
 	      } else {
-	        String title = ec.getPath() + " (<a href=\""+extDefn.getExtensionDefinition().getTag("filename")+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	        String title = ec.getPath() + " (<a href=\""+extDefn.getExtensionDefinition().getUserData("filename")+".html\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
 	      }
 	    } else {
 	      String name = profile.getName()+"."+ makePathLink(ec);
-	      String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
+	      String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
 	      write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	      generateElementInner(profile, null, ec);
-	      if (ec.getSlicing() != null)
+	      if (ec.hasSlicing())
 	        generateSlicing(profile, ec.getSlicing());
 	    }
 	  }
@@ -127,10 +127,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
           generateElementInner(null, extDefn.getExtensionDefinition(), extDefn.getElementDefinition());
       } else {
         String name = makePathLink(ec);
-        String title = ec.getPath() + (ec.getName() == null ? "" : "(" +ec.getName() +")");
+        String title = ec.getPath() + (!ec.hasName() ? "" : "(" +ec.getName() +")");
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
         generateElementInner(null, ed, ec);
-        //          if (ec.getSlicing() != null)
+        //          if (ec.hasSlicing())
         //            generateSlicing(profile, ec.getSlicing());
       }
     }
@@ -146,7 +146,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       b.append("<li>ordered</li>");
     else
       b.append("<li>unordered</li>");
-    if (slicing.getRules() != null && slicing.getRules() != ResourceSlicingRules.NULL)
+    if (slicing.hasRules())
       b.append("<li>"+slicing.getRules().getDisplay()+"</li>");
     if (!slicing.getDiscriminator().isEmpty()) {
       b.append("<li>discriminators: ");
@@ -164,7 +164,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private String makePathLink(ElementDefinition element) {
-    if (element.getName() == null)
+    if (!element.hasName())
       return element.getPath();
     if (!element.getPath().contains("."))
       return element.getName();
@@ -172,14 +172,14 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
   
   private boolean isProfiledExtension(ElementDefinition ec) {
-    return ec.getType().size() == 1 && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).getProfile() != null;
+    return ec.getType().size() == 1 && ec.getType().get(0).getCode().equals("Extension") && ec.getType().get(0).hasProfile();
   }
 
   private void generateElementInner(Profile profile, ExtensionDefinition ed, ElementDefinition d) throws Exception {
     tableRowMarkdown("Definition", d.getFormal());
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
-    if (d.getNameReference() != null)
+    if (d.hasNameReference())
       tableRow("Type", null, "See "+d.getNameReference());
     else
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()));
@@ -188,7 +188,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowMarkdown("Requirements", d.getRequirements());
     tableRow("Aliases", null, describeAliases(d.getSynonym()));
     tableRowMarkdown("Comments", d.getComments());
-    tableRow("Max Length", null, d.getMaxLengthElement() == null ? null : Integer.toString(d.getMaxLength()));
+    tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
     tableRowNE("Fixed Value", null, encodeValue(d.getFixed()));
@@ -200,13 +200,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
    }
 
   private String encodeValue(Type value) throws Exception {
-    if (value == null)
+    if (value == null || value.isEmpty())
       return null;
     if (value instanceof PrimitiveType)
       return Utilities.escapeXml(((PrimitiveType) value).asStringValue());
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    new XmlComposer().compose(bs, value);
+    new XmlParser().compose(bs, value);
     String[] lines = bs.toString().split("\\r?\\n");
     StringBuilder b = new StringBuilder();
     for (String s : lines) {
@@ -250,13 +250,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     b.append("\">");
     b.append(t.getCode());
     b.append("</a>");
-    if (t.getProfile() != null) {
+    if (t.hasProfile()) {
       Profile p = page.getWorkerContext().getProfiles().get(t.getProfile());
       if (p == null)
         b.append("(Profile = "+t.getProfile()+")");
       else {
         b.append("(Profile = ");
-        b.append("<a href=\""+p.getTag("filename")+"\">");
+        b.append("<a href=\""+p.getUserData("filename")+"\">");
         b.append("(Profile = "+t.getProfile()+")");
         b.append("</a>");
         b.append(")");
@@ -335,7 +335,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private String describeCardinality(ElementDefinition d) {
-    if (d.getMax() == null && d.getMinElement() == null)
+    if (!d.hasMax() && d.getMinElement() == null)
       return "";
     else if (d.getMax() == null)
       return Integer.toString(d.getMin()) + "..?";
@@ -426,7 +426,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private String describeBinding(ElementDefinition d) throws Exception {
 
-    if (d.getBinding() == null)
+    if (!d.hasBinding())
       return null;
     else
       return TerminologyNotesGenerator.describeBinding(d.getBinding(), page);
@@ -503,7 +503,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         String[] parts = linkText.split("\\#");
         Profile p = utilities.getProfile(null, parts[0]);
         if (p != null)
-          url = p.getTag("filename")+".html";
+          url = p.getUserData("filename")+".html";
         else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {

@@ -29,28 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Immunization event information.
  */
+@ResourceDef(name="Immunization", profile="http://hl7.org/fhir/Profile/Immunization")
 public class Immunization extends DomainResource {
 
+    @Block()
     public static class ImmunizationExplanationComponent extends BackboneElement {
         /**
          * Reasons why a vaccine was administered.
          */
-        protected List<CodeableConcept> reason = new ArrayList<CodeableConcept>();
+        @Child(name="reason", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Why immunization occurred", formalDefinition="Reasons why a vaccine was administered." )
+        protected List<CodeableConcept> reason;
 
         /**
          * Refusal or exemption reasons.
          */
-        protected List<CodeableConcept> refusalReason = new ArrayList<CodeableConcept>();
+        @Child(name="refusalReason", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Why immunization did not occur", formalDefinition="Refusal or exemption reasons." )
+        protected List<CodeableConcept> refusalReason;
 
-        private static final long serialVersionUID = -945852082L;
+        private static final long serialVersionUID = 1023767180L;
 
       public ImmunizationExplanationComponent() {
         super();
@@ -60,7 +71,18 @@ public class Immunization extends DomainResource {
          * @return {@link #reason} (Reasons why a vaccine was administered.)
          */
         public List<CodeableConcept> getReason() { 
+          if (this.reason == null)
+            this.reason = new ArrayList<CodeableConcept>();
           return this.reason;
+        }
+
+        public boolean hasReason() { 
+          if (this.reason == null)
+            return false;
+          for (CodeableConcept item : this.reason)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -69,6 +91,8 @@ public class Immunization extends DomainResource {
     // syntactic sugar
         public CodeableConcept addReason() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.reason == null)
+            this.reason = new ArrayList<CodeableConcept>();
           this.reason.add(t);
           return t;
         }
@@ -77,7 +101,18 @@ public class Immunization extends DomainResource {
          * @return {@link #refusalReason} (Refusal or exemption reasons.)
          */
         public List<CodeableConcept> getRefusalReason() { 
+          if (this.refusalReason == null)
+            this.refusalReason = new ArrayList<CodeableConcept>();
           return this.refusalReason;
+        }
+
+        public boolean hasRefusalReason() { 
+          if (this.refusalReason == null)
+            return false;
+          for (CodeableConcept item : this.refusalReason)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -86,6 +121,8 @@ public class Immunization extends DomainResource {
     // syntactic sugar
         public CodeableConcept addRefusalReason() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.refusalReason == null)
+            this.refusalReason = new ArrayList<CodeableConcept>();
           this.refusalReason.add(t);
           return t;
         }
@@ -99,26 +136,40 @@ public class Immunization extends DomainResource {
       public ImmunizationExplanationComponent copy() {
         ImmunizationExplanationComponent dst = new ImmunizationExplanationComponent();
         copyValues(dst);
-        dst.reason = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : reason)
-          dst.reason.add(i.copy());
-        dst.refusalReason = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : refusalReason)
-          dst.refusalReason.add(i.copy());
+        if (reason != null) {
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
+            dst.reason.add(i.copy());
+        };
+        if (refusalReason != null) {
+          dst.refusalReason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : refusalReason)
+            dst.refusalReason.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (reason == null || reason.isEmpty()) && (refusalReason == null || refusalReason.isEmpty())
+          ;
       }
 
   }
 
+    @Block()
     public static class ImmunizationReactionComponent extends BackboneElement {
         /**
          * Date of reaction to the immunization.
          */
+        @Child(name="date", type={DateTimeType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="When did reaction start?", formalDefinition="Date of reaction to the immunization." )
         protected DateTimeType date;
 
         /**
          * Details of the reaction.
          */
+        @Child(name="detail", type={Observation.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Additional information on reaction", formalDefinition="Details of the reaction." )
         protected Reference detail;
 
         /**
@@ -129,6 +180,8 @@ public class Immunization extends DomainResource {
         /**
          * Self-reported indicator.
          */
+        @Child(name="reported", type={BooleanType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Was reaction self-reported?", formalDefinition="Self-reported indicator." )
         protected BooleanType reported;
 
         private static final long serialVersionUID = -1297668556L;
@@ -141,7 +194,20 @@ public class Immunization extends DomainResource {
          * @return {@link #date} (Date of reaction to the immunization.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
         public DateTimeType getDateElement() { 
+          if (this.date == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationReactionComponent.date");
+            else if (Configuration.doAutoCreate())
+              this.date = new DateTimeType();
           return this.date;
+        }
+
+        public boolean hasDateElement() { 
+          return this.date != null && !this.date.isEmpty();
+        }
+
+        public boolean hasDate() { 
+          return this.date != null && !this.date.isEmpty();
         }
 
         /**
@@ -177,7 +243,16 @@ public class Immunization extends DomainResource {
          * @return {@link #detail} (Details of the reaction.)
          */
         public Reference getDetail() { 
+          if (this.detail == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationReactionComponent.detail");
+            else if (Configuration.doAutoCreate())
+              this.detail = new Reference();
           return this.detail;
+        }
+
+        public boolean hasDetail() { 
+          return this.detail != null && !this.detail.isEmpty();
         }
 
         /**
@@ -192,6 +267,11 @@ public class Immunization extends DomainResource {
          * @return {@link #detail} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Details of the reaction.)
          */
         public Observation getDetailTarget() { 
+          if (this.detailTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationReactionComponent.detail");
+            else if (Configuration.doAutoCreate())
+              this.detailTarget = new Observation();
           return this.detailTarget;
         }
 
@@ -207,7 +287,20 @@ public class Immunization extends DomainResource {
          * @return {@link #reported} (Self-reported indicator.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
          */
         public BooleanType getReportedElement() { 
+          if (this.reported == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationReactionComponent.reported");
+            else if (Configuration.doAutoCreate())
+              this.reported = new BooleanType();
           return this.reported;
+        }
+
+        public boolean hasReportedElement() { 
+          return this.reported != null && !this.reported.isEmpty();
+        }
+
+        public boolean hasReported() { 
+          return this.reported != null && !this.reported.isEmpty();
         }
 
         /**
@@ -255,22 +348,34 @@ public class Immunization extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (date == null || date.isEmpty()) && (detail == null || detail.isEmpty())
+           && (reported == null || reported.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class ImmunizationVaccinationProtocolComponent extends BackboneElement {
         /**
          * Nominal position in a series.
          */
+        @Child(name="doseSequence", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="What dose number within series?", formalDefinition="Nominal position in a series." )
         protected IntegerType doseSequence;
 
         /**
          * Contains the description about the protocol under which the vaccine was administered.
          */
+        @Child(name="description", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Details of vaccine protocol", formalDefinition="Contains the description about the protocol under which the vaccine was administered." )
         protected StringType description;
 
         /**
          * Indicates the authority who published the protocol?  E.g. ACIP.
          */
+        @Child(name="authority", type={Organization.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Who is responsible for protocol", formalDefinition="Indicates the authority who published the protocol?  E.g. ACIP." )
         protected Reference authority;
 
         /**
@@ -281,26 +386,36 @@ public class Immunization extends DomainResource {
         /**
          * One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
+        @Child(name="series", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Name of vaccine series", formalDefinition="One possible path to achieve presumed immunity against a disease - within the context of an authority." )
         protected StringType series;
 
         /**
          * The recommended number of doses to achieve immunity.
          */
+        @Child(name="seriesDoses", type={IntegerType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Recommended number of doses for immunity", formalDefinition="The recommended number of doses to achieve immunity." )
         protected IntegerType seriesDoses;
 
         /**
          * The targeted disease.
          */
+        @Child(name="doseTarget", type={CodeableConcept.class}, order=6, min=1, max=1)
+        @Description(shortDefinition="Disease immunized against", formalDefinition="The targeted disease." )
         protected CodeableConcept doseTarget;
 
         /**
          * Indicates if the immunization event should "count" against  the protocol.
          */
+        @Child(name="doseStatus", type={CodeableConcept.class}, order=7, min=1, max=1)
+        @Description(shortDefinition="Does dose count towards immunity?", formalDefinition="Indicates if the immunization event should 'count' against  the protocol." )
         protected CodeableConcept doseStatus;
 
         /**
          * Provides an explanation as to why a immunization event should or should not count against the protocol.
          */
+        @Child(name="doseStatusReason", type={CodeableConcept.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Why does does count/not count?", formalDefinition="Provides an explanation as to why a immunization event should or should not count against the protocol." )
         protected CodeableConcept doseStatusReason;
 
         private static final long serialVersionUID = 747305824L;
@@ -320,7 +435,20 @@ public class Immunization extends DomainResource {
          * @return {@link #doseSequence} (Nominal position in a series.). This is the underlying object with id, value and extensions. The accessor "getDoseSequence" gives direct access to the value
          */
         public IntegerType getDoseSequenceElement() { 
+          if (this.doseSequence == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseSequence");
+            else if (Configuration.doAutoCreate())
+              this.doseSequence = new IntegerType();
           return this.doseSequence;
+        }
+
+        public boolean hasDoseSequenceElement() { 
+          return this.doseSequence != null && !this.doseSequence.isEmpty();
+        }
+
+        public boolean hasDoseSequence() { 
+          return this.doseSequence != null && !this.doseSequence.isEmpty();
         }
 
         /**
@@ -352,7 +480,20 @@ public class Immunization extends DomainResource {
          * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -388,7 +529,16 @@ public class Immunization extends DomainResource {
          * @return {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
         public Reference getAuthority() { 
+          if (this.authority == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.authority");
+            else if (Configuration.doAutoCreate())
+              this.authority = new Reference();
           return this.authority;
+        }
+
+        public boolean hasAuthority() { 
+          return this.authority != null && !this.authority.isEmpty();
         }
 
         /**
@@ -403,6 +553,11 @@ public class Immunization extends DomainResource {
          * @return {@link #authority} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the authority who published the protocol?  E.g. ACIP.)
          */
         public Organization getAuthorityTarget() { 
+          if (this.authorityTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.authority");
+            else if (Configuration.doAutoCreate())
+              this.authorityTarget = new Organization();
           return this.authorityTarget;
         }
 
@@ -418,7 +573,20 @@ public class Immunization extends DomainResource {
          * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.). This is the underlying object with id, value and extensions. The accessor "getSeries" gives direct access to the value
          */
         public StringType getSeriesElement() { 
+          if (this.series == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.series");
+            else if (Configuration.doAutoCreate())
+              this.series = new StringType();
           return this.series;
+        }
+
+        public boolean hasSeriesElement() { 
+          return this.series != null && !this.series.isEmpty();
+        }
+
+        public boolean hasSeries() { 
+          return this.series != null && !this.series.isEmpty();
         }
 
         /**
@@ -454,7 +622,20 @@ public class Immunization extends DomainResource {
          * @return {@link #seriesDoses} (The recommended number of doses to achieve immunity.). This is the underlying object with id, value and extensions. The accessor "getSeriesDoses" gives direct access to the value
          */
         public IntegerType getSeriesDosesElement() { 
+          if (this.seriesDoses == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.seriesDoses");
+            else if (Configuration.doAutoCreate())
+              this.seriesDoses = new IntegerType();
           return this.seriesDoses;
+        }
+
+        public boolean hasSeriesDosesElement() { 
+          return this.seriesDoses != null && !this.seriesDoses.isEmpty();
+        }
+
+        public boolean hasSeriesDoses() { 
+          return this.seriesDoses != null && !this.seriesDoses.isEmpty();
         }
 
         /**
@@ -490,7 +671,16 @@ public class Immunization extends DomainResource {
          * @return {@link #doseTarget} (The targeted disease.)
          */
         public CodeableConcept getDoseTarget() { 
+          if (this.doseTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseTarget");
+            else if (Configuration.doAutoCreate())
+              this.doseTarget = new CodeableConcept();
           return this.doseTarget;
+        }
+
+        public boolean hasDoseTarget() { 
+          return this.doseTarget != null && !this.doseTarget.isEmpty();
         }
 
         /**
@@ -505,7 +695,16 @@ public class Immunization extends DomainResource {
          * @return {@link #doseStatus} (Indicates if the immunization event should "count" against  the protocol.)
          */
         public CodeableConcept getDoseStatus() { 
+          if (this.doseStatus == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseStatus");
+            else if (Configuration.doAutoCreate())
+              this.doseStatus = new CodeableConcept();
           return this.doseStatus;
+        }
+
+        public boolean hasDoseStatus() { 
+          return this.doseStatus != null && !this.doseStatus.isEmpty();
         }
 
         /**
@@ -520,7 +719,16 @@ public class Immunization extends DomainResource {
          * @return {@link #doseStatusReason} (Provides an explanation as to why a immunization event should or should not count against the protocol.)
          */
         public CodeableConcept getDoseStatusReason() { 
+          if (this.doseStatusReason == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseStatusReason");
+            else if (Configuration.doAutoCreate())
+              this.doseStatusReason = new CodeableConcept();
           return this.doseStatusReason;
+        }
+
+        public boolean hasDoseStatusReason() { 
+          return this.doseStatusReason != null && !this.doseStatusReason.isEmpty();
         }
 
         /**
@@ -557,26 +765,41 @@ public class Immunization extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (doseSequence == null || doseSequence.isEmpty()) && (description == null || description.isEmpty())
+           && (authority == null || authority.isEmpty()) && (series == null || series.isEmpty()) && (seriesDoses == null || seriesDoses.isEmpty())
+           && (doseTarget == null || doseTarget.isEmpty()) && (doseStatus == null || doseStatus.isEmpty())
+           && (doseStatusReason == null || doseStatusReason.isEmpty());
+      }
+
   }
 
     /**
      * A unique identifier assigned to this adverse reaction record.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Business identifier", formalDefinition="A unique identifier assigned to this adverse reaction record." )
+    protected List<Identifier> identifier;
 
     /**
      * Date vaccine administered or was to be administered.
      */
+    @Child(name="date", type={DateTimeType.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Vaccination administration date", formalDefinition="Date vaccine administered or was to be administered." )
     protected DateTimeType date;
 
     /**
      * Vaccine that was administered or was to be administered.
      */
+    @Child(name="vaccineType", type={CodeableConcept.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="Vaccine product administered", formalDefinition="Vaccine that was administered or was to be administered." )
     protected CodeableConcept vaccineType;
 
     /**
      * The patient to whom the vaccine was to be administered.
      */
+    @Child(name="subject", type={Patient.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="Who was immunized?", formalDefinition="The patient to whom the vaccine was to be administered." )
     protected Reference subject;
 
     /**
@@ -587,16 +810,22 @@ public class Immunization extends DomainResource {
     /**
      * Indicates if the vaccination was refused.
      */
+    @Child(name="refusedIndicator", type={BooleanType.class}, order=3, min=1, max=1)
+    @Description(shortDefinition="Was immunization refused?", formalDefinition="Indicates if the vaccination was refused." )
     protected BooleanType refusedIndicator;
 
     /**
      * True if this administration was reported rather than directly administered.
      */
+    @Child(name="reported", type={BooleanType.class}, order=4, min=1, max=1)
+    @Description(shortDefinition="Is this a self-reported record?", formalDefinition="True if this administration was reported rather than directly administered." )
     protected BooleanType reported;
 
     /**
      * Clinician who administered the vaccine.
      */
+    @Child(name="performer", type={Practitioner.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Who administered vaccine?", formalDefinition="Clinician who administered the vaccine." )
     protected Reference performer;
 
     /**
@@ -607,6 +836,8 @@ public class Immunization extends DomainResource {
     /**
      * Clinician who ordered the vaccination.
      */
+    @Child(name="requester", type={Practitioner.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Who ordered vaccination?", formalDefinition="Clinician who ordered the vaccination." )
     protected Reference requester;
 
     /**
@@ -617,6 +848,8 @@ public class Immunization extends DomainResource {
     /**
      * Name of vaccine manufacturer.
      */
+    @Child(name="manufacturer", type={Organization.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Vaccine manufacturer", formalDefinition="Name of vaccine manufacturer." )
     protected Reference manufacturer;
 
     /**
@@ -627,6 +860,8 @@ public class Immunization extends DomainResource {
     /**
      * The service delivery location where the vaccine administration occurred.
      */
+    @Child(name="location", type={Location.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Where did vaccination occur?", formalDefinition="The service delivery location where the vaccine administration occurred." )
     protected Reference location;
 
     /**
@@ -637,44 +872,60 @@ public class Immunization extends DomainResource {
     /**
      * Lot number of the  vaccine product.
      */
+    @Child(name="lotNumber", type={StringType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Vaccine lot number", formalDefinition="Lot number of the  vaccine product." )
     protected StringType lotNumber;
 
     /**
      * Date vaccine batch expires.
      */
+    @Child(name="expirationDate", type={DateType.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Vaccine expiration date", formalDefinition="Date vaccine batch expires." )
     protected DateType expirationDate;
 
     /**
      * Body site where vaccine was administered.
      */
+    @Child(name="site", type={CodeableConcept.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Body site vaccine  was administered", formalDefinition="Body site where vaccine was administered." )
     protected CodeableConcept site;
 
     /**
      * The path by which the vaccine product is taken into the body.
      */
+    @Child(name="route", type={CodeableConcept.class}, order=12, min=0, max=1)
+    @Description(shortDefinition="How vaccine entered body", formalDefinition="The path by which the vaccine product is taken into the body." )
     protected CodeableConcept route;
 
     /**
      * The quantity of vaccine product that was administered.
      */
+    @Child(name="doseQuantity", type={Quantity.class}, order=13, min=0, max=1)
+    @Description(shortDefinition="Amount of vaccine administered", formalDefinition="The quantity of vaccine product that was administered." )
     protected Quantity doseQuantity;
 
     /**
      * Reasons why a vaccine was administered or refused.
      */
+    @Child(name="explanation", type={}, order=14, min=0, max=1)
+    @Description(shortDefinition="Administration / refusal reasons", formalDefinition="Reasons why a vaccine was administered or refused." )
     protected ImmunizationExplanationComponent explanation;
 
     /**
      * Categorical data indicating that an adverse event is associated in time to an immunization.
      */
-    protected List<ImmunizationReactionComponent> reaction = new ArrayList<ImmunizationReactionComponent>();
+    @Child(name="reaction", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Details of a reaction that follows immunization", formalDefinition="Categorical data indicating that an adverse event is associated in time to an immunization." )
+    protected List<ImmunizationReactionComponent> reaction;
 
     /**
      * Contains information about the protocol(s) under which the vaccine was administered.
      */
-    protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
+    @Child(name="vaccinationProtocol", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="What protocol was followed", formalDefinition="Contains information about the protocol(s) under which the vaccine was administered." )
+    protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol;
 
-    private static final long serialVersionUID = -2037290648L;
+    private static final long serialVersionUID = -1398570384L;
 
     public Immunization() {
       super();
@@ -693,7 +944,18 @@ public class Immunization extends DomainResource {
      * @return {@link #identifier} (A unique identifier assigned to this adverse reaction record.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -702,6 +964,8 @@ public class Immunization extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -710,7 +974,20 @@ public class Immunization extends DomainResource {
      * @return {@link #date} (Date vaccine administered or was to be administered.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -742,7 +1019,16 @@ public class Immunization extends DomainResource {
      * @return {@link #vaccineType} (Vaccine that was administered or was to be administered.)
      */
     public CodeableConcept getVaccineType() { 
+      if (this.vaccineType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.vaccineType");
+        else if (Configuration.doAutoCreate())
+          this.vaccineType = new CodeableConcept();
       return this.vaccineType;
+    }
+
+    public boolean hasVaccineType() { 
+      return this.vaccineType != null && !this.vaccineType.isEmpty();
     }
 
     /**
@@ -757,7 +1043,16 @@ public class Immunization extends DomainResource {
      * @return {@link #subject} (The patient to whom the vaccine was to be administered.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -772,6 +1067,11 @@ public class Immunization extends DomainResource {
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient to whom the vaccine was to be administered.)
      */
     public Patient getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.subject");
+        else if (Configuration.doAutoCreate())
+          this.subjectTarget = new Patient();
       return this.subjectTarget;
     }
 
@@ -787,7 +1087,20 @@ public class Immunization extends DomainResource {
      * @return {@link #refusedIndicator} (Indicates if the vaccination was refused.). This is the underlying object with id, value and extensions. The accessor "getRefusedIndicator" gives direct access to the value
      */
     public BooleanType getRefusedIndicatorElement() { 
+      if (this.refusedIndicator == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.refusedIndicator");
+        else if (Configuration.doAutoCreate())
+          this.refusedIndicator = new BooleanType();
       return this.refusedIndicator;
+    }
+
+    public boolean hasRefusedIndicatorElement() { 
+      return this.refusedIndicator != null && !this.refusedIndicator.isEmpty();
+    }
+
+    public boolean hasRefusedIndicator() { 
+      return this.refusedIndicator != null && !this.refusedIndicator.isEmpty();
     }
 
     /**
@@ -819,7 +1132,20 @@ public class Immunization extends DomainResource {
      * @return {@link #reported} (True if this administration was reported rather than directly administered.). This is the underlying object with id, value and extensions. The accessor "getReported" gives direct access to the value
      */
     public BooleanType getReportedElement() { 
+      if (this.reported == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.reported");
+        else if (Configuration.doAutoCreate())
+          this.reported = new BooleanType();
       return this.reported;
+    }
+
+    public boolean hasReportedElement() { 
+      return this.reported != null && !this.reported.isEmpty();
+    }
+
+    public boolean hasReported() { 
+      return this.reported != null && !this.reported.isEmpty();
     }
 
     /**
@@ -851,7 +1177,16 @@ public class Immunization extends DomainResource {
      * @return {@link #performer} (Clinician who administered the vaccine.)
      */
     public Reference getPerformer() { 
+      if (this.performer == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.performer");
+        else if (Configuration.doAutoCreate())
+          this.performer = new Reference();
       return this.performer;
+    }
+
+    public boolean hasPerformer() { 
+      return this.performer != null && !this.performer.isEmpty();
     }
 
     /**
@@ -866,6 +1201,11 @@ public class Immunization extends DomainResource {
      * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Clinician who administered the vaccine.)
      */
     public Practitioner getPerformerTarget() { 
+      if (this.performerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.performer");
+        else if (Configuration.doAutoCreate())
+          this.performerTarget = new Practitioner();
       return this.performerTarget;
     }
 
@@ -881,7 +1221,16 @@ public class Immunization extends DomainResource {
      * @return {@link #requester} (Clinician who ordered the vaccination.)
      */
     public Reference getRequester() { 
+      if (this.requester == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.requester");
+        else if (Configuration.doAutoCreate())
+          this.requester = new Reference();
       return this.requester;
+    }
+
+    public boolean hasRequester() { 
+      return this.requester != null && !this.requester.isEmpty();
     }
 
     /**
@@ -896,6 +1245,11 @@ public class Immunization extends DomainResource {
      * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Clinician who ordered the vaccination.)
      */
     public Practitioner getRequesterTarget() { 
+      if (this.requesterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.requester");
+        else if (Configuration.doAutoCreate())
+          this.requesterTarget = new Practitioner();
       return this.requesterTarget;
     }
 
@@ -911,7 +1265,16 @@ public class Immunization extends DomainResource {
      * @return {@link #manufacturer} (Name of vaccine manufacturer.)
      */
     public Reference getManufacturer() { 
+      if (this.manufacturer == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.manufacturer");
+        else if (Configuration.doAutoCreate())
+          this.manufacturer = new Reference();
       return this.manufacturer;
+    }
+
+    public boolean hasManufacturer() { 
+      return this.manufacturer != null && !this.manufacturer.isEmpty();
     }
 
     /**
@@ -926,6 +1289,11 @@ public class Immunization extends DomainResource {
      * @return {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Name of vaccine manufacturer.)
      */
     public Organization getManufacturerTarget() { 
+      if (this.manufacturerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.manufacturer");
+        else if (Configuration.doAutoCreate())
+          this.manufacturerTarget = new Organization();
       return this.manufacturerTarget;
     }
 
@@ -941,7 +1309,16 @@ public class Immunization extends DomainResource {
      * @return {@link #location} (The service delivery location where the vaccine administration occurred.)
      */
     public Reference getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new Reference();
       return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
     }
 
     /**
@@ -956,6 +1333,11 @@ public class Immunization extends DomainResource {
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The service delivery location where the vaccine administration occurred.)
      */
     public Location getLocationTarget() { 
+      if (this.locationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.location");
+        else if (Configuration.doAutoCreate())
+          this.locationTarget = new Location();
       return this.locationTarget;
     }
 
@@ -971,7 +1353,20 @@ public class Immunization extends DomainResource {
      * @return {@link #lotNumber} (Lot number of the  vaccine product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
     public StringType getLotNumberElement() { 
+      if (this.lotNumber == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.lotNumber");
+        else if (Configuration.doAutoCreate())
+          this.lotNumber = new StringType();
       return this.lotNumber;
+    }
+
+    public boolean hasLotNumberElement() { 
+      return this.lotNumber != null && !this.lotNumber.isEmpty();
+    }
+
+    public boolean hasLotNumber() { 
+      return this.lotNumber != null && !this.lotNumber.isEmpty();
     }
 
     /**
@@ -1007,7 +1402,20 @@ public class Immunization extends DomainResource {
      * @return {@link #expirationDate} (Date vaccine batch expires.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
      */
     public DateType getExpirationDateElement() { 
+      if (this.expirationDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.expirationDate");
+        else if (Configuration.doAutoCreate())
+          this.expirationDate = new DateType();
       return this.expirationDate;
+    }
+
+    public boolean hasExpirationDateElement() { 
+      return this.expirationDate != null && !this.expirationDate.isEmpty();
+    }
+
+    public boolean hasExpirationDate() { 
+      return this.expirationDate != null && !this.expirationDate.isEmpty();
     }
 
     /**
@@ -1043,7 +1451,16 @@ public class Immunization extends DomainResource {
      * @return {@link #site} (Body site where vaccine was administered.)
      */
     public CodeableConcept getSite() { 
+      if (this.site == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.site");
+        else if (Configuration.doAutoCreate())
+          this.site = new CodeableConcept();
       return this.site;
+    }
+
+    public boolean hasSite() { 
+      return this.site != null && !this.site.isEmpty();
     }
 
     /**
@@ -1058,7 +1475,16 @@ public class Immunization extends DomainResource {
      * @return {@link #route} (The path by which the vaccine product is taken into the body.)
      */
     public CodeableConcept getRoute() { 
+      if (this.route == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.route");
+        else if (Configuration.doAutoCreate())
+          this.route = new CodeableConcept();
       return this.route;
+    }
+
+    public boolean hasRoute() { 
+      return this.route != null && !this.route.isEmpty();
     }
 
     /**
@@ -1073,7 +1499,16 @@ public class Immunization extends DomainResource {
      * @return {@link #doseQuantity} (The quantity of vaccine product that was administered.)
      */
     public Quantity getDoseQuantity() { 
+      if (this.doseQuantity == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.doseQuantity");
+        else if (Configuration.doAutoCreate())
+          this.doseQuantity = new Quantity();
       return this.doseQuantity;
+    }
+
+    public boolean hasDoseQuantity() { 
+      return this.doseQuantity != null && !this.doseQuantity.isEmpty();
     }
 
     /**
@@ -1088,7 +1523,16 @@ public class Immunization extends DomainResource {
      * @return {@link #explanation} (Reasons why a vaccine was administered or refused.)
      */
     public ImmunizationExplanationComponent getExplanation() { 
+      if (this.explanation == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.explanation");
+        else if (Configuration.doAutoCreate())
+          this.explanation = new ImmunizationExplanationComponent();
       return this.explanation;
+    }
+
+    public boolean hasExplanation() { 
+      return this.explanation != null && !this.explanation.isEmpty();
     }
 
     /**
@@ -1103,7 +1547,18 @@ public class Immunization extends DomainResource {
      * @return {@link #reaction} (Categorical data indicating that an adverse event is associated in time to an immunization.)
      */
     public List<ImmunizationReactionComponent> getReaction() { 
+      if (this.reaction == null)
+        this.reaction = new ArrayList<ImmunizationReactionComponent>();
       return this.reaction;
+    }
+
+    public boolean hasReaction() { 
+      if (this.reaction == null)
+        return false;
+      for (ImmunizationReactionComponent item : this.reaction)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1112,6 +1567,8 @@ public class Immunization extends DomainResource {
     // syntactic sugar
     public ImmunizationReactionComponent addReaction() { //3
       ImmunizationReactionComponent t = new ImmunizationReactionComponent();
+      if (this.reaction == null)
+        this.reaction = new ArrayList<ImmunizationReactionComponent>();
       this.reaction.add(t);
       return t;
     }
@@ -1120,7 +1577,18 @@ public class Immunization extends DomainResource {
      * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
     public List<ImmunizationVaccinationProtocolComponent> getVaccinationProtocol() { 
+      if (this.vaccinationProtocol == null)
+        this.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
       return this.vaccinationProtocol;
+    }
+
+    public boolean hasVaccinationProtocol() { 
+      if (this.vaccinationProtocol == null)
+        return false;
+      for (ImmunizationVaccinationProtocolComponent item : this.vaccinationProtocol)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1129,6 +1597,8 @@ public class Immunization extends DomainResource {
     // syntactic sugar
     public ImmunizationVaccinationProtocolComponent addVaccinationProtocol() { //3
       ImmunizationVaccinationProtocolComponent t = new ImmunizationVaccinationProtocolComponent();
+      if (this.vaccinationProtocol == null)
+        this.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
       this.vaccinationProtocol.add(t);
       return t;
     }
@@ -1158,9 +1628,11 @@ public class Immunization extends DomainResource {
       public Immunization copy() {
         Immunization dst = new Immunization();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.date = date == null ? null : date.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -1176,12 +1648,16 @@ public class Immunization extends DomainResource {
         dst.route = route == null ? null : route.copy();
         dst.doseQuantity = doseQuantity == null ? null : doseQuantity.copy();
         dst.explanation = explanation == null ? null : explanation.copy();
-        dst.reaction = new ArrayList<ImmunizationReactionComponent>();
-        for (ImmunizationReactionComponent i : reaction)
-          dst.reaction.add(i.copy());
-        dst.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
-        for (ImmunizationVaccinationProtocolComponent i : vaccinationProtocol)
-          dst.vaccinationProtocol.add(i.copy());
+        if (reaction != null) {
+          dst.reaction = new ArrayList<ImmunizationReactionComponent>();
+          for (ImmunizationReactionComponent i : reaction)
+            dst.reaction.add(i.copy());
+        };
+        if (vaccinationProtocol != null) {
+          dst.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
+          for (ImmunizationVaccinationProtocolComponent i : vaccinationProtocol)
+            dst.vaccinationProtocol.add(i.copy());
+        };
         return dst;
       }
 
@@ -1189,11 +1665,55 @@ public class Immunization extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (date == null || date.isEmpty())
+           && (vaccineType == null || vaccineType.isEmpty()) && (subject == null || subject.isEmpty())
+           && (refusedIndicator == null || refusedIndicator.isEmpty()) && (reported == null || reported.isEmpty())
+           && (performer == null || performer.isEmpty()) && (requester == null || requester.isEmpty())
+           && (manufacturer == null || manufacturer.isEmpty()) && (location == null || location.isEmpty())
+           && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
+           && (site == null || site.isEmpty()) && (route == null || route.isEmpty()) && (doseQuantity == null || doseQuantity.isEmpty())
+           && (explanation == null || explanation.isEmpty()) && (reaction == null || reaction.isEmpty())
+           && (vaccinationProtocol == null || vaccinationProtocol.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Immunization;
    }
 
+  @SearchParamDefinition(name="reaction", path="Immunization.reaction.detail", description="Additional information on reaction", type="reference" )
+  public static final String SP_REACTION = "reaction";
+  @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="What dose number within series?", type="number" )
+  public static final String SP_DOSESEQUENCE = "dose-sequence";
+  @SearchParamDefinition(name="requester", path="Immunization.requester", description="The practitioner who ordered the vaccination", type="reference" )
+  public static final String SP_REQUESTER = "requester";
+  @SearchParamDefinition(name="vaccine-type", path="Immunization.vaccineType", description="Vaccine Product Type Administered", type="token" )
+  public static final String SP_VACCINETYPE = "vaccine-type";
+  @SearchParamDefinition(name="location", path="Immunization.location", description="The service delivery location or facility in which the vaccine was / was to be administered", type="reference" )
+  public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="reason", path="Immunization.explanation.reason", description="Why immunization occurred", type="token" )
+  public static final String SP_REASON = "reason";
+  @SearchParamDefinition(name="subject", path="Immunization.subject", description="The subject of the vaccination event / refusal", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="reaction-date", path="Immunization.reaction.date", description="When did reaction start?", type="date" )
+  public static final String SP_REACTIONDATE = "reaction-date";
+  @SearchParamDefinition(name="date", path="Immunization.date", description="Vaccination  Administration / Refusal Date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="patient", path="Immunization.subject", description="The patient for the vaccination event / refusal", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="lot-number", path="Immunization.lotNumber", description="Vaccine Lot Number", type="string" )
+  public static final String SP_LOTNUMBER = "lot-number";
+  @SearchParamDefinition(name="manufacturer", path="Immunization.manufacturer", description="Vaccine Manufacturer", type="reference" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+  @SearchParamDefinition(name="performer", path="Immunization.performer", description="The practitioner who administered the vaccination", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+  @SearchParamDefinition(name="refusal-reason", path="Immunization.explanation.refusalReason", description="Explanation of refusal / exemption", type="token" )
+  public static final String SP_REFUSALREASON = "refusal-reason";
+  @SearchParamDefinition(name="refused", path="Immunization.refusedIndicator", description="Was immunization refused?", type="token" )
+  public static final String SP_REFUSED = "refused";
+  @SearchParamDefinition(name="identifier", path="Immunization.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

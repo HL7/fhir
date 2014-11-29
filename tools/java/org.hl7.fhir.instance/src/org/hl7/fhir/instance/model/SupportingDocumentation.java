@@ -29,29 +29,42 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * This resource provides the supporting information for a process, for example clinical or financial  information related to a claim or pre-authorization.
  */
+@ResourceDef(name="SupportingDocumentation", profile="http://hl7.org/fhir/Profile/SupportingDocumentation")
 public class SupportingDocumentation extends DomainResource {
 
+    @Block()
     public static class SupportingDocumentationDetailComponent extends BackboneElement {
         /**
          * A link Id for the response to reference.
          */
+        @Child(name="linkId", type={IntegerType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="LinkId", formalDefinition="A link Id for the response to reference." )
         protected IntegerType linkId;
 
         /**
          * The attached content.
          */
+        @Child(name="content", type={Attachment.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Content", formalDefinition="The attached content." )
         protected Type content;
 
         /**
          * The date and optionally time when the material was created.
          */
+        @Child(name="dateTime", type={DateTimeType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Creation date and time", formalDefinition="The date and optionally time when the material was created." )
         protected DateTimeType dateTime;
 
         private static final long serialVersionUID = -132176946L;
@@ -70,7 +83,20 @@ public class SupportingDocumentation extends DomainResource {
          * @return {@link #linkId} (A link Id for the response to reference.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public IntegerType getLinkIdElement() { 
+          if (this.linkId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SupportingDocumentationDetailComponent.linkId");
+            else if (Configuration.doAutoCreate())
+              this.linkId = new IntegerType();
           return this.linkId;
+        }
+
+        public boolean hasLinkIdElement() { 
+          return this.linkId != null && !this.linkId.isEmpty();
+        }
+
+        public boolean hasLinkId() { 
+          return this.linkId != null && !this.linkId.isEmpty();
         }
 
         /**
@@ -106,6 +132,28 @@ public class SupportingDocumentation extends DomainResource {
         }
 
         /**
+         * @return {@link #content} (The attached content.)
+         */
+        public Reference getContentReference() throws Exception { 
+          if (!(this.content instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
+          return (Reference) this.content;
+        }
+
+        /**
+         * @return {@link #content} (The attached content.)
+         */
+        public Attachment getContentAttachment() throws Exception { 
+          if (!(this.content instanceof Attachment))
+            throw new Exception("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
+          return (Attachment) this.content;
+        }
+
+        public boolean hasContent() { 
+          return this.content != null && !this.content.isEmpty();
+        }
+
+        /**
          * @param value {@link #content} (The attached content.)
          */
         public SupportingDocumentationDetailComponent setContent(Type value) { 
@@ -117,7 +165,20 @@ public class SupportingDocumentation extends DomainResource {
          * @return {@link #dateTime} (The date and optionally time when the material was created.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public DateTimeType getDateTimeElement() { 
+          if (this.dateTime == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SupportingDocumentationDetailComponent.dateTime");
+            else if (Configuration.doAutoCreate())
+              this.dateTime = new DateTimeType();
           return this.dateTime;
+        }
+
+        public boolean hasDateTimeElement() { 
+          return this.dateTime != null && !this.dateTime.isEmpty();
+        }
+
+        public boolean hasDateTime() { 
+          return this.dateTime != null && !this.dateTime.isEmpty();
         }
 
         /**
@@ -165,31 +226,46 @@ public class SupportingDocumentation extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (content == null || content.isEmpty())
+           && (dateTime == null || dateTime.isEmpty());
+      }
+
   }
 
     /**
      * The Response Business Identifier.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
+    protected List<Identifier> identifier;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
+    @Child(name="ruleset", type={Coding.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
+    @Child(name="originalRuleset", type={Coding.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when this resource was created.
      */
+    @Child(name="date", type={DateType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Creation date", formalDefinition="The date when this resource was created." )
     protected DateType date;
 
     /**
      * The Insurer, organization or Provider who is target  of the submission.
      */
+    @Child(name="target", type={Organization.class, Practitioner.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Insurer or Provider", formalDefinition="The Insurer, organization or Provider who is target  of the submission." )
     protected Reference target;
 
     /**
@@ -200,6 +276,8 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
+    @Child(name="provider", type={Practitioner.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference provider;
 
     /**
@@ -210,6 +288,8 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
+    @Child(name="organization", type={Organization.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Reference organization;
 
     /**
@@ -220,11 +300,15 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Original request identifer.
      */
+    @Child(name="requestIdentifier", type={Identifier.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Request identifier", formalDefinition="Original request identifer." )
     protected Identifier requestIdentifier;
 
     /**
      * Original request identifer.
      */
+    @Child(name="request", type={}, order=7, min=0, max=1)
+    @Description(shortDefinition="Request reference", formalDefinition="Original request identifer." )
     protected Reference request;
 
     /**
@@ -235,11 +319,15 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Original response identifer.
      */
+    @Child(name="responseIdentifier", type={Identifier.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Response identifier", formalDefinition="Original response identifer." )
     protected Identifier responseIdentifier;
 
     /**
      * Original response identifer.
      */
+    @Child(name="response", type={}, order=9, min=0, max=1)
+    @Description(shortDefinition="Response reference", formalDefinition="Original response identifer." )
     protected Reference response;
 
     /**
@@ -250,6 +338,8 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Person who created the submission.
      */
+    @Child(name="author", type={Practitioner.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Author", formalDefinition="Person who created the submission." )
     protected Reference author;
 
     /**
@@ -260,6 +350,8 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * The patient who is directly or indirectly the subject of the supporting information.
      */
+    @Child(name="subject", type={Patient.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Patient", formalDefinition="The patient who is directly or indirectly the subject of the supporting information." )
     protected Reference subject;
 
     /**
@@ -270,9 +362,11 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Supporting Files.
      */
-    protected List<SupportingDocumentationDetailComponent> detail = new ArrayList<SupportingDocumentationDetailComponent>();
+    @Child(name="detail", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Supporting Files", formalDefinition="Supporting Files." )
+    protected List<SupportingDocumentationDetailComponent> detail;
 
-    private static final long serialVersionUID = 903391309L;
+    private static final long serialVersionUID = -1592608751L;
 
     public SupportingDocumentation() {
       super();
@@ -282,7 +376,18 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #identifier} (The Response Business Identifier.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -291,6 +396,8 @@ public class SupportingDocumentation extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -299,7 +406,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
     public Coding getRuleset() { 
+      if (this.ruleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.ruleset");
+        else if (Configuration.doAutoCreate())
+          this.ruleset = new Coding();
       return this.ruleset;
+    }
+
+    public boolean hasRuleset() { 
+      return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
@@ -314,7 +430,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
     public Coding getOriginalRuleset() { 
+      if (this.originalRuleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.originalRuleset");
+        else if (Configuration.doAutoCreate())
+          this.originalRuleset = new Coding();
       return this.originalRuleset;
+    }
+
+    public boolean hasOriginalRuleset() { 
+      return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
@@ -329,7 +454,20 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #date} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -365,7 +503,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #target} (The Insurer, organization or Provider who is target  of the submission.)
      */
     public Reference getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new Reference();
       return this.target;
+    }
+
+    public boolean hasTarget() { 
+      return this.target != null && !this.target.isEmpty();
     }
 
     /**
@@ -395,7 +542,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
     public Reference getProvider() { 
+      if (this.provider == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.provider");
+        else if (Configuration.doAutoCreate())
+          this.provider = new Reference();
       return this.provider;
+    }
+
+    public boolean hasProvider() { 
+      return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
@@ -410,6 +566,11 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
     public Practitioner getProviderTarget() { 
+      if (this.providerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.provider");
+        else if (Configuration.doAutoCreate())
+          this.providerTarget = new Practitioner();
       return this.providerTarget;
     }
 
@@ -425,7 +586,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
     public Reference getOrganization() { 
+      if (this.organization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.organization");
+        else if (Configuration.doAutoCreate())
+          this.organization = new Reference();
       return this.organization;
+    }
+
+    public boolean hasOrganization() { 
+      return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
@@ -440,6 +610,11 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
     public Organization getOrganizationTarget() { 
+      if (this.organizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.organization");
+        else if (Configuration.doAutoCreate())
+          this.organizationTarget = new Organization();
       return this.organizationTarget;
     }
 
@@ -455,7 +630,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #requestIdentifier} (Original request identifer.)
      */
     public Identifier getRequestIdentifier() { 
+      if (this.requestIdentifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.requestIdentifier");
+        else if (Configuration.doAutoCreate())
+          this.requestIdentifier = new Identifier();
       return this.requestIdentifier;
+    }
+
+    public boolean hasRequestIdentifier() { 
+      return this.requestIdentifier != null && !this.requestIdentifier.isEmpty();
     }
 
     /**
@@ -470,7 +654,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #request} (Original request identifer.)
      */
     public Reference getRequest() { 
+      if (this.request == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.request");
+        else if (Configuration.doAutoCreate())
+          this.request = new Reference();
       return this.request;
+    }
+
+    public boolean hasRequest() { 
+      return this.request != null && !this.request.isEmpty();
     }
 
     /**
@@ -500,7 +693,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #responseIdentifier} (Original response identifer.)
      */
     public Identifier getResponseIdentifier() { 
+      if (this.responseIdentifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.responseIdentifier");
+        else if (Configuration.doAutoCreate())
+          this.responseIdentifier = new Identifier();
       return this.responseIdentifier;
+    }
+
+    public boolean hasResponseIdentifier() { 
+      return this.responseIdentifier != null && !this.responseIdentifier.isEmpty();
     }
 
     /**
@@ -515,7 +717,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #response} (Original response identifer.)
      */
     public Reference getResponse() { 
+      if (this.response == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.response");
+        else if (Configuration.doAutoCreate())
+          this.response = new Reference();
       return this.response;
+    }
+
+    public boolean hasResponse() { 
+      return this.response != null && !this.response.isEmpty();
     }
 
     /**
@@ -545,7 +756,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #author} (Person who created the submission.)
      */
     public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference();
       return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
     }
 
     /**
@@ -560,6 +780,11 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who created the submission.)
      */
     public Practitioner getAuthorTarget() { 
+      if (this.authorTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.author");
+        else if (Configuration.doAutoCreate())
+          this.authorTarget = new Practitioner();
       return this.authorTarget;
     }
 
@@ -575,7 +800,16 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #subject} (The patient who is directly or indirectly the subject of the supporting information.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -590,6 +824,11 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is directly or indirectly the subject of the supporting information.)
      */
     public Patient getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupportingDocumentation.subject");
+        else if (Configuration.doAutoCreate())
+          this.subjectTarget = new Patient();
       return this.subjectTarget;
     }
 
@@ -605,7 +844,18 @@ public class SupportingDocumentation extends DomainResource {
      * @return {@link #detail} (Supporting Files.)
      */
     public List<SupportingDocumentationDetailComponent> getDetail() { 
+      if (this.detail == null)
+        this.detail = new ArrayList<SupportingDocumentationDetailComponent>();
       return this.detail;
+    }
+
+    public boolean hasDetail() { 
+      if (this.detail == null)
+        return false;
+      for (SupportingDocumentationDetailComponent item : this.detail)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -614,6 +864,8 @@ public class SupportingDocumentation extends DomainResource {
     // syntactic sugar
     public SupportingDocumentationDetailComponent addDetail() { //3
       SupportingDocumentationDetailComponent t = new SupportingDocumentationDetailComponent();
+      if (this.detail == null)
+        this.detail = new ArrayList<SupportingDocumentationDetailComponent>();
       this.detail.add(t);
       return t;
     }
@@ -639,9 +891,11 @@ public class SupportingDocumentation extends DomainResource {
       public SupportingDocumentation copy() {
         SupportingDocumentation dst = new SupportingDocumentation();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.date = date == null ? null : date.copy();
@@ -654,9 +908,11 @@ public class SupportingDocumentation extends DomainResource {
         dst.response = response == null ? null : response.copy();
         dst.author = author == null ? null : author.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.detail = new ArrayList<SupportingDocumentationDetailComponent>();
-        for (SupportingDocumentationDetailComponent i : detail)
-          dst.detail.add(i.copy());
+        if (detail != null) {
+          dst.detail = new ArrayList<SupportingDocumentationDetailComponent>();
+          for (SupportingDocumentationDetailComponent i : detail)
+            dst.detail.add(i.copy());
+        };
         return dst;
       }
 
@@ -664,11 +920,29 @@ public class SupportingDocumentation extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
+           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
+           && (requestIdentifier == null || requestIdentifier.isEmpty()) && (request == null || request.isEmpty())
+           && (responseIdentifier == null || responseIdentifier.isEmpty()) && (response == null || response.isEmpty())
+           && (author == null || author.isEmpty()) && (subject == null || subject.isEmpty()) && (detail == null || detail.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.SupportingDocumentation;
    }
 
+  @SearchParamDefinition(name="author", path="SupportingDocumentation.author", description="The person who generated this resource", type="reference" )
+  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="patient", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="subject", path="SupportingDocumentation.subject", description="The patient to  whom the documents refer", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="identifier", path="SupportingDocumentation.identifier", description="The business identifier of the Eligibility", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

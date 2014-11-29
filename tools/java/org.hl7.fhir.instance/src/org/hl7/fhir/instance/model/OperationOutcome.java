@@ -29,22 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A collection of error, warning or information messages that result from a system action.
  */
+@ResourceDef(name="OperationOutcome", profile="http://hl7.org/fhir/Profile/OperationOutcome")
 public class OperationOutcome extends DomainResource {
 
     public enum IssueSeverity {
-        FATAL, // The issue caused the action to fail, and no further checking could be performed.
-        ERROR, // The issue is sufficiently important to cause the action to fail.
-        WARNING, // The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.
-        INFORMATION, // The issue has no relation to the degree of success of the action.
-        NULL; // added to help the parsers
+        /**
+         * The issue caused the action to fail, and no further checking could be performed.
+         */
+        FATAL, 
+        /**
+         * The issue is sufficiently important to cause the action to fail.
+         */
+        ERROR, 
+        /**
+         * The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.
+         */
+        WARNING, 
+        /**
+         * The issue has no relation to the degree of success of the action.
+         */
+        INFORMATION, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static IssueSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +85,15 @@ public class OperationOutcome extends DomainResource {
             case ERROR: return "error";
             case WARNING: return "warning";
             case INFORMATION: return "information";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case FATAL: return "";
+            case ERROR: return "";
+            case WARNING: return "";
+            case INFORMATION: return "";
             default: return "?";
           }
         }
@@ -115,28 +145,37 @@ public class OperationOutcome extends DomainResource {
       }
     }
 
+    @Block()
     public static class OperationOutcomeIssueComponent extends BackboneElement {
         /**
          * Indicates whether the issue indicates a variation from successful processing.
          */
+        @Child(name="severity", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="fatal | error | warning | information", formalDefinition="Indicates whether the issue indicates a variation from successful processing." )
         protected Enumeration<IssueSeverity> severity;
 
         /**
          * A code indicating the type of error, warning or information message.
          */
+        @Child(name="type", type={Coding.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Error or warning code", formalDefinition="A code indicating the type of error, warning or information message." )
         protected Coding type;
 
         /**
          * Additional description of the issue.
          */
+        @Child(name="details", type={StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Additional description of the issue", formalDefinition="Additional description of the issue." )
         protected StringType details;
 
         /**
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
-        protected List<StringType> location = new ArrayList<StringType>();
+        @Child(name="location", type={StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="XPath of element(s) related to issue", formalDefinition="A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised." )
+        protected List<StringType> location;
 
-        private static final long serialVersionUID = 1582980307L;
+        private static final long serialVersionUID = 1583015135L;
 
       public OperationOutcomeIssueComponent() {
         super();
@@ -151,7 +190,20 @@ public class OperationOutcome extends DomainResource {
          * @return {@link #severity} (Indicates whether the issue indicates a variation from successful processing.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
         public Enumeration<IssueSeverity> getSeverityElement() { 
+          if (this.severity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.severity");
+            else if (Configuration.doAutoCreate())
+              this.severity = new Enumeration<IssueSeverity>();
           return this.severity;
+        }
+
+        public boolean hasSeverityElement() { 
+          return this.severity != null && !this.severity.isEmpty();
+        }
+
+        public boolean hasSeverity() { 
+          return this.severity != null && !this.severity.isEmpty();
         }
 
         /**
@@ -183,7 +235,16 @@ public class OperationOutcome extends DomainResource {
          * @return {@link #type} (A code indicating the type of error, warning or information message.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -198,7 +259,20 @@ public class OperationOutcome extends DomainResource {
          * @return {@link #details} (Additional description of the issue.). This is the underlying object with id, value and extensions. The accessor "getDetails" gives direct access to the value
          */
         public StringType getDetailsElement() { 
+          if (this.details == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.details");
+            else if (Configuration.doAutoCreate())
+              this.details = new StringType();
           return this.details;
+        }
+
+        public boolean hasDetailsElement() { 
+          return this.details != null && !this.details.isEmpty();
+        }
+
+        public boolean hasDetails() { 
+          return this.details != null && !this.details.isEmpty();
         }
 
         /**
@@ -234,7 +308,18 @@ public class OperationOutcome extends DomainResource {
          * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
         public List<StringType> getLocation() { 
+          if (this.location == null)
+            this.location = new ArrayList<StringType>();
           return this.location;
+        }
+
+        public boolean hasLocation() { 
+          if (this.location == null)
+            return false;
+          for (StringType item : this.location)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -243,6 +328,8 @@ public class OperationOutcome extends DomainResource {
     // syntactic sugar
         public StringType addLocationElement() {//2 
           StringType t = new StringType();
+          if (this.location == null)
+            this.location = new ArrayList<StringType>();
           this.location.add(t);
           return t;
         }
@@ -253,6 +340,8 @@ public class OperationOutcome extends DomainResource {
         public OperationOutcomeIssueComponent addLocation(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
+          if (this.location == null)
+            this.location = new ArrayList<StringType>();
           this.location.add(t);
           return this;
         }
@@ -261,6 +350,8 @@ public class OperationOutcome extends DomainResource {
          * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
          */
         public boolean hasLocation(String value) { 
+          if (this.location == null)
+            return false;
           for (StringType v : this.location)
             if (v.equals(value)) // string
               return true;
@@ -281,10 +372,17 @@ public class OperationOutcome extends DomainResource {
         dst.severity = severity == null ? null : severity.copy();
         dst.type = type == null ? null : type.copy();
         dst.details = details == null ? null : details.copy();
-        dst.location = new ArrayList<StringType>();
-        for (StringType i : location)
-          dst.location.add(i.copy());
+        if (location != null) {
+          dst.location = new ArrayList<StringType>();
+          for (StringType i : location)
+            dst.location.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (severity == null || severity.isEmpty()) && (type == null || type.isEmpty())
+           && (details == null || details.isEmpty()) && (location == null || location.isEmpty());
       }
 
   }
@@ -292,9 +390,11 @@ public class OperationOutcome extends DomainResource {
     /**
      * An error, warning or information message that results from a system action.
      */
-    protected List<OperationOutcomeIssueComponent> issue = new ArrayList<OperationOutcomeIssueComponent>();
+    @Child(name="issue", type={}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A single issue associated with the action", formalDefinition="An error, warning or information message that results from a system action." )
+    protected List<OperationOutcomeIssueComponent> issue;
 
-    private static final long serialVersionUID = 820547604L;
+    private static final long serialVersionUID = -152150052L;
 
     public OperationOutcome() {
       super();
@@ -304,7 +404,18 @@ public class OperationOutcome extends DomainResource {
      * @return {@link #issue} (An error, warning or information message that results from a system action.)
      */
     public List<OperationOutcomeIssueComponent> getIssue() { 
+      if (this.issue == null)
+        this.issue = new ArrayList<OperationOutcomeIssueComponent>();
       return this.issue;
+    }
+
+    public boolean hasIssue() { 
+      if (this.issue == null)
+        return false;
+      for (OperationOutcomeIssueComponent item : this.issue)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -313,6 +424,8 @@ public class OperationOutcome extends DomainResource {
     // syntactic sugar
     public OperationOutcomeIssueComponent addIssue() { //3
       OperationOutcomeIssueComponent t = new OperationOutcomeIssueComponent();
+      if (this.issue == null)
+        this.issue = new ArrayList<OperationOutcomeIssueComponent>();
       this.issue.add(t);
       return t;
     }
@@ -325,14 +438,20 @@ public class OperationOutcome extends DomainResource {
       public OperationOutcome copy() {
         OperationOutcome dst = new OperationOutcome();
         copyValues(dst);
-        dst.issue = new ArrayList<OperationOutcomeIssueComponent>();
-        for (OperationOutcomeIssueComponent i : issue)
-          dst.issue.add(i.copy());
+        if (issue != null) {
+          dst.issue = new ArrayList<OperationOutcomeIssueComponent>();
+          for (OperationOutcomeIssueComponent i : issue)
+            dst.issue.add(i.copy());
+        };
         return dst;
       }
 
       protected OperationOutcome typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (issue == null || issue.isEmpty());
       }
 
   @Override

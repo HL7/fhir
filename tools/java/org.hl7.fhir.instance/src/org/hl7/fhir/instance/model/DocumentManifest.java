@@ -29,21 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A manifest that defines a set of documents.
  */
+@ResourceDef(name="DocumentManifest", profile="http://hl7.org/fhir/Profile/DocumentManifest")
 public class DocumentManifest extends DomainResource {
 
     public enum DocumentReferenceStatus {
-        CURRENT, // This is the current reference for this document.
-        SUPERCEDED, // This reference has been superseded by another reference.
-        ENTEREDINERROR, // This reference was created in error.
-        NULL; // added to help the parsers
+        /**
+         * This is the current reference for this document.
+         */
+        CURRENT, 
+        /**
+         * This reference has been superseded by another reference.
+         */
+        SUPERCEDED, 
+        /**
+         * This reference was created in error.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static DocumentReferenceStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -60,6 +78,14 @@ public class DocumentManifest extends DomainResource {
             case CURRENT: return "current";
             case SUPERCEDED: return "superceded";
             case ENTEREDINERROR: return "entered in error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CURRENT: return "";
+            case SUPERCEDED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
@@ -108,66 +134,86 @@ public class DocumentManifest extends DomainResource {
     /**
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
+    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="Unique Identifier for the set of documents", formalDefinition="A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts." )
     protected Identifier masterIdentifier;
 
     /**
      * Other identifiers associated with the document, including version independent, source record and workflow related identifiers.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Other identifiers for the manifest", formalDefinition="Other identifiers associated with the document, including version independent, source record and workflow related identifiers." )
+    protected List<Identifier> identifier;
 
     /**
      * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
      */
-    protected List<Reference> subject = new ArrayList<Reference>();
+    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="The subject of the set of documents", formalDefinition="Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)." )
+    protected List<Reference> subject;
     /**
      * The actual objects that are the target of the reference (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    protected List<Resource> subjectTarget = new ArrayList<Resource>();
+    protected List<Resource> subjectTarget;
 
 
     /**
      * A patient, practitioner, or organization for which this set of documents is intended.
      */
-    protected List<Reference> recipient = new ArrayList<Reference>();
+    @Child(name="recipient", type={Patient.class, Practitioner.class, Organization.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Intended to get notified about this set of documents", formalDefinition="A patient, practitioner, or organization for which this set of documents is intended." )
+    protected List<Reference> recipient;
     /**
      * The actual objects that are the target of the reference (A patient, practitioner, or organization for which this set of documents is intended.)
      */
-    protected List<Resource> recipientTarget = new ArrayList<Resource>();
+    protected List<Resource> recipientTarget;
 
 
     /**
      * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
      */
+    @Child(name="type", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="What kind of document set this is", formalDefinition="Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider." )
     protected CodeableConcept type;
 
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    protected List<Reference> author = new ArrayList<Reference>();
+    @Child(name="author", type={Practitioner.class, Device.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Who and/or what authored the document", formalDefinition="Identifies who is responsible for adding the information to the document." )
+    protected List<Reference> author;
     /**
      * The actual objects that are the target of the reference (Identifies who is responsible for adding the information to the document.)
      */
-    protected List<Resource> authorTarget = new ArrayList<Resource>();
+    protected List<Resource> authorTarget;
 
 
     /**
      * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
+    @Child(name="created", type={DateTimeType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="When this document manifest created", formalDefinition="When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc)." )
     protected DateTimeType created;
 
     /**
      * Identifies the source system, application, or software that produced the document manifest.
      */
+    @Child(name="source", type={UriType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="The source system/application/software", formalDefinition="Identifies the source system, application, or software that produced the document manifest." )
     protected UriType source;
 
     /**
      * The status of this document manifest.
      */
+    @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
+    @Description(shortDefinition="current | superceded | entered in error", formalDefinition="The status of this document manifest." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * Whether this document manifest replaces another.
      */
+    @Child(name="supercedes", type={DocumentManifest.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="If this document manifest replaces another", formalDefinition="Whether this document manifest replaces another." )
     protected Reference supercedes;
 
     /**
@@ -178,24 +224,30 @@ public class DocumentManifest extends DomainResource {
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
+    @Child(name="description", type={StringType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
      * A code specifying the level of confidentiality of this set of Documents.
      */
+    @Child(name="confidentiality", type={CodeableConcept.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Sensitivity of set of documents", formalDefinition="A code specifying the level of confidentiality of this set of Documents." )
     protected CodeableConcept confidentiality;
 
     /**
      * The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.
      */
-    protected List<Reference> content = new ArrayList<Reference>();
+    @Child(name="content", type={DocumentReference.class, Binary.class, Media.class}, order=11, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contents of this set of documents", formalDefinition="The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed." )
+    protected List<Reference> content;
     /**
      * The actual objects that are the target of the reference (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
      */
-    protected List<Resource> contentTarget = new ArrayList<Resource>();
+    protected List<Resource> contentTarget;
 
 
-    private static final long serialVersionUID = 272008828L;
+    private static final long serialVersionUID = 388610018L;
 
     public DocumentManifest() {
       super();
@@ -211,7 +263,16 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #masterIdentifier} (A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
      */
     public Identifier getMasterIdentifier() { 
+      if (this.masterIdentifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.masterIdentifier");
+        else if (Configuration.doAutoCreate())
+          this.masterIdentifier = new Identifier();
       return this.masterIdentifier;
+    }
+
+    public boolean hasMasterIdentifier() { 
+      return this.masterIdentifier != null && !this.masterIdentifier.isEmpty();
     }
 
     /**
@@ -226,7 +287,18 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -235,6 +307,8 @@ public class DocumentManifest extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -243,7 +317,18 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
     public List<Reference> getSubject() { 
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      if (this.subject == null)
+        return false;
+      for (Reference item : this.subject)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -252,6 +337,8 @@ public class DocumentManifest extends DomainResource {
     // syntactic sugar
     public Reference addSubject() { //3
       Reference t = new Reference();
+      if (this.subject == null)
+        this.subject = new ArrayList<Reference>();
       this.subject.add(t);
       return t;
     }
@@ -260,6 +347,8 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
     public List<Resource> getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        this.subjectTarget = new ArrayList<Resource>();
       return this.subjectTarget;
     }
 
@@ -267,7 +356,18 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
     public List<Reference> getRecipient() { 
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
       return this.recipient;
+    }
+
+    public boolean hasRecipient() { 
+      if (this.recipient == null)
+        return false;
+      for (Reference item : this.recipient)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -276,6 +376,8 @@ public class DocumentManifest extends DomainResource {
     // syntactic sugar
     public Reference addRecipient() { //3
       Reference t = new Reference();
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
       this.recipient.add(t);
       return t;
     }
@@ -284,6 +386,8 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A patient, practitioner, or organization for which this set of documents is intended.)
      */
     public List<Resource> getRecipientTarget() { 
+      if (this.recipientTarget == null)
+        this.recipientTarget = new ArrayList<Resource>();
       return this.recipientTarget;
     }
 
@@ -291,7 +395,16 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
      */
     public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -306,7 +419,18 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
      */
     public List<Reference> getAuthor() { 
+      if (this.author == null)
+        this.author = new ArrayList<Reference>();
       return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      if (this.author == null)
+        return false;
+      for (Reference item : this.author)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -315,6 +439,8 @@ public class DocumentManifest extends DomainResource {
     // syntactic sugar
     public Reference addAuthor() { //3
       Reference t = new Reference();
+      if (this.author == null)
+        this.author = new ArrayList<Reference>();
       this.author.add(t);
       return t;
     }
@@ -323,6 +449,8 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for adding the information to the document.)
      */
     public List<Resource> getAuthorTarget() { 
+      if (this.authorTarget == null)
+        this.authorTarget = new ArrayList<Resource>();
       return this.authorTarget;
     }
 
@@ -330,7 +458,20 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
     public DateTimeType getCreatedElement() { 
+      if (this.created == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.created");
+        else if (Configuration.doAutoCreate())
+          this.created = new DateTimeType();
       return this.created;
+    }
+
+    public boolean hasCreatedElement() { 
+      return this.created != null && !this.created.isEmpty();
+    }
+
+    public boolean hasCreated() { 
+      return this.created != null && !this.created.isEmpty();
     }
 
     /**
@@ -366,7 +507,20 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #source} (Identifies the source system, application, or software that produced the document manifest.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
      */
     public UriType getSourceElement() { 
+      if (this.source == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.source");
+        else if (Configuration.doAutoCreate())
+          this.source = new UriType();
       return this.source;
+    }
+
+    public boolean hasSourceElement() { 
+      return this.source != null && !this.source.isEmpty();
+    }
+
+    public boolean hasSource() { 
+      return this.source != null && !this.source.isEmpty();
     }
 
     /**
@@ -402,7 +556,20 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<DocumentReferenceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<DocumentReferenceStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -434,7 +601,16 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #supercedes} (Whether this document manifest replaces another.)
      */
     public Reference getSupercedes() { 
+      if (this.supercedes == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.supercedes");
+        else if (Configuration.doAutoCreate())
+          this.supercedes = new Reference();
       return this.supercedes;
+    }
+
+    public boolean hasSupercedes() { 
+      return this.supercedes != null && !this.supercedes.isEmpty();
     }
 
     /**
@@ -449,6 +625,11 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #supercedes} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Whether this document manifest replaces another.)
      */
     public DocumentManifest getSupercedesTarget() { 
+      if (this.supercedesTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.supercedes");
+        else if (Configuration.doAutoCreate())
+          this.supercedesTarget = new DocumentManifest();
       return this.supercedesTarget;
     }
 
@@ -464,7 +645,20 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -500,7 +694,16 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #confidentiality} (A code specifying the level of confidentiality of this set of Documents.)
      */
     public CodeableConcept getConfidentiality() { 
+      if (this.confidentiality == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.confidentiality");
+        else if (Configuration.doAutoCreate())
+          this.confidentiality = new CodeableConcept();
       return this.confidentiality;
+    }
+
+    public boolean hasConfidentiality() { 
+      return this.confidentiality != null && !this.confidentiality.isEmpty();
     }
 
     /**
@@ -515,7 +718,18 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
      */
     public List<Reference> getContent() { 
+      if (this.content == null)
+        this.content = new ArrayList<Reference>();
       return this.content;
+    }
+
+    public boolean hasContent() { 
+      if (this.content == null)
+        return false;
+      for (Reference item : this.content)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -524,6 +738,8 @@ public class DocumentManifest extends DomainResource {
     // syntactic sugar
     public Reference addContent() { //3
       Reference t = new Reference();
+      if (this.content == null)
+        this.content = new ArrayList<Reference>();
       this.content.add(t);
       return t;
     }
@@ -532,6 +748,8 @@ public class DocumentManifest extends DomainResource {
      * @return {@link #content} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
      */
     public List<Resource> getContentTarget() { 
+      if (this.contentTarget == null)
+        this.contentTarget = new ArrayList<Resource>();
       return this.contentTarget;
     }
 
@@ -556,28 +774,38 @@ public class DocumentManifest extends DomainResource {
         DocumentManifest dst = new DocumentManifest();
         copyValues(dst);
         dst.masterIdentifier = masterIdentifier == null ? null : masterIdentifier.copy();
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
-        dst.subject = new ArrayList<Reference>();
-        for (Reference i : subject)
-          dst.subject.add(i.copy());
-        dst.recipient = new ArrayList<Reference>();
-        for (Reference i : recipient)
-          dst.recipient.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
+        if (subject != null) {
+          dst.subject = new ArrayList<Reference>();
+          for (Reference i : subject)
+            dst.subject.add(i.copy());
+        };
+        if (recipient != null) {
+          dst.recipient = new ArrayList<Reference>();
+          for (Reference i : recipient)
+            dst.recipient.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
-        dst.author = new ArrayList<Reference>();
-        for (Reference i : author)
-          dst.author.add(i.copy());
+        if (author != null) {
+          dst.author = new ArrayList<Reference>();
+          for (Reference i : author)
+            dst.author.add(i.copy());
+        };
         dst.created = created == null ? null : created.copy();
         dst.source = source == null ? null : source.copy();
         dst.status = status == null ? null : status.copy();
         dst.supercedes = supercedes == null ? null : supercedes.copy();
         dst.description = description == null ? null : description.copy();
         dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
-        dst.content = new ArrayList<Reference>();
-        for (Reference i : content)
-          dst.content.add(i.copy());
+        if (content != null) {
+          dst.content = new ArrayList<Reference>();
+          for (Reference i : content)
+            dst.content.add(i.copy());
+        };
         return dst;
       }
 
@@ -585,11 +813,44 @@ public class DocumentManifest extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (subject == null || subject.isEmpty()) && (recipient == null || recipient.isEmpty()) && (type == null || type.isEmpty())
+           && (author == null || author.isEmpty()) && (created == null || created.isEmpty()) && (source == null || source.isEmpty())
+           && (status == null || status.isEmpty()) && (supercedes == null || supercedes.isEmpty()) && (description == null || description.isEmpty())
+           && (confidentiality == null || confidentiality.isEmpty()) && (content == null || content.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.DocumentManifest;
    }
 
+  @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
+  public static final String SP_CONTENT = "content";
+  @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
+  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="supersedes", path="DocumentManifest.supercedes", description="If this document manifest replaces another", type="reference" )
+  public static final String SP_SUPERSEDES = "supersedes";
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered in error", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="created", path="DocumentManifest.created", description="When this document manifest created", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="confidentiality", path="DocumentManifest.confidentiality", description="Sensitivity of set of documents", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
+  @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
 
 }
 

@@ -29,22 +29,41 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A technical identifier - identifies some entity uniquely and unambiguously.
  */
+@DatatypeDef(name="Identifier")
 public class Identifier extends Type {
 
     public enum IdentifierUse {
-        USUAL, // the identifier recommended for display and use in real-world interactions.
-        OFFICIAL, // the identifier considered to be most trusted for the identification of this item.
-        TEMP, // A temporary identifier.
-        SECONDARY, // An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
-        NULL; // added to help the parsers
+        /**
+         * the identifier recommended for display and use in real-world interactions.
+         */
+        USUAL, 
+        /**
+         * the identifier considered to be most trusted for the identification of this item.
+         */
+        OFFICIAL, 
+        /**
+         * A temporary identifier.
+         */
+        TEMP, 
+        /**
+         * An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
+         */
+        SECONDARY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static IdentifierUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +83,15 @@ public class Identifier extends Type {
             case OFFICIAL: return "official";
             case TEMP: return "temp";
             case SECONDARY: return "secondary";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case USUAL: return "";
+            case OFFICIAL: return "";
+            case TEMP: return "";
+            case SECONDARY: return "";
             default: return "?";
           }
         }
@@ -118,31 +146,43 @@ public class Identifier extends Type {
     /**
      * The purpose of this identifier.
      */
+    @Child(name="use", type={CodeType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="usual | official | temp | secondary (If known)", formalDefinition="The purpose of this identifier." )
     protected Enumeration<IdentifierUse> use;
 
     /**
      * A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
+    @Child(name="label", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Description of identifier", formalDefinition="A text string for the identifier that can be displayed to a human so they can recognize the identifier." )
     protected StringType label;
 
     /**
      * Establishes the namespace in which set of possible id values is unique.
      */
+    @Child(name="system", type={UriType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="The namespace for the identifier", formalDefinition="Establishes the namespace in which set of possible id values is unique." )
     protected UriType system;
 
     /**
      * The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
+    @Child(name="value", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="The value that is unique", formalDefinition="The portion of the identifier typically displayed to the user and which is unique within the context of the system." )
     protected StringType value;
 
     /**
      * Time period during which identifier is/was valid for use.
      */
+    @Child(name="period", type={Period.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Time period when id is/was valid for use", formalDefinition="Time period during which identifier is/was valid for use." )
     protected Period period;
 
     /**
      * Organization that issued/manages the identifier.
      */
+    @Child(name="assigner", type={Organization.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Organization that issued id (may be just text)", formalDefinition="Organization that issued/manages the identifier." )
     protected Reference assigner;
 
     /**
@@ -160,7 +200,20 @@ public class Identifier extends Type {
      * @return {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
     public Enumeration<IdentifierUse> getUseElement() { 
+      if (this.use == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.use");
+        else if (Configuration.doAutoCreate())
+          this.use = new Enumeration<IdentifierUse>();
       return this.use;
+    }
+
+    public boolean hasUseElement() { 
+      return this.use != null && !this.use.isEmpty();
+    }
+
+    public boolean hasUse() { 
+      return this.use != null && !this.use.isEmpty();
     }
 
     /**
@@ -196,7 +249,20 @@ public class Identifier extends Type {
      * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
     public StringType getLabelElement() { 
+      if (this.label == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.label");
+        else if (Configuration.doAutoCreate())
+          this.label = new StringType();
       return this.label;
+    }
+
+    public boolean hasLabelElement() { 
+      return this.label != null && !this.label.isEmpty();
+    }
+
+    public boolean hasLabel() { 
+      return this.label != null && !this.label.isEmpty();
     }
 
     /**
@@ -232,7 +298,20 @@ public class Identifier extends Type {
      * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public UriType getSystemElement() { 
+      if (this.system == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.system");
+        else if (Configuration.doAutoCreate())
+          this.system = new UriType();
       return this.system;
+    }
+
+    public boolean hasSystemElement() { 
+      return this.system != null && !this.system.isEmpty();
+    }
+
+    public boolean hasSystem() { 
+      return this.system != null && !this.system.isEmpty();
     }
 
     /**
@@ -268,7 +347,20 @@ public class Identifier extends Type {
      * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
     public StringType getValueElement() { 
+      if (this.value == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.value");
+        else if (Configuration.doAutoCreate())
+          this.value = new StringType();
       return this.value;
+    }
+
+    public boolean hasValueElement() { 
+      return this.value != null && !this.value.isEmpty();
+    }
+
+    public boolean hasValue() { 
+      return this.value != null && !this.value.isEmpty();
     }
 
     /**
@@ -304,7 +396,16 @@ public class Identifier extends Type {
      * @return {@link #period} (Time period during which identifier is/was valid for use.)
      */
     public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period();
       return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
     }
 
     /**
@@ -319,7 +420,16 @@ public class Identifier extends Type {
      * @return {@link #assigner} (Organization that issued/manages the identifier.)
      */
     public Reference getAssigner() { 
+      if (this.assigner == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.assigner");
+        else if (Configuration.doAutoCreate())
+          this.assigner = new Reference();
       return this.assigner;
+    }
+
+    public boolean hasAssigner() { 
+      return this.assigner != null && !this.assigner.isEmpty();
     }
 
     /**
@@ -334,6 +444,11 @@ public class Identifier extends Type {
      * @return {@link #assigner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that issued/manages the identifier.)
      */
     public Organization getAssignerTarget() { 
+      if (this.assignerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Identifier.assigner");
+        else if (Configuration.doAutoCreate())
+          this.assignerTarget = new Organization();
       return this.assignerTarget;
     }
 
@@ -369,6 +484,12 @@ public class Identifier extends Type {
 
       protected Identifier typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (use == null || use.isEmpty()) && (label == null || label.isEmpty())
+           && (system == null || system.isEmpty()) && (value == null || value.isEmpty()) && (period == null || period.isEmpty())
+           && (assigner == null || assigner.isEmpty());
       }
 
 

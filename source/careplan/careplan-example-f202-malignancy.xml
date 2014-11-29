@@ -1,111 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
-   <id value="f202"/>
-   <contained>
-      <Medication>
-        <id value="tpf"/><!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
-         <contained>
-            <Medication id="doce">
-               <name value="Docetaxel"/>
-               <code>
-                  <coding>
-                     <system value="http://snomed.info/sct" />
-                     <code value="108806006" />
-                  </coding>
-               </code>
-            </Medication>
-         </contained>
-         <contained>
-            <Medication>
-              <id value="cisp"/>
-               <name value="Cisplatin"/>
-               <code>
-                  <coding>
-                     <system value="http://snomed.info/sct" />
-                     <code value="57066004" />
-                  </coding>
-               </code>               
-            </Medication>
-         </contained>
-         <contained>
-            <Medication>
-              <id value="fluo"/>
-               <name value="5-Fluorouracil"/>
-               <code>
-                  <coding>
-                     <system value="http://snomed.info/sct" />
-                     <code value="3127006" />
-                  </coding>
-               </code>
-            </Medication>
-         </contained>
-         <name value="TPF"/>
-         <product>
-            <ingredient>
-               <item>
-                  <reference value="#doce" />
-               </item>
-            </ingredient>
-            <ingredient>
-               <item>
-                  <reference value="#cisp" />
-               </item>               
-            </ingredient>
-            <ingredient>
-               <item>
-                  <reference value="#fluo" />
-               </item>
-            </ingredient>
-         </product>
-      </Medication>
-   </contained>
-   <patient>
-      <!--It entails Roel's careplan-->
-      <reference value="Patient/f201"/>
-      <display value="Roel"/>
-   </patient>
-   <status value="active"/>
-   <concern>
-      <reference value="Condition/f202"/>
-      <display value="Roel's head-neck tumor"/>
-   </concern>
-   <participant>
-      <role>
-         <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="28995006"/>
-            <display value="Treated with"/>
-         </coding>
-      </role>
-      <member>
-         <reference value="Practitioner/f201"/>
-         <display value="Dokter Bronsig"/>
-      </member>
-   </participant>
-   <goal>
-      <description value="Elimination of the spenoid bone tumor"/>
-      <status value="in progress"/>
-   </goal>
-   <activity>
-      <status value="in progress"/>
-      <prohibited value="false"/>
-      <actionResulting>
-         <reference value="Procedure/f201"/>
-         <display value="Roel's Chemotherapy"/>
-      </actionResulting>
-      <simple>
-        <category value="procedure"/>
-        <code>
-           <coding>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+  <id value="f202"/>
+  <contained>
+    <Medication>
+      <id value="tpf"/>
+      <!--TPF consists of Docetaxel, Cisplatin and Fluorouracil-->
+      <contained>
+        <Medication>
+          <id value="doce"/>
+          <name value="Docetaxel"/>
+          <code>
+            <coding>
               <system value="http://snomed.info/sct"/>
-              <code value="367336001"/>
-              <display value="Chemotherapy"/>
-           </coding>
-        </code>
-        <product>
-           <reference value="#tpf"/>
-        </product>
-      </simple>
-   </activity>
+              <code value="108806006"/>
+            </coding>
+          </code>
+        </Medication>
+      </contained>
+      <contained>
+        <Medication>
+          <id value="cisp"/>
+          <name value="Cisplatin"/>
+          <code>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="57066004"/>
+            </coding>
+          </code>
+        </Medication>
+      </contained>
+      <contained>
+        <Medication>
+          <id value="fluo"/>
+          <name value="5-Fluorouracil"/>
+          <code>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="3127006"/>
+            </coding>
+          </code>
+        </Medication>
+      </contained>
+      <name value="TPF"/>
+      <product>
+        <ingredient>
+          <item>
+            <reference value="#doce"/>
+          </item>
+        </ingredient>
+        <ingredient>
+          <item>
+            <reference value="#cisp"/>
+          </item>
+        </ingredient>
+        <ingredient>
+          <item>
+            <reference value="#fluo"/>
+          </item>
+        </ingredient>
+      </product>
+    </Medication>
+  </contained>
+  <patient>
+    <!--It entails Roel's careplan-->
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+  </patient>
+  <status value="active"/>
+  <concern>
+    <reference value="Condition/f202"/>
+    <display value="Roel's head-neck tumor"/>
+  </concern>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="28995006"/>
+        <display value="Treated with"/>
+      </coding>
+    </role>
+    <member>
+      <reference value="Practitioner/f201"/>
+      <display value="Dokter Bronsig"/>
+    </member>
+  </participant>
+  <goal>
+    <description value="Elimination of the spenoid bone tumor"/>
+    <status value="in progress"/>
+  </goal>
+  <activity>
+    <status value="in progress"/>
+    <prohibited value="false"/>
+    <actionResulting>
+      <reference value="Procedure/f201"/>
+      <display value="Roel's Chemotherapy"/>
+    </actionResulting>
+    <simple>
+      <category value="procedure"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="367336001"/>
+          <display value="Chemotherapy"/>
+        </coding>
+      </code>
+      <product>
+        <reference value="#tpf"/>
+      </product>
+    </simple>
+  </activity>
 </CarePlan>

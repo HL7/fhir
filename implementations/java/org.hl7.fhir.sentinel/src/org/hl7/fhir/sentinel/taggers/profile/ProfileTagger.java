@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.client.FHIRClient;
-import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
@@ -146,16 +146,16 @@ public class ProfileTagger implements Tagger {
 	  Profile p = validator.getWorkerContext().getProfiles().get(name);
 	  if (p == null)
 	  	throw new Exception("unable to find Profile for "+name);
-	  new XmlComposer().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
+	  new XmlParser().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
 	  if (p != null)
-	  	new XmlComposer().compose(new FileOutputStream("c:\\temp\\profile.xml"), p, true);
+	  	new XmlParser().compose(new FileOutputStream("c:\\temp\\profile.xml"), p, true);
 	  
 	  return p != null && check(doc, p, id);
   }
 
 
 	private Document loadAsXml(Resource res) throws Exception {
-	  XmlComposer xml = new XmlComposer();
+		XmlParser xml = new XmlParser();
 	  ByteArrayOutputStream stream = new ByteArrayOutputStream(); 
 	  xml.compose(stream, res, false);
 	  DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

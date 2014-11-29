@@ -29,22 +29,41 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Details for All kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
  */
+@DatatypeDef(name="ContactPoint")
 public class ContactPoint extends Type {
 
     public enum ContactPointSystem {
-        PHONE, // The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
-        FAX, // The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
-        EMAIL, // The value is an email address.
-        URL, // The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.
-        NULL; // added to help the parsers
+        /**
+         * The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+         */
+        PHONE, 
+        /**
+         * The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
+         */
+        FAX, 
+        /**
+         * The value is an email address.
+         */
+        EMAIL, 
+        /**
+         * The value is a url. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses.
+         */
+        URL, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ContactPointSystem fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +83,15 @@ public class ContactPoint extends Type {
             case FAX: return "fax";
             case EMAIL: return "email";
             case URL: return "url";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PHONE: return "";
+            case FAX: return "";
+            case EMAIL: return "";
+            case URL: return "";
             default: return "?";
           }
         }
@@ -116,12 +144,30 @@ public class ContactPoint extends Type {
     }
 
     public enum ContactPointUse {
-        HOME, // A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
-        WORK, // An office contact point. First choice for business related contacts during business hours.
-        TEMP, // A temporary contact point. The period can provide more detailed information.
-        OLD, // This contact point is no longer in use (or was never correct, but retained for records).
-        MOBILE, // A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
-        NULL; // added to help the parsers
+        /**
+         * A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
+         */
+        HOME, 
+        /**
+         * An office contact point. First choice for business related contacts during business hours.
+         */
+        WORK, 
+        /**
+         * A temporary contact point. The period can provide more detailed information.
+         */
+        TEMP, 
+        /**
+         * This contact point is no longer in use (or was never correct, but retained for records).
+         */
+        OLD, 
+        /**
+         * A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
+         */
+        MOBILE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ContactPointUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -144,6 +190,16 @@ public class ContactPoint extends Type {
             case TEMP: return "temp";
             case OLD: return "old";
             case MOBILE: return "mobile";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case HOME: return "";
+            case WORK: return "";
+            case TEMP: return "";
+            case OLD: return "";
+            case MOBILE: return "";
             default: return "?";
           }
         }
@@ -204,21 +260,29 @@ public class ContactPoint extends Type {
     /**
      * Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
+    @Child(name="system", type={CodeType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="phone | fax | email | url", formalDefinition="Telecommunications form for contact point - what communications system is required to make use of the contact." )
     protected Enumeration<ContactPointSystem> system;
 
     /**
      * The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
+    @Child(name="value", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="The actual contact point details", formalDefinition="The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address)." )
     protected StringType value;
 
     /**
      * Identifies the purpose for the contact point.
      */
+    @Child(name="use", type={CodeType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="home | work | temp | old | mobile - purpose of this contact point", formalDefinition="Identifies the purpose for the contact point." )
     protected Enumeration<ContactPointUse> use;
 
     /**
      * Time period when the contact point was/is in use.
      */
+    @Child(name="period", type={Period.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Time period when the contact point was/is in use", formalDefinition="Time period when the contact point was/is in use." )
     protected Period period;
 
     private static final long serialVersionUID = 1972725348L;
@@ -231,7 +295,20 @@ public class ContactPoint extends Type {
      * @return {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public Enumeration<ContactPointSystem> getSystemElement() { 
+      if (this.system == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ContactPoint.system");
+        else if (Configuration.doAutoCreate())
+          this.system = new Enumeration<ContactPointSystem>();
       return this.system;
+    }
+
+    public boolean hasSystemElement() { 
+      return this.system != null && !this.system.isEmpty();
+    }
+
+    public boolean hasSystem() { 
+      return this.system != null && !this.system.isEmpty();
     }
 
     /**
@@ -267,7 +344,20 @@ public class ContactPoint extends Type {
      * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
     public StringType getValueElement() { 
+      if (this.value == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ContactPoint.value");
+        else if (Configuration.doAutoCreate())
+          this.value = new StringType();
       return this.value;
+    }
+
+    public boolean hasValueElement() { 
+      return this.value != null && !this.value.isEmpty();
+    }
+
+    public boolean hasValue() { 
+      return this.value != null && !this.value.isEmpty();
     }
 
     /**
@@ -303,7 +393,20 @@ public class ContactPoint extends Type {
      * @return {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
     public Enumeration<ContactPointUse> getUseElement() { 
+      if (this.use == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ContactPoint.use");
+        else if (Configuration.doAutoCreate())
+          this.use = new Enumeration<ContactPointUse>();
       return this.use;
+    }
+
+    public boolean hasUseElement() { 
+      return this.use != null && !this.use.isEmpty();
+    }
+
+    public boolean hasUse() { 
+      return this.use != null && !this.use.isEmpty();
     }
 
     /**
@@ -339,7 +442,16 @@ public class ContactPoint extends Type {
      * @return {@link #period} (Time period when the contact point was/is in use.)
      */
     public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ContactPoint.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period();
       return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
     }
 
     /**
@@ -370,6 +482,11 @@ public class ContactPoint extends Type {
 
       protected ContactPoint typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (system == null || system.isEmpty()) && (value == null || value.isEmpty())
+           && (use == null || use.isEmpty()) && (period == null || period.isEmpty());
       }
 
 

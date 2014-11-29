@@ -29,49 +29,67 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * For referring to data content defined in other formats.
  */
+@DatatypeDef(name="Attachment")
 public class Attachment extends Type {
 
     /**
      * Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
+    @Child(name="contentType", type={CodeType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Mime type of the content, with charset etc.", formalDefinition="Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate." )
     protected CodeType contentType;
 
     /**
      * The human language of the content. The value can be any valid value according to BCP 47.
      */
+    @Child(name="language", type={CodeType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Human language of the content (BCP-47)", formalDefinition="The human language of the content. The value can be any valid value according to BCP 47." )
     protected CodeType language;
 
     /**
      * The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
      */
+    @Child(name="data", type={Base64BinaryType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Data inline, base64ed", formalDefinition="The actual data of the attachment - a sequence of bytes. In XML, represented using base64." )
     protected Base64BinaryType data;
 
     /**
      * An alternative location where the data can be accessed.
      */
+    @Child(name="url", type={UriType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Uri where the data can be found", formalDefinition="An alternative location where the data can be accessed." )
     protected UriType url;
 
     /**
      * The number of bytes of data that make up this attachment.
      */
+    @Child(name="size", type={IntegerType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Number of bytes of content (if url provided)", formalDefinition="The number of bytes of data that make up this attachment." )
     protected IntegerType size;
 
     /**
      * The calculated hash of the data using SHA-1. Represented using base64.
      */
+    @Child(name="hash", type={Base64BinaryType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Hash of the data (sha-1, base64ed )", formalDefinition="The calculated hash of the data using SHA-1. Represented using base64." )
     protected Base64BinaryType hash;
 
     /**
      * A label or set of text to display in place of the data.
      */
+    @Child(name="title", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Label to display in place of the data", formalDefinition="A label or set of text to display in place of the data." )
     protected StringType title;
 
     private static final long serialVersionUID = 483430116L;
@@ -84,7 +102,20 @@ public class Attachment extends Type {
      * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
     public CodeType getContentTypeElement() { 
+      if (this.contentType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.contentType");
+        else if (Configuration.doAutoCreate())
+          this.contentType = new CodeType();
       return this.contentType;
+    }
+
+    public boolean hasContentTypeElement() { 
+      return this.contentType != null && !this.contentType.isEmpty();
+    }
+
+    public boolean hasContentType() { 
+      return this.contentType != null && !this.contentType.isEmpty();
     }
 
     /**
@@ -120,7 +151,20 @@ public class Attachment extends Type {
      * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
     public CodeType getLanguageElement() { 
+      if (this.language == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.language");
+        else if (Configuration.doAutoCreate())
+          this.language = new CodeType();
       return this.language;
+    }
+
+    public boolean hasLanguageElement() { 
+      return this.language != null && !this.language.isEmpty();
+    }
+
+    public boolean hasLanguage() { 
+      return this.language != null && !this.language.isEmpty();
     }
 
     /**
@@ -156,7 +200,20 @@ public class Attachment extends Type {
      * @return {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
     public Base64BinaryType getDataElement() { 
+      if (this.data == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.data");
+        else if (Configuration.doAutoCreate())
+          this.data = new Base64BinaryType();
       return this.data;
+    }
+
+    public boolean hasDataElement() { 
+      return this.data != null && !this.data.isEmpty();
+    }
+
+    public boolean hasData() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
     /**
@@ -192,7 +249,20 @@ public class Attachment extends Type {
      * @return {@link #url} (An alternative location where the data can be accessed.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType();
       return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
@@ -228,7 +298,20 @@ public class Attachment extends Type {
      * @return {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
     public IntegerType getSizeElement() { 
+      if (this.size == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.size");
+        else if (Configuration.doAutoCreate())
+          this.size = new IntegerType();
       return this.size;
+    }
+
+    public boolean hasSizeElement() { 
+      return this.size != null && !this.size.isEmpty();
+    }
+
+    public boolean hasSize() { 
+      return this.size != null && !this.size.isEmpty();
     }
 
     /**
@@ -264,7 +347,20 @@ public class Attachment extends Type {
      * @return {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
     public Base64BinaryType getHashElement() { 
+      if (this.hash == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.hash");
+        else if (Configuration.doAutoCreate())
+          this.hash = new Base64BinaryType();
       return this.hash;
+    }
+
+    public boolean hasHashElement() { 
+      return this.hash != null && !this.hash.isEmpty();
+    }
+
+    public boolean hasHash() { 
+      return this.hash != null && !this.hash.isEmpty();
     }
 
     /**
@@ -300,7 +396,20 @@ public class Attachment extends Type {
      * @return {@link #title} (A label or set of text to display in place of the data.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Attachment.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType();
       return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
     }
 
     /**
@@ -358,6 +467,12 @@ public class Attachment extends Type {
 
       protected Attachment typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (contentType == null || contentType.isEmpty()) && (language == null || language.isEmpty())
+           && (data == null || data.isEmpty()) && (url == null || url.isEmpty()) && (size == null || size.isEmpty())
+           && (hash == null || hash.isEmpty()) && (title == null || title.isEmpty());
       }
 
 

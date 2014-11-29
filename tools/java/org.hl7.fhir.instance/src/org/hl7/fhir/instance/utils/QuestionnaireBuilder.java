@@ -227,7 +227,7 @@ public class QuestionnaireBuilder {
       answers.getContained().add(questionnaire);
       answers.setStatus(QuestionnaireAnswersStatus.INPROGRESS);
       answers.setGroup(new QuestionnaireAnswers.GroupComponent());
-      answers.getGroup().setTag("object", resource);
+      answers.getGroup().setUserData("object", resource);
     }
 
   }
@@ -310,11 +310,11 @@ public class QuestionnaireBuilder {
   private void processExisting(String path, List<QuestionnaireAnswers.GroupComponent> answerGroups, List<QuestionnaireAnswers.GroupComponent> nAnswers) {
     // processing existing data
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups) {
-      List<Base> children = ((Element) ag.getTag("object")).listChildrenByName(tail(path));
+      List<Base> children = ((Element) ag.getUserData("object")).listChildrenByName(tail(path));
       for (Base child : children) {
         if (child != null) {
           QuestionnaireAnswers.GroupComponent ans = ag.addGroup();
-          ans.setTag("object", child);
+          ans.setUserData("object", child);
           nAnswers.add(ans);
         }
       }
@@ -345,13 +345,13 @@ public class QuestionnaireBuilder {
         Questionnaire.QuestionComponent q = addQuestion(group, AnswerFormat.CHOICE, element.getPath(), "_type", "type", null, makeTypeList(profile, types, element.getPath()));
           for (TypeRefComponent t : types) {
             Questionnaire.GroupComponent sub = q.addGroup();
-            sub.setLinkId(element.getPath()+"._"+t.getTag("text"));
-            sub.setText((String) t.getTag("text"));
+            sub.setLinkId(element.getPath()+"._"+t.getUserData("text"));
+            sub.setText((String) t.getUserData("text"));
             // always optional, never repeats
 
             List<QuestionnaireAnswers.GroupComponent> selected = new ArrayList<QuestionnaireAnswers.GroupComponent>();
             selectTypes(profile, sub, t, answerGroups, selected);
-            processDataType(profile, sub, element, element.getPath()+"._"+t.getTag("text"), t, selected);
+            processDataType(profile, sub, element, element.getPath()+"._"+t.getUserData("text"), t, selected);
           }
       } else
         // now we have to build the question panel for each different data type
@@ -403,7 +403,7 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setTimestamp(DateAndTime.now());
     for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-	    if (t.getCode().equals("Reference") && (t.getProfile() != null && t.getProfile().startsWith("http://hl7.org/fhir/Profile/"))) { 
+	    if (t.getCode().equals("Reference") && (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/Profile/"))) { 
 	      cc.setCode(t.getProfile().substring(28));
         cc.setSystem("http://hl7.org/fhir/resource-types");
 	      cc.setDisplay(cc.getCode());
@@ -423,7 +423,7 @@ public class QuestionnaireBuilder {
           cc.setSystem("http://hl7.org/fhir/data-types");
         }
       }
-      t.setTag("text", cc.getCode());
+      t.setUserData("text", cc.getCode());
     }
 
     return vs;
@@ -433,7 +433,7 @@ public class QuestionnaireBuilder {
     List<QuestionnaireAnswers.GroupComponent> temp = new ArrayList<QuestionnaireAnswers.GroupComponent>();
 
     for (QuestionnaireAnswers.GroupComponent g : source)
-      if (instanceOf(t, (Element) g.getTag("object"))) 
+      if (instanceOf(t, (Element) g.getUserData("object"))) 
         temp.add(g);
     for (QuestionnaireAnswers.GroupComponent g : temp)
       source.remove(g);
@@ -469,7 +469,7 @@ public class QuestionnaireBuilder {
       dest.add(subg);
       subg.setLinkId(sub.getLinkId());
       subg.setText(sub.getText());
-      subg.setTag("object", g.getTag("object"));
+      subg.setUserData("object", g.getUserData("object"));
     }
   }
 
@@ -535,7 +535,7 @@ public class QuestionnaireBuilder {
         List<Base> children = new ArrayList<Base>(); 
 
         QuestionnaireAnswers.QuestionComponent aq = null;
-        Element obj = (Element) ag.getTag("object");
+        Element obj = (Element) ag.getUserData("object");
         if (isPrimitive((TypeRefComponent) obj))
           children.add(obj);
         else if (obj instanceof Enumeration) {
@@ -620,7 +620,7 @@ public class QuestionnaireBuilder {
       for (Resource r : prebuiltQuestionnaire.getContained()) {
         if (r instanceof ValueSet) {
           vs = (ValueSet) r;
-          if (vs.getExpansion() != null) {
+          if (vs.hasExpansion()) {
             for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
               if (c.getCode().equals(code)) {
                   if (result == null)
@@ -717,7 +717,7 @@ public class QuestionnaireBuilder {
 
   private void addCodeQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "code");
-    ValueSet vs = resolveValueSet(null, element.getBinding());
+    ValueSet vs = resolveValueSet(null, element.hasBinding() ? element.getBinding() : null);
     addQuestion(group, AnswerFormat.CHOICE, path, "value", unCamelCase(tail(element.getPath())), answerGroups, vs);
     group.setText(null);
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups)
@@ -817,7 +817,7 @@ public class QuestionnaireBuilder {
 
   private void addCodingQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "Coding");
-    addQuestion(group, answerTypeForBinding(element.getBinding()), path, "value", group.getText(), answerGroups, resolveValueSet(null, element.getBinding()));
+    addQuestion(group, answerTypeForBinding(element.hasBinding() ? element.getBinding() : null), path, "value", group.getText(), answerGroups, resolveValueSet(null, element.hasBinding() ? element.getBinding() : null));
     group.setText(null);
     for (QuestionnaireAnswers.GroupComponent ag : answerGroups)
       ag.setText(null);
@@ -825,7 +825,7 @@ public class QuestionnaireBuilder {
 
   private void addCodeableConceptQuestions(GroupComponent group, ElementDefinition element, String path, List<QuestionnaireAnswers.GroupComponent> answerGroups) throws Exception {
     ToolingExtensions.addType(group, "CodeableConcept");
-    addQuestion(group, answerTypeForBinding(element.getBinding()), path, "coding", "code:", answerGroups, resolveValueSet(null, element.getBinding()));
+    addQuestion(group, answerTypeForBinding(element.hasBinding() ? element.getBinding() : null), path, "coding", "code:", answerGroups, resolveValueSet(null, element.hasBinding() ? element.getBinding() : null));
     addQuestion(group, AnswerFormat.STRING, path, "text", "text:", answerGroups);
   }
 

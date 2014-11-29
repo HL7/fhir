@@ -29,23 +29,42 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
+@DatatypeDef(name="Quantity")
 public class Quantity extends Type {
 
     public enum QuantityComparator {
-        LESS_THAN, // The actual value is less than the given value.
-        LESS_OR_EQUAL, // The actual value is less than or equal to the given value.
-        GREATER_OR_EQUAL, // The actual value is greater than or equal to the given value.
-        GREATER_THAN, // The actual value is greater than the given value.
-        NULL; // added to help the parsers
+        /**
+         * The actual value is less than the given value.
+         */
+        LESS_THAN, 
+        /**
+         * The actual value is less than or equal to the given value.
+         */
+        LESS_OR_EQUAL, 
+        /**
+         * The actual value is greater than or equal to the given value.
+         */
+        GREATER_OR_EQUAL, 
+        /**
+         * The actual value is greater than the given value.
+         */
+        GREATER_THAN, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static QuantityComparator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -65,6 +84,15 @@ public class Quantity extends Type {
             case LESS_OR_EQUAL: return "<=";
             case GREATER_OR_EQUAL: return ">=";
             case GREATER_THAN: return ">";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case LESS_THAN: return "";
+            case LESS_OR_EQUAL: return "";
+            case GREATER_OR_EQUAL: return "";
+            case GREATER_THAN: return "";
             default: return "?";
           }
         }
@@ -119,26 +147,36 @@ public class Quantity extends Type {
     /**
      * The value of the measured amount. The value includes an implicit precision in the presentation of the value.
      */
+    @Child(name="value", type={DecimalType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Numerical value (with implicit precision)", formalDefinition="The value of the measured amount. The value includes an implicit precision in the presentation of the value." )
     protected DecimalType value;
 
     /**
      * How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
      */
+    @Child(name="comparator", type={CodeType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="< | <= | >= | > - how to understand the value", formalDefinition="How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is '<' , then the real value is < stated value." )
     protected Enumeration<QuantityComparator> comparator;
 
     /**
      * A human-readable form of the units.
      */
+    @Child(name="units", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Unit representation", formalDefinition="A human-readable form of the units." )
     protected StringType units;
 
     /**
      * The identification of the system that provides the coded form of the unit.
      */
+    @Child(name="system", type={UriType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="System that defines coded unit form", formalDefinition="The identification of the system that provides the coded form of the unit." )
     protected UriType system;
 
     /**
      * A computer processable form of the units in some unit representation system.
      */
+    @Child(name="code", type={CodeType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Coded form of the unit", formalDefinition="A computer processable form of the units in some unit representation system." )
     protected CodeType code;
 
     private static final long serialVersionUID = -483422721L;
@@ -151,7 +189,20 @@ public class Quantity extends Type {
      * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
     public DecimalType getValueElement() { 
+      if (this.value == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Quantity.value");
+        else if (Configuration.doAutoCreate())
+          this.value = new DecimalType();
       return this.value;
+    }
+
+    public boolean hasValueElement() { 
+      return this.value != null && !this.value.isEmpty();
+    }
+
+    public boolean hasValue() { 
+      return this.value != null && !this.value.isEmpty();
     }
 
     /**
@@ -187,7 +238,20 @@ public class Quantity extends Type {
      * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.). This is the underlying object with id, value and extensions. The accessor "getComparator" gives direct access to the value
      */
     public Enumeration<QuantityComparator> getComparatorElement() { 
+      if (this.comparator == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Quantity.comparator");
+        else if (Configuration.doAutoCreate())
+          this.comparator = new Enumeration<QuantityComparator>();
       return this.comparator;
+    }
+
+    public boolean hasComparatorElement() { 
+      return this.comparator != null && !this.comparator.isEmpty();
+    }
+
+    public boolean hasComparator() { 
+      return this.comparator != null && !this.comparator.isEmpty();
     }
 
     /**
@@ -223,7 +287,20 @@ public class Quantity extends Type {
      * @return {@link #units} (A human-readable form of the units.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
      */
     public StringType getUnitsElement() { 
+      if (this.units == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Quantity.units");
+        else if (Configuration.doAutoCreate())
+          this.units = new StringType();
       return this.units;
+    }
+
+    public boolean hasUnitsElement() { 
+      return this.units != null && !this.units.isEmpty();
+    }
+
+    public boolean hasUnits() { 
+      return this.units != null && !this.units.isEmpty();
     }
 
     /**
@@ -259,7 +336,20 @@ public class Quantity extends Type {
      * @return {@link #system} (The identification of the system that provides the coded form of the unit.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public UriType getSystemElement() { 
+      if (this.system == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Quantity.system");
+        else if (Configuration.doAutoCreate())
+          this.system = new UriType();
       return this.system;
+    }
+
+    public boolean hasSystemElement() { 
+      return this.system != null && !this.system.isEmpty();
+    }
+
+    public boolean hasSystem() { 
+      return this.system != null && !this.system.isEmpty();
     }
 
     /**
@@ -295,7 +385,20 @@ public class Quantity extends Type {
      * @return {@link #code} (A computer processable form of the units in some unit representation system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
     public CodeType getCodeElement() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Quantity.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeType();
       return this.code;
+    }
+
+    public boolean hasCodeElement() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
     }
 
     /**
@@ -349,6 +452,12 @@ public class Quantity extends Type {
 
       protected Quantity typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (value == null || value.isEmpty()) && (comparator == null || comparator.isEmpty())
+           && (units == null || units.isEmpty()) && (system == null || system.isEmpty()) && (code == null || code.isEmpty())
+          ;
       }
 
 

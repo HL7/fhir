@@ -33,6 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//@DatatypeDef()
 public class XhtmlNode {
 
   public static final String NBSP = Character.toString((char)0xa0);
@@ -237,5 +238,9 @@ public class XhtmlNode {
     	dst.childNodes.add(n.copy());
     dst.content = content;
     return dst;
+  }
+
+	public boolean isEmpty() {
+	  return (childNodes == null || childNodes.isEmpty()) && content == null;
   }
 }

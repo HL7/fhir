@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hl7.fhir.instance.client.EFhirClientException;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
@@ -59,12 +58,12 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
 	  	  try {
 	  	    vso = new ValueSetExpansionOutcome(context.getClient().expandValueset(source), null);
-	  	    new XmlComposer().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), vso.getValueset(), true);
+	  	    new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), vso.getValueset(), true);
 	  	  } catch (EFhirClientException e) {
           try {
             OperationOutcome oo = e.getServerErrors().get(0);
             ToolingExtensions.setStringExtension(oo, VS_ID_EXT, source.getIdentifier());
-            new XmlComposer().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), oo, true);
+            new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), oo, true);
             vso = new ValueSetExpansionOutcome(vso.getService(), e.getMessage());
           } catch (Exception e1) {
           }

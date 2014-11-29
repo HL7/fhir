@@ -66,7 +66,7 @@ public class InstanceValidator extends BaseValidator {
     public abstract String getAttribute(String name);
     public abstract void getNamedChildrenWithWildcard(String name, List<WrapperElement> list);
     public abstract boolean hasAttribute(String name);
-    public abstract Object getNamespace();
+    public abstract String getNamespace();
     public abstract String getText();
   }
 
@@ -263,6 +263,8 @@ public class InstanceValidator extends BaseValidator {
     rule(errors, "invalid", path, element.getNamedChild("updated") != null, "Entry must have a last updated time");
     rule(errors, "invalid", path, feedHasAuthor || element.getNamedChild("author") != null, "Entry must have an author because the feed doesn't");
 
+
+
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
       if (ci.name().equals("category"))
@@ -380,7 +382,7 @@ public class InstanceValidator extends BaseValidator {
     		if (child.getMin() > 0) {
     			rule(errors, "structure", child.getPath(), list.size() > 0, "Element "+child.getPath()+" is required");
     		}
-    		if (child.getMax() != null && !child.getMax().equals("*")) {
+    		if (child.hasMax() && !child.getMax().equals("*")) {
     			rule(errors, "structure", child.getPath(), list.size() <= Integer.parseInt(child.getMax()), "Element "+child.getPath()+" can only occur "+child.getMax()+" time"+(child.getMax().equals("1") ? "" : "s"));
     		}
     	}
@@ -515,8 +517,8 @@ public class InstanceValidator extends BaseValidator {
             if (cs.equals("code"))  {
               ElementDefinitionBindingComponent binding = elementComp.getBinding();
               if (binding != null) {
-                if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof Reference, "Binding for "+path+" missing or cannot be processed")) {
-                  if (binding.getReference() != null && binding.getReference() instanceof Reference) {
+                if (warning(errors, "code-unknown", path, binding.hasReference() && binding.getReference() instanceof Reference, "Binding for "+path+" missing or cannot be processed")) {
+                  if (binding.hasReference() && binding.getReference() instanceof Reference) {
                     ValueSet vs = resolveBindingReference(binding.getReference());
                     if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                       try {
@@ -721,7 +723,7 @@ public class InstanceValidator extends BaseValidator {
         if (context != null && context.getBinding() != null) {
           ElementDefinitionBindingComponent binding = context.getBinding();
           if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing")) {
-            if (binding.getReference() != null && binding.getReference() instanceof Reference) {
+            if (binding.hasReference() && binding.getReference() instanceof Reference) {
               ValueSet vs = resolveBindingReference(binding.getReference());
               if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                 try {
@@ -740,7 +742,7 @@ public class InstanceValidator extends BaseValidator {
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                 }
               }
-            } else if (binding.getReference() != null)
+            } else if (binding.hasReference())
               hint(errors, "code-unknown", path, false, "Binding by URI reference cannot be checked");
             else 
               hint(errors, "code-unknown", path, false, "Binding has no source, so can't be checked");
@@ -780,10 +782,10 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementDefinition context) {
-    if (context != null && context.getBinding() != null) {
+    if (context != null && context.hasBinding()) {
       ElementDefinitionBindingComponent binding = context.getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
-        if (binding.getReference() != null && binding.getReference() instanceof Reference) {
+        if (binding.hasReference() && binding.getReference() instanceof Reference) {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
@@ -987,14 +989,14 @@ public class InstanceValidator extends BaseValidator {
   	// constraints:
   	for (ElementDefinitionConstraintComponent c : elementDefn.getConstraint()) 
   		checkConstraint(errors, path, focus, c);
-  	if (elementDefn.getBinding() != null && type != null)
+  	if (elementDefn.hasBinding() && type != null)
   		checkBinding(errors, path, focus, profile, elementDefn, type);
   	
   	// type specific checking:
   	if (type != null && typeIsPrimitive(type)) {
   		checkPrimitiveByProfile(errors, path, focus, elementDefn);
   	} else {
-  		if (elementDefn.getFixed() != null)
+  		if (elementDefn.hasFixed())
   			checkFixedValue(errors, path, focus, elementDefn.getFixed(), "");
   			 
   		ProfileStructureIterator walker = new ProfileStructureIterator(profile, elementDefn);
@@ -1029,7 +1031,7 @@ public class InstanceValidator extends BaseValidator {
 	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ElementDefinition elementDefn, String type) {
 	  ElementDefinitionBindingComponent bc = elementDefn.getBinding();
 
-	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof Reference) {
+	  if (bc != null && bc.hasReference() && bc.getReference() instanceof Reference) {
       String url = ((Reference) bc.getReference()).getReference();
 	  	ValueSet vs = resolveValueSetReference(profile, (Reference) bc.getReference());
 	  	if (vs == null) {
@@ -1112,10 +1114,10 @@ public class InstanceValidator extends BaseValidator {
 	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, ElementDefinition elementDefn) {
 		// two things to check - length, and fixed value
 		String value = focus.getAttribute("value");
-		if (elementDefn.getMaxLengthElement() != null) {
+		if (elementDefn.hasMaxLengthElement()) {
 			rule(errors, "too long", path, value.length() <= elementDefn.getMaxLength(), "The value '"+value+"' exceeds the allow length limit of "+Integer.toString(elementDefn.getMaxLength()));
 		}
-		if (elementDefn.getFixed() != null) {
+		if (elementDefn.hasFixed()) {
 			checkFixedValue(errors, path, focus, elementDefn.getFixed(), "");
 		}
   }

@@ -29,24 +29,34 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  */
+@ResourceDef(name="Binary", profile="http://hl7.org/fhir/Profile/Binary")
 public class Binary extends Resource {
 
     /**
      * MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
+    @Child(name="contentType", type={CodeType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="MimeType of the binary content", formalDefinition="MimeType of the binary content represented as a standard MimeType (BCP 13)." )
     protected CodeType contentType;
 
     /**
      * The actual content, base64 encoded.
      */
+    @Child(name="content", type={Base64BinaryType.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="The actual content", formalDefinition="The actual content, base64 encoded." )
     protected Base64BinaryType content;
 
     private static final long serialVersionUID = 974764407L;
@@ -65,7 +75,20 @@ public class Binary extends Resource {
      * @return {@link #contentType} (MimeType of the binary content represented as a standard MimeType (BCP 13).). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
     public CodeType getContentTypeElement() { 
+      if (this.contentType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Binary.contentType");
+        else if (Configuration.doAutoCreate())
+          this.contentType = new CodeType();
       return this.contentType;
+    }
+
+    public boolean hasContentTypeElement() { 
+      return this.contentType != null && !this.contentType.isEmpty();
+    }
+
+    public boolean hasContentType() { 
+      return this.contentType != null && !this.contentType.isEmpty();
     }
 
     /**
@@ -97,7 +120,20 @@ public class Binary extends Resource {
      * @return {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
      */
     public Base64BinaryType getContentElement() { 
+      if (this.content == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Binary.content");
+        else if (Configuration.doAutoCreate())
+          this.content = new Base64BinaryType();
       return this.content;
+    }
+
+    public boolean hasContentElement() { 
+      return this.content != null && !this.content.isEmpty();
+    }
+
+    public boolean hasContent() { 
+      return this.content != null && !this.content.isEmpty();
     }
 
     /**
@@ -143,11 +179,18 @@ public class Binary extends Resource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (contentType == null || contentType.isEmpty()) && (content == null || content.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Binary;
    }
 
+  @SearchParamDefinition(name="contenttype", path="Binary.contentType", description="MimeType of the binary content", type="token" )
+  public static final String SP_CONTENTTYPE = "contenttype";
 
 }
 

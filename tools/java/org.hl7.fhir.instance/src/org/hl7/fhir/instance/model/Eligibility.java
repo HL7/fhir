@@ -29,38 +29,54 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
  */
+@ResourceDef(name="Eligibility", profile="http://hl7.org/fhir/Profile/Eligibility")
 public class Eligibility extends DomainResource {
 
     /**
      * The Response Business Identifier.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
+    protected List<Identifier> identifier;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
+    @Child(name="ruleset", type={Coding.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
+    @Child(name="originalRuleset", type={Coding.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when this resource was created.
      */
+    @Child(name="date", type={DateType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Creation date", formalDefinition="The date when this resource was created." )
     protected DateType date;
 
     /**
      * The Insurer who is target  of the request.
      */
+    @Child(name="target", type={Organization.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who is target  of the request." )
     protected Reference target;
 
     /**
@@ -71,6 +87,8 @@ public class Eligibility extends DomainResource {
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
+    @Child(name="provider", type={Practitioner.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference provider;
 
     /**
@@ -81,6 +99,8 @@ public class Eligibility extends DomainResource {
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
+    @Child(name="organization", type={Organization.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Reference organization;
 
     /**
@@ -88,7 +108,7 @@ public class Eligibility extends DomainResource {
      */
     protected Organization organizationTarget;
 
-    private static final long serialVersionUID = -324900367L;
+    private static final long serialVersionUID = 459884579L;
 
     public Eligibility() {
       super();
@@ -98,7 +118,18 @@ public class Eligibility extends DomainResource {
      * @return {@link #identifier} (The Response Business Identifier.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -107,6 +138,8 @@ public class Eligibility extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -115,7 +148,16 @@ public class Eligibility extends DomainResource {
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
     public Coding getRuleset() { 
+      if (this.ruleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.ruleset");
+        else if (Configuration.doAutoCreate())
+          this.ruleset = new Coding();
       return this.ruleset;
+    }
+
+    public boolean hasRuleset() { 
+      return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
@@ -130,7 +172,16 @@ public class Eligibility extends DomainResource {
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
     public Coding getOriginalRuleset() { 
+      if (this.originalRuleset == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.originalRuleset");
+        else if (Configuration.doAutoCreate())
+          this.originalRuleset = new Coding();
       return this.originalRuleset;
+    }
+
+    public boolean hasOriginalRuleset() { 
+      return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
@@ -145,7 +196,20 @@ public class Eligibility extends DomainResource {
      * @return {@link #date} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -181,7 +245,16 @@ public class Eligibility extends DomainResource {
      * @return {@link #target} (The Insurer who is target  of the request.)
      */
     public Reference getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new Reference();
       return this.target;
+    }
+
+    public boolean hasTarget() { 
+      return this.target != null && !this.target.isEmpty();
     }
 
     /**
@@ -196,6 +269,11 @@ public class Eligibility extends DomainResource {
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
     public Organization getTargetTarget() { 
+      if (this.targetTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.target");
+        else if (Configuration.doAutoCreate())
+          this.targetTarget = new Organization();
       return this.targetTarget;
     }
 
@@ -211,7 +289,16 @@ public class Eligibility extends DomainResource {
      * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
     public Reference getProvider() { 
+      if (this.provider == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.provider");
+        else if (Configuration.doAutoCreate())
+          this.provider = new Reference();
       return this.provider;
+    }
+
+    public boolean hasProvider() { 
+      return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
@@ -226,6 +313,11 @@ public class Eligibility extends DomainResource {
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
     public Practitioner getProviderTarget() { 
+      if (this.providerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.provider");
+        else if (Configuration.doAutoCreate())
+          this.providerTarget = new Practitioner();
       return this.providerTarget;
     }
 
@@ -241,7 +333,16 @@ public class Eligibility extends DomainResource {
      * @return {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
     public Reference getOrganization() { 
+      if (this.organization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.organization");
+        else if (Configuration.doAutoCreate())
+          this.organization = new Reference();
       return this.organization;
+    }
+
+    public boolean hasOrganization() { 
+      return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
@@ -256,6 +357,11 @@ public class Eligibility extends DomainResource {
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
     public Organization getOrganizationTarget() { 
+      if (this.organizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Eligibility.organization");
+        else if (Configuration.doAutoCreate())
+          this.organizationTarget = new Organization();
       return this.organizationTarget;
     }
 
@@ -281,9 +387,11 @@ public class Eligibility extends DomainResource {
       public Eligibility copy() {
         Eligibility dst = new Eligibility();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.date = date == null ? null : date.copy();
@@ -297,11 +405,20 @@ public class Eligibility extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
+           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Eligibility;
    }
 
+  @SearchParamDefinition(name="identifier", path="Eligibility.identifier", description="The business identifier of the Eligibility", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

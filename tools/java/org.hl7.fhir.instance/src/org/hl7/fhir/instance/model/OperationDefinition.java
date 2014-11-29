@@ -29,21 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
+@ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
 public class OperationDefinition extends DomainResource {
 
     public enum ResourceProfileStatus {
-        DRAFT, // This profile is still under development.
-        ACTIVE, // This profile is ready for normal use.
-        RETIRED, // This profile has been deprecated, withdrawn or superseded and should no longer be used.
-        NULL; // added to help the parsers
+        /**
+         * This profile is still under development.
+         */
+        DRAFT, 
+        /**
+         * This profile is ready for normal use.
+         */
+        ACTIVE, 
+        /**
+         * This profile has been deprecated, withdrawn or superseded and should no longer be used.
+         */
+        RETIRED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ResourceProfileStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -60,6 +78,14 @@ public class OperationDefinition extends DomainResource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -106,9 +132,18 @@ public class OperationDefinition extends DomainResource {
     }
 
     public enum OperationKind {
-        OPERATION, // This operation is invoked as an operation.
-        QUERY, // This operation is a named query, invoked using the search mechanism.
-        NULL; // added to help the parsers
+        /**
+         * This operation is invoked as an operation.
+         */
+        OPERATION, 
+        /**
+         * This operation is a named query, invoked using the search mechanism.
+         */
+        QUERY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static OperationKind fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -122,6 +157,13 @@ public class OperationDefinition extends DomainResource {
           switch (this) {
             case OPERATION: return "operation";
             case QUERY: return "query";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case OPERATION: return "";
+            case QUERY: return "";
             default: return "?";
           }
         }
@@ -162,9 +204,18 @@ public class OperationDefinition extends DomainResource {
     }
 
     public enum OperationParameterUse {
-        IN, // This is an input parameter.
-        OUT, // This is an output parameter.
-        NULL; // added to help the parsers
+        /**
+         * This is an input parameter.
+         */
+        IN, 
+        /**
+         * This is an output parameter.
+         */
+        OUT, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static OperationParameterUse fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -178,6 +229,13 @@ public class OperationDefinition extends DomainResource {
           switch (this) {
             case IN: return "in";
             case OUT: return "out";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case IN: return "";
+            case OUT: return "";
             default: return "?";
           }
         }
@@ -217,40 +275,55 @@ public class OperationDefinition extends DomainResource {
       }
     }
 
+    @Block()
     public static class OperationDefinitionParameterComponent extends BackboneElement {
         /**
          * The name of used to identify the parameter.
          */
+        @Child(name="name", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name of the parameter", formalDefinition="The name of used to identify the parameter." )
         protected CodeType name;
 
         /**
          * Whether this is an input or an output parameter.
          */
+        @Child(name="use", type={CodeType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="in | out", formalDefinition="Whether this is an input or an output parameter." )
         protected Enumeration<OperationParameterUse> use;
 
         /**
          * The minimum number of times this parameter SHALL appear in the request or response.
          */
+        @Child(name="min", type={IntegerType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this parameter SHALL appear in the request or response." )
         protected IntegerType min;
 
         /**
          * The maximum number of times this element is permitted to appear in the request or response.
          */
+        @Child(name="max", type={StringType.class}, order=4, min=1, max=1)
+        @Description(shortDefinition="Maximum Cardinality (a number or *)", formalDefinition="The maximum number of times this element is permitted to appear in the request or response." )
         protected StringType max;
 
         /**
          * Describes the meaning or use of this parameter.
          */
+        @Child(name="documentation", type={StringType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Description of meaning/use", formalDefinition="Describes the meaning or use of this parameter." )
         protected StringType documentation;
 
         /**
          * The type for this parameter.
          */
+        @Child(name="type", type={Coding.class}, order=6, min=1, max=1)
+        @Description(shortDefinition="What type this parameter hs", formalDefinition="The type for this parameter." )
         protected Coding type;
 
         /**
          * A profile the specifies the rules that this parameter must conform to.
          */
+        @Child(name="profile", type={Profile.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
         protected Reference profile;
 
         /**
@@ -277,7 +350,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public CodeType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new CodeType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -309,7 +395,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
         public Enumeration<OperationParameterUse> getUseElement() { 
+          if (this.use == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.use");
+            else if (Configuration.doAutoCreate())
+              this.use = new Enumeration<OperationParameterUse>();
           return this.use;
+        }
+
+        public boolean hasUseElement() { 
+          return this.use != null && !this.use.isEmpty();
+        }
+
+        public boolean hasUse() { 
+          return this.use != null && !this.use.isEmpty();
         }
 
         /**
@@ -341,7 +440,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
         public IntegerType getMinElement() { 
+          if (this.min == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.min");
+            else if (Configuration.doAutoCreate())
+              this.min = new IntegerType();
           return this.min;
+        }
+
+        public boolean hasMinElement() { 
+          return this.min != null && !this.min.isEmpty();
+        }
+
+        public boolean hasMin() { 
+          return this.min != null && !this.min.isEmpty();
         }
 
         /**
@@ -373,7 +485,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
         public StringType getMaxElement() { 
+          if (this.max == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.max");
+            else if (Configuration.doAutoCreate())
+              this.max = new StringType();
           return this.max;
+        }
+
+        public boolean hasMaxElement() { 
+          return this.max != null && !this.max.isEmpty();
+        }
+
+        public boolean hasMax() { 
+          return this.max != null && !this.max.isEmpty();
         }
 
         /**
@@ -405,7 +530,20 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -441,7 +579,16 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #type} (The type for this parameter.)
          */
         public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -456,7 +603,16 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
         public Reference getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Reference();
           return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
@@ -471,6 +627,11 @@ public class OperationDefinition extends DomainResource {
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
         public Profile getProfileTarget() { 
+          if (this.profileTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profileTarget = new Profile();
           return this.profileTarget;
         }
 
@@ -506,76 +667,110 @@ public class OperationDefinition extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
+           && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty());
+      }
+
   }
 
     /**
      * The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
+    @Child(name="identifier", type={UriType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Logical id to reference this operation definition", formalDefinition="The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
     protected UriType identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
+    @Child(name="version", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Logical id for this version of the operation definition", formalDefinition="The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the Profile.
      */
+    @Child(name="title", type={StringType.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="Informal name for this profile", formalDefinition="A free text natural language name identifying the Profile." )
     protected StringType title;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the profile.
      */
+    @Child(name="publisher", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the profile." )
     protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
+    protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the profile and its use.
      */
+    @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Natural language description of the operation", formalDefinition="A free text natural language description of the profile and its use." )
     protected StringType description;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    protected List<Coding> code = new ArrayList<Coding>();
+    @Child(name="code", type={Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
+    protected List<Coding> code;
 
     /**
      * The status of the profile.
      */
+    @Child(name="status", type={CodeType.class}, order=6, min=1, max=1)
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the profile." )
     protected Enumeration<ResourceProfileStatus> status;
 
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
+    @Child(name="experimental", type={BooleanType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that this version of the profile was published.
      */
+    @Child(name="date", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Date for this version of the operation definition", formalDefinition="The date that this version of the profile was published." )
     protected DateTimeType date;
 
     /**
      * Whether this is operation or named query.
      */
+    @Child(name="kind", type={CodeType.class}, order=9, min=1, max=1)
+    @Description(shortDefinition="operation | query", formalDefinition="Whether this is operation or named query." )
     protected Enumeration<OperationKind> kind;
 
     /**
      * The name used to invoke the operation.
      */
+    @Child(name="name", type={CodeType.class}, order=10, min=1, max=1)
+    @Description(shortDefinition="Name used to invoke the operation", formalDefinition="The name used to invoke the operation." )
     protected CodeType name;
 
     /**
      * Additional information about how to use this operation or named query.
      */
+    @Child(name="notes", type={StringType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
     protected StringType notes;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
      */
+    @Child(name="base", type={OperationDefinition.class}, order=12, min=0, max=1)
+    @Description(shortDefinition="Marks this as a profile of the base", formalDefinition="Indicates that this operation definition is a constraining profile on the base." )
     protected Reference base;
 
     /**
@@ -586,24 +781,32 @@ public class OperationDefinition extends DomainResource {
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
+    @Child(name="system", type={BooleanType.class}, order=13, min=1, max=1)
+    @Description(shortDefinition="Invoke at the system level?", formalDefinition="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)." )
     protected BooleanType system;
 
     /**
      * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
      */
-    protected List<CodeType> type = new ArrayList<CodeType>();
+    @Child(name="type", type={CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Invoke at resource level for these type", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)." )
+    protected List<CodeType> type;
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
+    @Child(name="instance", type={BooleanType.class}, order=15, min=1, max=1)
+    @Description(shortDefinition="Invoke on an instance?", formalDefinition="Indicates whether this operation can be invoked on a particular instance of one of the given types." )
     protected BooleanType instance;
 
     /**
      * Parameters for the operation/query.
      */
-    protected List<OperationDefinitionParameterComponent> parameter = new ArrayList<OperationDefinitionParameterComponent>();
+    @Child(name="parameter", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Parameters for the operation/query", formalDefinition="Parameters for the operation/query." )
+    protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = 1346669801L;
+    private static final long serialVersionUID = 300577956L;
 
     public OperationDefinition() {
       super();
@@ -623,7 +826,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
     public UriType getIdentifierElement() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new UriType();
       return this.identifier;
+    }
+
+    public boolean hasIdentifierElement() { 
+      return this.identifier != null && !this.identifier.isEmpty();
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
@@ -659,7 +875,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType();
       return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
     }
 
     /**
@@ -695,7 +924,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #title} (A free text natural language name identifying the Profile.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType();
       return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
     }
 
     /**
@@ -727,7 +969,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType();
       return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
@@ -763,7 +1018,18 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -772,6 +1038,8 @@ public class OperationDefinition extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -780,7 +1048,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -816,7 +1097,18 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
     public List<Coding> getCode() { 
+      if (this.code == null)
+        this.code = new ArrayList<Coding>();
       return this.code;
+    }
+
+    public boolean hasCode() { 
+      if (this.code == null)
+        return false;
+      for (Coding item : this.code)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -825,6 +1117,8 @@ public class OperationDefinition extends DomainResource {
     // syntactic sugar
     public Coding addCode() { //3
       Coding t = new Coding();
+      if (this.code == null)
+        this.code = new ArrayList<Coding>();
       this.code.add(t);
       return t;
     }
@@ -833,7 +1127,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<ResourceProfileStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ResourceProfileStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -865,7 +1172,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType();
       return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
@@ -901,7 +1221,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #date} (The date that this version of the profile was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -937,7 +1270,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #kind} (Whether this is operation or named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
     public Enumeration<OperationKind> getKindElement() { 
+      if (this.kind == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.kind");
+        else if (Configuration.doAutoCreate())
+          this.kind = new Enumeration<OperationKind>();
       return this.kind;
+    }
+
+    public boolean hasKindElement() { 
+      return this.kind != null && !this.kind.isEmpty();
+    }
+
+    public boolean hasKind() { 
+      return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
@@ -969,7 +1315,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #name} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public CodeType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new CodeType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -1001,7 +1360,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
     public StringType getNotesElement() { 
+      if (this.notes == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.notes");
+        else if (Configuration.doAutoCreate())
+          this.notes = new StringType();
       return this.notes;
+    }
+
+    public boolean hasNotesElement() { 
+      return this.notes != null && !this.notes.isEmpty();
+    }
+
+    public boolean hasNotes() { 
+      return this.notes != null && !this.notes.isEmpty();
     }
 
     /**
@@ -1037,7 +1409,16 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #base} (Indicates that this operation definition is a constraining profile on the base.)
      */
     public Reference getBase() { 
+      if (this.base == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.base");
+        else if (Configuration.doAutoCreate())
+          this.base = new Reference();
       return this.base;
+    }
+
+    public boolean hasBase() { 
+      return this.base != null && !this.base.isEmpty();
     }
 
     /**
@@ -1052,6 +1433,11 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #base} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates that this operation definition is a constraining profile on the base.)
      */
     public OperationDefinition getBaseTarget() { 
+      if (this.baseTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.base");
+        else if (Configuration.doAutoCreate())
+          this.baseTarget = new OperationDefinition();
       return this.baseTarget;
     }
 
@@ -1067,7 +1453,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public BooleanType getSystemElement() { 
+      if (this.system == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.system");
+        else if (Configuration.doAutoCreate())
+          this.system = new BooleanType();
       return this.system;
+    }
+
+    public boolean hasSystemElement() { 
+      return this.system != null && !this.system.isEmpty();
+    }
+
+    public boolean hasSystem() { 
+      return this.system != null && !this.system.isEmpty();
     }
 
     /**
@@ -1099,7 +1498,18 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
     public List<CodeType> getType() { 
+      if (this.type == null)
+        this.type = new ArrayList<CodeType>();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      if (this.type == null)
+        return false;
+      for (CodeType item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1108,6 +1518,8 @@ public class OperationDefinition extends DomainResource {
     // syntactic sugar
     public CodeType addTypeElement() {//2 
       CodeType t = new CodeType();
+      if (this.type == null)
+        this.type = new ArrayList<CodeType>();
       this.type.add(t);
       return t;
     }
@@ -1118,6 +1530,8 @@ public class OperationDefinition extends DomainResource {
     public OperationDefinition addType(String value) { //1
       CodeType t = new CodeType();
       t.setValue(value);
+      if (this.type == null)
+        this.type = new ArrayList<CodeType>();
       this.type.add(t);
       return this;
     }
@@ -1126,6 +1540,8 @@ public class OperationDefinition extends DomainResource {
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
     public boolean hasType(String value) { 
+      if (this.type == null)
+        return false;
       for (CodeType v : this.type)
         if (v.equals(value)) // code
           return true;
@@ -1136,7 +1552,20 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
     public BooleanType getInstanceElement() { 
+      if (this.instance == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.instance");
+        else if (Configuration.doAutoCreate())
+          this.instance = new BooleanType();
       return this.instance;
+    }
+
+    public boolean hasInstanceElement() { 
+      return this.instance != null && !this.instance.isEmpty();
+    }
+
+    public boolean hasInstance() { 
+      return this.instance != null && !this.instance.isEmpty();
     }
 
     /**
@@ -1168,7 +1597,18 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #parameter} (Parameters for the operation/query.)
      */
     public List<OperationDefinitionParameterComponent> getParameter() { 
+      if (this.parameter == null)
+        this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
       return this.parameter;
+    }
+
+    public boolean hasParameter() { 
+      if (this.parameter == null)
+        return false;
+      for (OperationDefinitionParameterComponent item : this.parameter)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1177,6 +1617,8 @@ public class OperationDefinition extends DomainResource {
     // syntactic sugar
     public OperationDefinitionParameterComponent addParameter() { //3
       OperationDefinitionParameterComponent t = new OperationDefinitionParameterComponent();
+      if (this.parameter == null)
+        this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
       this.parameter.add(t);
       return t;
     }
@@ -1210,13 +1652,17 @@ public class OperationDefinition extends DomainResource {
         dst.version = version == null ? null : version.copy();
         dst.title = title == null ? null : title.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
-        dst.code = new ArrayList<Coding>();
-        for (Coding i : code)
-          dst.code.add(i.copy());
+        if (code != null) {
+          dst.code = new ArrayList<Coding>();
+          for (Coding i : code)
+            dst.code.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
@@ -1225,13 +1671,17 @@ public class OperationDefinition extends DomainResource {
         dst.notes = notes == null ? null : notes.copy();
         dst.base = base == null ? null : base.copy();
         dst.system = system == null ? null : system.copy();
-        dst.type = new ArrayList<CodeType>();
-        for (CodeType i : type)
-          dst.type.add(i.copy());
+        if (type != null) {
+          dst.type = new ArrayList<CodeType>();
+          for (CodeType i : type)
+            dst.type.add(i.copy());
+        };
         dst.instance = instance == null ? null : instance.copy();
-        dst.parameter = new ArrayList<OperationDefinitionParameterComponent>();
-        for (OperationDefinitionParameterComponent i : parameter)
-          dst.parameter.add(i.copy());
+        if (parameter != null) {
+          dst.parameter = new ArrayList<OperationDefinitionParameterComponent>();
+          for (OperationDefinitionParameterComponent i : parameter)
+            dst.parameter.add(i.copy());
+        };
         return dst;
       }
 
@@ -1239,11 +1689,49 @@ public class OperationDefinition extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
+           && (title == null || title.isEmpty()) && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty())
+           && (description == null || description.isEmpty()) && (code == null || code.isEmpty()) && (status == null || status.isEmpty())
+           && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (kind == null || kind.isEmpty())
+           && (name == null || name.isEmpty()) && (notes == null || notes.isEmpty()) && (base == null || base.isEmpty())
+           && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
+           && (parameter == null || parameter.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.OperationDefinition;
    }
 
+  @SearchParamDefinition(name="status", path="OperationDefinition.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="code", path="OperationDefinition.code", description="Assist with indexing and finding", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
+  public static final String SP_KIND = "kind";
+  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
+  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="publisher", path="OperationDefinition.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="title", path="OperationDefinition.title", description="Informal name for this profile", type="string" )
+  public static final String SP_TITLE = "title";
+  @SearchParamDefinition(name="system", path="OperationDefinition.system", description="Invoke at the system level?", type="token" )
+  public static final String SP_SYSTEM = "system";
+  @SearchParamDefinition(name="name", path="OperationDefinition.name", description="Name used to invoke the operation", type="token" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="base", path="OperationDefinition.base", description="Marks this as a profile of the base", type="reference" )
+  public static final String SP_BASE = "base";
+  @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
+  public static final String SP_INSTANCE = "instance";
+  @SearchParamDefinition(name="identifier", path="OperationDefinition.identifier", description="Logical id to reference this operation definition", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="profile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference" )
+  public static final String SP_PROFILE = "profile";
 
 }
 

@@ -29,21 +29,39 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation.
  */
+@ResourceDef(name="Conformance", profile="http://hl7.org/fhir/Profile/Conformance")
 public class Conformance extends DomainResource {
 
     public enum ConformanceStatementStatus {
-        DRAFT, // This conformance statement is still under development.
-        ACTIVE, // This conformance statement is ready for use in production systems.
-        RETIRED, // This conformance statement has been withdrawn or superceded and should no longer be used.
-        NULL; // added to help the parsers
+        /**
+         * This conformance statement is still under development.
+         */
+        DRAFT, 
+        /**
+         * This conformance statement is ready for use in production systems.
+         */
+        ACTIVE, 
+        /**
+         * This conformance statement has been withdrawn or superceded and should no longer be used.
+         */
+        RETIRED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ConformanceStatementStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -60,6 +78,14 @@ public class Conformance extends DomainResource {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DRAFT: return "";
+            case ACTIVE: return "";
+            case RETIRED: return "";
             default: return "?";
           }
         }
@@ -106,9 +132,18 @@ public class Conformance extends DomainResource {
     }
 
     public enum RestfulConformanceMode {
-        CLIENT, // The application acts as a server for this resource.
-        SERVER, // The application acts as a client for this resource.
-        NULL; // added to help the parsers
+        /**
+         * The application acts as a server for this resource.
+         */
+        CLIENT, 
+        /**
+         * The application acts as a client for this resource.
+         */
+        SERVER, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static RestfulConformanceMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -122,6 +157,13 @@ public class Conformance extends DomainResource {
           switch (this) {
             case CLIENT: return "client";
             case SERVER: return "server";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CLIENT: return "";
+            case SERVER: return "";
             default: return "?";
           }
         }
@@ -162,16 +204,46 @@ public class Conformance extends DomainResource {
     }
 
     public enum TypeRestfulInteraction {
-        READ, // 
-        VREAD, // 
-        UPDATE, // 
-        DELETE, // 
-        HISTORYINSTANCE, // 
-        VALIDATE, // 
-        HISTORYTYPE, // 
-        CREATE, // 
-        SEARCHTYPE, // 
-        NULL; // added to help the parsers
+        /**
+         * 
+         */
+        READ, 
+        /**
+         * 
+         */
+        VREAD, 
+        /**
+         * 
+         */
+        UPDATE, 
+        /**
+         * 
+         */
+        DELETE, 
+        /**
+         * 
+         */
+        HISTORYINSTANCE, 
+        /**
+         * 
+         */
+        VALIDATE, 
+        /**
+         * 
+         */
+        HISTORYTYPE, 
+        /**
+         * 
+         */
+        CREATE, 
+        /**
+         * 
+         */
+        SEARCHTYPE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static TypeRestfulInteraction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -206,6 +278,20 @@ public class Conformance extends DomainResource {
             case HISTORYTYPE: return "history-type";
             case CREATE: return "create";
             case SEARCHTYPE: return "search-type";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case READ: return "http://hl7.org/fhir/restful-interaction";
+            case VREAD: return "http://hl7.org/fhir/restful-interaction";
+            case UPDATE: return "http://hl7.org/fhir/restful-interaction";
+            case DELETE: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYINSTANCE: return "http://hl7.org/fhir/restful-interaction";
+            case VALIDATE: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYTYPE: return "http://hl7.org/fhir/restful-interaction";
+            case CREATE: return "http://hl7.org/fhir/restful-interaction";
+            case SEARCHTYPE: return "http://hl7.org/fhir/restful-interaction";
             default: return "?";
           }
         }
@@ -288,10 +374,22 @@ public class Conformance extends DomainResource {
     }
 
     public enum VersioningPolicy {
-        NOVERSION, // VersionId meta-property is not suppoerted (server) or used (client).
-        VERSIONED, // VersionId meta-property is suppoerted (server) or used (client).
-        VERSIONEDUPDATE, // VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
-        NULL; // added to help the parsers
+        /**
+         * VersionId meta-property is not suppoerted (server) or used (client).
+         */
+        NOVERSION, 
+        /**
+         * VersionId meta-property is suppoerted (server) or used (client).
+         */
+        VERSIONED, 
+        /**
+         * VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
+         */
+        VERSIONEDUPDATE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static VersioningPolicy fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -308,6 +406,14 @@ public class Conformance extends DomainResource {
             case NOVERSION: return "no-version";
             case VERSIONED: return "versioned";
             case VERSIONEDUPDATE: return "versioned-update";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NOVERSION: return "";
+            case VERSIONED: return "";
+            case VERSIONEDUPDATE: return "";
             default: return "?";
           }
         }
@@ -354,14 +460,38 @@ public class Conformance extends DomainResource {
     }
 
     public enum SearchParamType {
-        NUMBER, // Search parameter SHALL be a number (a whole number, or a decimal).
-        DATE, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
-        STRING, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-        TOKEN, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
-        REFERENCE, // A reference to another resource.
-        COMPOSITE, // A composite search parameter that combines a search on two values together.
-        QUANTITY, // A search parameter that searches on a quantity.
-        NULL; // added to help the parsers
+        /**
+         * Search parameter SHALL be a number (a whole number, or a decimal).
+         */
+        NUMBER, 
+        /**
+         * Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
+         */
+        DATE, 
+        /**
+         * Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
+         */
+        STRING, 
+        /**
+         * Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
+         */
+        TOKEN, 
+        /**
+         * A reference to another resource.
+         */
+        REFERENCE, 
+        /**
+         * A composite search parameter that combines a search on two values together.
+         */
+        COMPOSITE, 
+        /**
+         * A search parameter that searches on a quantity.
+         */
+        QUANTITY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -390,6 +520,18 @@ public class Conformance extends DomainResource {
             case REFERENCE: return "reference";
             case COMPOSITE: return "composite";
             case QUANTITY: return "quantity";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case NUMBER: return "";
+            case DATE: return "";
+            case STRING: return "";
+            case TOKEN: return "";
+            case REFERENCE: return "";
+            case COMPOSITE: return "";
+            case QUANTITY: return "";
             default: return "?";
           }
         }
@@ -460,10 +602,22 @@ public class Conformance extends DomainResource {
     }
 
     public enum SystemRestfulInteraction {
-        TRANSACTION, // 
-        SEARCHSYSTEM, // 
-        HISTORYSYSTEM, // 
-        NULL; // added to help the parsers
+        /**
+         * 
+         */
+        TRANSACTION, 
+        /**
+         * 
+         */
+        SEARCHSYSTEM, 
+        /**
+         * 
+         */
+        HISTORYSYSTEM, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static SystemRestfulInteraction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -480,6 +634,14 @@ public class Conformance extends DomainResource {
             case TRANSACTION: return "transaction";
             case SEARCHSYSTEM: return "search-system";
             case HISTORYSYSTEM: return "history-system";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case TRANSACTION: return "http://hl7.org/fhir/restful-interaction";
+            case SEARCHSYSTEM: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYSYSTEM: return "http://hl7.org/fhir/restful-interaction";
             default: return "?";
           }
         }
@@ -526,10 +688,22 @@ public class Conformance extends DomainResource {
     }
 
     public enum MessageSignificanceCategory {
-        CONSEQUENCE, // The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.
-        CURRENCY, // The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
-        NOTIFICATION, // The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
-        NULL; // added to help the parsers
+        /**
+         * The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.
+         */
+        CONSEQUENCE, 
+        /**
+         * The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
+         */
+        CURRENCY, 
+        /**
+         * The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
+         */
+        NOTIFICATION, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static MessageSignificanceCategory fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -546,6 +720,14 @@ public class Conformance extends DomainResource {
             case CONSEQUENCE: return "Consequence";
             case CURRENCY: return "Currency";
             case NOTIFICATION: return "Notification";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CONSEQUENCE: return "";
+            case CURRENCY: return "";
+            case NOTIFICATION: return "";
             default: return "?";
           }
         }
@@ -592,9 +774,18 @@ public class Conformance extends DomainResource {
     }
 
     public enum MessageConformanceEventMode {
-        SENDER, // The application sends requests and receives responses.
-        RECEIVER, // The application receives requests and sends responses.
-        NULL; // added to help the parsers
+        /**
+         * The application sends requests and receives responses.
+         */
+        SENDER, 
+        /**
+         * The application receives requests and sends responses.
+         */
+        RECEIVER, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static MessageConformanceEventMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -608,6 +799,13 @@ public class Conformance extends DomainResource {
           switch (this) {
             case SENDER: return "sender";
             case RECEIVER: return "receiver";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case SENDER: return "";
+            case RECEIVER: return "";
             default: return "?";
           }
         }
@@ -648,9 +846,18 @@ public class Conformance extends DomainResource {
     }
 
     public enum DocumentMode {
-        PRODUCER, // The application produces documents of the specified type.
-        CONSUMER, // The application consumes documents of the specified type.
-        NULL; // added to help the parsers
+        /**
+         * The application produces documents of the specified type.
+         */
+        PRODUCER, 
+        /**
+         * The application consumes documents of the specified type.
+         */
+        CONSUMER, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static DocumentMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -664,6 +871,13 @@ public class Conformance extends DomainResource {
           switch (this) {
             case PRODUCER: return "producer";
             case CONSUMER: return "consumer";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PRODUCER: return "";
+            case CONSUMER: return "";
             default: return "?";
           }
         }
@@ -703,20 +917,27 @@ public class Conformance extends DomainResource {
       }
     }
 
+    @Block()
     public static class ConformanceSoftwareComponent extends BackboneElement {
         /**
          * Name software is known by.
          */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="A name the software is known by", formalDefinition="Name software is known by." )
         protected StringType name;
 
         /**
          * The version identifier for the software covered by this statement.
          */
+        @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Version covered by this statement", formalDefinition="The version identifier for the software covered by this statement." )
         protected StringType version;
 
         /**
          * Date this version of the software released.
          */
+        @Child(name="releaseDate", type={DateTimeType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Date this version released", formalDefinition="Date this version of the software released." )
         protected DateTimeType releaseDate;
 
         private static final long serialVersionUID = 1819769027L;
@@ -734,7 +955,20 @@ public class Conformance extends DomainResource {
          * @return {@link #name} (Name software is known by.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceSoftwareComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -766,7 +1000,20 @@ public class Conformance extends DomainResource {
          * @return {@link #version} (The version identifier for the software covered by this statement.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
         public StringType getVersionElement() { 
+          if (this.version == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceSoftwareComponent.version");
+            else if (Configuration.doAutoCreate())
+              this.version = new StringType();
           return this.version;
+        }
+
+        public boolean hasVersionElement() { 
+          return this.version != null && !this.version.isEmpty();
+        }
+
+        public boolean hasVersion() { 
+          return this.version != null && !this.version.isEmpty();
         }
 
         /**
@@ -802,7 +1049,20 @@ public class Conformance extends DomainResource {
          * @return {@link #releaseDate} (Date this version of the software released.). This is the underlying object with id, value and extensions. The accessor "getReleaseDate" gives direct access to the value
          */
         public DateTimeType getReleaseDateElement() { 
+          if (this.releaseDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceSoftwareComponent.releaseDate");
+            else if (Configuration.doAutoCreate())
+              this.releaseDate = new DateTimeType();
           return this.releaseDate;
+        }
+
+        public boolean hasReleaseDateElement() { 
+          return this.releaseDate != null && !this.releaseDate.isEmpty();
+        }
+
+        public boolean hasReleaseDate() { 
+          return this.releaseDate != null && !this.releaseDate.isEmpty();
         }
 
         /**
@@ -850,17 +1110,27 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (version == null || version.isEmpty())
+           && (releaseDate == null || releaseDate.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class ConformanceImplementationComponent extends BackboneElement {
         /**
          * Information about the specific installation that this conformance statement relates to.
          */
+        @Child(name="description", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Describes this specific instance", formalDefinition="Information about the specific installation that this conformance statement relates to." )
         protected StringType description;
 
         /**
          * A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
+        @Child(name="url", type={UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Base URL for the installation", formalDefinition="A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces." )
         protected UriType url;
 
         private static final long serialVersionUID = -289238508L;
@@ -878,7 +1148,20 @@ public class Conformance extends DomainResource {
          * @return {@link #description} (Information about the specific installation that this conformance statement relates to.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceImplementationComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -910,7 +1193,20 @@ public class Conformance extends DomainResource {
          * @return {@link #url} (A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
         public UriType getUrlElement() { 
+          if (this.url == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceImplementationComponent.url");
+            else if (Configuration.doAutoCreate())
+              this.url = new UriType();
           return this.url;
+        }
+
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
+        }
+
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
         /**
@@ -956,45 +1252,65 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (description == null || description.isEmpty()) && (url == null || url.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceRestComponent extends BackboneElement {
         /**
          * Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
          */
+        @Child(name="mode", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="client | server", formalDefinition="Identifies whether this portion of the statement is describing ability to initiate or receive restful operations." )
         protected Enumeration<RestfulConformanceMode> mode;
 
         /**
          * Information about the system's restful capabilities that apply across all applications, such as security.
          */
+        @Child(name="documentation", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="General description of implementation", formalDefinition="Information about the system's restful capabilities that apply across all applications, such as security." )
         protected StringType documentation;
 
         /**
          * Information about security of implementation.
          */
+        @Child(name="security", type={}, order=3, min=0, max=1)
+        @Description(shortDefinition="Information about security of implementation", formalDefinition="Information about security of implementation." )
         protected ConformanceRestSecurityComponent security;
 
         /**
          * A specification of the restful capabilities of the solution for a specific resource type.
          */
-        protected List<ConformanceRestResourceComponent> resource = new ArrayList<ConformanceRestResourceComponent>();
+        @Child(name="resource", type={}, order=4, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Resource served on the REST interface", formalDefinition="A specification of the restful capabilities of the solution for a specific resource type." )
+        protected List<ConformanceRestResourceComponent> resource;
 
         /**
          * A specification of restful operations supported by the system.
          */
-        protected List<SystemInteractionComponent> interaction = new ArrayList<SystemInteractionComponent>();
+        @Child(name="interaction", type={}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="What operations are supported?", formalDefinition="A specification of restful operations supported by the system." )
+        protected List<SystemInteractionComponent> interaction;
 
         /**
          * Definition of an operation or a named query and with its parameters and their meaning and type.
          */
-        protected List<ConformanceRestOperationComponent> operation = new ArrayList<ConformanceRestOperationComponent>();
+        @Child(name="operation", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Definition of an operation or a custom query", formalDefinition="Definition of an operation or a named query and with its parameters and their meaning and type." )
+        protected List<ConformanceRestOperationComponent> operation;
 
         /**
          * A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
-        protected List<UriType> documentMailbox = new ArrayList<UriType>();
+        @Child(name="documentMailbox", type={UriType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="How documents are accepted in /Mailbox", formalDefinition="A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose." )
+        protected List<UriType> documentMailbox;
 
-        private static final long serialVersionUID = -1994615780L;
+        private static final long serialVersionUID = 777542519L;
 
       public ConformanceRestComponent() {
         super();
@@ -1009,7 +1325,20 @@ public class Conformance extends DomainResource {
          * @return {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
         public Enumeration<RestfulConformanceMode> getModeElement() { 
+          if (this.mode == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestComponent.mode");
+            else if (Configuration.doAutoCreate())
+              this.mode = new Enumeration<RestfulConformanceMode>();
           return this.mode;
+        }
+
+        public boolean hasModeElement() { 
+          return this.mode != null && !this.mode.isEmpty();
+        }
+
+        public boolean hasMode() { 
+          return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
@@ -1041,7 +1370,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -1077,7 +1419,16 @@ public class Conformance extends DomainResource {
          * @return {@link #security} (Information about security of implementation.)
          */
         public ConformanceRestSecurityComponent getSecurity() { 
+          if (this.security == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestComponent.security");
+            else if (Configuration.doAutoCreate())
+              this.security = new ConformanceRestSecurityComponent();
           return this.security;
+        }
+
+        public boolean hasSecurity() { 
+          return this.security != null && !this.security.isEmpty();
         }
 
         /**
@@ -1092,7 +1443,18 @@ public class Conformance extends DomainResource {
          * @return {@link #resource} (A specification of the restful capabilities of the solution for a specific resource type.)
          */
         public List<ConformanceRestResourceComponent> getResource() { 
+          if (this.resource == null)
+            this.resource = new ArrayList<ConformanceRestResourceComponent>();
           return this.resource;
+        }
+
+        public boolean hasResource() { 
+          if (this.resource == null)
+            return false;
+          for (ConformanceRestResourceComponent item : this.resource)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1101,6 +1463,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ConformanceRestResourceComponent addResource() { //3
           ConformanceRestResourceComponent t = new ConformanceRestResourceComponent();
+          if (this.resource == null)
+            this.resource = new ArrayList<ConformanceRestResourceComponent>();
           this.resource.add(t);
           return t;
         }
@@ -1109,7 +1473,18 @@ public class Conformance extends DomainResource {
          * @return {@link #interaction} (A specification of restful operations supported by the system.)
          */
         public List<SystemInteractionComponent> getInteraction() { 
+          if (this.interaction == null)
+            this.interaction = new ArrayList<SystemInteractionComponent>();
           return this.interaction;
+        }
+
+        public boolean hasInteraction() { 
+          if (this.interaction == null)
+            return false;
+          for (SystemInteractionComponent item : this.interaction)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1118,6 +1493,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public SystemInteractionComponent addInteraction() { //3
           SystemInteractionComponent t = new SystemInteractionComponent();
+          if (this.interaction == null)
+            this.interaction = new ArrayList<SystemInteractionComponent>();
           this.interaction.add(t);
           return t;
         }
@@ -1126,7 +1503,18 @@ public class Conformance extends DomainResource {
          * @return {@link #operation} (Definition of an operation or a named query and with its parameters and their meaning and type.)
          */
         public List<ConformanceRestOperationComponent> getOperation() { 
+          if (this.operation == null)
+            this.operation = new ArrayList<ConformanceRestOperationComponent>();
           return this.operation;
+        }
+
+        public boolean hasOperation() { 
+          if (this.operation == null)
+            return false;
+          for (ConformanceRestOperationComponent item : this.operation)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1135,6 +1523,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ConformanceRestOperationComponent addOperation() { //3
           ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
+          if (this.operation == null)
+            this.operation = new ArrayList<ConformanceRestOperationComponent>();
           this.operation.add(t);
           return t;
         }
@@ -1143,7 +1533,18 @@ public class Conformance extends DomainResource {
          * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public List<UriType> getDocumentMailbox() { 
+          if (this.documentMailbox == null)
+            this.documentMailbox = new ArrayList<UriType>();
           return this.documentMailbox;
+        }
+
+        public boolean hasDocumentMailbox() { 
+          if (this.documentMailbox == null)
+            return false;
+          for (UriType item : this.documentMailbox)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1152,6 +1553,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public UriType addDocumentMailboxElement() {//2 
           UriType t = new UriType();
+          if (this.documentMailbox == null)
+            this.documentMailbox = new ArrayList<UriType>();
           this.documentMailbox.add(t);
           return t;
         }
@@ -1162,6 +1565,8 @@ public class Conformance extends DomainResource {
         public ConformanceRestComponent addDocumentMailbox(String value) { //1
           UriType t = new UriType();
           t.setValue(value);
+          if (this.documentMailbox == null)
+            this.documentMailbox = new ArrayList<UriType>();
           this.documentMailbox.add(t);
           return this;
         }
@@ -1170,6 +1575,8 @@ public class Conformance extends DomainResource {
          * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public boolean hasDocumentMailbox(String value) { 
+          if (this.documentMailbox == null)
+            return false;
           for (UriType v : this.documentMailbox)
             if (v.equals(value)) // uri
               return true;
@@ -1193,45 +1600,69 @@ public class Conformance extends DomainResource {
         dst.mode = mode == null ? null : mode.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.security = security == null ? null : security.copy();
-        dst.resource = new ArrayList<ConformanceRestResourceComponent>();
-        for (ConformanceRestResourceComponent i : resource)
-          dst.resource.add(i.copy());
-        dst.interaction = new ArrayList<SystemInteractionComponent>();
-        for (SystemInteractionComponent i : interaction)
-          dst.interaction.add(i.copy());
-        dst.operation = new ArrayList<ConformanceRestOperationComponent>();
-        for (ConformanceRestOperationComponent i : operation)
-          dst.operation.add(i.copy());
-        dst.documentMailbox = new ArrayList<UriType>();
-        for (UriType i : documentMailbox)
-          dst.documentMailbox.add(i.copy());
+        if (resource != null) {
+          dst.resource = new ArrayList<ConformanceRestResourceComponent>();
+          for (ConformanceRestResourceComponent i : resource)
+            dst.resource.add(i.copy());
+        };
+        if (interaction != null) {
+          dst.interaction = new ArrayList<SystemInteractionComponent>();
+          for (SystemInteractionComponent i : interaction)
+            dst.interaction.add(i.copy());
+        };
+        if (operation != null) {
+          dst.operation = new ArrayList<ConformanceRestOperationComponent>();
+          for (ConformanceRestOperationComponent i : operation)
+            dst.operation.add(i.copy());
+        };
+        if (documentMailbox != null) {
+          dst.documentMailbox = new ArrayList<UriType>();
+          for (UriType i : documentMailbox)
+            dst.documentMailbox.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
+           && (operation == null || operation.isEmpty()) && (documentMailbox == null || documentMailbox.isEmpty())
+          ;
       }
 
   }
 
+    @Block()
     public static class ConformanceRestSecurityComponent extends BackboneElement {
         /**
          * Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
+        @Child(name="cors", type={BooleanType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Adds CORS Headers (http://enable-cors.org/)", formalDefinition="Server adds CORS headers when responding to requests - this enables javascript applications to use the server." )
         protected BooleanType cors;
 
         /**
          * Types of security services are supported/required by the system.
          */
-        protected List<CodeableConcept> service = new ArrayList<CodeableConcept>();
+        @Child(name="service", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="OAuth | OAuth2 | NTLM | Basic | Kerberos", formalDefinition="Types of security services are supported/required by the system." )
+        protected List<CodeableConcept> service;
 
         /**
          * General description of how security works.
          */
+        @Child(name="description", type={StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="General description of how security works", formalDefinition="General description of how security works." )
         protected StringType description;
 
         /**
          * Certificates associated with security profiles.
          */
-        protected List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+        @Child(name="certificate", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Certificates associated with security profiles", formalDefinition="Certificates associated with security profiles." )
+        protected List<ConformanceRestSecurityCertificateComponent> certificate;
 
-        private static final long serialVersionUID = -1974024888L;
+        private static final long serialVersionUID = 391663952L;
 
       public ConformanceRestSecurityComponent() {
         super();
@@ -1241,7 +1672,20 @@ public class Conformance extends DomainResource {
          * @return {@link #cors} (Server adds CORS headers when responding to requests - this enables javascript applications to use the server.). This is the underlying object with id, value and extensions. The accessor "getCors" gives direct access to the value
          */
         public BooleanType getCorsElement() { 
+          if (this.cors == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.cors");
+            else if (Configuration.doAutoCreate())
+              this.cors = new BooleanType();
           return this.cors;
+        }
+
+        public boolean hasCorsElement() { 
+          return this.cors != null && !this.cors.isEmpty();
+        }
+
+        public boolean hasCors() { 
+          return this.cors != null && !this.cors.isEmpty();
         }
 
         /**
@@ -1277,7 +1721,18 @@ public class Conformance extends DomainResource {
          * @return {@link #service} (Types of security services are supported/required by the system.)
          */
         public List<CodeableConcept> getService() { 
+          if (this.service == null)
+            this.service = new ArrayList<CodeableConcept>();
           return this.service;
+        }
+
+        public boolean hasService() { 
+          if (this.service == null)
+            return false;
+          for (CodeableConcept item : this.service)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1286,6 +1741,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public CodeableConcept addService() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.service == null)
+            this.service = new ArrayList<CodeableConcept>();
           this.service.add(t);
           return t;
         }
@@ -1294,7 +1751,20 @@ public class Conformance extends DomainResource {
          * @return {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -1330,7 +1800,18 @@ public class Conformance extends DomainResource {
          * @return {@link #certificate} (Certificates associated with security profiles.)
          */
         public List<ConformanceRestSecurityCertificateComponent> getCertificate() { 
+          if (this.certificate == null)
+            this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
           return this.certificate;
+        }
+
+        public boolean hasCertificate() { 
+          if (this.certificate == null)
+            return false;
+          for (ConformanceRestSecurityCertificateComponent item : this.certificate)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1339,6 +1820,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ConformanceRestSecurityCertificateComponent addCertificate() { //3
           ConformanceRestSecurityCertificateComponent t = new ConformanceRestSecurityCertificateComponent();
+          if (this.certificate == null)
+            this.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
           this.certificate.add(t);
           return t;
         }
@@ -1355,27 +1838,42 @@ public class Conformance extends DomainResource {
         ConformanceRestSecurityComponent dst = new ConformanceRestSecurityComponent();
         copyValues(dst);
         dst.cors = cors == null ? null : cors.copy();
-        dst.service = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : service)
-          dst.service.add(i.copy());
+        if (service != null) {
+          dst.service = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : service)
+            dst.service.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
-        dst.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
-        for (ConformanceRestSecurityCertificateComponent i : certificate)
-          dst.certificate.add(i.copy());
+        if (certificate != null) {
+          dst.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+          for (ConformanceRestSecurityCertificateComponent i : certificate)
+            dst.certificate.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (cors == null || cors.isEmpty()) && (service == null || service.isEmpty())
+           && (description == null || description.isEmpty()) && (certificate == null || certificate.isEmpty())
+          ;
       }
 
   }
 
+    @Block()
     public static class ConformanceRestSecurityCertificateComponent extends BackboneElement {
         /**
          * Mime type for certificate.
          */
+        @Child(name="type", type={CodeType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Mime type for certificate", formalDefinition="Mime type for certificate." )
         protected CodeType type;
 
         /**
          * Actual certificate.
          */
+        @Child(name="blob", type={Base64BinaryType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Actual certificate", formalDefinition="Actual certificate." )
         protected Base64BinaryType blob;
 
         private static final long serialVersionUID = 2092655854L;
@@ -1388,7 +1886,20 @@ public class Conformance extends DomainResource {
          * @return {@link #type} (Mime type for certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public CodeType getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeType();
           return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -1424,7 +1935,20 @@ public class Conformance extends DomainResource {
          * @return {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
          */
         public Base64BinaryType getBlobElement() { 
+          if (this.blob == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.blob");
+            else if (Configuration.doAutoCreate())
+              this.blob = new Base64BinaryType();
           return this.blob;
+        }
+
+        public boolean hasBlobElement() { 
+          return this.blob != null && !this.blob.isEmpty();
+        }
+
+        public boolean hasBlob() { 
+          return this.blob != null && !this.blob.isEmpty();
         }
 
         /**
@@ -1470,17 +1994,27 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (blob == null || blob.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceRestResourceComponent extends BackboneElement {
         /**
          * A type of resource exposed via the restful interface.
          */
+        @Child(name="type", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="A resource type that is supported", formalDefinition="A type of resource exposed via the restful interface." )
         protected CodeType type;
 
         /**
          * A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.
          */
+        @Child(name="profile", type={Profile.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="What structural features are supported", formalDefinition="A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations." )
         protected Reference profile;
 
         /**
@@ -1491,34 +2025,46 @@ public class Conformance extends DomainResource {
         /**
          * Identifies a restful operation supported by the solution.
          */
-        protected List<ResourceInteractionComponent> interaction = new ArrayList<ResourceInteractionComponent>();
+        @Child(name="interaction", type={}, order=3, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="What operations are supported?", formalDefinition="Identifies a restful operation supported by the solution." )
+        protected List<ResourceInteractionComponent> interaction;
 
         /**
          * Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.
          */
+        @Child(name="versioning", type={CodeType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="no-version | versioned | versioned-update", formalDefinition="Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources." )
         protected Enumeration<VersioningPolicy> versioning;
 
         /**
          * A flag for whether the server is able to return past versions as part of the vRead operation.
          */
+        @Child(name="readHistory", type={BooleanType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Whether vRead can return past versions", formalDefinition="A flag for whether the server is able to return past versions as part of the vRead operation." )
         protected BooleanType readHistory;
 
         /**
          * A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
          */
+        @Child(name="updateCreate", type={BooleanType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="If allows/uses update to a new location", formalDefinition="A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server." )
         protected BooleanType updateCreate;
 
         /**
          * A list of _include values supported by the server.
          */
-        protected List<StringType> searchInclude = new ArrayList<StringType>();
+        @Child(name="searchInclude", type={StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="_include values supported by the server", formalDefinition="A list of _include values supported by the server." )
+        protected List<StringType> searchInclude;
 
         /**
          * Additional search parameters for implementations to support and/or make use of.
          */
-        protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+        @Child(name="searchParam", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Additional search params defined", formalDefinition="Additional search parameters for implementations to support and/or make use of." )
+        protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = -1375327002L;
+        private static final long serialVersionUID = 120556320L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -1533,7 +2079,20 @@ public class Conformance extends DomainResource {
          * @return {@link #type} (A type of resource exposed via the restful interface.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public CodeType getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeType();
           return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -1565,7 +2124,16 @@ public class Conformance extends DomainResource {
          * @return {@link #profile} (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
         public Reference getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Reference();
           return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
@@ -1580,6 +2148,11 @@ public class Conformance extends DomainResource {
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
          */
         public Profile getProfileTarget() { 
+          if (this.profileTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profileTarget = new Profile();
           return this.profileTarget;
         }
 
@@ -1595,7 +2168,18 @@ public class Conformance extends DomainResource {
          * @return {@link #interaction} (Identifies a restful operation supported by the solution.)
          */
         public List<ResourceInteractionComponent> getInteraction() { 
+          if (this.interaction == null)
+            this.interaction = new ArrayList<ResourceInteractionComponent>();
           return this.interaction;
+        }
+
+        public boolean hasInteraction() { 
+          if (this.interaction == null)
+            return false;
+          for (ResourceInteractionComponent item : this.interaction)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1604,6 +2188,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ResourceInteractionComponent addInteraction() { //3
           ResourceInteractionComponent t = new ResourceInteractionComponent();
+          if (this.interaction == null)
+            this.interaction = new ArrayList<ResourceInteractionComponent>();
           this.interaction.add(t);
           return t;
         }
@@ -1612,7 +2198,20 @@ public class Conformance extends DomainResource {
          * @return {@link #versioning} (Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
         public Enumeration<VersioningPolicy> getVersioningElement() { 
+          if (this.versioning == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.versioning");
+            else if (Configuration.doAutoCreate())
+              this.versioning = new Enumeration<VersioningPolicy>();
           return this.versioning;
+        }
+
+        public boolean hasVersioningElement() { 
+          return this.versioning != null && !this.versioning.isEmpty();
+        }
+
+        public boolean hasVersioning() { 
+          return this.versioning != null && !this.versioning.isEmpty();
         }
 
         /**
@@ -1648,7 +2247,20 @@ public class Conformance extends DomainResource {
          * @return {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.). This is the underlying object with id, value and extensions. The accessor "getReadHistory" gives direct access to the value
          */
         public BooleanType getReadHistoryElement() { 
+          if (this.readHistory == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.readHistory");
+            else if (Configuration.doAutoCreate())
+              this.readHistory = new BooleanType();
           return this.readHistory;
+        }
+
+        public boolean hasReadHistoryElement() { 
+          return this.readHistory != null && !this.readHistory.isEmpty();
+        }
+
+        public boolean hasReadHistory() { 
+          return this.readHistory != null && !this.readHistory.isEmpty();
         }
 
         /**
@@ -1684,7 +2296,20 @@ public class Conformance extends DomainResource {
          * @return {@link #updateCreate} (A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.). This is the underlying object with id, value and extensions. The accessor "getUpdateCreate" gives direct access to the value
          */
         public BooleanType getUpdateCreateElement() { 
+          if (this.updateCreate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.updateCreate");
+            else if (Configuration.doAutoCreate())
+              this.updateCreate = new BooleanType();
           return this.updateCreate;
+        }
+
+        public boolean hasUpdateCreateElement() { 
+          return this.updateCreate != null && !this.updateCreate.isEmpty();
+        }
+
+        public boolean hasUpdateCreate() { 
+          return this.updateCreate != null && !this.updateCreate.isEmpty();
         }
 
         /**
@@ -1720,7 +2345,18 @@ public class Conformance extends DomainResource {
          * @return {@link #searchInclude} (A list of _include values supported by the server.)
          */
         public List<StringType> getSearchInclude() { 
+          if (this.searchInclude == null)
+            this.searchInclude = new ArrayList<StringType>();
           return this.searchInclude;
+        }
+
+        public boolean hasSearchInclude() { 
+          if (this.searchInclude == null)
+            return false;
+          for (StringType item : this.searchInclude)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1729,6 +2365,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public StringType addSearchIncludeElement() {//2 
           StringType t = new StringType();
+          if (this.searchInclude == null)
+            this.searchInclude = new ArrayList<StringType>();
           this.searchInclude.add(t);
           return t;
         }
@@ -1739,6 +2377,8 @@ public class Conformance extends DomainResource {
         public ConformanceRestResourceComponent addSearchInclude(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
+          if (this.searchInclude == null)
+            this.searchInclude = new ArrayList<StringType>();
           this.searchInclude.add(t);
           return this;
         }
@@ -1747,6 +2387,8 @@ public class Conformance extends DomainResource {
          * @param value {@link #searchInclude} (A list of _include values supported by the server.)
          */
         public boolean hasSearchInclude(String value) { 
+          if (this.searchInclude == null)
+            return false;
           for (StringType v : this.searchInclude)
             if (v.equals(value)) // string
               return true;
@@ -1757,7 +2399,18 @@ public class Conformance extends DomainResource {
          * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
          */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           return this.searchParam;
+        }
+
+        public boolean hasSearchParam() { 
+          if (this.searchParam == null)
+            return false;
+          for (ConformanceRestResourceSearchParamComponent item : this.searchParam)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -1766,6 +2419,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ConformanceRestResourceSearchParamComponent addSearchParam() { //3
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
+          if (this.searchParam == null)
+            this.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
           this.searchParam.add(t);
           return t;
         }
@@ -1787,32 +2442,51 @@ public class Conformance extends DomainResource {
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
-        dst.interaction = new ArrayList<ResourceInteractionComponent>();
-        for (ResourceInteractionComponent i : interaction)
-          dst.interaction.add(i.copy());
+        if (interaction != null) {
+          dst.interaction = new ArrayList<ResourceInteractionComponent>();
+          for (ResourceInteractionComponent i : interaction)
+            dst.interaction.add(i.copy());
+        };
         dst.versioning = versioning == null ? null : versioning.copy();
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
-        dst.searchInclude = new ArrayList<StringType>();
-        for (StringType i : searchInclude)
-          dst.searchInclude.add(i.copy());
-        dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
-        for (ConformanceRestResourceSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy());
+        if (searchInclude != null) {
+          dst.searchInclude = new ArrayList<StringType>();
+          for (StringType i : searchInclude)
+            dst.searchInclude.add(i.copy());
+        };
+        if (searchParam != null) {
+          dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+          for (ConformanceRestResourceSearchParamComponent i : searchParam)
+            dst.searchParam.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
+           && (interaction == null || interaction.isEmpty()) && (versioning == null || versioning.isEmpty())
+           && (readHistory == null || readHistory.isEmpty()) && (updateCreate == null || updateCreate.isEmpty())
+           && (searchInclude == null || searchInclude.isEmpty()) && (searchParam == null || searchParam.isEmpty())
+          ;
       }
 
   }
 
+    @Block()
     public static class ResourceInteractionComponent extends BackboneElement {
         /**
          * Coded identifier of the operation, supported by the system resource.
          */
+        @Child(name="code", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="read | vread | update | delete | history-instance | validate | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
         protected Enumeration<TypeRestfulInteraction> code;
 
         /**
          * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
+        @Child(name="documentation", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Anything special about operation behavior", formalDefinition="Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'." )
         protected StringType documentation;
 
         private static final long serialVersionUID = -437507806L;
@@ -1830,7 +2504,20 @@ public class Conformance extends DomainResource {
          * @return {@link #code} (Coded identifier of the operation, supported by the system resource.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public Enumeration<TypeRestfulInteraction> getCodeElement() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ResourceInteractionComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new Enumeration<TypeRestfulInteraction>();
           return this.code;
+        }
+
+        public boolean hasCodeElement() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
@@ -1862,7 +2549,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ResourceInteractionComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -1908,40 +2608,58 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceRestResourceSearchParamComponent extends BackboneElement {
         /**
          * The name of the search parameter used in the interface.
          */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name of search parameter", formalDefinition="The name of the search parameter used in the interface." )
         protected StringType name;
 
         /**
          * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
+        @Child(name="definition", type={UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Source of definition for parameter", formalDefinition="A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter." )
         protected UriType definition;
 
         /**
          * The type of value a search parameter refers to, and how the content is interpreted.
          */
+        @Child(name="type", type={CodeType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="number | date | string | token | reference | composite | quantity", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
         protected Enumeration<SearchParamType> type;
 
         /**
          * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
+        @Child(name="documentation", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Server-specific usage", formalDefinition="This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms." )
         protected StringType documentation;
 
         /**
          * Types of resource (if a resource is referenced).
          */
-        protected List<CodeType> target = new ArrayList<CodeType>();
+        @Child(name="target", type={CodeType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
+        protected List<CodeType> target;
 
         /**
          * Chained names supported.
          */
-        protected List<StringType> chain = new ArrayList<StringType>();
+        @Child(name="chain", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Chained names supported", formalDefinition="Chained names supported." )
+        protected List<StringType> chain;
 
-        private static final long serialVersionUID = -1498791020L;
+        private static final long serialVersionUID = 938312816L;
 
       public ConformanceRestResourceSearchParamComponent() {
         super();
@@ -1957,7 +2675,20 @@ public class Conformance extends DomainResource {
          * @return {@link #name} (The name of the search parameter used in the interface.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -1989,7 +2720,20 @@ public class Conformance extends DomainResource {
          * @return {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public UriType getDefinitionElement() { 
+          if (this.definition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definition = new UriType();
           return this.definition;
+        }
+
+        public boolean hasDefinitionElement() { 
+          return this.definition != null && !this.definition.isEmpty();
+        }
+
+        public boolean hasDefinition() { 
+          return this.definition != null && !this.definition.isEmpty();
         }
 
         /**
@@ -2025,7 +2769,20 @@ public class Conformance extends DomainResource {
          * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public Enumeration<SearchParamType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<SearchParamType>();
           return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -2057,7 +2814,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -2093,7 +2863,18 @@ public class Conformance extends DomainResource {
          * @return {@link #target} (Types of resource (if a resource is referenced).)
          */
         public List<CodeType> getTarget() { 
+          if (this.target == null)
+            this.target = new ArrayList<CodeType>();
           return this.target;
+        }
+
+        public boolean hasTarget() { 
+          if (this.target == null)
+            return false;
+          for (CodeType item : this.target)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -2102,6 +2883,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public CodeType addTargetElement() {//2 
           CodeType t = new CodeType();
+          if (this.target == null)
+            this.target = new ArrayList<CodeType>();
           this.target.add(t);
           return t;
         }
@@ -2112,6 +2895,8 @@ public class Conformance extends DomainResource {
         public ConformanceRestResourceSearchParamComponent addTarget(String value) { //1
           CodeType t = new CodeType();
           t.setValue(value);
+          if (this.target == null)
+            this.target = new ArrayList<CodeType>();
           this.target.add(t);
           return this;
         }
@@ -2120,6 +2905,8 @@ public class Conformance extends DomainResource {
          * @param value {@link #target} (Types of resource (if a resource is referenced).)
          */
         public boolean hasTarget(String value) { 
+          if (this.target == null)
+            return false;
           for (CodeType v : this.target)
             if (v.equals(value)) // code
               return true;
@@ -2130,7 +2917,18 @@ public class Conformance extends DomainResource {
          * @return {@link #chain} (Chained names supported.)
          */
         public List<StringType> getChain() { 
+          if (this.chain == null)
+            this.chain = new ArrayList<StringType>();
           return this.chain;
+        }
+
+        public boolean hasChain() { 
+          if (this.chain == null)
+            return false;
+          for (StringType item : this.chain)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -2139,6 +2937,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public StringType addChainElement() {//2 
           StringType t = new StringType();
+          if (this.chain == null)
+            this.chain = new ArrayList<StringType>();
           this.chain.add(t);
           return t;
         }
@@ -2149,6 +2949,8 @@ public class Conformance extends DomainResource {
         public ConformanceRestResourceSearchParamComponent addChain(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
+          if (this.chain == null)
+            this.chain = new ArrayList<StringType>();
           this.chain.add(t);
           return this;
         }
@@ -2157,6 +2959,8 @@ public class Conformance extends DomainResource {
          * @param value {@link #chain} (Chained names supported.)
          */
         public boolean hasChain(String value) { 
+          if (this.chain == null)
+            return false;
           for (StringType v : this.chain)
             if (v.equals(value)) // string
               return true;
@@ -2180,26 +2984,41 @@ public class Conformance extends DomainResource {
         dst.definition = definition == null ? null : definition.copy();
         dst.type = type == null ? null : type.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        dst.target = new ArrayList<CodeType>();
-        for (CodeType i : target)
-          dst.target.add(i.copy());
-        dst.chain = new ArrayList<StringType>();
-        for (StringType i : chain)
-          dst.chain.add(i.copy());
+        if (target != null) {
+          dst.target = new ArrayList<CodeType>();
+          for (CodeType i : target)
+            dst.target.add(i.copy());
+        };
+        if (chain != null) {
+          dst.chain = new ArrayList<StringType>();
+          for (StringType i : chain)
+            dst.chain.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
+           && (type == null || type.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (target == null || target.isEmpty()) && (chain == null || chain.isEmpty());
       }
 
   }
 
+    @Block()
     public static class SystemInteractionComponent extends BackboneElement {
         /**
          * A coded identifier of the operation, supported by the system.
          */
+        @Child(name="code", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="transaction | search-system | history-system", formalDefinition="A coded identifier of the operation, supported by the system." )
         protected Enumeration<SystemRestfulInteraction> code;
 
         /**
          * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
+        @Child(name="documentation", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Anything special about operation behavior", formalDefinition="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented." )
         protected StringType documentation;
 
         private static final long serialVersionUID = 510675287L;
@@ -2217,7 +3036,20 @@ public class Conformance extends DomainResource {
          * @return {@link #code} (A coded identifier of the operation, supported by the system.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public Enumeration<SystemRestfulInteraction> getCodeElement() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SystemInteractionComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new Enumeration<SystemRestfulInteraction>();
           return this.code;
+        }
+
+        public boolean hasCodeElement() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
@@ -2249,7 +3081,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SystemInteractionComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -2295,17 +3140,27 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceRestOperationComponent extends BackboneElement {
         /**
          * The name of a query, which is used in the _query parameter when the query is called.
          */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of a query, which is used in the _query parameter when the query is called." )
         protected StringType name;
 
         /**
          * Where the formal definition can be found.
          */
+        @Child(name="definition", type={OperationDefinition.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="The the operation/query is defined", formalDefinition="Where the formal definition can be found." )
         protected Reference definition;
 
         /**
@@ -2329,7 +3184,20 @@ public class Conformance extends DomainResource {
          * @return {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestOperationComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -2361,7 +3229,16 @@ public class Conformance extends DomainResource {
          * @return {@link #definition} (Where the formal definition can be found.)
          */
         public Reference getDefinition() { 
+          if (this.definition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definition = new Reference();
           return this.definition;
+        }
+
+        public boolean hasDefinition() { 
+          return this.definition != null && !this.definition.isEmpty();
         }
 
         /**
@@ -2376,6 +3253,11 @@ public class Conformance extends DomainResource {
          * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
          */
         public OperationDefinition getDefinitionTarget() { 
+          if (this.definitionTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definitionTarget = new OperationDefinition();
           return this.definitionTarget;
         }
 
@@ -2401,30 +3283,44 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceMessagingComponent extends BackboneElement {
         /**
          * An address to which messages and/or replies are to be sent.
          */
+        @Child(name="endpoint", type={UriType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Actual endpoint being described", formalDefinition="An address to which messages and/or replies are to be sent." )
         protected UriType endpoint;
 
         /**
          * Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
+        @Child(name="reliableCache", type={IntegerType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Reliable Message Cache Length (min)", formalDefinition="Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)." )
         protected IntegerType reliableCache;
 
         /**
          * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
          */
+        @Child(name="documentation", type={StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="Messaging interface behavior details", formalDefinition="Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner." )
         protected StringType documentation;
 
         /**
          * A description of the solution's support for an event at this end point.
          */
-        protected List<ConformanceMessagingEventComponent> event = new ArrayList<ConformanceMessagingEventComponent>();
+        @Child(name="event", type={}, order=4, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Declare support for this event", formalDefinition="A description of the solution's support for an event at this end point." )
+        protected List<ConformanceMessagingEventComponent> event;
 
-        private static final long serialVersionUID = -1845309943L;
+        private static final long serialVersionUID = -217151442L;
 
       public ConformanceMessagingComponent() {
         super();
@@ -2434,7 +3330,20 @@ public class Conformance extends DomainResource {
          * @return {@link #endpoint} (An address to which messages and/or replies are to be sent.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
         public UriType getEndpointElement() { 
+          if (this.endpoint == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingComponent.endpoint");
+            else if (Configuration.doAutoCreate())
+              this.endpoint = new UriType();
           return this.endpoint;
+        }
+
+        public boolean hasEndpointElement() { 
+          return this.endpoint != null && !this.endpoint.isEmpty();
+        }
+
+        public boolean hasEndpoint() { 
+          return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
         /**
@@ -2470,7 +3379,20 @@ public class Conformance extends DomainResource {
          * @return {@link #reliableCache} (Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).). This is the underlying object with id, value and extensions. The accessor "getReliableCache" gives direct access to the value
          */
         public IntegerType getReliableCacheElement() { 
+          if (this.reliableCache == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingComponent.reliableCache");
+            else if (Configuration.doAutoCreate())
+              this.reliableCache = new IntegerType();
           return this.reliableCache;
+        }
+
+        public boolean hasReliableCacheElement() { 
+          return this.reliableCache != null && !this.reliableCache.isEmpty();
+        }
+
+        public boolean hasReliableCache() { 
+          return this.reliableCache != null && !this.reliableCache.isEmpty();
         }
 
         /**
@@ -2506,7 +3428,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -2542,7 +3477,18 @@ public class Conformance extends DomainResource {
          * @return {@link #event} (A description of the solution's support for an event at this end point.)
          */
         public List<ConformanceMessagingEventComponent> getEvent() { 
+          if (this.event == null)
+            this.event = new ArrayList<ConformanceMessagingEventComponent>();
           return this.event;
+        }
+
+        public boolean hasEvent() { 
+          if (this.event == null)
+            return false;
+          for (ConformanceMessagingEventComponent item : this.event)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -2551,6 +3497,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public ConformanceMessagingEventComponent addEvent() { //3
           ConformanceMessagingEventComponent t = new ConformanceMessagingEventComponent();
+          if (this.event == null)
+            this.event = new ArrayList<ConformanceMessagingEventComponent>();
           this.event.add(t);
           return t;
         }
@@ -2569,43 +3517,64 @@ public class Conformance extends DomainResource {
         dst.endpoint = endpoint == null ? null : endpoint.copy();
         dst.reliableCache = reliableCache == null ? null : reliableCache.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        dst.event = new ArrayList<ConformanceMessagingEventComponent>();
-        for (ConformanceMessagingEventComponent i : event)
-          dst.event.add(i.copy());
+        if (event != null) {
+          dst.event = new ArrayList<ConformanceMessagingEventComponent>();
+          for (ConformanceMessagingEventComponent i : event)
+            dst.event.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (endpoint == null || endpoint.isEmpty()) && (reliableCache == null || reliableCache.isEmpty())
+           && (documentation == null || documentation.isEmpty()) && (event == null || event.isEmpty())
+          ;
       }
 
   }
 
+    @Block()
     public static class ConformanceMessagingEventComponent extends BackboneElement {
         /**
          * A coded identifier of a supported messaging event.
          */
+        @Child(name="code", type={Coding.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Event type", formalDefinition="A coded identifier of a supported messaging event." )
         protected Coding code;
 
         /**
          * The impact of the content of the message.
          */
+        @Child(name="category", type={CodeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Consequence | Currency | Notification", formalDefinition="The impact of the content of the message." )
         protected Enumeration<MessageSignificanceCategory> category;
 
         /**
          * The mode of this event declaration - whether application is sender or receiver.
          */
+        @Child(name="mode", type={CodeType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="sender | receiver", formalDefinition="The mode of this event declaration - whether application is sender or receiver." )
         protected Enumeration<MessageConformanceEventMode> mode;
 
         /**
          * A list of the messaging transport protocol(s) identifiers, supported by this endpoint.
          */
-        protected List<Coding> protocol = new ArrayList<Coding>();
+        @Child(name="protocol", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="http | ftp | mllp +", formalDefinition="A list of the messaging transport protocol(s) identifiers, supported by this endpoint." )
+        protected List<Coding> protocol;
 
         /**
          * A resource associated with the event.  This is the resource that defines the event.
          */
+        @Child(name="focus", type={CodeType.class}, order=5, min=1, max=1)
+        @Description(shortDefinition="Resource that's focus of message", formalDefinition="A resource associated with the event.  This is the resource that defines the event." )
         protected CodeType focus;
 
         /**
          * Information about the request for this event.
          */
+        @Child(name="request", type={Profile.class}, order=6, min=1, max=1)
+        @Description(shortDefinition="Profile that describes the request", formalDefinition="Information about the request for this event." )
         protected Reference request;
 
         /**
@@ -2616,6 +3585,8 @@ public class Conformance extends DomainResource {
         /**
          * Information about the response for this event.
          */
+        @Child(name="response", type={Profile.class}, order=7, min=1, max=1)
+        @Description(shortDefinition="Profile that describes the response", formalDefinition="Information about the response for this event." )
         protected Reference response;
 
         /**
@@ -2626,9 +3597,11 @@ public class Conformance extends DomainResource {
         /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
+        @Child(name="documentation", type={StringType.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="Endpoint-specific event documentation", formalDefinition="Guidance on how this event is handled, such as internal system trigger points, business rules, etc." )
         protected StringType documentation;
 
-        private static final long serialVersionUID = 1554067488L;
+        private static final long serialVersionUID = 758007981L;
 
       public ConformanceMessagingEventComponent() {
         super();
@@ -2647,7 +3620,16 @@ public class Conformance extends DomainResource {
          * @return {@link #code} (A coded identifier of a supported messaging event.)
          */
         public Coding getCode() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new Coding();
           return this.code;
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
@@ -2662,7 +3644,20 @@ public class Conformance extends DomainResource {
          * @return {@link #category} (The impact of the content of the message.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
          */
         public Enumeration<MessageSignificanceCategory> getCategoryElement() { 
+          if (this.category == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.category");
+            else if (Configuration.doAutoCreate())
+              this.category = new Enumeration<MessageSignificanceCategory>();
           return this.category;
+        }
+
+        public boolean hasCategoryElement() { 
+          return this.category != null && !this.category.isEmpty();
+        }
+
+        public boolean hasCategory() { 
+          return this.category != null && !this.category.isEmpty();
         }
 
         /**
@@ -2698,7 +3693,20 @@ public class Conformance extends DomainResource {
          * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
         public Enumeration<MessageConformanceEventMode> getModeElement() { 
+          if (this.mode == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.mode");
+            else if (Configuration.doAutoCreate())
+              this.mode = new Enumeration<MessageConformanceEventMode>();
           return this.mode;
+        }
+
+        public boolean hasModeElement() { 
+          return this.mode != null && !this.mode.isEmpty();
+        }
+
+        public boolean hasMode() { 
+          return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
@@ -2730,7 +3738,18 @@ public class Conformance extends DomainResource {
          * @return {@link #protocol} (A list of the messaging transport protocol(s) identifiers, supported by this endpoint.)
          */
         public List<Coding> getProtocol() { 
+          if (this.protocol == null)
+            this.protocol = new ArrayList<Coding>();
           return this.protocol;
+        }
+
+        public boolean hasProtocol() { 
+          if (this.protocol == null)
+            return false;
+          for (Coding item : this.protocol)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -2739,6 +3758,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
         public Coding addProtocol() { //3
           Coding t = new Coding();
+          if (this.protocol == null)
+            this.protocol = new ArrayList<Coding>();
           this.protocol.add(t);
           return t;
         }
@@ -2747,7 +3768,20 @@ public class Conformance extends DomainResource {
          * @return {@link #focus} (A resource associated with the event.  This is the resource that defines the event.). This is the underlying object with id, value and extensions. The accessor "getFocus" gives direct access to the value
          */
         public CodeType getFocusElement() { 
+          if (this.focus == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.focus");
+            else if (Configuration.doAutoCreate())
+              this.focus = new CodeType();
           return this.focus;
+        }
+
+        public boolean hasFocusElement() { 
+          return this.focus != null && !this.focus.isEmpty();
+        }
+
+        public boolean hasFocus() { 
+          return this.focus != null && !this.focus.isEmpty();
         }
 
         /**
@@ -2779,7 +3813,16 @@ public class Conformance extends DomainResource {
          * @return {@link #request} (Information about the request for this event.)
          */
         public Reference getRequest() { 
+          if (this.request == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
+            else if (Configuration.doAutoCreate())
+              this.request = new Reference();
           return this.request;
+        }
+
+        public boolean hasRequest() { 
+          return this.request != null && !this.request.isEmpty();
         }
 
         /**
@@ -2794,6 +3837,11 @@ public class Conformance extends DomainResource {
          * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the request for this event.)
          */
         public Profile getRequestTarget() { 
+          if (this.requestTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
+            else if (Configuration.doAutoCreate())
+              this.requestTarget = new Profile();
           return this.requestTarget;
         }
 
@@ -2809,7 +3857,16 @@ public class Conformance extends DomainResource {
          * @return {@link #response} (Information about the response for this event.)
          */
         public Reference getResponse() { 
+          if (this.response == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
+            else if (Configuration.doAutoCreate())
+              this.response = new Reference();
           return this.response;
+        }
+
+        public boolean hasResponse() { 
+          return this.response != null && !this.response.isEmpty();
         }
 
         /**
@@ -2824,6 +3881,11 @@ public class Conformance extends DomainResource {
          * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Information about the response for this event.)
          */
         public Profile getResponseTarget() { 
+          if (this.responseTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
+            else if (Configuration.doAutoCreate())
+              this.responseTarget = new Profile();
           return this.responseTarget;
         }
 
@@ -2839,7 +3901,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -2889,9 +3964,11 @@ public class Conformance extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.category = category == null ? null : category.copy();
         dst.mode = mode == null ? null : mode.copy();
-        dst.protocol = new ArrayList<Coding>();
-        for (Coding i : protocol)
-          dst.protocol.add(i.copy());
+        if (protocol != null) {
+          dst.protocol = new ArrayList<Coding>();
+          for (Coding i : protocol)
+            dst.protocol.add(i.copy());
+        };
         dst.focus = focus == null ? null : focus.copy();
         dst.request = request == null ? null : request.copy();
         dst.response = response == null ? null : response.copy();
@@ -2899,22 +3976,36 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
+           && (mode == null || mode.isEmpty()) && (protocol == null || protocol.isEmpty()) && (focus == null || focus.isEmpty())
+           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (documentation == null || documentation.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class ConformanceDocumentComponent extends BackboneElement {
         /**
          * Mode of this document declaration - whether application is producer or consumer.
          */
+        @Child(name="mode", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="producer | consumer", formalDefinition="Mode of this document declaration - whether application is producer or consumer." )
         protected Enumeration<DocumentMode> mode;
 
         /**
          * A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
          */
+        @Child(name="documentation", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Description of document support", formalDefinition="A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc." )
         protected StringType documentation;
 
         /**
          * A constraint on a resource used in the document.
          */
+        @Child(name="profile", type={Profile.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Constraint on a resource used in the document", formalDefinition="A constraint on a resource used in the document." )
         protected Reference profile;
 
         /**
@@ -2938,7 +4029,20 @@ public class Conformance extends DomainResource {
          * @return {@link #mode} (Mode of this document declaration - whether application is producer or consumer.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
          */
         public Enumeration<DocumentMode> getModeElement() { 
+          if (this.mode == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceDocumentComponent.mode");
+            else if (Configuration.doAutoCreate())
+              this.mode = new Enumeration<DocumentMode>();
           return this.mode;
+        }
+
+        public boolean hasModeElement() { 
+          return this.mode != null && !this.mode.isEmpty();
+        }
+
+        public boolean hasMode() { 
+          return this.mode != null && !this.mode.isEmpty();
         }
 
         /**
@@ -2970,7 +4074,20 @@ public class Conformance extends DomainResource {
          * @return {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
         public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceDocumentComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
           return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
@@ -3006,7 +4123,16 @@ public class Conformance extends DomainResource {
          * @return {@link #profile} (A constraint on a resource used in the document.)
          */
         public Reference getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Reference();
           return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
@@ -3021,6 +4147,11 @@ public class Conformance extends DomainResource {
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A constraint on a resource used in the document.)
          */
         public Profile getProfileTarget() { 
+          if (this.profileTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profileTarget = new Profile();
           return this.profileTarget;
         }
 
@@ -3048,104 +4179,145 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (profile == null || profile.isEmpty());
+      }
+
   }
 
     /**
      * The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
+    @Child(name="identifier", type={StringType.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Logical id to reference this statement", formalDefinition="The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
     protected StringType identifier;
 
     /**
      * The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
+    @Child(name="version", type={StringType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Logical id for this version of the statement", formalDefinition="The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the conformance statement.
      */
+    @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Informal name for this conformance statement", formalDefinition="A free text natural language name identifying the conformance statement." )
     protected StringType name;
 
     /**
      * Name of Organization publishing this conformance statement.
      */
+    @Child(name="publisher", type={StringType.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="Publishing Organization", formalDefinition="Name of Organization publishing this conformance statement." )
     protected StringType publisher;
 
     /**
      * Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contacts for Organization", formalDefinition="Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc." )
+    protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
+    @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
     protected StringType description;
 
     /**
      * The status of this conformance statement.
      */
+    @Child(name="status", type={CodeType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this conformance statement." )
     protected Enumeration<ConformanceStatementStatus> status;
 
     /**
      * A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
+    @Child(name="experimental", type={BooleanType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date  (and optionally time) when the conformance statement was published.
      */
+    @Child(name="date", type={DateTimeType.class}, order=7, min=1, max=1)
+    @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the conformance statement was published." )
     protected DateTimeType date;
 
     /**
      * Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.
      */
+    @Child(name="software", type={}, order=8, min=0, max=1)
+    @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation." )
     protected ConformanceSoftwareComponent software;
 
     /**
      * Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.
      */
+    @Child(name="implementation", type={}, order=9, min=0, max=1)
+    @Description(shortDefinition="If this describes a specific instance", formalDefinition="Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program." )
     protected ConformanceImplementationComponent implementation;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based.
      */
+    @Child(name="fhirVersion", type={IdType.class}, order=10, min=1, max=1)
+    @Description(shortDefinition="FHIR Version", formalDefinition="The version of the FHIR specification on which this conformance statement is based." )
     protected IdType fhirVersion;
 
     /**
      * A flag that indicates whether the application accepts unknown elements as part of a resource.
      */
+    @Child(name="acceptUnknown", type={BooleanType.class}, order=11, min=1, max=1)
+    @Description(shortDefinition="True if application accepts unknown elements", formalDefinition="A flag that indicates whether the application accepts unknown elements as part of a resource." )
     protected BooleanType acceptUnknown;
 
     /**
      * A list of the formats supported by this implementation.
      */
-    protected List<CodeType> format = new ArrayList<CodeType>();
+    @Child(name="format", type={CodeType.class}, order=12, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation." )
+    protected List<CodeType> format;
 
     /**
      * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
-    protected List<Reference> profile = new ArrayList<Reference>();
+    @Child(name="profile", type={Profile.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Profiles supported by the system", formalDefinition="A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile." )
+    protected List<Reference> profile;
     /**
      * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
-    protected List<Profile> profileTarget = new ArrayList<Profile>();
+    protected List<Profile> profileTarget;
 
 
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    protected List<ConformanceRestComponent> rest = new ArrayList<ConformanceRestComponent>();
+    @Child(name="rest", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
+    protected List<ConformanceRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    protected List<ConformanceMessagingComponent> messaging = new ArrayList<ConformanceMessagingComponent>();
+    @Child(name="messaging", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
+    protected List<ConformanceMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    protected List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
+    @Child(name="document", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
+    protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = 277150712L;
+    private static final long serialVersionUID = 1215207759L;
 
     public Conformance() {
       super();
@@ -3163,7 +4335,20 @@ public class Conformance extends DomainResource {
      * @return {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
      */
     public StringType getIdentifierElement() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new StringType();
       return this.identifier;
+    }
+
+    public boolean hasIdentifierElement() { 
+      return this.identifier != null && !this.identifier.isEmpty();
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
@@ -3199,7 +4384,20 @@ public class Conformance extends DomainResource {
      * @return {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType();
       return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
     }
 
     /**
@@ -3235,7 +4433,20 @@ public class Conformance extends DomainResource {
      * @return {@link #name} (A free text natural language name identifying the conformance statement.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -3271,7 +4482,20 @@ public class Conformance extends DomainResource {
      * @return {@link #publisher} (Name of Organization publishing this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType();
       return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
@@ -3303,7 +4527,18 @@ public class Conformance extends DomainResource {
      * @return {@link #telecom} (Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3312,6 +4547,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -3320,7 +4557,20 @@ public class Conformance extends DomainResource {
      * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType();
       return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
     }
 
     /**
@@ -3356,7 +4606,20 @@ public class Conformance extends DomainResource {
      * @return {@link #status} (The status of this conformance statement.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<ConformanceStatementStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<ConformanceStatementStatus>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -3392,7 +4655,20 @@ public class Conformance extends DomainResource {
      * @return {@link #experimental} (A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType();
       return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
@@ -3428,7 +4704,20 @@ public class Conformance extends DomainResource {
      * @return {@link #date} (The date  (and optionally time) when the conformance statement was published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType();
       return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
     }
 
     /**
@@ -3460,7 +4749,16 @@ public class Conformance extends DomainResource {
      * @return {@link #software} (Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.)
      */
     public ConformanceSoftwareComponent getSoftware() { 
+      if (this.software == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.software");
+        else if (Configuration.doAutoCreate())
+          this.software = new ConformanceSoftwareComponent();
       return this.software;
+    }
+
+    public boolean hasSoftware() { 
+      return this.software != null && !this.software.isEmpty();
     }
 
     /**
@@ -3475,7 +4773,16 @@ public class Conformance extends DomainResource {
      * @return {@link #implementation} (Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.)
      */
     public ConformanceImplementationComponent getImplementation() { 
+      if (this.implementation == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.implementation");
+        else if (Configuration.doAutoCreate())
+          this.implementation = new ConformanceImplementationComponent();
       return this.implementation;
+    }
+
+    public boolean hasImplementation() { 
+      return this.implementation != null && !this.implementation.isEmpty();
     }
 
     /**
@@ -3490,7 +4797,20 @@ public class Conformance extends DomainResource {
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public IdType getFhirVersionElement() { 
+      if (this.fhirVersion == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.fhirVersion");
+        else if (Configuration.doAutoCreate())
+          this.fhirVersion = new IdType();
       return this.fhirVersion;
+    }
+
+    public boolean hasFhirVersionElement() { 
+      return this.fhirVersion != null && !this.fhirVersion.isEmpty();
+    }
+
+    public boolean hasFhirVersion() { 
+      return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
     /**
@@ -3522,7 +4842,20 @@ public class Conformance extends DomainResource {
      * @return {@link #acceptUnknown} (A flag that indicates whether the application accepts unknown elements as part of a resource.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
      */
     public BooleanType getAcceptUnknownElement() { 
+      if (this.acceptUnknown == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Conformance.acceptUnknown");
+        else if (Configuration.doAutoCreate())
+          this.acceptUnknown = new BooleanType();
       return this.acceptUnknown;
+    }
+
+    public boolean hasAcceptUnknownElement() { 
+      return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
+    }
+
+    public boolean hasAcceptUnknown() { 
+      return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
     }
 
     /**
@@ -3554,7 +4887,18 @@ public class Conformance extends DomainResource {
      * @return {@link #format} (A list of the formats supported by this implementation.)
      */
     public List<CodeType> getFormat() { 
+      if (this.format == null)
+        this.format = new ArrayList<CodeType>();
       return this.format;
+    }
+
+    public boolean hasFormat() { 
+      if (this.format == null)
+        return false;
+      for (CodeType item : this.format)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3563,6 +4907,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public CodeType addFormatElement() {//2 
       CodeType t = new CodeType();
+      if (this.format == null)
+        this.format = new ArrayList<CodeType>();
       this.format.add(t);
       return t;
     }
@@ -3573,6 +4919,8 @@ public class Conformance extends DomainResource {
     public Conformance addFormat(String value) { //1
       CodeType t = new CodeType();
       t.setValue(value);
+      if (this.format == null)
+        this.format = new ArrayList<CodeType>();
       this.format.add(t);
       return this;
     }
@@ -3581,6 +4929,8 @@ public class Conformance extends DomainResource {
      * @param value {@link #format} (A list of the formats supported by this implementation.)
      */
     public boolean hasFormat(String value) { 
+      if (this.format == null)
+        return false;
       for (CodeType v : this.format)
         if (v.equals(value)) // code
           return true;
@@ -3591,7 +4941,18 @@ public class Conformance extends DomainResource {
      * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public List<Reference> getProfile() { 
+      if (this.profile == null)
+        this.profile = new ArrayList<Reference>();
       return this.profile;
+    }
+
+    public boolean hasProfile() { 
+      if (this.profile == null)
+        return false;
+      for (Reference item : this.profile)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3600,6 +4961,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public Reference addProfile() { //3
       Reference t = new Reference();
+      if (this.profile == null)
+        this.profile = new ArrayList<Reference>();
       this.profile.add(t);
       return t;
     }
@@ -3608,6 +4971,8 @@ public class Conformance extends DomainResource {
      * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public List<Profile> getProfileTarget() { 
+      if (this.profileTarget == null)
+        this.profileTarget = new ArrayList<Profile>();
       return this.profileTarget;
     }
 
@@ -3617,6 +4982,8 @@ public class Conformance extends DomainResource {
      */
     public Profile addProfileTarget() { 
       Profile r = new Profile();
+      if (this.profileTarget == null)
+        this.profileTarget = new ArrayList<Profile>();
       this.profileTarget.add(r);
       return r;
     }
@@ -3625,7 +4992,18 @@ public class Conformance extends DomainResource {
      * @return {@link #rest} (A definition of the restful capabilities of the solution, if any.)
      */
     public List<ConformanceRestComponent> getRest() { 
+      if (this.rest == null)
+        this.rest = new ArrayList<ConformanceRestComponent>();
       return this.rest;
+    }
+
+    public boolean hasRest() { 
+      if (this.rest == null)
+        return false;
+      for (ConformanceRestComponent item : this.rest)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3634,6 +5012,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public ConformanceRestComponent addRest() { //3
       ConformanceRestComponent t = new ConformanceRestComponent();
+      if (this.rest == null)
+        this.rest = new ArrayList<ConformanceRestComponent>();
       this.rest.add(t);
       return t;
     }
@@ -3642,7 +5022,18 @@ public class Conformance extends DomainResource {
      * @return {@link #messaging} (A description of the messaging capabilities of the solution.)
      */
     public List<ConformanceMessagingComponent> getMessaging() { 
+      if (this.messaging == null)
+        this.messaging = new ArrayList<ConformanceMessagingComponent>();
       return this.messaging;
+    }
+
+    public boolean hasMessaging() { 
+      if (this.messaging == null)
+        return false;
+      for (ConformanceMessagingComponent item : this.messaging)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3651,6 +5042,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public ConformanceMessagingComponent addMessaging() { //3
       ConformanceMessagingComponent t = new ConformanceMessagingComponent();
+      if (this.messaging == null)
+        this.messaging = new ArrayList<ConformanceMessagingComponent>();
       this.messaging.add(t);
       return t;
     }
@@ -3659,7 +5052,18 @@ public class Conformance extends DomainResource {
      * @return {@link #document} (A document definition.)
      */
     public List<ConformanceDocumentComponent> getDocument() { 
+      if (this.document == null)
+        this.document = new ArrayList<ConformanceDocumentComponent>();
       return this.document;
+    }
+
+    public boolean hasDocument() { 
+      if (this.document == null)
+        return false;
+      for (ConformanceDocumentComponent item : this.document)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -3668,6 +5072,8 @@ public class Conformance extends DomainResource {
     // syntactic sugar
     public ConformanceDocumentComponent addDocument() { //3
       ConformanceDocumentComponent t = new ConformanceDocumentComponent();
+      if (this.document == null)
+        this.document = new ArrayList<ConformanceDocumentComponent>();
       this.document.add(t);
       return t;
     }
@@ -3701,9 +5107,11 @@ public class Conformance extends DomainResource {
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
@@ -3712,21 +5120,31 @@ public class Conformance extends DomainResource {
         dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.acceptUnknown = acceptUnknown == null ? null : acceptUnknown.copy();
-        dst.format = new ArrayList<CodeType>();
-        for (CodeType i : format)
-          dst.format.add(i.copy());
-        dst.profile = new ArrayList<Reference>();
-        for (Reference i : profile)
-          dst.profile.add(i.copy());
-        dst.rest = new ArrayList<ConformanceRestComponent>();
-        for (ConformanceRestComponent i : rest)
-          dst.rest.add(i.copy());
-        dst.messaging = new ArrayList<ConformanceMessagingComponent>();
-        for (ConformanceMessagingComponent i : messaging)
-          dst.messaging.add(i.copy());
-        dst.document = new ArrayList<ConformanceDocumentComponent>();
-        for (ConformanceDocumentComponent i : document)
-          dst.document.add(i.copy());
+        if (format != null) {
+          dst.format = new ArrayList<CodeType>();
+          for (CodeType i : format)
+            dst.format.add(i.copy());
+        };
+        if (profile != null) {
+          dst.profile = new ArrayList<Reference>();
+          for (Reference i : profile)
+            dst.profile.add(i.copy());
+        };
+        if (rest != null) {
+          dst.rest = new ArrayList<ConformanceRestComponent>();
+          for (ConformanceRestComponent i : rest)
+            dst.rest.add(i.copy());
+        };
+        if (messaging != null) {
+          dst.messaging = new ArrayList<ConformanceMessagingComponent>();
+          for (ConformanceMessagingComponent i : messaging)
+            dst.messaging.add(i.copy());
+        };
+        if (document != null) {
+          dst.document = new ArrayList<ConformanceDocumentComponent>();
+          for (ConformanceDocumentComponent i : document)
+            dst.document.add(i.copy());
+        };
         return dst;
       }
 
@@ -3734,11 +5152,54 @@ public class Conformance extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
+           && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty())
+           && (description == null || description.isEmpty()) && (status == null || status.isEmpty())
+           && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (software == null || software.isEmpty())
+           && (implementation == null || implementation.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
+           && (acceptUnknown == null || acceptUnknown.isEmpty()) && (format == null || format.isEmpty())
+           && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty()) && (messaging == null || messaging.isEmpty())
+           && (document == null || document.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Conformance;
    }
 
+  @SearchParamDefinition(name="status", path="Conformance.status", description="The current status of the conformance statement", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="resource", path="Conformance.rest.resource.type", description="Name of a resource mentioned in a conformance statement", type="token" )
+  public static final String SP_RESOURCE = "resource";
+  @SearchParamDefinition(name="security", path="Conformance.rest.security", description="Information about security of implementation", type="token" )
+  public static final String SP_SECURITY = "security";
+  @SearchParamDefinition(name="format", path="Conformance.format", description="formats supported (xml | json | mime type)", type="token" )
+  public static final String SP_FORMAT = "format";
+  @SearchParamDefinition(name="date", path="Conformance.date", description="The conformance statement publication date", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="version", path="Conformance.version", description="The version identifier of the conformance statement", type="token" )
+  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="publisher", path="Conformance.publisher", description="Name of the publisher of the conformance statement", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="mode", path="Conformance.rest.mode", description="Mode - restful (server/client) or messaging (sender/receiver)", type="token" )
+  public static final String SP_MODE = "mode";
+  @SearchParamDefinition(name="software", path="Conformance.software.name", description="Part of a the name of a software application", type="string" )
+  public static final String SP_SOFTWARE = "software";
+  @SearchParamDefinition(name="description", path="Conformance.description", description="Text search in the description of the conformance statement", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+  @SearchParamDefinition(name="event", path="Conformance.messaging.event.code", description="Event code in a conformance statement", type="token" )
+  public static final String SP_EVENT = "event";
+  @SearchParamDefinition(name="name", path="Conformance.name", description="Name of the conformance statement", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="supported-profile", path="Conformance.profile", description="Profiles supported by the system", type="reference" )
+  public static final String SP_SUPPORTEDPROFILE = "supported-profile";
+  @SearchParamDefinition(name="fhirversion", path="Conformance.version", description="The version of FHIR", type="token" )
+  public static final String SP_FHIRVERSION = "fhirversion";
+  @SearchParamDefinition(name="identifier", path="Conformance.identifier", description="The identifier of the conformance statement", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="profile", path="Conformance.rest.resource.profile", description="A profile id invoked in a conformance statement", type="reference" )
+  public static final String SP_PROFILE = "profile";
 
 }
 

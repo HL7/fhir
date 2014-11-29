@@ -29,22 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * (informative) A slot of time on a schedule that may be available for booking appointments.
  */
+@ResourceDef(name="Slot", profile="http://hl7.org/fhir/Profile/Slot")
 public class Slot extends DomainResource {
 
     public enum Slotstatus {
-        BUSY, // Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
-        FREE, // Indicates that the time interval is free for scheduling.
-        BUSYUNAVAILABLE, // Indicates that the time interval is busy and that the interval can not be scheduled.
-        BUSYTENTATIVE, // Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
-        NULL; // added to help the parsers
+        /**
+         * Indicates that the time interval is busy because one  or more events have been scheduled for that interval.
+         */
+        BUSY, 
+        /**
+         * Indicates that the time interval is free for scheduling.
+         */
+        FREE, 
+        /**
+         * Indicates that the time interval is busy and that the interval can not be scheduled.
+         */
+        BUSYUNAVAILABLE, 
+        /**
+         * Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.
+         */
+        BUSYTENTATIVE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static Slotstatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +85,15 @@ public class Slot extends DomainResource {
             case FREE: return "FREE";
             case BUSYUNAVAILABLE: return "BUSY-UNAVAILABLE";
             case BUSYTENTATIVE: return "BUSY-TENTATIVE";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case BUSY: return "";
+            case FREE: return "";
+            case BUSYUNAVAILABLE: return "";
+            case BUSYTENTATIVE: return "";
             default: return "?";
           }
         }
@@ -118,16 +148,22 @@ public class Slot extends DomainResource {
     /**
      * External Ids for this item.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Ids for this item", formalDefinition="External Ids for this item." )
+    protected List<Identifier> identifier;
 
     /**
      * The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.
      */
+    @Child(name="type", type={CodeableConcept.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource", formalDefinition="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource." )
     protected CodeableConcept type;
 
     /**
      * The availability resource that this slot defines an interval of status information.
      */
+    @Child(name="availability", type={Availability.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="The availability resource that this slot defines an interval of status information", formalDefinition="The availability resource that this slot defines an interval of status information." )
     protected Reference availability;
 
     /**
@@ -138,34 +174,46 @@ public class Slot extends DomainResource {
     /**
      * BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
      */
+    @Child(name="freeBusyType", type={CodeType.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE", formalDefinition="BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE." )
     protected Enumeration<Slotstatus> freeBusyType;
 
     /**
      * Date/Time that the slot is to begin.
      */
+    @Child(name="start", type={InstantType.class}, order=3, min=1, max=1)
+    @Description(shortDefinition="Date/Time that the slot is to begin", formalDefinition="Date/Time that the slot is to begin." )
     protected InstantType start;
 
     /**
      * Date/Time that the slot is to conclude.
      */
+    @Child(name="end", type={InstantType.class}, order=4, min=1, max=1)
+    @Description(shortDefinition="Date/Time that the slot is to conclude", formalDefinition="Date/Time that the slot is to conclude." )
     protected InstantType end;
 
     /**
      * This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
+    @Child(name="overbooked", type={BooleanType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="This slot has already been overbooked, appointments are unlikely to be accepted for this time", formalDefinition="This slot has already been overbooked, appointments are unlikely to be accepted for this time." )
     protected BooleanType overbooked;
 
     /**
      * Comments on the slot to describe any extended information. Such as custom constraints on the slot.
      */
+    @Child(name="comment", type={StringType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot", formalDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot." )
     protected StringType comment;
 
     /**
      * When this slot was created, or last revised.
      */
+    @Child(name="lastModified", type={DateTimeType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="When this slot was created, or last revised", formalDefinition="When this slot was created, or last revised." )
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 1162351429L;
+    private static final long serialVersionUID = 2056947959L;
 
     public Slot() {
       super();
@@ -183,7 +231,18 @@ public class Slot extends DomainResource {
      * @return {@link #identifier} (External Ids for this item.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -192,6 +251,8 @@ public class Slot extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -200,7 +261,16 @@ public class Slot extends DomainResource {
      * @return {@link #type} (The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.)
      */
     public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -215,7 +285,16 @@ public class Slot extends DomainResource {
      * @return {@link #availability} (The availability resource that this slot defines an interval of status information.)
      */
     public Reference getAvailability() { 
+      if (this.availability == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.availability");
+        else if (Configuration.doAutoCreate())
+          this.availability = new Reference();
       return this.availability;
+    }
+
+    public boolean hasAvailability() { 
+      return this.availability != null && !this.availability.isEmpty();
     }
 
     /**
@@ -230,6 +309,11 @@ public class Slot extends DomainResource {
      * @return {@link #availability} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The availability resource that this slot defines an interval of status information.)
      */
     public Availability getAvailabilityTarget() { 
+      if (this.availabilityTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.availability");
+        else if (Configuration.doAutoCreate())
+          this.availabilityTarget = new Availability();
       return this.availabilityTarget;
     }
 
@@ -245,7 +329,20 @@ public class Slot extends DomainResource {
      * @return {@link #freeBusyType} (BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
      */
     public Enumeration<Slotstatus> getFreeBusyTypeElement() { 
+      if (this.freeBusyType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.freeBusyType");
+        else if (Configuration.doAutoCreate())
+          this.freeBusyType = new Enumeration<Slotstatus>();
       return this.freeBusyType;
+    }
+
+    public boolean hasFreeBusyTypeElement() { 
+      return this.freeBusyType != null && !this.freeBusyType.isEmpty();
+    }
+
+    public boolean hasFreeBusyType() { 
+      return this.freeBusyType != null && !this.freeBusyType.isEmpty();
     }
 
     /**
@@ -277,7 +374,20 @@ public class Slot extends DomainResource {
      * @return {@link #start} (Date/Time that the slot is to begin.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
     public InstantType getStartElement() { 
+      if (this.start == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.start");
+        else if (Configuration.doAutoCreate())
+          this.start = new InstantType();
       return this.start;
+    }
+
+    public boolean hasStartElement() { 
+      return this.start != null && !this.start.isEmpty();
+    }
+
+    public boolean hasStart() { 
+      return this.start != null && !this.start.isEmpty();
     }
 
     /**
@@ -309,7 +419,20 @@ public class Slot extends DomainResource {
      * @return {@link #end} (Date/Time that the slot is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
     public InstantType getEndElement() { 
+      if (this.end == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.end");
+        else if (Configuration.doAutoCreate())
+          this.end = new InstantType();
       return this.end;
+    }
+
+    public boolean hasEndElement() { 
+      return this.end != null && !this.end.isEmpty();
+    }
+
+    public boolean hasEnd() { 
+      return this.end != null && !this.end.isEmpty();
     }
 
     /**
@@ -341,7 +464,20 @@ public class Slot extends DomainResource {
      * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.). This is the underlying object with id, value and extensions. The accessor "getOverbooked" gives direct access to the value
      */
     public BooleanType getOverbookedElement() { 
+      if (this.overbooked == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.overbooked");
+        else if (Configuration.doAutoCreate())
+          this.overbooked = new BooleanType();
       return this.overbooked;
+    }
+
+    public boolean hasOverbookedElement() { 
+      return this.overbooked != null && !this.overbooked.isEmpty();
+    }
+
+    public boolean hasOverbooked() { 
+      return this.overbooked != null && !this.overbooked.isEmpty();
     }
 
     /**
@@ -377,7 +513,20 @@ public class Slot extends DomainResource {
      * @return {@link #comment} (Comments on the slot to describe any extended information. Such as custom constraints on the slot.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
+      if (this.comment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.comment");
+        else if (Configuration.doAutoCreate())
+          this.comment = new StringType();
       return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
@@ -413,7 +562,20 @@ public class Slot extends DomainResource {
      * @return {@link #lastModified} (When this slot was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
     public DateTimeType getLastModifiedElement() { 
+      if (this.lastModified == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Slot.lastModified");
+        else if (Configuration.doAutoCreate())
+          this.lastModified = new DateTimeType();
       return this.lastModified;
+    }
+
+    public boolean hasLastModifiedElement() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
+    }
+
+    public boolean hasLastModified() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
     }
 
     /**
@@ -461,9 +623,11 @@ public class Slot extends DomainResource {
       public Slot copy() {
         Slot dst = new Slot();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.availability = availability == null ? null : availability.copy();
         dst.freeBusyType = freeBusyType == null ? null : freeBusyType.copy();
@@ -479,11 +643,27 @@ public class Slot extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (availability == null || availability.isEmpty()) && (freeBusyType == null || freeBusyType.isEmpty())
+           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (overbooked == null || overbooked.isEmpty())
+           && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Slot;
    }
 
+  @SearchParamDefinition(name="start", path="Slot.start", description="Appointment date/time.", type="date" )
+  public static final String SP_START = "start";
+  @SearchParamDefinition(name="slottype", path="Slot.type", description="The type of appointments that can be booked into the slot", type="token" )
+  public static final String SP_SLOTTYPE = "slottype";
+  @SearchParamDefinition(name="fbtype", path="Slot.freeBusyType", description="The free/busy status of the appointment", type="token" )
+  public static final String SP_FBTYPE = "fbtype";
+  @SearchParamDefinition(name="availability", path="Slot.availability", description="The Availability Resource that we are seeking a slot within", type="reference" )
+  public static final String SP_AVAILABILITY = "availability";
 
 }
 

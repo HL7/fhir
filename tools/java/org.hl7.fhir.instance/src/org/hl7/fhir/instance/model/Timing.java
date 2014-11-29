@@ -29,29 +29,66 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.
  */
+@DatatypeDef(name="Timing")
 public class Timing extends Type {
 
     public enum EventTiming {
-        HS, // event occurs [duration] before the hour of sleep (or trying to).
-        WAKE, // event occurs [duration] after waking.
-        AC, // event occurs [duration] before a meal (from the Latin ante cibus).
-        ACM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
-        ACD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus).
-        ACV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
-        PC, // event occurs [duration] after a meal (from the Latin post cibus).
-        PCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus).
-        PCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus).
-        PCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus).
-        NULL; // added to help the parsers
+        /**
+         * event occurs [duration] before the hour of sleep (or trying to).
+         */
+        HS, 
+        /**
+         * event occurs [duration] after waking.
+         */
+        WAKE, 
+        /**
+         * event occurs [duration] before a meal (from the Latin ante cibus).
+         */
+        AC, 
+        /**
+         * event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
+         */
+        ACM, 
+        /**
+         * event occurs [duration] before lunch (from the Latin ante cibus diurnus).
+         */
+        ACD, 
+        /**
+         * event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
+         */
+        ACV, 
+        /**
+         * event occurs [duration] after a meal (from the Latin post cibus).
+         */
+        PC, 
+        /**
+         * event occurs [duration] after breakfast (from the Latin post cibus matutinus).
+         */
+        PCM, 
+        /**
+         * event occurs [duration] after lunch (from the Latin post cibus diurnus).
+         */
+        PCD, 
+        /**
+         * event occurs [duration] after dinner (from the Latin post cibus vespertinus).
+         */
+        PCV, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static EventTiming fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -89,6 +126,21 @@ public class Timing extends Type {
             case PCM: return "PCM";
             case PCD: return "PCD";
             case PCV: return "PCV";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case HS: return "http://hl7.org/fhir/v3/TimingEvent";
+            case WAKE: return "http://hl7.org/fhir/v3/TimingEvent";
+            case AC: return "http://hl7.org/fhir/v3/TimingEvent";
+            case ACM: return "http://hl7.org/fhir/v3/TimingEvent";
+            case ACD: return "http://hl7.org/fhir/v3/TimingEvent";
+            case ACV: return "http://hl7.org/fhir/v3/TimingEvent";
+            case PC: return "http://hl7.org/fhir/v3/TimingEvent";
+            case PCM: return "http://hl7.org/fhir/v3/TimingEvent";
+            case PCD: return "http://hl7.org/fhir/v3/TimingEvent";
+            case PCV: return "http://hl7.org/fhir/v3/TimingEvent";
             default: return "?";
           }
         }
@@ -177,14 +229,38 @@ public class Timing extends Type {
     }
 
     public enum UnitsOfTime {
-        S, // second.
-        MIN, // minute.
-        H, // hour.
-        D, // day.
-        WK, // week.
-        MO, // month.
-        A, // year.
-        NULL; // added to help the parsers
+        /**
+         * second.
+         */
+        S, 
+        /**
+         * minute.
+         */
+        MIN, 
+        /**
+         * hour.
+         */
+        H, 
+        /**
+         * day.
+         */
+        D, 
+        /**
+         * week.
+         */
+        WK, 
+        /**
+         * month.
+         */
+        MO, 
+        /**
+         * year.
+         */
+        A, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static UnitsOfTime fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -213,6 +289,18 @@ public class Timing extends Type {
             case WK: return "wk";
             case MO: return "mo";
             case A: return "a";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case S: return "http://unitsofmeasure.org";
+            case MIN: return "http://unitsofmeasure.org";
+            case H: return "http://unitsofmeasure.org";
+            case D: return "http://unitsofmeasure.org";
+            case WK: return "http://unitsofmeasure.org";
+            case MO: return "http://unitsofmeasure.org";
+            case A: return "http://unitsofmeasure.org";
             default: return "?";
           }
         }
@@ -286,31 +374,43 @@ public class Timing extends Type {
         /**
          * Indicates how often the event should occur.
          */
+        @Child(name="frequency", type={IntegerType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Event occurs frequency times per duration", formalDefinition="Indicates how often the event should occur." )
         protected IntegerType frequency;
 
         /**
          * Identifies the occurrence of daily life that determines timing.
          */
+        @Child(name="when", type={CodeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common life events", formalDefinition="Identifies the occurrence of daily life that determines timing." )
         protected Enumeration<EventTiming> when;
 
         /**
          * How long each repetition should last.
          */
+        @Child(name="duration", type={DecimalType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Repeating or event-related duration", formalDefinition="How long each repetition should last." )
         protected DecimalType duration;
 
         /**
          * The units of time for the duration.
          */
+        @Child(name="units", type={CodeType.class}, order=4, min=1, max=1)
+        @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the duration." )
         protected Enumeration<UnitsOfTime> units;
 
         /**
          * A total count of the desired number of repetitions.
          */
+        @Child(name="count", type={IntegerType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Number of times to repeat", formalDefinition="A total count of the desired number of repetitions." )
         protected IntegerType count;
 
         /**
          * When to stop repeating the timing schedule.
          */
+        @Child(name="end", type={DateTimeType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="When to stop repeats", formalDefinition="When to stop repeating the timing schedule." )
         protected DateTimeType end;
 
         private static final long serialVersionUID = -615844988L;
@@ -329,7 +429,20 @@ public class Timing extends Type {
          * @return {@link #frequency} (Indicates how often the event should occur.). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
         public IntegerType getFrequencyElement() { 
+          if (this.frequency == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.frequency");
+            else if (Configuration.doAutoCreate())
+              this.frequency = new IntegerType();
           return this.frequency;
+        }
+
+        public boolean hasFrequencyElement() { 
+          return this.frequency != null && !this.frequency.isEmpty();
+        }
+
+        public boolean hasFrequency() { 
+          return this.frequency != null && !this.frequency.isEmpty();
         }
 
         /**
@@ -365,7 +478,20 @@ public class Timing extends Type {
          * @return {@link #when} (Identifies the occurrence of daily life that determines timing.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
         public Enumeration<EventTiming> getWhenElement() { 
+          if (this.when == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.when");
+            else if (Configuration.doAutoCreate())
+              this.when = new Enumeration<EventTiming>();
           return this.when;
+        }
+
+        public boolean hasWhenElement() { 
+          return this.when != null && !this.when.isEmpty();
+        }
+
+        public boolean hasWhen() { 
+          return this.when != null && !this.when.isEmpty();
         }
 
         /**
@@ -401,7 +527,20 @@ public class Timing extends Type {
          * @return {@link #duration} (How long each repetition should last.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
         public DecimalType getDurationElement() { 
+          if (this.duration == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.duration");
+            else if (Configuration.doAutoCreate())
+              this.duration = new DecimalType();
           return this.duration;
+        }
+
+        public boolean hasDurationElement() { 
+          return this.duration != null && !this.duration.isEmpty();
+        }
+
+        public boolean hasDuration() { 
+          return this.duration != null && !this.duration.isEmpty();
         }
 
         /**
@@ -433,7 +572,20 @@ public class Timing extends Type {
          * @return {@link #units} (The units of time for the duration.). This is the underlying object with id, value and extensions. The accessor "getUnits" gives direct access to the value
          */
         public Enumeration<UnitsOfTime> getUnitsElement() { 
+          if (this.units == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.units");
+            else if (Configuration.doAutoCreate())
+              this.units = new Enumeration<UnitsOfTime>();
           return this.units;
+        }
+
+        public boolean hasUnitsElement() { 
+          return this.units != null && !this.units.isEmpty();
+        }
+
+        public boolean hasUnits() { 
+          return this.units != null && !this.units.isEmpty();
         }
 
         /**
@@ -465,7 +617,20 @@ public class Timing extends Type {
          * @return {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
         public IntegerType getCountElement() { 
+          if (this.count == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.count");
+            else if (Configuration.doAutoCreate())
+              this.count = new IntegerType();
           return this.count;
+        }
+
+        public boolean hasCountElement() { 
+          return this.count != null && !this.count.isEmpty();
+        }
+
+        public boolean hasCount() { 
+          return this.count != null && !this.count.isEmpty();
         }
 
         /**
@@ -501,7 +666,20 @@ public class Timing extends Type {
          * @return {@link #end} (When to stop repeating the timing schedule.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public DateTimeType getEndElement() { 
+          if (this.end == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TimingRepeatComponent.end");
+            else if (Configuration.doAutoCreate())
+              this.end = new DateTimeType();
           return this.end;
+        }
+
+        public boolean hasEndElement() { 
+          return this.end != null && !this.end.isEmpty();
+        }
+
+        public boolean hasEnd() { 
+          return this.end != null && !this.end.isEmpty();
         }
 
         /**
@@ -555,19 +733,29 @@ public class Timing extends Type {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (frequency == null || frequency.isEmpty()) && (when == null || when.isEmpty())
+           && (duration == null || duration.isEmpty()) && (units == null || units.isEmpty()) && (count == null || count.isEmpty())
+           && (end == null || end.isEmpty());
+      }
+
   }
 
     /**
      * Identifies specific time periods when the event should occur.
      */
-    protected List<Period> event = new ArrayList<Period>();
+    @Child(name="event", type={Period.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="When the event occurs", formalDefinition="Identifies specific time periods when the event should occur." )
+    protected List<Period> event;
 
     /**
      * Identifies a repeating pattern to the intended time periods.
      */
+    @Child(name="repeat", type={}, order=0, min=0, max=1)
+    @Description(shortDefinition="Only if there is none or one event", formalDefinition="Identifies a repeating pattern to the intended time periods." )
     protected TimingRepeatComponent repeat;
 
-    private static final long serialVersionUID = 1142511916L;
+    private static final long serialVersionUID = -621040330L;
 
     public Timing() {
       super();
@@ -577,7 +765,18 @@ public class Timing extends Type {
      * @return {@link #event} (Identifies specific time periods when the event should occur.)
      */
     public List<Period> getEvent() { 
+      if (this.event == null)
+        this.event = new ArrayList<Period>();
       return this.event;
+    }
+
+    public boolean hasEvent() { 
+      if (this.event == null)
+        return false;
+      for (Period item : this.event)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -586,6 +785,8 @@ public class Timing extends Type {
     // syntactic sugar
     public Period addEvent() { //3
       Period t = new Period();
+      if (this.event == null)
+        this.event = new ArrayList<Period>();
       this.event.add(t);
       return t;
     }
@@ -594,7 +795,16 @@ public class Timing extends Type {
      * @return {@link #repeat} (Identifies a repeating pattern to the intended time periods.)
      */
     public TimingRepeatComponent getRepeat() { 
+      if (this.repeat == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Timing.repeat");
+        else if (Configuration.doAutoCreate())
+          this.repeat = new TimingRepeatComponent();
       return this.repeat;
+    }
+
+    public boolean hasRepeat() { 
+      return this.repeat != null && !this.repeat.isEmpty();
     }
 
     /**
@@ -614,15 +824,22 @@ public class Timing extends Type {
       public Timing copy() {
         Timing dst = new Timing();
         copyValues(dst);
-        dst.event = new ArrayList<Period>();
-        for (Period i : event)
-          dst.event.add(i.copy());
+        if (event != null) {
+          dst.event = new ArrayList<Period>();
+          for (Period i : event)
+            dst.event.add(i.copy());
+        };
         dst.repeat = repeat == null ? null : repeat.copy();
         return dst;
       }
 
       protected Timing typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (event == null || event.isEmpty()) && (repeat == null || repeat.isEmpty())
+          ;
       }
 
 

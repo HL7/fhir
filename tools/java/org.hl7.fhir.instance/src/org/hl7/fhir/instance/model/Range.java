@@ -29,23 +29,31 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A set of ordered Quantities defined by a low and high limit.
  */
+@DatatypeDef(name="Range")
 public class Range extends Type {
 
     /**
      * The low limit. The boundary is inclusive.
      */
+    @Child(name="low", type={Quantity.class}, order=-1, min=0, max=1)
+    @Description(shortDefinition="Low limit", formalDefinition="The low limit. The boundary is inclusive." )
     protected Quantity low;
 
     /**
      * The high limit. The boundary is inclusive.
      */
+    @Child(name="high", type={Quantity.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="High limit", formalDefinition="The high limit. The boundary is inclusive." )
     protected Quantity high;
 
     private static final long serialVersionUID = -474933350L;
@@ -58,7 +66,16 @@ public class Range extends Type {
      * @return {@link #low} (The low limit. The boundary is inclusive.)
      */
     public Quantity getLow() { 
+      if (this.low == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Range.low");
+        else if (Configuration.doAutoCreate())
+          this.low = new Quantity();
       return this.low;
+    }
+
+    public boolean hasLow() { 
+      return this.low != null && !this.low.isEmpty();
     }
 
     /**
@@ -73,7 +90,16 @@ public class Range extends Type {
      * @return {@link #high} (The high limit. The boundary is inclusive.)
      */
     public Quantity getHigh() { 
+      if (this.high == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Range.high");
+        else if (Configuration.doAutoCreate())
+          this.high = new Quantity();
       return this.high;
+    }
+
+    public boolean hasHigh() { 
+      return this.high != null && !this.high.isEmpty();
     }
 
     /**
@@ -100,6 +126,11 @@ public class Range extends Type {
 
       protected Range typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (low == null || low.isEmpty()) && (high == null || high.isEmpty())
+          ;
       }
 
 

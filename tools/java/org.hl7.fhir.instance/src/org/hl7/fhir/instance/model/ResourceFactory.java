@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -104,8 +104,12 @@ public class ResourceFactory extends Factory {
             return new Subscription();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
+        if ("StatusResponse".equals(name))
+            return new StatusResponse();
         if ("ConceptMap".equals(name))
             return new ConceptMap();
+        if ("Reversal".equals(name))
+            return new Reversal();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
         if ("Practitioner".equals(name))
@@ -144,8 +148,12 @@ public class ResourceFactory extends Factory {
             return new MedicationAdministration();
         if ("Encounter".equals(name))
             return new Encounter();
+        if ("Enrollment".equals(name))
+            return new Enrollment();
         if ("SecurityEvent".equals(name))
             return new SecurityEvent();
+        if ("PendedRequest".equals(name))
+            return new PendedRequest();
         if ("List".equals(name))
             return new List_();
         if ("DeviceUseStatement".equals(name))
@@ -186,8 +194,14 @@ public class ResourceFactory extends Factory {
             return new Specimen();
         if ("Alert".equals(name))
             return new Alert();
+        if ("EnrollmentResponse".equals(name))
+            return new EnrollmentResponse();
         if ("Patient".equals(name))
             return new Patient();
+        if ("EligibilityResponse".equals(name))
+            return new EligibilityResponse();
+        if ("StatusRequest".equals(name))
+            return new StatusRequest();
         if ("DiagnosticOrder".equals(name))
             return new DiagnosticOrder();
         else

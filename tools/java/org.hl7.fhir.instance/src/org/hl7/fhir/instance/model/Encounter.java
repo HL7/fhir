@@ -29,23 +29,47 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
  */
+@ResourceDef(name="Encounter", profile="http://hl7.org/fhir/Profile/Encounter")
 public class Encounter extends DomainResource {
 
     public enum EncounterState {
-        PLANNED, // The Encounter has not yet started.
-        INPROGRESS, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
-        ONLEAVE, // The Encounter has begun, but the patient is temporarily on leave.
-        FINISHED, // The Encounter has ended.
-        CANCELLED, // The Encounter has ended before it has begun.
-        NULL; // added to help the parsers
+        /**
+         * The Encounter has not yet started.
+         */
+        PLANNED, 
+        /**
+         * The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
+         */
+        INPROGRESS, 
+        /**
+         * The Encounter has begun, but the patient is temporarily on leave.
+         */
+        ONLEAVE, 
+        /**
+         * The Encounter has ended.
+         */
+        FINISHED, 
+        /**
+         * The Encounter has ended before it has begun.
+         */
+        CANCELLED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static EncounterState fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -68,6 +92,16 @@ public class Encounter extends DomainResource {
             case ONLEAVE: return "onleave";
             case FINISHED: return "finished";
             case CANCELLED: return "cancelled";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PLANNED: return "";
+            case INPROGRESS: return "";
+            case ONLEAVE: return "";
+            case FINISHED: return "";
+            case CANCELLED: return "";
             default: return "?";
           }
         }
@@ -126,15 +160,42 @@ public class Encounter extends DomainResource {
     }
 
     public enum EncounterClass {
-        INPATIENT, // An encounter during which the patient is hospitalized and stays overnight.
-        OUTPATIENT, // An encounter during which the patient is not hospitalized overnight.
-        AMBULATORY, // An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
-        EMERGENCY, // An encounter where the patient needs urgent care.
-        HOME, // An encounter where the practitioner visits the patient at his/her home.
-        FIELD, // An encounter taking place outside the regular environment for giving care.
-        DAYTIME, // An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
-        VIRTUAL, // An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
-        NULL; // added to help the parsers
+        /**
+         * An encounter during which the patient is hospitalized and stays overnight.
+         */
+        INPATIENT, 
+        /**
+         * An encounter during which the patient is not hospitalized overnight.
+         */
+        OUTPATIENT, 
+        /**
+         * An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
+         */
+        AMBULATORY, 
+        /**
+         * An encounter where the patient needs urgent care.
+         */
+        EMERGENCY, 
+        /**
+         * An encounter where the practitioner visits the patient at his/her home.
+         */
+        HOME, 
+        /**
+         * An encounter taking place outside the regular environment for giving care.
+         */
+        FIELD, 
+        /**
+         * An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
+         */
+        DAYTIME, 
+        /**
+         * An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
+         */
+        VIRTUAL, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static EncounterClass fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -166,6 +227,19 @@ public class Encounter extends DomainResource {
             case FIELD: return "field";
             case DAYTIME: return "daytime";
             case VIRTUAL: return "virtual";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INPATIENT: return "";
+            case OUTPATIENT: return "";
+            case AMBULATORY: return "";
+            case EMERGENCY: return "";
+            case HOME: return "";
+            case FIELD: return "";
+            case DAYTIME: return "";
+            case VIRTUAL: return "";
             default: return "?";
           }
         }
@@ -241,15 +315,20 @@ public class Encounter extends DomainResource {
       }
     }
 
+    @Block()
     public static class EncounterParticipantComponent extends BackboneElement {
         /**
          * Role of participant in encounter.
          */
-        protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+        @Child(name="type", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Role of participant in encounter", formalDefinition="Role of participant in encounter." )
+        protected List<CodeableConcept> type;
 
         /**
          * Persons involved in the encounter other than the patient.
          */
+        @Child(name="individual", type={Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Persons involved in the encounter other than the patient", formalDefinition="Persons involved in the encounter other than the patient." )
         protected Reference individual;
 
         /**
@@ -257,7 +336,7 @@ public class Encounter extends DomainResource {
          */
         protected Resource individualTarget;
 
-        private static final long serialVersionUID = -1094895325L;
+        private static final long serialVersionUID = 129909055L;
 
       public EncounterParticipantComponent() {
         super();
@@ -267,7 +346,18 @@ public class Encounter extends DomainResource {
          * @return {@link #type} (Role of participant in encounter.)
          */
         public List<CodeableConcept> getType() { 
+          if (this.type == null)
+            this.type = new ArrayList<CodeableConcept>();
           return this.type;
+        }
+
+        public boolean hasType() { 
+          if (this.type == null)
+            return false;
+          for (CodeableConcept item : this.type)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -276,6 +366,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
         public CodeableConcept addType() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.type == null)
+            this.type = new ArrayList<CodeableConcept>();
           this.type.add(t);
           return t;
         }
@@ -284,7 +376,16 @@ public class Encounter extends DomainResource {
          * @return {@link #individual} (Persons involved in the encounter other than the patient.)
          */
         public Reference getIndividual() { 
+          if (this.individual == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterParticipantComponent.individual");
+            else if (Configuration.doAutoCreate())
+              this.individual = new Reference();
           return this.individual;
+        }
+
+        public boolean hasIndividual() { 
+          return this.individual != null && !this.individual.isEmpty();
         }
 
         /**
@@ -319,24 +420,36 @@ public class Encounter extends DomainResource {
       public EncounterParticipantComponent copy() {
         EncounterParticipantComponent dst = new EncounterParticipantComponent();
         copyValues(dst);
-        dst.type = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : type)
-          dst.type.add(i.copy());
+        if (type != null) {
+          dst.type = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : type)
+            dst.type.add(i.copy());
+        };
         dst.individual = individual == null ? null : individual.copy();
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (individual == null || individual.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class EncounterHospitalizationComponent extends BackboneElement {
         /**
          * Pre-admission identifier.
          */
+        @Child(name="preAdmissionIdentifier", type={Identifier.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Pre-admission identifier", formalDefinition="Pre-admission identifier." )
         protected Identifier preAdmissionIdentifier;
 
         /**
          * The location from which the patient came before admission.
          */
+        @Child(name="origin", type={Location.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="The location from which the patient came before admission", formalDefinition="The location from which the patient came before admission." )
         protected Reference origin;
 
         /**
@@ -347,36 +460,50 @@ public class Encounter extends DomainResource {
         /**
          * From where patient was admitted (physician referral, transfer).
          */
+        @Child(name="admitSource", type={CodeableConcept.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="From where patient was admitted (physician referral, transfer)", formalDefinition="From where patient was admitted (physician referral, transfer)." )
         protected CodeableConcept admitSource;
 
         /**
          * Period during which the patient was admitted.
          */
+        @Child(name="period", type={Period.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Period during which the patient was admitted", formalDefinition="Period during which the patient was admitted." )
         protected Period period;
 
         /**
          * Where the patient stays during this encounter.
          */
-        protected List<EncounterHospitalizationAccomodationComponent> accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
+        @Child(name="accomodation", type={}, order=5, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Where the patient stays during this encounter", formalDefinition="Where the patient stays during this encounter." )
+        protected List<EncounterHospitalizationAccomodationComponent> accomodation;
 
         /**
          * Dietary restrictions for the patient.
          */
+        @Child(name="diet", type={CodeableConcept.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Dietary restrictions for the patient", formalDefinition="Dietary restrictions for the patient." )
         protected CodeableConcept diet;
 
         /**
          * Special courtesies (VIP, board member).
          */
-        protected List<CodeableConcept> specialCourtesy = new ArrayList<CodeableConcept>();
+        @Child(name="specialCourtesy", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Special courtesies (VIP, board member)", formalDefinition="Special courtesies (VIP, board member)." )
+        protected List<CodeableConcept> specialCourtesy;
 
         /**
          * Wheelchair, translator, stretcher, etc.
          */
-        protected List<CodeableConcept> specialArrangement = new ArrayList<CodeableConcept>();
+        @Child(name="specialArrangement", type={CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Wheelchair, translator, stretcher, etc", formalDefinition="Wheelchair, translator, stretcher, etc." )
+        protected List<CodeableConcept> specialArrangement;
 
         /**
          * Location to which the patient is discharged.
          */
+        @Child(name="destination", type={Location.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="Location to which the patient is discharged", formalDefinition="Location to which the patient is discharged." )
         protected Reference destination;
 
         /**
@@ -387,11 +514,15 @@ public class Encounter extends DomainResource {
         /**
          * Category or kind of location after discharge.
          */
+        @Child(name="dischargeDisposition", type={CodeableConcept.class}, order=10, min=0, max=1)
+        @Description(shortDefinition="Category or kind of location after discharge", formalDefinition="Category or kind of location after discharge." )
         protected CodeableConcept dischargeDisposition;
 
         /**
          * The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.
          */
+        @Child(name="dischargeDiagnosis", type={}, order=11, min=0, max=1)
+        @Description(shortDefinition="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete", formalDefinition="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete." )
         protected Reference dischargeDiagnosis;
 
         /**
@@ -402,9 +533,11 @@ public class Encounter extends DomainResource {
         /**
          * Whether this hospitalization is a readmission.
          */
+        @Child(name="reAdmission", type={BooleanType.class}, order=12, min=0, max=1)
+        @Description(shortDefinition="Is this hospitalization a readmission?", formalDefinition="Whether this hospitalization is a readmission." )
         protected BooleanType reAdmission;
 
-        private static final long serialVersionUID = -809806884L;
+        private static final long serialVersionUID = 221977130L;
 
       public EncounterHospitalizationComponent() {
         super();
@@ -414,7 +547,16 @@ public class Encounter extends DomainResource {
          * @return {@link #preAdmissionIdentifier} (Pre-admission identifier.)
          */
         public Identifier getPreAdmissionIdentifier() { 
+          if (this.preAdmissionIdentifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.preAdmissionIdentifier");
+            else if (Configuration.doAutoCreate())
+              this.preAdmissionIdentifier = new Identifier();
           return this.preAdmissionIdentifier;
+        }
+
+        public boolean hasPreAdmissionIdentifier() { 
+          return this.preAdmissionIdentifier != null && !this.preAdmissionIdentifier.isEmpty();
         }
 
         /**
@@ -429,7 +571,16 @@ public class Encounter extends DomainResource {
          * @return {@link #origin} (The location from which the patient came before admission.)
          */
         public Reference getOrigin() { 
+          if (this.origin == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
+            else if (Configuration.doAutoCreate())
+              this.origin = new Reference();
           return this.origin;
+        }
+
+        public boolean hasOrigin() { 
+          return this.origin != null && !this.origin.isEmpty();
         }
 
         /**
@@ -444,6 +595,11 @@ public class Encounter extends DomainResource {
          * @return {@link #origin} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location from which the patient came before admission.)
          */
         public Location getOriginTarget() { 
+          if (this.originTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
+            else if (Configuration.doAutoCreate())
+              this.originTarget = new Location();
           return this.originTarget;
         }
 
@@ -459,7 +615,16 @@ public class Encounter extends DomainResource {
          * @return {@link #admitSource} (From where patient was admitted (physician referral, transfer).)
          */
         public CodeableConcept getAdmitSource() { 
+          if (this.admitSource == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.admitSource");
+            else if (Configuration.doAutoCreate())
+              this.admitSource = new CodeableConcept();
           return this.admitSource;
+        }
+
+        public boolean hasAdmitSource() { 
+          return this.admitSource != null && !this.admitSource.isEmpty();
         }
 
         /**
@@ -474,7 +639,16 @@ public class Encounter extends DomainResource {
          * @return {@link #period} (Period during which the patient was admitted.)
          */
         public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period();
           return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
         }
 
         /**
@@ -489,7 +663,18 @@ public class Encounter extends DomainResource {
          * @return {@link #accomodation} (Where the patient stays during this encounter.)
          */
         public List<EncounterHospitalizationAccomodationComponent> getAccomodation() { 
+          if (this.accomodation == null)
+            this.accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
           return this.accomodation;
+        }
+
+        public boolean hasAccomodation() { 
+          if (this.accomodation == null)
+            return false;
+          for (EncounterHospitalizationAccomodationComponent item : this.accomodation)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -498,6 +683,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
         public EncounterHospitalizationAccomodationComponent addAccomodation() { //3
           EncounterHospitalizationAccomodationComponent t = new EncounterHospitalizationAccomodationComponent();
+          if (this.accomodation == null)
+            this.accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
           this.accomodation.add(t);
           return t;
         }
@@ -506,7 +693,16 @@ public class Encounter extends DomainResource {
          * @return {@link #diet} (Dietary restrictions for the patient.)
          */
         public CodeableConcept getDiet() { 
+          if (this.diet == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.diet");
+            else if (Configuration.doAutoCreate())
+              this.diet = new CodeableConcept();
           return this.diet;
+        }
+
+        public boolean hasDiet() { 
+          return this.diet != null && !this.diet.isEmpty();
         }
 
         /**
@@ -521,7 +717,18 @@ public class Encounter extends DomainResource {
          * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
          */
         public List<CodeableConcept> getSpecialCourtesy() { 
+          if (this.specialCourtesy == null)
+            this.specialCourtesy = new ArrayList<CodeableConcept>();
           return this.specialCourtesy;
+        }
+
+        public boolean hasSpecialCourtesy() { 
+          if (this.specialCourtesy == null)
+            return false;
+          for (CodeableConcept item : this.specialCourtesy)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -530,6 +737,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
         public CodeableConcept addSpecialCourtesy() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.specialCourtesy == null)
+            this.specialCourtesy = new ArrayList<CodeableConcept>();
           this.specialCourtesy.add(t);
           return t;
         }
@@ -538,7 +747,18 @@ public class Encounter extends DomainResource {
          * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
          */
         public List<CodeableConcept> getSpecialArrangement() { 
+          if (this.specialArrangement == null)
+            this.specialArrangement = new ArrayList<CodeableConcept>();
           return this.specialArrangement;
+        }
+
+        public boolean hasSpecialArrangement() { 
+          if (this.specialArrangement == null)
+            return false;
+          for (CodeableConcept item : this.specialArrangement)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -547,6 +767,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
         public CodeableConcept addSpecialArrangement() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.specialArrangement == null)
+            this.specialArrangement = new ArrayList<CodeableConcept>();
           this.specialArrangement.add(t);
           return t;
         }
@@ -555,7 +777,16 @@ public class Encounter extends DomainResource {
          * @return {@link #destination} (Location to which the patient is discharged.)
          */
         public Reference getDestination() { 
+          if (this.destination == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
+            else if (Configuration.doAutoCreate())
+              this.destination = new Reference();
           return this.destination;
+        }
+
+        public boolean hasDestination() { 
+          return this.destination != null && !this.destination.isEmpty();
         }
 
         /**
@@ -570,6 +801,11 @@ public class Encounter extends DomainResource {
          * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Location to which the patient is discharged.)
          */
         public Location getDestinationTarget() { 
+          if (this.destinationTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
+            else if (Configuration.doAutoCreate())
+              this.destinationTarget = new Location();
           return this.destinationTarget;
         }
 
@@ -585,7 +821,16 @@ public class Encounter extends DomainResource {
          * @return {@link #dischargeDisposition} (Category or kind of location after discharge.)
          */
         public CodeableConcept getDischargeDisposition() { 
+          if (this.dischargeDisposition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dischargeDisposition");
+            else if (Configuration.doAutoCreate())
+              this.dischargeDisposition = new CodeableConcept();
           return this.dischargeDisposition;
+        }
+
+        public boolean hasDischargeDisposition() { 
+          return this.dischargeDisposition != null && !this.dischargeDisposition.isEmpty();
         }
 
         /**
@@ -600,7 +845,16 @@ public class Encounter extends DomainResource {
          * @return {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
         public Reference getDischargeDiagnosis() { 
+          if (this.dischargeDiagnosis == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dischargeDiagnosis");
+            else if (Configuration.doAutoCreate())
+              this.dischargeDiagnosis = new Reference();
           return this.dischargeDiagnosis;
+        }
+
+        public boolean hasDischargeDiagnosis() { 
+          return this.dischargeDiagnosis != null && !this.dischargeDiagnosis.isEmpty();
         }
 
         /**
@@ -630,7 +884,20 @@ public class Encounter extends DomainResource {
          * @return {@link #reAdmission} (Whether this hospitalization is a readmission.). This is the underlying object with id, value and extensions. The accessor "getReAdmission" gives direct access to the value
          */
         public BooleanType getReAdmissionElement() { 
+          if (this.reAdmission == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.reAdmission");
+            else if (Configuration.doAutoCreate())
+              this.reAdmission = new BooleanType();
           return this.reAdmission;
+        }
+
+        public boolean hasReAdmissionElement() { 
+          return this.reAdmission != null && !this.reAdmission.isEmpty();
+        }
+
+        public boolean hasReAdmission() { 
+          return this.reAdmission != null && !this.reAdmission.isEmpty();
         }
 
         /**
@@ -685,16 +952,22 @@ public class Encounter extends DomainResource {
         dst.origin = origin == null ? null : origin.copy();
         dst.admitSource = admitSource == null ? null : admitSource.copy();
         dst.period = period == null ? null : period.copy();
-        dst.accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
-        for (EncounterHospitalizationAccomodationComponent i : accomodation)
-          dst.accomodation.add(i.copy());
+        if (accomodation != null) {
+          dst.accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
+          for (EncounterHospitalizationAccomodationComponent i : accomodation)
+            dst.accomodation.add(i.copy());
+        };
         dst.diet = diet == null ? null : diet.copy();
-        dst.specialCourtesy = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : specialCourtesy)
-          dst.specialCourtesy.add(i.copy());
-        dst.specialArrangement = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : specialArrangement)
-          dst.specialArrangement.add(i.copy());
+        if (specialCourtesy != null) {
+          dst.specialCourtesy = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : specialCourtesy)
+            dst.specialCourtesy.add(i.copy());
+        };
+        if (specialArrangement != null) {
+          dst.specialArrangement = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : specialArrangement)
+            dst.specialArrangement.add(i.copy());
+        };
         dst.destination = destination == null ? null : destination.copy();
         dst.dischargeDisposition = dischargeDisposition == null ? null : dischargeDisposition.copy();
         dst.dischargeDiagnosis = dischargeDiagnosis == null ? null : dischargeDiagnosis.copy();
@@ -702,12 +975,25 @@ public class Encounter extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (preAdmissionIdentifier == null || preAdmissionIdentifier.isEmpty())
+           && (origin == null || origin.isEmpty()) && (admitSource == null || admitSource.isEmpty())
+           && (period == null || period.isEmpty()) && (accomodation == null || accomodation.isEmpty())
+           && (diet == null || diet.isEmpty()) && (specialCourtesy == null || specialCourtesy.isEmpty())
+           && (specialArrangement == null || specialArrangement.isEmpty()) && (destination == null || destination.isEmpty())
+           && (dischargeDisposition == null || dischargeDisposition.isEmpty()) && (dischargeDiagnosis == null || dischargeDiagnosis.isEmpty())
+           && (reAdmission == null || reAdmission.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class EncounterHospitalizationAccomodationComponent extends BackboneElement {
         /**
          * The bed that is assigned to the patient.
          */
+        @Child(name="bed", type={Location.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="The bed that is assigned to the patient", formalDefinition="The bed that is assigned to the patient." )
         protected Reference bed;
 
         /**
@@ -718,6 +1004,8 @@ public class Encounter extends DomainResource {
         /**
          * Period during which the patient was assigned the bed.
          */
+        @Child(name="period", type={Period.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Period during which the patient was assigned the bed", formalDefinition="Period during which the patient was assigned the bed." )
         protected Period period;
 
         private static final long serialVersionUID = 1058938507L;
@@ -730,7 +1018,16 @@ public class Encounter extends DomainResource {
          * @return {@link #bed} (The bed that is assigned to the patient.)
          */
         public Reference getBed() { 
+          if (this.bed == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationAccomodationComponent.bed");
+            else if (Configuration.doAutoCreate())
+              this.bed = new Reference();
           return this.bed;
+        }
+
+        public boolean hasBed() { 
+          return this.bed != null && !this.bed.isEmpty();
         }
 
         /**
@@ -745,6 +1042,11 @@ public class Encounter extends DomainResource {
          * @return {@link #bed} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The bed that is assigned to the patient.)
          */
         public Location getBedTarget() { 
+          if (this.bedTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationAccomodationComponent.bed");
+            else if (Configuration.doAutoCreate())
+              this.bedTarget = new Location();
           return this.bedTarget;
         }
 
@@ -760,7 +1062,16 @@ public class Encounter extends DomainResource {
          * @return {@link #period} (Period during which the patient was assigned the bed.)
          */
         public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterHospitalizationAccomodationComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period();
           return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
         }
 
         /**
@@ -785,12 +1096,20 @@ public class Encounter extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (bed == null || bed.isEmpty()) && (period == null || period.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class EncounterLocationComponent extends BackboneElement {
         /**
          * The location where the encounter takes place.
          */
+        @Child(name="location", type={Location.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Location the encounter takes place", formalDefinition="The location where the encounter takes place." )
         protected Reference location;
 
         /**
@@ -801,6 +1120,8 @@ public class Encounter extends DomainResource {
         /**
          * Time period during which the patient was present at the location.
          */
+        @Child(name="period", type={Period.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Time period during which the patient was present at the location", formalDefinition="Time period during which the patient was present at the location." )
         protected Period period;
 
         private static final long serialVersionUID = 1137166303L;
@@ -818,7 +1139,16 @@ public class Encounter extends DomainResource {
          * @return {@link #location} (The location where the encounter takes place.)
          */
         public Reference getLocation() { 
+          if (this.location == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterLocationComponent.location");
+            else if (Configuration.doAutoCreate())
+              this.location = new Reference();
           return this.location;
+        }
+
+        public boolean hasLocation() { 
+          return this.location != null && !this.location.isEmpty();
         }
 
         /**
@@ -833,6 +1163,11 @@ public class Encounter extends DomainResource {
          * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where the encounter takes place.)
          */
         public Location getLocationTarget() { 
+          if (this.locationTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterLocationComponent.location");
+            else if (Configuration.doAutoCreate())
+              this.locationTarget = new Location();
           return this.locationTarget;
         }
 
@@ -848,7 +1183,16 @@ public class Encounter extends DomainResource {
          * @return {@link #period} (Time period during which the patient was present at the location.)
          */
         public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EncounterLocationComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period();
           return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
         }
 
         /**
@@ -873,31 +1217,46 @@ public class Encounter extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (location == null || location.isEmpty()) && (period == null || period.isEmpty())
+          ;
+      }
+
   }
 
     /**
      * Identifier(s) by which this encounter is known.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Identifier(s) by which this encounter is known", formalDefinition="Identifier(s) by which this encounter is known." )
+    protected List<Identifier> identifier;
 
     /**
      * planned | in progress | onleave | finished | cancelled.
      */
+    @Child(name="status", type={CodeType.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="planned | in progress | onleave | finished | cancelled", formalDefinition="planned | in progress | onleave | finished | cancelled." )
     protected Enumeration<EncounterState> status;
 
     /**
      * inpatient | outpatient | ambulatory | emergency +.
      */
+    @Child(name="class_", type={CodeType.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
     protected Enumeration<EncounterClass> class_;
 
     /**
      * Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).
      */
-    protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+    @Child(name="type", type={CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Specific type of encounter", formalDefinition="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)." )
+    protected List<CodeableConcept> type;
 
     /**
      * The patient present at the encounter.
      */
+    @Child(name="subject", type={Patient.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="The patient present at the encounter", formalDefinition="The patient present at the encounter." )
     protected Reference subject;
 
     /**
@@ -908,11 +1267,15 @@ public class Encounter extends DomainResource {
     /**
      * The main practitioner responsible for providing the service.
      */
-    protected List<EncounterParticipantComponent> participant = new ArrayList<EncounterParticipantComponent>();
+    @Child(name="participant", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="List of participants involved in the encounter", formalDefinition="The main practitioner responsible for providing the service." )
+    protected List<EncounterParticipantComponent> participant;
 
     /**
      * The appointment that scheduled this encounter.
      */
+    @Child(name="fulfills", type={Appointment.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="The appointment that scheduled this encounter", formalDefinition="The appointment that scheduled this encounter." )
     protected Reference fulfills;
 
     /**
@@ -923,21 +1286,29 @@ public class Encounter extends DomainResource {
     /**
      * The start and end time of the encounter.
      */
+    @Child(name="period", type={Period.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="The start and end time of the encounter", formalDefinition="The start and end time of the encounter." )
     protected Period period;
 
     /**
      * Quantity of time the encounter lasted. This excludes the time during leaves of absence.
      */
+    @Child(name="length", type={Duration.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Quantity of time the encounter lasted", formalDefinition="Quantity of time the encounter lasted. This excludes the time during leaves of absence." )
     protected Duration length;
 
     /**
      * Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
      */
+    @Child(name="reason", type={CodeableConcept.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Reason the encounter takes place (code)", formalDefinition="Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis." )
     protected CodeableConcept reason;
 
     /**
      * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.
      */
+    @Child(name="indication", type={}, order=9, min=0, max=1)
+    @Description(shortDefinition="Reason the encounter takes place (resource)", formalDefinition="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis." )
     protected Reference indication;
 
     /**
@@ -948,21 +1319,29 @@ public class Encounter extends DomainResource {
     /**
      * Indicates the urgency of the encounter.
      */
+    @Child(name="priority", type={CodeableConcept.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Indicates the urgency of the encounter", formalDefinition="Indicates the urgency of the encounter." )
     protected CodeableConcept priority;
 
     /**
      * Details about an admission to a clinic.
      */
+    @Child(name="hospitalization", type={}, order=11, min=0, max=1)
+    @Description(shortDefinition="Details about an admission to a clinic", formalDefinition="Details about an admission to a clinic." )
     protected EncounterHospitalizationComponent hospitalization;
 
     /**
      * List of locations at which the patient has been.
      */
-    protected List<EncounterLocationComponent> location = new ArrayList<EncounterLocationComponent>();
+    @Child(name="location", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="List of locations the patient has been at", formalDefinition="List of locations at which the patient has been." )
+    protected List<EncounterLocationComponent> location;
 
     /**
      * Department or team providing care.
      */
+    @Child(name="serviceProvider", type={Organization.class}, order=13, min=0, max=1)
+    @Description(shortDefinition="Department or team providing care", formalDefinition="Department or team providing care." )
     protected Reference serviceProvider;
 
     /**
@@ -973,6 +1352,8 @@ public class Encounter extends DomainResource {
     /**
      * Another Encounter of which this encounter is a part of (administratively or in time).
      */
+    @Child(name="partOf", type={Encounter.class}, order=14, min=0, max=1)
+    @Description(shortDefinition="Another Encounter this encounter is part of", formalDefinition="Another Encounter of which this encounter is a part of (administratively or in time)." )
     protected Reference partOf;
 
     /**
@@ -980,7 +1361,7 @@ public class Encounter extends DomainResource {
      */
     protected Encounter partOfTarget;
 
-    private static final long serialVersionUID = 1326272483L;
+    private static final long serialVersionUID = 1294341693L;
 
     public Encounter() {
       super();
@@ -996,7 +1377,18 @@ public class Encounter extends DomainResource {
      * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1005,6 +1397,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -1013,7 +1407,20 @@ public class Encounter extends DomainResource {
      * @return {@link #status} (planned | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<EncounterState> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<EncounterState>();
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
@@ -1045,7 +1452,20 @@ public class Encounter extends DomainResource {
      * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
     public Enumeration<EncounterClass> getClass_Element() { 
+      if (this.class_ == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.class_");
+        else if (Configuration.doAutoCreate())
+          this.class_ = new Enumeration<EncounterClass>();
       return this.class_;
+    }
+
+    public boolean hasClass_Element() { 
+      return this.class_ != null && !this.class_.isEmpty();
+    }
+
+    public boolean hasClass_() { 
+      return this.class_ != null && !this.class_.isEmpty();
     }
 
     /**
@@ -1077,7 +1497,18 @@ public class Encounter extends DomainResource {
      * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
      */
     public List<CodeableConcept> getType() { 
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      if (this.type == null)
+        return false;
+      for (CodeableConcept item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1086,6 +1517,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
     public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return t;
     }
@@ -1094,7 +1527,16 @@ public class Encounter extends DomainResource {
      * @return {@link #subject} (The patient present at the encounter.)
      */
     public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference();
       return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
@@ -1109,6 +1551,11 @@ public class Encounter extends DomainResource {
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient present at the encounter.)
      */
     public Patient getSubjectTarget() { 
+      if (this.subjectTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.subject");
+        else if (Configuration.doAutoCreate())
+          this.subjectTarget = new Patient();
       return this.subjectTarget;
     }
 
@@ -1124,7 +1571,18 @@ public class Encounter extends DomainResource {
      * @return {@link #participant} (The main practitioner responsible for providing the service.)
      */
     public List<EncounterParticipantComponent> getParticipant() { 
+      if (this.participant == null)
+        this.participant = new ArrayList<EncounterParticipantComponent>();
       return this.participant;
+    }
+
+    public boolean hasParticipant() { 
+      if (this.participant == null)
+        return false;
+      for (EncounterParticipantComponent item : this.participant)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1133,6 +1591,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
     public EncounterParticipantComponent addParticipant() { //3
       EncounterParticipantComponent t = new EncounterParticipantComponent();
+      if (this.participant == null)
+        this.participant = new ArrayList<EncounterParticipantComponent>();
       this.participant.add(t);
       return t;
     }
@@ -1141,7 +1601,16 @@ public class Encounter extends DomainResource {
      * @return {@link #fulfills} (The appointment that scheduled this encounter.)
      */
     public Reference getFulfills() { 
+      if (this.fulfills == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.fulfills");
+        else if (Configuration.doAutoCreate())
+          this.fulfills = new Reference();
       return this.fulfills;
+    }
+
+    public boolean hasFulfills() { 
+      return this.fulfills != null && !this.fulfills.isEmpty();
     }
 
     /**
@@ -1156,6 +1625,11 @@ public class Encounter extends DomainResource {
      * @return {@link #fulfills} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The appointment that scheduled this encounter.)
      */
     public Appointment getFulfillsTarget() { 
+      if (this.fulfillsTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.fulfills");
+        else if (Configuration.doAutoCreate())
+          this.fulfillsTarget = new Appointment();
       return this.fulfillsTarget;
     }
 
@@ -1171,7 +1645,16 @@ public class Encounter extends DomainResource {
      * @return {@link #period} (The start and end time of the encounter.)
      */
     public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period();
       return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
     }
 
     /**
@@ -1186,7 +1669,16 @@ public class Encounter extends DomainResource {
      * @return {@link #length} (Quantity of time the encounter lasted. This excludes the time during leaves of absence.)
      */
     public Duration getLength() { 
+      if (this.length == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.length");
+        else if (Configuration.doAutoCreate())
+          this.length = new Duration();
       return this.length;
+    }
+
+    public boolean hasLength() { 
+      return this.length != null && !this.length.isEmpty();
     }
 
     /**
@@ -1201,7 +1693,16 @@ public class Encounter extends DomainResource {
      * @return {@link #reason} (Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.)
      */
     public CodeableConcept getReason() { 
+      if (this.reason == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.reason");
+        else if (Configuration.doAutoCreate())
+          this.reason = new CodeableConcept();
       return this.reason;
+    }
+
+    public boolean hasReason() { 
+      return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
@@ -1216,7 +1717,16 @@ public class Encounter extends DomainResource {
      * @return {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
     public Reference getIndication() { 
+      if (this.indication == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.indication");
+        else if (Configuration.doAutoCreate())
+          this.indication = new Reference();
       return this.indication;
+    }
+
+    public boolean hasIndication() { 
+      return this.indication != null && !this.indication.isEmpty();
     }
 
     /**
@@ -1246,7 +1756,16 @@ public class Encounter extends DomainResource {
      * @return {@link #priority} (Indicates the urgency of the encounter.)
      */
     public CodeableConcept getPriority() { 
+      if (this.priority == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.priority");
+        else if (Configuration.doAutoCreate())
+          this.priority = new CodeableConcept();
       return this.priority;
+    }
+
+    public boolean hasPriority() { 
+      return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
@@ -1261,7 +1780,16 @@ public class Encounter extends DomainResource {
      * @return {@link #hospitalization} (Details about an admission to a clinic.)
      */
     public EncounterHospitalizationComponent getHospitalization() { 
+      if (this.hospitalization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.hospitalization");
+        else if (Configuration.doAutoCreate())
+          this.hospitalization = new EncounterHospitalizationComponent();
       return this.hospitalization;
+    }
+
+    public boolean hasHospitalization() { 
+      return this.hospitalization != null && !this.hospitalization.isEmpty();
     }
 
     /**
@@ -1276,7 +1804,18 @@ public class Encounter extends DomainResource {
      * @return {@link #location} (List of locations at which the patient has been.)
      */
     public List<EncounterLocationComponent> getLocation() { 
+      if (this.location == null)
+        this.location = new ArrayList<EncounterLocationComponent>();
       return this.location;
+    }
+
+    public boolean hasLocation() { 
+      if (this.location == null)
+        return false;
+      for (EncounterLocationComponent item : this.location)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1285,6 +1824,8 @@ public class Encounter extends DomainResource {
     // syntactic sugar
     public EncounterLocationComponent addLocation() { //3
       EncounterLocationComponent t = new EncounterLocationComponent();
+      if (this.location == null)
+        this.location = new ArrayList<EncounterLocationComponent>();
       this.location.add(t);
       return t;
     }
@@ -1293,7 +1834,16 @@ public class Encounter extends DomainResource {
      * @return {@link #serviceProvider} (Department or team providing care.)
      */
     public Reference getServiceProvider() { 
+      if (this.serviceProvider == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.serviceProvider");
+        else if (Configuration.doAutoCreate())
+          this.serviceProvider = new Reference();
       return this.serviceProvider;
+    }
+
+    public boolean hasServiceProvider() { 
+      return this.serviceProvider != null && !this.serviceProvider.isEmpty();
     }
 
     /**
@@ -1308,6 +1858,11 @@ public class Encounter extends DomainResource {
      * @return {@link #serviceProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Department or team providing care.)
      */
     public Organization getServiceProviderTarget() { 
+      if (this.serviceProviderTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.serviceProvider");
+        else if (Configuration.doAutoCreate())
+          this.serviceProviderTarget = new Organization();
       return this.serviceProviderTarget;
     }
 
@@ -1323,7 +1878,16 @@ public class Encounter extends DomainResource {
      * @return {@link #partOf} (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
     public Reference getPartOf() { 
+      if (this.partOf == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOf = new Reference();
       return this.partOf;
+    }
+
+    public boolean hasPartOf() { 
+      return this.partOf != null && !this.partOf.isEmpty();
     }
 
     /**
@@ -1338,6 +1902,11 @@ public class Encounter extends DomainResource {
      * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
     public Encounter getPartOfTarget() { 
+      if (this.partOfTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Encounter.partOf");
+        else if (Configuration.doAutoCreate())
+          this.partOfTarget = new Encounter();
       return this.partOfTarget;
     }
 
@@ -1372,18 +1941,24 @@ public class Encounter extends DomainResource {
       public Encounter copy() {
         Encounter dst = new Encounter();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.class_ = class_ == null ? null : class_.copy();
-        dst.type = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : type)
-          dst.type.add(i.copy());
+        if (type != null) {
+          dst.type = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : type)
+            dst.type.add(i.copy());
+        };
         dst.subject = subject == null ? null : subject.copy();
-        dst.participant = new ArrayList<EncounterParticipantComponent>();
-        for (EncounterParticipantComponent i : participant)
-          dst.participant.add(i.copy());
+        if (participant != null) {
+          dst.participant = new ArrayList<EncounterParticipantComponent>();
+          for (EncounterParticipantComponent i : participant)
+            dst.participant.add(i.copy());
+        };
         dst.fulfills = fulfills == null ? null : fulfills.copy();
         dst.period = period == null ? null : period.copy();
         dst.length = length == null ? null : length.copy();
@@ -1391,9 +1966,11 @@ public class Encounter extends DomainResource {
         dst.indication = indication == null ? null : indication.copy();
         dst.priority = priority == null ? null : priority.copy();
         dst.hospitalization = hospitalization == null ? null : hospitalization.copy();
-        dst.location = new ArrayList<EncounterLocationComponent>();
-        for (EncounterLocationComponent i : location)
-          dst.location.add(i.copy());
+        if (location != null) {
+          dst.location = new ArrayList<EncounterLocationComponent>();
+          for (EncounterLocationComponent i : location)
+            dst.location.add(i.copy());
+        };
         dst.serviceProvider = serviceProvider == null ? null : serviceProvider.copy();
         dst.partOf = partOf == null ? null : partOf.copy();
         return dst;
@@ -1403,11 +1980,40 @@ public class Encounter extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (class_ == null || class_.isEmpty()) && (type == null || type.isEmpty()) && (subject == null || subject.isEmpty())
+           && (participant == null || participant.isEmpty()) && (fulfills == null || fulfills.isEmpty())
+           && (period == null || period.isEmpty()) && (length == null || length.isEmpty()) && (reason == null || reason.isEmpty())
+           && (indication == null || indication.isEmpty()) && (priority == null || priority.isEmpty())
+           && (hospitalization == null || hospitalization.isEmpty()) && (location == null || location.isEmpty())
+           && (serviceProvider == null || serviceProvider.isEmpty()) && (partOf == null || partOf.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Encounter;
    }
 
+  @SearchParamDefinition(name="patient", path="Encounter.subject", description="The patient present at the encounter", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="location", path="Encounter.location.location", description="Location the encounter takes place", type="reference" )
+  public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | in progress | onleave | finished | cancelled", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="Encounter.subject", description="The patient present at the encounter", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="indication", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
+  public static final String SP_INDICATION = "indication";
+  @SearchParamDefinition(name="length", path="Encounter.length", description="Length of encounter in days", type="number" )
+  public static final String SP_LENGTH = "length";
+  @SearchParamDefinition(name="date", path="Encounter.period", description="A date within the period the Encounter lasted", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="identifier", path="Encounter.identifier", description="Identifier(s) by which this encounter is known", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="location-period", path="Encounter.location.period", description="Time period during which the patient was present at the location", type="date" )
+  public static final String SP_LOCATIONPERIOD = "location-period";
 
 }
 

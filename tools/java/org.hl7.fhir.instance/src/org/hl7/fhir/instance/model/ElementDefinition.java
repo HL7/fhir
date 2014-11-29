@@ -29,19 +29,29 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Captures constraints on each element within the resource, profile, or extension.
  */
+@DatatypeDef(name="ElementDefinition")
 public class ElementDefinition extends Type {
 
     public enum PropertyRepresentation {
-        XMLATTR, // In XML, this property is represented as an attribute not an element.
-        NULL; // added to help the parsers
+        /**
+         * In XML, this property is represented as an attribute not an element.
+         */
+        XMLATTR, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static PropertyRepresentation fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -52,6 +62,12 @@ public class ElementDefinition extends Type {
         public String toCode() {
           switch (this) {
             case XMLATTR: return "xmlAttr";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case XMLATTR: return "";
             default: return "?";
           }
         }
@@ -86,10 +102,22 @@ public class ElementDefinition extends Type {
     }
 
     public enum ResourceSlicingRules {
-        CLOSED, // No additional content is allowed other than that described by the slices in this profile.
-        OPEN, // Additional content is allowed anywhere in the list.
-        OPENATEND, // Additional content is allowed, but only at the end of the list.
-        NULL; // added to help the parsers
+        /**
+         * No additional content is allowed other than that described by the slices in this profile.
+         */
+        CLOSED, 
+        /**
+         * Additional content is allowed anywhere in the list.
+         */
+        OPEN, 
+        /**
+         * Additional content is allowed, but only at the end of the list.
+         */
+        OPENATEND, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ResourceSlicingRules fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -106,6 +134,14 @@ public class ElementDefinition extends Type {
             case CLOSED: return "closed";
             case OPEN: return "open";
             case OPENATEND: return "openAtEnd";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CLOSED: return "";
+            case OPEN: return "";
+            case OPENATEND: return "";
             default: return "?";
           }
         }
@@ -152,10 +188,22 @@ public class ElementDefinition extends Type {
     }
 
     public enum ResourceAggregationMode {
-        CONTAINED, // The reference is a local reference to a contained resource.
-        REFERENCED, // The reference to a resource that has to be resolved externally to the resource that includes the reference.
-        BUNDLED, // The resource the reference points to will be found in the same bundle as the resource that includes the reference.
-        NULL; // added to help the parsers
+        /**
+         * The reference is a local reference to a contained resource.
+         */
+        CONTAINED, 
+        /**
+         * The reference to a resource that has to be resolved externally to the resource that includes the reference.
+         */
+        REFERENCED, 
+        /**
+         * The resource the reference points to will be found in the same bundle as the resource that includes the reference.
+         */
+        BUNDLED, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ResourceAggregationMode fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -172,6 +220,14 @@ public class ElementDefinition extends Type {
             case CONTAINED: return "contained";
             case REFERENCED: return "referenced";
             case BUNDLED: return "bundled";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case CONTAINED: return "";
+            case REFERENCED: return "";
+            case BUNDLED: return "";
             default: return "?";
           }
         }
@@ -218,9 +274,18 @@ public class ElementDefinition extends Type {
     }
 
     public enum ConstraintSeverity {
-        ERROR, // If the constraint is violated, the resource is not conformant.
-        WARNING, // If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
-        NULL; // added to help the parsers
+        /**
+         * If the constraint is violated, the resource is not conformant.
+         */
+        ERROR, 
+        /**
+         * If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
+         */
+        WARNING, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static ConstraintSeverity fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -234,6 +299,13 @@ public class ElementDefinition extends Type {
           switch (this) {
             case ERROR: return "error";
             case WARNING: return "warning";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ERROR: return "";
+            case WARNING: return "";
             default: return "?";
           }
         }
@@ -274,10 +346,22 @@ public class ElementDefinition extends Type {
     }
 
     public enum BindingConformance {
-        REQUIRED, // Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
-        PREFERRED, // For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
-        EXAMPLE, // The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
-        NULL; // added to help the parsers
+        /**
+         * Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.
+         */
+        REQUIRED, 
+        /**
+         * For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.
+         */
+        PREFERRED, 
+        /**
+         * The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.
+         */
+        EXAMPLE, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static BindingConformance fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -294,6 +378,14 @@ public class ElementDefinition extends Type {
             case REQUIRED: return "required";
             case PREFERRED: return "preferred";
             case EXAMPLE: return "example";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case REQUIRED: return "";
+            case PREFERRED: return "";
+            case EXAMPLE: return "";
             default: return "?";
           }
         }
@@ -343,24 +435,32 @@ public class ElementDefinition extends Type {
         /**
          * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
          */
-        protected List<IdType> discriminator = new ArrayList<IdType>();
+        @Child(name="discriminator", type={IdType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Element values that used to distinguish the slices", formalDefinition="Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices." )
+        protected List<IdType> discriminator;
 
         /**
          * A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
          */
+        @Child(name="description", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Text description of how slicing works (or not)", formalDefinition="A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated." )
         protected StringType description;
 
         /**
          * If the matching elements have to occur in the same order as defined in the profile.
          */
+        @Child(name="ordered", type={BooleanType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="If elements must be in same order as slices", formalDefinition="If the matching elements have to occur in the same order as defined in the profile." )
         protected BooleanType ordered;
 
         /**
          * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
          */
+        @Child(name="rules", type={CodeType.class}, order=4, min=1, max=1)
+        @Description(shortDefinition="closed | open | openAtEnd", formalDefinition="Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end." )
         protected Enumeration<ResourceSlicingRules> rules;
 
-        private static final long serialVersionUID = 1272162109L;
+        private static final long serialVersionUID = 598129403L;
 
       public ElementDefinitionSlicingComponent() {
         super();
@@ -375,7 +475,18 @@ public class ElementDefinition extends Type {
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
         public List<IdType> getDiscriminator() { 
+          if (this.discriminator == null)
+            this.discriminator = new ArrayList<IdType>();
           return this.discriminator;
+        }
+
+        public boolean hasDiscriminator() { 
+          if (this.discriminator == null)
+            return false;
+          for (IdType item : this.discriminator)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -384,6 +495,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
         public IdType addDiscriminatorElement() {//2 
           IdType t = new IdType();
+          if (this.discriminator == null)
+            this.discriminator = new ArrayList<IdType>();
           this.discriminator.add(t);
           return t;
         }
@@ -394,6 +507,8 @@ public class ElementDefinition extends Type {
         public ElementDefinitionSlicingComponent addDiscriminator(String value) { //1
           IdType t = new IdType();
           t.setValue(value);
+          if (this.discriminator == null)
+            this.discriminator = new ArrayList<IdType>();
           this.discriminator.add(t);
           return this;
         }
@@ -402,6 +517,8 @@ public class ElementDefinition extends Type {
          * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
         public boolean hasDiscriminator(String value) { 
+          if (this.discriminator == null)
+            return false;
           for (IdType v : this.discriminator)
             if (v.equals(value)) // id
               return true;
@@ -412,7 +529,20 @@ public class ElementDefinition extends Type {
          * @return {@link #description} (A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionSlicingComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -448,7 +578,20 @@ public class ElementDefinition extends Type {
          * @return {@link #ordered} (If the matching elements have to occur in the same order as defined in the profile.). This is the underlying object with id, value and extensions. The accessor "getOrdered" gives direct access to the value
          */
         public BooleanType getOrderedElement() { 
+          if (this.ordered == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionSlicingComponent.ordered");
+            else if (Configuration.doAutoCreate())
+              this.ordered = new BooleanType();
           return this.ordered;
+        }
+
+        public boolean hasOrderedElement() { 
+          return this.ordered != null && !this.ordered.isEmpty();
+        }
+
+        public boolean hasOrdered() { 
+          return this.ordered != null && !this.ordered.isEmpty();
         }
 
         /**
@@ -484,7 +627,20 @@ public class ElementDefinition extends Type {
          * @return {@link #rules} (Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.). This is the underlying object with id, value and extensions. The accessor "getRules" gives direct access to the value
          */
         public Enumeration<ResourceSlicingRules> getRulesElement() { 
+          if (this.rules == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionSlicingComponent.rules");
+            else if (Configuration.doAutoCreate())
+              this.rules = new Enumeration<ResourceSlicingRules>();
           return this.rules;
+        }
+
+        public boolean hasRulesElement() { 
+          return this.rules != null && !this.rules.isEmpty();
+        }
+
+        public boolean hasRules() { 
+          return this.rules != null && !this.rules.isEmpty();
         }
 
         /**
@@ -523,13 +679,20 @@ public class ElementDefinition extends Type {
       public ElementDefinitionSlicingComponent copy() {
         ElementDefinitionSlicingComponent dst = new ElementDefinitionSlicingComponent();
         copyValues(dst);
-        dst.discriminator = new ArrayList<IdType>();
-        for (IdType i : discriminator)
-          dst.discriminator.add(i.copy());
+        if (discriminator != null) {
+          dst.discriminator = new ArrayList<IdType>();
+          for (IdType i : discriminator)
+            dst.discriminator.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
         dst.ordered = ordered == null ? null : ordered.copy();
         dst.rules = rules == null ? null : rules.copy();
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (discriminator == null || discriminator.isEmpty()) && (description == null || description.isEmpty())
+           && (ordered == null || ordered.isEmpty()) && (rules == null || rules.isEmpty());
       }
 
   }
@@ -538,19 +701,25 @@ public class ElementDefinition extends Type {
         /**
          * Name of Data type or Resource that is a(or the) type used for this element.
          */
+        @Child(name="code", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name of Data type or Resource", formalDefinition="Name of Data type or Resource that is a(or the) type used for this element." )
         protected CodeType code;
 
         /**
          * Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.
          */
+        @Child(name="profile", type={UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Profile.structure to apply", formalDefinition="Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile." )
         protected UriType profile;
 
         /**
          * If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
          */
-        protected List<Enumeration<ResourceAggregationMode>> aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
+        @Child(name="aggregation", type={CodeType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="contained | referenced | bundled - how aggregated", formalDefinition="If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle." )
+        protected List<Enumeration<ResourceAggregationMode>> aggregation;
 
-        private static final long serialVersionUID = -1402455002L;
+        private static final long serialVersionUID = -1527133887L;
 
       public TypeRefComponent() {
         super();
@@ -565,7 +734,20 @@ public class ElementDefinition extends Type {
          * @return {@link #code} (Name of Data type or Resource that is a(or the) type used for this element.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public CodeType getCodeElement() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TypeRefComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new CodeType();
           return this.code;
+        }
+
+        public boolean hasCodeElement() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
         }
 
         /**
@@ -597,7 +779,20 @@ public class ElementDefinition extends Type {
          * @return {@link #profile} (Identifies a profile structure that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public UriType getProfileElement() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TypeRefComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new UriType();
           return this.profile;
+        }
+
+        public boolean hasProfileElement() { 
+          return this.profile != null && !this.profile.isEmpty();
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
@@ -633,7 +828,18 @@ public class ElementDefinition extends Type {
          * @return {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
         public List<Enumeration<ResourceAggregationMode>> getAggregation() { 
+          if (this.aggregation == null)
+            this.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
           return this.aggregation;
+        }
+
+        public boolean hasAggregation() { 
+          if (this.aggregation == null)
+            return false;
+          for (Enumeration<ResourceAggregationMode> item : this.aggregation)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -642,6 +848,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
         public Enumeration<ResourceAggregationMode> addAggregationElement() {//2 
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
+          if (this.aggregation == null)
+            this.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
           this.aggregation.add(t);
           return t;
         }
@@ -652,6 +860,8 @@ public class ElementDefinition extends Type {
         public TypeRefComponent addAggregation(ResourceAggregationMode value) { //1
           Enumeration<ResourceAggregationMode> t = new Enumeration<ResourceAggregationMode>();
           t.setValue(value);
+          if (this.aggregation == null)
+            this.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
           this.aggregation.add(t);
           return this;
         }
@@ -660,6 +870,8 @@ public class ElementDefinition extends Type {
          * @param value {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
          */
         public boolean hasAggregation(ResourceAggregationMode value) { 
+          if (this.aggregation == null)
+            return false;
           for (Enumeration<ResourceAggregationMode> v : this.aggregation)
             if (v.equals(value)) // code
               return true;
@@ -678,10 +890,17 @@ public class ElementDefinition extends Type {
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
-        dst.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
-        for (Enumeration<ResourceAggregationMode> i : aggregation)
-          dst.aggregation.add(i.copy());
+        if (aggregation != null) {
+          dst.aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
+          for (Enumeration<ResourceAggregationMode> i : aggregation)
+            dst.aggregation.add(i.copy());
+        };
         return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (code == null || code.isEmpty()) && (profile == null || profile.isEmpty())
+           && (aggregation == null || aggregation.isEmpty());
       }
 
   }
@@ -690,26 +909,36 @@ public class ElementDefinition extends Type {
         /**
          * Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.
          */
+        @Child(name="key", type={IdType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Target of 'condition' reference above", formalDefinition="Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality." )
         protected IdType key;
 
         /**
          * Used to label the constraint in OCL or in short displays incapable of displaying the full human description.
          */
+        @Child(name="name", type={StringType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Short human label", formalDefinition="Used to label the constraint in OCL or in short displays incapable of displaying the full human description." )
         protected StringType name;
 
         /**
          * Identifies the impact constraint violation has on the conformance of the instance.
          */
+        @Child(name="severity", type={CodeType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="error | warning", formalDefinition="Identifies the impact constraint violation has on the conformance of the instance." )
         protected Enumeration<ConstraintSeverity> severity;
 
         /**
          * Text that can be used to describe the constraint in messages identifying that the constraint has been violated.
          */
+        @Child(name="human", type={StringType.class}, order=4, min=1, max=1)
+        @Description(shortDefinition="Human description of constraint", formalDefinition="Text that can be used to describe the constraint in messages identifying that the constraint has been violated." )
         protected StringType human;
 
         /**
          * An XPath expression of constraint that can be executed to see if this constraint is met.
          */
+        @Child(name="xpath", type={StringType.class}, order=5, min=1, max=1)
+        @Description(shortDefinition="XPath expression of constraint", formalDefinition="An XPath expression of constraint that can be executed to see if this constraint is met." )
         protected StringType xpath;
 
         private static final long serialVersionUID = -1195616532L;
@@ -730,7 +959,20 @@ public class ElementDefinition extends Type {
          * @return {@link #key} (Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.). This is the underlying object with id, value and extensions. The accessor "getKey" gives direct access to the value
          */
         public IdType getKeyElement() { 
+          if (this.key == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.key");
+            else if (Configuration.doAutoCreate())
+              this.key = new IdType();
           return this.key;
+        }
+
+        public boolean hasKeyElement() { 
+          return this.key != null && !this.key.isEmpty();
+        }
+
+        public boolean hasKey() { 
+          return this.key != null && !this.key.isEmpty();
         }
 
         /**
@@ -762,7 +1004,20 @@ public class ElementDefinition extends Type {
          * @return {@link #name} (Used to label the constraint in OCL or in short displays incapable of displaying the full human description.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -798,7 +1053,20 @@ public class ElementDefinition extends Type {
          * @return {@link #severity} (Identifies the impact constraint violation has on the conformance of the instance.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
         public Enumeration<ConstraintSeverity> getSeverityElement() { 
+          if (this.severity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.severity");
+            else if (Configuration.doAutoCreate())
+              this.severity = new Enumeration<ConstraintSeverity>();
           return this.severity;
+        }
+
+        public boolean hasSeverityElement() { 
+          return this.severity != null && !this.severity.isEmpty();
+        }
+
+        public boolean hasSeverity() { 
+          return this.severity != null && !this.severity.isEmpty();
         }
 
         /**
@@ -830,7 +1098,20 @@ public class ElementDefinition extends Type {
          * @return {@link #human} (Text that can be used to describe the constraint in messages identifying that the constraint has been violated.). This is the underlying object with id, value and extensions. The accessor "getHuman" gives direct access to the value
          */
         public StringType getHumanElement() { 
+          if (this.human == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.human");
+            else if (Configuration.doAutoCreate())
+              this.human = new StringType();
           return this.human;
+        }
+
+        public boolean hasHumanElement() { 
+          return this.human != null && !this.human.isEmpty();
+        }
+
+        public boolean hasHuman() { 
+          return this.human != null && !this.human.isEmpty();
         }
 
         /**
@@ -862,7 +1143,20 @@ public class ElementDefinition extends Type {
          * @return {@link #xpath} (An XPath expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
         public StringType getXpathElement() { 
+          if (this.xpath == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.xpath");
+            else if (Configuration.doAutoCreate())
+              this.xpath = new StringType();
           return this.xpath;
+        }
+
+        public boolean hasXpathElement() { 
+          return this.xpath != null && !this.xpath.isEmpty();
+        }
+
+        public boolean hasXpath() { 
+          return this.xpath != null && !this.xpath.isEmpty();
         }
 
         /**
@@ -910,32 +1204,48 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (key == null || key.isEmpty()) && (name == null || name.isEmpty())
+           && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (xpath == null || xpath.isEmpty())
+          ;
+      }
+
   }
 
     public static class ElementDefinitionBindingComponent extends Element {
         /**
          * A descriptive name for this - can be useful for generating implementation artifacts.
          */
+        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Descriptive Name", formalDefinition="A descriptive name for this - can be useful for generating implementation artifacts." )
         protected StringType name;
 
         /**
          * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
+        @Child(name="isExtensible", type={BooleanType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Can additional codes be used?", formalDefinition="If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone." )
         protected BooleanType isExtensible;
 
         /**
          * Indicates the degree of conformance expectations associated with this binding.
          */
+        @Child(name="conformance", type={CodeType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="required | preferred | example", formalDefinition="Indicates the degree of conformance expectations associated with this binding." )
         protected Enumeration<BindingConformance> conformance;
 
         /**
          * Describes the intended use of this particular set of codes.
          */
+        @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Human explanation of the value set", formalDefinition="Describes the intended use of this particular set of codes." )
         protected StringType description;
 
         /**
          * Points to the value set or external definition that identifies the set of codes to be used.
          */
+        @Child(name="reference", type={UriType.class, ValueSet.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition that identifies the set of codes to be used." )
         protected Type reference;
 
         private static final long serialVersionUID = 1041151319L;
@@ -954,7 +1264,20 @@ public class ElementDefinition extends Type {
          * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType();
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -986,7 +1309,20 @@ public class ElementDefinition extends Type {
          * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.). This is the underlying object with id, value and extensions. The accessor "getIsExtensible" gives direct access to the value
          */
         public BooleanType getIsExtensibleElement() { 
+          if (this.isExtensible == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.isExtensible");
+            else if (Configuration.doAutoCreate())
+              this.isExtensible = new BooleanType();
           return this.isExtensible;
+        }
+
+        public boolean hasIsExtensibleElement() { 
+          return this.isExtensible != null && !this.isExtensible.isEmpty();
+        }
+
+        public boolean hasIsExtensible() { 
+          return this.isExtensible != null && !this.isExtensible.isEmpty();
         }
 
         /**
@@ -1018,7 +1354,20 @@ public class ElementDefinition extends Type {
          * @return {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.). This is the underlying object with id, value and extensions. The accessor "getConformance" gives direct access to the value
          */
         public Enumeration<BindingConformance> getConformanceElement() { 
+          if (this.conformance == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.conformance");
+            else if (Configuration.doAutoCreate())
+              this.conformance = new Enumeration<BindingConformance>();
           return this.conformance;
+        }
+
+        public boolean hasConformanceElement() { 
+          return this.conformance != null && !this.conformance.isEmpty();
+        }
+
+        public boolean hasConformance() { 
+          return this.conformance != null && !this.conformance.isEmpty();
         }
 
         /**
@@ -1054,7 +1403,20 @@ public class ElementDefinition extends Type {
          * @return {@link #description} (Describes the intended use of this particular set of codes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType();
           return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
         }
 
         /**
@@ -1094,6 +1456,28 @@ public class ElementDefinition extends Type {
         }
 
         /**
+         * @return {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         */
+        public UriType getReferenceUriType() throws Exception { 
+          if (!(this.reference instanceof UriType))
+            throw new Exception("Type mismatch: the type UriType was expected, but "+this.reference.getClass().getName()+" was encountered");
+          return (UriType) this.reference;
+        }
+
+        /**
+         * @return {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
+         */
+        public Reference getReferenceReference() throws Exception { 
+          if (!(this.reference instanceof Reference))
+            throw new Exception("Type mismatch: the type Reference was expected, but "+this.reference.getClass().getName()+" was encountered");
+          return (Reference) this.reference;
+        }
+
+        public boolean hasReference() { 
+          return this.reference != null && !this.reference.isEmpty();
+        }
+
+        /**
          * @param value {@link #reference} (Points to the value set or external definition that identifies the set of codes to be used.)
          */
         public ElementDefinitionBindingComponent setReference(Type value) { 
@@ -1121,17 +1505,27 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (isExtensible == null || isExtensible.isEmpty())
+           && (conformance == null || conformance.isEmpty()) && (description == null || description.isEmpty())
+           && (reference == null || reference.isEmpty());
+      }
+
   }
 
     public static class ElementDefinitionMappingComponent extends Element {
         /**
          * An internal reference to the definition of a mapping.
          */
+        @Child(name="identity", type={IdType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Reference to mapping declaration", formalDefinition="An internal reference to the definition of a mapping." )
         protected IdType identity;
 
         /**
          * Expresses what part of the target specification corresponds to this element.
          */
+        @Child(name="map", type={StringType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Details of the mapping", formalDefinition="Expresses what part of the target specification corresponds to this element." )
         protected StringType map;
 
         private static final long serialVersionUID = -450627426L;
@@ -1150,7 +1544,20 @@ public class ElementDefinition extends Type {
          * @return {@link #identity} (An internal reference to the definition of a mapping.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
         public IdType getIdentityElement() { 
+          if (this.identity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionMappingComponent.identity");
+            else if (Configuration.doAutoCreate())
+              this.identity = new IdType();
           return this.identity;
+        }
+
+        public boolean hasIdentityElement() { 
+          return this.identity != null && !this.identity.isEmpty();
+        }
+
+        public boolean hasIdentity() { 
+          return this.identity != null && !this.identity.isEmpty();
         }
 
         /**
@@ -1182,7 +1589,20 @@ public class ElementDefinition extends Type {
          * @return {@link #map} (Expresses what part of the target specification corresponds to this element.). This is the underlying object with id, value and extensions. The accessor "getMap" gives direct access to the value
          */
         public StringType getMapElement() { 
+          if (this.map == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionMappingComponent.map");
+            else if (Configuration.doAutoCreate())
+              this.map = new StringType();
           return this.map;
+        }
+
+        public boolean hasMapElement() { 
+          return this.map != null && !this.map.isEmpty();
+        }
+
+        public boolean hasMap() { 
+          return this.map != null && !this.map.isEmpty();
         }
 
         /**
@@ -1224,139 +1644,196 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identity == null || identity.isEmpty()) && (map == null || map.isEmpty())
+          ;
+      }
+
   }
 
     /**
      * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.
      */
+    @Child(name="path", type={StringType.class}, order=-1, min=1, max=1)
+    @Description(shortDefinition="The path of the element (see the formal definitions)", formalDefinition="The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource or extension." )
     protected StringType path;
 
     /**
      * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
      */
-    protected List<Enumeration<PropertyRepresentation>> representation = new ArrayList<Enumeration<PropertyRepresentation>>();
+    @Child(name="representation", type={CodeType.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="How this element is represented in instances", formalDefinition="Codes that define how this element is represented in instances, when the deviation varies from the normal case." )
+    protected List<Enumeration<PropertyRepresentation>> representation;
 
     /**
      * The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
      */
+    @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Name for this particular element definition (reference target)", formalDefinition="The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element." )
     protected StringType name;
 
     /**
      * Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).
      */
+    @Child(name="slicing", type={}, order=2, min=0, max=1)
+    @Description(shortDefinition="This element is sliced - slices follow", formalDefinition="Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set)." )
     protected ElementDefinitionSlicingComponent slicing;
 
     /**
      * A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
      */
+    @Child(name="short_", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Concise definition for xml presentation", formalDefinition="A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification)." )
     protected StringType short_;
 
     /**
      * The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
      */
+    @Child(name="formal", type={StringType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Full formal definition in human language", formalDefinition="The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource." )
     protected StringType formal;
 
     /**
      * Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
+    @Child(name="comments", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Comments about the use of this element", formalDefinition="Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc." )
     protected StringType comments;
 
     /**
      * Explains why this element is needed and why it's been constrained as it has.
      */
+    @Child(name="requirements", type={StringType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this element is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * Identifies additional names by which this element might also be known.
      */
-    protected List<StringType> synonym = new ArrayList<StringType>();
+    @Child(name="synonym", type={StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Other names", formalDefinition="Identifies additional names by which this element might also be known." )
+    protected List<StringType> synonym;
 
     /**
      * The minimum number of times this element SHALL appear in the instance.
      */
+    @Child(name="min", type={IntegerType.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this element SHALL appear in the instance." )
     protected IntegerType min;
 
     /**
      * The maximum number of times this element is permitted to appear in the instance.
      */
+    @Child(name="max", type={StringType.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Maximum Cardinality (a number or *)", formalDefinition="The maximum number of times this element is permitted to appear in the instance." )
     protected StringType max;
 
     /**
      * The data type or resource that the value of this element is permitted to be.
      */
-    protected List<TypeRefComponent> type = new ArrayList<TypeRefComponent>();
+    @Child(name="type", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Data type and Profile for this element", formalDefinition="The data type or resource that the value of this element is permitted to be." )
+    protected List<TypeRefComponent> type;
 
     /**
      * Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.
      */
+    @Child(name="nameReference", type={StringType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="To another element constraint (by element.name)", formalDefinition="Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element." )
     protected StringType nameReference;
 
     /**
      * The value that should be used if there is no value stated in the instance.
      */
+    @Child(name="defaultValue", type={}, order=12, min=0, max=1)
+    @Description(shortDefinition="Specified value it missing from instance", formalDefinition="The value that should be used if there is no value stated in the instance." )
     protected org.hl7.fhir.instance.model.Type defaultValue;
 
     /**
      * The Implicit meaning that is to be understood when this element is missing.
      */
+    @Child(name="meaningWhenMissing", type={StringType.class}, order=13, min=0, max=1)
+    @Description(shortDefinition="Implicit meaning when this element is missing", formalDefinition="The Implicit meaning that is to be understood when this element is missing." )
     protected StringType meaningWhenMissing;
 
     /**
      * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
      */
+    @Child(name="fixed", type={}, order=14, min=0, max=1)
+    @Description(shortDefinition="Value must be exactly this", formalDefinition="Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing." )
     protected org.hl7.fhir.instance.model.Type fixed;
 
     /**
      * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-senstive, accent-sensitive, etc.).
      */
+    @Child(name="pattern", type={}, order=15, min=0, max=1)
+    @Description(shortDefinition="Value must have at least these property values", formalDefinition="Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-senstive, accent-sensitive, etc.)." )
     protected org.hl7.fhir.instance.model.Type pattern;
 
     /**
      * An example value for this element.
      */
+    @Child(name="example", type={}, order=16, min=0, max=1)
+    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="An example value for this element." )
     protected org.hl7.fhir.instance.model.Type example;
 
     /**
      * Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.
      */
+    @Child(name="maxLength", type={IntegerType.class}, order=17, min=0, max=1)
+    @Description(shortDefinition="Max length for strings", formalDefinition="Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element." )
     protected IntegerType maxLength;
 
     /**
      * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
      */
-    protected List<IdType> condition = new ArrayList<IdType>();
+    @Child(name="condition", type={IdType.class}, order=18, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Reference to invariant about presence", formalDefinition="A reference to an invariant that may make additional statements about the cardinality or value in the instance." )
+    protected List<IdType> condition;
 
     /**
      * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
      */
-    protected List<ElementDefinitionConstraintComponent> constraint = new ArrayList<ElementDefinitionConstraintComponent>();
+    @Child(name="constraint", type={}, order=19, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Condition that must evaluate to true", formalDefinition="Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance." )
+    protected List<ElementDefinitionConstraintComponent> constraint;
 
     /**
      * If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
      */
+    @Child(name="mustSupport", type={BooleanType.class}, order=20, min=0, max=1)
+    @Description(shortDefinition="If the element must supported", formalDefinition="If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported." )
     protected BooleanType mustSupport;
 
     /**
      * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
      */
+    @Child(name="isModifier", type={BooleanType.class}, order=21, min=0, max=1)
+    @Description(shortDefinition="If this modifies the meaning of other elements", formalDefinition="If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system." )
     protected BooleanType isModifier;
 
     /**
      * Whether the element should be included if a client requests a search with the parameter _summary=true.
      */
+    @Child(name="isSummary", type={BooleanType.class}, order=22, min=0, max=1)
+    @Description(shortDefinition="Include when _summary = true?", formalDefinition="Whether the element should be included if a client requests a search with the parameter _summary=true." )
     protected BooleanType isSummary;
 
     /**
      * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
      */
+    @Child(name="binding", type={}, order=23, min=0, max=1)
+    @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept)." )
     protected ElementDefinitionBindingComponent binding;
 
     /**
      * Identifies a concept from an external specification that roughly corresponds to this element.
      */
-    protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
+    @Child(name="mapping", type={}, order=24, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
+    protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = -427804353L;
+    private static final long serialVersionUID = 2094512467L;
 
     public ElementDefinition() {
       super();
@@ -1371,7 +1848,20 @@ public class ElementDefinition extends Type {
      * @return {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
      */
     public StringType getPathElement() { 
+      if (this.path == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.path");
+        else if (Configuration.doAutoCreate())
+          this.path = new StringType();
       return this.path;
+    }
+
+    public boolean hasPathElement() { 
+      return this.path != null && !this.path.isEmpty();
+    }
+
+    public boolean hasPath() { 
+      return this.path != null && !this.path.isEmpty();
     }
 
     /**
@@ -1403,7 +1893,18 @@ public class ElementDefinition extends Type {
      * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
      */
     public List<Enumeration<PropertyRepresentation>> getRepresentation() { 
+      if (this.representation == null)
+        this.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
       return this.representation;
+    }
+
+    public boolean hasRepresentation() { 
+      if (this.representation == null)
+        return false;
+      for (Enumeration<PropertyRepresentation> item : this.representation)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1412,6 +1913,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public Enumeration<PropertyRepresentation> addRepresentationElement() {//2 
       Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
+      if (this.representation == null)
+        this.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
       this.representation.add(t);
       return t;
     }
@@ -1422,6 +1925,8 @@ public class ElementDefinition extends Type {
     public ElementDefinition addRepresentation(PropertyRepresentation value) { //1
       Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
       t.setValue(value);
+      if (this.representation == null)
+        this.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
       this.representation.add(t);
       return this;
     }
@@ -1430,6 +1935,8 @@ public class ElementDefinition extends Type {
      * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
      */
     public boolean hasRepresentation(PropertyRepresentation value) { 
+      if (this.representation == null)
+        return false;
       for (Enumeration<PropertyRepresentation> v : this.representation)
         if (v.equals(value)) // code
           return true;
@@ -1440,7 +1947,20 @@ public class ElementDefinition extends Type {
      * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
+      if (this.name == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.name");
+        else if (Configuration.doAutoCreate())
+          this.name = new StringType();
       return this.name;
+    }
+
+    public boolean hasNameElement() { 
+      return this.name != null && !this.name.isEmpty();
+    }
+
+    public boolean hasName() { 
+      return this.name != null && !this.name.isEmpty();
     }
 
     /**
@@ -1476,7 +1996,16 @@ public class ElementDefinition extends Type {
      * @return {@link #slicing} (Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).)
      */
     public ElementDefinitionSlicingComponent getSlicing() { 
+      if (this.slicing == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.slicing");
+        else if (Configuration.doAutoCreate())
+          this.slicing = new ElementDefinitionSlicingComponent();
       return this.slicing;
+    }
+
+    public boolean hasSlicing() { 
+      return this.slicing != null && !this.slicing.isEmpty();
     }
 
     /**
@@ -1491,7 +2020,20 @@ public class ElementDefinition extends Type {
      * @return {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).). This is the underlying object with id, value and extensions. The accessor "getShort" gives direct access to the value
      */
     public StringType getShortElement() { 
+      if (this.short_ == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.short_");
+        else if (Configuration.doAutoCreate())
+          this.short_ = new StringType();
       return this.short_;
+    }
+
+    public boolean hasShortElement() { 
+      return this.short_ != null && !this.short_.isEmpty();
+    }
+
+    public boolean hasShort() { 
+      return this.short_ != null && !this.short_.isEmpty();
     }
 
     /**
@@ -1527,7 +2069,20 @@ public class ElementDefinition extends Type {
      * @return {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getFormal" gives direct access to the value
      */
     public StringType getFormalElement() { 
+      if (this.formal == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.formal");
+        else if (Configuration.doAutoCreate())
+          this.formal = new StringType();
       return this.formal;
+    }
+
+    public boolean hasFormalElement() { 
+      return this.formal != null && !this.formal.isEmpty();
+    }
+
+    public boolean hasFormal() { 
+      return this.formal != null && !this.formal.isEmpty();
     }
 
     /**
@@ -1563,7 +2118,20 @@ public class ElementDefinition extends Type {
      * @return {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
      */
     public StringType getCommentsElement() { 
+      if (this.comments == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.comments");
+        else if (Configuration.doAutoCreate())
+          this.comments = new StringType();
       return this.comments;
+    }
+
+    public boolean hasCommentsElement() { 
+      return this.comments != null && !this.comments.isEmpty();
+    }
+
+    public boolean hasComments() { 
+      return this.comments != null && !this.comments.isEmpty();
     }
 
     /**
@@ -1599,7 +2167,20 @@ public class ElementDefinition extends Type {
      * @return {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public StringType getRequirementsElement() { 
+      if (this.requirements == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.requirements");
+        else if (Configuration.doAutoCreate())
+          this.requirements = new StringType();
       return this.requirements;
+    }
+
+    public boolean hasRequirementsElement() { 
+      return this.requirements != null && !this.requirements.isEmpty();
+    }
+
+    public boolean hasRequirements() { 
+      return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
@@ -1635,7 +2216,18 @@ public class ElementDefinition extends Type {
      * @return {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
     public List<StringType> getSynonym() { 
+      if (this.synonym == null)
+        this.synonym = new ArrayList<StringType>();
       return this.synonym;
+    }
+
+    public boolean hasSynonym() { 
+      if (this.synonym == null)
+        return false;
+      for (StringType item : this.synonym)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1644,6 +2236,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public StringType addSynonymElement() {//2 
       StringType t = new StringType();
+      if (this.synonym == null)
+        this.synonym = new ArrayList<StringType>();
       this.synonym.add(t);
       return t;
     }
@@ -1654,6 +2248,8 @@ public class ElementDefinition extends Type {
     public ElementDefinition addSynonym(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
+      if (this.synonym == null)
+        this.synonym = new ArrayList<StringType>();
       this.synonym.add(t);
       return this;
     }
@@ -1662,6 +2258,8 @@ public class ElementDefinition extends Type {
      * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
      */
     public boolean hasSynonym(String value) { 
+      if (this.synonym == null)
+        return false;
       for (StringType v : this.synonym)
         if (v.equals(value)) // string
           return true;
@@ -1672,7 +2270,20 @@ public class ElementDefinition extends Type {
      * @return {@link #min} (The minimum number of times this element SHALL appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
      */
     public IntegerType getMinElement() { 
+      if (this.min == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.min");
+        else if (Configuration.doAutoCreate())
+          this.min = new IntegerType();
       return this.min;
+    }
+
+    public boolean hasMinElement() { 
+      return this.min != null && !this.min.isEmpty();
+    }
+
+    public boolean hasMin() { 
+      return this.min != null && !this.min.isEmpty();
     }
 
     /**
@@ -1708,7 +2319,20 @@ public class ElementDefinition extends Type {
      * @return {@link #max} (The maximum number of times this element is permitted to appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
      */
     public StringType getMaxElement() { 
+      if (this.max == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.max");
+        else if (Configuration.doAutoCreate())
+          this.max = new StringType();
       return this.max;
+    }
+
+    public boolean hasMaxElement() { 
+      return this.max != null && !this.max.isEmpty();
+    }
+
+    public boolean hasMax() { 
+      return this.max != null && !this.max.isEmpty();
     }
 
     /**
@@ -1744,7 +2368,18 @@ public class ElementDefinition extends Type {
      * @return {@link #type} (The data type or resource that the value of this element is permitted to be.)
      */
     public List<TypeRefComponent> getType() { 
+      if (this.type == null)
+        this.type = new ArrayList<TypeRefComponent>();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      if (this.type == null)
+        return false;
+      for (TypeRefComponent item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1753,6 +2388,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public TypeRefComponent addType() { //3
       TypeRefComponent t = new TypeRefComponent();
+      if (this.type == null)
+        this.type = new ArrayList<TypeRefComponent>();
       this.type.add(t);
       return t;
     }
@@ -1761,7 +2398,20 @@ public class ElementDefinition extends Type {
      * @return {@link #nameReference} (Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getNameReference" gives direct access to the value
      */
     public StringType getNameReferenceElement() { 
+      if (this.nameReference == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.nameReference");
+        else if (Configuration.doAutoCreate())
+          this.nameReference = new StringType();
       return this.nameReference;
+    }
+
+    public boolean hasNameReferenceElement() { 
+      return this.nameReference != null && !this.nameReference.isEmpty();
+    }
+
+    public boolean hasNameReference() { 
+      return this.nameReference != null && !this.nameReference.isEmpty();
     }
 
     /**
@@ -1800,6 +2450,10 @@ public class ElementDefinition extends Type {
       return this.defaultValue;
     }
 
+    public boolean hasDefaultValue() { 
+      return this.defaultValue != null && !this.defaultValue.isEmpty();
+    }
+
     /**
      * @param value {@link #defaultValue} (The value that should be used if there is no value stated in the instance.)
      */
@@ -1812,7 +2466,20 @@ public class ElementDefinition extends Type {
      * @return {@link #meaningWhenMissing} (The Implicit meaning that is to be understood when this element is missing.). This is the underlying object with id, value and extensions. The accessor "getMeaningWhenMissing" gives direct access to the value
      */
     public StringType getMeaningWhenMissingElement() { 
+      if (this.meaningWhenMissing == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.meaningWhenMissing");
+        else if (Configuration.doAutoCreate())
+          this.meaningWhenMissing = new StringType();
       return this.meaningWhenMissing;
+    }
+
+    public boolean hasMeaningWhenMissingElement() { 
+      return this.meaningWhenMissing != null && !this.meaningWhenMissing.isEmpty();
+    }
+
+    public boolean hasMeaningWhenMissing() { 
+      return this.meaningWhenMissing != null && !this.meaningWhenMissing.isEmpty();
     }
 
     /**
@@ -1851,6 +2518,10 @@ public class ElementDefinition extends Type {
       return this.fixed;
     }
 
+    public boolean hasFixed() { 
+      return this.fixed != null && !this.fixed.isEmpty();
+    }
+
     /**
      * @param value {@link #fixed} (Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-signficant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.)
      */
@@ -1864,6 +2535,10 @@ public class ElementDefinition extends Type {
      */
     public org.hl7.fhir.instance.model.Type getPattern() { 
       return this.pattern;
+    }
+
+    public boolean hasPattern() { 
+      return this.pattern != null && !this.pattern.isEmpty();
     }
 
     /**
@@ -1881,6 +2556,10 @@ public class ElementDefinition extends Type {
       return this.example;
     }
 
+    public boolean hasExample() { 
+      return this.example != null && !this.example.isEmpty();
+    }
+
     /**
      * @param value {@link #example} (An example value for this element.)
      */
@@ -1893,7 +2572,20 @@ public class ElementDefinition extends Type {
      * @return {@link #maxLength} (Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.). This is the underlying object with id, value and extensions. The accessor "getMaxLength" gives direct access to the value
      */
     public IntegerType getMaxLengthElement() { 
+      if (this.maxLength == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.maxLength");
+        else if (Configuration.doAutoCreate())
+          this.maxLength = new IntegerType();
       return this.maxLength;
+    }
+
+    public boolean hasMaxLengthElement() { 
+      return this.maxLength != null && !this.maxLength.isEmpty();
+    }
+
+    public boolean hasMaxLength() { 
+      return this.maxLength != null && !this.maxLength.isEmpty();
     }
 
     /**
@@ -1929,7 +2621,18 @@ public class ElementDefinition extends Type {
      * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
      */
     public List<IdType> getCondition() { 
+      if (this.condition == null)
+        this.condition = new ArrayList<IdType>();
       return this.condition;
+    }
+
+    public boolean hasCondition() { 
+      if (this.condition == null)
+        return false;
+      for (IdType item : this.condition)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1938,6 +2641,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public IdType addConditionElement() {//2 
       IdType t = new IdType();
+      if (this.condition == null)
+        this.condition = new ArrayList<IdType>();
       this.condition.add(t);
       return t;
     }
@@ -1948,6 +2653,8 @@ public class ElementDefinition extends Type {
     public ElementDefinition addCondition(String value) { //1
       IdType t = new IdType();
       t.setValue(value);
+      if (this.condition == null)
+        this.condition = new ArrayList<IdType>();
       this.condition.add(t);
       return this;
     }
@@ -1956,6 +2663,8 @@ public class ElementDefinition extends Type {
      * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
      */
     public boolean hasCondition(String value) { 
+      if (this.condition == null)
+        return false;
       for (IdType v : this.condition)
         if (v.equals(value)) // id
           return true;
@@ -1966,7 +2675,18 @@ public class ElementDefinition extends Type {
      * @return {@link #constraint} (Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.)
      */
     public List<ElementDefinitionConstraintComponent> getConstraint() { 
+      if (this.constraint == null)
+        this.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
       return this.constraint;
+    }
+
+    public boolean hasConstraint() { 
+      if (this.constraint == null)
+        return false;
+      for (ElementDefinitionConstraintComponent item : this.constraint)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1975,6 +2695,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public ElementDefinitionConstraintComponent addConstraint() { //3
       ElementDefinitionConstraintComponent t = new ElementDefinitionConstraintComponent();
+      if (this.constraint == null)
+        this.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
       this.constraint.add(t);
       return t;
     }
@@ -1983,7 +2705,20 @@ public class ElementDefinition extends Type {
      * @return {@link #mustSupport} (If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.). This is the underlying object with id, value and extensions. The accessor "getMustSupport" gives direct access to the value
      */
     public BooleanType getMustSupportElement() { 
+      if (this.mustSupport == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.mustSupport");
+        else if (Configuration.doAutoCreate())
+          this.mustSupport = new BooleanType();
       return this.mustSupport;
+    }
+
+    public boolean hasMustSupportElement() { 
+      return this.mustSupport != null && !this.mustSupport.isEmpty();
+    }
+
+    public boolean hasMustSupport() { 
+      return this.mustSupport != null && !this.mustSupport.isEmpty();
     }
 
     /**
@@ -2019,7 +2754,20 @@ public class ElementDefinition extends Type {
      * @return {@link #isModifier} (If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.). This is the underlying object with id, value and extensions. The accessor "getIsModifier" gives direct access to the value
      */
     public BooleanType getIsModifierElement() { 
+      if (this.isModifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.isModifier");
+        else if (Configuration.doAutoCreate())
+          this.isModifier = new BooleanType();
       return this.isModifier;
+    }
+
+    public boolean hasIsModifierElement() { 
+      return this.isModifier != null && !this.isModifier.isEmpty();
+    }
+
+    public boolean hasIsModifier() { 
+      return this.isModifier != null && !this.isModifier.isEmpty();
     }
 
     /**
@@ -2055,7 +2803,20 @@ public class ElementDefinition extends Type {
      * @return {@link #isSummary} (Whether the element should be included if a client requests a search with the parameter _summary=true.). This is the underlying object with id, value and extensions. The accessor "getIsSummary" gives direct access to the value
      */
     public BooleanType getIsSummaryElement() { 
+      if (this.isSummary == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.isSummary");
+        else if (Configuration.doAutoCreate())
+          this.isSummary = new BooleanType();
       return this.isSummary;
+    }
+
+    public boolean hasIsSummaryElement() { 
+      return this.isSummary != null && !this.isSummary.isEmpty();
+    }
+
+    public boolean hasIsSummary() { 
+      return this.isSummary != null && !this.isSummary.isEmpty();
     }
 
     /**
@@ -2091,7 +2852,16 @@ public class ElementDefinition extends Type {
      * @return {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
      */
     public ElementDefinitionBindingComponent getBinding() { 
+      if (this.binding == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.binding");
+        else if (Configuration.doAutoCreate())
+          this.binding = new ElementDefinitionBindingComponent();
       return this.binding;
+    }
+
+    public boolean hasBinding() { 
+      return this.binding != null && !this.binding.isEmpty();
     }
 
     /**
@@ -2106,7 +2876,18 @@ public class ElementDefinition extends Type {
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
     public List<ElementDefinitionMappingComponent> getMapping() { 
+      if (this.mapping == null)
+        this.mapping = new ArrayList<ElementDefinitionMappingComponent>();
       return this.mapping;
+    }
+
+    public boolean hasMapping() { 
+      if (this.mapping == null)
+        return false;
+      for (ElementDefinitionMappingComponent item : this.mapping)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -2115,6 +2896,8 @@ public class ElementDefinition extends Type {
     // syntactic sugar
     public ElementDefinitionMappingComponent addMapping() { //3
       ElementDefinitionMappingComponent t = new ElementDefinitionMappingComponent();
+      if (this.mapping == null)
+        this.mapping = new ArrayList<ElementDefinitionMappingComponent>();
       this.mapping.add(t);
       return t;
     }
@@ -2153,23 +2936,29 @@ public class ElementDefinition extends Type {
         ElementDefinition dst = new ElementDefinition();
         copyValues(dst);
         dst.path = path == null ? null : path.copy();
-        dst.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
-        for (Enumeration<PropertyRepresentation> i : representation)
-          dst.representation.add(i.copy());
+        if (representation != null) {
+          dst.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
+          for (Enumeration<PropertyRepresentation> i : representation)
+            dst.representation.add(i.copy());
+        };
         dst.name = name == null ? null : name.copy();
         dst.slicing = slicing == null ? null : slicing.copy();
         dst.short_ = short_ == null ? null : short_.copy();
         dst.formal = formal == null ? null : formal.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
-        dst.synonym = new ArrayList<StringType>();
-        for (StringType i : synonym)
-          dst.synonym.add(i.copy());
+        if (synonym != null) {
+          dst.synonym = new ArrayList<StringType>();
+          for (StringType i : synonym)
+            dst.synonym.add(i.copy());
+        };
         dst.min = min == null ? null : min.copy();
         dst.max = max == null ? null : max.copy();
-        dst.type = new ArrayList<TypeRefComponent>();
-        for (TypeRefComponent i : type)
-          dst.type.add(i.copy());
+        if (type != null) {
+          dst.type = new ArrayList<TypeRefComponent>();
+          for (TypeRefComponent i : type)
+            dst.type.add(i.copy());
+        };
         dst.nameReference = nameReference == null ? null : nameReference.copy();
         dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
         dst.meaningWhenMissing = meaningWhenMissing == null ? null : meaningWhenMissing.copy();
@@ -2177,24 +2966,44 @@ public class ElementDefinition extends Type {
         dst.pattern = pattern == null ? null : pattern.copy();
         dst.example = example == null ? null : example.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
-        dst.condition = new ArrayList<IdType>();
-        for (IdType i : condition)
-          dst.condition.add(i.copy());
-        dst.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
-        for (ElementDefinitionConstraintComponent i : constraint)
-          dst.constraint.add(i.copy());
+        if (condition != null) {
+          dst.condition = new ArrayList<IdType>();
+          for (IdType i : condition)
+            dst.condition.add(i.copy());
+        };
+        if (constraint != null) {
+          dst.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
+          for (ElementDefinitionConstraintComponent i : constraint)
+            dst.constraint.add(i.copy());
+        };
         dst.mustSupport = mustSupport == null ? null : mustSupport.copy();
         dst.isModifier = isModifier == null ? null : isModifier.copy();
         dst.isSummary = isSummary == null ? null : isSummary.copy();
         dst.binding = binding == null ? null : binding.copy();
-        dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
-        for (ElementDefinitionMappingComponent i : mapping)
-          dst.mapping.add(i.copy());
+        if (mapping != null) {
+          dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
+          for (ElementDefinitionMappingComponent i : mapping)
+            dst.mapping.add(i.copy());
+        };
         return dst;
       }
 
       protected ElementDefinition typedCopy() {
         return copy();
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (path == null || path.isEmpty()) && (representation == null || representation.isEmpty())
+           && (name == null || name.isEmpty()) && (slicing == null || slicing.isEmpty()) && (short_ == null || short_.isEmpty())
+           && (formal == null || formal.isEmpty()) && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
+           && (synonym == null || synonym.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
+           && (type == null || type.isEmpty()) && (nameReference == null || nameReference.isEmpty())
+           && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
+           && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
+           && (maxLength == null || maxLength.isEmpty()) && (condition == null || condition.isEmpty())
+           && (constraint == null || constraint.isEmpty()) && (mustSupport == null || mustSupport.isEmpty())
+           && (isModifier == null || isModifier.isEmpty()) && (isSummary == null || isSummary.isEmpty())
+           && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty());
       }
 
 

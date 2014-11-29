@@ -28,11 +28,11 @@ public class BaseGenerator {
       else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
         if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
           ValueSet vs = page.getValueSets().get(bs.getReference());
-          String path = (String) vs.getTag("path");
+          String path = (String) vs.getUserData("path");
           return path.replace(File.separatorChar, '/');
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
             ValueSet vs = page.getValueSets().get(bs.getReference());
-            String path = (String) vs.getTag("path");
+            String path = (String) vs.getUserData("path");
             return path.replace(File.separatorChar, '/');
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
           BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);

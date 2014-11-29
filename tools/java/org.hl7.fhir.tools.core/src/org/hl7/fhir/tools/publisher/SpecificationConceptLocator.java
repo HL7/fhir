@@ -24,7 +24,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.instance.client.EFhirClientException;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.formats.JsonComposer;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.model.Bundle;
@@ -290,7 +290,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    new JsonComposer().compose(b, vs, false);
+    new JsonParser().compose(b, vs, false);
     String hash = Integer.toString(new String(b.toByteArray()).hashCode());
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
@@ -316,11 +316,11 @@ public class SpecificationConceptLocator  implements ConceptLocator {
         params.put("limit", "500");
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
-        new JsonComposer().compose(new FileOutputStream(fn), result, false);
+        new JsonParser().compose(new FileOutputStream(fn), result, false);
         return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
-        new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
+        new JsonParser().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;

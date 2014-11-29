@@ -29,29 +29,41 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * (informative) A container for slot(s) of time that may be available for booking appointments.
  */
+@ResourceDef(name="Availability", profile="http://hl7.org/fhir/Profile/Availability")
 public class Availability extends DomainResource {
 
     /**
      * External Ids for this item.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Ids for this item", formalDefinition="External Ids for this item." )
+    protected List<Identifier> identifier;
 
     /**
      * The schedule type can be used for the categorization of healthcare services or other appointment types.
      */
-    protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+    @Child(name="type", type={CodeableConcept.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="The schedule type can be used for the categorization of healthcare services or other appointment types", formalDefinition="The schedule type can be used for the categorization of healthcare services or other appointment types." )
+    protected List<CodeableConcept> type;
 
     /**
      * The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
      */
+    @Child(name="actor", type={}, order=1, min=1, max=1)
+    @Description(shortDefinition="The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson", formalDefinition="The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson." )
     protected Reference actor;
 
     /**
@@ -62,19 +74,25 @@ public class Availability extends DomainResource {
     /**
      * The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
      */
+    @Child(name="planningHorizon", type={Period.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates", formalDefinition="The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates." )
     protected Period planningHorizon;
 
     /**
      * Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
      */
+    @Child(name="comment", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated", formalDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated." )
     protected StringType comment;
 
     /**
      * When this availability was created, or last revised.
      */
+    @Child(name="lastModified", type={DateTimeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="When this availability was created, or last revised", formalDefinition="When this availability was created, or last revised." )
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = -2050467472L;
+    private static final long serialVersionUID = -461457234L;
 
     public Availability() {
       super();
@@ -89,7 +107,18 @@ public class Availability extends DomainResource {
      * @return {@link #identifier} (External Ids for this item.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -98,6 +127,8 @@ public class Availability extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -106,7 +137,18 @@ public class Availability extends DomainResource {
      * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
     public List<CodeableConcept> getType() { 
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      if (this.type == null)
+        return false;
+      for (CodeableConcept item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -115,6 +157,8 @@ public class Availability extends DomainResource {
     // syntactic sugar
     public CodeableConcept addType() { //3
       CodeableConcept t = new CodeableConcept();
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
       this.type.add(t);
       return t;
     }
@@ -123,7 +167,16 @@ public class Availability extends DomainResource {
      * @return {@link #actor} (The resource this availability resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
      */
     public Reference getActor() { 
+      if (this.actor == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Availability.actor");
+        else if (Configuration.doAutoCreate())
+          this.actor = new Reference();
       return this.actor;
+    }
+
+    public boolean hasActor() { 
+      return this.actor != null && !this.actor.isEmpty();
     }
 
     /**
@@ -153,7 +206,16 @@ public class Availability extends DomainResource {
      * @return {@link #planningHorizon} (The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.)
      */
     public Period getPlanningHorizon() { 
+      if (this.planningHorizon == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Availability.planningHorizon");
+        else if (Configuration.doAutoCreate())
+          this.planningHorizon = new Period();
       return this.planningHorizon;
+    }
+
+    public boolean hasPlanningHorizon() { 
+      return this.planningHorizon != null && !this.planningHorizon.isEmpty();
     }
 
     /**
@@ -168,7 +230,20 @@ public class Availability extends DomainResource {
      * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
+      if (this.comment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Availability.comment");
+        else if (Configuration.doAutoCreate())
+          this.comment = new StringType();
       return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
@@ -204,7 +279,20 @@ public class Availability extends DomainResource {
      * @return {@link #lastModified} (When this availability was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
      */
     public DateTimeType getLastModifiedElement() { 
+      if (this.lastModified == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Availability.lastModified");
+        else if (Configuration.doAutoCreate())
+          this.lastModified = new DateTimeType();
       return this.lastModified;
+    }
+
+    public boolean hasLastModifiedElement() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
+    }
+
+    public boolean hasLastModified() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
     }
 
     /**
@@ -249,12 +337,16 @@ public class Availability extends DomainResource {
       public Availability copy() {
         Availability dst = new Availability();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
-        dst.type = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : type)
-          dst.type.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
+        if (type != null) {
+          dst.type = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : type)
+            dst.type.add(i.copy());
+        };
         dst.actor = actor == null ? null : actor.copy();
         dst.planningHorizon = planningHorizon == null ? null : planningHorizon.copy();
         dst.comment = comment == null ? null : comment.copy();
@@ -266,11 +358,24 @@ public class Availability extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (actor == null || actor.isEmpty()) && (planningHorizon == null || planningHorizon.isEmpty())
+           && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Availability;
    }
 
+  @SearchParamDefinition(name="actor", path="Availability.actor", description="The individual(HealthcareService, Practitioner, Location, ...) to find an availability for", type="reference" )
+  public static final String SP_ACTOR = "actor";
+  @SearchParamDefinition(name="date", path="Availability.planningHorizon", description="Search for availability resources that have a period that contains this date specified", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="type", path="Availability.type", description="The type of appointments that can be booked into associated slot(s)", type="token" )
+  public static final String SP_TYPE = "type";
 
 }
 

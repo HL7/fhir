@@ -29,59 +29,83 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
+@ResourceDef(name="Device", profile="http://hl7.org/fhir/Profile/Device")
 public class Device extends DomainResource {
 
     /**
      * Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Instance id from manufacturer, owner and others", formalDefinition="Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device." )
+    protected List<Identifier> identifier;
 
     /**
      * A kind of this device.
      */
+    @Child(name="type", type={CodeableConcept.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="What kind of device this is", formalDefinition="A kind of this device." )
     protected CodeableConcept type;
 
     /**
      * A name of the manufacturer.
      */
+    @Child(name="manufacturer", type={StringType.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Name of device manufacturer", formalDefinition="A name of the manufacturer." )
     protected StringType manufacturer;
 
     /**
      * The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
      */
+    @Child(name="model", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Model id assigned by the manufacturer", formalDefinition="The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type." )
     protected StringType model;
 
     /**
      * The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
      */
+    @Child(name="version", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Version number (i.e. software)", formalDefinition="The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware." )
     protected StringType version;
 
     /**
      * Date of expiry of this device (if applicable).
      */
+    @Child(name="expiry", type={DateType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Date of expiry of this device (if applicable)", formalDefinition="Date of expiry of this device (if applicable)." )
     protected DateType expiry;
 
     /**
      * FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
+    @Child(name="udi", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="FDA Mandated Unique Device Identifier", formalDefinition="FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
     protected StringType udi;
 
     /**
      * Lot number assigned by the manufacturer.
      */
+    @Child(name="lotNumber", type={StringType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Lot number of manufacture", formalDefinition="Lot number assigned by the manufacturer." )
     protected StringType lotNumber;
 
     /**
      * An organization that is responsible for the provision and ongoing maintenance of the device.
      */
+    @Child(name="owner", type={Organization.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Organization responsible for device", formalDefinition="An organization that is responsible for the provision and ongoing maintenance of the device." )
     protected Reference owner;
 
     /**
@@ -92,6 +116,8 @@ public class Device extends DomainResource {
     /**
      * The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.
      */
+    @Child(name="location", type={Location.class}, order=8, min=0, max=1)
+    @Description(shortDefinition="Where the resource is found", formalDefinition="The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location." )
     protected Reference location;
 
     /**
@@ -102,6 +128,8 @@ public class Device extends DomainResource {
     /**
      * Patient information, if the resource is affixed to a person.
      */
+    @Child(name="patient", type={Patient.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="If the resource is affixed to a person", formalDefinition="Patient information, if the resource is affixed to a person." )
     protected Reference patient;
 
     /**
@@ -112,14 +140,18 @@ public class Device extends DomainResource {
     /**
      * Contact details for an organization or a particular human that is responsible for the device.
      */
-    protected List<ContactPoint> contact = new ArrayList<ContactPoint>();
+    @Child(name="contact", type={ContactPoint.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Details for human/organization for support", formalDefinition="Contact details for an organization or a particular human that is responsible for the device." )
+    protected List<ContactPoint> contact;
 
     /**
      * A network address on which the device may be contacted directly.
      */
+    @Child(name="url", type={UriType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Network address to contact device", formalDefinition="A network address on which the device may be contacted directly." )
     protected UriType url;
 
-    private static final long serialVersionUID = 1707185618L;
+    private static final long serialVersionUID = 1190320903L;
 
     public Device() {
       super();
@@ -134,7 +166,18 @@ public class Device extends DomainResource {
      * @return {@link #identifier} (Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -143,6 +186,8 @@ public class Device extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -151,7 +196,16 @@ public class Device extends DomainResource {
      * @return {@link #type} (A kind of this device.)
      */
     public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept();
       return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
     }
 
     /**
@@ -166,7 +220,20 @@ public class Device extends DomainResource {
      * @return {@link #manufacturer} (A name of the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getManufacturer" gives direct access to the value
      */
     public StringType getManufacturerElement() { 
+      if (this.manufacturer == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.manufacturer");
+        else if (Configuration.doAutoCreate())
+          this.manufacturer = new StringType();
       return this.manufacturer;
+    }
+
+    public boolean hasManufacturerElement() { 
+      return this.manufacturer != null && !this.manufacturer.isEmpty();
+    }
+
+    public boolean hasManufacturer() { 
+      return this.manufacturer != null && !this.manufacturer.isEmpty();
     }
 
     /**
@@ -202,7 +269,20 @@ public class Device extends DomainResource {
      * @return {@link #model} (The "model" - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.). This is the underlying object with id, value and extensions. The accessor "getModel" gives direct access to the value
      */
     public StringType getModelElement() { 
+      if (this.model == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.model");
+        else if (Configuration.doAutoCreate())
+          this.model = new StringType();
       return this.model;
+    }
+
+    public boolean hasModelElement() { 
+      return this.model != null && !this.model.isEmpty();
+    }
+
+    public boolean hasModel() { 
+      return this.model != null && !this.model.isEmpty();
     }
 
     /**
@@ -238,7 +318,20 @@ public class Device extends DomainResource {
      * @return {@link #version} (The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType();
       return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
     }
 
     /**
@@ -274,7 +367,20 @@ public class Device extends DomainResource {
      * @return {@link #expiry} (Date of expiry of this device (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
      */
     public DateType getExpiryElement() { 
+      if (this.expiry == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.expiry");
+        else if (Configuration.doAutoCreate())
+          this.expiry = new DateType();
       return this.expiry;
+    }
+
+    public boolean hasExpiryElement() { 
+      return this.expiry != null && !this.expiry.isEmpty();
+    }
+
+    public boolean hasExpiry() { 
+      return this.expiry != null && !this.expiry.isEmpty();
     }
 
     /**
@@ -310,7 +416,20 @@ public class Device extends DomainResource {
      * @return {@link #udi} (FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.). This is the underlying object with id, value and extensions. The accessor "getUdi" gives direct access to the value
      */
     public StringType getUdiElement() { 
+      if (this.udi == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.udi");
+        else if (Configuration.doAutoCreate())
+          this.udi = new StringType();
       return this.udi;
+    }
+
+    public boolean hasUdiElement() { 
+      return this.udi != null && !this.udi.isEmpty();
+    }
+
+    public boolean hasUdi() { 
+      return this.udi != null && !this.udi.isEmpty();
     }
 
     /**
@@ -346,7 +465,20 @@ public class Device extends DomainResource {
      * @return {@link #lotNumber} (Lot number assigned by the manufacturer.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
      */
     public StringType getLotNumberElement() { 
+      if (this.lotNumber == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.lotNumber");
+        else if (Configuration.doAutoCreate())
+          this.lotNumber = new StringType();
       return this.lotNumber;
+    }
+
+    public boolean hasLotNumberElement() { 
+      return this.lotNumber != null && !this.lotNumber.isEmpty();
+    }
+
+    public boolean hasLotNumber() { 
+      return this.lotNumber != null && !this.lotNumber.isEmpty();
     }
 
     /**
@@ -382,7 +514,16 @@ public class Device extends DomainResource {
      * @return {@link #owner} (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
     public Reference getOwner() { 
+      if (this.owner == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.owner");
+        else if (Configuration.doAutoCreate())
+          this.owner = new Reference();
       return this.owner;
+    }
+
+    public boolean hasOwner() { 
+      return this.owner != null && !this.owner.isEmpty();
     }
 
     /**
@@ -397,6 +538,11 @@ public class Device extends DomainResource {
      * @return {@link #owner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
     public Organization getOwnerTarget() { 
+      if (this.ownerTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.owner");
+        else if (Configuration.doAutoCreate())
+          this.ownerTarget = new Organization();
       return this.ownerTarget;
     }
 
@@ -412,7 +558,16 @@ public class Device extends DomainResource {
      * @return {@link #location} (The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.)
      */
     public Reference getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new Reference();
       return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
     }
 
     /**
@@ -427,6 +582,11 @@ public class Device extends DomainResource {
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. "in/with the patient"), or a coded location.)
      */
     public Location getLocationTarget() { 
+      if (this.locationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.location");
+        else if (Configuration.doAutoCreate())
+          this.locationTarget = new Location();
       return this.locationTarget;
     }
 
@@ -442,7 +602,16 @@ public class Device extends DomainResource {
      * @return {@link #patient} (Patient information, if the resource is affixed to a person.)
      */
     public Reference getPatient() { 
+      if (this.patient == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference();
       return this.patient;
+    }
+
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
@@ -457,6 +626,11 @@ public class Device extends DomainResource {
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient information, if the resource is affixed to a person.)
      */
     public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient();
       return this.patientTarget;
     }
 
@@ -472,7 +646,18 @@ public class Device extends DomainResource {
      * @return {@link #contact} (Contact details for an organization or a particular human that is responsible for the device.)
      */
     public List<ContactPoint> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<ContactPoint>();
       return this.contact;
+    }
+
+    public boolean hasContact() { 
+      if (this.contact == null)
+        return false;
+      for (ContactPoint item : this.contact)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -481,6 +666,8 @@ public class Device extends DomainResource {
     // syntactic sugar
     public ContactPoint addContact() { //3
       ContactPoint t = new ContactPoint();
+      if (this.contact == null)
+        this.contact = new ArrayList<ContactPoint>();
       this.contact.add(t);
       return t;
     }
@@ -489,7 +676,20 @@ public class Device extends DomainResource {
      * @return {@link #url} (A network address on which the device may be contacted directly.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType();
       return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
@@ -541,9 +741,11 @@ public class Device extends DomainResource {
       public Device copy() {
         Device dst = new Device();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.model = model == null ? null : model.copy();
@@ -554,9 +756,11 @@ public class Device extends DomainResource {
         dst.owner = owner == null ? null : owner.copy();
         dst.location = location == null ? null : location.copy();
         dst.patient = patient == null ? null : patient.copy();
-        dst.contact = new ArrayList<ContactPoint>();
-        for (ContactPoint i : contact)
-          dst.contact.add(i.copy());
+        if (contact != null) {
+          dst.contact = new ArrayList<ContactPoint>();
+          for (ContactPoint i : contact)
+            dst.contact.add(i.copy());
+        };
         dst.url = url == null ? null : url.copy();
         return dst;
       }
@@ -565,11 +769,36 @@ public class Device extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (manufacturer == null || manufacturer.isEmpty()) && (model == null || model.isEmpty())
+           && (version == null || version.isEmpty()) && (expiry == null || expiry.isEmpty()) && (udi == null || udi.isEmpty())
+           && (lotNumber == null || lotNumber.isEmpty()) && (owner == null || owner.isEmpty()) && (location == null || location.isEmpty())
+           && (patient == null || patient.isEmpty()) && (contact == null || contact.isEmpty()) && (url == null || url.isEmpty())
+          ;
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Device;
    }
 
+  @SearchParamDefinition(name="organization", path="Device.owner", description="The organization responsible for the device", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="model", path="Device.model", description="The model of the device", type="string" )
+  public static final String SP_MODEL = "model";
+  @SearchParamDefinition(name="patient", path="Device.patient", description="Patient information, if the resource is affixed to a person", type="reference" )
+  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="location", path="Device.location", description="A location, where the resource is found", type="reference" )
+  public static final String SP_LOCATION = "location";
+  @SearchParamDefinition(name="manufacturer", path="Device.manufacturer", description="The manufacturer of the device", type="string" )
+  public static final String SP_MANUFACTURER = "manufacturer";
+  @SearchParamDefinition(name="udi", path="Device.udi", description="FDA Mandated Unique Device Identifier", type="string" )
+  public static final String SP_UDI = "udi";
+  @SearchParamDefinition(name="type", path="Device.type", description="The type of the device", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner and others", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 

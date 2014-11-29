@@ -40,7 +40,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
@@ -67,7 +66,7 @@ public class Validator {
       System.out.println("");
       System.out.println("Usage: FHIRValidator.jar [source] (-defn [definitions]) (-profile [profile]) (-output [output]) (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
-      System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from hl7.org");
+      System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
       System.out.println("    base specification using the definitions.");
@@ -119,7 +118,7 @@ public class Validator {
           else
             System.out.println(" ...failure");
         } else {
-          new XmlComposer().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
+          new XmlParser().compose(new FileOutputStream(output), exe.engine.getOutcome(), true);
         }
       }
     }
@@ -253,7 +252,7 @@ public class Validator {
 
   public String getOutcome() throws Exception {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
-    new XmlComposer().compose(b, engine.getOutcome(), true); 
+    new XmlParser().compose(b, engine.getOutcome(), true); 
     return b.toString();
   }
 

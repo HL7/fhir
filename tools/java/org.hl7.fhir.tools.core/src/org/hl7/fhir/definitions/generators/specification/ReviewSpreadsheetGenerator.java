@@ -132,7 +132,7 @@ public class ReviewSpreadsheetGenerator {
   }
 
   private String describeBinding(ElementDefinition def) {
-    if (def.getBinding() == null)
+    if (!def.hasBinding())
       return "";
     return def.getBinding().getName();
   }

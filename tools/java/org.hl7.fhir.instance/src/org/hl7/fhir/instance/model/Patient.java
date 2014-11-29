@@ -29,22 +29,43 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Nov 21, 2014 17:07+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Demographics and other administrative information about a person or animal receiving care or other health-related services.
  */
+@ResourceDef(name="Patient", profile="http://hl7.org/fhir/Profile/Patient")
 public class Patient extends DomainResource {
 
     public enum AdministrativeGender {
-        MALE, // Male
-        FEMALE, // Female
-        OTHER, // Other
-        UNKNOWN, // Unknown
-        NULL; // added to help the parsers
+        /**
+         * Male
+         */
+        MALE, 
+        /**
+         * Female
+         */
+        FEMALE, 
+        /**
+         * Other
+         */
+        OTHER, 
+        /**
+         * Unknown
+         */
+        UNKNOWN, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static AdministrativeGender fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -64,6 +85,15 @@ public class Patient extends DomainResource {
             case FEMALE: return "female";
             case OTHER: return "other";
             case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case MALE: return "";
+            case FEMALE: return "";
+            case OTHER: return "";
+            case UNKNOWN: return "";
             default: return "?";
           }
         }
@@ -116,10 +146,22 @@ public class Patient extends DomainResource {
     }
 
     public enum LinkType {
-        REPLACE, // The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
-        REFER, // The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
-        SEEALSO, // The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
-        NULL; // added to help the parsers
+        /**
+         * The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.
+         */
+        REPLACE, 
+        /**
+         * The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
+         */
+        REFER, 
+        /**
+         * The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
+         */
+        SEEALSO, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
         public static LinkType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -136,6 +178,14 @@ public class Patient extends DomainResource {
             case REPLACE: return "replace";
             case REFER: return "refer";
             case SEEALSO: return "seealso";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case REPLACE: return "";
+            case REFER: return "";
+            case SEEALSO: return "";
             default: return "?";
           }
         }
@@ -181,35 +231,48 @@ public class Patient extends DomainResource {
       }
     }
 
+    @Block()
     public static class ContactComponent extends BackboneElement {
         /**
          * The nature of the relationship between the patient and the contact person.
          */
-        protected List<CodeableConcept> relationship = new ArrayList<CodeableConcept>();
+        @Child(name="relationship", type={CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="The kind of relationship", formalDefinition="The nature of the relationship between the patient and the contact person." )
+        protected List<CodeableConcept> relationship;
 
         /**
          * A name associated with the person.
          */
+        @Child(name="name", type={HumanName.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="A name associated with the person", formalDefinition="A name associated with the person." )
         protected HumanName name;
 
         /**
          * A contact detail for the person, e.g. a telephone number or an email address.
          */
-        protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+        @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="A contact detail for the person", formalDefinition="A contact detail for the person, e.g. a telephone number or an email address." )
+        protected List<ContactPoint> telecom;
 
         /**
          * Address for the contact person.
          */
+        @Child(name="address", type={Address.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Address for the contact person", formalDefinition="Address for the contact person." )
         protected Address address;
 
         /**
          * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
+        @Child(name="gender", type={CodeType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes." )
         protected Enumeration<AdministrativeGender> gender;
 
         /**
          * Organization on behalf of which the contact is acting or for which the contact is working.
          */
+        @Child(name="organization", type={Organization.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Organization that is associated with the contact", formalDefinition="Organization on behalf of which the contact is acting or for which the contact is working." )
         protected Reference organization;
 
         /**
@@ -220,9 +283,11 @@ public class Patient extends DomainResource {
         /**
          * The period during which this person or organisation is valid to be contacted relating to this patient.
          */
+        @Child(name="period", type={Period.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="The period during which this person or organisation is valid to be contacted relating to this patient", formalDefinition="The period during which this person or organisation is valid to be contacted relating to this patient." )
         protected Period period;
 
-        private static final long serialVersionUID = -455382710L;
+        private static final long serialVersionUID = 364269017L;
 
       public ContactComponent() {
         super();
@@ -232,7 +297,18 @@ public class Patient extends DomainResource {
          * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
          */
         public List<CodeableConcept> getRelationship() { 
+          if (this.relationship == null)
+            this.relationship = new ArrayList<CodeableConcept>();
           return this.relationship;
+        }
+
+        public boolean hasRelationship() { 
+          if (this.relationship == null)
+            return false;
+          for (CodeableConcept item : this.relationship)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -241,6 +317,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
         public CodeableConcept addRelationship() { //3
           CodeableConcept t = new CodeableConcept();
+          if (this.relationship == null)
+            this.relationship = new ArrayList<CodeableConcept>();
           this.relationship.add(t);
           return t;
         }
@@ -249,7 +327,16 @@ public class Patient extends DomainResource {
          * @return {@link #name} (A name associated with the person.)
          */
         public HumanName getName() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new HumanName();
           return this.name;
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         /**
@@ -264,7 +351,18 @@ public class Patient extends DomainResource {
          * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
          */
         public List<ContactPoint> getTelecom() { 
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
+        }
+
+        public boolean hasTelecom() { 
+          if (this.telecom == null)
+            return false;
+          for (ContactPoint item : this.telecom)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
@@ -273,6 +371,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
         public ContactPoint addTelecom() { //3
           ContactPoint t = new ContactPoint();
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
           this.telecom.add(t);
           return t;
         }
@@ -281,7 +381,16 @@ public class Patient extends DomainResource {
          * @return {@link #address} (Address for the contact person.)
          */
         public Address getAddress() { 
+          if (this.address == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.address");
+            else if (Configuration.doAutoCreate())
+              this.address = new Address();
           return this.address;
+        }
+
+        public boolean hasAddress() { 
+          return this.address != null && !this.address.isEmpty();
         }
 
         /**
@@ -296,7 +405,20 @@ public class Patient extends DomainResource {
          * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
          */
         public Enumeration<AdministrativeGender> getGenderElement() { 
+          if (this.gender == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.gender");
+            else if (Configuration.doAutoCreate())
+              this.gender = new Enumeration<AdministrativeGender>();
           return this.gender;
+        }
+
+        public boolean hasGenderElement() { 
+          return this.gender != null && !this.gender.isEmpty();
+        }
+
+        public boolean hasGender() { 
+          return this.gender != null && !this.gender.isEmpty();
         }
 
         /**
@@ -332,7 +454,16 @@ public class Patient extends DomainResource {
          * @return {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
         public Reference getOrganization() { 
+          if (this.organization == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.organization");
+            else if (Configuration.doAutoCreate())
+              this.organization = new Reference();
           return this.organization;
+        }
+
+        public boolean hasOrganization() { 
+          return this.organization != null && !this.organization.isEmpty();
         }
 
         /**
@@ -347,6 +478,11 @@ public class Patient extends DomainResource {
          * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization on behalf of which the contact is acting or for which the contact is working.)
          */
         public Organization getOrganizationTarget() { 
+          if (this.organizationTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.organization");
+            else if (Configuration.doAutoCreate())
+              this.organizationTarget = new Organization();
           return this.organizationTarget;
         }
 
@@ -362,7 +498,16 @@ public class Patient extends DomainResource {
          * @return {@link #period} (The period during which this person or organisation is valid to be contacted relating to this patient.)
          */
         public Period getPeriod() { 
+          if (this.period == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ContactComponent.period");
+            else if (Configuration.doAutoCreate())
+              this.period = new Period();
           return this.period;
+        }
+
+        public boolean hasPeriod() { 
+          return this.period != null && !this.period.isEmpty();
         }
 
         /**
@@ -387,13 +532,17 @@ public class Patient extends DomainResource {
       public ContactComponent copy() {
         ContactComponent dst = new ContactComponent();
         copyValues(dst);
-        dst.relationship = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : relationship)
-          dst.relationship.add(i.copy());
+        if (relationship != null) {
+          dst.relationship = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : relationship)
+            dst.relationship.add(i.copy());
+        };
         dst.name = name == null ? null : name.copy();
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
         dst.organization = organization == null ? null : organization.copy();
@@ -401,22 +550,36 @@ public class Patient extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (relationship == null || relationship.isEmpty()) && (name == null || name.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (gender == null || gender.isEmpty())
+           && (organization == null || organization.isEmpty()) && (period == null || period.isEmpty())
+          ;
+      }
+
   }
 
+    @Block()
     public static class AnimalComponent extends BackboneElement {
         /**
          * Identifies the high level categorization of the kind of animal.
          */
+        @Child(name="species", type={CodeableConcept.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="E.g. Dog, Cow", formalDefinition="Identifies the high level categorization of the kind of animal." )
         protected CodeableConcept species;
 
         /**
          * Identifies the detailed categorization of the kind of animal.
          */
+        @Child(name="breed", type={CodeableConcept.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="E.g. Poodle, Angus", formalDefinition="Identifies the detailed categorization of the kind of animal." )
         protected CodeableConcept breed;
 
         /**
          * Indicates the current state of the animal's reproductive organs.
          */
+        @Child(name="genderStatus", type={CodeableConcept.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="E.g. Neutered, Intact", formalDefinition="Indicates the current state of the animal's reproductive organs." )
         protected CodeableConcept genderStatus;
 
         private static final long serialVersionUID = -549738382L;
@@ -434,7 +597,16 @@ public class Patient extends DomainResource {
          * @return {@link #species} (Identifies the high level categorization of the kind of animal.)
          */
         public CodeableConcept getSpecies() { 
+          if (this.species == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AnimalComponent.species");
+            else if (Configuration.doAutoCreate())
+              this.species = new CodeableConcept();
           return this.species;
+        }
+
+        public boolean hasSpecies() { 
+          return this.species != null && !this.species.isEmpty();
         }
 
         /**
@@ -449,7 +621,16 @@ public class Patient extends DomainResource {
          * @return {@link #breed} (Identifies the detailed categorization of the kind of animal.)
          */
         public CodeableConcept getBreed() { 
+          if (this.breed == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AnimalComponent.breed");
+            else if (Configuration.doAutoCreate())
+              this.breed = new CodeableConcept();
           return this.breed;
+        }
+
+        public boolean hasBreed() { 
+          return this.breed != null && !this.breed.isEmpty();
         }
 
         /**
@@ -464,7 +645,16 @@ public class Patient extends DomainResource {
          * @return {@link #genderStatus} (Indicates the current state of the animal's reproductive organs.)
          */
         public CodeableConcept getGenderStatus() { 
+          if (this.genderStatus == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AnimalComponent.genderStatus");
+            else if (Configuration.doAutoCreate())
+              this.genderStatus = new CodeableConcept();
           return this.genderStatus;
+        }
+
+        public boolean hasGenderStatus() { 
+          return this.genderStatus != null && !this.genderStatus.isEmpty();
         }
 
         /**
@@ -491,12 +681,20 @@ public class Patient extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (species == null || species.isEmpty()) && (breed == null || breed.isEmpty())
+           && (genderStatus == null || genderStatus.isEmpty());
+      }
+
   }
 
+    @Block()
     public static class PatientLinkComponent extends BackboneElement {
         /**
          * The other patient resource that the link refers to.
          */
+        @Child(name="other", type={Patient.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="The other patient resource that the link refers to", formalDefinition="The other patient resource that the link refers to." )
         protected Reference other;
 
         /**
@@ -507,6 +705,8 @@ public class Patient extends DomainResource {
         /**
          * The type of link between this patient resource and another patient resource.
          */
+        @Child(name="type", type={CodeType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="replace | refer | seealso - type of link", formalDefinition="The type of link between this patient resource and another patient resource." )
         protected Enumeration<LinkType> type;
 
         private static final long serialVersionUID = -1942104050L;
@@ -525,7 +725,16 @@ public class Patient extends DomainResource {
          * @return {@link #other} (The other patient resource that the link refers to.)
          */
         public Reference getOther() { 
+          if (this.other == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PatientLinkComponent.other");
+            else if (Configuration.doAutoCreate())
+              this.other = new Reference();
           return this.other;
+        }
+
+        public boolean hasOther() { 
+          return this.other != null && !this.other.isEmpty();
         }
 
         /**
@@ -540,6 +749,11 @@ public class Patient extends DomainResource {
          * @return {@link #other} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The other patient resource that the link refers to.)
          */
         public Patient getOtherTarget() { 
+          if (this.otherTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PatientLinkComponent.other");
+            else if (Configuration.doAutoCreate())
+              this.otherTarget = new Patient();
           return this.otherTarget;
         }
 
@@ -555,7 +769,20 @@ public class Patient extends DomainResource {
          * @return {@link #type} (The type of link between this patient resource and another patient resource.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public Enumeration<LinkType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PatientLinkComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<LinkType>();
           return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         /**
@@ -597,86 +824,121 @@ public class Patient extends DomainResource {
         return dst;
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (other == null || other.isEmpty()) && (type == null || type.isEmpty())
+          ;
+      }
+
   }
 
     /**
      * An identifier that applies to this person as a patient.
      */
-    protected List<Identifier> identifier = new ArrayList<Identifier>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="An identifier for the person as this patient", formalDefinition="An identifier that applies to this person as a patient." )
+    protected List<Identifier> identifier;
 
     /**
      * A name associated with the individual.
      */
-    protected List<HumanName> name = new ArrayList<HumanName>();
+    @Child(name="name", type={HumanName.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A name associated with the patient", formalDefinition="A name associated with the individual." )
+    protected List<HumanName> name;
 
     /**
      * A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
      */
-    protected List<ContactPoint> telecom = new ArrayList<ContactPoint>();
+    @Child(name="telecom", type={ContactPoint.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A contact detail for the individual", formalDefinition="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted." )
+    protected List<ContactPoint> telecom;
 
     /**
      * Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
      */
+    @Child(name="gender", type={CodeType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes." )
     protected Enumeration<AdministrativeGender> gender;
 
     /**
      * The date and time of birth for the individual.
      */
+    @Child(name="birthDate", type={DateTimeType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="The date and time of birth for the individual", formalDefinition="The date and time of birth for the individual." )
     protected DateTimeType birthDate;
 
     /**
      * Indicates if the individual is deceased or not.
      */
+    @Child(name="deceased", type={BooleanType.class, DateTimeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Indicates if the individual is deceased or not", formalDefinition="Indicates if the individual is deceased or not." )
     protected Type deceased;
 
     /**
      * Addresses for the individual.
      */
-    protected List<Address> address = new ArrayList<Address>();
+    @Child(name="address", type={Address.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Addresses for the individual", formalDefinition="Addresses for the individual." )
+    protected List<Address> address;
 
     /**
      * This field contains a patient's most recent marital (civil) status.
      */
+    @Child(name="maritalStatus", type={CodeableConcept.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Marital (civil) status of a person", formalDefinition="This field contains a patient's most recent marital (civil) status." )
     protected CodeableConcept maritalStatus;
 
     /**
      * Indicates whether the patient is part of a multiple or indicates the actual birth order.
      */
+    @Child(name="multipleBirth", type={BooleanType.class, IntegerType.class}, order=7, min=0, max=1)
+    @Description(shortDefinition="Whether patient is part of a multiple birth", formalDefinition="Indicates whether the patient is part of a multiple or indicates the actual birth order." )
     protected Type multipleBirth;
 
     /**
      * Image of the person.
      */
-    protected List<Attachment> photo = new ArrayList<Attachment>();
+    @Child(name="photo", type={Attachment.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Image of the person", formalDefinition="Image of the person." )
+    protected List<Attachment> photo;
 
     /**
      * A contact party (e.g. guardian, partner, friend) for the patient.
      */
-    protected List<ContactComponent> contact = new ArrayList<ContactComponent>();
+    @Child(name="contact", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="A contact party (e.g. guardian, partner, friend) for the patient", formalDefinition="A contact party (e.g. guardian, partner, friend) for the patient." )
+    protected List<ContactComponent> contact;
 
     /**
      * This element has a value if the patient is an animal.
      */
+    @Child(name="animal", type={}, order=10, min=0, max=1)
+    @Description(shortDefinition="If this patient is an animal (non-human)", formalDefinition="This element has a value if the patient is an animal." )
     protected AnimalComponent animal;
 
     /**
      * Languages which may be used to communicate with the patient about his or her health.
      */
-    protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
+    @Child(name="communication", type={CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Languages which may be used to communicate with the patient about his or her health", formalDefinition="Languages which may be used to communicate with the patient about his or her health." )
+    protected List<CodeableConcept> communication;
 
     /**
      * Patient's nominated care provider.
      */
-    protected List<Reference> careProvider = new ArrayList<Reference>();
+    @Child(name="careProvider", type={Organization.class, Practitioner.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Patient's nominated care provider", formalDefinition="Patient's nominated care provider." )
+    protected List<Reference> careProvider;
     /**
      * The actual objects that are the target of the reference (Patient's nominated care provider.)
      */
-    protected List<Resource> careProviderTarget = new ArrayList<Resource>();
+    protected List<Resource> careProviderTarget;
 
 
     /**
      * Organization that is the custodian of the patient record.
      */
+    @Child(name="managingOrganization", type={Organization.class}, order=13, min=0, max=1)
+    @Description(shortDefinition="Organization that is the custodian of the patient record", formalDefinition="Organization that is the custodian of the patient record." )
     protected Reference managingOrganization;
 
     /**
@@ -687,14 +949,18 @@ public class Patient extends DomainResource {
     /**
      * Link to another patient resource that concerns the same actual person.
      */
-    protected List<PatientLinkComponent> link = new ArrayList<PatientLinkComponent>();
+    @Child(name="link", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Link to another patient resource that concerns the same actual person", formalDefinition="Link to another patient resource that concerns the same actual person." )
+    protected List<PatientLinkComponent> link;
 
     /**
      * Whether this patient record is in active use.
      */
+    @Child(name="active", type={BooleanType.class}, order=15, min=0, max=1)
+    @Description(shortDefinition="Whether this patient's record is in active use", formalDefinition="Whether this patient record is in active use." )
     protected BooleanType active;
 
-    private static final long serialVersionUID = -340628307L;
+    private static final long serialVersionUID = 1020038018L;
 
     public Patient() {
       super();
@@ -704,7 +970,18 @@ public class Patient extends DomainResource {
      * @return {@link #identifier} (An identifier that applies to this person as a patient.)
      */
     public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -713,6 +990,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public Identifier addIdentifier() { //3
       Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
     }
@@ -721,7 +1000,18 @@ public class Patient extends DomainResource {
      * @return {@link #name} (A name associated with the individual.)
      */
     public List<HumanName> getName() { 
+      if (this.name == null)
+        this.name = new ArrayList<HumanName>();
       return this.name;
+    }
+
+    public boolean hasName() { 
+      if (this.name == null)
+        return false;
+      for (HumanName item : this.name)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -730,6 +1020,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public HumanName addName() { //3
       HumanName t = new HumanName();
+      if (this.name == null)
+        this.name = new ArrayList<HumanName>();
       this.name.add(t);
       return t;
     }
@@ -738,7 +1030,18 @@ public class Patient extends DomainResource {
      * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
      */
     public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -747,6 +1050,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public ContactPoint addTelecom() { //3
       ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
       this.telecom.add(t);
       return t;
     }
@@ -755,7 +1060,20 @@ public class Patient extends DomainResource {
      * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
     public Enumeration<AdministrativeGender> getGenderElement() { 
+      if (this.gender == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.gender");
+        else if (Configuration.doAutoCreate())
+          this.gender = new Enumeration<AdministrativeGender>();
       return this.gender;
+    }
+
+    public boolean hasGenderElement() { 
+      return this.gender != null && !this.gender.isEmpty();
+    }
+
+    public boolean hasGender() { 
+      return this.gender != null && !this.gender.isEmpty();
     }
 
     /**
@@ -791,7 +1109,20 @@ public class Patient extends DomainResource {
      * @return {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
     public DateTimeType getBirthDateElement() { 
+      if (this.birthDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.birthDate");
+        else if (Configuration.doAutoCreate())
+          this.birthDate = new DateTimeType();
       return this.birthDate;
+    }
+
+    public boolean hasBirthDateElement() { 
+      return this.birthDate != null && !this.birthDate.isEmpty();
+    }
+
+    public boolean hasBirthDate() { 
+      return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
     /**
@@ -831,6 +1162,28 @@ public class Patient extends DomainResource {
     }
 
     /**
+     * @return {@link #deceased} (Indicates if the individual is deceased or not.)
+     */
+    public BooleanType getDeceasedBooleanType() throws Exception { 
+      if (!(this.deceased instanceof BooleanType))
+        throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.deceased.getClass().getName()+" was encountered");
+      return (BooleanType) this.deceased;
+    }
+
+    /**
+     * @return {@link #deceased} (Indicates if the individual is deceased or not.)
+     */
+    public DateTimeType getDeceasedDateTimeType() throws Exception { 
+      if (!(this.deceased instanceof DateTimeType))
+        throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.deceased.getClass().getName()+" was encountered");
+      return (DateTimeType) this.deceased;
+    }
+
+    public boolean hasDeceased() { 
+      return this.deceased != null && !this.deceased.isEmpty();
+    }
+
+    /**
      * @param value {@link #deceased} (Indicates if the individual is deceased or not.)
      */
     public Patient setDeceased(Type value) { 
@@ -842,7 +1195,18 @@ public class Patient extends DomainResource {
      * @return {@link #address} (Addresses for the individual.)
      */
     public List<Address> getAddress() { 
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
       return this.address;
+    }
+
+    public boolean hasAddress() { 
+      if (this.address == null)
+        return false;
+      for (Address item : this.address)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -851,6 +1215,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public Address addAddress() { //3
       Address t = new Address();
+      if (this.address == null)
+        this.address = new ArrayList<Address>();
       this.address.add(t);
       return t;
     }
@@ -859,7 +1225,16 @@ public class Patient extends DomainResource {
      * @return {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
      */
     public CodeableConcept getMaritalStatus() { 
+      if (this.maritalStatus == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.maritalStatus");
+        else if (Configuration.doAutoCreate())
+          this.maritalStatus = new CodeableConcept();
       return this.maritalStatus;
+    }
+
+    public boolean hasMaritalStatus() { 
+      return this.maritalStatus != null && !this.maritalStatus.isEmpty();
     }
 
     /**
@@ -878,6 +1253,28 @@ public class Patient extends DomainResource {
     }
 
     /**
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     */
+    public BooleanType getMultipleBirthBooleanType() throws Exception { 
+      if (!(this.multipleBirth instanceof BooleanType))
+        throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.multipleBirth.getClass().getName()+" was encountered");
+      return (BooleanType) this.multipleBirth;
+    }
+
+    /**
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     */
+    public IntegerType getMultipleBirthIntegerType() throws Exception { 
+      if (!(this.multipleBirth instanceof IntegerType))
+        throw new Exception("Type mismatch: the type IntegerType was expected, but "+this.multipleBirth.getClass().getName()+" was encountered");
+      return (IntegerType) this.multipleBirth;
+    }
+
+    public boolean hasMultipleBirth() { 
+      return this.multipleBirth != null && !this.multipleBirth.isEmpty();
+    }
+
+    /**
      * @param value {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
      */
     public Patient setMultipleBirth(Type value) { 
@@ -889,7 +1286,18 @@ public class Patient extends DomainResource {
      * @return {@link #photo} (Image of the person.)
      */
     public List<Attachment> getPhoto() { 
+      if (this.photo == null)
+        this.photo = new ArrayList<Attachment>();
       return this.photo;
+    }
+
+    public boolean hasPhoto() { 
+      if (this.photo == null)
+        return false;
+      for (Attachment item : this.photo)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -898,6 +1306,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public Attachment addPhoto() { //3
       Attachment t = new Attachment();
+      if (this.photo == null)
+        this.photo = new ArrayList<Attachment>();
       this.photo.add(t);
       return t;
     }
@@ -906,7 +1316,18 @@ public class Patient extends DomainResource {
      * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
      */
     public List<ContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<ContactComponent>();
       return this.contact;
+    }
+
+    public boolean hasContact() { 
+      if (this.contact == null)
+        return false;
+      for (ContactComponent item : this.contact)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -915,6 +1336,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public ContactComponent addContact() { //3
       ContactComponent t = new ContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<ContactComponent>();
       this.contact.add(t);
       return t;
     }
@@ -923,7 +1346,16 @@ public class Patient extends DomainResource {
      * @return {@link #animal} (This element has a value if the patient is an animal.)
      */
     public AnimalComponent getAnimal() { 
+      if (this.animal == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.animal");
+        else if (Configuration.doAutoCreate())
+          this.animal = new AnimalComponent();
       return this.animal;
+    }
+
+    public boolean hasAnimal() { 
+      return this.animal != null && !this.animal.isEmpty();
     }
 
     /**
@@ -938,7 +1370,18 @@ public class Patient extends DomainResource {
      * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
     public List<CodeableConcept> getCommunication() { 
+      if (this.communication == null)
+        this.communication = new ArrayList<CodeableConcept>();
       return this.communication;
+    }
+
+    public boolean hasCommunication() { 
+      if (this.communication == null)
+        return false;
+      for (CodeableConcept item : this.communication)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -947,6 +1390,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public CodeableConcept addCommunication() { //3
       CodeableConcept t = new CodeableConcept();
+      if (this.communication == null)
+        this.communication = new ArrayList<CodeableConcept>();
       this.communication.add(t);
       return t;
     }
@@ -955,7 +1400,18 @@ public class Patient extends DomainResource {
      * @return {@link #careProvider} (Patient's nominated care provider.)
      */
     public List<Reference> getCareProvider() { 
+      if (this.careProvider == null)
+        this.careProvider = new ArrayList<Reference>();
       return this.careProvider;
+    }
+
+    public boolean hasCareProvider() { 
+      if (this.careProvider == null)
+        return false;
+      for (Reference item : this.careProvider)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -964,6 +1420,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public Reference addCareProvider() { //3
       Reference t = new Reference();
+      if (this.careProvider == null)
+        this.careProvider = new ArrayList<Reference>();
       this.careProvider.add(t);
       return t;
     }
@@ -972,6 +1430,8 @@ public class Patient extends DomainResource {
      * @return {@link #careProvider} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Patient's nominated care provider.)
      */
     public List<Resource> getCareProviderTarget() { 
+      if (this.careProviderTarget == null)
+        this.careProviderTarget = new ArrayList<Resource>();
       return this.careProviderTarget;
     }
 
@@ -979,7 +1439,16 @@ public class Patient extends DomainResource {
      * @return {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
     public Reference getManagingOrganization() { 
+      if (this.managingOrganization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.managingOrganization");
+        else if (Configuration.doAutoCreate())
+          this.managingOrganization = new Reference();
       return this.managingOrganization;
+    }
+
+    public boolean hasManagingOrganization() { 
+      return this.managingOrganization != null && !this.managingOrganization.isEmpty();
     }
 
     /**
@@ -994,6 +1463,11 @@ public class Patient extends DomainResource {
      * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that is the custodian of the patient record.)
      */
     public Organization getManagingOrganizationTarget() { 
+      if (this.managingOrganizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.managingOrganization");
+        else if (Configuration.doAutoCreate())
+          this.managingOrganizationTarget = new Organization();
       return this.managingOrganizationTarget;
     }
 
@@ -1009,7 +1483,18 @@ public class Patient extends DomainResource {
      * @return {@link #link} (Link to another patient resource that concerns the same actual person.)
      */
     public List<PatientLinkComponent> getLink() { 
+      if (this.link == null)
+        this.link = new ArrayList<PatientLinkComponent>();
       return this.link;
+    }
+
+    public boolean hasLink() { 
+      if (this.link == null)
+        return false;
+      for (PatientLinkComponent item : this.link)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
@@ -1018,6 +1503,8 @@ public class Patient extends DomainResource {
     // syntactic sugar
     public PatientLinkComponent addLink() { //3
       PatientLinkComponent t = new PatientLinkComponent();
+      if (this.link == null)
+        this.link = new ArrayList<PatientLinkComponent>();
       this.link.add(t);
       return t;
     }
@@ -1026,7 +1513,20 @@ public class Patient extends DomainResource {
      * @return {@link #active} (Whether this patient record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public BooleanType getActiveElement() { 
+      if (this.active == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Patient.active");
+        else if (Configuration.doAutoCreate())
+          this.active = new BooleanType();
       return this.active;
+    }
+
+    public boolean hasActiveElement() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    public boolean hasActive() { 
+      return this.active != null && !this.active.isEmpty();
     }
 
     /**
@@ -1082,40 +1582,58 @@ public class Patient extends DomainResource {
       public Patient copy() {
         Patient dst = new Patient();
         copyValues(dst);
-        dst.identifier = new ArrayList<Identifier>();
-        for (Identifier i : identifier)
-          dst.identifier.add(i.copy());
-        dst.name = new ArrayList<HumanName>();
-        for (HumanName i : name)
-          dst.name.add(i.copy());
-        dst.telecom = new ArrayList<ContactPoint>();
-        for (ContactPoint i : telecom)
-          dst.telecom.add(i.copy());
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
+        if (name != null) {
+          dst.name = new ArrayList<HumanName>();
+          for (HumanName i : name)
+            dst.name.add(i.copy());
+        };
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         dst.gender = gender == null ? null : gender.copy();
         dst.birthDate = birthDate == null ? null : birthDate.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
-        dst.address = new ArrayList<Address>();
-        for (Address i : address)
-          dst.address.add(i.copy());
+        if (address != null) {
+          dst.address = new ArrayList<Address>();
+          for (Address i : address)
+            dst.address.add(i.copy());
+        };
         dst.maritalStatus = maritalStatus == null ? null : maritalStatus.copy();
         dst.multipleBirth = multipleBirth == null ? null : multipleBirth.copy();
-        dst.photo = new ArrayList<Attachment>();
-        for (Attachment i : photo)
-          dst.photo.add(i.copy());
-        dst.contact = new ArrayList<ContactComponent>();
-        for (ContactComponent i : contact)
-          dst.contact.add(i.copy());
+        if (photo != null) {
+          dst.photo = new ArrayList<Attachment>();
+          for (Attachment i : photo)
+            dst.photo.add(i.copy());
+        };
+        if (contact != null) {
+          dst.contact = new ArrayList<ContactComponent>();
+          for (ContactComponent i : contact)
+            dst.contact.add(i.copy());
+        };
         dst.animal = animal == null ? null : animal.copy();
-        dst.communication = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : communication)
-          dst.communication.add(i.copy());
-        dst.careProvider = new ArrayList<Reference>();
-        for (Reference i : careProvider)
-          dst.careProvider.add(i.copy());
+        if (communication != null) {
+          dst.communication = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : communication)
+            dst.communication.add(i.copy());
+        };
+        if (careProvider != null) {
+          dst.careProvider = new ArrayList<Reference>();
+          for (Reference i : careProvider)
+            dst.careProvider.add(i.copy());
+        };
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
-        dst.link = new ArrayList<PatientLinkComponent>();
-        for (PatientLinkComponent i : link)
-          dst.link.add(i.copy());
+        if (link != null) {
+          dst.link = new ArrayList<PatientLinkComponent>();
+          for (PatientLinkComponent i : link)
+            dst.link.add(i.copy());
+        };
         dst.active = active == null ? null : active.copy();
         return dst;
       }
@@ -1124,11 +1642,53 @@ public class Patient extends DomainResource {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (gender == null || gender.isEmpty()) && (birthDate == null || birthDate.isEmpty())
+           && (deceased == null || deceased.isEmpty()) && (address == null || address.isEmpty()) && (maritalStatus == null || maritalStatus.isEmpty())
+           && (multipleBirth == null || multipleBirth.isEmpty()) && (photo == null || photo.isEmpty())
+           && (contact == null || contact.isEmpty()) && (animal == null || animal.isEmpty()) && (communication == null || communication.isEmpty())
+           && (careProvider == null || careProvider.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
+           && (link == null || link.isEmpty()) && (active == null || active.isEmpty());
+      }
+
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Patient;
    }
 
+  @SearchParamDefinition(name="animal-breed", path="Patient.animal.breed", description="The breed for animal patients", type="token" )
+  public static final String SP_ANIMALBREED = "animal-breed";
+  @SearchParamDefinition(name="phonetic", path="", description="A portion of either family or given name using some kind of phonetic matching algorithm", type="string" )
+  public static final String SP_PHONETIC = "phonetic";
+  @SearchParamDefinition(name="link", path="Patient.link.other", description="All patients linked to the given patient", type="reference" )
+  public static final String SP_LINK = "link";
+  @SearchParamDefinition(name="animal-species", path="Patient.animal.species", description="The species for animal patients", type="token" )
+  public static final String SP_ANIMALSPECIES = "animal-species";
+  @SearchParamDefinition(name="organization", path="Patient.managingOrganization", description="The organization at which this person is a patient", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="given", path="Patient.name.given", description="A portion of the given name of the patient", type="string" )
+  public static final String SP_GIVEN = "given";
+  @SearchParamDefinition(name="careprovider", path="Patient.careProvider", description="Patient's nominated care provider, could be a care manager, not the organization that manages the record", type="reference" )
+  public static final String SP_CAREPROVIDER = "careprovider";
+  @SearchParamDefinition(name="address", path="Patient.address", description="An address in any kind of address/part of the patient", type="string" )
+  public static final String SP_ADDRESS = "address";
+  @SearchParamDefinition(name="family", path="Patient.name.family", description="A portion of the family name of the patient", type="string" )
+  public static final String SP_FAMILY = "family";
+  @SearchParamDefinition(name="name", path="Patient.name", description="A portion of either family or given name of the patient", type="string" )
+  public static final String SP_NAME = "name";
+  @SearchParamDefinition(name="telecom", path="Patient.telecom", description="The value in any kind of telecom details of the patient", type="string" )
+  public static final String SP_TELECOM = "telecom";
+  @SearchParamDefinition(name="birthdate", path="Patient.birthDate", description="The patient's date of birth", type="date" )
+  public static final String SP_BIRTHDATE = "birthdate";
+  @SearchParamDefinition(name="gender", path="Patient.gender", description="Gender of the patient", type="token" )
+  public static final String SP_GENDER = "gender";
+  @SearchParamDefinition(name="active", path="Patient.active", description="Whether the patient record is active", type="token" )
+  public static final String SP_ACTIVE = "active";
+  @SearchParamDefinition(name="language", path="Patient.communication", description="Language code (irrespective of use value)", type="token" )
+  public static final String SP_LANGUAGE = "language";
+  @SearchParamDefinition(name="identifier", path="Patient.identifier", description="A patient identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
 
 }
 
