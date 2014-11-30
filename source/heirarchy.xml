@@ -30,7 +30,7 @@ todo: compartments
                 <page title="Definitions" filename="resource-definitions.html"/>
                 <page title="Element Definition" filename="elementdefinition.html">
                     <page title="Element Definition Examples" filename="elementdefinition-examples.html"/>
-                    <page title="Element Definition Formal Definitions" filename="elementdefinition-definitions.html"/>
+                    <page title="Element Definition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
                     <page title="Element Definition Mappings" filename="elementdefinition-mappings.html"/>
                 </page>
                 <page title="Conformance" filename="conformance-rules.html"/>
@@ -57,7 +57,7 @@ todo: compartments
             </page>
             <page title="Data Types" filename="datatypes.html">
                 <page title="Examples" filename="datatypes-examples.html"/>
-                <page title="Formal Definitions" filename="datatypes-definitions.html"/>
+                <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
                 <page title="Mappings" filename="datatypes-mappings.html"/>
             </page>
             <page title="Using Codes" filename="terminologies.html">

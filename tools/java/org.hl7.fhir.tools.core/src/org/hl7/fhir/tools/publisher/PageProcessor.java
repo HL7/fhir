@@ -1813,7 +1813,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Data Types", "datatypes.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "datatypes-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "datatypes-mappings.html", mode==null || "mappings".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
@@ -1824,7 +1824,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Element Definition", "elementdefinition.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "elementdefinition-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "elementdefinition-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "elementdefinition-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "elementdefinition-mappings.html", mode==null || "mappings".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
@@ -1835,7 +1835,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Extensiblity", "extensibility.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "extensibility-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "extensibility-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "extensibility-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -1845,7 +1845,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Narrative", "narrative.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "narrative-example.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "narrative-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "narrative-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -1864,7 +1864,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Tags, Bundles, Compartments", "extras.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "extras-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "extras-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "extras-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -1874,7 +1874,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Resource Definitions", "resources.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "resources-examples.html", mode==null || "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "resources-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "resources-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -1883,7 +1883,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("References", "references.html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", "references-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "references-definitions.html", mode==null || "definitions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -1901,9 +1901,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    else
 //      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
 //    if ("definitions".equals(mode))
-//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
+//      b.append("<li class=\"selected\"><span>Detailed Descriptions</span></li>");
 //    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Detailed Descriptions</a></span></li>");
 //    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
 //    b.append("</ul></div>\r\n");
 //    return b.toString();
@@ -1924,9 +1924,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 //    else
 //      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
 //    if ("definitions".equals(mode))
-//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
+//      b.append("<li class=\"selected\"><span>Detailed Descriptions</span></li>");
 //    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Detailed Descriptions</a></span></li>");
 //    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
 //    b.append("</ul></div>\r\n");
 //    return b.toString();
@@ -1941,7 +1941,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
@@ -1960,7 +1960,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     b.append(makeHeaderTab("XML", n+".xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", n+".json.html", "json".equals(mode)));
@@ -2131,9 +2131,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
     b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Packages", n+"-packages.html", "packages".equals(mode)));
+    b.append(makeHeaderTab("Conformance Packages", n+"-packages.html", "packages".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
 
@@ -2152,7 +2152,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<ul class=\"nav nav-tabs\">");
     
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     if (hasExamples)
       b.append(makeHeaderTab("Examples", n+"-examples.html", "operations".equals(mode)));
     if (hasOps)

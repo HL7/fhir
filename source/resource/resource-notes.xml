@@ -210,7 +210,7 @@ about the information in the resource. For further information, see
   <li><a href="narrative.html">Narratives</a></li>
   <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
   <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
-  <li><a href="base-definitions.html">Formal Definitions</a></li>
+  <li><a href="base-definitions.html">Detailed Descriptions</a></li>
   <li><a href="compatibility.html">Inter-version Compatibility</a></li>
 </ul>
 

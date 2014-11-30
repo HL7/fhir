@@ -42,7 +42,8 @@ public interface IWorkerContext {
    * 
    * When you find a reference to another resource in a resource, you pass in the 
    * reference itself, the resource it was found in, and (if available), the bundle
-   * that the source resource was located in. 
+   * that the source resource was located in. Note: if the reference is inside a 
+   * contained resource, provide the 
    *
    * THe implementation of this method will look through the contained resources in 
    * resource (if it's an internal reference - starts with #), or the bundle (following
@@ -51,7 +52,7 @@ public interface IWorkerContext {
    * 
    * Either the resource will be returned, or an exception will be thrown with details
    * about why the resource could not be resolved. If the resolved resource is inside 
-   * a bundle (usually, but not always) the same bundle, then the bundle will be returned 
+   * a bundle (usually, but not always, the same bundle), then the bundle will be returned 
    * as well as the resource, so that it can be passed back to this method for subsequent
    * calls 
    * @param <T>

@@ -69,11 +69,15 @@ public class ResourceValidator extends BaseValidator {
   public class Usage {
     public Set<SearchParameterDefn.SearchType> usage= new HashSet<SearchParameterDefn.SearchType>();
   }
+  public class UsageT {
+    public Set<String> usage= new HashSet<String>();
+  }
   
  
 
   private Definitions definitions;
-	private Map<String, Usage> usages = new HashMap<String, Usage>();
+  private Map<String, Usage> usages = new HashMap<String, Usage>();
+  private Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
@@ -149,11 +153,23 @@ public class ResourceValidator extends BaseValidator {
       if (!usages.containsKey(p.getCode()))
         usages.put(p.getCode(), new Usage());
       usages.get(p.getCode()).usage.add(p.getType());
+      if (!usagest.containsKey(p.getType()))
+        usagest.put(p.getType(), new UsageT());
       rule(errors, "structure", parent.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
       rule(errors, "structure", parent.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().contains("|"), "Search Parameter descriptions should start with uppercase (\""+p.getDescription()+"\")");
+      try {
+        for (String path : p.getPaths()) {
+          ElementDefn e;
+          e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
+          for (TypeRef t : e.getTypes()) {
+            usagest.get(p.getType()).usage.add((e.getTypes().size() > 1 ? path+":" : "") +t.getName());
+          }
+        }
+      } catch (Exception e1) {
+      }
       try {
         if (p.getType() == SearchType.reference) {
           for (String path : p.getPaths()) {
@@ -514,9 +530,12 @@ public class ResourceValidator extends BaseValidator {
   }
 
   public void dumpParams() {
-    for (String s : usages.keySet()) {
-      System.out.println(s+": "+usages.get(s).usage.toString());
-    }
+//    for (String s : usages.keySet()) {
+//      System.out.println(s+": "+usages.get(s).usage.toString());
+//    }
+//    for (SearchType s : usagest.keySet()) {
+//      System.out.println(s.toString()+": "+usagest.get(s).usage.toString());
+//    }
   }
 
   public void report() {

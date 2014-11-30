@@ -295,7 +295,7 @@ public class BookMaker {
             addPageContent(lvl, divS, rn.toLowerCase()+"Ex", r.getName());
         }
       }
-      if (s.getLink().equals("page") && s.getName().equals("Formal Definitions")) {
+      if (s.getLink().equals("page") && s.getName().equals("Detailed Descriptions")) {
        
         for (String rn : list) {
           lvl.l2++;
@@ -522,7 +522,7 @@ public class BookMaker {
             p.addText("\r\n     ");
         }
       }
-      if (c.getLink().equals("page") && c.getName().equals("Formal Definitions")) {
+      if (c.getLink().equals("page") && c.getName().equals("Detailed Descriptions")) {
         
         for (String rn : list) {
           i2++;

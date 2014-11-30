@@ -176,6 +176,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jgen.close();
     }
     
+    // delete old files to save people finding and deleting them
+    File xc = new File(javaParserDir+"XmlParser.java");
+    if (xc.exists()) xc.delete();
+    File jc = new File(javaParserDir+"JsonParser.java");
+    if (jc.exists()) jc.delete();
+    
     JavaParserXmlGenerator jParserGenX = new JavaParserXmlGenerator(new FileOutputStream(javaParserDir+"XmlParser.java"));
     jParserGenX.generate(definitions, version, genDate);    
     jParserGenX.generateComposer();
