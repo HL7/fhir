@@ -396,6 +396,11 @@ defines what the semantics of the deletion interactions are. If no documentation
 deletion interaction should be understood as deleting the record of the resource, with nothing
 about the state of the real-world corresponding resource implied.
 </p>
+<p>
+DELETEing a resource does not delete it's version history. From a version history respect, 
+deleting a resource is the equivalent of creating a special kind of history entry that has 
+no content and is <a href="bundle-definitions.html#Bundle.entry.status">marked as deleted</a>.
+</p>
 
 <a name="create"> </a>
 <h3>create</h3>
