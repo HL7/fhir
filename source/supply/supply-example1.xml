@@ -3,8 +3,8 @@
  <id value="102"/>
   <kind>
     <coding>
-      <code value="central" />
       <system value="http://hl7.org/fhir/supply-type"/>
+      <code value="central" />
       <display value="Central Supply" />
       <primary value="true" />
       <valueSet>
@@ -39,8 +39,8 @@
     <status value="dispensed" />
     <type>
       <coding>
-        <code value="device" />
         <system value="http://hl7.org/fhir/supply-item-type"/>
+        <code value="device" />
         <display value="Device" />
         <primary value="true" />
         <valueSet>
