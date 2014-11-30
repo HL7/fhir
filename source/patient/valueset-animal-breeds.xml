@@ -1,32 +1,46 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="AnimalBreeds"/>
-  <publisher value="FHIR Project team"/>
-  <telecom>  
-    <system value="url"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
-  <description value="This example value set defines a set of codes that can be used to indicate breeds of species."/>
-  <status value="draft"/>
-  <define>
-    <system value="http://hl7.org/fhir/animal-breed"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="gsd"/>
-      <display value="German Shepherd Dog"/>
-    </concept>
-    <concept>
-      <code value="irt"/>
-      <display value="Irish Terrier"/>
-    </concept>
-    <concept>
-      <code value="tibmas"/>
-      <display value="Tibetan Mastiff"/>
-    </concept>  
-    <concept>
-      <code value="gret"/>
-      <display value="Golden Retriever"/>
-    </concept>  
-  </define>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <name value="AnimalBreeds"/>
+    <publisher value="FHIR Project team"/>
+    <telecom>
+        <system value="url"/>
+        <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <description value="This example value set defines a set of codes that can be used to indicate breeds of species."/>
+    <status value="draft"/>
+    <define>
+        <system value="http://hl7.org/fhir/animal-breed"/>
+        <caseSensitive value="true"/>
+        <concept>
+            <code value="gsd"/>
+            <display value="German Shepherd Dog"/>
+            <designation>
+                <language value="nl"/>
+                <value value="Duitse herdershond"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="irt"/>
+            <display value="Irish Terrier"/>
+            <designation>
+                <language value="nl"/>
+                <value value="Ierse terrier"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="tibmas"/>
+            <display value="Tibetan Mastiff"/>
+            <designation>
+                <language value="nl"/>
+                <value value="Tibetaanse mastiff"/>
+            </designation>
+        </concept>
+        <concept>
+            <code value="gret"/>
+            <display value="Golden Retriever"/>
+            <designation>
+                <language value="nl"/>
+                <value value="Golden Retriever"/>
+            </designation>
+        </concept>
+    </define>
 </ValueSet>
-
