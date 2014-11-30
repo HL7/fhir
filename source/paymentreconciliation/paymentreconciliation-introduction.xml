@@ -1,0 +1,41 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The PaymentReconciliation resource provides application level error information or the bulk payment details 
+associated with a payment by the payor for goods and services rendered by a provider to patients 
+covered by insurance plans offered by that payor. These are the payment reconciliation details which 
+align to the individual payment amounts indicated on discrete ClaimResponses.
+</p>
+<p>
+Bulk payments need to provide a means to associate the amounts paid again specific Claims, 
+and other financial exchanges and adjustments, to the bulk payment itself in order to reconcile
+ provider accounts receivable.
+</p>
+<p>
+Todo
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+</p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+
+</div>

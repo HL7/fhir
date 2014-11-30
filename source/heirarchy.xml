@@ -227,6 +227,7 @@ todo: compartments
             <page type="resource" resource="Enrollment"/>
             <page type="resource" resource="EnrollmentResponse"/>
             <page type="resource" resource="OralHealthClaim"/>
+            <page type="resource" resource="PaymentReconciliation"/>
             <page type="resource" resource="PendedRequest"/>
             <page type="resource" resource="Reversal"/>
             <page type="resource" resource="StatusRequest"/>

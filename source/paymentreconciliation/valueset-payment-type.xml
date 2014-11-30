@@ -3,11 +3,11 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes sample Contract Signer Type codes.
+      This value set includes sample Payment Type codes.
     </div>
   </text>
-  <name value="Contract Signer Type Codes"/>
-  <publisher value="CBCC"/>
+  <name value="Payment Type Codes"/>
+  <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
   <status value="draft"/>
   <telecom>  
@@ -17,12 +17,15 @@
   <description value="This value set includes sample Contract Type codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+	<system value="http://www.hl7.org/fhir/contracttypecodes"/>
 	<concept>
-      <code value="guarantor"/>
+      <code value="payment"/>
     </concept>
 	<concept>
-      <code value="notary"/>
+      <code value="adjustment"/>
+    </concept>
+	<concept>
+      <code value="advance"/>
     </concept>
 	</define>
 </ValueSet>
