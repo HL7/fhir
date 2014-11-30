@@ -1118,7 +1118,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Title of selection</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Reason for selection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">The reason for, or significance of, the selection of objects referenced in the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3681,7 +3681,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3696,7 +3696,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3772,7 +3773,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C23,R5C1:R7C23,R3C1:R4C17,R3C19:R4C23,R9C1:R100C23,R8C1:R8C17,R8C19:R8C23</Range>
+   <Range>R2C1:R100C23</Range>
    <Condition>
     <Value1>RC3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -3839,7 +3840,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C18:R7C19,R3C19:R4C19,R9C18:R100C19,R8C19</Range>
+   <Range>R3C18:R100C19</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
@@ -3853,82 +3854,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R2C23,R5C1:R7C23,R3C1:R4C17,R3C19:R4C23,R9C1:R100C23,R8C1:R8C17,R8C19:R8C23</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C18</Range>
-   <Condition>
-    <Value1>RC3=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C18</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C18</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C18</Range>
-   <Condition>
-    <Value1>RC3=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C18</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C18</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C18</Range>
-   <Condition>
-    <Value1>RC3=&quot;0..0&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C18</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C)),RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C18</Range>
+   <Range>R2C1:R100C23</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
