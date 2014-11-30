@@ -1,4 +1,4 @@
-<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
+﻿<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
     <!--
  This file is for the convenience of implementers, to enable sharing of language translations.
  There is no obligation for any implementer to use the messages contained in this file, but
@@ -260,6 +260,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">影像检查</translation>
         <translation lang="es">EstudioImagen</translation>
         <translation lang="fr">EtudeImagerie</translation>
+    </item>
+    <item id="ImagingObjectSelection">
+        <translation lang="en">ImagingObjectSelection</translation>
     </item>
     <item id="Immunization">
         <translation lang="en">Immunization</translation>
