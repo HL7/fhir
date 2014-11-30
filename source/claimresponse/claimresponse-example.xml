@@ -25,8 +25,7 @@
   <requestOrganization>
     <reference value="Organization/1"/>
   </requestOrganization>
- </ClaimResponse>
-<!--
+
   <outcome value="complete"/>
  
   <disposition value="Claim settled as per contract."/>
@@ -35,9 +34,9 @@
      <system value="http://hl7.org/fhir/payeetype"/>
      <code value="provider"/>
   </payeeType>
--->
+
  <!-- Adjudication details -->
- <!--
+ 
  <item>
 
    <sequenceLinkId value="1"/> 
@@ -95,9 +94,9 @@
 	<system value="urn:std:iso:4217"/>
 	<code value="USD"/>
  </totalBenefit>
- -->
+
  <!-- Payment details -->
- <!--
+ 
  <paymentDate value="2014-08-31"/>
  
  <paymentAmount>
@@ -110,5 +109,5 @@
     <system value="http://www.BenefitsInc.com/fhir/paymentRef"/>
     <value value="201408-2-1569478"/>
  </paymentRef>	
-
-</ClaimResponse> -->
+ 
+</ClaimResponse>
