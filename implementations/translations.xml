@@ -454,9 +454,11 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="en">QuestionnaireAnswers</translation>
         <translation lang="fr">RéponseQuestionnaire</translation>
     </item>
+    <item id="Readjudicate">
+        <translation lang="en">Readjudicate</translation>
+    </item>
     <item id="ReferralRequest">
         <translation lang="en">ReferralRequest</translation>
-
     </item>
     <item id="RelatedPerson">
         <translation lang="en">RelatedPerson</translation>
