@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */

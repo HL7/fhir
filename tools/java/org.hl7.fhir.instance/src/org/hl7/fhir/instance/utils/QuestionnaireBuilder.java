@@ -17,7 +17,6 @@ import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.instance.model.Enumeration;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;

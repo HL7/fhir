@@ -27,6 +27,7 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
@@ -293,11 +294,13 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    new JsonParser().compose(b, vs, false);
+    JsonParser parser = new JsonParser();
+    parser.setOutputStyle(OutputStyle.NORMAL);
+    parser.compose(b, vs);
     String hash = Integer.toString(new String(b.toByteArray()).hashCode());
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
-      Resource r = new JsonParser().parse(new FileInputStream(fn));
+      Resource r = parser.parse(new FileInputStream(fn));
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
@@ -319,11 +322,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         params.put("limit", "500");
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), result, false);
+        parser.compose(new FileOutputStream(fn), result);
         return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
+        parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;
@@ -352,11 +355,13 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ByteArrayOutputStream b = new  ByteArrayOutputStream();
-    new JsonParser().compose(b, vs, false);
+    JsonParser parser = new JsonParser();
+    parser.setOutputStyle(OutputStyle.NORMAL);
+    parser.compose(b, vs);
     String hash = Integer.toString(new String(b.toByteArray()).hashCode())+"-vs-check";
     String fn = Utilities.path(cache, hash+".json");
     if (new File(fn).exists()) {
-      Resource r = new JsonParser().parse(new FileInputStream(fn));
+      Resource r = parser.parse(new FileInputStream(fn));
       if (r instanceof OperationOutcome)
         throw new Exception(((OperationOutcome) r).getIssue().get(0).getDetails());
       else
@@ -378,11 +383,11 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         params.put("code", code);
         Bundle result = client.searchPost(ValueSet.class, vs, params);
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), result, false);
+        parser.compose(new FileOutputStream(fn), result);
         return ((OperationOutcome) result.getEntry().get(0).getResource());
       } catch (EFhirClientException e) {
         serverOk = true;
-        new JsonParser().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
+        parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));
         throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails());
       } catch (Exception e) {
         serverOk = false;

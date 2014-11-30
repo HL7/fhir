@@ -8,8 +8,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import org.hl7.fhir.instance.formats.JsonCreatorCanonical.JsonCanObject;
-
 import com.google.gson.stream.JsonWriter;
 
 public class JsonCreatorCanonical implements JsonCreator {

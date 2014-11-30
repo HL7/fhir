@@ -84,6 +84,8 @@ import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
@@ -1077,9 +1079,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genV3CodeSystem(String name) throws Exception {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v3/"+name);
-    new XmlParser().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name);
-    new JsonParser().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name);
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -1087,11 +1089,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genV3ValueSet(String name) throws Exception {
     ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name);
-    XmlParser xml = new XmlParser();
-    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
+    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v3:vs:"+name);
-    JsonParser json = new JsonParser();
-    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name);
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
@@ -1100,11 +1102,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genV2TableVer(String name) throws Exception {
     String[] n = name.split("\\|");
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]);
-    XmlParser xml = new XmlParser();
-    xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs, true);
+    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getName(), vs.getDescription(), 3, false, "v2:tbl"+name);
-    JsonParser json = new JsonParser();
-    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
+    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getName(), vs.getDescription(), 3, r2Json(vs), "v2:tbl"+name);
     addToValuesets(v2Valuesets, vs);
 
@@ -1113,11 +1115,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genV2Table(String name) throws Exception {
     ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+name);
-    XmlParser xml = new XmlParser();
-    xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs, true);
+    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name);
-    JsonParser json = new JsonParser();
-    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
+    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name);
     addToValuesets(v2Valuesets, vs);
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -1125,9 +1127,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String r2Json(ValueSet vs) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    JsonParser json = new JsonParser();
+    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
-    json.compose(bytes, vs, true);
+    json.compose(bytes, vs);
     return new String(bytes.toByteArray());
   }
 

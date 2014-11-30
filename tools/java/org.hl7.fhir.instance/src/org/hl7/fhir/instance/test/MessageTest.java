@@ -20,7 +20,7 @@ public class MessageTest {
 		// Serialize Atom Feed
 		Parser comp = new JsonParser();
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		comp.compose(os, feed, false);
+		comp.compose(os, feed);
 		String json = os.toString();
 		
 		// Deserialize Atom Feed

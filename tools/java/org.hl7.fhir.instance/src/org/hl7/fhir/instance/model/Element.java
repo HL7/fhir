@@ -1,10 +1,9 @@
 package org.hl7.fhir.instance.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import org.hl7.fhir.utilities.Utilities;
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -33,8 +32,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-
-import org.hl7.fhir.utilities.Utilities;
 
 /**
  * The base element as defined in FHIR: an id attribute or property, and extensions. 

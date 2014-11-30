@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation.
  */
@@ -4285,13 +4286,13 @@ public class Conformance extends DomainResource {
     protected List<CodeType> format;
 
     /**
-     * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
+     * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
     @Child(name="profile", type={Profile.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Profiles supported by the system", formalDefinition="A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile." )
+    @Description(shortDefinition="Profiles supported by the system", formalDefinition="A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile." )
     protected List<Reference> profile;
     /**
-     * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     protected List<Profile> profileTarget;
 
@@ -4938,7 +4939,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public List<Reference> getProfile() { 
       if (this.profile == null)
@@ -4956,7 +4957,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     // syntactic sugar
     public Reference addProfile() { //3
@@ -4968,7 +4969,7 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public List<Profile> getProfileTarget() { 
       if (this.profileTarget == null)
@@ -4978,7 +4979,7 @@ public class Conformance extends DomainResource {
 
     // syntactic sugar
     /**
-     * @return {@link #profile} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     * @return {@link #profile} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public Profile addProfileTarget() { 
       Profile r = new Profile();
@@ -5094,7 +5095,7 @@ public class Conformance extends DomainResource {
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("acceptUnknown", "boolean", "A flag that indicates whether the application accepts unknown elements as part of a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "A list of the formats supported by this implementation.", 0, java.lang.Integer.MAX_VALUE, format));
-        childrenList.add(new Property("profile", "Reference(Profile)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
+        childrenList.add(new Property("profile", "Reference(Profile)", "A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "A definition of the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));
         childrenList.add(new Property("messaging", "", "A description of the messaging capabilities of the solution.", 0, java.lang.Integer.MAX_VALUE, messaging));
         childrenList.add(new Property("document", "", "A document definition.", 0, java.lang.Integer.MAX_VALUE, document));

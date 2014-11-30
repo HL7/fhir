@@ -65,7 +65,6 @@ import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Duration;
-import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
@@ -135,12 +134,14 @@ public class NarrativeGenerator {
 
   private String prefix;
   private WorkerContext context;
+  private IWorkerContext ctxt;
   
   
   public NarrativeGenerator(String prefix, WorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
+    ctxt = null;
   }
 
   public void generate(DomainResource r) throws Exception {
@@ -155,7 +156,8 @@ public class NarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      generateByProfile(r, context.getProfiles().get(r.getResourceType().toString()), true); // todo: make this manageable externally 
+      Profile p = ctxt.findResource(Profile.class, "test");
+      generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
       generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
     }

@@ -14,10 +14,8 @@ import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FeedFormat;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
-
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;

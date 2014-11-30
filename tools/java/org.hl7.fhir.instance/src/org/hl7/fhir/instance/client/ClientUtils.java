@@ -41,7 +41,6 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -69,9 +68,9 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -384,7 +383,8 @@ public class ClientUtils {
 			} else {
 				parser = new XmlParser();
 			}
-			parser.compose(baos, resource, pretty);
+      parser.setOutputStyle(pretty ? OutputStyle.PRETTY : OutputStyle.NORMAL);
+			parser.compose(baos, resource);
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -409,7 +409,8 @@ public class ClientUtils {
 			} else {
 				parser = new XmlParser();
 			}
-			parser.compose(baos, feed, pretty);
+      parser.setOutputStyle(pretty ? OutputStyle.PRETTY : OutputStyle.NORMAL);
+			parser.compose(baos, feed);
 			byteArray =  baos.toByteArray();
 			baos.close();
 		} catch (Exception e) {
@@ -491,7 +492,9 @@ public class ClientUtils {
     w.write(boundary);
     w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n\r\n");
     w.close(); 
-    new JsonParser().compose(b, resource, false);
+    JsonParser json = new JsonParser();
+    json.setOutputStyle(OutputStyle.NORMAL);
+    json.compose(b, resource);
     w = new OutputStreamWriter(b, "UTF-8");  
     w.write("\r\n--");
     w.write(boundary);

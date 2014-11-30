@@ -32,8 +32,6 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.List;
 
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Resource;
 
 public class ResourceOrFeed {

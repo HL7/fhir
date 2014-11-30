@@ -43,6 +43,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -206,7 +207,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       return Utilities.escapeXml(((PrimitiveType) value).asStringValue());
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    new XmlParser().compose(bs, value);
+    XmlParser parser = new XmlParser();
+    parser.setOutputStyle(OutputStyle.PRETTY);
+    parser.compose(bs, null, value);
     String[] lines = bs.toString().split("\\r?\\n");
     StringBuilder b = new StringBuilder();
     for (String s : lines) {

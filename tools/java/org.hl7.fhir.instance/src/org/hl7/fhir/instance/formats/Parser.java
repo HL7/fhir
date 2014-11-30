@@ -35,21 +35,104 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
+import org.hl7.fhir.instance.model.Type;
 
 
 /**
- * General interface - either an XML or JSON parser. 
+ * General interface - either an XML or JSON parser: read or write instances
+ *  
  * Defined to allow a factory to create a parser of the right type
  */
 public interface Parser {
 
   /**
+   * Used in factory methods for parsers, for requesting a parser of a particular type 
+   * (see IWorkerContext)
+   * 
+   * @author Grahame
+   *
+   */
+  public enum ParserType {
+    /**
+     * XML as specified in specification 
+     */
+    XML, 
+
+    /**
+     * JSON as specified in the specification
+     */
+    JSON,
+
+    /** 
+     * XHTML - write narrative (generate if necessary). No read
+     */
+    XHTML,
+
+     /**
+     * RDF is not supported yet
+     */
+    RDF 
+  }
+  
+  // -- Parser Configuration ----------------------------------
+  /**
+   * Whether to parse or ignore comments - either reading or writing
+   */
+  public boolean getHandleComments(); 
+  public Parser setHandleComments(boolean value);
+
+  /**
+   * @param allowUnknownContent Whether to throw an exception if unknown content is found (or just skip it) when parsing
+   */
+  public boolean isAllowUnknownContent();
+  public Parser setAllowUnknownContent(boolean value);
+  
+  
+  public enum OutputStyle {
+    /**
+     * Produce normal output - no whitespace, except in HTML where whitespace is untouched
+     */
+    NORMAL,
+    
+    /**
+     * Produce pretty output - human readable whitespace, HTML whitespace untouched
+     */
+    PRETTY,
+    
+    /**
+     * Produce canonical output - no comments, no whitspace, HTML whitespace normlised, JSON attributes sorted alphabetically (slightly slower) 
+     */
+    CANONICAL,
+  }
+
+  /**
+   * Writing: 
+   */
+  public OutputStyle getOutputStyle();
+  public Parser setOutputStyle(OutputStyle value);
+  
+  /**
+   * This method is used by the publication tooling to stop the xhrtml narrative being generated. 
+   * It is not valid to use in production use. The tooling uses it to generate json/xml representations in html that are not cluttered by escaped html representations of the html representation
+   */
+  public Parser setSuppressXhtml(String message);
+
+  // -- Reading methods ----------------------------------------
+  
+  /**
    * parse content that is known to be a resource  
    */
   public Resource parse(InputStream input) throws Exception;
+
+  /**
+   * parse content that is known to be a resource  
+   */
   public Resource parse(String input) throws Exception;
+  
+  /**
+   * parse content that is known to be a resource  
+   */
   public Resource parse(byte[] bytes) throws Exception;
   
   /**
@@ -57,32 +140,103 @@ public interface Parser {
    */
   public ResourceMetaComponent parseMeta(InputStream input) throws Exception;
 
-	/**
-	 * This method is used by the publication tooling to stop the xhrtml narrative being generated. 
-	 * It is not valid to use in production use. The tooling uses it to generation json/xml representations in html that are not cluttered by escaped html representations of the html representation
-	 */
-	public void setSuppressXhtml(String message);
+  /**
+   * parse content that is known to be a meta (from one of the meta operations)  
+   */
+  public ResourceMetaComponent parseMeta(String input) throws Exception;
 
+  /**
+   * parse content that is known to be a meta (from one of the meta operations)  
+   */
+  public ResourceMetaComponent parseMeta(byte[] bytes) throws Exception;
+
+  /**
+   * This is used to parse a type - a fragment of a resource. 
+   * There's no reason to use this in production - it's used 
+   * in the build tools 
+   * 
+   * Not supported by all implementations
+   * 
+   * @param input
+   * @param knownType. if this is blank, the parser may try to infer the type (xml only)
+   * @return
+   */
+  public Type parseType(InputStream input, String knownType) throws Exception;
+  /**
+   * This is used to parse a type - a fragment of a resource. 
+   * There's no reason to use this in production - it's used 
+   * in the build tools 
+   * 
+   * Not supported by all implementations
+   * 
+   * @param input
+   * @param knownType. if this is blank, the parser may try to infer the type (xml only)
+   * @return
+   */
+  public Type parseType(String input, String knownType) throws Exception;
+  /**
+   * This is used to parse a type - a fragment of a resource. 
+   * There's no reason to use this in production - it's used 
+   * in the build tools 
+   * 
+   * Not supported by all implementations
+   * 
+   * @param input
+   * @param knownType. if this is blank, the parser may try to infer the type (xml only)
+   * @return
+   */
+  public Type parseType(byte[] bytes, String knownType) throws Exception;
+  
+  // -- Writing methods ----------------------------------------
+  
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception;
-	public String composeString(Resource resource, boolean pretty) throws Exception;
-	public byte[] composeBytes(Resource resource, boolean pretty) throws Exception;
+	public void compose(OutputStream stream, Resource resource) throws Exception;
+	
+  /**
+   * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+	public String composeString(Resource resource) throws Exception;
+
+	/**
+   * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+	public byte[] composeBytes(Resource resource) throws Exception;
 
 	/**
 	 * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
 	 */
-	public void compose(OutputStream stream, ResourceMetaComponent meta, boolean pretty) throws Exception;
-	public String composeString(ResourceMetaComponent meta, boolean pretty) throws Exception;
-	public byte[] composeBytes(ResourceMetaComponent meta, boolean pretty) throws Exception;
+	public void compose(OutputStream stream, ResourceMetaComponent meta) throws Exception;
+  /**
+   * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
+   */
+	public String composeString(ResourceMetaComponent meta) throws Exception;
+  /**
+   * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
+   */
+	public byte[] composeBytes(ResourceMetaComponent meta) throws Exception;
 
 	/**
 	 * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 * 
+	 * Not supported by all implementations. rootName is ignored in the JSON format
 	 */
-	public void compose(OutputStream stream, Type type, boolean pretty) throws Exception;
-  public String composeString(Type type, boolean pretty) throws Exception;
-	public byte[] composeBytes(Type type, boolean pretty) throws Exception;
+	public void compose(OutputStream stream, Type type, String rootName) throws Exception;
+
+	/**
+   * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   * 
+   * Not supported by all implementations. rootName is ignored in the JSON format
+   */
+  public String composeString(Type type, String rootName) throws Exception;
+
+  /**
+   * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   * 
+   * Not supported by all implementations. rootName is ignored in the JSON format
+   */
+	public byte[] composeBytes(Type type, String rootName) throws Exception;
 
 
 }

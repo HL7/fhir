@@ -2,8 +2,8 @@ package org.hl7.fhir.instance.validation;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;

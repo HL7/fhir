@@ -29,26 +29,13 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import org.hl7.fhir.instance.model.IntegerType;
-import org.hl7.fhir.instance.model.DateTimeType;
-import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.DateType;
-import org.hl7.fhir.instance.model.DecimalType;
-import org.hl7.fhir.instance.model.UriType;
-import org.hl7.fhir.instance.model.IdType;
-import org.hl7.fhir.instance.model.Base64BinaryType;
-import org.hl7.fhir.instance.model.TimeType;
-import org.hl7.fhir.instance.model.OidType;
-import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.BooleanType;
-import org.hl7.fhir.instance.model.UuidType;
-import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.utilities.Utilities;
-import com.google.gson.JsonObject;
+
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 public class JsonParser extends JsonParserBase {
 
@@ -70,112 +57,112 @@ public class JsonParser extends JsonParserBase {
   }
 
   @SuppressWarnings("unchecked")
-  private <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {
+  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {
     Enumeration<E> res = new Enumeration<E>();
     if (s != null)
       res.setValue((E) e.fromCode(s));
     return res;
   }
 
-  private IntegerType parseInteger(java.lang.Long v) throws Exception {
+  protected IntegerType parseInteger(java.lang.Long v) throws Exception {
     IntegerType res = new IntegerType();
     if (v != null)
       res.setValue(parseIntegerPrimitive(v));
     return res;
   }
 
-  private DateTimeType parseDateTime(String v) throws Exception {
+  protected DateTimeType parseDateTime(String v) throws Exception {
     DateTimeType res = new DateTimeType();
     if (v != null)
       res.setValue(parseDateTimePrimitive(v));
     return res;
   }
 
-  private CodeType parseCode(String v) throws Exception {
+  protected CodeType parseCode(String v) throws Exception {
     CodeType res = new CodeType();
     if (v != null)
       res.setValue(parseCodePrimitive(v));
     return res;
   }
 
-  private DateType parseDate(String v) throws Exception {
+  protected DateType parseDate(String v) throws Exception {
     DateType res = new DateType();
     if (v != null)
       res.setValue(parseDatePrimitive(v));
     return res;
   }
 
-  private DecimalType parseDecimal(java.math.BigDecimal v) throws Exception {
+  protected DecimalType parseDecimal(java.math.BigDecimal v) throws Exception {
     DecimalType res = new DecimalType();
     if (v != null)
       res.setValue(parseDecimalPrimitive(v));
     return res;
   }
 
-  private UriType parseUri(String v) throws Exception {
+  protected UriType parseUri(String v) throws Exception {
     UriType res = new UriType();
     if (v != null)
       res.setValue(parseUriPrimitive(v));
     return res;
   }
 
-  private IdType parseId(String v) throws Exception {
+  protected IdType parseId(String v) throws Exception {
     IdType res = new IdType();
     if (v != null)
       res.setValue(parseIdPrimitive(v));
     return res;
   }
 
-  private Base64BinaryType parseBase64Binary(String v) throws Exception {
+  protected Base64BinaryType parseBase64Binary(String v) throws Exception {
     Base64BinaryType res = new Base64BinaryType();
     if (v != null)
       res.setValue(parseBase64BinaryPrimitive(v));
     return res;
   }
 
-  private TimeType parseTime(String v) throws Exception {
+  protected TimeType parseTime(String v) throws Exception {
     TimeType res = new TimeType();
     if (v != null)
       res.setValue(parseTimePrimitive(v));
     return res;
   }
 
-  private OidType parseOid(String v) throws Exception {
+  protected OidType parseOid(String v) throws Exception {
     OidType res = new OidType();
     if (v != null)
       res.setValue(parseOidPrimitive(v));
     return res;
   }
 
-  private StringType parseString(String v) throws Exception {
+  protected StringType parseString(String v) throws Exception {
     StringType res = new StringType();
     if (v != null)
       res.setValue(parseStringPrimitive(v));
     return res;
   }
 
-  private BooleanType parseBoolean(java.lang.Boolean v) throws Exception {
+  protected BooleanType parseBoolean(java.lang.Boolean v) throws Exception {
     BooleanType res = new BooleanType();
     if (v != null)
       res.setValue(parseBooleanPrimitive(v));
     return res;
   }
 
-  private UuidType parseUuid(String v) throws Exception {
+  protected UuidType parseUuid(String v) throws Exception {
     UuidType res = new UuidType();
     if (v != null)
       res.setValue(parseUuidPrimitive(v));
     return res;
   }
 
-  private InstantType parseInstant(String v) throws Exception {
+  protected InstantType parseInstant(String v) throws Exception {
     InstantType res = new InstantType();
     if (v != null)
       res.setValue(parseInstantPrimitive(v));
     return res;
   }
 
-  private Extension parseExtension(JsonObject json) throws Exception {
+  protected Extension parseExtension(JsonObject json) throws Exception {
     Extension res = new Extension();
     parseElementProperties(json, res);
     if (json.has("url"))
@@ -188,7 +175,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Narrative parseNarrative(JsonObject json) throws Exception {
+  protected Narrative parseNarrative(JsonObject json) throws Exception {
     Narrative res = new Narrative();
     parseElementProperties(json, res);
     if (json.has("status"))
@@ -200,7 +187,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Period parsePeriod(JsonObject json) throws Exception {
+  protected Period parsePeriod(JsonObject json) throws Exception {
     Period res = new Period();
     parseTypeProperties(json, res);
     if (json.has("start"))
@@ -214,7 +201,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Coding parseCoding(JsonObject json) throws Exception {
+  protected Coding parseCoding(JsonObject json) throws Exception {
     Coding res = new Coding();
     parseTypeProperties(json, res);
     if (json.has("system"))
@@ -242,7 +229,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Range parseRange(JsonObject json) throws Exception {
+  protected Range parseRange(JsonObject json) throws Exception {
     Range res = new Range();
     parseTypeProperties(json, res);
     if (json.has("low"))
@@ -252,7 +239,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Quantity parseQuantity(JsonObject json) throws Exception {
+  protected Quantity parseQuantity(JsonObject json) throws Exception {
     Quantity res = new Quantity();
     parseTypeProperties(json, res);
     if (json.has("value"))
@@ -278,7 +265,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Attachment parseAttachment(JsonObject json) throws Exception {
+  protected Attachment parseAttachment(JsonObject json) throws Exception {
     Attachment res = new Attachment();
     parseTypeProperties(json, res);
     if (json.has("contentType"))
@@ -312,7 +299,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Ratio parseRatio(JsonObject json) throws Exception {
+  protected Ratio parseRatio(JsonObject json) throws Exception {
     Ratio res = new Ratio();
     parseTypeProperties(json, res);
     if (json.has("numerator"))
@@ -322,7 +309,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SampledData parseSampledData(JsonObject json) throws Exception {
+  protected SampledData parseSampledData(JsonObject json) throws Exception {
     SampledData res = new SampledData();
     parseTypeProperties(json, res);
     if (json.has("origin"))
@@ -354,7 +341,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Reference parseReference(JsonObject json) throws Exception {
+  protected Reference parseReference(JsonObject json) throws Exception {
     Reference res = new Reference();
     parseTypeProperties(json, res);
     if (json.has("reference"))
@@ -368,7 +355,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CodeableConcept parseCodeableConcept(JsonObject json) throws Exception {
+  protected CodeableConcept parseCodeableConcept(JsonObject json) throws Exception {
     CodeableConcept res = new CodeableConcept();
     parseTypeProperties(json, res);
     if (json.has("coding")) {
@@ -384,7 +371,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Identifier parseIdentifier(JsonObject json) throws Exception {
+  protected Identifier parseIdentifier(JsonObject json) throws Exception {
     Identifier res = new Identifier();
     parseTypeProperties(json, res);
     if (json.has("use"))
@@ -410,7 +397,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Age parseAge(JsonObject json) throws Exception {
+  protected Age parseAge(JsonObject json) throws Exception {
     Age res = new Age();
     parseElementProperties(json, res);
     if (json.has("value"))
@@ -436,7 +423,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Count parseCount(JsonObject json) throws Exception {
+  protected Count parseCount(JsonObject json) throws Exception {
     Count res = new Count();
     parseElementProperties(json, res);
     if (json.has("value"))
@@ -462,7 +449,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Money parseMoney(JsonObject json) throws Exception {
+  protected Money parseMoney(JsonObject json) throws Exception {
     Money res = new Money();
     parseElementProperties(json, res);
     if (json.has("value"))
@@ -488,7 +475,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Distance parseDistance(JsonObject json) throws Exception {
+  protected Distance parseDistance(JsonObject json) throws Exception {
     Distance res = new Distance();
     parseElementProperties(json, res);
     if (json.has("value"))
@@ -514,7 +501,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Duration parseDuration(JsonObject json) throws Exception {
+  protected Duration parseDuration(JsonObject json) throws Exception {
     Duration res = new Duration();
     parseElementProperties(json, res);
     if (json.has("value"))
@@ -540,7 +527,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition parseElementDefinition(JsonObject json) throws Exception {
+  protected ElementDefinition parseElementDefinition(JsonObject json) throws Exception {
     ElementDefinition res = new ElementDefinition();
     parseElementProperties(json, res);
     if (json.has("path"))
@@ -681,7 +668,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionSlicingComponent parseElementDefinitionElementDefinitionSlicingComponent(JsonObject json, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionSlicingComponent parseElementDefinitionElementDefinitionSlicingComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionSlicingComponent res = new ElementDefinition.ElementDefinitionSlicingComponent();
     parseElementProperties(json, res);
     if (json.has("discriminator")) {
@@ -714,7 +701,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition.TypeRefComponent parseElementDefinitionTypeRefComponent(JsonObject json, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.TypeRefComponent parseElementDefinitionTypeRefComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.TypeRefComponent res = new ElementDefinition.TypeRefComponent();
     parseElementProperties(json, res);
     if (json.has("code"))
@@ -743,7 +730,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionConstraintComponent parseElementDefinitionElementDefinitionConstraintComponent(JsonObject json, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionConstraintComponent parseElementDefinitionElementDefinitionConstraintComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionConstraintComponent res = new ElementDefinition.ElementDefinitionConstraintComponent();
     parseElementProperties(json, res);
     if (json.has("key"))
@@ -769,7 +756,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(JsonObject json, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionBindingComponent res = new ElementDefinition.ElementDefinitionBindingComponent();
     parseElementProperties(json, res);
     if (json.has("name"))
@@ -794,7 +781,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionMappingComponent parseElementDefinitionElementDefinitionMappingComponent(JsonObject json, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionMappingComponent parseElementDefinitionElementDefinitionMappingComponent(JsonObject json, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionMappingComponent res = new ElementDefinition.ElementDefinitionMappingComponent();
     parseElementProperties(json, res);
     if (json.has("identity"))
@@ -808,7 +795,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Timing parseTiming(JsonObject json) throws Exception {
+  protected Timing parseTiming(JsonObject json) throws Exception {
     Timing res = new Timing();
     parseElementProperties(json, res);
     if (json.has("event")) {
@@ -822,7 +809,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(JsonObject json, Timing owner) throws Exception {
+  protected Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(JsonObject json, Timing owner) throws Exception {
     Timing.TimingRepeatComponent res = new Timing.TimingRepeatComponent();
     parseElementProperties(json, res);
     if (json.has("frequency"))
@@ -852,7 +839,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Address parseAddress(JsonObject json) throws Exception {
+  protected Address parseAddress(JsonObject json) throws Exception {
     Address res = new Address();
     parseElementProperties(json, res);
     if (json.has("use"))
@@ -899,7 +886,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private HumanName parseHumanName(JsonObject json) throws Exception {
+  protected HumanName parseHumanName(JsonObject json) throws Exception {
     HumanName res = new HumanName();
     parseElementProperties(json, res);
     if (json.has("use"))
@@ -975,7 +962,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ContactPoint parseContactPoint(JsonObject json) throws Exception {
+  protected ContactPoint parseContactPoint(JsonObject json) throws Exception {
     ContactPoint res = new ContactPoint();
     parseElementProperties(json, res);
     if (json.has("system"))
@@ -995,7 +982,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Parameters parseParameters(JsonObject json) throws Exception {
+  protected Parameters parseParameters(JsonObject json) throws Exception {
     Parameters res = new Parameters();
     parseResourceProperties(json, res);
     if (json.has("parameter")) {
@@ -1007,7 +994,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Parameters.ParametersParameterComponent parseParametersParametersParameterComponent(JsonObject json, Parameters owner) throws Exception {
+  protected Parameters.ParametersParameterComponent parseParametersParametersParameterComponent(JsonObject json, Parameters owner) throws Exception {
     Parameters.ParametersParameterComponent res = new Parameters.ParametersParameterComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -1022,7 +1009,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private void parseResourceProperties(JsonObject json, Resource res) throws Exception {
+  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {
     if (json.has("id"))
       res.setIdElement(parseId(json.get("id").getAsString()));
     if (json.has("_id"))
@@ -1039,7 +1026,7 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_language"), res.getLanguageElement());
   }
 
-  private Resource.ResourceMetaComponent parseResourceResourceMetaComponent(JsonObject json, Resource owner) throws Exception {
+  protected Resource.ResourceMetaComponent parseResourceResourceMetaComponent(JsonObject json, Resource owner) throws Exception {
     Resource.ResourceMetaComponent res = new Resource.ResourceMetaComponent();
     parseBackboneProperties(json, res);
     if (json.has("versionId"))
@@ -1080,7 +1067,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private void parseDomainResourceProperties(JsonObject json, DomainResource res) throws Exception {
+  protected void parseDomainResourceProperties(JsonObject json, DomainResource res) throws Exception {
     parseResourceProperties(json, res);
     if (json.has("text"))
       res.setText(parseNarrative(json.getAsJsonObject("text")));
@@ -1097,7 +1084,7 @@ public class JsonParser extends JsonParserBase {
     };
   }
 
-  private Alert parseAlert(JsonObject json) throws Exception {
+  protected Alert parseAlert(JsonObject json) throws Exception {
     Alert res = new Alert();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1123,7 +1110,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private AllergyIntolerance parseAllergyIntolerance(JsonObject json) throws Exception {
+  protected AllergyIntolerance parseAllergyIntolerance(JsonObject json) throws Exception {
     AllergyIntolerance res = new AllergyIntolerance();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1175,7 +1162,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private AllergyIntolerance.AllergyIntoleranceEventComponent parseAllergyIntoleranceAllergyIntoleranceEventComponent(JsonObject json, AllergyIntolerance owner) throws Exception {
+  protected AllergyIntolerance.AllergyIntoleranceEventComponent parseAllergyIntoleranceAllergyIntoleranceEventComponent(JsonObject json, AllergyIntolerance owner) throws Exception {
     AllergyIntolerance.AllergyIntoleranceEventComponent res = new AllergyIntolerance.AllergyIntoleranceEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("substance"))
@@ -1213,7 +1200,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Appointment parseAppointment(JsonObject json) throws Exception {
+  protected Appointment parseAppointment(JsonObject json) throws Exception {
     Appointment res = new Appointment();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1275,7 +1262,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Appointment.AppointmentParticipantComponent parseAppointmentAppointmentParticipantComponent(JsonObject json, Appointment owner) throws Exception {
+  protected Appointment.AppointmentParticipantComponent parseAppointmentAppointmentParticipantComponent(JsonObject json, Appointment owner) throws Exception {
     Appointment.AppointmentParticipantComponent res = new Appointment.AppointmentParticipantComponent();
     parseBackboneProperties(json, res);
     if (json.has("type")) {
@@ -1297,7 +1284,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private AppointmentResponse parseAppointmentResponse(JsonObject json) throws Exception {
+  protected AppointmentResponse parseAppointmentResponse(JsonObject json) throws Exception {
     AppointmentResponse res = new AppointmentResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1345,7 +1332,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Availability parseAvailability(JsonObject json) throws Exception {
+  protected Availability parseAvailability(JsonObject json) throws Exception {
     Availability res = new Availability();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1375,7 +1362,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Basic parseBasic(JsonObject json) throws Exception {
+  protected Basic parseBasic(JsonObject json) throws Exception {
     Basic res = new Basic();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1397,7 +1384,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Binary parseBinary(JsonObject json) throws Exception {
+  protected Binary parseBinary(JsonObject json) throws Exception {
     Binary res = new Binary();
     parseResourceProperties(json, res);
     if (json.has("contentType"))
@@ -1411,7 +1398,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Bundle parseBundle(JsonObject json) throws Exception {
+  protected Bundle parseBundle(JsonObject json) throws Exception {
     Bundle res = new Bundle();
     parseResourceProperties(json, res);
     if (json.has("type"))
@@ -1445,7 +1432,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Bundle.BundleLinkComponent parseBundleBundleLinkComponent(JsonObject json, Bundle owner) throws Exception {
+  protected Bundle.BundleLinkComponent parseBundleBundleLinkComponent(JsonObject json, Bundle owner) throws Exception {
     Bundle.BundleLinkComponent res = new Bundle.BundleLinkComponent();
     parseBackboneProperties(json, res);
     if (json.has("relation"))
@@ -1459,7 +1446,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Bundle.BundleEntryComponent parseBundleBundleEntryComponent(JsonObject json, Bundle owner) throws Exception {
+  protected Bundle.BundleEntryComponent parseBundleBundleEntryComponent(JsonObject json, Bundle owner) throws Exception {
     Bundle.BundleEntryComponent res = new Bundle.BundleEntryComponent();
     parseBackboneProperties(json, res);
     if (json.has("base"))
@@ -1485,7 +1472,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Bundle.BundleEntryDeletedComponent parseBundleBundleEntryDeletedComponent(JsonObject json, Bundle owner) throws Exception {
+  protected Bundle.BundleEntryDeletedComponent parseBundleBundleEntryDeletedComponent(JsonObject json, Bundle owner) throws Exception {
     Bundle.BundleEntryDeletedComponent res = new Bundle.BundleEntryDeletedComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -1507,7 +1494,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CarePlan parseCarePlan(JsonObject json) throws Exception {
+  protected CarePlan parseCarePlan(JsonObject json) throws Exception {
     CarePlan res = new CarePlan();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1559,7 +1546,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanParticipantComponent parseCarePlanCarePlanParticipantComponent(JsonObject json, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanParticipantComponent parseCarePlanCarePlanParticipantComponent(JsonObject json, CarePlan owner) throws Exception {
     CarePlan.CarePlanParticipantComponent res = new CarePlan.CarePlanParticipantComponent();
     parseBackboneProperties(json, res);
     if (json.has("role"))
@@ -1569,7 +1556,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanGoalComponent parseCarePlanCarePlanGoalComponent(JsonObject json, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanGoalComponent parseCarePlanCarePlanGoalComponent(JsonObject json, CarePlan owner) throws Exception {
     CarePlan.CarePlanGoalComponent res = new CarePlan.CarePlanGoalComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
@@ -1593,7 +1580,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanActivityComponent parseCarePlanCarePlanActivityComponent(JsonObject json, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanActivityComponent parseCarePlanCarePlanActivityComponent(JsonObject json, CarePlan owner) throws Exception {
     CarePlan.CarePlanActivityComponent res = new CarePlan.CarePlanActivityComponent();
     parseBackboneProperties(json, res);
     if (json.has("goal")) {
@@ -1636,7 +1623,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanActivitySimpleComponent parseCarePlanCarePlanActivitySimpleComponent(JsonObject json, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanActivitySimpleComponent parseCarePlanCarePlanActivitySimpleComponent(JsonObject json, CarePlan owner) throws Exception {
     CarePlan.CarePlanActivitySimpleComponent res = new CarePlan.CarePlanActivitySimpleComponent();
     parseBackboneProperties(json, res);
     if (json.has("category"))
@@ -1669,7 +1656,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse parseClaimResponse(JsonObject json) throws Exception {
+  protected ClaimResponse parseClaimResponse(JsonObject json) throws Exception {
     ClaimResponse res = new ClaimResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -1680,12 +1667,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier")) {
-      JsonArray array = json.getAsJsonArray("requestIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("ruleset"))
       res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
     if (json.has("originalRuleset"))
@@ -1759,7 +1740,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemsComponent parseClaimResponseItemsComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemsComponent parseClaimResponseItemsComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemsComponent res = new ClaimResponse.ItemsComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequenceLinkId"))
@@ -1796,7 +1777,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemAdjudicationComponent parseClaimResponseItemAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemAdjudicationComponent parseClaimResponseItemAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemAdjudicationComponent res = new ClaimResponse.ItemAdjudicationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -1810,7 +1791,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemDetailComponent parseClaimResponseItemDetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemDetailComponent parseClaimResponseItemDetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemDetailComponent res = new ClaimResponse.ItemDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequenceLinkId"))
@@ -1832,7 +1813,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.DetailAdjudicationComponent parseClaimResponseDetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.DetailAdjudicationComponent parseClaimResponseDetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.DetailAdjudicationComponent res = new ClaimResponse.DetailAdjudicationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -1846,7 +1827,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemSubdetailComponent parseClaimResponseItemSubdetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemSubdetailComponent parseClaimResponseItemSubdetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemSubdetailComponent res = new ClaimResponse.ItemSubdetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequenceLinkId"))
@@ -1862,7 +1843,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.SubdetailAdjudicationComponent parseClaimResponseSubdetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.SubdetailAdjudicationComponent parseClaimResponseSubdetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.SubdetailAdjudicationComponent res = new ClaimResponse.SubdetailAdjudicationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -1876,7 +1857,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemComponent parseClaimResponseAddedItemComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemComponent parseClaimResponseAddedItemComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemComponent res = new ClaimResponse.AddedItemComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequenceLinkId")) {
@@ -1928,7 +1909,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemAdjudicationComponent parseClaimResponseAddedItemAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemAdjudicationComponent parseClaimResponseAddedItemAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemAdjudicationComponent res = new ClaimResponse.AddedItemAdjudicationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -1942,7 +1923,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemsDetailComponent parseClaimResponseAddedItemsDetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemsDetailComponent parseClaimResponseAddedItemsDetailComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemsDetailComponent res = new ClaimResponse.AddedItemsDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("service"))
@@ -1958,7 +1939,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemDetailAdjudicationComponent parseClaimResponseAddedItemDetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemDetailAdjudicationComponent parseClaimResponseAddedItemDetailAdjudicationComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemDetailAdjudicationComponent res = new ClaimResponse.AddedItemDetailAdjudicationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -1972,7 +1953,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.ErrorsComponent parseClaimResponseErrorsComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ErrorsComponent parseClaimResponseErrorsComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.ErrorsComponent res = new ClaimResponse.ErrorsComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequenceLinkId"))
@@ -1992,7 +1973,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ClaimResponse.NotesComponent parseClaimResponseNotesComponent(JsonObject json, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.NotesComponent parseClaimResponseNotesComponent(JsonObject json, ClaimResponse owner) throws Exception {
     ClaimResponse.NotesComponent res = new ClaimResponse.NotesComponent();
     parseBackboneProperties(json, res);
     if (json.has("number"))
@@ -2008,7 +1989,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CommunicationRequest parseCommunicationRequest(JsonObject json) throws Exception {
+  protected CommunicationRequest parseCommunicationRequest(JsonObject json) throws Exception {
     CommunicationRequest res = new CommunicationRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -2072,7 +2053,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private CommunicationRequest.CommunicationRequestMessagePartComponent parseCommunicationRequestCommunicationRequestMessagePartComponent(JsonObject json, CommunicationRequest owner) throws Exception {
+  protected CommunicationRequest.CommunicationRequestMessagePartComponent parseCommunicationRequestCommunicationRequestMessagePartComponent(JsonObject json, CommunicationRequest owner) throws Exception {
     CommunicationRequest.CommunicationRequestMessagePartComponent res = new CommunicationRequest.CommunicationRequestMessagePartComponent();
     parseBackboneProperties(json, res);
     Type content = parseType("content", json);
@@ -2081,7 +2062,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Composition parseComposition(JsonObject json) throws Exception {
+  protected Composition parseComposition(JsonObject json) throws Exception {
     Composition res = new Composition();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -2137,7 +2118,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Composition.CompositionAttesterComponent parseCompositionCompositionAttesterComponent(JsonObject json, Composition owner) throws Exception {
+  protected Composition.CompositionAttesterComponent parseCompositionCompositionAttesterComponent(JsonObject json, Composition owner) throws Exception {
     Composition.CompositionAttesterComponent res = new Composition.CompositionAttesterComponent();
     parseBackboneProperties(json, res);
     if (json.has("mode")) {
@@ -2164,7 +2145,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Composition.CompositionEventComponent parseCompositionCompositionEventComponent(JsonObject json, Composition owner) throws Exception {
+  protected Composition.CompositionEventComponent parseCompositionCompositionEventComponent(JsonObject json, Composition owner) throws Exception {
     Composition.CompositionEventComponent res = new Composition.CompositionEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("code")) {
@@ -2184,7 +2165,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Composition.SectionComponent parseCompositionSectionComponent(JsonObject json, Composition owner) throws Exception {
+  protected Composition.SectionComponent parseCompositionSectionComponent(JsonObject json, Composition owner) throws Exception {
     Composition.SectionComponent res = new Composition.SectionComponent();
     parseBackboneProperties(json, res);
     if (json.has("title"))
@@ -2204,7 +2185,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ConceptMap parseConceptMap(JsonObject json) throws Exception {
+  protected ConceptMap parseConceptMap(JsonObject json) throws Exception {
     ConceptMap res = new ConceptMap();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -2264,7 +2245,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ConceptMap.ConceptMapElementComponent parseConceptMapConceptMapElementComponent(JsonObject json, ConceptMap owner) throws Exception {
+  protected ConceptMap.ConceptMapElementComponent parseConceptMapConceptMapElementComponent(JsonObject json, ConceptMap owner) throws Exception {
     ConceptMap.ConceptMapElementComponent res = new ConceptMap.ConceptMapElementComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeSystem"))
@@ -2290,7 +2271,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ConceptMap.OtherElementComponent parseConceptMapOtherElementComponent(JsonObject json, ConceptMap owner) throws Exception {
+  protected ConceptMap.OtherElementComponent parseConceptMapOtherElementComponent(JsonObject json, ConceptMap owner) throws Exception {
     ConceptMap.OtherElementComponent res = new ConceptMap.OtherElementComponent();
     parseBackboneProperties(json, res);
     if (json.has("element"))
@@ -2308,7 +2289,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ConceptMap.ConceptMapElementMapComponent parseConceptMapConceptMapElementMapComponent(JsonObject json, ConceptMap owner) throws Exception {
+  protected ConceptMap.ConceptMapElementMapComponent parseConceptMapConceptMapElementMapComponent(JsonObject json, ConceptMap owner) throws Exception {
     ConceptMap.ConceptMapElementMapComponent res = new ConceptMap.ConceptMapElementMapComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeSystem"))
@@ -2336,7 +2317,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition parseCondition(JsonObject json) throws Exception {
+  protected Condition parseCondition(JsonObject json) throws Exception {
     Condition res = new Condition();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -2406,7 +2387,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition.ConditionStageComponent parseConditionConditionStageComponent(JsonObject json, Condition owner) throws Exception {
+  protected Condition.ConditionStageComponent parseConditionConditionStageComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionStageComponent res = new Condition.ConditionStageComponent();
     parseBackboneProperties(json, res);
     if (json.has("summary"))
@@ -2420,7 +2401,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition.ConditionEvidenceComponent parseConditionConditionEvidenceComponent(JsonObject json, Condition owner) throws Exception {
+  protected Condition.ConditionEvidenceComponent parseConditionConditionEvidenceComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionEvidenceComponent res = new Condition.ConditionEvidenceComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -2434,7 +2415,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition.ConditionLocationComponent parseConditionConditionLocationComponent(JsonObject json, Condition owner) throws Exception {
+  protected Condition.ConditionLocationComponent parseConditionConditionLocationComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionLocationComponent res = new Condition.ConditionLocationComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -2446,7 +2427,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition.ConditionDueToComponent parseConditionConditionDueToComponent(JsonObject json, Condition owner) throws Exception {
+  protected Condition.ConditionDueToComponent parseConditionConditionDueToComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionDueToComponent res = new Condition.ConditionDueToComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeableConcept"))
@@ -2456,7 +2437,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Condition.ConditionOccurredFollowingComponent parseConditionConditionOccurredFollowingComponent(JsonObject json, Condition owner) throws Exception {
+  protected Condition.ConditionOccurredFollowingComponent parseConditionConditionOccurredFollowingComponent(JsonObject json, Condition owner) throws Exception {
     Condition.ConditionOccurredFollowingComponent res = new Condition.ConditionOccurredFollowingComponent();
     parseBackboneProperties(json, res);
     if (json.has("codeableConcept"))
@@ -2466,7 +2447,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance parseConformance(JsonObject json) throws Exception {
+  protected Conformance parseConformance(JsonObject json) throws Exception {
     Conformance res = new Conformance();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -2561,7 +2542,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceSoftwareComponent parseConformanceConformanceSoftwareComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceSoftwareComponent parseConformanceConformanceSoftwareComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceSoftwareComponent res = new Conformance.ConformanceSoftwareComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -2579,7 +2560,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceImplementationComponent parseConformanceConformanceImplementationComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceImplementationComponent parseConformanceConformanceImplementationComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceImplementationComponent res = new Conformance.ConformanceImplementationComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
@@ -2593,7 +2574,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestComponent parseConformanceConformanceRestComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestComponent parseConformanceConformanceRestComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestComponent res = new Conformance.ConformanceRestComponent();
     parseBackboneProperties(json, res);
     if (json.has("mode"))
@@ -2642,7 +2623,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestSecurityComponent parseConformanceConformanceRestSecurityComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestSecurityComponent parseConformanceConformanceRestSecurityComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestSecurityComponent res = new Conformance.ConformanceRestSecurityComponent();
     parseBackboneProperties(json, res);
     if (json.has("cors"))
@@ -2668,7 +2649,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestSecurityCertificateComponent parseConformanceConformanceRestSecurityCertificateComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestSecurityCertificateComponent parseConformanceConformanceRestSecurityCertificateComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestSecurityCertificateComponent res = new Conformance.ConformanceRestSecurityCertificateComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -2682,7 +2663,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestResourceComponent parseConformanceConformanceRestResourceComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestResourceComponent parseConformanceConformanceRestResourceComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -2733,7 +2714,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ResourceInteractionComponent parseConformanceResourceInteractionComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ResourceInteractionComponent parseConformanceResourceInteractionComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ResourceInteractionComponent res = new Conformance.ResourceInteractionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -2747,7 +2728,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestResourceSearchParamComponent parseConformanceConformanceRestResourceSearchParamComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestResourceSearchParamComponent parseConformanceConformanceRestResourceSearchParamComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestResourceSearchParamComponent res = new Conformance.ConformanceRestResourceSearchParamComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -2799,7 +2780,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.SystemInteractionComponent parseConformanceSystemInteractionComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.SystemInteractionComponent parseConformanceSystemInteractionComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.SystemInteractionComponent res = new Conformance.SystemInteractionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -2813,7 +2794,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestOperationComponent parseConformanceConformanceRestOperationComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestOperationComponent parseConformanceConformanceRestOperationComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceRestOperationComponent res = new Conformance.ConformanceRestOperationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -2825,7 +2806,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceMessagingComponent parseConformanceConformanceMessagingComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceMessagingComponent parseConformanceConformanceMessagingComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceMessagingComponent res = new Conformance.ConformanceMessagingComponent();
     parseBackboneProperties(json, res);
     if (json.has("endpoint"))
@@ -2849,7 +2830,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceMessagingEventComponent parseConformanceConformanceMessagingEventComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceMessagingEventComponent parseConformanceConformanceMessagingEventComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceMessagingEventComponent res = new Conformance.ConformanceMessagingEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -2883,7 +2864,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Conformance.ConformanceDocumentComponent parseConformanceConformanceDocumentComponent(JsonObject json, Conformance owner) throws Exception {
+  protected Conformance.ConformanceDocumentComponent parseConformanceConformanceDocumentComponent(JsonObject json, Conformance owner) throws Exception {
     Conformance.ConformanceDocumentComponent res = new Conformance.ConformanceDocumentComponent();
     parseBackboneProperties(json, res);
     if (json.has("mode"))
@@ -2899,11 +2880,15 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contract parseContract(JsonObject json) throws Exception {
+  protected Contract parseContract(JsonObject json) throws Exception {
     Contract res = new Contract();
     parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("subject")) {
       JsonArray array = json.getAsJsonArray("subject");
       for (int i = 0; i < array.size(); i++) {
@@ -2995,7 +2980,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contract.ContractSignerComponent parseContractContractSignerComponent(JsonObject json, Contract owner) throws Exception {
+  protected Contract.ContractSignerComponent parseContractContractSignerComponent(JsonObject json, Contract owner) throws Exception {
     Contract.ContractSignerComponent res = new Contract.ContractSignerComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -3007,7 +2992,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contract.ContractTermComponent parseContractContractTermComponent(JsonObject json, Contract owner) throws Exception {
+  protected Contract.ContractTermComponent parseContractContractTermComponent(JsonObject json, Contract owner) throws Exception {
     Contract.ContractTermComponent res = new Contract.ContractTermComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -3025,7 +3010,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contraindication parseContraindication(JsonObject json) throws Exception {
+  protected Contraindication parseContraindication(JsonObject json) throws Exception {
     Contraindication res = new Contraindication();
     parseDomainResourceProperties(json, res);
     if (json.has("patient"))
@@ -3067,7 +3052,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Contraindication.ContraindicationMitigationComponent parseContraindicationContraindicationMitigationComponent(JsonObject json, Contraindication owner) throws Exception {
+  protected Contraindication.ContraindicationMitigationComponent parseContraindicationContraindicationMitigationComponent(JsonObject json, Contraindication owner) throws Exception {
     Contraindication.ContraindicationMitigationComponent res = new Contraindication.ContraindicationMitigationComponent();
     parseBackboneProperties(json, res);
     if (json.has("action"))
@@ -3081,7 +3066,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Coverage parseCoverage(JsonObject json) throws Exception {
+  protected Coverage parseCoverage(JsonObject json) throws Exception {
     Coverage res = new Coverage();
     parseDomainResourceProperties(json, res);
     if (json.has("issuer"))
@@ -3090,8 +3075,12 @@ public class JsonParser extends JsonParserBase {
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     if (json.has("type"))
       res.setType(parseCoding(json.getAsJsonObject("type")));
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("group"))
       res.setGroupElement(parseString(json.get("group").getAsString()));
     if (json.has("_group"))
@@ -3125,7 +3114,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DataElement parseDataElement(JsonObject json) throws Exception {
+  protected DataElement parseDataElement(JsonObject json) throws Exception {
     DataElement res = new DataElement();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -3223,7 +3212,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DataElement.DataElementBindingComponent parseDataElementDataElementBindingComponent(JsonObject json, DataElement owner) throws Exception {
+  protected DataElement.DataElementBindingComponent parseDataElementDataElementBindingComponent(JsonObject json, DataElement owner) throws Exception {
     DataElement.DataElementBindingComponent res = new DataElement.DataElementBindingComponent();
     parseBackboneProperties(json, res);
     if (json.has("isExtensible"))
@@ -3243,7 +3232,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DataElement.DataElementMappingComponent parseDataElementDataElementMappingComponent(JsonObject json, DataElement owner) throws Exception {
+  protected DataElement.DataElementMappingComponent parseDataElementDataElementMappingComponent(JsonObject json, DataElement owner) throws Exception {
     DataElement.DataElementMappingComponent res = new DataElement.DataElementMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("uri"))
@@ -3265,7 +3254,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Device parseDevice(JsonObject json) throws Exception {
+  protected Device parseDevice(JsonObject json) throws Exception {
     Device res = new Device();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -3319,7 +3308,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DeviceComponent parseDeviceComponent(JsonObject json) throws Exception {
+  protected DeviceComponent parseDeviceComponent(JsonObject json) throws Exception {
     DeviceComponent res = new DeviceComponent();
     parseDomainResourceProperties(json, res);
     if (json.has("type"))
@@ -3357,7 +3346,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DeviceComponent.DeviceComponentProductionSpecificationComponent parseDeviceComponentDeviceComponentProductionSpecificationComponent(JsonObject json, DeviceComponent owner) throws Exception {
+  protected DeviceComponent.DeviceComponentProductionSpecificationComponent parseDeviceComponentDeviceComponentProductionSpecificationComponent(JsonObject json, DeviceComponent owner) throws Exception {
     DeviceComponent.DeviceComponentProductionSpecificationComponent res = new DeviceComponent.DeviceComponentProductionSpecificationComponent();
     parseBackboneProperties(json, res);
     if (json.has("specType"))
@@ -3371,7 +3360,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DeviceUseRequest parseDeviceUseRequest(JsonObject json) throws Exception {
+  protected DeviceUseRequest parseDeviceUseRequest(JsonObject json) throws Exception {
     DeviceUseRequest res = new DeviceUseRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("bodySite")) {
@@ -3445,7 +3434,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DeviceUseStatement parseDeviceUseStatement(JsonObject json) throws Exception {
+  protected DeviceUseStatement parseDeviceUseStatement(JsonObject json) throws Exception {
     DeviceUseStatement res = new DeviceUseStatement();
     parseDomainResourceProperties(json, res);
     if (json.has("bodySite")) {
@@ -3497,7 +3486,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DiagnosticOrder parseDiagnosticOrder(JsonObject json) throws Exception {
+  protected DiagnosticOrder parseDiagnosticOrder(JsonObject json) throws Exception {
     DiagnosticOrder res = new DiagnosticOrder();
     parseDomainResourceProperties(json, res);
     if (json.has("subject"))
@@ -3551,7 +3540,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DiagnosticOrder.DiagnosticOrderEventComponent parseDiagnosticOrderDiagnosticOrderEventComponent(JsonObject json, DiagnosticOrder owner) throws Exception {
+  protected DiagnosticOrder.DiagnosticOrderEventComponent parseDiagnosticOrderDiagnosticOrderEventComponent(JsonObject json, DiagnosticOrder owner) throws Exception {
     DiagnosticOrder.DiagnosticOrderEventComponent res = new DiagnosticOrder.DiagnosticOrderEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("status"))
@@ -3569,7 +3558,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DiagnosticOrder.DiagnosticOrderItemComponent parseDiagnosticOrderDiagnosticOrderItemComponent(JsonObject json, DiagnosticOrder owner) throws Exception {
+  protected DiagnosticOrder.DiagnosticOrderItemComponent parseDiagnosticOrderDiagnosticOrderItemComponent(JsonObject json, DiagnosticOrder owner) throws Exception {
     DiagnosticOrder.DiagnosticOrderItemComponent res = new DiagnosticOrder.DiagnosticOrderItemComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -3595,7 +3584,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DiagnosticReport parseDiagnosticReport(JsonObject json) throws Exception {
+  protected DiagnosticReport parseDiagnosticReport(JsonObject json) throws Exception {
     DiagnosticReport res = new DiagnosticReport();
     parseDomainResourceProperties(json, res);
     if (json.has("name"))
@@ -3668,7 +3657,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DiagnosticReport.DiagnosticReportImageComponent parseDiagnosticReportDiagnosticReportImageComponent(JsonObject json, DiagnosticReport owner) throws Exception {
+  protected DiagnosticReport.DiagnosticReportImageComponent parseDiagnosticReportDiagnosticReportImageComponent(JsonObject json, DiagnosticReport owner) throws Exception {
     DiagnosticReport.DiagnosticReportImageComponent res = new DiagnosticReport.DiagnosticReportImageComponent();
     parseBackboneProperties(json, res);
     if (json.has("comment"))
@@ -3680,7 +3669,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentManifest parseDocumentManifest(JsonObject json) throws Exception {
+  protected DocumentManifest parseDocumentManifest(JsonObject json) throws Exception {
     DocumentManifest res = new DocumentManifest();
     parseDomainResourceProperties(json, res);
     if (json.has("masterIdentifier"))
@@ -3740,7 +3729,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentReference parseDocumentReference(JsonObject json) throws Exception {
+  protected DocumentReference parseDocumentReference(JsonObject json) throws Exception {
     DocumentReference res = new DocumentReference();
     parseDomainResourceProperties(json, res);
     if (json.has("masterIdentifier"))
@@ -3843,7 +3832,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceRelatesToComponent parseDocumentReferenceDocumentReferenceRelatesToComponent(JsonObject json, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceRelatesToComponent parseDocumentReferenceDocumentReferenceRelatesToComponent(JsonObject json, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceRelatesToComponent res = new DocumentReference.DocumentReferenceRelatesToComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -3855,7 +3844,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceServiceComponent parseDocumentReferenceDocumentReferenceServiceComponent(JsonObject json, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceServiceComponent parseDocumentReferenceDocumentReferenceServiceComponent(JsonObject json, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceServiceComponent res = new DocumentReference.DocumentReferenceServiceComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -3873,7 +3862,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceServiceParameterComponent parseDocumentReferenceDocumentReferenceServiceParameterComponent(JsonObject json, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceServiceParameterComponent parseDocumentReferenceDocumentReferenceServiceParameterComponent(JsonObject json, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceServiceParameterComponent res = new DocumentReference.DocumentReferenceServiceParameterComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -3887,7 +3876,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceContextComponent parseDocumentReferenceDocumentReferenceContextComponent(JsonObject json, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceContextComponent parseDocumentReferenceDocumentReferenceContextComponent(JsonObject json, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceContextComponent res = new DocumentReference.DocumentReferenceContextComponent();
     parseBackboneProperties(json, res);
     if (json.has("event")) {
@@ -3903,7 +3892,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Eligibility parseEligibility(JsonObject json) throws Exception {
+  protected Eligibility parseEligibility(JsonObject json) throws Exception {
     Eligibility res = new Eligibility();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -3929,7 +3918,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private EligibilityResponse parseEligibilityResponse(JsonObject json) throws Exception {
+  protected EligibilityResponse parseEligibilityResponse(JsonObject json) throws Exception {
     EligibilityResponse res = new EligibilityResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -3940,12 +3929,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier")) {
-      JsonArray array = json.getAsJsonArray("requestIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("outcome"))
       res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), EligibilityResponse.RSLink.NULL, new EligibilityResponse.RSLinkEnumFactory()));
     if (json.has("_outcome"))
@@ -3971,7 +3954,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Encounter parseEncounter(JsonObject json) throws Exception {
+  protected Encounter parseEncounter(JsonObject json) throws Exception {
     Encounter res = new Encounter();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4029,7 +4012,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Encounter.EncounterParticipantComponent parseEncounterEncounterParticipantComponent(JsonObject json, Encounter owner) throws Exception {
+  protected Encounter.EncounterParticipantComponent parseEncounterEncounterParticipantComponent(JsonObject json, Encounter owner) throws Exception {
     Encounter.EncounterParticipantComponent res = new Encounter.EncounterParticipantComponent();
     parseBackboneProperties(json, res);
     if (json.has("type")) {
@@ -4043,7 +4026,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Encounter.EncounterHospitalizationComponent parseEncounterEncounterHospitalizationComponent(JsonObject json, Encounter owner) throws Exception {
+  protected Encounter.EncounterHospitalizationComponent parseEncounterEncounterHospitalizationComponent(JsonObject json, Encounter owner) throws Exception {
     Encounter.EncounterHospitalizationComponent res = new Encounter.EncounterHospitalizationComponent();
     parseBackboneProperties(json, res);
     if (json.has("preAdmissionIdentifier"))
@@ -4087,7 +4070,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Encounter.EncounterHospitalizationAccomodationComponent parseEncounterEncounterHospitalizationAccomodationComponent(JsonObject json, Encounter owner) throws Exception {
+  protected Encounter.EncounterHospitalizationAccomodationComponent parseEncounterEncounterHospitalizationAccomodationComponent(JsonObject json, Encounter owner) throws Exception {
     Encounter.EncounterHospitalizationAccomodationComponent res = new Encounter.EncounterHospitalizationAccomodationComponent();
     parseBackboneProperties(json, res);
     if (json.has("bed"))
@@ -4097,7 +4080,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Encounter.EncounterLocationComponent parseEncounterEncounterLocationComponent(JsonObject json, Encounter owner) throws Exception {
+  protected Encounter.EncounterLocationComponent parseEncounterEncounterLocationComponent(JsonObject json, Encounter owner) throws Exception {
     Encounter.EncounterLocationComponent res = new Encounter.EncounterLocationComponent();
     parseBackboneProperties(json, res);
     if (json.has("location"))
@@ -4107,7 +4090,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Enrollment parseEnrollment(JsonObject json) throws Exception {
+  protected Enrollment parseEnrollment(JsonObject json) throws Exception {
     Enrollment res = new Enrollment();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4139,7 +4122,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private EnrollmentResponse parseEnrollmentResponse(JsonObject json) throws Exception {
+  protected EnrollmentResponse parseEnrollmentResponse(JsonObject json) throws Exception {
     EnrollmentResponse res = new EnrollmentResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4150,12 +4133,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier")) {
-      JsonArray array = json.getAsJsonArray("requestIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("outcome"))
       res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), EnrollmentResponse.RSLink.NULL, new EnrollmentResponse.RSLinkEnumFactory()));
     if (json.has("_outcome"))
@@ -4181,7 +4158,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ExplanationOfBenefit parseExplanationOfBenefit(JsonObject json) throws Exception {
+  protected ExplanationOfBenefit parseExplanationOfBenefit(JsonObject json) throws Exception {
     ExplanationOfBenefit res = new ExplanationOfBenefit();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4192,12 +4169,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier")) {
-      JsonArray array = json.getAsJsonArray("requestIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("outcome"))
       res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), ExplanationOfBenefit.RSLink.NULL, new ExplanationOfBenefit.RSLinkEnumFactory()));
     if (json.has("_outcome"))
@@ -4223,7 +4194,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ExtensionDefinition parseExtensionDefinition(JsonObject json) throws Exception {
+  protected ExtensionDefinition parseExtensionDefinition(JsonObject json) throws Exception {
     ExtensionDefinition res = new ExtensionDefinition();
     parseDomainResourceProperties(json, res);
     if (json.has("url"))
@@ -4314,7 +4285,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ExtensionDefinition.ExtensionDefinitionMappingComponent parseExtensionDefinitionExtensionDefinitionMappingComponent(JsonObject json, ExtensionDefinition owner) throws Exception {
+  protected ExtensionDefinition.ExtensionDefinitionMappingComponent parseExtensionDefinitionExtensionDefinitionMappingComponent(JsonObject json, ExtensionDefinition owner) throws Exception {
     ExtensionDefinition.ExtensionDefinitionMappingComponent res = new ExtensionDefinition.ExtensionDefinitionMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("identity"))
@@ -4336,7 +4307,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private FamilyHistory parseFamilyHistory(JsonObject json) throws Exception {
+  protected FamilyHistory parseFamilyHistory(JsonObject json) throws Exception {
     FamilyHistory res = new FamilyHistory();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4364,7 +4335,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private FamilyHistory.FamilyHistoryRelationComponent parseFamilyHistoryFamilyHistoryRelationComponent(JsonObject json, FamilyHistory owner) throws Exception {
+  protected FamilyHistory.FamilyHistoryRelationComponent parseFamilyHistoryFamilyHistoryRelationComponent(JsonObject json, FamilyHistory owner) throws Exception {
     FamilyHistory.FamilyHistoryRelationComponent res = new FamilyHistory.FamilyHistoryRelationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -4395,7 +4366,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private FamilyHistory.FamilyHistoryRelationConditionComponent parseFamilyHistoryFamilyHistoryRelationConditionComponent(JsonObject json, FamilyHistory owner) throws Exception {
+  protected FamilyHistory.FamilyHistoryRelationConditionComponent parseFamilyHistoryFamilyHistoryRelationConditionComponent(JsonObject json, FamilyHistory owner) throws Exception {
     FamilyHistory.FamilyHistoryRelationConditionComponent res = new FamilyHistory.FamilyHistoryRelationConditionComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -4412,7 +4383,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Group parseGroup(JsonObject json) throws Exception {
+  protected Group parseGroup(JsonObject json) throws Exception {
     Group res = new Group();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -4450,7 +4421,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Group.GroupCharacteristicComponent parseGroupGroupCharacteristicComponent(JsonObject json, Group owner) throws Exception {
+  protected Group.GroupCharacteristicComponent parseGroupGroupCharacteristicComponent(JsonObject json, Group owner) throws Exception {
     Group.GroupCharacteristicComponent res = new Group.GroupCharacteristicComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -4465,7 +4436,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private HealthcareService parseHealthcareService(JsonObject json) throws Exception {
+  protected HealthcareService parseHealthcareService(JsonObject json) throws Exception {
     HealthcareService res = new HealthcareService();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4596,7 +4567,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private HealthcareService.ServiceTypeComponent parseHealthcareServiceServiceTypeComponent(JsonObject json, HealthcareService owner) throws Exception {
+  protected HealthcareService.ServiceTypeComponent parseHealthcareServiceServiceTypeComponent(JsonObject json, HealthcareService owner) throws Exception {
     HealthcareService.ServiceTypeComponent res = new HealthcareService.ServiceTypeComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -4610,7 +4581,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private HealthcareService.HealthcareServiceAvailableTimeComponent parseHealthcareServiceHealthcareServiceAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
+  protected HealthcareService.HealthcareServiceAvailableTimeComponent parseHealthcareServiceHealthcareServiceAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
     HealthcareService.HealthcareServiceAvailableTimeComponent res = new HealthcareService.HealthcareServiceAvailableTimeComponent();
     parseBackboneProperties(json, res);
     if (json.has("daysOfWeek")) {
@@ -4634,7 +4605,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private HealthcareService.HealthcareServiceNotAvailableTimeComponent parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
+  protected HealthcareService.HealthcareServiceNotAvailableTimeComponent parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(JsonObject json, HealthcareService owner) throws Exception {
     HealthcareService.HealthcareServiceNotAvailableTimeComponent res = new HealthcareService.HealthcareServiceNotAvailableTimeComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
@@ -4652,7 +4623,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImagingStudy parseImagingStudy(JsonObject json) throws Exception {
+  protected ImagingStudy parseImagingStudy(JsonObject json) throws Exception {
     ImagingStudy res = new ImagingStudy();
     parseDomainResourceProperties(json, res);
     if (json.has("started"))
@@ -4737,7 +4708,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImagingStudy.ImagingStudySeriesComponent parseImagingStudyImagingStudySeriesComponent(JsonObject json, ImagingStudy owner) throws Exception {
+  protected ImagingStudy.ImagingStudySeriesComponent parseImagingStudyImagingStudySeriesComponent(JsonObject json, ImagingStudy owner) throws Exception {
     ImagingStudy.ImagingStudySeriesComponent res = new ImagingStudy.ImagingStudySeriesComponent();
     parseBackboneProperties(json, res);
     if (json.has("number"))
@@ -4783,7 +4754,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImagingStudy.ImagingStudySeriesInstanceComponent parseImagingStudyImagingStudySeriesInstanceComponent(JsonObject json, ImagingStudy owner) throws Exception {
+  protected ImagingStudy.ImagingStudySeriesInstanceComponent parseImagingStudyImagingStudySeriesInstanceComponent(JsonObject json, ImagingStudy owner) throws Exception {
     ImagingStudy.ImagingStudySeriesInstanceComponent res = new ImagingStudy.ImagingStudySeriesInstanceComponent();
     parseBackboneProperties(json, res);
     if (json.has("number"))
@@ -4815,7 +4786,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Immunization parseImmunization(JsonObject json) throws Exception {
+  protected Immunization parseImmunization(JsonObject json) throws Exception {
     Immunization res = new Immunization();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4879,7 +4850,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationExplanationComponent parseImmunizationImmunizationExplanationComponent(JsonObject json, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationExplanationComponent parseImmunizationImmunizationExplanationComponent(JsonObject json, Immunization owner) throws Exception {
     Immunization.ImmunizationExplanationComponent res = new Immunization.ImmunizationExplanationComponent();
     parseBackboneProperties(json, res);
     if (json.has("reason")) {
@@ -4897,7 +4868,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationReactionComponent parseImmunizationImmunizationReactionComponent(JsonObject json, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationReactionComponent parseImmunizationImmunizationReactionComponent(JsonObject json, Immunization owner) throws Exception {
     Immunization.ImmunizationReactionComponent res = new Immunization.ImmunizationReactionComponent();
     parseBackboneProperties(json, res);
     if (json.has("date"))
@@ -4913,7 +4884,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationVaccinationProtocolComponent parseImmunizationImmunizationVaccinationProtocolComponent(JsonObject json, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationVaccinationProtocolComponent parseImmunizationImmunizationVaccinationProtocolComponent(JsonObject json, Immunization owner) throws Exception {
     Immunization.ImmunizationVaccinationProtocolComponent res = new Immunization.ImmunizationVaccinationProtocolComponent();
     parseBackboneProperties(json, res);
     if (json.has("doseSequence"))
@@ -4943,7 +4914,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation parseImmunizationRecommendation(JsonObject json) throws Exception {
+  protected ImmunizationRecommendation parseImmunizationRecommendation(JsonObject json) throws Exception {
     ImmunizationRecommendation res = new ImmunizationRecommendation();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -4963,7 +4934,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
     parseBackboneProperties(json, res);
     if (json.has("date"))
@@ -5001,7 +4972,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -5013,7 +4984,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(JsonObject json, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent();
     parseBackboneProperties(json, res);
     if (json.has("doseSequence"))
@@ -5033,7 +5004,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private List_ parseList_(JsonObject json) throws Exception {
+  protected List_ parseList_(JsonObject json) throws Exception {
     List_ res = new List_();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -5071,7 +5042,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private List_.ListEntryComponent parseList_ListEntryComponent(JsonObject json, List_ owner) throws Exception {
+  protected List_.ListEntryComponent parseList_ListEntryComponent(JsonObject json, List_ owner) throws Exception {
     List_.ListEntryComponent res = new List_.ListEntryComponent();
     parseBackboneProperties(json, res);
     if (json.has("flag")) {
@@ -5093,7 +5064,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Location parseLocation(JsonObject json) throws Exception {
+  protected Location parseLocation(JsonObject json) throws Exception {
     Location res = new Location();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -5139,7 +5110,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Location.LocationPositionComponent parseLocationLocationPositionComponent(JsonObject json, Location owner) throws Exception {
+  protected Location.LocationPositionComponent parseLocationLocationPositionComponent(JsonObject json, Location owner) throws Exception {
     Location.LocationPositionComponent res = new Location.LocationPositionComponent();
     parseBackboneProperties(json, res);
     if (json.has("longitude"))
@@ -5157,7 +5128,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Media parseMedia(JsonObject json) throws Exception {
+  protected Media parseMedia(JsonObject json) throws Exception {
     Media res = new Media();
     parseDomainResourceProperties(json, res);
     if (json.has("type"))
@@ -5207,7 +5178,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Medication parseMedication(JsonObject json) throws Exception {
+  protected Medication parseMedication(JsonObject json) throws Exception {
     Medication res = new Medication();
     parseDomainResourceProperties(json, res);
     if (json.has("name"))
@@ -5233,7 +5204,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Medication.MedicationProductComponent parseMedicationMedicationProductComponent(JsonObject json, Medication owner) throws Exception {
+  protected Medication.MedicationProductComponent parseMedicationMedicationProductComponent(JsonObject json, Medication owner) throws Exception {
     Medication.MedicationProductComponent res = new Medication.MedicationProductComponent();
     parseBackboneProperties(json, res);
     if (json.has("form"))
@@ -5247,7 +5218,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Medication.MedicationProductIngredientComponent parseMedicationMedicationProductIngredientComponent(JsonObject json, Medication owner) throws Exception {
+  protected Medication.MedicationProductIngredientComponent parseMedicationMedicationProductIngredientComponent(JsonObject json, Medication owner) throws Exception {
     Medication.MedicationProductIngredientComponent res = new Medication.MedicationProductIngredientComponent();
     parseBackboneProperties(json, res);
     if (json.has("item"))
@@ -5257,7 +5228,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Medication.MedicationPackageComponent parseMedicationMedicationPackageComponent(JsonObject json, Medication owner) throws Exception {
+  protected Medication.MedicationPackageComponent parseMedicationMedicationPackageComponent(JsonObject json, Medication owner) throws Exception {
     Medication.MedicationPackageComponent res = new Medication.MedicationPackageComponent();
     parseBackboneProperties(json, res);
     if (json.has("container"))
@@ -5271,7 +5242,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Medication.MedicationPackageContentComponent parseMedicationMedicationPackageContentComponent(JsonObject json, Medication owner) throws Exception {
+  protected Medication.MedicationPackageContentComponent parseMedicationMedicationPackageContentComponent(JsonObject json, Medication owner) throws Exception {
     Medication.MedicationPackageContentComponent res = new Medication.MedicationPackageContentComponent();
     parseBackboneProperties(json, res);
     if (json.has("item"))
@@ -5281,7 +5252,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationAdministration parseMedicationAdministration(JsonObject json) throws Exception {
+  protected MedicationAdministration parseMedicationAdministration(JsonObject json) throws Exception {
     MedicationAdministration res = new MedicationAdministration();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -5332,7 +5303,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationAdministration.MedicationAdministrationDosageComponent parseMedicationAdministrationMedicationAdministrationDosageComponent(JsonObject json, MedicationAdministration owner) throws Exception {
+  protected MedicationAdministration.MedicationAdministrationDosageComponent parseMedicationAdministrationMedicationAdministrationDosageComponent(JsonObject json, MedicationAdministration owner) throws Exception {
     MedicationAdministration.MedicationAdministrationDosageComponent res = new MedicationAdministration.MedicationAdministrationDosageComponent();
     parseBackboneProperties(json, res);
     Type timing = parseType("timing", json);
@@ -5356,7 +5327,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationDispense parseMedicationDispense(JsonObject json) throws Exception {
+  protected MedicationDispense parseMedicationDispense(JsonObject json) throws Exception {
     MedicationDispense res = new MedicationDispense();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -5386,7 +5357,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseDispenseComponent parseMedicationDispenseMedicationDispenseDispenseComponent(JsonObject json, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseDispenseComponent parseMedicationDispenseMedicationDispenseDispenseComponent(JsonObject json, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseDispenseComponent res = new MedicationDispense.MedicationDispenseDispenseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -5426,7 +5397,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseDispenseDosageComponent parseMedicationDispenseMedicationDispenseDispenseDosageComponent(JsonObject json, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseDispenseDosageComponent parseMedicationDispenseMedicationDispenseDispenseDosageComponent(JsonObject json, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseDispenseDosageComponent res = new MedicationDispense.MedicationDispenseDispenseDosageComponent();
     parseBackboneProperties(json, res);
     if (json.has("additionalInstructions"))
@@ -5452,7 +5423,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseSubstitutionComponent parseMedicationDispenseMedicationDispenseSubstitutionComponent(JsonObject json, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseSubstitutionComponent parseMedicationDispenseMedicationDispenseSubstitutionComponent(JsonObject json, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseSubstitutionComponent res = new MedicationDispense.MedicationDispenseSubstitutionComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -5472,7 +5443,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationPrescription parseMedicationPrescription(JsonObject json) throws Exception {
+  protected MedicationPrescription parseMedicationPrescription(JsonObject json) throws Exception {
     MedicationPrescription res = new MedicationPrescription();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -5513,7 +5484,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionDosageInstructionComponent parseMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(JsonObject json, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionDosageInstructionComponent parseMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(JsonObject json, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionDosageInstructionComponent res = new MedicationPrescription.MedicationPrescriptionDosageInstructionComponent();
     parseBackboneProperties(json, res);
     if (json.has("text"))
@@ -5543,7 +5514,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionDispenseComponent parseMedicationPrescriptionMedicationPrescriptionDispenseComponent(JsonObject json, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionDispenseComponent parseMedicationPrescriptionMedicationPrescriptionDispenseComponent(JsonObject json, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionDispenseComponent res = new MedicationPrescription.MedicationPrescriptionDispenseComponent();
     parseBackboneProperties(json, res);
     if (json.has("medication"))
@@ -5561,7 +5532,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionSubstitutionComponent parseMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(JsonObject json, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionSubstitutionComponent parseMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(JsonObject json, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionSubstitutionComponent res = new MedicationPrescription.MedicationPrescriptionSubstitutionComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -5571,7 +5542,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationStatement parseMedicationStatement(JsonObject json) throws Exception {
+  protected MedicationStatement parseMedicationStatement(JsonObject json) throws Exception {
     MedicationStatement res = new MedicationStatement();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -5611,7 +5582,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MedicationStatement.MedicationStatementDosageComponent parseMedicationStatementMedicationStatementDosageComponent(JsonObject json, MedicationStatement owner) throws Exception {
+  protected MedicationStatement.MedicationStatementDosageComponent parseMedicationStatementMedicationStatementDosageComponent(JsonObject json, MedicationStatement owner) throws Exception {
     MedicationStatement.MedicationStatementDosageComponent res = new MedicationStatement.MedicationStatementDosageComponent();
     parseBackboneProperties(json, res);
     if (json.has("schedule"))
@@ -5634,7 +5605,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MessageHeader parseMessageHeader(JsonObject json) throws Exception {
+  protected MessageHeader parseMessageHeader(JsonObject json) throws Exception {
     MessageHeader res = new MessageHeader();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -5676,7 +5647,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MessageHeader.MessageHeaderResponseComponent parseMessageHeaderMessageHeaderResponseComponent(JsonObject json, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageHeaderResponseComponent parseMessageHeaderMessageHeaderResponseComponent(JsonObject json, MessageHeader owner) throws Exception {
     MessageHeader.MessageHeaderResponseComponent res = new MessageHeader.MessageHeaderResponseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -5692,7 +5663,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MessageHeader.MessageSourceComponent parseMessageHeaderMessageSourceComponent(JsonObject json, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageSourceComponent parseMessageHeaderMessageSourceComponent(JsonObject json, MessageHeader owner) throws Exception {
     MessageHeader.MessageSourceComponent res = new MessageHeader.MessageSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -5716,7 +5687,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private MessageHeader.MessageDestinationComponent parseMessageHeaderMessageDestinationComponent(JsonObject json, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageDestinationComponent parseMessageHeaderMessageDestinationComponent(JsonObject json, MessageHeader owner) throws Exception {
     MessageHeader.MessageDestinationComponent res = new MessageHeader.MessageDestinationComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -5732,7 +5703,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NamingSystem parseNamingSystem(JsonObject json) throws Exception {
+  protected NamingSystem parseNamingSystem(JsonObject json) throws Exception {
     NamingSystem res = new NamingSystem();
     parseDomainResourceProperties(json, res);
     if (json.has("type"))
@@ -5778,7 +5749,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(JsonObject json, NamingSystem owner) throws Exception {
+  protected NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(JsonObject json, NamingSystem owner) throws Exception {
     NamingSystem.NamingSystemUniqueIdComponent res = new NamingSystem.NamingSystemUniqueIdComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -5798,7 +5769,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(JsonObject json, NamingSystem owner) throws Exception {
+  protected NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(JsonObject json, NamingSystem owner) throws Exception {
     NamingSystem.NamingSystemContactComponent res = new NamingSystem.NamingSystemContactComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -5812,7 +5783,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder parseNutritionOrder(JsonObject json) throws Exception {
+  protected NutritionOrder parseNutritionOrder(JsonObject json) throws Exception {
     NutritionOrder res = new NutritionOrder();
     parseDomainResourceProperties(json, res);
     if (json.has("subject"))
@@ -5862,7 +5833,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemComponent res = new NutritionOrder.NutritionOrderItemComponent();
     parseBackboneProperties(json, res);
     Type scheduled = parseType("scheduled", json);
@@ -5881,7 +5852,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietComponent parseNutritionOrderNutritionOrderItemOralDietComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietComponent parseNutritionOrderNutritionOrderItemOralDietComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietComponent res = new NutritionOrder.NutritionOrderItemOralDietComponent();
     parseBackboneProperties(json, res);
     if (json.has("code")) {
@@ -5915,7 +5886,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietNutrientsComponent parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietNutrientsComponent parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietNutrientsComponent res = new NutritionOrder.NutritionOrderItemOralDietNutrientsComponent();
     parseBackboneProperties(json, res);
     if (json.has("modifier"))
@@ -5926,7 +5897,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietTextureComponent parseNutritionOrderNutritionOrderItemOralDietTextureComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietTextureComponent parseNutritionOrderNutritionOrderItemOralDietTextureComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietTextureComponent res = new NutritionOrder.NutritionOrderItemOralDietTextureComponent();
     parseBackboneProperties(json, res);
     if (json.has("modifier"))
@@ -5936,7 +5907,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemSupplementComponent parseNutritionOrderNutritionOrderItemSupplementComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemSupplementComponent parseNutritionOrderNutritionOrderItemSupplementComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemSupplementComponent res = new NutritionOrder.NutritionOrderItemSupplementComponent();
     parseBackboneProperties(json, res);
     if (json.has("type")) {
@@ -5954,7 +5925,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemEnteralFormulaComponent parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(JsonObject json, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemEnteralFormulaComponent parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(JsonObject json, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemEnteralFormulaComponent res = new NutritionOrder.NutritionOrderItemEnteralFormulaComponent();
     parseBackboneProperties(json, res);
     if (json.has("baseFormulaType"))
@@ -5990,7 +5961,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Observation parseObservation(JsonObject json) throws Exception {
+  protected Observation parseObservation(JsonObject json) throws Exception {
     Observation res = new Observation();
     parseDomainResourceProperties(json, res);
     if (json.has("name"))
@@ -6056,7 +6027,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Observation.ObservationReferenceRangeComponent parseObservationObservationReferenceRangeComponent(JsonObject json, Observation owner) throws Exception {
+  protected Observation.ObservationReferenceRangeComponent parseObservationObservationReferenceRangeComponent(JsonObject json, Observation owner) throws Exception {
     Observation.ObservationReferenceRangeComponent res = new Observation.ObservationReferenceRangeComponent();
     parseBackboneProperties(json, res);
     if (json.has("low"))
@@ -6074,7 +6045,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Observation.ObservationRelatedComponent parseObservationObservationRelatedComponent(JsonObject json, Observation owner) throws Exception {
+  protected Observation.ObservationRelatedComponent parseObservationObservationRelatedComponent(JsonObject json, Observation owner) throws Exception {
     Observation.ObservationRelatedComponent res = new Observation.ObservationRelatedComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -6086,7 +6057,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OperationDefinition parseOperationDefinition(JsonObject json) throws Exception {
+  protected OperationDefinition parseOperationDefinition(JsonObject json) throws Exception {
     OperationDefinition res = new OperationDefinition();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -6179,7 +6150,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OperationDefinition.OperationDefinitionParameterComponent parseOperationDefinitionOperationDefinitionParameterComponent(JsonObject json, OperationDefinition owner) throws Exception {
+  protected OperationDefinition.OperationDefinitionParameterComponent parseOperationDefinitionOperationDefinitionParameterComponent(JsonObject json, OperationDefinition owner) throws Exception {
     OperationDefinition.OperationDefinitionParameterComponent res = new OperationDefinition.OperationDefinitionParameterComponent();
     parseBackboneProperties(json, res);
     if (json.has("name"))
@@ -6209,7 +6180,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OperationOutcome parseOperationOutcome(JsonObject json) throws Exception {
+  protected OperationOutcome parseOperationOutcome(JsonObject json) throws Exception {
     OperationOutcome res = new OperationOutcome();
     parseDomainResourceProperties(json, res);
     if (json.has("issue")) {
@@ -6221,7 +6192,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OperationOutcome.OperationOutcomeIssueComponent parseOperationOutcomeOperationOutcomeIssueComponent(JsonObject json, OperationOutcome owner) throws Exception {
+  protected OperationOutcome.OperationOutcomeIssueComponent parseOperationOutcomeOperationOutcomeIssueComponent(JsonObject json, OperationOutcome owner) throws Exception {
     OperationOutcome.OperationOutcomeIssueComponent res = new OperationOutcome.OperationOutcomeIssueComponent();
     parseBackboneProperties(json, res);
     if (json.has("severity"))
@@ -6252,11 +6223,15 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim parseOralHealthClaim(JsonObject json) throws Exception {
+  protected OralHealthClaim parseOralHealthClaim(JsonObject json) throws Exception {
     OralHealthClaim res = new OralHealthClaim();
     parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("ruleset"))
       res.setRuleset(parseCoding(json.getAsJsonObject("ruleset")));
     if (json.has("originalRuleset"))
@@ -6352,7 +6327,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.PayeeComponent parseOralHealthClaimPayeeComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.PayeeComponent parseOralHealthClaimPayeeComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.PayeeComponent res = new OralHealthClaim.PayeeComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -6366,7 +6341,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.DiagnosisComponent parseOralHealthClaimDiagnosisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.DiagnosisComponent parseOralHealthClaimDiagnosisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.DiagnosisComponent res = new OralHealthClaim.DiagnosisComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -6378,7 +6353,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.CoverageComponent parseOralHealthClaimCoverageComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.CoverageComponent parseOralHealthClaimCoverageComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.CoverageComponent res = new OralHealthClaim.CoverageComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -6419,7 +6394,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.MissingTeethComponent parseOralHealthClaimMissingTeethComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.MissingTeethComponent parseOralHealthClaimMissingTeethComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.MissingTeethComponent res = new OralHealthClaim.MissingTeethComponent();
     parseBackboneProperties(json, res);
     if (json.has("tooth"))
@@ -6433,7 +6408,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.OrthodonticPlanComponent parseOralHealthClaimOrthodonticPlanComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.OrthodonticPlanComponent parseOralHealthClaimOrthodonticPlanComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.OrthodonticPlanComponent res = new OralHealthClaim.OrthodonticPlanComponent();
     parseBackboneProperties(json, res);
     if (json.has("start"))
@@ -6459,7 +6434,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.ItemsComponent parseOralHealthClaimItemsComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.ItemsComponent parseOralHealthClaimItemsComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.ItemsComponent res = new OralHealthClaim.ItemsComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -6517,7 +6492,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.DetailComponent parseOralHealthClaimDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.DetailComponent parseOralHealthClaimDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.DetailComponent res = new OralHealthClaim.DetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -6553,7 +6528,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.SubDetailComponent parseOralHealthClaimSubDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.SubDetailComponent parseOralHealthClaimSubDetailComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.SubDetailComponent res = new OralHealthClaim.SubDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -6583,7 +6558,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OralHealthClaim.ProsthesisComponent parseOralHealthClaimProsthesisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.ProsthesisComponent parseOralHealthClaimProsthesisComponent(JsonObject json, OralHealthClaim owner) throws Exception {
     OralHealthClaim.ProsthesisComponent res = new OralHealthClaim.ProsthesisComponent();
     parseBackboneProperties(json, res);
     if (json.has("initial"))
@@ -6599,7 +6574,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Order parseOrder(JsonObject json) throws Exception {
+  protected Order parseOrder(JsonObject json) throws Exception {
     Order res = new Order();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6634,7 +6609,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Order.OrderWhenComponent parseOrderOrderWhenComponent(JsonObject json, Order owner) throws Exception {
+  protected Order.OrderWhenComponent parseOrderOrderWhenComponent(JsonObject json, Order owner) throws Exception {
     Order.OrderWhenComponent res = new Order.OrderWhenComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -6644,7 +6619,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private OrderResponse parseOrderResponse(JsonObject json) throws Exception {
+  protected OrderResponse parseOrderResponse(JsonObject json) throws Exception {
     OrderResponse res = new OrderResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6681,7 +6656,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Organization parseOrganization(JsonObject json) throws Exception {
+  protected Organization parseOrganization(JsonObject json) throws Exception {
     Organization res = new Organization();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6729,7 +6704,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Organization.OrganizationContactComponent parseOrganizationOrganizationContactComponent(JsonObject json, Organization owner) throws Exception {
+  protected Organization.OrganizationContactComponent parseOrganizationOrganizationContactComponent(JsonObject json, Organization owner) throws Exception {
     Organization.OrganizationContactComponent res = new Organization.OrganizationContactComponent();
     parseBackboneProperties(json, res);
     if (json.has("purpose"))
@@ -6751,7 +6726,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Other parseOther(JsonObject json) throws Exception {
+  protected Other parseOther(JsonObject json) throws Exception {
     Other res = new Other();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6773,7 +6748,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Patient parsePatient(JsonObject json) throws Exception {
+  protected Patient parsePatient(JsonObject json) throws Exception {
     Patient res = new Patient();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6857,7 +6832,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Patient.ContactComponent parsePatientContactComponent(JsonObject json, Patient owner) throws Exception {
+  protected Patient.ContactComponent parsePatientContactComponent(JsonObject json, Patient owner) throws Exception {
     Patient.ContactComponent res = new Patient.ContactComponent();
     parseBackboneProperties(json, res);
     if (json.has("relationship")) {
@@ -6887,7 +6862,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Patient.AnimalComponent parsePatientAnimalComponent(JsonObject json, Patient owner) throws Exception {
+  protected Patient.AnimalComponent parsePatientAnimalComponent(JsonObject json, Patient owner) throws Exception {
     Patient.AnimalComponent res = new Patient.AnimalComponent();
     parseBackboneProperties(json, res);
     if (json.has("species"))
@@ -6899,7 +6874,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Patient.PatientLinkComponent parsePatientPatientLinkComponent(JsonObject json, Patient owner) throws Exception {
+  protected Patient.PatientLinkComponent parsePatientPatientLinkComponent(JsonObject json, Patient owner) throws Exception {
     Patient.PatientLinkComponent res = new Patient.PatientLinkComponent();
     parseBackboneProperties(json, res);
     if (json.has("other"))
@@ -6911,7 +6886,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private PendedRequest parsePendedRequest(JsonObject json) throws Exception {
+  protected PendedRequest parsePendedRequest(JsonObject json) throws Exception {
     PendedRequest res = new PendedRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -6936,8 +6911,6 @@ public class JsonParser extends JsonParserBase {
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier"))
-      res.setRequestIdentifier(parseIdentifier(json.getAsJsonObject("requestIdentifier")));
     if (json.has("include")) {
       JsonArray array = json.getAsJsonArray("include");
       for (int i = 0; i < array.size(); i++) {
@@ -6971,7 +6944,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Practitioner parsePractitioner(JsonObject json) throws Exception {
+  protected Practitioner parsePractitioner(JsonObject json) throws Exception {
     Practitioner res = new Practitioner();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7045,7 +7018,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(JsonObject json, Practitioner owner) throws Exception {
+  protected Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(JsonObject json, Practitioner owner) throws Exception {
     Practitioner.PractitionerQualificationComponent res = new Practitioner.PractitionerQualificationComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier")) {
@@ -7063,7 +7036,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Procedure parseProcedure(JsonObject json) throws Exception {
+  protected Procedure parseProcedure(JsonObject json) throws Exception {
     Procedure res = new Procedure();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7131,7 +7104,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(JsonObject json, Procedure owner) throws Exception {
+  protected Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(JsonObject json, Procedure owner) throws Exception {
     Procedure.ProcedurePerformerComponent res = new Procedure.ProcedurePerformerComponent();
     parseBackboneProperties(json, res);
     if (json.has("person"))
@@ -7141,7 +7114,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Procedure.ProcedureRelatedItemComponent parseProcedureProcedureRelatedItemComponent(JsonObject json, Procedure owner) throws Exception {
+  protected Procedure.ProcedureRelatedItemComponent parseProcedureProcedureRelatedItemComponent(JsonObject json, Procedure owner) throws Exception {
     Procedure.ProcedureRelatedItemComponent res = new Procedure.ProcedureRelatedItemComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -7153,7 +7126,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ProcedureRequest parseProcedureRequest(JsonObject json) throws Exception {
+  protected ProcedureRequest parseProcedureRequest(JsonObject json) throws Exception {
     ProcedureRequest res = new ProcedureRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7224,7 +7197,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Profile parseProfile(JsonObject json) throws Exception {
+  protected Profile parseProfile(JsonObject json) throws Exception {
     Profile res = new Profile();
     parseDomainResourceProperties(json, res);
     if (json.has("url"))
@@ -7306,7 +7279,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Profile.ProfileMappingComponent parseProfileProfileMappingComponent(JsonObject json, Profile owner) throws Exception {
+  protected Profile.ProfileMappingComponent parseProfileProfileMappingComponent(JsonObject json, Profile owner) throws Exception {
     Profile.ProfileMappingComponent res = new Profile.ProfileMappingComponent();
     parseBackboneProperties(json, res);
     if (json.has("identity"))
@@ -7328,7 +7301,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Profile.ConstraintComponent parseProfileConstraintComponent(JsonObject json, Profile owner) throws Exception {
+  protected Profile.ConstraintComponent parseProfileConstraintComponent(JsonObject json, Profile owner) throws Exception {
     Profile.ConstraintComponent res = new Profile.ConstraintComponent();
     parseBackboneProperties(json, res);
     if (json.has("element")) {
@@ -7340,7 +7313,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Provenance parseProvenance(JsonObject json) throws Exception {
+  protected Provenance parseProvenance(JsonObject json) throws Exception {
     Provenance res = new Provenance();
     parseDomainResourceProperties(json, res);
     if (json.has("target")) {
@@ -7393,7 +7366,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Provenance.ProvenanceAgentComponent parseProvenanceProvenanceAgentComponent(JsonObject json, Provenance owner) throws Exception {
+  protected Provenance.ProvenanceAgentComponent parseProvenanceProvenanceAgentComponent(JsonObject json, Provenance owner) throws Exception {
     Provenance.ProvenanceAgentComponent res = new Provenance.ProvenanceAgentComponent();
     parseBackboneProperties(json, res);
     if (json.has("role"))
@@ -7411,7 +7384,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Provenance.ProvenanceEntityComponent parseProvenanceProvenanceEntityComponent(JsonObject json, Provenance owner) throws Exception {
+  protected Provenance.ProvenanceEntityComponent parseProvenanceProvenanceEntityComponent(JsonObject json, Provenance owner) throws Exception {
     Provenance.ProvenanceEntityComponent res = new Provenance.ProvenanceEntityComponent();
     parseBackboneProperties(json, res);
     if (json.has("role"))
@@ -7433,7 +7406,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Query parseQuery(JsonObject json) throws Exception {
+  protected Query parseQuery(JsonObject json) throws Exception {
     Query res = new Query();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -7451,7 +7424,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Query.QueryResponseComponent parseQueryQueryResponseComponent(JsonObject json, Query owner) throws Exception {
+  protected Query.QueryResponseComponent parseQueryQueryResponseComponent(JsonObject json, Query owner) throws Exception {
     Query.QueryResponseComponent res = new Query.QueryResponseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -7505,7 +7478,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Questionnaire parseQuestionnaire(JsonObject json) throws Exception {
+  protected Questionnaire parseQuestionnaire(JsonObject json) throws Exception {
     Questionnaire res = new Questionnaire();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7535,7 +7508,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Questionnaire.GroupComponent parseQuestionnaireGroupComponent(JsonObject json, Questionnaire owner) throws Exception {
+  protected Questionnaire.GroupComponent parseQuestionnaireGroupComponent(JsonObject json, Questionnaire owner) throws Exception {
     Questionnaire.GroupComponent res = new Questionnaire.GroupComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
@@ -7579,7 +7552,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Questionnaire.QuestionComponent parseQuestionnaireQuestionComponent(JsonObject json, Questionnaire owner) throws Exception {
+  protected Questionnaire.QuestionComponent parseQuestionnaireQuestionComponent(JsonObject json, Questionnaire owner) throws Exception {
     Questionnaire.QuestionComponent res = new Questionnaire.QuestionComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
@@ -7619,7 +7592,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers parseQuestionnaireAnswers(JsonObject json) throws Exception {
+  protected QuestionnaireAnswers parseQuestionnaireAnswers(JsonObject json) throws Exception {
     QuestionnaireAnswers res = new QuestionnaireAnswers();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -7647,7 +7620,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.GroupComponent parseQuestionnaireAnswersGroupComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.GroupComponent parseQuestionnaireAnswersGroupComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.GroupComponent res = new QuestionnaireAnswers.GroupComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
@@ -7679,7 +7652,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.QuestionComponent parseQuestionnaireAnswersQuestionComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.QuestionComponent parseQuestionnaireAnswersQuestionComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.QuestionComponent res = new QuestionnaireAnswers.QuestionComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
@@ -7705,7 +7678,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.QuestionAnswerComponent parseQuestionnaireAnswersQuestionAnswerComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.QuestionAnswerComponent parseQuestionnaireAnswersQuestionAnswerComponent(JsonObject json, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.QuestionAnswerComponent res = new QuestionnaireAnswers.QuestionAnswerComponent();
     parseBackboneProperties(json, res);
     Type value = parseType("value", json);
@@ -7714,7 +7687,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ReferralRequest parseReferralRequest(JsonObject json) throws Exception {
+  protected ReferralRequest parseReferralRequest(JsonObject json) throws Exception {
     ReferralRequest res = new ReferralRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("status"))
@@ -7772,7 +7745,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private RelatedPerson parseRelatedPerson(JsonObject json) throws Exception {
+  protected RelatedPerson parseRelatedPerson(JsonObject json) throws Exception {
     RelatedPerson res = new RelatedPerson();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7808,7 +7781,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Reversal parseReversal(JsonObject json) throws Exception {
+  protected Reversal parseReversal(JsonObject json) throws Exception {
     Reversal res = new Reversal();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -7833,12 +7806,8 @@ public class JsonParser extends JsonParserBase {
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier"))
-      res.setRequestIdentifier(parseIdentifier(json.getAsJsonObject("requestIdentifier")));
     if (json.has("response"))
       res.setResponse(parseReference(json.getAsJsonObject("response")));
-    if (json.has("responseIdentifier"))
-      res.setResponseIdentifier(parseIdentifier(json.getAsJsonObject("responseIdentifier")));
     if (json.has("payee"))
       res.setPayee(parseReversalPayeeComponent(json.getAsJsonObject("payee"), res));
     if (json.has("coverage"))
@@ -7850,7 +7819,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Reversal.PayeeComponent parseReversalPayeeComponent(JsonObject json, Reversal owner) throws Exception {
+  protected Reversal.PayeeComponent parseReversalPayeeComponent(JsonObject json, Reversal owner) throws Exception {
     Reversal.PayeeComponent res = new Reversal.PayeeComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -7864,7 +7833,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Reversal.ReversalCoverageComponent parseReversalReversalCoverageComponent(JsonObject json, Reversal owner) throws Exception {
+  protected Reversal.ReversalCoverageComponent parseReversalReversalCoverageComponent(JsonObject json, Reversal owner) throws Exception {
     Reversal.ReversalCoverageComponent res = new Reversal.ReversalCoverageComponent();
     parseBackboneProperties(json, res);
     if (json.has("sequence"))
@@ -7886,7 +7855,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private RiskAssessment parseRiskAssessment(JsonObject json) throws Exception {
+  protected RiskAssessment parseRiskAssessment(JsonObject json) throws Exception {
     RiskAssessment res = new RiskAssessment();
     parseDomainResourceProperties(json, res);
     if (json.has("subject"))
@@ -7922,7 +7891,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private RiskAssessment.RiskAssessmentPredictionComponent parseRiskAssessmentRiskAssessmentPredictionComponent(JsonObject json, RiskAssessment owner) throws Exception {
+  protected RiskAssessment.RiskAssessmentPredictionComponent parseRiskAssessmentRiskAssessmentPredictionComponent(JsonObject json, RiskAssessment owner) throws Exception {
     RiskAssessment.RiskAssessmentPredictionComponent res = new RiskAssessment.RiskAssessmentPredictionComponent();
     parseBackboneProperties(json, res);
     if (json.has("outcome"))
@@ -7944,7 +7913,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SearchParameter parseSearchParameter(JsonObject json) throws Exception {
+  protected SearchParameter parseSearchParameter(JsonObject json) throws Exception {
     SearchParameter res = new SearchParameter();
     parseDomainResourceProperties(json, res);
     if (json.has("url"))
@@ -8003,7 +7972,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent parseSecurityEvent(JsonObject json) throws Exception {
+  protected SecurityEvent parseSecurityEvent(JsonObject json) throws Exception {
     SecurityEvent res = new SecurityEvent();
     parseDomainResourceProperties(json, res);
     if (json.has("event"))
@@ -8025,7 +7994,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventEventComponent res = new SecurityEvent.SecurityEventEventComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -8055,7 +8024,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantComponent res = new SecurityEvent.SecurityEventParticipantComponent();
     parseBackboneProperties(json, res);
     if (json.has("role")) {
@@ -8089,7 +8058,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantNetworkComponent res = new SecurityEvent.SecurityEventParticipantNetworkComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -8103,7 +8072,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventSourceComponent parseSecurityEventSecurityEventSourceComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventSourceComponent parseSecurityEventSecurityEventSourceComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventSourceComponent res = new SecurityEvent.SecurityEventSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("site"))
@@ -8123,7 +8092,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventObjectComponent res = new SecurityEvent.SecurityEventObjectComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -8165,7 +8134,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventObjectDetailComponent parseSecurityEventSecurityEventObjectDetailComponent(JsonObject json, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventObjectDetailComponent parseSecurityEventSecurityEventObjectDetailComponent(JsonObject json, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventObjectDetailComponent res = new SecurityEvent.SecurityEventObjectDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -8179,7 +8148,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Slot parseSlot(JsonObject json) throws Exception {
+  protected Slot parseSlot(JsonObject json) throws Exception {
     Slot res = new Slot();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -8219,7 +8188,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Specimen parseSpecimen(JsonObject json) throws Exception {
+  protected Specimen parseSpecimen(JsonObject json) throws Exception {
     Specimen res = new Specimen();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -8261,7 +8230,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Specimen.SpecimenSourceComponent parseSpecimenSpecimenSourceComponent(JsonObject json, Specimen owner) throws Exception {
+  protected Specimen.SpecimenSourceComponent parseSpecimenSpecimenSourceComponent(JsonObject json, Specimen owner) throws Exception {
     Specimen.SpecimenSourceComponent res = new Specimen.SpecimenSourceComponent();
     parseBackboneProperties(json, res);
     if (json.has("relationship"))
@@ -8277,7 +8246,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Specimen.SpecimenCollectionComponent parseSpecimenSpecimenCollectionComponent(JsonObject json, Specimen owner) throws Exception {
+  protected Specimen.SpecimenCollectionComponent parseSpecimenSpecimenCollectionComponent(JsonObject json, Specimen owner) throws Exception {
     Specimen.SpecimenCollectionComponent res = new Specimen.SpecimenCollectionComponent();
     parseBackboneProperties(json, res);
     if (json.has("collector"))
@@ -8309,7 +8278,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Specimen.SpecimenTreatmentComponent parseSpecimenSpecimenTreatmentComponent(JsonObject json, Specimen owner) throws Exception {
+  protected Specimen.SpecimenTreatmentComponent parseSpecimenSpecimenTreatmentComponent(JsonObject json, Specimen owner) throws Exception {
     Specimen.SpecimenTreatmentComponent res = new Specimen.SpecimenTreatmentComponent();
     parseBackboneProperties(json, res);
     if (json.has("description"))
@@ -8327,7 +8296,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Specimen.SpecimenContainerComponent parseSpecimenSpecimenContainerComponent(JsonObject json, Specimen owner) throws Exception {
+  protected Specimen.SpecimenContainerComponent parseSpecimenSpecimenContainerComponent(JsonObject json, Specimen owner) throws Exception {
     Specimen.SpecimenContainerComponent res = new Specimen.SpecimenContainerComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier")) {
@@ -8352,7 +8321,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private StatusRequest parseStatusRequest(JsonObject json) throws Exception {
+  protected StatusRequest parseStatusRequest(JsonObject json) throws Exception {
     StatusRequest res = new StatusRequest();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -8377,16 +8346,12 @@ public class JsonParser extends JsonParserBase {
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier"))
-      res.setRequestIdentifier(parseIdentifier(json.getAsJsonObject("requestIdentifier")));
     if (json.has("response"))
       res.setResponse(parseReference(json.getAsJsonObject("response")));
-    if (json.has("responseIdentifier"))
-      res.setResponseIdentifier(parseIdentifier(json.getAsJsonObject("responseIdentifier")));
     return res;
   }
 
-  private StatusResponse parseStatusResponse(JsonObject json) throws Exception {
+  protected StatusResponse parseStatusResponse(JsonObject json) throws Exception {
     StatusResponse res = new StatusResponse();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -8397,12 +8362,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("requestIdentifier")) {
-      JsonArray array = json.getAsJsonArray("requestIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRequestIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
     if (json.has("outcome"))
       res.setOutcome(parseCoding(json.getAsJsonObject("outcome")));
     if (json.has("disposition"))
@@ -8440,7 +8399,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private StatusResponse.StatusResponseNotesComponent parseStatusResponseStatusResponseNotesComponent(JsonObject json, StatusResponse owner) throws Exception {
+  protected StatusResponse.StatusResponseNotesComponent parseStatusResponseStatusResponseNotesComponent(JsonObject json, StatusResponse owner) throws Exception {
     StatusResponse.StatusResponseNotesComponent res = new StatusResponse.StatusResponseNotesComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -8452,7 +8411,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Subscription parseSubscription(JsonObject json) throws Exception {
+  protected Subscription parseSubscription(JsonObject json) throws Exception {
     Subscription res = new Subscription();
     parseDomainResourceProperties(json, res);
     if (json.has("criteria"))
@@ -8492,7 +8451,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Subscription.SubscriptionChannelComponent parseSubscriptionSubscriptionChannelComponent(JsonObject json, Subscription owner) throws Exception {
+  protected Subscription.SubscriptionChannelComponent parseSubscriptionSubscriptionChannelComponent(JsonObject json, Subscription owner) throws Exception {
     Subscription.SubscriptionChannelComponent res = new Subscription.SubscriptionChannelComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
@@ -8514,7 +8473,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Subscription.SubscriptionTagComponent parseSubscriptionSubscriptionTagComponent(JsonObject json, Subscription owner) throws Exception {
+  protected Subscription.SubscriptionTagComponent parseSubscriptionSubscriptionTagComponent(JsonObject json, Subscription owner) throws Exception {
     Subscription.SubscriptionTagComponent res = new Subscription.SubscriptionTagComponent();
     parseBackboneProperties(json, res);
     if (json.has("term"))
@@ -8532,7 +8491,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Substance parseSubstance(JsonObject json) throws Exception {
+  protected Substance parseSubstance(JsonObject json) throws Exception {
     Substance res = new Substance();
     parseDomainResourceProperties(json, res);
     if (json.has("type"))
@@ -8552,7 +8511,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Substance.SubstanceInstanceComponent parseSubstanceSubstanceInstanceComponent(JsonObject json, Substance owner) throws Exception {
+  protected Substance.SubstanceInstanceComponent parseSubstanceSubstanceInstanceComponent(JsonObject json, Substance owner) throws Exception {
     Substance.SubstanceInstanceComponent res = new Substance.SubstanceInstanceComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -8566,7 +8525,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Substance.SubstanceIngredientComponent parseSubstanceSubstanceIngredientComponent(JsonObject json, Substance owner) throws Exception {
+  protected Substance.SubstanceIngredientComponent parseSubstanceSubstanceIngredientComponent(JsonObject json, Substance owner) throws Exception {
     Substance.SubstanceIngredientComponent res = new Substance.SubstanceIngredientComponent();
     parseBackboneProperties(json, res);
     if (json.has("quantity"))
@@ -8576,7 +8535,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Supply parseSupply(JsonObject json) throws Exception {
+  protected Supply parseSupply(JsonObject json) throws Exception {
     Supply res = new Supply();
     parseDomainResourceProperties(json, res);
     if (json.has("kind"))
@@ -8600,7 +8559,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private Supply.SupplyDispenseComponent parseSupplySupplyDispenseComponent(JsonObject json, Supply owner) throws Exception {
+  protected Supply.SupplyDispenseComponent parseSupplySupplyDispenseComponent(JsonObject json, Supply owner) throws Exception {
     Supply.SupplyDispenseComponent res = new Supply.SupplyDispenseComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -8632,7 +8591,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SupportingDocumentation parseSupportingDocumentation(JsonObject json) throws Exception {
+  protected SupportingDocumentation parseSupportingDocumentation(JsonObject json) throws Exception {
     SupportingDocumentation res = new SupportingDocumentation();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier")) {
@@ -8655,12 +8614,8 @@ public class JsonParser extends JsonParserBase {
       res.setProvider(parseReference(json.getAsJsonObject("provider")));
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
-    if (json.has("requestIdentifier"))
-      res.setRequestIdentifier(parseIdentifier(json.getAsJsonObject("requestIdentifier")));
     if (json.has("request"))
       res.setRequest(parseReference(json.getAsJsonObject("request")));
-    if (json.has("responseIdentifier"))
-      res.setResponseIdentifier(parseIdentifier(json.getAsJsonObject("responseIdentifier")));
     if (json.has("response"))
       res.setResponse(parseReference(json.getAsJsonObject("response")));
     if (json.has("author"))
@@ -8676,7 +8631,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private SupportingDocumentation.SupportingDocumentationDetailComponent parseSupportingDocumentationSupportingDocumentationDetailComponent(JsonObject json, SupportingDocumentation owner) throws Exception {
+  protected SupportingDocumentation.SupportingDocumentationDetailComponent parseSupportingDocumentationSupportingDocumentationDetailComponent(JsonObject json, SupportingDocumentation owner) throws Exception {
     SupportingDocumentation.SupportingDocumentationDetailComponent res = new SupportingDocumentation.SupportingDocumentationDetailComponent();
     parseBackboneProperties(json, res);
     if (json.has("linkId"))
@@ -8693,7 +8648,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet parseValueSet(JsonObject json) throws Exception {
+  protected ValueSet parseValueSet(JsonObject json) throws Exception {
     ValueSet res = new ValueSet();
     parseDomainResourceProperties(json, res);
     if (json.has("identifier"))
@@ -8763,7 +8718,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetDefineComponent res = new ValueSet.ValueSetDefineComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
@@ -8787,7 +8742,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ConceptDefinitionComponent parseValueSetConceptDefinitionComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptDefinitionComponent parseValueSetConceptDefinitionComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ConceptDefinitionComponent res = new ValueSet.ConceptDefinitionComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -8821,7 +8776,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ConceptDefinitionDesignationComponent parseValueSetConceptDefinitionDesignationComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptDefinitionDesignationComponent parseValueSetConceptDefinitionDesignationComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ConceptDefinitionDesignationComponent res = new ValueSet.ConceptDefinitionDesignationComponent();
     parseBackboneProperties(json, res);
     if (json.has("language"))
@@ -8837,7 +8792,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetComposeComponent parseValueSetValueSetComposeComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetComposeComponent parseValueSetValueSetComposeComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetComposeComponent res = new ValueSet.ValueSetComposeComponent();
     parseBackboneProperties(json, res);
     if (json.has("import")) {
@@ -8870,7 +8825,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ConceptSetComponent parseValueSetConceptSetComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptSetComponent parseValueSetConceptSetComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ConceptSetComponent res = new ValueSet.ConceptSetComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
@@ -8896,7 +8851,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ConceptReferenceComponent parseValueSetConceptReferenceComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptReferenceComponent parseValueSetConceptReferenceComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ConceptReferenceComponent res = new ValueSet.ConceptReferenceComponent();
     parseBackboneProperties(json, res);
     if (json.has("code"))
@@ -8916,7 +8871,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ConceptSetFilterComponent parseValueSetConceptSetFilterComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptSetFilterComponent parseValueSetConceptSetFilterComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ConceptSetFilterComponent res = new ValueSet.ConceptSetFilterComponent();
     parseBackboneProperties(json, res);
     if (json.has("property"))
@@ -8934,7 +8889,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetExpansionComponent parseValueSetValueSetExpansionComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetExpansionComponent parseValueSetValueSetExpansionComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetExpansionComponent res = new ValueSet.ValueSetExpansionComponent();
     parseBackboneProperties(json, res);
     if (json.has("identifier"))
@@ -8952,7 +8907,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetExpansionContainsComponent parseValueSetValueSetExpansionContainsComponent(JsonObject json, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetExpansionContainsComponent parseValueSetValueSetExpansionContainsComponent(JsonObject json, ValueSet owner) throws Exception {
     ValueSet.ValueSetExpansionContainsComponent res = new ValueSet.ValueSetExpansionContainsComponent();
     parseBackboneProperties(json, res);
     if (json.has("system"))
@@ -9577,10 +9532,10 @@ public class JsonParser extends JsonParserBase {
       return true;
     return false;
   }
-  private void composeElement(Element element) throws Exception {
+  protected void composeElement(Element element) throws Exception {
     if (element.hasElementId())
       prop("id", element.getElementId());
-      if (element.hasFormatComment() && !canonical) {
+      if (makeComments(element)) {
         openArray("fhir_comments");
         for (String s : element.getFormatComments())
           prop(null,  s);
@@ -9591,7 +9546,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeBackbone(BackboneElement element) throws Exception {
+  protected void composeBackbone(BackboneElement element) throws Exception {
     composeElement(element);
     if (element.hasModifierExtension()) {
       openObject("modifier");
@@ -9600,14 +9555,14 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {
+  protected <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {
     if (value != null && value.getValue() != null) {
       prop(name, e.toCode(value.getValue()));
     } else if (inArray)   
       writeNull(name);
   }    
 
-  private <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {
+  protected <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9616,7 +9571,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name);
   }    
 
-  private void composeIntegerCore(String name, IntegerType value, boolean inArray) throws Exception {
+  protected void composeIntegerCore(String name, IntegerType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, Integer.valueOf(value.getValue()));
     }    
@@ -9624,7 +9579,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeIntegerExtras(String name, IntegerType value, boolean inArray) throws Exception {
+  protected void composeIntegerExtras(String name, IntegerType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9634,7 +9589,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeDateTimeCore(String name, DateTimeType value, boolean inArray) throws Exception {
+  protected void composeDateTimeCore(String name, DateTimeType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9642,7 +9597,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeDateTimeExtras(String name, DateTimeType value, boolean inArray) throws Exception {
+  protected void composeDateTimeExtras(String name, DateTimeType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9652,7 +9607,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeCodeCore(String name, CodeType value, boolean inArray) throws Exception {
+  protected void composeCodeCore(String name, CodeType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9660,7 +9615,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeCodeExtras(String name, CodeType value, boolean inArray) throws Exception {
+  protected void composeCodeExtras(String name, CodeType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9670,7 +9625,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeDateCore(String name, DateType value, boolean inArray) throws Exception {
+  protected void composeDateCore(String name, DateType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9678,7 +9633,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeDateExtras(String name, DateType value, boolean inArray) throws Exception {
+  protected void composeDateExtras(String name, DateType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9688,7 +9643,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeDecimalCore(String name, DecimalType value, boolean inArray) throws Exception {
+  protected void composeDecimalCore(String name, DecimalType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, value.getValue());
     }    
@@ -9696,7 +9651,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeDecimalExtras(String name, DecimalType value, boolean inArray) throws Exception {
+  protected void composeDecimalExtras(String name, DecimalType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9706,7 +9661,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeUriCore(String name, UriType value, boolean inArray) throws Exception {
+  protected void composeUriCore(String name, UriType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9714,7 +9669,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeUriExtras(String name, UriType value, boolean inArray) throws Exception {
+  protected void composeUriExtras(String name, UriType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9724,7 +9679,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeIdCore(String name, IdType value, boolean inArray) throws Exception {
+  protected void composeIdCore(String name, IdType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9732,7 +9687,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeIdExtras(String name, IdType value, boolean inArray) throws Exception {
+  protected void composeIdExtras(String name, IdType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9742,7 +9697,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeBase64BinaryCore(String name, Base64BinaryType value, boolean inArray) throws Exception {
+  protected void composeBase64BinaryCore(String name, Base64BinaryType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9750,7 +9705,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeBase64BinaryExtras(String name, Base64BinaryType value, boolean inArray) throws Exception {
+  protected void composeBase64BinaryExtras(String name, Base64BinaryType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9760,7 +9715,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeTimeCore(String name, TimeType value, boolean inArray) throws Exception {
+  protected void composeTimeCore(String name, TimeType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9768,7 +9723,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeTimeExtras(String name, TimeType value, boolean inArray) throws Exception {
+  protected void composeTimeExtras(String name, TimeType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9778,7 +9733,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeOidCore(String name, OidType value, boolean inArray) throws Exception {
+  protected void composeOidCore(String name, OidType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9786,7 +9741,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeOidExtras(String name, OidType value, boolean inArray) throws Exception {
+  protected void composeOidExtras(String name, OidType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9796,7 +9751,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeStringCore(String name, StringType value, boolean inArray) throws Exception {
+  protected void composeStringCore(String name, StringType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9804,7 +9759,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeStringExtras(String name, StringType value, boolean inArray) throws Exception {
+  protected void composeStringExtras(String name, StringType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9814,7 +9769,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeBooleanCore(String name, BooleanType value, boolean inArray) throws Exception {
+  protected void composeBooleanCore(String name, BooleanType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, value.getValue());
     }    
@@ -9822,7 +9777,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeBooleanExtras(String name, BooleanType value, boolean inArray) throws Exception {
+  protected void composeBooleanExtras(String name, BooleanType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9832,7 +9787,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeUuidCore(String name, UuidType value, boolean inArray) throws Exception {
+  protected void composeUuidCore(String name, UuidType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9840,7 +9795,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeUuidExtras(String name, UuidType value, boolean inArray) throws Exception {
+  protected void composeUuidExtras(String name, UuidType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9850,7 +9805,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeInstantCore(String name, InstantType value, boolean inArray) throws Exception {
+  protected void composeInstantCore(String name, InstantType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
         prop(name, toString(value.getValue()));
     }    
@@ -9858,7 +9813,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }    
 
-  private void composeInstantExtras(String name, InstantType value, boolean inArray) throws Exception {
+  protected void composeInstantExtras(String name, InstantType value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -9868,7 +9823,7 @@ public class JsonParser extends JsonParserBase {
       writeNull(name); 
   }
 
-  private void composeExtension(String name, Extension element) throws Exception {
+  protected void composeExtension(String name, Extension element) throws Exception {
     if (element != null) {
       open(name);
       composeExtensionInner(element);
@@ -9876,7 +9831,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeExtensionInner(Extension element) throws Exception {
+  protected void composeExtensionInner(Extension element) throws Exception {
       composeElement(element);
       if (element.hasUrlElement()) {
         composeUriCore("url", element.getUrlElement(), false);
@@ -9887,7 +9842,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNarrative(String name, Narrative element) throws Exception {
+  protected void composeNarrative(String name, Narrative element) throws Exception {
     if (element != null) {
       open(name);
       composeNarrativeInner(element);
@@ -9895,7 +9850,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNarrativeInner(Narrative element) throws Exception {
+  protected void composeNarrativeInner(Narrative element) throws Exception {
       composeElement(element);
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new Narrative.NarrativeStatusEnumFactory(), false);
@@ -9906,7 +9861,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePeriod(String name, Period element) throws Exception {
+  protected void composePeriod(String name, Period element) throws Exception {
     if (element != null) {
       open(name);
       composePeriodInner(element);
@@ -9914,7 +9869,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composePeriodInner(Period element) throws Exception {
+  protected void composePeriodInner(Period element) throws Exception {
       composeElement(element);
       if (element.hasStartElement()) {
         composeDateTimeCore("start", element.getStartElement(), false);
@@ -9926,7 +9881,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCoding(String name, Coding element) throws Exception {
+  protected void composeCoding(String name, Coding element) throws Exception {
     if (element != null) {
       open(name);
       composeCodingInner(element);
@@ -9934,7 +9889,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCodingInner(Coding element) throws Exception {
+  protected void composeCodingInner(Coding element) throws Exception {
       composeElement(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -9961,7 +9916,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeRange(String name, Range element) throws Exception {
+  protected void composeRange(String name, Range element) throws Exception {
     if (element != null) {
       open(name);
       composeRangeInner(element);
@@ -9969,7 +9924,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeRangeInner(Range element) throws Exception {
+  protected void composeRangeInner(Range element) throws Exception {
       composeElement(element);
       if (element.hasLow()) {
         composeQuantity("low", element.getLow());
@@ -9979,7 +9934,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeQuantity(String name, Quantity element) throws Exception {
+  protected void composeQuantity(String name, Quantity element) throws Exception {
     if (element != null) {
       open(name);
       composeQuantityInner(element);
@@ -9987,7 +9942,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuantityInner(Quantity element) throws Exception {
+  protected void composeQuantityInner(Quantity element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10011,7 +9966,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAttachment(String name, Attachment element) throws Exception {
+  protected void composeAttachment(String name, Attachment element) throws Exception {
     if (element != null) {
       open(name);
       composeAttachmentInner(element);
@@ -10019,7 +9974,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeAttachmentInner(Attachment element) throws Exception {
+  protected void composeAttachmentInner(Attachment element) throws Exception {
       composeElement(element);
       if (element.hasContentTypeElement()) {
         composeCodeCore("contentType", element.getContentTypeElement(), false);
@@ -10051,7 +10006,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeRatio(String name, Ratio element) throws Exception {
+  protected void composeRatio(String name, Ratio element) throws Exception {
     if (element != null) {
       open(name);
       composeRatioInner(element);
@@ -10059,7 +10014,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeRatioInner(Ratio element) throws Exception {
+  protected void composeRatioInner(Ratio element) throws Exception {
       composeElement(element);
       if (element.hasNumerator()) {
         composeQuantity("numerator", element.getNumerator());
@@ -10069,7 +10024,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSampledData(String name, SampledData element) throws Exception {
+  protected void composeSampledData(String name, SampledData element) throws Exception {
     if (element != null) {
       open(name);
       composeSampledDataInner(element);
@@ -10077,7 +10032,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSampledDataInner(SampledData element) throws Exception {
+  protected void composeSampledDataInner(SampledData element) throws Exception {
       composeElement(element);
       if (element.hasOrigin()) {
         composeQuantity("origin", element.getOrigin());
@@ -10108,7 +10063,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeReference(String name, Reference element) throws Exception {
+  protected void composeReference(String name, Reference element) throws Exception {
     if (element != null) {
       open(name);
       composeReferenceInner(element);
@@ -10116,7 +10071,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeReferenceInner(Reference element) throws Exception {
+  protected void composeReferenceInner(Reference element) throws Exception {
       composeElement(element);
       if (element.hasReferenceElement()) {
         composeStringCore("reference", element.getReferenceElement(), false);
@@ -10128,7 +10083,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCodeableConcept(String name, CodeableConcept element) throws Exception {
+  protected void composeCodeableConcept(String name, CodeableConcept element) throws Exception {
     if (element != null) {
       open(name);
       composeCodeableConceptInner(element);
@@ -10136,7 +10091,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCodeableConceptInner(CodeableConcept element) throws Exception {
+  protected void composeCodeableConceptInner(CodeableConcept element) throws Exception {
       composeElement(element);
       if (element.hasCoding()) {
         openArray("coding");
@@ -10150,7 +10105,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeIdentifier(String name, Identifier element) throws Exception {
+  protected void composeIdentifier(String name, Identifier element) throws Exception {
     if (element != null) {
       open(name);
       composeIdentifierInner(element);
@@ -10158,7 +10113,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeIdentifierInner(Identifier element) throws Exception {
+  protected void composeIdentifierInner(Identifier element) throws Exception {
       composeElement(element);
       if (element.hasUseElement()) {
         composeEnumerationCore("use", element.getUseElement(), new Identifier.IdentifierUseEnumFactory(), false);
@@ -10184,7 +10139,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAge(String name, Age element) throws Exception {
+  protected void composeAge(String name, Age element) throws Exception {
     if (element != null) {
       open(name);
       composeAgeInner(element);
@@ -10192,7 +10147,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeAgeInner(Age element) throws Exception {
+  protected void composeAgeInner(Age element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10216,7 +10171,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCount(String name, Count element) throws Exception {
+  protected void composeCount(String name, Count element) throws Exception {
     if (element != null) {
       open(name);
       composeCountInner(element);
@@ -10224,7 +10179,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCountInner(Count element) throws Exception {
+  protected void composeCountInner(Count element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10248,7 +10203,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMoney(String name, Money element) throws Exception {
+  protected void composeMoney(String name, Money element) throws Exception {
     if (element != null) {
       open(name);
       composeMoneyInner(element);
@@ -10256,7 +10211,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMoneyInner(Money element) throws Exception {
+  protected void composeMoneyInner(Money element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10280,7 +10235,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDistance(String name, Distance element) throws Exception {
+  protected void composeDistance(String name, Distance element) throws Exception {
     if (element != null) {
       open(name);
       composeDistanceInner(element);
@@ -10288,7 +10243,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDistanceInner(Distance element) throws Exception {
+  protected void composeDistanceInner(Distance element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10312,7 +10267,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDuration(String name, Duration element) throws Exception {
+  protected void composeDuration(String name, Duration element) throws Exception {
     if (element != null) {
       open(name);
       composeDurationInner(element);
@@ -10320,7 +10275,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDurationInner(Duration element) throws Exception {
+  protected void composeDurationInner(Duration element) throws Exception {
       composeElement(element);
       if (element.hasValueElement()) {
         composeDecimalCore("value", element.getValueElement(), false);
@@ -10344,7 +10299,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeElementDefinition(String name, ElementDefinition element) throws Exception {
+  protected void composeElementDefinition(String name, ElementDefinition element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionInner(element);
@@ -10352,7 +10307,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionInner(ElementDefinition element) throws Exception {
+  protected void composeElementDefinitionInner(ElementDefinition element) throws Exception {
       composeElement(element);
       if (element.hasPathElement()) {
         composeStringCore("path", element.getPathElement(), false);
@@ -10484,7 +10439,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionElementDefinitionSlicingComponentInner(element);
@@ -10492,7 +10447,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionSlicingComponentInner(ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionSlicingComponentInner(ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
       composeElement(element);
       if (element.hasDiscriminator()) {
         openArray("discriminator");
@@ -10520,7 +10475,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
+  protected void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionTypeRefComponentInner(element);
@@ -10528,7 +10483,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionTypeRefComponentInner(ElementDefinition.TypeRefComponent element) throws Exception {
+  protected void composeElementDefinitionTypeRefComponentInner(ElementDefinition.TypeRefComponent element) throws Exception {
       composeElement(element);
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);
@@ -10552,7 +10507,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionElementDefinitionConstraintComponentInner(element);
@@ -10560,7 +10515,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionConstraintComponentInner(ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionConstraintComponentInner(ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
       composeElement(element);
       if (element.hasKeyElement()) {
         composeIdCore("key", element.getKeyElement(), false);
@@ -10584,7 +10539,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionElementDefinitionBindingComponentInner(element);
@@ -10592,7 +10547,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionBindingComponentInner(ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionBindingComponentInner(ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
       composeElement(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -10615,7 +10570,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeElementDefinitionElementDefinitionMappingComponentInner(element);
@@ -10623,7 +10578,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionMappingComponentInner(ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionMappingComponentInner(ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
       composeElement(element);
       if (element.hasIdentityElement()) {
         composeIdCore("identity", element.getIdentityElement(), false);
@@ -10635,7 +10590,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeTiming(String name, Timing element) throws Exception {
+  protected void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       open(name);
       composeTimingInner(element);
@@ -10643,7 +10598,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeTimingInner(Timing element) throws Exception {
+  protected void composeTimingInner(Timing element) throws Exception {
       composeElement(element);
       if (element.hasEvent()) {
         openArray("event");
@@ -10656,7 +10611,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
+  protected void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeTimingTimingRepeatComponentInner(element);
@@ -10664,7 +10619,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeTimingTimingRepeatComponentInner(Timing.TimingRepeatComponent element) throws Exception {
+  protected void composeTimingTimingRepeatComponentInner(Timing.TimingRepeatComponent element) throws Exception {
       composeElement(element);
       if (element.hasFrequencyElement()) {
         composeIntegerCore("frequency", element.getFrequencyElement(), false);
@@ -10692,7 +10647,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAddress(String name, Address element) throws Exception {
+  protected void composeAddress(String name, Address element) throws Exception {
     if (element != null) {
       open(name);
       composeAddressInner(element);
@@ -10700,7 +10655,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeAddressInner(Address element) throws Exception {
+  protected void composeAddressInner(Address element) throws Exception {
       composeElement(element);
       if (element.hasUseElement()) {
         composeEnumerationCore("use", element.getUseElement(), new Address.AddressUseEnumFactory(), false);
@@ -10743,7 +10698,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeHumanName(String name, HumanName element) throws Exception {
+  protected void composeHumanName(String name, HumanName element) throws Exception {
     if (element != null) {
       open(name);
       composeHumanNameInner(element);
@@ -10751,7 +10706,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeHumanNameInner(HumanName element) throws Exception {
+  protected void composeHumanNameInner(HumanName element) throws Exception {
       composeElement(element);
       if (element.hasUseElement()) {
         composeEnumerationCore("use", element.getUseElement(), new HumanName.NameUseEnumFactory(), false);
@@ -10814,7 +10769,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeContactPoint(String name, ContactPoint element) throws Exception {
+  protected void composeContactPoint(String name, ContactPoint element) throws Exception {
     if (element != null) {
       open(name);
       composeContactPointInner(element);
@@ -10822,7 +10777,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeContactPointInner(ContactPoint element) throws Exception {
+  protected void composeContactPointInner(ContactPoint element) throws Exception {
       composeElement(element);
       if (element.hasSystemElement()) {
         composeEnumerationCore("system", element.getSystemElement(), new ContactPoint.ContactPointSystemEnumFactory(), false);
@@ -10841,14 +10796,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeParameters(String name, Parameters element) throws Exception {
+  protected void composeParameters(String name, Parameters element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeParametersInner(element);
     }
   }
 
-  private void composeParametersInner(Parameters element) throws Exception {
+  protected void composeParametersInner(Parameters element) throws Exception {
       composeResourceElements(element);
       if (element.hasParameter()) {
         openArray("parameter");
@@ -10858,7 +10813,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
+  protected void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeParametersParametersParameterComponentInner(element);
@@ -10866,7 +10821,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeParametersParametersParameterComponentInner(Parameters.ParametersParameterComponent element) throws Exception {
+  protected void composeParametersParametersParameterComponentInner(Parameters.ParametersParameterComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -10882,7 +10837,7 @@ public class JsonParser extends JsonParserBase {
         }
   }
 
-  private void composeResourceElements(Resource element) throws Exception {
+  protected void composeResourceElements(Resource element) throws Exception {
       if (element.hasIdElement()) {
         composeIdCore("id", element.getIdElement(), false);
         composeIdExtras("id", element.getIdElement(), false);
@@ -10900,7 +10855,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception {
+  protected void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeResourceResourceMetaComponentInner(element);
@@ -10908,7 +10863,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeResourceResourceMetaComponentInner(Resource.ResourceMetaComponent element) throws Exception {
+  protected void composeResourceResourceMetaComponentInner(Resource.ResourceMetaComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasVersionIdElement()) {
         composeIdCore("versionId", element.getVersionIdElement(), false);
@@ -10944,7 +10899,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDomainResourceElements(DomainResource element) throws Exception {
+  protected void composeDomainResourceElements(DomainResource element) throws Exception {
       composeResourceElements(element);
       if (element.hasText()) {
         composeNarrative("text", element.getText());
@@ -10968,14 +10923,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeAlert(String name, Alert element) throws Exception {
+  protected void composeAlert(String name, Alert element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeAlertInner(element);
     }
   }
 
-  private void composeAlertInner(Alert element) throws Exception {
+  protected void composeAlertInner(Alert element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11002,14 +10957,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAllergyIntolerance(String name, AllergyIntolerance element) throws Exception {
+  protected void composeAllergyIntolerance(String name, AllergyIntolerance element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeAllergyIntoleranceInner(element);
     }
   }
 
-  private void composeAllergyIntoleranceInner(AllergyIntolerance element) throws Exception {
+  protected void composeAllergyIntoleranceInner(AllergyIntolerance element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11062,7 +11017,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
+  protected void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeAllergyIntoleranceAllergyIntoleranceEventComponentInner(element);
@@ -11070,7 +11025,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeAllergyIntoleranceAllergyIntoleranceEventComponentInner(AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
+  protected void composeAllergyIntoleranceAllergyIntoleranceEventComponentInner(AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSubstance()) {
         composeCodeableConcept("substance", element.getSubstance());
@@ -11109,14 +11064,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAppointment(String name, Appointment element) throws Exception {
+  protected void composeAppointment(String name, Appointment element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeAppointmentInner(element);
     }
   }
 
-  private void composeAppointmentInner(Appointment element) throws Exception {
+  protected void composeAppointmentInner(Appointment element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11181,7 +11136,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
+  protected void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeAppointmentAppointmentParticipantComponentInner(element);
@@ -11189,7 +11144,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeAppointmentAppointmentParticipantComponentInner(Appointment.AppointmentParticipantComponent element) throws Exception {
+  protected void composeAppointmentAppointmentParticipantComponentInner(Appointment.AppointmentParticipantComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         openArray("type");
@@ -11210,14 +11165,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
+  protected void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeAppointmentResponseInner(element);
     }
   }
 
-  private void composeAppointmentResponseInner(AppointmentResponse element) throws Exception {
+  protected void composeAppointmentResponseInner(AppointmentResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11265,14 +11220,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeAvailability(String name, Availability element) throws Exception {
+  protected void composeAvailability(String name, Availability element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeAvailabilityInner(element);
     }
   }
 
-  private void composeAvailabilityInner(Availability element) throws Exception {
+  protected void composeAvailabilityInner(Availability element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11302,14 +11257,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeBasic(String name, Basic element) throws Exception {
+  protected void composeBasic(String name, Basic element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeBasicInner(element);
     }
   }
 
-  private void composeBasicInner(Basic element) throws Exception {
+  protected void composeBasicInner(Basic element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11332,14 +11287,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeBinary(String name, Binary element) throws Exception {
+  protected void composeBinary(String name, Binary element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeBinaryInner(element);
     }
   }
 
-  private void composeBinaryInner(Binary element) throws Exception {
+  protected void composeBinaryInner(Binary element) throws Exception {
       composeResourceElements(element);
       if (element.hasContentTypeElement()) {
         composeCodeCore("contentType", element.getContentTypeElement(), false);
@@ -11351,14 +11306,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeBundle(String name, Bundle element) throws Exception {
+  protected void composeBundle(String name, Bundle element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeBundleInner(element);
     }
   }
 
-  private void composeBundleInner(Bundle element) throws Exception {
+  protected void composeBundleInner(Bundle element) throws Exception {
       composeResourceElements(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Bundle.BundleTypeEnumFactory(), false);
@@ -11390,7 +11345,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeBundleBundleLinkComponent(String name, Bundle.BundleLinkComponent element) throws Exception {
+  protected void composeBundleBundleLinkComponent(String name, Bundle.BundleLinkComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBundleBundleLinkComponentInner(element);
@@ -11398,7 +11353,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeBundleBundleLinkComponentInner(Bundle.BundleLinkComponent element) throws Exception {
+  protected void composeBundleBundleLinkComponentInner(Bundle.BundleLinkComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRelationElement()) {
         composeStringCore("relation", element.getRelationElement(), false);
@@ -11410,7 +11365,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
+  protected void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBundleBundleEntryComponentInner(element);
@@ -11418,7 +11373,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeBundleBundleEntryComponentInner(Bundle.BundleEntryComponent element) throws Exception {
+  protected void composeBundleBundleEntryComponentInner(Bundle.BundleEntryComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasBaseElement()) {
         composeUriCore("base", element.getBaseElement(), false);
@@ -11446,7 +11401,7 @@ public class JsonParser extends JsonParserBase {
         }
   }
 
-  private void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
+  protected void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBundleBundleEntryDeletedComponentInner(element);
@@ -11454,7 +11409,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeBundleBundleEntryDeletedComponentInner(Bundle.BundleEntryDeletedComponent element) throws Exception {
+  protected void composeBundleBundleEntryDeletedComponentInner(Bundle.BundleEntryDeletedComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeCodeCore("type", element.getTypeElement(), false);
@@ -11474,14 +11429,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCarePlan(String name, CarePlan element) throws Exception {
+  protected void composeCarePlan(String name, CarePlan element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeCarePlanInner(element);
     }
   }
 
-  private void composeCarePlanInner(CarePlan element) throws Exception {
+  protected void composeCarePlanInner(CarePlan element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11533,7 +11488,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws Exception {
+  protected void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCarePlanCarePlanParticipantComponentInner(element);
@@ -11541,7 +11496,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanParticipantComponentInner(CarePlan.CarePlanParticipantComponent element) throws Exception {
+  protected void composeCarePlanCarePlanParticipantComponentInner(CarePlan.CarePlanParticipantComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRole()) {
         composeCodeableConcept("role", element.getRole());
@@ -11551,7 +11506,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCarePlanCarePlanGoalComponent(String name, CarePlan.CarePlanGoalComponent element) throws Exception {
+  protected void composeCarePlanCarePlanGoalComponent(String name, CarePlan.CarePlanGoalComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCarePlanCarePlanGoalComponentInner(element);
@@ -11559,7 +11514,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanGoalComponentInner(CarePlan.CarePlanGoalComponent element) throws Exception {
+  protected void composeCarePlanCarePlanGoalComponentInner(CarePlan.CarePlanGoalComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -11581,7 +11536,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeCarePlanCarePlanActivityComponent(String name, CarePlan.CarePlanActivityComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivityComponent(String name, CarePlan.CarePlanActivityComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCarePlanCarePlanActivityComponentInner(element);
@@ -11589,7 +11544,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanActivityComponentInner(CarePlan.CarePlanActivityComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivityComponentInner(CarePlan.CarePlanActivityComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasGoal()) {
         openArray("goal");
@@ -11629,7 +11584,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCarePlanCarePlanActivitySimpleComponent(String name, CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivitySimpleComponent(String name, CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCarePlanCarePlanActivitySimpleComponentInner(element);
@@ -11637,7 +11592,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanActivitySimpleComponentInner(CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivitySimpleComponentInner(CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCategoryElement()) {
         composeEnumerationCore("category", element.getCategoryElement(), new CarePlan.CarePlanActivityCategoryEnumFactory(), false);
@@ -11673,14 +11628,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponse(String name, ClaimResponse element) throws Exception {
+  protected void composeClaimResponse(String name, ClaimResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeClaimResponseInner(element);
     }
   }
 
-  private void composeClaimResponseInner(ClaimResponse element) throws Exception {
+  protected void composeClaimResponseInner(ClaimResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -11691,12 +11646,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        openArray("requestIdentifier");
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
       if (element.hasRuleset()) {
         composeCoding("ruleset", element.getRuleset());
       }
@@ -11784,7 +11733,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
+  protected void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseItemsComponentInner(element);
@@ -11792,7 +11741,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseItemsComponentInner(ClaimResponse.ItemsComponent element) throws Exception {
+  protected void composeClaimResponseItemsComponentInner(ClaimResponse.ItemsComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceLinkIdElement()) {
         composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
@@ -11824,7 +11773,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseItemAdjudicationComponentInner(element);
@@ -11832,7 +11781,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseItemAdjudicationComponentInner(ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseItemAdjudicationComponentInner(ClaimResponse.ItemAdjudicationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -11846,7 +11795,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
+  protected void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseItemDetailComponentInner(element);
@@ -11854,7 +11803,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseItemDetailComponentInner(ClaimResponse.ItemDetailComponent element) throws Exception {
+  protected void composeClaimResponseItemDetailComponentInner(ClaimResponse.ItemDetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceLinkIdElement()) {
         composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
@@ -11874,7 +11823,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseDetailAdjudicationComponentInner(element);
@@ -11882,7 +11831,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseDetailAdjudicationComponentInner(ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseDetailAdjudicationComponentInner(ClaimResponse.DetailAdjudicationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -11896,7 +11845,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
+  protected void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseItemSubdetailComponentInner(element);
@@ -11904,7 +11853,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseItemSubdetailComponentInner(ClaimResponse.ItemSubdetailComponent element) throws Exception {
+  protected void composeClaimResponseItemSubdetailComponentInner(ClaimResponse.ItemSubdetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceLinkIdElement()) {
         composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
@@ -11918,7 +11867,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseSubdetailAdjudicationComponentInner(element);
@@ -11926,7 +11875,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseSubdetailAdjudicationComponentInner(ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseSubdetailAdjudicationComponentInner(ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -11940,7 +11889,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseAddedItemComponentInner(element);
@@ -11948,7 +11897,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemComponentInner(ClaimResponse.AddedItemComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemComponentInner(ClaimResponse.AddedItemComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceLinkId()) {
         openArray("sequenceLinkId");
@@ -11994,7 +11943,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseAddedItemAdjudicationComponentInner(element);
@@ -12002,7 +11951,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemAdjudicationComponentInner(ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemAdjudicationComponentInner(ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12016,7 +11965,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseAddedItemsDetailComponentInner(element);
@@ -12024,7 +11973,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemsDetailComponentInner(ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemsDetailComponentInner(ClaimResponse.AddedItemsDetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasService()) {
         composeCoding("service", element.getService());
@@ -12040,7 +11989,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseAddedItemDetailAdjudicationComponentInner(element);
@@ -12048,7 +11997,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemDetailAdjudicationComponentInner(ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemDetailAdjudicationComponentInner(ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -12062,7 +12011,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
+  protected void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseErrorsComponentInner(element);
@@ -12070,7 +12019,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseErrorsComponentInner(ClaimResponse.ErrorsComponent element) throws Exception {
+  protected void composeClaimResponseErrorsComponentInner(ClaimResponse.ErrorsComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceLinkIdElement()) {
         composeIntegerCore("sequenceLinkId", element.getSequenceLinkIdElement(), false);
@@ -12089,7 +12038,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
+  protected void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeClaimResponseNotesComponentInner(element);
@@ -12097,7 +12046,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeClaimResponseNotesComponentInner(ClaimResponse.NotesComponent element) throws Exception {
+  protected void composeClaimResponseNotesComponentInner(ClaimResponse.NotesComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNumberElement()) {
         composeIntegerCore("number", element.getNumberElement(), false);
@@ -12112,14 +12061,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
+  protected void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeCommunicationRequestInner(element);
     }
   }
 
-  private void composeCommunicationRequestInner(CommunicationRequest element) throws Exception {
+  protected void composeCommunicationRequestInner(CommunicationRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -12187,7 +12136,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCommunicationRequestCommunicationRequestMessagePartComponent(String name, CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
+  protected void composeCommunicationRequestCommunicationRequestMessagePartComponent(String name, CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCommunicationRequestCommunicationRequestMessagePartComponentInner(element);
@@ -12195,21 +12144,21 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCommunicationRequestCommunicationRequestMessagePartComponentInner(CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
+  protected void composeCommunicationRequestCommunicationRequestMessagePartComponentInner(CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasContent()) {
         composeType("content", element.getContent());
       }
   }
 
-  private void composeComposition(String name, Composition element) throws Exception {
+  protected void composeComposition(String name, Composition element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeCompositionInner(element);
     }
   }
 
-  private void composeCompositionInner(Composition element) throws Exception {
+  protected void composeCompositionInner(Composition element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -12270,7 +12219,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeCompositionCompositionAttesterComponent(String name, Composition.CompositionAttesterComponent element) throws Exception {
+  protected void composeCompositionCompositionAttesterComponent(String name, Composition.CompositionAttesterComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCompositionCompositionAttesterComponentInner(element);
@@ -12278,7 +12227,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCompositionCompositionAttesterComponentInner(Composition.CompositionAttesterComponent element) throws Exception {
+  protected void composeCompositionCompositionAttesterComponentInner(Composition.CompositionAttesterComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasMode()) {
         openArray("mode");
@@ -12301,7 +12250,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCompositionCompositionEventComponent(String name, Composition.CompositionEventComponent element) throws Exception {
+  protected void composeCompositionCompositionEventComponent(String name, Composition.CompositionEventComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCompositionCompositionEventComponentInner(element);
@@ -12309,7 +12258,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCompositionCompositionEventComponentInner(Composition.CompositionEventComponent element) throws Exception {
+  protected void composeCompositionCompositionEventComponentInner(Composition.CompositionEventComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         openArray("code");
@@ -12328,7 +12277,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeCompositionSectionComponent(String name, Composition.SectionComponent element) throws Exception {
+  protected void composeCompositionSectionComponent(String name, Composition.SectionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeCompositionSectionComponentInner(element);
@@ -12336,7 +12285,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeCompositionSectionComponentInner(Composition.SectionComponent element) throws Exception {
+  protected void composeCompositionSectionComponentInner(Composition.SectionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTitleElement()) {
         composeStringCore("title", element.getTitleElement(), false);
@@ -12356,14 +12305,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConceptMap(String name, ConceptMap element) throws Exception {
+  protected void composeConceptMap(String name, ConceptMap element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeConceptMapInner(element);
     }
   }
 
-  private void composeConceptMapInner(ConceptMap element) throws Exception {
+  protected void composeConceptMapInner(ConceptMap element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeStringCore("identifier", element.getIdentifierElement(), false);
@@ -12421,7 +12370,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConceptMapConceptMapElementComponentInner(element);
@@ -12429,7 +12378,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConceptMapConceptMapElementComponentInner(ConceptMap.ConceptMapElementComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementComponentInner(ConceptMap.ConceptMapElementComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeSystemElement()) {
         composeUriCore("codeSystem", element.getCodeSystemElement(), false);
@@ -12453,7 +12402,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
+  protected void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConceptMapOtherElementComponentInner(element);
@@ -12461,7 +12410,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConceptMapOtherElementComponentInner(ConceptMap.OtherElementComponent element) throws Exception {
+  protected void composeConceptMapOtherElementComponentInner(ConceptMap.OtherElementComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasElementElement()) {
         composeUriCore("element", element.getElementElement(), false);
@@ -12477,7 +12426,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConceptMapConceptMapElementMapComponentInner(element);
@@ -12485,7 +12434,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConceptMapConceptMapElementMapComponentInner(ConceptMap.ConceptMapElementMapComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementMapComponentInner(ConceptMap.ConceptMapElementMapComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeSystemElement()) {
         composeUriCore("codeSystem", element.getCodeSystemElement(), false);
@@ -12511,14 +12460,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeCondition(String name, Condition element) throws Exception {
+  protected void composeCondition(String name, Condition element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeConditionInner(element);
     }
   }
 
-  private void composeConditionInner(Condition element) throws Exception {
+  protected void composeConditionInner(Condition element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -12594,7 +12543,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws Exception {
+  protected void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConditionConditionStageComponentInner(element);
@@ -12602,7 +12551,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConditionConditionStageComponentInner(Condition.ConditionStageComponent element) throws Exception {
+  protected void composeConditionConditionStageComponentInner(Condition.ConditionStageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSummary()) {
         composeCodeableConcept("summary", element.getSummary());
@@ -12615,7 +12564,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConditionConditionEvidenceComponent(String name, Condition.ConditionEvidenceComponent element) throws Exception {
+  protected void composeConditionConditionEvidenceComponent(String name, Condition.ConditionEvidenceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConditionConditionEvidenceComponentInner(element);
@@ -12623,7 +12572,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConditionConditionEvidenceComponentInner(Condition.ConditionEvidenceComponent element) throws Exception {
+  protected void composeConditionConditionEvidenceComponentInner(Condition.ConditionEvidenceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -12636,7 +12585,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConditionConditionLocationComponent(String name, Condition.ConditionLocationComponent element) throws Exception {
+  protected void composeConditionConditionLocationComponent(String name, Condition.ConditionLocationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConditionConditionLocationComponentInner(element);
@@ -12644,7 +12593,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConditionConditionLocationComponentInner(Condition.ConditionLocationComponent element) throws Exception {
+  protected void composeConditionConditionLocationComponentInner(Condition.ConditionLocationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -12655,7 +12604,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConditionConditionDueToComponent(String name, Condition.ConditionDueToComponent element) throws Exception {
+  protected void composeConditionConditionDueToComponent(String name, Condition.ConditionDueToComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConditionConditionDueToComponentInner(element);
@@ -12663,7 +12612,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConditionConditionDueToComponentInner(Condition.ConditionDueToComponent element) throws Exception {
+  protected void composeConditionConditionDueToComponentInner(Condition.ConditionDueToComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeableConcept()) {
         composeCodeableConcept("codeableConcept", element.getCodeableConcept());
@@ -12673,7 +12622,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConditionConditionOccurredFollowingComponent(String name, Condition.ConditionOccurredFollowingComponent element) throws Exception {
+  protected void composeConditionConditionOccurredFollowingComponent(String name, Condition.ConditionOccurredFollowingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConditionConditionOccurredFollowingComponentInner(element);
@@ -12681,7 +12630,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConditionConditionOccurredFollowingComponentInner(Condition.ConditionOccurredFollowingComponent element) throws Exception {
+  protected void composeConditionConditionOccurredFollowingComponentInner(Condition.ConditionOccurredFollowingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeableConcept()) {
         composeCodeableConcept("codeableConcept", element.getCodeableConcept());
@@ -12691,14 +12640,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformance(String name, Conformance element) throws Exception {
+  protected void composeConformance(String name, Conformance element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeConformanceInner(element);
     }
   }
 
-  private void composeConformanceInner(Conformance element) throws Exception {
+  protected void composeConformanceInner(Conformance element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeStringCore("identifier", element.getIdentifierElement(), false);
@@ -12790,7 +12739,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceConformanceSoftwareComponent(String name, Conformance.ConformanceSoftwareComponent element) throws Exception {
+  protected void composeConformanceConformanceSoftwareComponent(String name, Conformance.ConformanceSoftwareComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceSoftwareComponentInner(element);
@@ -12798,7 +12747,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceSoftwareComponentInner(Conformance.ConformanceSoftwareComponent element) throws Exception {
+  protected void composeConformanceConformanceSoftwareComponentInner(Conformance.ConformanceSoftwareComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -12814,7 +12763,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceImplementationComponent(String name, Conformance.ConformanceImplementationComponent element) throws Exception {
+  protected void composeConformanceConformanceImplementationComponent(String name, Conformance.ConformanceImplementationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceImplementationComponentInner(element);
@@ -12822,7 +12771,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceImplementationComponentInner(Conformance.ConformanceImplementationComponent element) throws Exception {
+  protected void composeConformanceConformanceImplementationComponentInner(Conformance.ConformanceImplementationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -12834,7 +12783,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceRestComponent(String name, Conformance.ConformanceRestComponent element) throws Exception {
+  protected void composeConformanceConformanceRestComponent(String name, Conformance.ConformanceRestComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestComponentInner(element);
@@ -12842,7 +12791,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestComponentInner(Conformance.ConformanceRestComponent element) throws Exception {
+  protected void composeConformanceConformanceRestComponentInner(Conformance.ConformanceRestComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasModeElement()) {
         composeEnumerationCore("mode", element.getModeElement(), new Conformance.RestfulConformanceModeEnumFactory(), false);
@@ -12887,7 +12836,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceConformanceRestSecurityComponent(String name, Conformance.ConformanceRestSecurityComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityComponent(String name, Conformance.ConformanceRestSecurityComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestSecurityComponentInner(element);
@@ -12895,7 +12844,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestSecurityComponentInner(Conformance.ConformanceRestSecurityComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityComponentInner(Conformance.ConformanceRestSecurityComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCorsElement()) {
         composeBooleanCore("cors", element.getCorsElement(), false);
@@ -12919,7 +12868,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceConformanceRestSecurityCertificateComponent(String name, Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityCertificateComponent(String name, Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestSecurityCertificateComponentInner(element);
@@ -12927,7 +12876,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestSecurityCertificateComponentInner(Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityCertificateComponentInner(Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeCodeCore("type", element.getTypeElement(), false);
@@ -12939,7 +12888,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceRestResourceComponent(String name, Conformance.ConformanceRestResourceComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceComponent(String name, Conformance.ConformanceRestResourceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestResourceComponentInner(element);
@@ -12947,7 +12896,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestResourceComponentInner(Conformance.ConformanceRestResourceComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceComponentInner(Conformance.ConformanceRestResourceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeCodeCore("type", element.getTypeElement(), false);
@@ -12994,7 +12943,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceResourceInteractionComponent(String name, Conformance.ResourceInteractionComponent element) throws Exception {
+  protected void composeConformanceResourceInteractionComponent(String name, Conformance.ResourceInteractionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceResourceInteractionComponentInner(element);
@@ -13002,7 +12951,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceResourceInteractionComponentInner(Conformance.ResourceInteractionComponent element) throws Exception {
+  protected void composeConformanceResourceInteractionComponentInner(Conformance.ResourceInteractionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeEnumerationCore("code", element.getCodeElement(), new Conformance.TypeRestfulInteractionEnumFactory(), false);
@@ -13014,7 +12963,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceRestResourceSearchParamComponent(String name, Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceSearchParamComponent(String name, Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestResourceSearchParamComponentInner(element);
@@ -13022,7 +12971,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestResourceSearchParamComponentInner(Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceSearchParamComponentInner(Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -13066,7 +13015,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceSystemInteractionComponent(String name, Conformance.SystemInteractionComponent element) throws Exception {
+  protected void composeConformanceSystemInteractionComponent(String name, Conformance.SystemInteractionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceSystemInteractionComponentInner(element);
@@ -13074,7 +13023,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceSystemInteractionComponentInner(Conformance.SystemInteractionComponent element) throws Exception {
+  protected void composeConformanceSystemInteractionComponentInner(Conformance.SystemInteractionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeEnumerationCore("code", element.getCodeElement(), new Conformance.SystemRestfulInteractionEnumFactory(), false);
@@ -13086,7 +13035,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
+  protected void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceRestOperationComponentInner(element);
@@ -13094,7 +13043,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestOperationComponentInner(Conformance.ConformanceRestOperationComponent element) throws Exception {
+  protected void composeConformanceConformanceRestOperationComponentInner(Conformance.ConformanceRestOperationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -13105,7 +13054,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceMessagingComponent(String name, Conformance.ConformanceMessagingComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingComponent(String name, Conformance.ConformanceMessagingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceMessagingComponentInner(element);
@@ -13113,7 +13062,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceMessagingComponentInner(Conformance.ConformanceMessagingComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingComponentInner(Conformance.ConformanceMessagingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasEndpointElement()) {
         composeUriCore("endpoint", element.getEndpointElement(), false);
@@ -13135,7 +13084,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeConformanceConformanceMessagingEventComponent(String name, Conformance.ConformanceMessagingEventComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingEventComponent(String name, Conformance.ConformanceMessagingEventComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceMessagingEventComponentInner(element);
@@ -13143,7 +13092,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceMessagingEventComponentInner(Conformance.ConformanceMessagingEventComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingEventComponentInner(Conformance.ConformanceMessagingEventComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCoding("code", element.getCode());
@@ -13178,7 +13127,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeConformanceConformanceDocumentComponent(String name, Conformance.ConformanceDocumentComponent element) throws Exception {
+  protected void composeConformanceConformanceDocumentComponent(String name, Conformance.ConformanceDocumentComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeConformanceConformanceDocumentComponentInner(element);
@@ -13186,7 +13135,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeConformanceConformanceDocumentComponentInner(Conformance.ConformanceDocumentComponent element) throws Exception {
+  protected void composeConformanceConformanceDocumentComponentInner(Conformance.ConformanceDocumentComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasModeElement()) {
         composeEnumerationCore("mode", element.getModeElement(), new Conformance.DocumentModeEnumFactory(), false);
@@ -13201,18 +13150,21 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeContract(String name, Contract element) throws Exception {
+  protected void composeContract(String name, Contract element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeContractInner(element);
     }
   }
 
-  private void composeContractInner(Contract element) throws Exception {
+  protected void composeContractInner(Contract element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasSubject()) {
         openArray("subject");
         for (Reference e : element.getSubject()) 
@@ -13311,7 +13263,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeContractContractSignerComponent(String name, Contract.ContractSignerComponent element) throws Exception {
+  protected void composeContractContractSignerComponent(String name, Contract.ContractSignerComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeContractContractSignerComponentInner(element);
@@ -13319,7 +13271,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeContractContractSignerComponentInner(Contract.ContractSignerComponent element) throws Exception {
+  protected void composeContractContractSignerComponentInner(Contract.ContractSignerComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -13330,7 +13282,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
+  protected void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeContractContractTermComponentInner(element);
@@ -13338,7 +13290,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeContractContractTermComponentInner(Contract.ContractTermComponent element) throws Exception {
+  protected void composeContractContractTermComponentInner(Contract.ContractTermComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -13358,14 +13310,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeContraindication(String name, Contraindication element) throws Exception {
+  protected void composeContraindication(String name, Contraindication element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeContraindicationInner(element);
     }
   }
 
-  private void composeContraindicationInner(Contraindication element) throws Exception {
+  protected void composeContraindicationInner(Contraindication element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasPatient()) {
         composeReference("patient", element.getPatient());
@@ -13409,7 +13361,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeContraindicationContraindicationMitigationComponent(String name, Contraindication.ContraindicationMitigationComponent element) throws Exception {
+  protected void composeContraindicationContraindicationMitigationComponent(String name, Contraindication.ContraindicationMitigationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeContraindicationContraindicationMitigationComponentInner(element);
@@ -13417,7 +13369,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeContraindicationContraindicationMitigationComponentInner(Contraindication.ContraindicationMitigationComponent element) throws Exception {
+  protected void composeContraindicationContraindicationMitigationComponentInner(Contraindication.ContraindicationMitigationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasAction()) {
         composeCodeableConcept("action", element.getAction());
@@ -13431,14 +13383,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeCoverage(String name, Coverage element) throws Exception {
+  protected void composeCoverage(String name, Coverage element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeCoverageInner(element);
     }
   }
 
-  private void composeCoverageInner(Coverage element) throws Exception {
+  protected void composeCoverageInner(Coverage element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIssuer()) {
         composeReference("issuer", element.getIssuer());
@@ -13450,8 +13402,11 @@ public class JsonParser extends JsonParserBase {
         composeCoding("type", element.getType());
       }
       if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasGroupElement()) {
         composeStringCore("group", element.getGroupElement(), false);
         composeStringExtras("group", element.getGroupElement(), false);
@@ -13486,14 +13441,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDataElement(String name, DataElement element) throws Exception {
+  protected void composeDataElement(String name, DataElement element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDataElementInner(element);
     }
   }
 
-  private void composeDataElementInner(DataElement element) throws Exception {
+  protected void composeDataElementInner(DataElement element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -13589,7 +13544,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDataElementDataElementBindingComponent(String name, DataElement.DataElementBindingComponent element) throws Exception {
+  protected void composeDataElementDataElementBindingComponent(String name, DataElement.DataElementBindingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDataElementDataElementBindingComponentInner(element);
@@ -13597,7 +13552,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDataElementDataElementBindingComponentInner(DataElement.DataElementBindingComponent element) throws Exception {
+  protected void composeDataElementDataElementBindingComponentInner(DataElement.DataElementBindingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIsExtensibleElement()) {
         composeBooleanCore("isExtensible", element.getIsExtensibleElement(), false);
@@ -13616,7 +13571,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDataElementDataElementMappingComponent(String name, DataElement.DataElementMappingComponent element) throws Exception {
+  protected void composeDataElementDataElementMappingComponent(String name, DataElement.DataElementMappingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDataElementDataElementMappingComponentInner(element);
@@ -13624,7 +13579,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDataElementDataElementMappingComponentInner(DataElement.DataElementMappingComponent element) throws Exception {
+  protected void composeDataElementDataElementMappingComponentInner(DataElement.DataElementMappingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasUriElement()) {
         composeUriCore("uri", element.getUriElement(), false);
@@ -13644,14 +13599,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDevice(String name, Device element) throws Exception {
+  protected void composeDevice(String name, Device element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDeviceInner(element);
     }
   }
 
-  private void composeDeviceInner(Device element) throws Exception {
+  protected void composeDeviceInner(Device element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -13707,14 +13662,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
+  protected void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDeviceComponentInner(element);
     }
   }
 
-  private void composeDeviceComponentInner(DeviceComponent element) throws Exception {
+  protected void composeDeviceComponentInner(DeviceComponent element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -13756,7 +13711,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
+  protected void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDeviceComponentDeviceComponentProductionSpecificationComponentInner(element);
@@ -13764,7 +13719,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDeviceComponentDeviceComponentProductionSpecificationComponentInner(DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
+  protected void composeDeviceComponentDeviceComponentProductionSpecificationComponentInner(DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSpecType()) {
         composeCodeableConcept("specType", element.getSpecType());
@@ -13778,14 +13733,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
+  protected void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDeviceUseRequestInner(element);
     }
   }
 
-  private void composeDeviceUseRequestInner(DeviceUseRequest element) throws Exception {
+  protected void composeDeviceUseRequestInner(DeviceUseRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasBodySite()) {
         openArray("bodySite");
@@ -13857,14 +13812,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
+  protected void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDeviceUseStatementInner(element);
     }
   }
 
-  private void composeDeviceUseStatementInner(DeviceUseStatement element) throws Exception {
+  protected void composeDeviceUseStatementInner(DeviceUseStatement element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasBodySite()) {
         openArray("bodySite");
@@ -13914,14 +13869,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
+  protected void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDiagnosticOrderInner(element);
     }
   }
 
-  private void composeDiagnosticOrderInner(DiagnosticOrder element) throws Exception {
+  protected void composeDiagnosticOrderInner(DiagnosticOrder element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
@@ -13976,7 +13931,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderEventComponent(String name, DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderEventComponent(String name, DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDiagnosticOrderDiagnosticOrderEventComponentInner(element);
@@ -13984,7 +13939,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderEventComponentInner(DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderEventComponentInner(DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
@@ -14002,7 +13957,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderItemComponent(String name, DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderItemComponent(String name, DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDiagnosticOrderDiagnosticOrderItemComponentInner(element);
@@ -14010,7 +13965,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderItemComponentInner(DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderItemComponentInner(DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -14036,14 +13991,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDiagnosticReport(String name, DiagnosticReport element) throws Exception {
+  protected void composeDiagnosticReport(String name, DiagnosticReport element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDiagnosticReportInner(element);
     }
   }
 
-  private void composeDiagnosticReportInner(DiagnosticReport element) throws Exception {
+  protected void composeDiagnosticReportInner(DiagnosticReport element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasName()) {
         composeCodeableConcept("name", element.getName());
@@ -14119,7 +14074,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDiagnosticReportDiagnosticReportImageComponent(String name, DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
+  protected void composeDiagnosticReportDiagnosticReportImageComponent(String name, DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDiagnosticReportDiagnosticReportImageComponentInner(element);
@@ -14127,7 +14082,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDiagnosticReportDiagnosticReportImageComponentInner(DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
+  protected void composeDiagnosticReportDiagnosticReportImageComponentInner(DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCommentElement()) {
         composeStringCore("comment", element.getCommentElement(), false);
@@ -14138,14 +14093,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDocumentManifest(String name, DocumentManifest element) throws Exception {
+  protected void composeDocumentManifest(String name, DocumentManifest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDocumentManifestInner(element);
     }
   }
 
-  private void composeDocumentManifestInner(DocumentManifest element) throws Exception {
+  protected void composeDocumentManifestInner(DocumentManifest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasMasterIdentifier()) {
         composeIdentifier("masterIdentifier", element.getMasterIdentifier());
@@ -14207,14 +14162,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDocumentReference(String name, DocumentReference element) throws Exception {
+  protected void composeDocumentReference(String name, DocumentReference element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeDocumentReferenceInner(element);
     }
   }
 
-  private void composeDocumentReferenceInner(DocumentReference element) throws Exception {
+  protected void composeDocumentReferenceInner(DocumentReference element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasMasterIdentifier()) {
         composeIdentifier("masterIdentifier", element.getMasterIdentifier());
@@ -14321,7 +14276,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDocumentReferenceDocumentReferenceRelatesToComponent(String name, DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceRelatesToComponent(String name, DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDocumentReferenceDocumentReferenceRelatesToComponentInner(element);
@@ -14329,7 +14284,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceRelatesToComponentInner(DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceRelatesToComponentInner(DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeEnumerationCore("code", element.getCodeElement(), new DocumentReference.DocumentRelationshipTypeEnumFactory(), false);
@@ -14340,7 +14295,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceComponent(String name, DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceComponent(String name, DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDocumentReferenceDocumentReferenceServiceComponentInner(element);
@@ -14348,7 +14303,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceComponentInner(DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceComponentInner(DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -14365,7 +14320,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceParameterComponent(String name, DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceParameterComponent(String name, DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDocumentReferenceDocumentReferenceServiceParameterComponentInner(element);
@@ -14373,7 +14328,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceParameterComponentInner(DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceParameterComponentInner(DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -14385,7 +14340,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeDocumentReferenceDocumentReferenceContextComponent(String name, DocumentReference.DocumentReferenceContextComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceContextComponent(String name, DocumentReference.DocumentReferenceContextComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeDocumentReferenceDocumentReferenceContextComponentInner(element);
@@ -14393,7 +14348,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceContextComponentInner(DocumentReference.DocumentReferenceContextComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceContextComponentInner(DocumentReference.DocumentReferenceContextComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasEvent()) {
         openArray("event");
@@ -14409,14 +14364,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEligibility(String name, Eligibility element) throws Exception {
+  protected void composeEligibility(String name, Eligibility element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeEligibilityInner(element);
     }
   }
 
-  private void composeEligibilityInner(Eligibility element) throws Exception {
+  protected void composeEligibilityInner(Eligibility element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14445,14 +14400,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEligibilityResponse(String name, EligibilityResponse element) throws Exception {
+  protected void composeEligibilityResponse(String name, EligibilityResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeEligibilityResponseInner(element);
     }
   }
 
-  private void composeEligibilityResponseInner(EligibilityResponse element) throws Exception {
+  protected void composeEligibilityResponseInner(EligibilityResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14463,12 +14418,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        openArray("requestIdentifier");
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
       if (element.hasOutcomeElement()) {
         composeEnumerationCore("outcome", element.getOutcomeElement(), new EligibilityResponse.RSLinkEnumFactory(), false);
         composeEnumerationExtras("outcome", element.getOutcomeElement(), new EligibilityResponse.RSLinkEnumFactory(), false);
@@ -14498,14 +14447,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEncounter(String name, Encounter element) throws Exception {
+  protected void composeEncounter(String name, Encounter element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeEncounterInner(element);
     }
   }
 
-  private void composeEncounterInner(Encounter element) throws Exception {
+  protected void composeEncounterInner(Encounter element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14571,7 +14520,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEncounterEncounterParticipantComponent(String name, Encounter.EncounterParticipantComponent element) throws Exception {
+  protected void composeEncounterEncounterParticipantComponent(String name, Encounter.EncounterParticipantComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeEncounterEncounterParticipantComponentInner(element);
@@ -14579,7 +14528,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeEncounterEncounterParticipantComponentInner(Encounter.EncounterParticipantComponent element) throws Exception {
+  protected void composeEncounterEncounterParticipantComponentInner(Encounter.EncounterParticipantComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         openArray("type");
@@ -14592,7 +14541,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEncounterEncounterHospitalizationComponent(String name, Encounter.EncounterHospitalizationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationComponent(String name, Encounter.EncounterHospitalizationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeEncounterEncounterHospitalizationComponentInner(element);
@@ -14600,7 +14549,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeEncounterEncounterHospitalizationComponentInner(Encounter.EncounterHospitalizationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationComponentInner(Encounter.EncounterHospitalizationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasPreAdmissionIdentifier()) {
         composeIdentifier("preAdmissionIdentifier", element.getPreAdmissionIdentifier());
@@ -14650,7 +14599,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEncounterEncounterHospitalizationAccomodationComponent(String name, Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationAccomodationComponent(String name, Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeEncounterEncounterHospitalizationAccomodationComponentInner(element);
@@ -14658,7 +14607,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeEncounterEncounterHospitalizationAccomodationComponentInner(Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationAccomodationComponentInner(Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasBed()) {
         composeReference("bed", element.getBed());
@@ -14668,7 +14617,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEncounterEncounterLocationComponent(String name, Encounter.EncounterLocationComponent element) throws Exception {
+  protected void composeEncounterEncounterLocationComponent(String name, Encounter.EncounterLocationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeEncounterEncounterLocationComponentInner(element);
@@ -14676,7 +14625,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeEncounterEncounterLocationComponentInner(Encounter.EncounterLocationComponent element) throws Exception {
+  protected void composeEncounterEncounterLocationComponentInner(Encounter.EncounterLocationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLocation()) {
         composeReference("location", element.getLocation());
@@ -14686,14 +14635,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEnrollment(String name, Enrollment element) throws Exception {
+  protected void composeEnrollment(String name, Enrollment element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeEnrollmentInner(element);
     }
   }
 
-  private void composeEnrollmentInner(Enrollment element) throws Exception {
+  protected void composeEnrollmentInner(Enrollment element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14731,14 +14680,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeEnrollmentResponse(String name, EnrollmentResponse element) throws Exception {
+  protected void composeEnrollmentResponse(String name, EnrollmentResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeEnrollmentResponseInner(element);
     }
   }
 
-  private void composeEnrollmentResponseInner(EnrollmentResponse element) throws Exception {
+  protected void composeEnrollmentResponseInner(EnrollmentResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14749,12 +14698,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        openArray("requestIdentifier");
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
       if (element.hasOutcomeElement()) {
         composeEnumerationCore("outcome", element.getOutcomeElement(), new EnrollmentResponse.RSLinkEnumFactory(), false);
         composeEnumerationExtras("outcome", element.getOutcomeElement(), new EnrollmentResponse.RSLinkEnumFactory(), false);
@@ -14784,14 +14727,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeExplanationOfBenefit(String name, ExplanationOfBenefit element) throws Exception {
+  protected void composeExplanationOfBenefit(String name, ExplanationOfBenefit element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeExplanationOfBenefitInner(element);
     }
   }
 
-  private void composeExplanationOfBenefitInner(ExplanationOfBenefit element) throws Exception {
+  protected void composeExplanationOfBenefitInner(ExplanationOfBenefit element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14802,12 +14745,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        openArray("requestIdentifier");
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
       if (element.hasOutcomeElement()) {
         composeEnumerationCore("outcome", element.getOutcomeElement(), new ExplanationOfBenefit.RSLinkEnumFactory(), false);
         composeEnumerationExtras("outcome", element.getOutcomeElement(), new ExplanationOfBenefit.RSLinkEnumFactory(), false);
@@ -14837,14 +14774,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeExtensionDefinition(String name, ExtensionDefinition element) throws Exception {
+  protected void composeExtensionDefinition(String name, ExtensionDefinition element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeExtensionDefinitionInner(element);
     }
   }
 
-  private void composeExtensionDefinitionInner(ExtensionDefinition element) throws Exception {
+  protected void composeExtensionDefinitionInner(ExtensionDefinition element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUriCore("url", element.getUrlElement(), false);
@@ -14930,7 +14867,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeExtensionDefinitionExtensionDefinitionMappingComponent(String name, ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
+  protected void composeExtensionDefinitionExtensionDefinitionMappingComponent(String name, ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeExtensionDefinitionExtensionDefinitionMappingComponentInner(element);
@@ -14938,7 +14875,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeExtensionDefinitionExtensionDefinitionMappingComponentInner(ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
+  protected void composeExtensionDefinitionExtensionDefinitionMappingComponentInner(ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentityElement()) {
         composeIdCore("identity", element.getIdentityElement(), false);
@@ -14958,14 +14895,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeFamilyHistory(String name, FamilyHistory element) throws Exception {
+  protected void composeFamilyHistory(String name, FamilyHistory element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeFamilyHistoryInner(element);
     }
   }
 
-  private void composeFamilyHistoryInner(FamilyHistory element) throws Exception {
+  protected void composeFamilyHistoryInner(FamilyHistory element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -14992,7 +14929,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationComponent(String name, FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationComponent(String name, FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeFamilyHistoryFamilyHistoryRelationComponentInner(element);
@@ -15000,7 +14937,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationComponentInner(FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationComponentInner(FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -15030,7 +14967,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationConditionComponent(String name, FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationConditionComponent(String name, FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeFamilyHistoryFamilyHistoryRelationConditionComponentInner(element);
@@ -15038,7 +14975,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationConditionComponentInner(FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationConditionComponentInner(FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -15055,14 +14992,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeGroup(String name, Group element) throws Exception {
+  protected void composeGroup(String name, Group element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeGroupInner(element);
     }
   }
 
-  private void composeGroupInner(Group element) throws Exception {
+  protected void composeGroupInner(Group element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -15100,7 +15037,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeGroupGroupCharacteristicComponent(String name, Group.GroupCharacteristicComponent element) throws Exception {
+  protected void composeGroupGroupCharacteristicComponent(String name, Group.GroupCharacteristicComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeGroupGroupCharacteristicComponentInner(element);
@@ -15108,7 +15045,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeGroupGroupCharacteristicComponentInner(Group.GroupCharacteristicComponent element) throws Exception {
+  protected void composeGroupGroupCharacteristicComponentInner(Group.GroupCharacteristicComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -15122,14 +15059,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeHealthcareService(String name, HealthcareService element) throws Exception {
+  protected void composeHealthcareService(String name, HealthcareService element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeHealthcareServiceInner(element);
     }
   }
 
-  private void composeHealthcareServiceInner(HealthcareService element) throws Exception {
+  protected void composeHealthcareServiceInner(HealthcareService element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -15260,7 +15197,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
+  protected void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeHealthcareServiceServiceTypeComponentInner(element);
@@ -15268,7 +15205,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeHealthcareServiceServiceTypeComponentInner(HealthcareService.ServiceTypeComponent element) throws Exception {
+  protected void composeHealthcareServiceServiceTypeComponentInner(HealthcareService.ServiceTypeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -15281,7 +15218,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeHealthcareServiceHealthcareServiceAvailableTimeComponentInner(element);
@@ -15289,7 +15226,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeHealthcareServiceHealthcareServiceAvailableTimeComponentInner(HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceAvailableTimeComponentInner(HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDaysOfWeek()) {
         openArray("daysOfWeek");
@@ -15311,7 +15248,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeHealthcareServiceHealthcareServiceNotAvailableTimeComponentInner(element);
@@ -15319,7 +15256,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponentInner(HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponentInner(HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -15335,14 +15272,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeImagingStudy(String name, ImagingStudy element) throws Exception {
+  protected void composeImagingStudy(String name, ImagingStudy element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeImagingStudyInner(element);
     }
   }
 
-  private void composeImagingStudyInner(ImagingStudy element) throws Exception {
+  protected void composeImagingStudyInner(ImagingStudy element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasStartedElement()) {
         composeDateTimeCore("started", element.getStartedElement(), false);
@@ -15426,7 +15363,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImagingStudyImagingStudySeriesComponentInner(element);
@@ -15434,7 +15371,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImagingStudyImagingStudySeriesComponentInner(ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesComponentInner(ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNumberElement()) {
         composeIntegerCore("number", element.getNumberElement(), false);
@@ -15479,7 +15416,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImagingStudyImagingStudySeriesInstanceComponentInner(element);
@@ -15487,7 +15424,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImagingStudyImagingStudySeriesInstanceComponentInner(ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesInstanceComponentInner(ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNumberElement()) {
         composeIntegerCore("number", element.getNumberElement(), false);
@@ -15518,14 +15455,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeImmunization(String name, Immunization element) throws Exception {
+  protected void composeImmunization(String name, Immunization element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeImmunizationInner(element);
     }
   }
 
-  private void composeImmunizationInner(Immunization element) throws Exception {
+  protected void composeImmunizationInner(Immunization element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -15597,7 +15534,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImmunizationImmunizationExplanationComponent(String name, Immunization.ImmunizationExplanationComponent element) throws Exception {
+  protected void composeImmunizationImmunizationExplanationComponent(String name, Immunization.ImmunizationExplanationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationImmunizationExplanationComponentInner(element);
@@ -15605,7 +15542,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationExplanationComponentInner(Immunization.ImmunizationExplanationComponent element) throws Exception {
+  protected void composeImmunizationImmunizationExplanationComponentInner(Immunization.ImmunizationExplanationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasReason()) {
         openArray("reason");
@@ -15621,7 +15558,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImmunizationImmunizationReactionComponent(String name, Immunization.ImmunizationReactionComponent element) throws Exception {
+  protected void composeImmunizationImmunizationReactionComponent(String name, Immunization.ImmunizationReactionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationImmunizationReactionComponentInner(element);
@@ -15629,7 +15566,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationReactionComponentInner(Immunization.ImmunizationReactionComponent element) throws Exception {
+  protected void composeImmunizationImmunizationReactionComponentInner(Immunization.ImmunizationReactionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDateElement()) {
         composeDateTimeCore("date", element.getDateElement(), false);
@@ -15644,7 +15581,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeImmunizationImmunizationVaccinationProtocolComponent(String name, Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
+  protected void composeImmunizationImmunizationVaccinationProtocolComponent(String name, Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationImmunizationVaccinationProtocolComponentInner(element);
@@ -15652,7 +15589,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationVaccinationProtocolComponentInner(Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
+  protected void composeImmunizationImmunizationVaccinationProtocolComponentInner(Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDoseSequenceElement()) {
         composeIntegerCore("doseSequence", element.getDoseSequenceElement(), false);
@@ -15684,14 +15621,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeImmunizationRecommendation(String name, ImmunizationRecommendation element) throws Exception {
+  protected void composeImmunizationRecommendation(String name, ImmunizationRecommendation element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeImmunizationRecommendationInner(element);
     }
   }
 
-  private void composeImmunizationRecommendationInner(ImmunizationRecommendation element) throws Exception {
+  protected void composeImmunizationRecommendationInner(ImmunizationRecommendation element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -15710,7 +15647,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationRecommendationImmunizationRecommendationRecommendationComponentInner(element);
@@ -15718,7 +15655,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDateElement()) {
         composeDateTimeCore("date", element.getDateElement(), false);
@@ -15757,7 +15694,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponentInner(element);
@@ -15765,7 +15702,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -15776,7 +15713,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponentInner(element);
@@ -15784,7 +15721,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponentInner(ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDoseSequenceElement()) {
         composeIntegerCore("doseSequence", element.getDoseSequenceElement(), false);
@@ -15803,14 +15740,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeList_(String name, List_ element) throws Exception {
+  protected void composeList_(String name, List_ element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeList_Inner(element);
     }
   }
 
-  private void composeList_Inner(List_ element) throws Exception {
+  protected void composeList_Inner(List_ element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -15850,7 +15787,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeList_ListEntryComponent(String name, List_.ListEntryComponent element) throws Exception {
+  protected void composeList_ListEntryComponent(String name, List_.ListEntryComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeList_ListEntryComponentInner(element);
@@ -15858,7 +15795,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeList_ListEntryComponentInner(List_.ListEntryComponent element) throws Exception {
+  protected void composeList_ListEntryComponentInner(List_.ListEntryComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasFlag()) {
         openArray("flag");
@@ -15879,14 +15816,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeLocation(String name, Location element) throws Exception {
+  protected void composeLocation(String name, Location element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeLocationInner(element);
     }
   }
 
-  private void composeLocationInner(Location element) throws Exception {
+  protected void composeLocationInner(Location element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -15936,7 +15873,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws Exception {
+  protected void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeLocationLocationPositionComponentInner(element);
@@ -15944,7 +15881,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeLocationLocationPositionComponentInner(Location.LocationPositionComponent element) throws Exception {
+  protected void composeLocationLocationPositionComponentInner(Location.LocationPositionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLongitudeElement()) {
         composeDecimalCore("longitude", element.getLongitudeElement(), false);
@@ -15960,14 +15897,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedia(String name, Media element) throws Exception {
+  protected void composeMedia(String name, Media element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMediaInner(element);
     }
   }
 
-  private void composeMediaInner(Media element) throws Exception {
+  protected void composeMediaInner(Media element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Media.MediaTypeEnumFactory(), false);
@@ -16020,14 +15957,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedication(String name, Medication element) throws Exception {
+  protected void composeMedication(String name, Medication element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMedicationInner(element);
     }
   }
 
-  private void composeMedicationInner(Medication element) throws Exception {
+  protected void composeMedicationInner(Medication element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -16055,7 +15992,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationMedicationProductComponent(String name, Medication.MedicationProductComponent element) throws Exception {
+  protected void composeMedicationMedicationProductComponent(String name, Medication.MedicationProductComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationMedicationProductComponentInner(element);
@@ -16063,7 +16000,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationMedicationProductComponentInner(Medication.MedicationProductComponent element) throws Exception {
+  protected void composeMedicationMedicationProductComponentInner(Medication.MedicationProductComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasForm()) {
         composeCodeableConcept("form", element.getForm());
@@ -16076,7 +16013,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationMedicationProductIngredientComponent(String name, Medication.MedicationProductIngredientComponent element) throws Exception {
+  protected void composeMedicationMedicationProductIngredientComponent(String name, Medication.MedicationProductIngredientComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationMedicationProductIngredientComponentInner(element);
@@ -16084,7 +16021,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationMedicationProductIngredientComponentInner(Medication.MedicationProductIngredientComponent element) throws Exception {
+  protected void composeMedicationMedicationProductIngredientComponentInner(Medication.MedicationProductIngredientComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasItem()) {
         composeReference("item", element.getItem());
@@ -16094,7 +16031,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationMedicationPackageComponent(String name, Medication.MedicationPackageComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageComponent(String name, Medication.MedicationPackageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationMedicationPackageComponentInner(element);
@@ -16102,7 +16039,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationMedicationPackageComponentInner(Medication.MedicationPackageComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageComponentInner(Medication.MedicationPackageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasContainer()) {
         composeCodeableConcept("container", element.getContainer());
@@ -16115,7 +16052,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationMedicationPackageContentComponent(String name, Medication.MedicationPackageContentComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageContentComponent(String name, Medication.MedicationPackageContentComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationMedicationPackageContentComponentInner(element);
@@ -16123,7 +16060,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationMedicationPackageContentComponentInner(Medication.MedicationPackageContentComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageContentComponentInner(Medication.MedicationPackageContentComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasItem()) {
         composeReference("item", element.getItem());
@@ -16133,14 +16070,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationAdministration(String name, MedicationAdministration element) throws Exception {
+  protected void composeMedicationAdministration(String name, MedicationAdministration element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMedicationAdministrationInner(element);
     }
   }
 
-  private void composeMedicationAdministrationInner(MedicationAdministration element) throws Exception {
+  protected void composeMedicationAdministrationInner(MedicationAdministration element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -16194,7 +16131,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationAdministrationMedicationAdministrationDosageComponent(String name, MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
+  protected void composeMedicationAdministrationMedicationAdministrationDosageComponent(String name, MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationAdministrationMedicationAdministrationDosageComponentInner(element);
@@ -16202,7 +16139,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationAdministrationMedicationAdministrationDosageComponentInner(MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
+  protected void composeMedicationAdministrationMedicationAdministrationDosageComponentInner(MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTiming()) {
         composeType("timing", element.getTiming());
@@ -16230,14 +16167,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationDispense(String name, MedicationDispense element) throws Exception {
+  protected void composeMedicationDispense(String name, MedicationDispense element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMedicationDispenseInner(element);
     }
   }
 
-  private void composeMedicationDispenseInner(MedicationDispense element) throws Exception {
+  protected void composeMedicationDispenseInner(MedicationDispense element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -16269,7 +16206,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseComponent(String name, MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseComponent(String name, MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationDispenseMedicationDispenseDispenseComponentInner(element);
@@ -16277,7 +16214,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseComponentInner(MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseComponentInner(MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -16320,7 +16257,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseDosageComponent(String name, MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseDosageComponent(String name, MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationDispenseMedicationDispenseDispenseDosageComponentInner(element);
@@ -16328,7 +16265,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseDosageComponentInner(MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseDosageComponentInner(MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasAdditionalInstructions()) {
         composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
@@ -16359,7 +16296,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationDispenseMedicationDispenseSubstitutionComponent(String name, MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseSubstitutionComponent(String name, MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationDispenseMedicationDispenseSubstitutionComponentInner(element);
@@ -16367,7 +16304,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseSubstitutionComponentInner(MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseSubstitutionComponentInner(MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -16386,14 +16323,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationPrescription(String name, MedicationPrescription element) throws Exception {
+  protected void composeMedicationPrescription(String name, MedicationPrescription element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMedicationPrescriptionInner(element);
     }
   }
 
-  private void composeMedicationPrescriptionInner(MedicationPrescription element) throws Exception {
+  protected void composeMedicationPrescriptionInner(MedicationPrescription element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -16438,7 +16375,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(String name, MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(String name, MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponentInner(element);
@@ -16446,7 +16383,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponentInner(MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponentInner(MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTextElement()) {
         composeStringCore("text", element.getTextElement(), false);
@@ -16481,7 +16418,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDispenseComponent(String name, MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDispenseComponent(String name, MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationPrescriptionMedicationPrescriptionDispenseComponentInner(element);
@@ -16489,7 +16426,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDispenseComponentInner(MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDispenseComponentInner(MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasMedication()) {
         composeReference("medication", element.getMedication());
@@ -16509,7 +16446,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(String name, MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(String name, MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponentInner(element);
@@ -16517,7 +16454,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponentInner(MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponentInner(MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -16527,14 +16464,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMedicationStatement(String name, MedicationStatement element) throws Exception {
+  protected void composeMedicationStatement(String name, MedicationStatement element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMedicationStatementInner(element);
     }
   }
 
-  private void composeMedicationStatementInner(MedicationStatement element) throws Exception {
+  protected void composeMedicationStatementInner(MedicationStatement element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -16575,7 +16512,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMedicationStatementMedicationStatementDosageComponent(String name, MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
+  protected void composeMedicationStatementMedicationStatementDosageComponent(String name, MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMedicationStatementMedicationStatementDosageComponentInner(element);
@@ -16583,7 +16520,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMedicationStatementMedicationStatementDosageComponentInner(MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
+  protected void composeMedicationStatementMedicationStatementDosageComponentInner(MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSchedule()) {
         composeTiming("schedule", element.getSchedule());
@@ -16611,14 +16548,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMessageHeader(String name, MessageHeader element) throws Exception {
+  protected void composeMessageHeader(String name, MessageHeader element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeMessageHeaderInner(element);
     }
   }
 
-  private void composeMessageHeaderInner(MessageHeader element) throws Exception {
+  protected void composeMessageHeaderInner(MessageHeader element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeIdCore("identifier", element.getIdentifierElement(), false);
@@ -16666,7 +16603,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeMessageHeaderMessageHeaderResponseComponent(String name, MessageHeader.MessageHeaderResponseComponent element) throws Exception {
+  protected void composeMessageHeaderMessageHeaderResponseComponent(String name, MessageHeader.MessageHeaderResponseComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMessageHeaderMessageHeaderResponseComponentInner(element);
@@ -16674,7 +16611,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageHeaderResponseComponentInner(MessageHeader.MessageHeaderResponseComponent element) throws Exception {
+  protected void composeMessageHeaderMessageHeaderResponseComponentInner(MessageHeader.MessageHeaderResponseComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifierElement()) {
         composeIdCore("identifier", element.getIdentifierElement(), false);
@@ -16689,7 +16626,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMessageHeaderMessageSourceComponent(String name, MessageHeader.MessageSourceComponent element) throws Exception {
+  protected void composeMessageHeaderMessageSourceComponent(String name, MessageHeader.MessageSourceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMessageHeaderMessageSourceComponentInner(element);
@@ -16697,7 +16634,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageSourceComponentInner(MessageHeader.MessageSourceComponent element) throws Exception {
+  protected void composeMessageHeaderMessageSourceComponentInner(MessageHeader.MessageSourceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -16720,7 +16657,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeMessageHeaderMessageDestinationComponent(String name, MessageHeader.MessageDestinationComponent element) throws Exception {
+  protected void composeMessageHeaderMessageDestinationComponent(String name, MessageHeader.MessageDestinationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeMessageHeaderMessageDestinationComponentInner(element);
@@ -16728,7 +16665,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageDestinationComponentInner(MessageHeader.MessageDestinationComponent element) throws Exception {
+  protected void composeMessageHeaderMessageDestinationComponentInner(MessageHeader.MessageDestinationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
@@ -16743,14 +16680,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNamingSystem(String name, NamingSystem element) throws Exception {
+  protected void composeNamingSystem(String name, NamingSystem element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeNamingSystemInner(element);
     }
   }
 
-  private void composeNamingSystemInner(NamingSystem element) throws Exception {
+  protected void composeNamingSystemInner(NamingSystem element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new NamingSystem.NamingsystemTypeEnumFactory(), false);
@@ -16797,7 +16734,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNamingSystemNamingSystemUniqueIdComponentInner(element);
@@ -16805,7 +16742,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNamingSystemNamingSystemUniqueIdComponentInner(NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemUniqueIdComponentInner(NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new NamingSystem.NamingsystemIdentifierTypeEnumFactory(), false);
@@ -16824,7 +16761,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNamingSystemNamingSystemContactComponentInner(element);
@@ -16832,7 +16769,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNamingSystemNamingSystemContactComponentInner(NamingSystem.NamingSystemContactComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemContactComponentInner(NamingSystem.NamingSystemContactComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasName()) {
         composeHumanName("name", element.getName());
@@ -16845,14 +16782,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
+  protected void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeNutritionOrderInner(element);
     }
   }
 
-  private void composeNutritionOrderInner(NutritionOrder element) throws Exception {
+  protected void composeNutritionOrderInner(NutritionOrder element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
@@ -16903,7 +16840,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemComponentInner(element);
@@ -16911,7 +16848,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemComponentInner(NutritionOrder.NutritionOrderItemComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemComponentInner(NutritionOrder.NutritionOrderItemComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasScheduled()) {
         composeType("scheduled", element.getScheduled());
@@ -16931,7 +16868,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemOralDietComponentInner(element);
@@ -16939,7 +16876,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietComponentInner(NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietComponentInner(NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         openArray("code");
@@ -16971,7 +16908,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemOralDietNutrientsComponentInner(element);
@@ -16979,7 +16916,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponentInner(NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponentInner(NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasModifier()) {
         composeCodeableConcept("modifier", element.getModifier());
@@ -16989,7 +16926,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemOralDietTextureComponentInner(element);
@@ -16997,7 +16934,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponentInner(NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietTextureComponentInner(NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasModifier()) {
         composeCodeableConcept("modifier", element.getModifier());
@@ -17007,7 +16944,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemSupplementComponentInner(element);
@@ -17015,7 +16952,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemSupplementComponentInner(NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemSupplementComponentInner(NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         openArray("type");
@@ -17032,7 +16969,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeNutritionOrderNutritionOrderItemEnteralFormulaComponentInner(element);
@@ -17040,7 +16977,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemEnteralFormulaComponentInner(NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemEnteralFormulaComponentInner(NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasBaseFormulaType()) {
         composeCodeableConcept("baseFormulaType", element.getBaseFormulaType());
@@ -17075,14 +17012,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeObservation(String name, Observation element) throws Exception {
+  protected void composeObservation(String name, Observation element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeObservationInner(element);
     }
   }
 
-  private void composeObservationInner(Observation element) throws Exception {
+  protected void composeObservationInner(Observation element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasName()) {
         composeCodeableConcept("name", element.getName());
@@ -17154,7 +17091,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeObservationObservationReferenceRangeComponent(String name, Observation.ObservationReferenceRangeComponent element) throws Exception {
+  protected void composeObservationObservationReferenceRangeComponent(String name, Observation.ObservationReferenceRangeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeObservationObservationReferenceRangeComponentInner(element);
@@ -17162,7 +17099,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeObservationObservationReferenceRangeComponentInner(Observation.ObservationReferenceRangeComponent element) throws Exception {
+  protected void composeObservationObservationReferenceRangeComponentInner(Observation.ObservationReferenceRangeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLow()) {
         composeQuantity("low", element.getLow());
@@ -17182,7 +17119,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeObservationObservationRelatedComponent(String name, Observation.ObservationRelatedComponent element) throws Exception {
+  protected void composeObservationObservationRelatedComponent(String name, Observation.ObservationRelatedComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeObservationObservationRelatedComponentInner(element);
@@ -17190,7 +17127,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeObservationObservationRelatedComponentInner(Observation.ObservationRelatedComponent element) throws Exception {
+  protected void composeObservationObservationRelatedComponentInner(Observation.ObservationRelatedComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Observation.ObservationRelationshiptypesEnumFactory(), false);
@@ -17201,14 +17138,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
+  protected void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOperationDefinitionInner(element);
     }
   }
 
-  private void composeOperationDefinitionInner(OperationDefinition element) throws Exception {
+  protected void composeOperationDefinitionInner(OperationDefinition element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeUriCore("identifier", element.getIdentifierElement(), false);
@@ -17297,7 +17234,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
+  protected void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOperationDefinitionOperationDefinitionParameterComponentInner(element);
@@ -17305,7 +17242,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOperationDefinitionOperationDefinitionParameterComponentInner(OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
+  protected void composeOperationDefinitionOperationDefinitionParameterComponentInner(OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasNameElement()) {
         composeCodeCore("name", element.getNameElement(), false);
@@ -17335,14 +17272,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
+  protected void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOperationOutcomeInner(element);
     }
   }
 
-  private void composeOperationOutcomeInner(OperationOutcome element) throws Exception {
+  protected void composeOperationOutcomeInner(OperationOutcome element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIssue()) {
         openArray("issue");
@@ -17352,7 +17289,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOperationOutcomeOperationOutcomeIssueComponent(String name, OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
+  protected void composeOperationOutcomeOperationOutcomeIssueComponent(String name, OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOperationOutcomeOperationOutcomeIssueComponentInner(element);
@@ -17360,7 +17297,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOperationOutcomeOperationOutcomeIssueComponentInner(OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
+  protected void composeOperationOutcomeOperationOutcomeIssueComponentInner(OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSeverityElement()) {
         composeEnumerationCore("severity", element.getSeverityElement(), new OperationOutcome.IssueSeverityEnumFactory(), false);
@@ -17387,18 +17324,21 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOralHealthClaim(String name, OralHealthClaim element) throws Exception {
+  protected void composeOralHealthClaim(String name, OralHealthClaim element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOralHealthClaimInner(element);
     }
   }
 
-  private void composeOralHealthClaimInner(OralHealthClaim element) throws Exception {
+  protected void composeOralHealthClaimInner(OralHealthClaim element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasRuleset()) {
         composeCoding("ruleset", element.getRuleset());
       }
@@ -17507,7 +17447,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOralHealthClaimPayeeComponent(String name, OralHealthClaim.PayeeComponent element) throws Exception {
+  protected void composeOralHealthClaimPayeeComponent(String name, OralHealthClaim.PayeeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimPayeeComponentInner(element);
@@ -17515,7 +17455,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimPayeeComponentInner(OralHealthClaim.PayeeComponent element) throws Exception {
+  protected void composeOralHealthClaimPayeeComponentInner(OralHealthClaim.PayeeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -17531,7 +17471,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimDiagnosisComponent(String name, OralHealthClaim.DiagnosisComponent element) throws Exception {
+  protected void composeOralHealthClaimDiagnosisComponent(String name, OralHealthClaim.DiagnosisComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimDiagnosisComponentInner(element);
@@ -17539,7 +17479,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimDiagnosisComponentInner(OralHealthClaim.DiagnosisComponent element) throws Exception {
+  protected void composeOralHealthClaimDiagnosisComponentInner(OralHealthClaim.DiagnosisComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -17550,7 +17490,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimCoverageComponent(String name, OralHealthClaim.CoverageComponent element) throws Exception {
+  protected void composeOralHealthClaimCoverageComponent(String name, OralHealthClaim.CoverageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimCoverageComponentInner(element);
@@ -17558,7 +17498,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimCoverageComponentInner(OralHealthClaim.CoverageComponent element) throws Exception {
+  protected void composeOralHealthClaimCoverageComponentInner(OralHealthClaim.CoverageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -17598,7 +17538,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimMissingTeethComponent(String name, OralHealthClaim.MissingTeethComponent element) throws Exception {
+  protected void composeOralHealthClaimMissingTeethComponent(String name, OralHealthClaim.MissingTeethComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimMissingTeethComponentInner(element);
@@ -17606,7 +17546,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimMissingTeethComponentInner(OralHealthClaim.MissingTeethComponent element) throws Exception {
+  protected void composeOralHealthClaimMissingTeethComponentInner(OralHealthClaim.MissingTeethComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTooth()) {
         composeCoding("tooth", element.getTooth());
@@ -17620,7 +17560,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimOrthodonticPlanComponent(String name, OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
+  protected void composeOralHealthClaimOrthodonticPlanComponent(String name, OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimOrthodonticPlanComponentInner(element);
@@ -17628,7 +17568,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimOrthodonticPlanComponentInner(OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
+  protected void composeOralHealthClaimOrthodonticPlanComponentInner(OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasStartElement()) {
         composeDateCore("start", element.getStartElement(), false);
@@ -17656,7 +17596,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimItemsComponent(String name, OralHealthClaim.ItemsComponent element) throws Exception {
+  protected void composeOralHealthClaimItemsComponent(String name, OralHealthClaim.ItemsComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimItemsComponentInner(element);
@@ -17664,7 +17604,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimItemsComponentInner(OralHealthClaim.ItemsComponent element) throws Exception {
+  protected void composeOralHealthClaimItemsComponentInner(OralHealthClaim.ItemsComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -17729,7 +17669,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimDetailComponent(String name, OralHealthClaim.DetailComponent element) throws Exception {
+  protected void composeOralHealthClaimDetailComponent(String name, OralHealthClaim.DetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimDetailComponentInner(element);
@@ -17737,7 +17677,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimDetailComponentInner(OralHealthClaim.DetailComponent element) throws Exception {
+  protected void composeOralHealthClaimDetailComponentInner(OralHealthClaim.DetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -17777,7 +17717,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOralHealthClaimSubDetailComponent(String name, OralHealthClaim.SubDetailComponent element) throws Exception {
+  protected void composeOralHealthClaimSubDetailComponent(String name, OralHealthClaim.SubDetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimSubDetailComponentInner(element);
@@ -17785,7 +17725,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimSubDetailComponentInner(OralHealthClaim.SubDetailComponent element) throws Exception {
+  protected void composeOralHealthClaimSubDetailComponentInner(OralHealthClaim.SubDetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -17819,7 +17759,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOralHealthClaimProsthesisComponent(String name, OralHealthClaim.ProsthesisComponent element) throws Exception {
+  protected void composeOralHealthClaimProsthesisComponent(String name, OralHealthClaim.ProsthesisComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOralHealthClaimProsthesisComponentInner(element);
@@ -17827,7 +17767,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOralHealthClaimProsthesisComponentInner(OralHealthClaim.ProsthesisComponent element) throws Exception {
+  protected void composeOralHealthClaimProsthesisComponentInner(OralHealthClaim.ProsthesisComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasInitialElement()) {
         composeBooleanCore("initial", element.getInitialElement(), false);
@@ -17842,14 +17782,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOrder(String name, Order element) throws Exception {
+  protected void composeOrder(String name, Order element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOrderInner(element);
     }
   }
 
-  private void composeOrderInner(Order element) throws Exception {
+  protected void composeOrderInner(Order element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -17887,7 +17827,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOrderOrderWhenComponent(String name, Order.OrderWhenComponent element) throws Exception {
+  protected void composeOrderOrderWhenComponent(String name, Order.OrderWhenComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOrderOrderWhenComponentInner(element);
@@ -17895,7 +17835,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOrderOrderWhenComponentInner(Order.OrderWhenComponent element) throws Exception {
+  protected void composeOrderOrderWhenComponentInner(Order.OrderWhenComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
@@ -17905,14 +17845,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOrderResponse(String name, OrderResponse element) throws Exception {
+  protected void composeOrderResponse(String name, OrderResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOrderResponseInner(element);
     }
   }
 
-  private void composeOrderResponseInner(OrderResponse element) throws Exception {
+  protected void composeOrderResponseInner(OrderResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -17949,14 +17889,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeOrganization(String name, Organization element) throws Exception {
+  protected void composeOrganization(String name, Organization element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOrganizationInner(element);
     }
   }
 
-  private void composeOrganizationInner(Organization element) throws Exception {
+  protected void composeOrganizationInner(Organization element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18004,7 +17944,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
+  protected void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeOrganizationOrganizationContactComponentInner(element);
@@ -18012,7 +17952,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeOrganizationOrganizationContactComponentInner(Organization.OrganizationContactComponent element) throws Exception {
+  protected void composeOrganizationOrganizationContactComponentInner(Organization.OrganizationContactComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasPurpose()) {
         composeCodeableConcept("purpose", element.getPurpose());
@@ -18035,14 +17975,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeOther(String name, Other element) throws Exception {
+  protected void composeOther(String name, Other element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeOtherInner(element);
     }
   }
 
-  private void composeOtherInner(Other element) throws Exception {
+  protected void composeOtherInner(Other element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18065,14 +18005,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePatient(String name, Patient element) throws Exception {
+  protected void composePatient(String name, Patient element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composePatientInner(element);
     }
   }
 
-  private void composePatientInner(Patient element) throws Exception {
+  protected void composePatientInner(Patient element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18157,7 +18097,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {
+  protected void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {
     if (element != null) {
       open(name);
       composePatientContactComponentInner(element);
@@ -18165,7 +18105,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composePatientContactComponentInner(Patient.ContactComponent element) throws Exception {
+  protected void composePatientContactComponentInner(Patient.ContactComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRelationship()) {
         openArray("relationship");
@@ -18197,7 +18137,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePatientAnimalComponent(String name, Patient.AnimalComponent element) throws Exception {
+  protected void composePatientAnimalComponent(String name, Patient.AnimalComponent element) throws Exception {
     if (element != null) {
       open(name);
       composePatientAnimalComponentInner(element);
@@ -18205,7 +18145,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composePatientAnimalComponentInner(Patient.AnimalComponent element) throws Exception {
+  protected void composePatientAnimalComponentInner(Patient.AnimalComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSpecies()) {
         composeCodeableConcept("species", element.getSpecies());
@@ -18218,7 +18158,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
+  protected void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
     if (element != null) {
       open(name);
       composePatientPatientLinkComponentInner(element);
@@ -18226,7 +18166,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composePatientPatientLinkComponentInner(Patient.PatientLinkComponent element) throws Exception {
+  protected void composePatientPatientLinkComponentInner(Patient.PatientLinkComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasOther()) {
         composeReference("other", element.getOther());
@@ -18237,14 +18177,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composePendedRequest(String name, PendedRequest element) throws Exception {
+  protected void composePendedRequest(String name, PendedRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composePendedRequestInner(element);
     }
   }
 
-  private void composePendedRequestInner(PendedRequest element) throws Exception {
+  protected void composePendedRequestInner(PendedRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18274,9 +18214,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasInclude()) {
         openArray("include");
         for (StringType e : element.getInclude()) 
@@ -18303,14 +18240,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composePractitioner(String name, Practitioner element) throws Exception {
+  protected void composePractitioner(String name, Practitioner element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composePractitionerInner(element);
     }
   }
 
-  private void composePractitionerInner(Practitioner element) throws Exception {
+  protected void composePractitionerInner(Practitioner element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18385,7 +18322,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws Exception {
+  protected void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composePractitionerPractitionerQualificationComponentInner(element);
@@ -18393,7 +18330,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composePractitionerPractitionerQualificationComponentInner(Practitioner.PractitionerQualificationComponent element) throws Exception {
+  protected void composePractitionerPractitionerQualificationComponentInner(Practitioner.PractitionerQualificationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18412,14 +18349,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProcedure(String name, Procedure element) throws Exception {
+  protected void composeProcedure(String name, Procedure element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeProcedureInner(element);
     }
   }
 
-  private void composeProcedureInner(Procedure element) throws Exception {
+  protected void composeProcedureInner(Procedure element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18489,7 +18426,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
+  protected void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProcedureProcedurePerformerComponentInner(element);
@@ -18497,7 +18434,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProcedureProcedurePerformerComponentInner(Procedure.ProcedurePerformerComponent element) throws Exception {
+  protected void composeProcedureProcedurePerformerComponentInner(Procedure.ProcedurePerformerComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasPerson()) {
         composeReference("person", element.getPerson());
@@ -18507,7 +18444,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
+  protected void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProcedureProcedureRelatedItemComponentInner(element);
@@ -18515,7 +18452,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProcedureProcedureRelatedItemComponentInner(Procedure.ProcedureRelatedItemComponent element) throws Exception {
+  protected void composeProcedureProcedureRelatedItemComponentInner(Procedure.ProcedureRelatedItemComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Procedure.ProcedureRelationshipTypeEnumFactory(), false);
@@ -18526,14 +18463,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
+  protected void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeProcedureRequestInner(element);
     }
   }
 
-  private void composeProcedureRequestInner(ProcedureRequest element) throws Exception {
+  protected void composeProcedureRequestInner(ProcedureRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18604,14 +18541,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProfile(String name, Profile element) throws Exception {
+  protected void composeProfile(String name, Profile element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeProfileInner(element);
     }
   }
 
-  private void composeProfileInner(Profile element) throws Exception {
+  protected void composeProfileInner(Profile element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUriCore("url", element.getUrlElement(), false);
@@ -18693,7 +18630,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
+  protected void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProfileProfileMappingComponentInner(element);
@@ -18701,7 +18638,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProfileProfileMappingComponentInner(Profile.ProfileMappingComponent element) throws Exception {
+  protected void composeProfileProfileMappingComponentInner(Profile.ProfileMappingComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentityElement()) {
         composeIdCore("identity", element.getIdentityElement(), false);
@@ -18721,7 +18658,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
+  protected void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProfileConstraintComponentInner(element);
@@ -18729,7 +18666,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProfileConstraintComponentInner(Profile.ConstraintComponent element) throws Exception {
+  protected void composeProfileConstraintComponentInner(Profile.ConstraintComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasElement()) {
         openArray("element");
@@ -18739,14 +18676,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeProvenance(String name, Provenance element) throws Exception {
+  protected void composeProvenance(String name, Provenance element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeProvenanceInner(element);
     }
   }
 
-  private void composeProvenanceInner(Provenance element) throws Exception {
+  protected void composeProvenanceInner(Provenance element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasTarget()) {
         openArray("target");
@@ -18797,7 +18734,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
+  protected void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProvenanceProvenanceAgentComponentInner(element);
@@ -18805,7 +18742,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProvenanceProvenanceAgentComponentInner(Provenance.ProvenanceAgentComponent element) throws Exception {
+  protected void composeProvenanceProvenanceAgentComponentInner(Provenance.ProvenanceAgentComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRole()) {
         composeCoding("role", element.getRole());
@@ -18823,7 +18760,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
+  protected void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeProvenanceProvenanceEntityComponentInner(element);
@@ -18831,7 +18768,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeProvenanceProvenanceEntityComponentInner(Provenance.ProvenanceEntityComponent element) throws Exception {
+  protected void composeProvenanceProvenanceEntityComponentInner(Provenance.ProvenanceEntityComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRoleElement()) {
         composeEnumerationCore("role", element.getRoleElement(), new Provenance.ProvenanceEntityRoleEnumFactory(), false);
@@ -18853,14 +18790,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeQuery(String name, Query element) throws Exception {
+  protected void composeQuery(String name, Query element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeQueryInner(element);
     }
   }
 
-  private void composeQueryInner(Query element) throws Exception {
+  protected void composeQueryInner(Query element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeUriCore("identifier", element.getIdentifierElement(), false);
@@ -18877,7 +18814,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeQueryQueryResponseComponent(String name, Query.QueryResponseComponent element) throws Exception {
+  protected void composeQueryQueryResponseComponent(String name, Query.QueryResponseComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQueryQueryResponseComponentInner(element);
@@ -18885,7 +18822,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQueryQueryResponseComponentInner(Query.QueryResponseComponent element) throws Exception {
+  protected void composeQueryQueryResponseComponentInner(Query.QueryResponseComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifierElement()) {
         composeUriCore("identifier", element.getIdentifierElement(), false);
@@ -18937,14 +18874,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeQuestionnaire(String name, Questionnaire element) throws Exception {
+  protected void composeQuestionnaire(String name, Questionnaire element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeQuestionnaireInner(element);
     }
   }
 
-  private void composeQuestionnaireInner(Questionnaire element) throws Exception {
+  protected void composeQuestionnaireInner(Questionnaire element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -18973,7 +18910,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQuestionnaireGroupComponentInner(element);
@@ -18981,7 +18918,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuestionnaireGroupComponentInner(Questionnaire.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireGroupComponentInner(Questionnaire.GroupComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLinkIdElement()) {
         composeStringCore("linkId", element.getLinkIdElement(), false);
@@ -19023,7 +18960,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQuestionnaireQuestionComponentInner(element);
@@ -19031,7 +18968,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuestionnaireQuestionComponentInner(Questionnaire.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireQuestionComponentInner(Questionnaire.QuestionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLinkIdElement()) {
         composeStringCore("linkId", element.getLinkIdElement(), false);
@@ -19070,14 +19007,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeQuestionnaireAnswers(String name, QuestionnaireAnswers element) throws Exception {
+  protected void composeQuestionnaireAnswers(String name, QuestionnaireAnswers element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeQuestionnaireAnswersInner(element);
     }
   }
 
-  private void composeQuestionnaireAnswersInner(QuestionnaireAnswers element) throws Exception {
+  protected void composeQuestionnaireAnswersInner(QuestionnaireAnswers element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -19110,7 +19047,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeQuestionnaireAnswersGroupComponent(String name, QuestionnaireAnswers.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersGroupComponent(String name, QuestionnaireAnswers.GroupComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQuestionnaireAnswersGroupComponentInner(element);
@@ -19118,7 +19055,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersGroupComponentInner(QuestionnaireAnswers.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersGroupComponentInner(QuestionnaireAnswers.GroupComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLinkIdElement()) {
         composeStringCore("linkId", element.getLinkIdElement(), false);
@@ -19149,7 +19086,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeQuestionnaireAnswersQuestionComponent(String name, QuestionnaireAnswers.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionComponent(String name, QuestionnaireAnswers.QuestionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQuestionnaireAnswersQuestionComponentInner(element);
@@ -19157,7 +19094,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersQuestionComponentInner(QuestionnaireAnswers.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionComponentInner(QuestionnaireAnswers.QuestionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLinkIdElement()) {
         composeStringCore("linkId", element.getLinkIdElement(), false);
@@ -19181,7 +19118,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeQuestionnaireAnswersQuestionAnswerComponent(String name, QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionAnswerComponent(String name, QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeQuestionnaireAnswersQuestionAnswerComponentInner(element);
@@ -19189,21 +19126,21 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersQuestionAnswerComponentInner(QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionAnswerComponentInner(QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasValue()) {
         composeType("value", element.getValue());
       }
   }
 
-  private void composeReferralRequest(String name, ReferralRequest element) throws Exception {
+  protected void composeReferralRequest(String name, ReferralRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeReferralRequestInner(element);
     }
   }
 
-  private void composeReferralRequestInner(ReferralRequest element) throws Exception {
+  protected void composeReferralRequestInner(ReferralRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new ReferralRequest.ReferralstatusEnumFactory(), false);
@@ -19267,14 +19204,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeRelatedPerson(String name, RelatedPerson element) throws Exception {
+  protected void composeRelatedPerson(String name, RelatedPerson element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeRelatedPersonInner(element);
     }
   }
 
-  private void composeRelatedPersonInner(RelatedPerson element) throws Exception {
+  protected void composeRelatedPersonInner(RelatedPerson element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -19312,14 +19249,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeReversal(String name, Reversal element) throws Exception {
+  protected void composeReversal(String name, Reversal element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeReversalInner(element);
     }
   }
 
-  private void composeReversalInner(Reversal element) throws Exception {
+  protected void composeReversalInner(Reversal element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -19349,14 +19286,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
-      }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
       }
       if (element.hasPayee()) {
         composeReversalPayeeComponent("payee", element.getPayee());
@@ -19370,7 +19301,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeReversalPayeeComponent(String name, Reversal.PayeeComponent element) throws Exception {
+  protected void composeReversalPayeeComponent(String name, Reversal.PayeeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeReversalPayeeComponentInner(element);
@@ -19378,7 +19309,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeReversalPayeeComponentInner(Reversal.PayeeComponent element) throws Exception {
+  protected void composeReversalPayeeComponentInner(Reversal.PayeeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -19394,7 +19325,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeReversalReversalCoverageComponent(String name, Reversal.ReversalCoverageComponent element) throws Exception {
+  protected void composeReversalReversalCoverageComponent(String name, Reversal.ReversalCoverageComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeReversalReversalCoverageComponentInner(element);
@@ -19402,7 +19333,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeReversalReversalCoverageComponentInner(Reversal.ReversalCoverageComponent element) throws Exception {
+  protected void composeReversalReversalCoverageComponentInner(Reversal.ReversalCoverageComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSequenceElement()) {
         composeIntegerCore("sequence", element.getSequenceElement(), false);
@@ -19424,14 +19355,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeRiskAssessment(String name, RiskAssessment element) throws Exception {
+  protected void composeRiskAssessment(String name, RiskAssessment element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeRiskAssessmentInner(element);
     }
   }
 
-  private void composeRiskAssessmentInner(RiskAssessment element) throws Exception {
+  protected void composeRiskAssessmentInner(RiskAssessment element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
@@ -19470,7 +19401,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeRiskAssessmentRiskAssessmentPredictionComponent(String name, RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
+  protected void composeRiskAssessmentRiskAssessmentPredictionComponent(String name, RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeRiskAssessmentRiskAssessmentPredictionComponentInner(element);
@@ -19478,7 +19409,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeRiskAssessmentRiskAssessmentPredictionComponentInner(RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
+  protected void composeRiskAssessmentRiskAssessmentPredictionComponentInner(RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasOutcome()) {
         composeCodeableConcept("outcome", element.getOutcome());
@@ -19499,14 +19430,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSearchParameter(String name, SearchParameter element) throws Exception {
+  protected void composeSearchParameter(String name, SearchParameter element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSearchParameterInner(element);
     }
   }
 
-  private void composeSearchParameterInner(SearchParameter element) throws Exception {
+  protected void composeSearchParameterInner(SearchParameter element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasUrlElement()) {
         composeUriCore("url", element.getUrlElement(), false);
@@ -19560,14 +19491,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSecurityEvent(String name, SecurityEvent element) throws Exception {
+  protected void composeSecurityEvent(String name, SecurityEvent element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSecurityEventInner(element);
     }
   }
 
-  private void composeSecurityEventInner(SecurityEvent element) throws Exception {
+  protected void composeSecurityEventInner(SecurityEvent element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasEvent()) {
         composeSecurityEventSecurityEventEventComponent("event", element.getEvent());
@@ -19589,7 +19520,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSecurityEventSecurityEventEventComponent(String name, SecurityEvent.SecurityEventEventComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventEventComponent(String name, SecurityEvent.SecurityEventEventComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventEventComponentInner(element);
@@ -19597,7 +19528,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventEventComponentInner(SecurityEvent.SecurityEventEventComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventEventComponentInner(SecurityEvent.SecurityEventEventComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -19626,7 +19557,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSecurityEventSecurityEventParticipantComponent(String name, SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantComponent(String name, SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventParticipantComponentInner(element);
@@ -19634,7 +19565,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventParticipantComponentInner(SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantComponentInner(SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRole()) {
         openArray("role");
@@ -19669,7 +19600,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSecurityEventSecurityEventParticipantNetworkComponent(String name, SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantNetworkComponent(String name, SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventParticipantNetworkComponentInner(element);
@@ -19677,7 +19608,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventParticipantNetworkComponentInner(SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantNetworkComponentInner(SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifierElement()) {
         composeStringCore("identifier", element.getIdentifierElement(), false);
@@ -19689,7 +19620,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSecurityEventSecurityEventSourceComponent(String name, SecurityEvent.SecurityEventSourceComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventSourceComponent(String name, SecurityEvent.SecurityEventSourceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventSourceComponentInner(element);
@@ -19697,7 +19628,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventSourceComponentInner(SecurityEvent.SecurityEventSourceComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventSourceComponentInner(SecurityEvent.SecurityEventSourceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSiteElement()) {
         composeStringCore("site", element.getSiteElement(), false);
@@ -19715,7 +19646,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSecurityEventSecurityEventObjectComponent(String name, SecurityEvent.SecurityEventObjectComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectComponent(String name, SecurityEvent.SecurityEventObjectComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventObjectComponentInner(element);
@@ -19723,7 +19654,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventObjectComponentInner(SecurityEvent.SecurityEventObjectComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectComponentInner(SecurityEvent.SecurityEventObjectComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -19766,7 +19697,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSecurityEventSecurityEventObjectDetailComponent(String name, SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectDetailComponent(String name, SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSecurityEventSecurityEventObjectDetailComponentInner(element);
@@ -19774,7 +19705,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventObjectDetailComponentInner(SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectDetailComponentInner(SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeStringCore("type", element.getTypeElement(), false);
@@ -19786,14 +19717,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSlot(String name, Slot element) throws Exception {
+  protected void composeSlot(String name, Slot element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSlotInner(element);
     }
   }
 
-  private void composeSlotInner(Slot element) throws Exception {
+  protected void composeSlotInner(Slot element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -19833,14 +19764,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSpecimen(String name, Specimen element) throws Exception {
+  protected void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSpecimenInner(element);
     }
   }
 
-  private void composeSpecimenInner(Specimen element) throws Exception {
+  protected void composeSpecimenInner(Specimen element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -19884,7 +19815,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSpecimenSpecimenSourceComponent(String name, Specimen.SpecimenSourceComponent element) throws Exception {
+  protected void composeSpecimenSpecimenSourceComponent(String name, Specimen.SpecimenSourceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSpecimenSpecimenSourceComponentInner(element);
@@ -19892,7 +19823,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenSourceComponentInner(Specimen.SpecimenSourceComponent element) throws Exception {
+  protected void composeSpecimenSpecimenSourceComponentInner(Specimen.SpecimenSourceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasRelationshipElement()) {
         composeEnumerationCore("relationship", element.getRelationshipElement(), new Specimen.HierarchicalRelationshipTypeEnumFactory(), false);
@@ -19906,7 +19837,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSpecimenSpecimenCollectionComponent(String name, Specimen.SpecimenCollectionComponent element) throws Exception {
+  protected void composeSpecimenSpecimenCollectionComponent(String name, Specimen.SpecimenCollectionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSpecimenSpecimenCollectionComponentInner(element);
@@ -19914,7 +19845,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenCollectionComponentInner(Specimen.SpecimenCollectionComponent element) throws Exception {
+  protected void composeSpecimenSpecimenCollectionComponentInner(Specimen.SpecimenCollectionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCollector()) {
         composeReference("collector", element.getCollector());
@@ -19945,7 +19876,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
+  protected void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSpecimenSpecimenTreatmentComponentInner(element);
@@ -19953,7 +19884,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenTreatmentComponentInner(Specimen.SpecimenTreatmentComponent element) throws Exception {
+  protected void composeSpecimenSpecimenTreatmentComponentInner(Specimen.SpecimenTreatmentComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -19970,7 +19901,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
+  protected void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSpecimenSpecimenContainerComponentInner(element);
@@ -19978,7 +19909,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenContainerComponentInner(Specimen.SpecimenContainerComponent element) throws Exception {
+  protected void composeSpecimenSpecimenContainerComponentInner(Specimen.SpecimenContainerComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -20004,14 +19935,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeStatusRequest(String name, StatusRequest element) throws Exception {
+  protected void composeStatusRequest(String name, StatusRequest element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeStatusRequestInner(element);
     }
   }
 
-  private void composeStatusRequestInner(StatusRequest element) throws Exception {
+  protected void composeStatusRequestInner(StatusRequest element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -20041,25 +19972,19 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
       }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
-      }
   }
 
-  private void composeStatusResponse(String name, StatusResponse element) throws Exception {
+  protected void composeStatusResponse(String name, StatusResponse element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeStatusResponseInner(element);
     }
   }
 
-  private void composeStatusResponseInner(StatusResponse element) throws Exception {
+  protected void composeStatusResponseInner(StatusResponse element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -20070,12 +19995,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        openArray("requestIdentifier");
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
       if (element.hasOutcome()) {
         composeCoding("outcome", element.getOutcome());
       }
@@ -20119,7 +20038,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeStatusResponseStatusResponseNotesComponent(String name, StatusResponse.StatusResponseNotesComponent element) throws Exception {
+  protected void composeStatusResponseStatusResponseNotesComponent(String name, StatusResponse.StatusResponseNotesComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeStatusResponseStatusResponseNotesComponentInner(element);
@@ -20127,7 +20046,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeStatusResponseStatusResponseNotesComponentInner(StatusResponse.StatusResponseNotesComponent element) throws Exception {
+  protected void composeStatusResponseStatusResponseNotesComponentInner(StatusResponse.StatusResponseNotesComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasType()) {
         composeCoding("type", element.getType());
@@ -20138,14 +20057,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSubscription(String name, Subscription element) throws Exception {
+  protected void composeSubscription(String name, Subscription element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSubscriptionInner(element);
     }
   }
 
-  private void composeSubscriptionInner(Subscription element) throws Exception {
+  protected void composeSubscriptionInner(Subscription element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasCriteriaElement()) {
         composeStringCore("criteria", element.getCriteriaElement(), false);
@@ -20184,7 +20103,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSubscriptionSubscriptionChannelComponentInner(element);
@@ -20192,7 +20111,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSubscriptionSubscriptionChannelComponentInner(Subscription.SubscriptionChannelComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionChannelComponentInner(Subscription.SubscriptionChannelComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Subscription.SubscriptionChannelTypeEnumFactory(), false);
@@ -20212,7 +20131,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSubscriptionSubscriptionTagComponentInner(element);
@@ -20220,7 +20139,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSubscriptionSubscriptionTagComponentInner(Subscription.SubscriptionTagComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionTagComponentInner(Subscription.SubscriptionTagComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTermElement()) {
         composeUriCore("term", element.getTermElement(), false);
@@ -20236,14 +20155,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSubstance(String name, Substance element) throws Exception {
+  protected void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSubstanceInner(element);
     }
   }
 
-  private void composeSubstanceInner(Substance element) throws Exception {
+  protected void composeSubstanceInner(Substance element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
@@ -20263,7 +20182,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
+  protected void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSubstanceSubstanceInstanceComponentInner(element);
@@ -20271,7 +20190,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSubstanceSubstanceInstanceComponentInner(Substance.SubstanceInstanceComponent element) throws Exception {
+  protected void composeSubstanceSubstanceInstanceComponentInner(Substance.SubstanceInstanceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -20285,7 +20204,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
+  protected void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSubstanceSubstanceIngredientComponentInner(element);
@@ -20293,7 +20212,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSubstanceSubstanceIngredientComponentInner(Substance.SubstanceIngredientComponent element) throws Exception {
+  protected void composeSubstanceSubstanceIngredientComponentInner(Substance.SubstanceIngredientComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasQuantity()) {
         composeRatio("quantity", element.getQuantity());
@@ -20303,14 +20222,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeSupply(String name, Supply element) throws Exception {
+  protected void composeSupply(String name, Supply element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSupplyInner(element);
     }
   }
 
-  private void composeSupplyInner(Supply element) throws Exception {
+  protected void composeSupplyInner(Supply element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasKind()) {
         composeCodeableConcept("kind", element.getKind());
@@ -20336,7 +20255,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
+  protected void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSupplySupplyDispenseComponentInner(element);
@@ -20344,7 +20263,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSupplySupplyDispenseComponentInner(Supply.SupplyDispenseComponent element) throws Exception {
+  protected void composeSupplySupplyDispenseComponentInner(Supply.SupplyDispenseComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -20382,14 +20301,14 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSupportingDocumentation(String name, SupportingDocumentation element) throws Exception {
+  protected void composeSupportingDocumentation(String name, SupportingDocumentation element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeSupportingDocumentationInner(element);
     }
   }
 
-  private void composeSupportingDocumentationInner(SupportingDocumentation element) throws Exception {
+  protected void composeSupportingDocumentationInner(SupportingDocumentation element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
         openArray("identifier");
@@ -20416,14 +20335,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
       }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
@@ -20442,7 +20355,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeSupportingDocumentationSupportingDocumentationDetailComponent(String name, SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
+  protected void composeSupportingDocumentationSupportingDocumentationDetailComponent(String name, SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeSupportingDocumentationSupportingDocumentationDetailComponentInner(element);
@@ -20450,7 +20363,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeSupportingDocumentationSupportingDocumentationDetailComponentInner(SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
+  protected void composeSupportingDocumentationSupportingDocumentationDetailComponentInner(SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLinkIdElement()) {
         composeIntegerCore("linkId", element.getLinkIdElement(), false);
@@ -20465,14 +20378,14 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeValueSet(String name, ValueSet element) throws Exception {
+  protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
       composeValueSetInner(element);
     }
   }
 
-  private void composeValueSetInner(ValueSet element) throws Exception {
+  protected void composeValueSetInner(ValueSet element) throws Exception {
       composeDomainResourceElements(element);
       if (element.hasIdentifierElement()) {
         composeUriCore("identifier", element.getIdentifierElement(), false);
@@ -20543,7 +20456,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetValueSetDefineComponentInner(element);
@@ -20551,7 +20464,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetValueSetDefineComponentInner(ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetDefineComponentInner(ValueSet.ValueSetDefineComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -20573,7 +20486,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetConceptDefinitionComponentInner(element);
@@ -20581,7 +20494,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetConceptDefinitionComponentInner(ValueSet.ConceptDefinitionComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionComponentInner(ValueSet.ConceptDefinitionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);
@@ -20613,7 +20526,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetConceptDefinitionDesignationComponentInner(element);
@@ -20621,7 +20534,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetConceptDefinitionDesignationComponentInner(ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionDesignationComponentInner(ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasLanguageElement()) {
         composeCodeCore("language", element.getLanguageElement(), false);
@@ -20636,7 +20549,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws Exception {
+  protected void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetValueSetComposeComponentInner(element);
@@ -20644,7 +20557,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetValueSetComposeComponentInner(ValueSet.ValueSetComposeComponent element) throws Exception {
+  protected void composeValueSetValueSetComposeComponentInner(ValueSet.ValueSetComposeComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasImport()) {
         openArray("import");
@@ -20672,7 +20585,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetConceptSetComponent(String name, ValueSet.ConceptSetComponent element) throws Exception {
+  protected void composeValueSetConceptSetComponent(String name, ValueSet.ConceptSetComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetConceptSetComponentInner(element);
@@ -20680,7 +20593,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetConceptSetComponentInner(ValueSet.ConceptSetComponent element) throws Exception {
+  protected void composeValueSetConceptSetComponentInner(ValueSet.ConceptSetComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);
@@ -20704,7 +20617,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
+  protected void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetConceptReferenceComponentInner(element);
@@ -20712,7 +20625,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetConceptReferenceComponentInner(ValueSet.ConceptReferenceComponent element) throws Exception {
+  protected void composeValueSetConceptReferenceComponentInner(ValueSet.ConceptReferenceComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);
@@ -20730,7 +20643,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetConceptSetFilterComponent(String name, ValueSet.ConceptSetFilterComponent element) throws Exception {
+  protected void composeValueSetConceptSetFilterComponent(String name, ValueSet.ConceptSetFilterComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetConceptSetFilterComponentInner(element);
@@ -20738,7 +20651,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetConceptSetFilterComponentInner(ValueSet.ConceptSetFilterComponent element) throws Exception {
+  protected void composeValueSetConceptSetFilterComponentInner(ValueSet.ConceptSetFilterComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasPropertyElement()) {
         composeCodeCore("property", element.getPropertyElement(), false);
@@ -20754,7 +20667,7 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
-  private void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetValueSetExpansionComponentInner(element);
@@ -20762,7 +20675,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetValueSetExpansionComponentInner(ValueSet.ValueSetExpansionComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionComponentInner(ValueSet.ValueSetExpansionComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
@@ -20779,7 +20692,7 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  private void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeValueSetValueSetExpansionContainsComponentInner(element);
@@ -20787,7 +20700,7 @@ public class JsonParser extends JsonParserBase {
     }
   }
 
-  private void composeValueSetValueSetExpansionContainsComponentInner(ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionContainsComponentInner(ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasSystemElement()) {
         composeUriCore("system", element.getSystemElement(), false);

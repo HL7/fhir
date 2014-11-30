@@ -29,15 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.math.*;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.
  */

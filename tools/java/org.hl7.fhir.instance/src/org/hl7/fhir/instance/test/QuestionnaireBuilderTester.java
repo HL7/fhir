@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 
 public class QuestionnaireBuilderTester {

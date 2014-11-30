@@ -34,21 +34,15 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
-import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Binary;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -65,17 +59,20 @@ import com.google.gson.JsonObject;
  * The two classes are separated to keep generated and manually maintained code apart.
  */
 public abstract class JsonParserBase extends ParserBase implements Parser {
-
-  abstract protected Resource parseResource(JsonObject json) throws Exception;
   private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
 
-  private JsonObject loadJson(InputStream input) throws Exception {
-    return parser.parse(TextFile.streamToString(input)).getAsJsonObject();
-  }
+  // -- in descendent generated code --------------------------------------
   
-  private JsonObject loadJson(String input) throws Exception {
-    return parser.parse(input).getAsJsonObject();
-  }
+  abstract protected Resource parseResource(JsonObject json) throws Exception;
+  abstract protected Type parseType(JsonObject json, String type) throws Exception;
+  abstract protected Type parseType(String prefix, JsonObject json) throws Exception;
+  abstract protected boolean hasTypeName(JsonObject json, String prefix);
+  abstract protected void composeResource(Resource resource) throws Exception;
+  abstract protected void composeTypeInner(Type type) throws Exception;
+  abstract protected Resource.ResourceMetaComponent parseResourceResourceMetaComponent(JsonObject json, Resource owner) throws Exception;
+  abstract protected void composeResourceResourceMetaComponentInner(Resource.ResourceMetaComponent element) throws Exception;
+
+  /* -- entry points --------------------------------------------------- */
 
   /**
    * Parse content that is known to be a resource
@@ -83,7 +80,6 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   @Override
   public Resource parse(InputStream input) throws Exception {
     JsonObject json = loadJson(input);
-  
     return parseResource(json);
   }
 
@@ -94,12 +90,95 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     return parseResource(json);
   }
 
+  @Override
+  public ResourceMetaComponent parseMeta(InputStream input) throws Exception {
+    JsonObject json = loadJson(input);
+    return parseResourceResourceMetaComponent(json, null);
+  }
+
+  @Override
+  public Type parseType(InputStream input, String type) throws Exception {
+    JsonObject json = loadJson(input);
+    return parseType(json, type);
+  }
+
+  /**
+   * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+  @Override
+  public void compose(OutputStream stream, Resource resource) throws Exception {
+    OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
+    if (style == OutputStyle.CANONICAL)
+      json = new JsonCreatorCanonical(osw);
+    else
+      json = new JsonCreatorGson(osw);
+    json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
+    json.beginObject();
+    composeResource(resource);
+    json.endObject();
+    json.finish();
+    osw.flush();
+  }
+
+  /**
+   * Compose a resource using a pre-existing JsonWriter
+   */
+  public void compose(JsonCreator writer, Resource resource) throws Exception {
+    json = writer;
+    composeResource(resource);
+  }
+  
+  @Override
+  public void compose(OutputStream stream, ResourceMetaComponent meta) throws Exception {
+    OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
+    if (style == OutputStyle.CANONICAL)
+      json = new JsonCreatorCanonical(osw);
+    else
+      json = new JsonCreatorGson(osw);
+    json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
+    json.beginObject();
+    composeResourceResourceMetaComponentInner(meta);
+    json.endObject();
+    json.finish();
+    osw.flush();
+  }
+
+  @Override
+  public void compose(OutputStream stream, Type type, String rootName) throws Exception {
+    OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
+    if (style == OutputStyle.CANONICAL)
+      json = new JsonCreatorCanonical(osw);
+    else
+      json = new JsonCreatorGson(osw);
+    json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
+    json.beginObject();
+    composeTypeInner(type);
+    json.endObject();
+    json.finish();
+    osw.flush();
+  }
+    
+
+  
+  /* -- json routines --------------------------------------------------- */
+
+  protected JsonCreator json;
+  private boolean htmlPretty;
+  
+  private JsonObject loadJson(InputStream input) throws Exception {
+    return parser.parse(TextFile.streamToString(input)).getAsJsonObject();
+  }
+  
+//  private JsonObject loadJson(String input) throws Exception {
+//    return parser.parse(input).getAsJsonObject();
+//  }
+//  
   protected void parseElementProperties(JsonObject json, Element e) throws Exception {
     if (json != null && json.has("id"))
       e.setElementId(json.get("id").getAsString());
     if (!Utilities.noString(e.getElementId()))
       idMap.put(e.getElementId(), e);
-    if (json.has("fhir_comments")) {
+    if (json.has("fhir_comments") && handleComments) {
       JsonArray array = json.getAsJsonArray("fhir_comments");
       for (int i = 0; i < array.size(); i++) {
         e.getFormatComments().add(array.get(i).getAsString());
@@ -111,33 +190,10 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     XhtmlParser prsr = new XhtmlParser();
     return prsr.parse(value, "div").getChildNodes().get(0);
   }
-//
-//  protected Resource parseBinary(JsonObject json) throws Exception {
-//    Binary res = new Binary();
-//    parseResourceProperties(json, res);
-//    res.setContentType(json.get("contentType").getAsString());
-//    res.setContent(Base64.decodeBase64(json.get("content").getAsString().getBytes()));
-//    return res;
-//  }
-
-  private void parseLink(Map<String, String> links, JsonObject json) throws Exception {
-    if (json.has("href") && json.has("rel"))
-    links.put(json.get("rel").getAsString(), json.get("href").getAsString());    
-  }
-
-  public Type parseType(String source, String type) throws Exception {
-    JsonObject json = loadJson(source);
-    return parseType(json, type);
-  }
-
-  protected abstract Type parseType(JsonObject json, String type) throws Exception;
   
   protected DomainResource parseDomainResource(JsonObject json) throws Exception {
 	  return (DomainResource) parseResource(json);
   }
-
-  protected abstract Type parseType(String prefix, JsonObject json) throws Exception;
-  protected abstract boolean hasTypeName(JsonObject json, String prefix);
 
   protected void parseExtensions(JsonObject json, List<Extension> extensions, boolean inExtension) throws Exception {
 	  for (Entry<String, JsonElement> p : json.entrySet()) {
@@ -159,71 +215,6 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 	  }
   }
   
-
-	protected JsonCreator json;
-	private boolean htmlPretty;
-  protected boolean canonical;
-
-	/**
-	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	@Override
-  public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
-		checkCanBePretty(pretty);
-		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-		JsonCreator writer;
-		if (canonical)
-      writer = new JsonCreatorCanonical(osw);
-		else
-		  writer = new JsonCreatorGson(osw);
-    writer.setIndent(pretty ? "  ":"");
-		writer.beginObject();
-		compose(writer, resource);
-		writer.endObject();
-		writer.finish();
-		osw.flush();
-	}
-
-	protected void checkCanBePretty(boolean pretty) throws Exception {
-	  // ok. 	  
-  }
-
-	/**
-	 * Compose a resource using a pre-existing JsonWriter
-	 */
-	public void compose(JsonCreator writer, Resource resource) throws Exception {
-		json = writer;
-		composeResource(resource);
-	}
-	
-	/**
-	 * No-Op for now
-	 * 
-	 */
-	@Override
-  public void compose(OutputStream writer, ResourceMetaComponent meta, boolean pretty) throws Exception {
-		checkCanBePretty(pretty);
-		throw new Error("Not done yet");
-	}
-
-  public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
-  	checkCanBePretty(pretty);
-    OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-    if (canonical)
-      json = new JsonCreatorCanonical(osw);
-    else
-      json = new JsonCreatorGson(osw);
-    json.setIndent(pretty ? "  ":"");
-    json.beginObject();
-    composeTypeInner(type);
-    json.endObject();
-    json.finish();
-    osw.flush();
-  }
-  	
-	protected abstract void composeResource(Resource resource) throws Exception;
-  protected abstract void composeTypeInner(Type type) throws Exception;
-
 	protected void writeNull(String name) throws Exception {
 		json.nullValue();
 	}
@@ -311,13 +302,8 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 	  return false;
   }
 
-  public void setCanonical(boolean canonical) {
-    this.canonical = canonical;
-    
-  }
-
 	protected boolean makeComments(Element element) {
-		return !canonical && !element.getFormatComments().isEmpty();
+		return !handleComments && (style != OutputStyle.CANONICAL) && !element.getFormatComments().isEmpty();
 	}
 	
   protected void composeDomainResource(String name, DomainResource e) throws Exception {

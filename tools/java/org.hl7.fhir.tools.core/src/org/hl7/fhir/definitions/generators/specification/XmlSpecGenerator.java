@@ -46,6 +46,7 @@ import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -1012,7 +1013,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
     XmlParser xml = new XmlParser();
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    xml.compose(bs, value);
+    xml.setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(bs, null, value);
     bs.close();
     String[] result = bs.toString().split("\\r?\\n");
     b = new StringBuilder();

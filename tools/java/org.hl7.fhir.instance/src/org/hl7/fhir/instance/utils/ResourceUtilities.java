@@ -3,7 +3,6 @@ package org.hl7.fhir.instance.utils;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleLinkComponent;
-import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.OperationOutcome;

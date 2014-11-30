@@ -3,8 +3,8 @@ package org.hl7.fhir.instance.utils;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 
 public interface ConceptLocator {

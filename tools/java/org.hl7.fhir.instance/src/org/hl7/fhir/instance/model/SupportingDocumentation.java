@@ -29,15 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 /**
  * This resource provides the supporting information for a process, for example clinical or financial  information related to a claim or pre-authorization.
  */
@@ -300,14 +301,7 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Original request identifer.
      */
-    @Child(name="requestIdentifier", type={Identifier.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="Request identifier", formalDefinition="Original request identifer." )
-    protected Identifier requestIdentifier;
-
-    /**
-     * Original request identifer.
-     */
-    @Child(name="request", type={}, order=7, min=0, max=1)
+    @Child(name="request", type={}, order=6, min=0, max=1)
     @Description(shortDefinition="Request reference", formalDefinition="Original request identifer." )
     protected Reference request;
 
@@ -319,14 +313,7 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Original response identifer.
      */
-    @Child(name="responseIdentifier", type={Identifier.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Response identifier", formalDefinition="Original response identifer." )
-    protected Identifier responseIdentifier;
-
-    /**
-     * Original response identifer.
-     */
-    @Child(name="response", type={}, order=9, min=0, max=1)
+    @Child(name="response", type={}, order=7, min=0, max=1)
     @Description(shortDefinition="Response reference", formalDefinition="Original response identifer." )
     protected Reference response;
 
@@ -338,7 +325,7 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Person who created the submission.
      */
-    @Child(name="author", type={Practitioner.class}, order=10, min=0, max=1)
+    @Child(name="author", type={Practitioner.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Author", formalDefinition="Person who created the submission." )
     protected Reference author;
 
@@ -350,7 +337,7 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * The patient who is directly or indirectly the subject of the supporting information.
      */
-    @Child(name="subject", type={Patient.class}, order=11, min=0, max=1)
+    @Child(name="subject", type={Patient.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Patient", formalDefinition="The patient who is directly or indirectly the subject of the supporting information." )
     protected Reference subject;
 
@@ -362,11 +349,11 @@ public class SupportingDocumentation extends DomainResource {
     /**
      * Supporting Files.
      */
-    @Child(name="detail", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="detail", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Supporting Files", formalDefinition="Supporting Files." )
     protected List<SupportingDocumentationDetailComponent> detail;
 
-    private static final long serialVersionUID = -1592608751L;
+    private static final long serialVersionUID = -1532144943L;
 
     public SupportingDocumentation() {
       super();
@@ -627,30 +614,6 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @return {@link #requestIdentifier} (Original request identifer.)
-     */
-    public Identifier getRequestIdentifier() { 
-      if (this.requestIdentifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SupportingDocumentation.requestIdentifier");
-        else if (Configuration.doAutoCreate())
-          this.requestIdentifier = new Identifier();
-      return this.requestIdentifier;
-    }
-
-    public boolean hasRequestIdentifier() { 
-      return this.requestIdentifier != null && !this.requestIdentifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requestIdentifier} (Original request identifer.)
-     */
-    public SupportingDocumentation setRequestIdentifier(Identifier value) { 
-      this.requestIdentifier = value;
-      return this;
-    }
-
-    /**
      * @return {@link #request} (Original request identifer.)
      */
     public Reference getRequest() { 
@@ -686,30 +649,6 @@ public class SupportingDocumentation extends DomainResource {
      */
     public SupportingDocumentation setRequestTarget(Resource value) { 
       this.requestTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #responseIdentifier} (Original response identifer.)
-     */
-    public Identifier getResponseIdentifier() { 
-      if (this.responseIdentifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SupportingDocumentation.responseIdentifier");
-        else if (Configuration.doAutoCreate())
-          this.responseIdentifier = new Identifier();
-      return this.responseIdentifier;
-    }
-
-    public boolean hasResponseIdentifier() { 
-      return this.responseIdentifier != null && !this.responseIdentifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #responseIdentifier} (Original response identifer.)
-     */
-    public SupportingDocumentation setResponseIdentifier(Identifier value) { 
-      this.responseIdentifier = value;
       return this;
     }
 
@@ -879,9 +818,7 @@ public class SupportingDocumentation extends DomainResource {
         childrenList.add(new Property("target", "Reference(Organization|Practitioner)", "The Insurer, organization or Provider who is target  of the submission.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("requestIdentifier", "Identifier", "Original request identifer.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
         childrenList.add(new Property("request", "Reference(Any)", "Original request identifer.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("responseIdentifier", "Identifier", "Original response identifer.", 0, java.lang.Integer.MAX_VALUE, responseIdentifier));
         childrenList.add(new Property("response", "Reference(Any)", "Original response identifer.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("author", "Reference(Practitioner)", "Person who created the submission.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is directly or indirectly the subject of the supporting information.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -902,9 +839,7 @@ public class SupportingDocumentation extends DomainResource {
         dst.target = target == null ? null : target.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
-        dst.requestIdentifier = requestIdentifier == null ? null : requestIdentifier.copy();
         dst.request = request == null ? null : request.copy();
-        dst.responseIdentifier = responseIdentifier == null ? null : responseIdentifier.copy();
         dst.response = response == null ? null : response.copy();
         dst.author = author == null ? null : author.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -924,10 +859,8 @@ public class SupportingDocumentation extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
            && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (requestIdentifier == null || requestIdentifier.isEmpty()) && (request == null || request.isEmpty())
-           && (responseIdentifier == null || responseIdentifier.isEmpty()) && (response == null || response.isEmpty())
-           && (author == null || author.isEmpty()) && (subject == null || subject.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (author == null || author.isEmpty())
+           && (subject == null || subject.isEmpty()) && (detail == null || detail.isEmpty());
       }
 
   @Override

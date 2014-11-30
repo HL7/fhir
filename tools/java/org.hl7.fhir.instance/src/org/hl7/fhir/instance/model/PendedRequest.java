@@ -29,16 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 /**
  * This resource provides the request and response details for the resource for which the stsatus is to be checked.
  */
@@ -48,7 +47,7 @@ public class PendedRequest extends DomainResource {
     /**
      * The Response Business Identifier.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
     protected List<Identifier> identifier;
 
@@ -122,27 +121,20 @@ public class PendedRequest extends DomainResource {
     protected Resource requestTarget;
 
     /**
-     * Identifier of resource to reverse.
-     */
-    @Child(name="requestIdentifier", type={Identifier.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Request Identifier", formalDefinition="Identifier of resource to reverse." )
-    protected Identifier requestIdentifier;
-
-    /**
      * Names of resource types to include.
      */
-    @Child(name="include", type={StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="include", type={StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Resource type to include", formalDefinition="Names of resource types to include." )
     protected List<StringType> include;
 
     /**
      * Names of resource types to exclude.
      */
-    @Child(name="exclude", type={StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="exclude", type={StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Resource type to exclude", formalDefinition="Names of resource types to exclude." )
     protected List<StringType> exclude;
 
-    private static final long serialVersionUID = 1693691438L;
+    private static final long serialVersionUID = 426386451L;
 
     public PendedRequest() {
       super();
@@ -447,30 +439,6 @@ public class PendedRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #requestIdentifier} (Identifier of resource to reverse.)
-     */
-    public Identifier getRequestIdentifier() { 
-      if (this.requestIdentifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PendedRequest.requestIdentifier");
-        else if (Configuration.doAutoCreate())
-          this.requestIdentifier = new Identifier();
-      return this.requestIdentifier;
-    }
-
-    public boolean hasRequestIdentifier() { 
-      return this.requestIdentifier != null && !this.requestIdentifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requestIdentifier} (Identifier of resource to reverse.)
-     */
-    public PendedRequest setRequestIdentifier(Identifier value) { 
-      this.requestIdentifier = value;
-      return this;
-    }
-
-    /**
      * @return {@link #include} (Names of resource types to include.)
      */
     public List<StringType> getInclude() { 
@@ -588,7 +556,6 @@ public class PendedRequest extends DomainResource {
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("requestIdentifier", "Identifier", "Identifier of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
         childrenList.add(new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include));
         childrenList.add(new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude));
       }
@@ -608,7 +575,6 @@ public class PendedRequest extends DomainResource {
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.request = request == null ? null : request.copy();
-        dst.requestIdentifier = requestIdentifier == null ? null : requestIdentifier.copy();
         if (include != null) {
           dst.include = new ArrayList<StringType>();
           for (StringType i : include)
@@ -630,8 +596,8 @@ public class PendedRequest extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
            && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (request == null || request.isEmpty()) && (requestIdentifier == null || requestIdentifier.isEmpty())
-           && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty());
+           && (request == null || request.isEmpty()) && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
+          ;
       }
 
   @Override

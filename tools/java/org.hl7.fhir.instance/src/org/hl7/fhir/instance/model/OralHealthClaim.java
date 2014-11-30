@@ -29,17 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.math.*;
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
@@ -3175,9 +3176,9 @@ public class OralHealthClaim extends DomainResource {
     /**
      * The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Claim number", formalDefinition="The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * The version of the specification on which this instance relies.
@@ -3396,7 +3397,7 @@ public class OralHealthClaim extends DomainResource {
     @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
     protected List<Coding> additionalMaterials;
 
-    private static final long serialVersionUID = -456977630L;
+    private static final long serialVersionUID = 1132893716L;
 
     public OralHealthClaim() {
       super();
@@ -3410,25 +3411,31 @@ public class OralHealthClaim extends DomainResource {
     /**
      * @return {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OralHealthClaim.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
+     * @return {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
      */
-    public OralHealthClaim setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -4377,7 +4384,11 @@ public class OralHealthClaim extends DomainResource {
       public OralHealthClaim copy() {
         OralHealthClaim dst = new OralHealthClaim();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.date = date == null ? null : date.copy();

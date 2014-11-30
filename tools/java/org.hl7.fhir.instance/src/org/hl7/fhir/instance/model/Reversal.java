@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides the request and response details for the request for which all actions are to be reversed or terminated.
  */
@@ -572,7 +573,7 @@ public class Reversal extends DomainResource {
     /**
      * The Response Business Identifier.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
     protected List<Identifier> identifier;
 
@@ -646,16 +647,9 @@ public class Reversal extends DomainResource {
     protected Resource requestTarget;
 
     /**
-     * Identifier of resource to reverse.
-     */
-    @Child(name="requestIdentifier", type={Identifier.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="Request Identifier", formalDefinition="Identifier of resource to reverse." )
-    protected Identifier requestIdentifier;
-
-    /**
      * Reference of response to resource to reverse.
      */
-    @Child(name="response", type={}, order=8, min=0, max=1)
+    @Child(name="response", type={}, order=7, min=0, max=1)
     @Description(shortDefinition="Response reference", formalDefinition="Reference of response to resource to reverse." )
     protected Reference response;
 
@@ -665,34 +659,27 @@ public class Reversal extends DomainResource {
     protected Resource responseTarget;
 
     /**
-     * Identifier of response to resource to reverse.
-     */
-    @Child(name="responseIdentifier", type={Identifier.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="Response Identifier", formalDefinition="Identifier of response to resource to reverse." )
-    protected Identifier responseIdentifier;
-
-    /**
      * Payee information suypplied for matching purposes.
      */
-    @Child(name="payee", type={}, order=10, min=0, max=1)
+    @Child(name="payee", type={}, order=8, min=0, max=1)
     @Description(shortDefinition="Payee", formalDefinition="Payee information suypplied for matching purposes." )
     protected PayeeComponent payee;
 
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name="coverage", type={}, order=11, min=1, max=1)
+    @Child(name="coverage", type={}, order=9, min=1, max=1)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected ReversalCoverageComponent coverage;
 
     /**
      * If true remove all history excluding audit.
      */
-    @Child(name="nullify", type={BooleanType.class}, order=12, min=1, max=1)
+    @Child(name="nullify", type={BooleanType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="Nullify", formalDefinition="If true remove all history excluding audit." )
     protected BooleanType nullify;
 
-    private static final long serialVersionUID = -317311186L;
+    private static final long serialVersionUID = -868678848L;
 
     public Reversal() {
       super();
@@ -1003,30 +990,6 @@ public class Reversal extends DomainResource {
     }
 
     /**
-     * @return {@link #requestIdentifier} (Identifier of resource to reverse.)
-     */
-    public Identifier getRequestIdentifier() { 
-      if (this.requestIdentifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Reversal.requestIdentifier");
-        else if (Configuration.doAutoCreate())
-          this.requestIdentifier = new Identifier();
-      return this.requestIdentifier;
-    }
-
-    public boolean hasRequestIdentifier() { 
-      return this.requestIdentifier != null && !this.requestIdentifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requestIdentifier} (Identifier of resource to reverse.)
-     */
-    public Reversal setRequestIdentifier(Identifier value) { 
-      this.requestIdentifier = value;
-      return this;
-    }
-
-    /**
      * @return {@link #response} (Reference of response to resource to reverse.)
      */
     public Reference getResponse() { 
@@ -1062,30 +1025,6 @@ public class Reversal extends DomainResource {
      */
     public Reversal setResponseTarget(Resource value) { 
       this.responseTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #responseIdentifier} (Identifier of response to resource to reverse.)
-     */
-    public Identifier getResponseIdentifier() { 
-      if (this.responseIdentifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Reversal.responseIdentifier");
-        else if (Configuration.doAutoCreate())
-          this.responseIdentifier = new Identifier();
-      return this.responseIdentifier;
-    }
-
-    public boolean hasResponseIdentifier() { 
-      return this.responseIdentifier != null && !this.responseIdentifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #responseIdentifier} (Identifier of response to resource to reverse.)
-     */
-    public Reversal setResponseIdentifier(Identifier value) { 
-      this.responseIdentifier = value;
       return this;
     }
 
@@ -1192,9 +1131,7 @@ public class Reversal extends DomainResource {
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("requestIdentifier", "Identifier", "Identifier of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
         childrenList.add(new Property("response", "Reference(Any)", "Reference of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, response));
-        childrenList.add(new Property("responseIdentifier", "Identifier", "Identifier of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, responseIdentifier));
         childrenList.add(new Property("payee", "", "Payee information suypplied for matching purposes.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("nullify", "boolean", "If true remove all history excluding audit.", 0, java.lang.Integer.MAX_VALUE, nullify));
@@ -1215,9 +1152,7 @@ public class Reversal extends DomainResource {
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
         dst.request = request == null ? null : request.copy();
-        dst.requestIdentifier = requestIdentifier == null ? null : requestIdentifier.copy();
         dst.response = response == null ? null : response.copy();
-        dst.responseIdentifier = responseIdentifier == null ? null : responseIdentifier.copy();
         dst.payee = payee == null ? null : payee.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.nullify = nullify == null ? null : nullify.copy();
@@ -1232,10 +1167,8 @@ public class Reversal extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
            && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (request == null || request.isEmpty()) && (requestIdentifier == null || requestIdentifier.isEmpty())
-           && (response == null || response.isEmpty()) && (responseIdentifier == null || responseIdentifier.isEmpty())
-           && (payee == null || payee.isEmpty()) && (coverage == null || coverage.isEmpty()) && (nullify == null || nullify.isEmpty())
-          ;
+           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (payee == null || payee.isEmpty())
+           && (coverage == null || coverage.isEmpty()) && (nullify == null || nullify.isEmpty());
       }
 
   @Override

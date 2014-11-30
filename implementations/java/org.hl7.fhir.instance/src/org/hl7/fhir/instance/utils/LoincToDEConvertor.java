@@ -8,11 +8,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DataElement;
-import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Identifier;

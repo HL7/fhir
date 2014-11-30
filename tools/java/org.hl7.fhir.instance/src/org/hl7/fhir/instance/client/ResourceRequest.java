@@ -33,6 +33,7 @@ package org.hl7.fhir.instance.client;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.hl7.fhir.instance.model.Resource;
 
 public class ResourceRequest<T extends Resource> {

@@ -176,7 +176,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
-    write("  private <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {\r\n");
     write("    Enumeration<E> res = new Enumeration<E>();\r\n");
     //    write("    parseElementProperties(json, res);\r\n");
     write("    if (s != null)\r\n");
@@ -189,7 +189,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void generatePrimitiveParser(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
     String jpn = getAsJsonPrimitive(dc.getCode(), false);
-    write("  private "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
+    write("  protected "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
     write("    "+tn+" res = new "+tn+"();\r\n");
     write("    if (v != null)\r\n");
     write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
@@ -286,11 +286,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
 
     if (tn.contains(".")) {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
       bUseOwner = true;
     } else {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(JsonObject json) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
     }
     if (clss == JavaGenClass.Resource)
@@ -316,7 +316,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
 
-    write("  private void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws Exception {\r\n");
+    write("  protected void parse"+upFirst(tn).replace(".", "")+"Properties(JsonObject json, "+tn+" res) throws Exception {\r\n");
 
     if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
@@ -657,10 +657,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void genElementComposer() throws Exception {
 
-    write("  private void composeElement(Element element) throws Exception {\r\n");
+    write("  protected void composeElement(Element element) throws Exception {\r\n");
     write("    if (element.hasElementId())\r\n");
     write("      prop(\"id\", element.getElementId());\r\n");
-    write("      if (element.hasFormatComment() && !canonical) {\r\n");
+    write("      if (makeComments(element)) {\r\n");
     write("        openArray(\"fhir_comments\");\r\n");
     write("        for (String s : element.getFormatComments())\r\n");
     write("          prop(null,  s);\r\n");
@@ -671,7 +671,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  private void composeBackbone(BackboneElement element) throws Exception {\r\n");
+    write("  protected void composeBackbone(BackboneElement element) throws Exception {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");
     write("      openObject(\"modifier\");\r\n");
@@ -688,14 +688,14 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
 
   private void generateEnumComposer() throws Exception {
-    write("  private <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> void composeEnumerationCore(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
     write("    if (value != null && value.getValue() != null) {\r\n");
     write("      prop(name, e.toCode(value.getValue()));\r\n");
     write("    } else if (inArray)   \r\n");
     write("      writeNull(name);\r\n");
     write("  }    \r\n");
     write("\r\n");
-    write("  private <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
     write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
@@ -717,7 +717,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void generatePrimitiveComposer(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
 
-    write("  private void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
     write("    if (value != null && value.hasValue()) {\r\n");
     if (dc.getCode().equals("integer"))
       write("        prop(name, Integer.valueOf(value.getValue()));\r\n");
@@ -734,7 +734,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  }    \r\n");
     write("\r\n");
 
-    write("  private void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
     write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
@@ -795,7 +795,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genInnerComposer(ElementDefn n, JavaGenClass clss) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
 
-    write("  private void compose"+upFirst(tn).replace(".", "")+"(String name, "+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"(String name, "+tn+" element) throws Exception {\r\n");
     write("    if (element != null) {\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      prop(\"resourceType\", name);\r\n");
@@ -806,7 +806,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("      close();\r\n");
     write("    }\r\n");    
     write("  }\r\n\r\n");    
-    write("  private void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws Exception {\r\n");
     if (clss == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     else if (clss == JavaGenClass.Backbone) 
@@ -821,7 +821,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genInnerAbstractComposer(ElementDefn n) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
 
-    write("  private void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode())) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
     for (ElementDefn e : n.getElements()) 

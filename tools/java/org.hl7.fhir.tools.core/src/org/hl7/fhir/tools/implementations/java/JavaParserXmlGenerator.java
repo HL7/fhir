@@ -148,7 +148,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void genElement() throws Exception {
-    write("  private boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws Exception {\r\n");
+    write("  protected boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws Exception {\r\n");
     write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"extension\")) \r\n");
     write("      res.getExtension().add(parseExtension(xpp));\r\n");
     write("    else\r\n");
@@ -157,7 +157,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    return true;\r\n");    
     write("  }\r\n");
     write("\r\n");
-    write("  private boolean parseBackboneContent(int eventType, XmlPullParser xpp, BackboneElement res) throws Exception {\r\n");
+    write("  protected boolean parseBackboneContent(int eventType, XmlPullParser xpp, BackboneElement res) throws Exception {\r\n");
     write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
     write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
     write("    else\r\n");
@@ -195,7 +195,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
-    write("  private <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {\r\n");
     write("    Enumeration<E> res = new Enumeration<E>();\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
     write("    res.setValue((E) e.fromCode(xpp.getAttributeValue(null, \"value\")));\r\n");
@@ -222,7 +222,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private void generatePrimitive(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
-    write("  private "+tn+" parse"+upFirst(dc.getCode())+"(XmlPullParser xpp) throws Exception {\r\n");
+    write("  protected "+tn+" parse"+upFirst(dc.getCode())+"(XmlPullParser xpp) throws Exception {\r\n");
     write("    "+tn+" res = new "+tn+"();\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
     write("    res.setValue(parse"+upFirst(dc.getCode())+"Primitive(xpp.getAttributeValue(null, \"value\")));\r\n");
@@ -327,11 +327,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
     
     if (tn.contains(".")) {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp, "+pathClass(tn)+" owner) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp, "+pathClass(tn)+" owner) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
       bUseOwner = true;
     } else {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp) throws Exception {\r\n");
+      write("  protected "+tn+" parse"+upFirst(tn).replace(".", "")+"(XmlPullParser xpp) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
     }
     if (clss == JavaGenClass.Resource)
@@ -381,7 +381,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
     
-    write("  private void parse"+upFirst(tn).replace(".", "")+"Attributes(XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
+    write("  protected void parse"+upFirst(tn).replace(".", "")+"Attributes(XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode()))
       write("    parse"+n.typeCode()+"Attributes(xpp, res);\r\n");
 
@@ -393,7 +393,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     }    
     write("  }\r\n\r\n");    
 
-    write("  private boolean parse"+upFirst(tn).replace(".", "")+"Content(int eventType, XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
+    write("  protected boolean parse"+upFirst(tn).replace(".", "")+"Content(int eventType, XmlPullParser xpp, "+tn+" res) throws Exception {\r\n");
     boolean first = true;
     for (ElementDefn e : n.getElements()) {
       if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) {
@@ -766,13 +766,13 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void genElementComposer() throws Exception {
-    write("  private void composeElementElements(Element element) throws Exception {\r\n");
+    write("  protected void composeElementElements(Element element) throws Exception {\r\n");
     write("    for (Extension e : element.getExtension()) {\r\n");
     write("      composeExtension(\"extension\", e);\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  private void composeBackboneElements(BackboneElement element) throws Exception {\r\n");
+    write("  protected void composeBackboneElements(BackboneElement element) throws Exception {\r\n");
     write("    composeElementElements(element);\r\n");    
     write("    for (Extension e : element.getModifierExtension()) {\r\n");
     write("      composeExtension(\"modifierExtension\", e);\r\n");
@@ -782,7 +782,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void generateEnumComposer() throws Exception {
-    write("  private <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {\r\n");
+    write("  protected <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {\r\n");
     write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {\r\n");
     write("      composeElementAttributes(value);\r\n");
     write("      if (value.getValue() != null) \r\n");
@@ -799,7 +799,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void generatePrimitiveComposer(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
 
-    write("  private void compose"+upFirst(dc.getCode())+"(String name, "+tn+" value) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(dc.getCode())+"(String name, "+tn+" value) throws Exception {\r\n");
     if (dc.getCode().equals("integer")  || dc.getCode().equals("boolean"))
       write("    if (value != null) {\r\n");
     else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant") || dc.getCode().equals("date") || dc.getCode().equals("dateTime"))
@@ -891,7 +891,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genInnerComposer(ElementDefn n, JavaGenClass type) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     
-    write("  private void compose"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(String name, "+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(String name, "+tn+" element) throws Exception {\r\n");
     write("    if (element != null) {\r\n");
     if (type == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Attributes(element);\r\n");
@@ -930,7 +930,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genInnerAbstractComposer(ElementDefn n) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     
-    write("  private void compose"+upFirst(tn).replace(".", "")+"Attributes("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Attributes("+tn+" element) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode()))
       write("    compose"+n.typeCode()+"Attributes(element);\r\n");
       
@@ -942,7 +942,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     }
     write("  }\r\n\r\n");
     
-    write("  private void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
+    write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws Exception {\r\n");
     if (!Utilities.noString(n.typeCode()))
     write("    compose"+n.typeCode()+"Elements(element);\r\n");
     

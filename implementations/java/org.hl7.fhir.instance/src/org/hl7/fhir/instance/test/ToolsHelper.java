@@ -45,6 +45,7 @@ import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.model.Profile;
@@ -256,10 +257,12 @@ public class ToolsHelper {
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
-    JsonParser pj = new JsonParser();
+    JsonParser parser = new JsonParser();
+    JsonParser pj = parser;
     Resource rf = p.parse(in);
     ByteArrayOutputStream json = new ByteArrayOutputStream();
-    new JsonParser().compose(json, rf, true);
+    parser.setOutputStyle(OutputStyle.PRETTY);
+    parser.compose(json, rf);
     TextFile.stringToFile(new String(json.toByteArray()), Utilities.changeFileExt(dest.getAbsolutePath(), ".json"));
     rf = pj.parse(new ByteArrayInputStream(json.toByteArray()));
     new XmlParser().compose(new FileOutputStream(dest), rf, true);
@@ -278,12 +281,13 @@ public class ToolsHelper {
     XmlParser p = new XmlParser();
     Resource rf = p.parse(in);
     JsonParser json = new JsonParser();
-    json.compose(new FileOutputStream(dest), rf, true);
-    json.setCanonical(true);
-    json.compose(new FileOutputStream(destc), rf, false);
+    json.setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(dest), rf);
+    json.setOutputStyle(OutputStyle.CANONICAL);
+    json.compose(new FileOutputStream(destc), rf);
     json.setSuppressXhtml("Snipped for Brevity");
-    json.setCanonical(false);
-    json.compose(new FileOutputStream(destt), rf, true);
+    json.setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(destt), rf);
     return TextFile.fileToString(destt.getAbsolutePath());
   }
 
@@ -298,8 +302,8 @@ public class ToolsHelper {
     XmlParser p = new XmlParser();
     Resource rf = p.parse(in);
     XmlParser cxml = new XmlParser();
-    cxml.setCanonical(true);
-    cxml.compose(new FileOutputStream(dest), rf, false);
+    cxml.setOutputStyle(OutputStyle.NORMAL);
+    cxml.compose(new FileOutputStream(dest), rf);
   }
 
   private void executeVersion(String[] args) throws Exception {

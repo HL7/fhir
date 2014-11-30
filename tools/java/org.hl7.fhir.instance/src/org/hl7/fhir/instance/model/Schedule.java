@@ -31,9 +31,9 @@ package org.hl7.fhir.instance.model;
 
 // Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
 
-import java.util.*;
-
-import java.math.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Specifies an event that may occur multiple times. Schedules are used for to reord when things are expected or requested to occur.
  */

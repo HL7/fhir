@@ -10,7 +10,6 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.ElementDefinition;
-import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -988,7 +987,7 @@ public class ProfileUtilities {
       return ((PrimitiveType) value).asStringValue();
     
     JsonParser json = new JsonParser();
-    return json.composeString(value, false);
+    return json.composeString(value, null);
   }
 
 

@@ -34,6 +34,7 @@ import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.Parser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -61,7 +62,8 @@ public class ResourceTest {
 
     FileOutputStream out = new FileOutputStream(source.getAbsoluteFile()+".out.json");
     JsonParser json1 = new JsonParser();
-    json1.compose(out, rf, true);
+    json1.setOutputStyle(OutputStyle.PRETTY);
+    json1.compose(out, rf);
 
     JsonParser json = new JsonParser();
     rf = json.parse(new FileInputStream(source.getAbsoluteFile()+".out.json"));

@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.DomainResource;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.junit.After;

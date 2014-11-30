@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides processing status, errors and notes from the processing of a resource.
  */
@@ -164,7 +165,7 @@ public class StatusResponse extends DomainResource {
     /**
      * The Response Business Identifier.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business Identifier", formalDefinition="The Response Business Identifier." )
     protected List<Identifier> identifier;
 
@@ -181,51 +182,44 @@ public class StatusResponse extends DomainResource {
     protected OralHealthClaim requestTarget;
 
     /**
-     * Original request Business Identifer.
-     */
-    @Child(name="requestIdentifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Business identifiers of resource triggering adjudication", formalDefinition="Original request Business Identifer." )
-    protected List<Identifier> requestIdentifier;
-
-    /**
      * Transaction status: error, complete, held.
      */
-    @Child(name="outcome", type={Coding.class}, order=2, min=0, max=1)
+    @Child(name="outcome", type={Coding.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Processing outcome", formalDefinition="Transaction status: error, complete, held." )
     protected Coding outcome;
 
     /**
      * A description of the status of the adjudication or processing.
      */
-    @Child(name="disposition", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name="disposition", type={StringType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication or processing." )
     protected StringType disposition;
 
     /**
      * The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.
      */
-    @Child(name="ruleset", type={Coding.class}, order=4, min=0, max=1)
+    @Child(name="ruleset", type={Coding.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Resource version", formalDefinition="The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources." )
     protected Coding ruleset;
 
     /**
      * The style (standard) and version of the original material which was converted into this resource.
      */
-    @Child(name="originalRuleset", type={Coding.class}, order=5, min=0, max=1)
+    @Child(name="originalRuleset", type={Coding.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Original version", formalDefinition="The style (standard) and version of the original material which was converted into this resource." )
     protected Coding originalRuleset;
 
     /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    @Child(name="date", type={DateType.class}, order=6, min=0, max=1)
+    @Child(name="date", type={DateType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateType date;
 
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name="organization", type={Organization.class}, order=7, min=0, max=1)
+    @Child(name="organization", type={Organization.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Reference organization;
 
@@ -237,7 +231,7 @@ public class StatusResponse extends DomainResource {
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name="requestProvider", type={Practitioner.class}, order=8, min=0, max=1)
+    @Child(name="requestProvider", type={Practitioner.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference requestProvider;
 
@@ -249,7 +243,7 @@ public class StatusResponse extends DomainResource {
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name="requestOrganization", type={Organization.class}, order=9, min=0, max=1)
+    @Child(name="requestOrganization", type={Organization.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Reference requestOrganization;
 
@@ -261,25 +255,25 @@ public class StatusResponse extends DomainResource {
     /**
      * The form to be used for printing the content.
      */
-    @Child(name="form", type={Coding.class}, order=10, min=0, max=1)
+    @Child(name="form", type={Coding.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Suite of processing note or additional requirements is the processing has been held.
      */
-    @Child(name="notes", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="notes", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Notes", formalDefinition="Suite of processing note or additional requirements is the processing has been held." )
     protected List<StatusResponseNotesComponent> notes;
 
     /**
      * Processing errors.
      */
-    @Child(name="error", type={Coding.class}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="error", type={Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Error code", formalDefinition="Processing errors." )
     protected List<Coding> error;
 
-    private static final long serialVersionUID = 780754940L;
+    private static final long serialVersionUID = -1776739053L;
 
     public StatusResponse() {
       super();
@@ -357,36 +351,6 @@ public class StatusResponse extends DomainResource {
     public StatusResponse setRequestTarget(OralHealthClaim value) { 
       this.requestTarget = value;
       return this;
-    }
-
-    /**
-     * @return {@link #requestIdentifier} (Original request Business Identifer.)
-     */
-    public List<Identifier> getRequestIdentifier() { 
-      if (this.requestIdentifier == null)
-        this.requestIdentifier = new ArrayList<Identifier>();
-      return this.requestIdentifier;
-    }
-
-    public boolean hasRequestIdentifier() { 
-      if (this.requestIdentifier == null)
-        return false;
-      for (Identifier item : this.requestIdentifier)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #requestIdentifier} (Original request Business Identifer.)
-     */
-    // syntactic sugar
-    public Identifier addRequestIdentifier() { //3
-      Identifier t = new Identifier();
-      if (this.requestIdentifier == null)
-        this.requestIdentifier = new ArrayList<Identifier>();
-      this.requestIdentifier.add(t);
-      return t;
     }
 
     /**
@@ -779,7 +743,6 @@ public class StatusResponse extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("request", "Reference(OralHealthClaim)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("requestIdentifier", "Identifier", "Original request Business Identifer.", 0, java.lang.Integer.MAX_VALUE, requestIdentifier));
         childrenList.add(new Property("outcome", "Coding", "Transaction status: error, complete, held.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication or processing.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));
@@ -802,11 +765,6 @@ public class StatusResponse extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.request = request == null ? null : request.copy();
-        if (requestIdentifier != null) {
-          dst.requestIdentifier = new ArrayList<Identifier>();
-          for (Identifier i : requestIdentifier)
-            dst.requestIdentifier.add(i.copy());
-        };
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.disposition = disposition == null ? null : disposition.copy();
         dst.ruleset = ruleset == null ? null : ruleset.copy();
@@ -835,10 +793,9 @@ public class StatusResponse extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (request == null || request.isEmpty())
-           && (requestIdentifier == null || requestIdentifier.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (disposition == null || disposition.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
-           && (organization == null || organization.isEmpty()) && (requestProvider == null || requestProvider.isEmpty())
+           && (outcome == null || outcome.isEmpty()) && (disposition == null || disposition.isEmpty())
+           && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
+           && (date == null || date.isEmpty()) && (organization == null || organization.isEmpty()) && (requestProvider == null || requestProvider.isEmpty())
            && (requestOrganization == null || requestOrganization.isEmpty()) && (form == null || form.isEmpty())
            && (notes == null || notes.isEmpty()) && (error == null || error.isEmpty());
       }
@@ -848,8 +805,6 @@ public class StatusResponse extends DomainResource {
     return ResourceType.StatusResponse;
    }
 
-  @SearchParamDefinition(name="requestidentifier", path="StatusResponse.requestIdentifier", description="The business identifier of the claim", type="token" )
-  public static final String SP_REQUESTIDENTIFIER = "requestidentifier";
   @SearchParamDefinition(name="identifier", path="StatusResponse.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 

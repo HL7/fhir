@@ -36,15 +36,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.Binary;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -54,8 +51,6 @@ import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import com.google.gson.JsonObject;
-
 /**
  * General parser for XML content. You instantiate an XmlParser of these, but you 
  * actually use parse or parseGeneral defined on this class
@@ -64,16 +59,119 @@ import com.google.gson.JsonObject;
  */
 public abstract class XmlParserBase extends ParserBase implements Parser {
 
-  private boolean parseComments = true;
+  // -- in descendent generated code --------------------------------------
   
-	public boolean isParseComments() {
-    return parseComments;
+  abstract protected Resource parseResource(XmlPullParser xpp) throws Exception;
+  abstract protected ResourceMetaComponent parseResourceResourceMetaComponent(XmlPullParser xpp, Resource owner) throws Exception;
+  abstract protected void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception;
+  abstract protected Type parseType(XmlPullParser xml, String type) throws Exception;
+  abstract protected void composeType(String prefix, Type type) throws Exception;
+ 
+  /* -- entry points --------------------------------------------------- */
+  
+  /**
+   * Parse content that is known to be a resource
+   */
+  @Override
+  public Resource parse(InputStream input) throws Exception {
+    XmlPullParser xpp = loadXml(input);
+    return parse(xpp);
   }
 
-  public void setParseComments(boolean parseComments) {
-    this.parseComments = parseComments;
+  /**
+   * parse xml that is known to be a resource, and that is already being read by an XML Pull Parser
+   * This is if a resource is in a bigger piece of XML.   
+   */
+  public Resource parse(XmlPullParser xpp) throws Exception {
+    if (xpp.getNamespace() == null)
+      throw new Exception("This does not appear to be a FHIR resource (no namespace '"+xpp.getNamespace()+"') (@ /) "+Integer.toString(xpp.getEventType()));
+    if (!xpp.getNamespace().equals(FHIR_NS))
+      throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
+    return parseResource(xpp);
   }
 
+  @Override
+  public ResourceMetaComponent parseMeta(InputStream input) throws Exception {
+    XmlPullParser xpp = loadXml(input);
+    if (xpp.getNamespace() == null)
+      throw new Exception("This does not appear to be a FHIR meta (no namespace '"+xpp.getNamespace()+"') (@ /) "+Integer.toString(xpp.getEventType()));
+    if (!xpp.getNamespace().equals(FHIR_NS))
+      throw new Exception("This does not appear to be a FHIR meta (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
+    if (!xpp.getName().equals("meta")) 
+      throw new Exception("This does not appear to be a FHIR meta (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
+    return parseResourceResourceMetaComponent(xpp, null);
+  }
+
+  @Override
+  public Type parseType(InputStream input, String knownType) throws Exception {
+    XmlPullParser xml = loadXml(input);
+    return parseType(xml, knownType);
+  }
+
+
+  /**
+   * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+  @Override
+  public void compose(OutputStream stream, Resource resource) throws Exception {
+    XMLWriter writer = new XMLWriter(stream, "UTF-8");
+    writer.setPretty(style == OutputStyle.PRETTY);
+    writer.start();
+    compose(writer, resource, writer.isPretty());
+    writer.close();
+  }
+
+  /**
+   * Compose a resource to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
+   */
+  public void compose(OutputStream stream, Resource resource, boolean htmlPretty) throws Exception {
+    XMLWriter writer = new XMLWriter(stream, "UTF-8");
+    writer.setPretty(style == OutputStyle.PRETTY);
+    writer.start();
+    compose(writer, resource, htmlPretty);
+    writer.close();
+  }
+
+  /**
+   * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+   */
+  @Override
+  public void compose(OutputStream stream, ResourceMetaComponent meta) throws Exception {
+    xml = new XMLWriter(stream, "UTF-8");
+    xml.setPretty(style == OutputStyle.PRETTY);
+    xml.start();
+    xml.setDefaultNamespace(FHIR_NS);
+    composeResourceResourceMetaComponent("meta", meta);
+    xml.close();
+  }
+  
+  
+  /**
+   * Compose a type to a stream (used in the spec, for example, but not normally in production)
+   */
+  public void compose(OutputStream stream, String rootName, Type type) throws Exception {
+    xml = new XMLWriter(stream, "UTF-8");
+    xml.setPretty(style == OutputStyle.PRETTY);
+    xml.start();
+    xml.setDefaultNamespace(FHIR_NS);
+    composeType(Utilities.noString(rootName) ? "value" : rootName, type);
+    xml.close();
+  }
+
+  @Override
+  public void compose(OutputStream stream, Type type, String rootName) throws Exception {
+    xml = new XMLWriter(stream, "UTF-8");
+    xml.setPretty(style == OutputStyle.PRETTY);
+    xml.start();
+    xml.setDefaultNamespace(FHIR_NS);
+    composeType(Utilities.noString(rootName) ? "value" : rootName, type);
+    xml.close();
+  }
+
+
+  
+  /* -- xml routines --------------------------------------------------- */
+  
   protected XmlPullParser loadXml(String source) throws Exception {
     return loadXml(new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
   }
@@ -92,7 +190,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   }
  
 	protected int next(XmlPullParser xpp) throws Exception {
-	  if (parseComments)
+	  if (handleComments)
 	    return xpp.nextToken();
 	  else
 	    return xpp.next();    
@@ -130,27 +228,12 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     next(xpp);
   }
 
-	/**
-	 * Whether to throw an exception if unknown content is found (or just skip it)
-	 */
-  private boolean allowUnknownContent;
-  
-  /**
-   * @return Whether to throw an exception if unknown content is found (or just skip it) 
-   */
-  public boolean isAllowUnknownContent() {
-    return allowUnknownContent;
-  }
-  /**
-   * @param allowUnknownContent Whether to throw an exception if unknown content is found (or just skip it)
-   */
-  public void setAllowUnknownContent(boolean allowUnknownContent) {
-    this.allowUnknownContent = allowUnknownContent;
-  }
-    
-  abstract protected Resource parseResource(XmlPullParser xpp) throws Exception;
+  protected IXMLWriter xml;
+  protected boolean htmlPretty;
+   
 
-  /** -- worker routines --------------------------------------------------- */
+
+  /* -- worker routines --------------------------------------------------- */
   
   protected void parseTypeAttributes(XmlPullParser xpp, Type t) throws Exception {
     parseElementAttributes(xpp, t);
@@ -175,29 +258,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return xpp.getPositionDescription();
   }
   
-  /**
-   * Parse content that is known to be a resource
-   */
-  @Override
-  public Resource parse(InputStream input) throws Exception {
-    XmlPullParser xpp = loadXml(input);
-  
-    if (xpp.getNamespace() == null)
-      throw new Exception("This does not appear to be a FHIR resource (no namespace '"+xpp.getNamespace()+"') (@ /) "+Integer.toString(xpp.getEventType()));
-    if (!xpp.getNamespace().equals(FHIR_NS))
-      throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
-    return parseResource(xpp);
-  }
-
-  /**
-   * parse xml that is known to be a resource, and that is already being read by an XML Pull Parser  
-   */
-  public Resource parse(XmlPullParser xpp) throws Exception {
-    if (!xpp.getNamespace().equals(FHIR_NS))
-      throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
-    return parseResource(xpp);
-  }
-
   
   protected void unknownContent(XmlPullParser xpp) throws Exception {
     if (!isAllowUnknownContent())
@@ -208,43 +268,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     XhtmlParser prsr = new XhtmlParser();
     return prsr.parseHtmlNode(xpp);
   }
-
-
-//
-//  protected Resource parseBinary(XmlPullParser xpp) throws Exception {
-//    Binary res = new Binary();
-//    parseElementAttributes(xpp, res);
-//    res.setContentType(xpp.getAttributeValue(null, "contentType"));
-//    int eventType = next(xpp);
-//    if (eventType == XmlPullParser.TEXT) {
-//      res.setContent(Base64.decodeBase64(xpp.getText().getBytes()));
-//      eventType = next(xpp);
-//    }
-//    if (eventType != XmlPullParser.END_TAG)
-//      throw new Exception("Bad String Structure");
-//    next(xpp);
-//    return res;
-//  }
-
-//  private List<AtomCategory> parseTagList(XmlPullParser xpp) throws Exception {
-//  	List<AtomCategory> res = new ArrayList<AtomCategory>();
-//    if (!xpp.getName().equalsIgnoreCase("Taglist")) //Seems like Taglist, taglist or TagList is being returned
-//      throw new Exception("This does not appear to be a tag list (wrong name '"+xpp.getName()+"') (@ /)");
-//    next(xpp);
-//    int eventType = nextNoWhitespace(xpp);
-//    while (eventType != XmlPullParser.END_TAG) {
-//      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
-//        res.add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
-//        skipEmptyElement(xpp);
-//      } else
-//        skipElementWithContent(xpp);
-//  	
-//      eventType = nextNoWhitespace(xpp);
-//    }
-//
-//    return res;  
-//  }
-//
 
   private String parseString(XmlPullParser xpp) throws Exception {
     StringBuilder res = new StringBuilder();
@@ -270,13 +293,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return new DateAndTime(parseString(xpp));    
   }
 
-  public Type parseType(String source, String type) throws Exception {
-    XmlPullParser xml = loadXml(source);
-    return parseType(xml, type);
-  }
-
-  protected abstract Type parseType(XmlPullParser xml, String type) throws Exception;
- 
   protected DomainResource parseDomainResourceContained(XmlPullParser xpp) throws Exception {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
@@ -304,89 +320,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     }
   } 
   
-	protected IXMLWriter xml;
-	protected boolean htmlPretty;
-  protected boolean canonical;
-   
-  
-	public boolean isCanonical() {
-    return canonical;
-  }
-
-  public void setCanonical(boolean canonical) {
-    this.canonical = canonical;
-  }
-
-	/**
-	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	@Override
-  public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
-    if (canonical && pretty)
-      throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, resource, pretty);
-		writer.close();
-	}
-
-	/**
-	 * Compose a resource to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
-	 */
-	public void compose(OutputStream stream, Resource resource, boolean pretty, boolean htmlPretty) throws Exception {
-    if (canonical && pretty)
-      throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, resource, htmlPretty);
-		writer.close();
-	}
-
-	/**
-	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-	 */
-	@Override
-  public void compose(OutputStream stream, ResourceMetaComponent meta, boolean pretty) throws Exception {
-    if (canonical && pretty)
-      throw new Exception("Do not use pretty = true if canonical = true");
-    throw new Error("not done yet");
-//		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-//		writer.setPretty(pretty);
-//		writer.start();
-//		compose(writer, meta, pretty);
-//		writer.close();
-	}
-	
-	/**
-	 * Compose a tag list to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
-	 */
-	public void compose(OutputStream stream, List<Coding> tags, boolean pretty, boolean htmlPretty) throws Exception {
-    if (canonical && (pretty || htmlPretty))
-      throw new Exception("Do not use pretty = true if canonical = true");
-		XMLWriter writer = new XMLWriter(stream, "UTF-8");
-		writer.setPretty(pretty);
-		writer.start();
-		compose(writer, tags, htmlPretty);
-		writer.close();
-	}
-
-	
-  /**
-   * Compose a type to a stream (used in the spec, for example, but not normally in production)
-   */
-  public void compose(OutputStream stream, Type type) throws Exception {
-    xml = new XMLWriter(stream, "UTF-8");
-    xml.setPretty(!canonical);
-    xml.start();
-    xml.setDefaultNamespace(FHIR_NS);
-    composeType("value", type);
-    xml.close();
-  }
-
-	protected abstract void composeType(String prefix, Type type) throws Exception;
-
 	public void compose(IXMLWriter writer, Resource resource, boolean htmlPretty) throws Exception {
 		this.htmlPretty = htmlPretty;
 		xml = writer;
@@ -394,30 +327,14 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 		composeResource(resource);
 	}
 	
-	public void compose(IXMLWriter writer, List<Coding> tags, boolean htmlPretty) throws Exception {
-		this.htmlPretty = htmlPretty;
-		xml = writer;
-		xml.setDefaultNamespace(FHIR_NS);
-
-		xml.open(FHIR_NS, "taglist");
-		for (Coding cat : tags) {
-//			xml.attribute("scheme", cat.getScheme());
-//			xml.attribute("term", cat.getTerm());
-//			if (!Utilities.noString(cat.getDisplay()))
-//				xml.attribute("label", cat.getDisplay());
-//			xml.element("category", null);
-		}
-		xml.close(FHIR_NS, "taglist");
-	}
-
 	protected abstract void composeResource(Resource resource) throws Exception;
 
 	protected void composeElementAttributes(Element element) throws Exception {
-	  if (!canonical)
-    for (String comment : element.getFormatComments())
-      xml.comment(comment, false);
-		if (element.getElementId() != null) 
-			xml.attribute("id", element.getElementId());
+	  if (style != OutputStyle.CANONICAL)
+	    for (String comment : element.getFormatComments())
+	      xml.comment(comment, false);
+	  if (element.getElementId() != null) 
+	    xml.attribute("id", element.getElementId());
 	}
 
 	protected void composeTypeAttributes(Type type) throws Exception {
@@ -443,26 +360,6 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 	}
 
 
-//	protected void composeBinary(String name, Binary element) throws Exception {
-//		if (element != null) {
-//			composeElementAttributes(element);
-//			xml.attribute("contentType", element.getContentType());
-//			xml.open(FHIR_NS, name);
-//			xml.text(toString(element.getContent()));
-//			xml.close(FHIR_NS, name);
-//		}    
-//	}
-
-  @Override
-  public void compose(OutputStream stream, Type type, boolean pretty) throws Exception {
-    XMLWriter writer = new XMLWriter(stream, "UTF-8");
-    writer.setPretty(pretty);
-    writer.start();
-    xml = writer;
-    composeType("value", type);
-    writer.close();
-	}
-
   protected void composeDomainResource(String name, DomainResource res) throws Exception {
     xml.open(FHIR_NS, name);
     composeResource(res.getResourceType().toString(), res);
@@ -471,5 +368,4 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 
 	protected abstract void composeResource(String name, Resource res) throws Exception;
 	
-
 }

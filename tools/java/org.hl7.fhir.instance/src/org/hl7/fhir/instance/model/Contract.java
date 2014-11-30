@@ -29,17 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.math.*;
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
  */
@@ -403,9 +404,9 @@ public class Contract extends DomainResource {
     /**
      * Unique Id for this contract.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contract identifier", formalDefinition="Unique Id for this contract." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * Who and/or what this is about: typically Patient, Organization, property.
@@ -589,7 +590,7 @@ public class Contract extends DomainResource {
     @Description(shortDefinition="Computable contract text", formalDefinition="Computable Policy rules (e.g. XACML, DKAL, SecPal)." )
     protected Attachment rule;
 
-    private static final long serialVersionUID = 1074701204L;
+    private static final long serialVersionUID = -1421847454L;
 
     public Contract() {
       super();
@@ -598,25 +599,31 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #identifier} (Unique Id for this contract.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Contract.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (Unique Id for this contract.)
+     * @return {@link #identifier} (Unique Id for this contract.)
      */
-    public Contract setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -1350,7 +1357,11 @@ public class Contract extends DomainResource {
       public Contract copy() {
         Contract dst = new Contract();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         if (subject != null) {
           dst.subject = new ArrayList<Reference>();
           for (Reference i : subject)

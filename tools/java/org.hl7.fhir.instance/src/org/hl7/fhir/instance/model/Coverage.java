@@ -29,16 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Financial instrument which may be used to pay for or reimburse for health care products and services.
  */
@@ -74,9 +74,9 @@ public class Coverage extends DomainResource {
     /**
      * The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.
      */
-    @Child(name="identifier", type={Identifier.class}, order=2, min=0, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="The primary coverage ID", formalDefinition="The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.
@@ -144,7 +144,7 @@ public class Coverage extends DomainResource {
     protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = 1260808667L;
+    private static final long serialVersionUID = 1420850573L;
 
     public Coverage() {
       super();
@@ -245,25 +245,31 @@ public class Coverage extends DomainResource {
     /**
      * @return {@link #identifier} (The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Coverage.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #identifier} (The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.)
+     * @return {@link #identifier} (The main (and possibly only) identifier for the coverage - often referred to as a Subscriber Id, Certificate number or Personal Health Number or Case ID.)
      */
-    public Coverage setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -652,7 +658,11 @@ public class Coverage extends DomainResource {
         dst.issuer = issuer == null ? null : issuer.copy();
         dst.period = period == null ? null : period.copy();
         dst.type = type == null ? null : type.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.group = group == null ? null : group.copy();
         dst.plan = plan == null ? null : plan.copy();
         dst.subplan = subplan == null ? null : subplan.copy();

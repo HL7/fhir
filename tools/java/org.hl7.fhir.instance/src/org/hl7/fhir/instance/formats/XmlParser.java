@@ -29,25 +29,11 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Nov 30, 2014 07:25+1100 for FHIR v0.3.0
+// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
 
-import org.hl7.fhir.instance.model.IntegerType;
-import org.hl7.fhir.instance.model.DateTimeType;
-import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.DateType;
-import org.hl7.fhir.instance.model.DecimalType;
-import org.hl7.fhir.instance.model.UriType;
-import org.hl7.fhir.instance.model.IdType;
-import org.hl7.fhir.instance.model.Base64BinaryType;
-import org.hl7.fhir.instance.model.TimeType;
-import org.hl7.fhir.instance.model.OidType;
-import org.hl7.fhir.instance.model.StringType;
-import org.hl7.fhir.instance.model.BooleanType;
-import org.hl7.fhir.instance.model.UuidType;
-import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.*;
-import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.xmlpull.v1.XmlPullParser;
 
 public class XmlParser extends XmlParserBase {
 
@@ -61,7 +47,7 @@ public class XmlParser extends XmlParserBase {
   }
 
 
-  private boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws Exception {
+  protected boolean parseElementContent(int eventType, XmlPullParser xpp, Element res) throws Exception {
     if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("extension")) 
       res.getExtension().add(parseExtension(xpp));
     else
@@ -70,7 +56,7 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  private boolean parseBackboneContent(int eventType, XmlPullParser xpp, BackboneElement res) throws Exception {
+  protected boolean parseBackboneContent(int eventType, XmlPullParser xpp, BackboneElement res) throws Exception {
     if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("modifierExtension")) 
       res.getModifierExtension().add(parseExtension(xpp));
     else
@@ -80,7 +66,7 @@ public class XmlParser extends XmlParserBase {
   }
 
   @SuppressWarnings("unchecked")
-  private <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {
+  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {
     Enumeration<E> res = new Enumeration<E>();
     parseElementAttributes(xpp, res);
     res.setValue((E) e.fromCode(xpp.getAttributeValue(null, "value")));
@@ -95,7 +81,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private IntegerType parseInteger(XmlPullParser xpp) throws Exception {
+  protected IntegerType parseInteger(XmlPullParser xpp) throws Exception {
     IntegerType res = new IntegerType();
     parseElementAttributes(xpp, res);
     res.setValue(parseIntegerPrimitive(xpp.getAttributeValue(null, "value")));
@@ -110,7 +96,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DateTimeType parseDateTime(XmlPullParser xpp) throws Exception {
+  protected DateTimeType parseDateTime(XmlPullParser xpp) throws Exception {
     DateTimeType res = new DateTimeType();
     parseElementAttributes(xpp, res);
     res.setValue(parseDateTimePrimitive(xpp.getAttributeValue(null, "value")));
@@ -125,7 +111,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CodeType parseCode(XmlPullParser xpp) throws Exception {
+  protected CodeType parseCode(XmlPullParser xpp) throws Exception {
     CodeType res = new CodeType();
     parseElementAttributes(xpp, res);
     res.setValue(parseCodePrimitive(xpp.getAttributeValue(null, "value")));
@@ -140,7 +126,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DateType parseDate(XmlPullParser xpp) throws Exception {
+  protected DateType parseDate(XmlPullParser xpp) throws Exception {
     DateType res = new DateType();
     parseElementAttributes(xpp, res);
     res.setValue(parseDatePrimitive(xpp.getAttributeValue(null, "value")));
@@ -155,7 +141,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DecimalType parseDecimal(XmlPullParser xpp) throws Exception {
+  protected DecimalType parseDecimal(XmlPullParser xpp) throws Exception {
     DecimalType res = new DecimalType();
     parseElementAttributes(xpp, res);
     res.setValue(parseDecimalPrimitive(xpp.getAttributeValue(null, "value")));
@@ -170,7 +156,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private UriType parseUri(XmlPullParser xpp) throws Exception {
+  protected UriType parseUri(XmlPullParser xpp) throws Exception {
     UriType res = new UriType();
     parseElementAttributes(xpp, res);
     res.setValue(parseUriPrimitive(xpp.getAttributeValue(null, "value")));
@@ -185,7 +171,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private IdType parseId(XmlPullParser xpp) throws Exception {
+  protected IdType parseId(XmlPullParser xpp) throws Exception {
     IdType res = new IdType();
     parseElementAttributes(xpp, res);
     res.setValue(parseIdPrimitive(xpp.getAttributeValue(null, "value")));
@@ -200,7 +186,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Base64BinaryType parseBase64Binary(XmlPullParser xpp) throws Exception {
+  protected Base64BinaryType parseBase64Binary(XmlPullParser xpp) throws Exception {
     Base64BinaryType res = new Base64BinaryType();
     parseElementAttributes(xpp, res);
     res.setValue(parseBase64BinaryPrimitive(xpp.getAttributeValue(null, "value")));
@@ -215,7 +201,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private TimeType parseTime(XmlPullParser xpp) throws Exception {
+  protected TimeType parseTime(XmlPullParser xpp) throws Exception {
     TimeType res = new TimeType();
     parseElementAttributes(xpp, res);
     res.setValue(parseTimePrimitive(xpp.getAttributeValue(null, "value")));
@@ -230,7 +216,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OidType parseOid(XmlPullParser xpp) throws Exception {
+  protected OidType parseOid(XmlPullParser xpp) throws Exception {
     OidType res = new OidType();
     parseElementAttributes(xpp, res);
     res.setValue(parseOidPrimitive(xpp.getAttributeValue(null, "value")));
@@ -245,7 +231,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private StringType parseString(XmlPullParser xpp) throws Exception {
+  protected StringType parseString(XmlPullParser xpp) throws Exception {
     StringType res = new StringType();
     parseElementAttributes(xpp, res);
     res.setValue(parseStringPrimitive(xpp.getAttributeValue(null, "value")));
@@ -260,7 +246,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private BooleanType parseBoolean(XmlPullParser xpp) throws Exception {
+  protected BooleanType parseBoolean(XmlPullParser xpp) throws Exception {
     BooleanType res = new BooleanType();
     parseElementAttributes(xpp, res);
     res.setValue(parseBooleanPrimitive(xpp.getAttributeValue(null, "value")));
@@ -275,7 +261,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private UuidType parseUuid(XmlPullParser xpp) throws Exception {
+  protected UuidType parseUuid(XmlPullParser xpp) throws Exception {
     UuidType res = new UuidType();
     parseElementAttributes(xpp, res);
     res.setValue(parseUuidPrimitive(xpp.getAttributeValue(null, "value")));
@@ -290,7 +276,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private InstantType parseInstant(XmlPullParser xpp) throws Exception {
+  protected InstantType parseInstant(XmlPullParser xpp) throws Exception {
     InstantType res = new InstantType();
     parseElementAttributes(xpp, res);
     res.setValue(parseInstantPrimitive(xpp.getAttributeValue(null, "value")));
@@ -305,7 +291,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Extension parseExtension(XmlPullParser xpp) throws Exception {
+  protected Extension parseExtension(XmlPullParser xpp) throws Exception {
     Extension res = new Extension();
     parseElementAttributes(xpp, res);
     if (xpp.getAttributeValue(null, "url") != null)
@@ -323,7 +309,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Narrative parseNarrative(XmlPullParser xpp) throws Exception {
+  protected Narrative parseNarrative(XmlPullParser xpp) throws Exception {
     Narrative res = new Narrative();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -341,7 +327,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Period parsePeriod(XmlPullParser xpp) throws Exception {
+  protected Period parsePeriod(XmlPullParser xpp) throws Exception {
     Period res = new Period();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -359,7 +345,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Coding parseCoding(XmlPullParser xpp) throws Exception {
+  protected Coding parseCoding(XmlPullParser xpp) throws Exception {
     Coding res = new Coding();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -385,7 +371,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Range parseRange(XmlPullParser xpp) throws Exception {
+  protected Range parseRange(XmlPullParser xpp) throws Exception {
     Range res = new Range();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -403,7 +389,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Quantity parseQuantity(XmlPullParser xpp) throws Exception {
+  protected Quantity parseQuantity(XmlPullParser xpp) throws Exception {
     Quantity res = new Quantity();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -427,7 +413,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Attachment parseAttachment(XmlPullParser xpp) throws Exception {
+  protected Attachment parseAttachment(XmlPullParser xpp) throws Exception {
     Attachment res = new Attachment();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -455,7 +441,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Ratio parseRatio(XmlPullParser xpp) throws Exception {
+  protected Ratio parseRatio(XmlPullParser xpp) throws Exception {
     Ratio res = new Ratio();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -473,7 +459,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SampledData parseSampledData(XmlPullParser xpp) throws Exception {
+  protected SampledData parseSampledData(XmlPullParser xpp) throws Exception {
     SampledData res = new SampledData();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -501,7 +487,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Reference parseReference(XmlPullParser xpp) throws Exception {
+  protected Reference parseReference(XmlPullParser xpp) throws Exception {
     Reference res = new Reference();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -519,7 +505,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CodeableConcept parseCodeableConcept(XmlPullParser xpp) throws Exception {
+  protected CodeableConcept parseCodeableConcept(XmlPullParser xpp) throws Exception {
     CodeableConcept res = new CodeableConcept();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -537,7 +523,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Identifier parseIdentifier(XmlPullParser xpp) throws Exception {
+  protected Identifier parseIdentifier(XmlPullParser xpp) throws Exception {
     Identifier res = new Identifier();
     parseTypeAttributes(xpp, res);
     next(xpp);
@@ -563,7 +549,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Age parseAge(XmlPullParser xpp) throws Exception {
+  protected Age parseAge(XmlPullParser xpp) throws Exception {
     Age res = new Age();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -587,7 +573,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Count parseCount(XmlPullParser xpp) throws Exception {
+  protected Count parseCount(XmlPullParser xpp) throws Exception {
     Count res = new Count();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -611,7 +597,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Money parseMoney(XmlPullParser xpp) throws Exception {
+  protected Money parseMoney(XmlPullParser xpp) throws Exception {
     Money res = new Money();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -635,7 +621,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Distance parseDistance(XmlPullParser xpp) throws Exception {
+  protected Distance parseDistance(XmlPullParser xpp) throws Exception {
     Distance res = new Distance();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -659,7 +645,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Duration parseDuration(XmlPullParser xpp) throws Exception {
+  protected Duration parseDuration(XmlPullParser xpp) throws Exception {
     Duration res = new Duration();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -683,7 +669,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition parseElementDefinition(XmlPullParser xpp) throws Exception {
+  protected ElementDefinition parseElementDefinition(XmlPullParser xpp) throws Exception {
     ElementDefinition res = new ElementDefinition();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -749,7 +735,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionSlicingComponent parseElementDefinitionElementDefinitionSlicingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionSlicingComponent parseElementDefinitionElementDefinitionSlicingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionSlicingComponent res = new ElementDefinition.ElementDefinitionSlicingComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -771,7 +757,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition.TypeRefComponent parseElementDefinitionTypeRefComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.TypeRefComponent parseElementDefinitionTypeRefComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
     ElementDefinition.TypeRefComponent res = new ElementDefinition.TypeRefComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -791,7 +777,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionConstraintComponent parseElementDefinitionElementDefinitionConstraintComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionConstraintComponent parseElementDefinitionElementDefinitionConstraintComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionConstraintComponent res = new ElementDefinition.ElementDefinitionConstraintComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -815,7 +801,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionBindingComponent parseElementDefinitionElementDefinitionBindingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionBindingComponent res = new ElementDefinition.ElementDefinitionBindingComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -839,7 +825,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ElementDefinition.ElementDefinitionMappingComponent parseElementDefinitionElementDefinitionMappingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
+  protected ElementDefinition.ElementDefinitionMappingComponent parseElementDefinitionElementDefinitionMappingComponent(XmlPullParser xpp, ElementDefinition owner) throws Exception {
     ElementDefinition.ElementDefinitionMappingComponent res = new ElementDefinition.ElementDefinitionMappingComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -857,7 +843,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Timing parseTiming(XmlPullParser xpp) throws Exception {
+  protected Timing parseTiming(XmlPullParser xpp) throws Exception {
     Timing res = new Timing();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -875,7 +861,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(XmlPullParser xpp, Timing owner) throws Exception {
+  protected Timing.TimingRepeatComponent parseTimingTimingRepeatComponent(XmlPullParser xpp, Timing owner) throws Exception {
     Timing.TimingRepeatComponent res = new Timing.TimingRepeatComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -901,7 +887,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Address parseAddress(XmlPullParser xpp) throws Exception {
+  protected Address parseAddress(XmlPullParser xpp) throws Exception {
     Address res = new Address();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -931,7 +917,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private HumanName parseHumanName(XmlPullParser xpp) throws Exception {
+  protected HumanName parseHumanName(XmlPullParser xpp) throws Exception {
     HumanName res = new HumanName();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -959,7 +945,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ContactPoint parseContactPoint(XmlPullParser xpp) throws Exception {
+  protected ContactPoint parseContactPoint(XmlPullParser xpp) throws Exception {
     ContactPoint res = new ContactPoint();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -981,7 +967,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Parameters parseParameters(XmlPullParser xpp) throws Exception {
+  protected Parameters parseParameters(XmlPullParser xpp) throws Exception {
     Parameters res = new Parameters();
     parseResourceAttributes(xpp, res);
     next(xpp);
@@ -997,7 +983,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Parameters.ParametersParameterComponent parseParametersParametersParameterComponent(XmlPullParser xpp, Parameters owner) throws Exception {
+  protected Parameters.ParametersParameterComponent parseParametersParametersParameterComponent(XmlPullParser xpp, Parameters owner) throws Exception {
     Parameters.ParametersParameterComponent res = new Parameters.ParametersParameterComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1017,10 +1003,10 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private void parseResourceAttributes(XmlPullParser xpp, Resource res) throws Exception {
+  protected void parseResourceAttributes(XmlPullParser xpp, Resource res) throws Exception {
   }
 
-  private boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {
+  protected boolean parseResourceContent(int eventType, XmlPullParser xpp, Resource res) throws Exception {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("id")) {
         res.setIdElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("meta")) {
@@ -1034,7 +1020,7 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  private Resource.ResourceMetaComponent parseResourceResourceMetaComponent(XmlPullParser xpp, Resource owner) throws Exception {
+  protected Resource.ResourceMetaComponent parseResourceResourceMetaComponent(XmlPullParser xpp, Resource owner) throws Exception {
     Resource.ResourceMetaComponent res = new Resource.ResourceMetaComponent();
     parseElementAttributes(xpp, res);
     next(xpp);
@@ -1058,11 +1044,11 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private void parseDomainResourceAttributes(XmlPullParser xpp, DomainResource res) throws Exception {
+  protected void parseDomainResourceAttributes(XmlPullParser xpp, DomainResource res) throws Exception {
     parseResourceAttributes(xpp, res);
   }
 
-  private boolean parseDomainResourceContent(int eventType, XmlPullParser xpp, DomainResource res) throws Exception {
+  protected boolean parseDomainResourceContent(int eventType, XmlPullParser xpp, DomainResource res) throws Exception {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("text")) {
         res.setText(parseNarrative(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contained")) {
@@ -1076,7 +1062,7 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
-  private Alert parseAlert(XmlPullParser xpp) throws Exception {
+  protected Alert parseAlert(XmlPullParser xpp) throws Exception {
     Alert res = new Alert();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1102,7 +1088,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private AllergyIntolerance parseAllergyIntolerance(XmlPullParser xpp) throws Exception {
+  protected AllergyIntolerance parseAllergyIntolerance(XmlPullParser xpp) throws Exception {
     AllergyIntolerance res = new AllergyIntolerance();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1140,7 +1126,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private AllergyIntolerance.AllergyIntoleranceEventComponent parseAllergyIntoleranceAllergyIntoleranceEventComponent(XmlPullParser xpp, AllergyIntolerance owner) throws Exception {
+  protected AllergyIntolerance.AllergyIntoleranceEventComponent parseAllergyIntoleranceAllergyIntoleranceEventComponent(XmlPullParser xpp, AllergyIntolerance owner) throws Exception {
     AllergyIntolerance.AllergyIntoleranceEventComponent res = new AllergyIntolerance.AllergyIntoleranceEventComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1172,7 +1158,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Appointment parseAppointment(XmlPullParser xpp) throws Exception {
+  protected Appointment parseAppointment(XmlPullParser xpp) throws Exception {
     Appointment res = new Appointment();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1216,7 +1202,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Appointment.AppointmentParticipantComponent parseAppointmentAppointmentParticipantComponent(XmlPullParser xpp, Appointment owner) throws Exception {
+  protected Appointment.AppointmentParticipantComponent parseAppointmentAppointmentParticipantComponent(XmlPullParser xpp, Appointment owner) throws Exception {
     Appointment.AppointmentParticipantComponent res = new Appointment.AppointmentParticipantComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1238,7 +1224,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private AppointmentResponse parseAppointmentResponse(XmlPullParser xpp) throws Exception {
+  protected AppointmentResponse parseAppointmentResponse(XmlPullParser xpp) throws Exception {
     AppointmentResponse res = new AppointmentResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1272,7 +1258,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Availability parseAvailability(XmlPullParser xpp) throws Exception {
+  protected Availability parseAvailability(XmlPullParser xpp) throws Exception {
     Availability res = new Availability();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1298,7 +1284,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Basic parseBasic(XmlPullParser xpp) throws Exception {
+  protected Basic parseBasic(XmlPullParser xpp) throws Exception {
     Basic res = new Basic();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1322,7 +1308,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Binary parseBinary(XmlPullParser xpp) throws Exception {
+  protected Binary parseBinary(XmlPullParser xpp) throws Exception {
     Binary res = new Binary();
     parseResourceAttributes(xpp, res);
     next(xpp);
@@ -1340,7 +1326,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Bundle parseBundle(XmlPullParser xpp) throws Exception {
+  protected Bundle parseBundle(XmlPullParser xpp) throws Exception {
     Bundle res = new Bundle();
     parseResourceAttributes(xpp, res);
     next(xpp);
@@ -1366,7 +1352,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Bundle.BundleLinkComponent parseBundleBundleLinkComponent(XmlPullParser xpp, Bundle owner) throws Exception {
+  protected Bundle.BundleLinkComponent parseBundleBundleLinkComponent(XmlPullParser xpp, Bundle owner) throws Exception {
     Bundle.BundleLinkComponent res = new Bundle.BundleLinkComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1384,7 +1370,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Bundle.BundleEntryComponent parseBundleBundleEntryComponent(XmlPullParser xpp, Bundle owner) throws Exception {
+  protected Bundle.BundleEntryComponent parseBundleBundleEntryComponent(XmlPullParser xpp, Bundle owner) throws Exception {
     Bundle.BundleEntryComponent res = new Bundle.BundleEntryComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1410,7 +1396,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Bundle.BundleEntryDeletedComponent parseBundleBundleEntryDeletedComponent(XmlPullParser xpp, Bundle owner) throws Exception {
+  protected Bundle.BundleEntryDeletedComponent parseBundleBundleEntryDeletedComponent(XmlPullParser xpp, Bundle owner) throws Exception {
     Bundle.BundleEntryDeletedComponent res = new Bundle.BundleEntryDeletedComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1432,7 +1418,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CarePlan parseCarePlan(XmlPullParser xpp) throws Exception {
+  protected CarePlan parseCarePlan(XmlPullParser xpp) throws Exception {
     CarePlan res = new CarePlan();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1466,7 +1452,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanParticipantComponent parseCarePlanCarePlanParticipantComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanParticipantComponent parseCarePlanCarePlanParticipantComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
     CarePlan.CarePlanParticipantComponent res = new CarePlan.CarePlanParticipantComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1484,7 +1470,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanGoalComponent parseCarePlanCarePlanGoalComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanGoalComponent parseCarePlanCarePlanGoalComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
     CarePlan.CarePlanGoalComponent res = new CarePlan.CarePlanGoalComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1506,7 +1492,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanActivityComponent parseCarePlanCarePlanActivityComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanActivityComponent parseCarePlanCarePlanActivityComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
     CarePlan.CarePlanActivityComponent res = new CarePlan.CarePlanActivityComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1534,7 +1520,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CarePlan.CarePlanActivitySimpleComponent parseCarePlanCarePlanActivitySimpleComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
+  protected CarePlan.CarePlanActivitySimpleComponent parseCarePlanCarePlanActivitySimpleComponent(XmlPullParser xpp, CarePlan owner) throws Exception {
     CarePlan.CarePlanActivitySimpleComponent res = new CarePlan.CarePlanActivitySimpleComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1566,7 +1552,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse parseClaimResponse(XmlPullParser xpp) throws Exception {
+  protected ClaimResponse parseClaimResponse(XmlPullParser xpp) throws Exception {
     ClaimResponse res = new ClaimResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1576,8 +1562,6 @@ public class XmlParser extends XmlParserBase {
         res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.getRequestIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruleset")) {
         res.setRuleset(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("originalRuleset")) {
@@ -1632,7 +1616,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemsComponent parseClaimResponseItemsComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemsComponent parseClaimResponseItemsComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemsComponent res = new ClaimResponse.ItemsComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1654,7 +1638,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemAdjudicationComponent parseClaimResponseItemAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemAdjudicationComponent parseClaimResponseItemAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemAdjudicationComponent res = new ClaimResponse.ItemAdjudicationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1674,7 +1658,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemDetailComponent parseClaimResponseItemDetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemDetailComponent parseClaimResponseItemDetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemDetailComponent res = new ClaimResponse.ItemDetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1694,7 +1678,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.DetailAdjudicationComponent parseClaimResponseDetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.DetailAdjudicationComponent parseClaimResponseDetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.DetailAdjudicationComponent res = new ClaimResponse.DetailAdjudicationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1714,7 +1698,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.ItemSubdetailComponent parseClaimResponseItemSubdetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ItemSubdetailComponent parseClaimResponseItemSubdetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.ItemSubdetailComponent res = new ClaimResponse.ItemSubdetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1732,7 +1716,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.SubdetailAdjudicationComponent parseClaimResponseSubdetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.SubdetailAdjudicationComponent parseClaimResponseSubdetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.SubdetailAdjudicationComponent res = new ClaimResponse.SubdetailAdjudicationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1752,7 +1736,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemComponent parseClaimResponseAddedItemComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemComponent parseClaimResponseAddedItemComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemComponent res = new ClaimResponse.AddedItemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1778,7 +1762,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemAdjudicationComponent parseClaimResponseAddedItemAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemAdjudicationComponent parseClaimResponseAddedItemAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemAdjudicationComponent res = new ClaimResponse.AddedItemAdjudicationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1798,7 +1782,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemsDetailComponent parseClaimResponseAddedItemsDetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemsDetailComponent parseClaimResponseAddedItemsDetailComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemsDetailComponent res = new ClaimResponse.AddedItemsDetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1818,7 +1802,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.AddedItemDetailAdjudicationComponent parseClaimResponseAddedItemDetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.AddedItemDetailAdjudicationComponent parseClaimResponseAddedItemDetailAdjudicationComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.AddedItemDetailAdjudicationComponent res = new ClaimResponse.AddedItemDetailAdjudicationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1838,7 +1822,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.ErrorsComponent parseClaimResponseErrorsComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.ErrorsComponent parseClaimResponseErrorsComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.ErrorsComponent res = new ClaimResponse.ErrorsComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1860,7 +1844,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ClaimResponse.NotesComponent parseClaimResponseNotesComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
+  protected ClaimResponse.NotesComponent parseClaimResponseNotesComponent(XmlPullParser xpp, ClaimResponse owner) throws Exception {
     ClaimResponse.NotesComponent res = new ClaimResponse.NotesComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1880,7 +1864,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CommunicationRequest parseCommunicationRequest(XmlPullParser xpp) throws Exception {
+  protected CommunicationRequest parseCommunicationRequest(XmlPullParser xpp) throws Exception {
     CommunicationRequest res = new CommunicationRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1924,7 +1908,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private CommunicationRequest.CommunicationRequestMessagePartComponent parseCommunicationRequestCommunicationRequestMessagePartComponent(XmlPullParser xpp, CommunicationRequest owner) throws Exception {
+  protected CommunicationRequest.CommunicationRequestMessagePartComponent parseCommunicationRequestCommunicationRequestMessagePartComponent(XmlPullParser xpp, CommunicationRequest owner) throws Exception {
     CommunicationRequest.CommunicationRequestMessagePartComponent res = new CommunicationRequest.CommunicationRequestMessagePartComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -1940,7 +1924,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Composition parseComposition(XmlPullParser xpp) throws Exception {
+  protected Composition parseComposition(XmlPullParser xpp) throws Exception {
     Composition res = new Composition();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -1982,7 +1966,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Composition.CompositionAttesterComponent parseCompositionCompositionAttesterComponent(XmlPullParser xpp, Composition owner) throws Exception {
+  protected Composition.CompositionAttesterComponent parseCompositionCompositionAttesterComponent(XmlPullParser xpp, Composition owner) throws Exception {
     Composition.CompositionAttesterComponent res = new Composition.CompositionAttesterComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2002,7 +1986,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Composition.CompositionEventComponent parseCompositionCompositionEventComponent(XmlPullParser xpp, Composition owner) throws Exception {
+  protected Composition.CompositionEventComponent parseCompositionCompositionEventComponent(XmlPullParser xpp, Composition owner) throws Exception {
     Composition.CompositionEventComponent res = new Composition.CompositionEventComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2022,7 +2006,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Composition.SectionComponent parseCompositionSectionComponent(XmlPullParser xpp, Composition owner) throws Exception {
+  protected Composition.SectionComponent parseCompositionSectionComponent(XmlPullParser xpp, Composition owner) throws Exception {
     Composition.SectionComponent res = new Composition.SectionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2044,7 +2028,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ConceptMap parseConceptMap(XmlPullParser xpp) throws Exception {
+  protected ConceptMap parseConceptMap(XmlPullParser xpp) throws Exception {
     ConceptMap res = new ConceptMap();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2084,7 +2068,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ConceptMap.ConceptMapElementComponent parseConceptMapConceptMapElementComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
+  protected ConceptMap.ConceptMapElementComponent parseConceptMapConceptMapElementComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
     ConceptMap.ConceptMapElementComponent res = new ConceptMap.ConceptMapElementComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2106,7 +2090,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ConceptMap.OtherElementComponent parseConceptMapOtherElementComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
+  protected ConceptMap.OtherElementComponent parseConceptMapOtherElementComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
     ConceptMap.OtherElementComponent res = new ConceptMap.OtherElementComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2126,7 +2110,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ConceptMap.ConceptMapElementMapComponent parseConceptMapConceptMapElementMapComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
+  protected ConceptMap.ConceptMapElementMapComponent parseConceptMapConceptMapElementMapComponent(XmlPullParser xpp, ConceptMap owner) throws Exception {
     ConceptMap.ConceptMapElementMapComponent res = new ConceptMap.ConceptMapElementMapComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2150,7 +2134,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition parseCondition(XmlPullParser xpp) throws Exception {
+  protected Condition parseCondition(XmlPullParser xpp) throws Exception {
     Condition res = new Condition();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2200,7 +2184,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition.ConditionStageComponent parseConditionConditionStageComponent(XmlPullParser xpp, Condition owner) throws Exception {
+  protected Condition.ConditionStageComponent parseConditionConditionStageComponent(XmlPullParser xpp, Condition owner) throws Exception {
     Condition.ConditionStageComponent res = new Condition.ConditionStageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2218,7 +2202,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition.ConditionEvidenceComponent parseConditionConditionEvidenceComponent(XmlPullParser xpp, Condition owner) throws Exception {
+  protected Condition.ConditionEvidenceComponent parseConditionConditionEvidenceComponent(XmlPullParser xpp, Condition owner) throws Exception {
     Condition.ConditionEvidenceComponent res = new Condition.ConditionEvidenceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2236,7 +2220,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition.ConditionLocationComponent parseConditionConditionLocationComponent(XmlPullParser xpp, Condition owner) throws Exception {
+  protected Condition.ConditionLocationComponent parseConditionConditionLocationComponent(XmlPullParser xpp, Condition owner) throws Exception {
     Condition.ConditionLocationComponent res = new Condition.ConditionLocationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2254,7 +2238,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition.ConditionDueToComponent parseConditionConditionDueToComponent(XmlPullParser xpp, Condition owner) throws Exception {
+  protected Condition.ConditionDueToComponent parseConditionConditionDueToComponent(XmlPullParser xpp, Condition owner) throws Exception {
     Condition.ConditionDueToComponent res = new Condition.ConditionDueToComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2272,7 +2256,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Condition.ConditionOccurredFollowingComponent parseConditionConditionOccurredFollowingComponent(XmlPullParser xpp, Condition owner) throws Exception {
+  protected Condition.ConditionOccurredFollowingComponent parseConditionConditionOccurredFollowingComponent(XmlPullParser xpp, Condition owner) throws Exception {
     Condition.ConditionOccurredFollowingComponent res = new Condition.ConditionOccurredFollowingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2290,7 +2274,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance parseConformance(XmlPullParser xpp) throws Exception {
+  protected Conformance parseConformance(XmlPullParser xpp) throws Exception {
     Conformance res = new Conformance();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2340,7 +2324,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceSoftwareComponent parseConformanceConformanceSoftwareComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceSoftwareComponent parseConformanceConformanceSoftwareComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceSoftwareComponent res = new Conformance.ConformanceSoftwareComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2360,7 +2344,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceImplementationComponent parseConformanceConformanceImplementationComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceImplementationComponent parseConformanceConformanceImplementationComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceImplementationComponent res = new Conformance.ConformanceImplementationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2378,7 +2362,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestComponent parseConformanceConformanceRestComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestComponent parseConformanceConformanceRestComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestComponent res = new Conformance.ConformanceRestComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2406,7 +2390,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestSecurityComponent parseConformanceConformanceRestSecurityComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestSecurityComponent parseConformanceConformanceRestSecurityComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestSecurityComponent res = new Conformance.ConformanceRestSecurityComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2428,7 +2412,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestSecurityCertificateComponent parseConformanceConformanceRestSecurityCertificateComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestSecurityCertificateComponent parseConformanceConformanceRestSecurityCertificateComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestSecurityCertificateComponent res = new Conformance.ConformanceRestSecurityCertificateComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2446,7 +2430,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestResourceComponent parseConformanceConformanceRestResourceComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestResourceComponent parseConformanceConformanceRestResourceComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2476,7 +2460,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ResourceInteractionComponent parseConformanceResourceInteractionComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ResourceInteractionComponent parseConformanceResourceInteractionComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ResourceInteractionComponent res = new Conformance.ResourceInteractionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2494,7 +2478,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestResourceSearchParamComponent parseConformanceConformanceRestResourceSearchParamComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestResourceSearchParamComponent parseConformanceConformanceRestResourceSearchParamComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestResourceSearchParamComponent res = new Conformance.ConformanceRestResourceSearchParamComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2520,7 +2504,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.SystemInteractionComponent parseConformanceSystemInteractionComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.SystemInteractionComponent parseConformanceSystemInteractionComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.SystemInteractionComponent res = new Conformance.SystemInteractionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2538,7 +2522,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceRestOperationComponent parseConformanceConformanceRestOperationComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceRestOperationComponent parseConformanceConformanceRestOperationComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceRestOperationComponent res = new Conformance.ConformanceRestOperationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2556,7 +2540,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceMessagingComponent parseConformanceConformanceMessagingComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceMessagingComponent parseConformanceConformanceMessagingComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceMessagingComponent res = new Conformance.ConformanceMessagingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2578,7 +2562,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceMessagingEventComponent parseConformanceConformanceMessagingEventComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceMessagingEventComponent parseConformanceConformanceMessagingEventComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceMessagingEventComponent res = new Conformance.ConformanceMessagingEventComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2608,7 +2592,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Conformance.ConformanceDocumentComponent parseConformanceConformanceDocumentComponent(XmlPullParser xpp, Conformance owner) throws Exception {
+  protected Conformance.ConformanceDocumentComponent parseConformanceConformanceDocumentComponent(XmlPullParser xpp, Conformance owner) throws Exception {
     Conformance.ConformanceDocumentComponent res = new Conformance.ConformanceDocumentComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2628,14 +2612,14 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Contract parseContract(XmlPullParser xpp) throws Exception {
+  protected Contract parseContract(XmlPullParser xpp) throws Exception {
     Contract res = new Contract();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
         res.getSubject().add(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
@@ -2686,7 +2670,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Contract.ContractSignerComponent parseContractContractSignerComponent(XmlPullParser xpp, Contract owner) throws Exception {
+  protected Contract.ContractSignerComponent parseContractContractSignerComponent(XmlPullParser xpp, Contract owner) throws Exception {
     Contract.ContractSignerComponent res = new Contract.ContractSignerComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2704,7 +2688,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Contract.ContractTermComponent parseContractContractTermComponent(XmlPullParser xpp, Contract owner) throws Exception {
+  protected Contract.ContractTermComponent parseContractContractTermComponent(XmlPullParser xpp, Contract owner) throws Exception {
     Contract.ContractTermComponent res = new Contract.ContractTermComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2728,7 +2712,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Contraindication parseContraindication(XmlPullParser xpp) throws Exception {
+  protected Contraindication parseContraindication(XmlPullParser xpp) throws Exception {
     Contraindication res = new Contraindication();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2762,7 +2746,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Contraindication.ContraindicationMitigationComponent parseContraindicationContraindicationMitigationComponent(XmlPullParser xpp, Contraindication owner) throws Exception {
+  protected Contraindication.ContraindicationMitigationComponent parseContraindicationContraindicationMitigationComponent(XmlPullParser xpp, Contraindication owner) throws Exception {
     Contraindication.ContraindicationMitigationComponent res = new Contraindication.ContraindicationMitigationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2782,7 +2766,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Coverage parseCoverage(XmlPullParser xpp) throws Exception {
+  protected Coverage parseCoverage(XmlPullParser xpp) throws Exception {
     Coverage res = new Coverage();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2795,7 +2779,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setType(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("group")) {
         res.setGroupElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("plan")) {
@@ -2820,7 +2804,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DataElement parseDataElement(XmlPullParser xpp) throws Exception {
+  protected DataElement parseDataElement(XmlPullParser xpp) throws Exception {
     DataElement res = new DataElement();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2874,7 +2858,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DataElement.DataElementBindingComponent parseDataElementDataElementBindingComponent(XmlPullParser xpp, DataElement owner) throws Exception {
+  protected DataElement.DataElementBindingComponent parseDataElementDataElementBindingComponent(XmlPullParser xpp, DataElement owner) throws Exception {
     DataElement.DataElementBindingComponent res = new DataElement.DataElementBindingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2896,7 +2880,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DataElement.DataElementMappingComponent parseDataElementDataElementMappingComponent(XmlPullParser xpp, DataElement owner) throws Exception {
+  protected DataElement.DataElementMappingComponent parseDataElementDataElementMappingComponent(XmlPullParser xpp, DataElement owner) throws Exception {
     DataElement.DataElementMappingComponent res = new DataElement.DataElementMappingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -2918,7 +2902,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Device parseDevice(XmlPullParser xpp) throws Exception {
+  protected Device parseDevice(XmlPullParser xpp) throws Exception {
     Device res = new Device();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2958,7 +2942,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DeviceComponent parseDeviceComponent(XmlPullParser xpp) throws Exception {
+  protected DeviceComponent parseDeviceComponent(XmlPullParser xpp) throws Exception {
     DeviceComponent res = new DeviceComponent();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -2992,7 +2976,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DeviceComponent.DeviceComponentProductionSpecificationComponent parseDeviceComponentDeviceComponentProductionSpecificationComponent(XmlPullParser xpp, DeviceComponent owner) throws Exception {
+  protected DeviceComponent.DeviceComponentProductionSpecificationComponent parseDeviceComponentDeviceComponentProductionSpecificationComponent(XmlPullParser xpp, DeviceComponent owner) throws Exception {
     DeviceComponent.DeviceComponentProductionSpecificationComponent res = new DeviceComponent.DeviceComponentProductionSpecificationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3012,7 +2996,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DeviceUseRequest parseDeviceUseRequest(XmlPullParser xpp) throws Exception {
+  protected DeviceUseRequest parseDeviceUseRequest(XmlPullParser xpp) throws Exception {
     DeviceUseRequest res = new DeviceUseRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3054,7 +3038,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DeviceUseStatement parseDeviceUseStatement(XmlPullParser xpp) throws Exception {
+  protected DeviceUseStatement parseDeviceUseStatement(XmlPullParser xpp) throws Exception {
     DeviceUseStatement res = new DeviceUseStatement();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3086,7 +3070,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DiagnosticOrder parseDiagnosticOrder(XmlPullParser xpp) throws Exception {
+  protected DiagnosticOrder parseDiagnosticOrder(XmlPullParser xpp) throws Exception {
     DiagnosticOrder res = new DiagnosticOrder();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3122,7 +3106,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DiagnosticOrder.DiagnosticOrderEventComponent parseDiagnosticOrderDiagnosticOrderEventComponent(XmlPullParser xpp, DiagnosticOrder owner) throws Exception {
+  protected DiagnosticOrder.DiagnosticOrderEventComponent parseDiagnosticOrderDiagnosticOrderEventComponent(XmlPullParser xpp, DiagnosticOrder owner) throws Exception {
     DiagnosticOrder.DiagnosticOrderEventComponent res = new DiagnosticOrder.DiagnosticOrderEventComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3144,7 +3128,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DiagnosticOrder.DiagnosticOrderItemComponent parseDiagnosticOrderDiagnosticOrderItemComponent(XmlPullParser xpp, DiagnosticOrder owner) throws Exception {
+  protected DiagnosticOrder.DiagnosticOrderItemComponent parseDiagnosticOrderDiagnosticOrderItemComponent(XmlPullParser xpp, DiagnosticOrder owner) throws Exception {
     DiagnosticOrder.DiagnosticOrderItemComponent res = new DiagnosticOrder.DiagnosticOrderItemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3168,7 +3152,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DiagnosticReport parseDiagnosticReport(XmlPullParser xpp) throws Exception {
+  protected DiagnosticReport parseDiagnosticReport(XmlPullParser xpp) throws Exception {
     DiagnosticReport res = new DiagnosticReport();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3214,7 +3198,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DiagnosticReport.DiagnosticReportImageComponent parseDiagnosticReportDiagnosticReportImageComponent(XmlPullParser xpp, DiagnosticReport owner) throws Exception {
+  protected DiagnosticReport.DiagnosticReportImageComponent parseDiagnosticReportDiagnosticReportImageComponent(XmlPullParser xpp, DiagnosticReport owner) throws Exception {
     DiagnosticReport.DiagnosticReportImageComponent res = new DiagnosticReport.DiagnosticReportImageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3232,7 +3216,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentManifest parseDocumentManifest(XmlPullParser xpp) throws Exception {
+  protected DocumentManifest parseDocumentManifest(XmlPullParser xpp) throws Exception {
     DocumentManifest res = new DocumentManifest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3272,7 +3256,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentReference parseDocumentReference(XmlPullParser xpp) throws Exception {
+  protected DocumentReference parseDocumentReference(XmlPullParser xpp) throws Exception {
     DocumentReference res = new DocumentReference();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3334,7 +3318,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceRelatesToComponent parseDocumentReferenceDocumentReferenceRelatesToComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceRelatesToComponent parseDocumentReferenceDocumentReferenceRelatesToComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceRelatesToComponent res = new DocumentReference.DocumentReferenceRelatesToComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3352,7 +3336,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceServiceComponent parseDocumentReferenceDocumentReferenceServiceComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceServiceComponent parseDocumentReferenceDocumentReferenceServiceComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceServiceComponent res = new DocumentReference.DocumentReferenceServiceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3372,7 +3356,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceServiceParameterComponent parseDocumentReferenceDocumentReferenceServiceParameterComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceServiceParameterComponent parseDocumentReferenceDocumentReferenceServiceParameterComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceServiceParameterComponent res = new DocumentReference.DocumentReferenceServiceParameterComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3390,7 +3374,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private DocumentReference.DocumentReferenceContextComponent parseDocumentReferenceDocumentReferenceContextComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
+  protected DocumentReference.DocumentReferenceContextComponent parseDocumentReferenceDocumentReferenceContextComponent(XmlPullParser xpp, DocumentReference owner) throws Exception {
     DocumentReference.DocumentReferenceContextComponent res = new DocumentReference.DocumentReferenceContextComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3410,7 +3394,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Eligibility parseEligibility(XmlPullParser xpp) throws Exception {
+  protected Eligibility parseEligibility(XmlPullParser xpp) throws Exception {
     Eligibility res = new Eligibility();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3438,7 +3422,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private EligibilityResponse parseEligibilityResponse(XmlPullParser xpp) throws Exception {
+  protected EligibilityResponse parseEligibilityResponse(XmlPullParser xpp) throws Exception {
     EligibilityResponse res = new EligibilityResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3448,8 +3432,6 @@ public class XmlParser extends XmlParserBase {
         res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.getRequestIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("outcome")) {
         res.setOutcomeElement(parseEnumeration(xpp, EligibilityResponse.RSLink.NULL, new EligibilityResponse.RSLinkEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("disposition")) {
@@ -3474,7 +3456,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Encounter parseEncounter(XmlPullParser xpp) throws Exception {
+  protected Encounter parseEncounter(XmlPullParser xpp) throws Exception {
     Encounter res = new Encounter();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3520,7 +3502,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Encounter.EncounterParticipantComponent parseEncounterEncounterParticipantComponent(XmlPullParser xpp, Encounter owner) throws Exception {
+  protected Encounter.EncounterParticipantComponent parseEncounterEncounterParticipantComponent(XmlPullParser xpp, Encounter owner) throws Exception {
     Encounter.EncounterParticipantComponent res = new Encounter.EncounterParticipantComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3538,7 +3520,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Encounter.EncounterHospitalizationComponent parseEncounterEncounterHospitalizationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
+  protected Encounter.EncounterHospitalizationComponent parseEncounterEncounterHospitalizationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
     Encounter.EncounterHospitalizationComponent res = new Encounter.EncounterHospitalizationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3576,7 +3558,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Encounter.EncounterHospitalizationAccomodationComponent parseEncounterEncounterHospitalizationAccomodationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
+  protected Encounter.EncounterHospitalizationAccomodationComponent parseEncounterEncounterHospitalizationAccomodationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
     Encounter.EncounterHospitalizationAccomodationComponent res = new Encounter.EncounterHospitalizationAccomodationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3594,7 +3576,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Encounter.EncounterLocationComponent parseEncounterEncounterLocationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
+  protected Encounter.EncounterLocationComponent parseEncounterEncounterLocationComponent(XmlPullParser xpp, Encounter owner) throws Exception {
     Encounter.EncounterLocationComponent res = new Encounter.EncounterLocationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3612,7 +3594,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Enrollment parseEnrollment(XmlPullParser xpp) throws Exception {
+  protected Enrollment parseEnrollment(XmlPullParser xpp) throws Exception {
     Enrollment res = new Enrollment();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3646,7 +3628,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private EnrollmentResponse parseEnrollmentResponse(XmlPullParser xpp) throws Exception {
+  protected EnrollmentResponse parseEnrollmentResponse(XmlPullParser xpp) throws Exception {
     EnrollmentResponse res = new EnrollmentResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3656,8 +3638,6 @@ public class XmlParser extends XmlParserBase {
         res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.getRequestIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("outcome")) {
         res.setOutcomeElement(parseEnumeration(xpp, EnrollmentResponse.RSLink.NULL, new EnrollmentResponse.RSLinkEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("disposition")) {
@@ -3682,7 +3662,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ExplanationOfBenefit parseExplanationOfBenefit(XmlPullParser xpp) throws Exception {
+  protected ExplanationOfBenefit parseExplanationOfBenefit(XmlPullParser xpp) throws Exception {
     ExplanationOfBenefit res = new ExplanationOfBenefit();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3692,8 +3672,6 @@ public class XmlParser extends XmlParserBase {
         res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.getRequestIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("outcome")) {
         res.setOutcomeElement(parseEnumeration(xpp, ExplanationOfBenefit.RSLink.NULL, new ExplanationOfBenefit.RSLinkEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("disposition")) {
@@ -3718,7 +3696,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ExtensionDefinition parseExtensionDefinition(XmlPullParser xpp) throws Exception {
+  protected ExtensionDefinition parseExtensionDefinition(XmlPullParser xpp) throws Exception {
     ExtensionDefinition res = new ExtensionDefinition();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3764,7 +3742,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ExtensionDefinition.ExtensionDefinitionMappingComponent parseExtensionDefinitionExtensionDefinitionMappingComponent(XmlPullParser xpp, ExtensionDefinition owner) throws Exception {
+  protected ExtensionDefinition.ExtensionDefinitionMappingComponent parseExtensionDefinitionExtensionDefinitionMappingComponent(XmlPullParser xpp, ExtensionDefinition owner) throws Exception {
     ExtensionDefinition.ExtensionDefinitionMappingComponent res = new ExtensionDefinition.ExtensionDefinitionMappingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3786,7 +3764,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private FamilyHistory parseFamilyHistory(XmlPullParser xpp) throws Exception {
+  protected FamilyHistory parseFamilyHistory(XmlPullParser xpp) throws Exception {
     FamilyHistory res = new FamilyHistory();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3810,7 +3788,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private FamilyHistory.FamilyHistoryRelationComponent parseFamilyHistoryFamilyHistoryRelationComponent(XmlPullParser xpp, FamilyHistory owner) throws Exception {
+  protected FamilyHistory.FamilyHistoryRelationComponent parseFamilyHistoryFamilyHistoryRelationComponent(XmlPullParser xpp, FamilyHistory owner) throws Exception {
     FamilyHistory.FamilyHistoryRelationComponent res = new FamilyHistory.FamilyHistoryRelationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3838,7 +3816,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private FamilyHistory.FamilyHistoryRelationConditionComponent parseFamilyHistoryFamilyHistoryRelationConditionComponent(XmlPullParser xpp, FamilyHistory owner) throws Exception {
+  protected FamilyHistory.FamilyHistoryRelationConditionComponent parseFamilyHistoryFamilyHistoryRelationConditionComponent(XmlPullParser xpp, FamilyHistory owner) throws Exception {
     FamilyHistory.FamilyHistoryRelationConditionComponent res = new FamilyHistory.FamilyHistoryRelationConditionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3860,7 +3838,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Group parseGroup(XmlPullParser xpp) throws Exception {
+  protected Group parseGroup(XmlPullParser xpp) throws Exception {
     Group res = new Group();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3890,7 +3868,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Group.GroupCharacteristicComponent parseGroupGroupCharacteristicComponent(XmlPullParser xpp, Group owner) throws Exception {
+  protected Group.GroupCharacteristicComponent parseGroupGroupCharacteristicComponent(XmlPullParser xpp, Group owner) throws Exception {
     Group.GroupCharacteristicComponent res = new Group.GroupCharacteristicComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3910,7 +3888,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private HealthcareService parseHealthcareService(XmlPullParser xpp) throws Exception {
+  protected HealthcareService parseHealthcareService(XmlPullParser xpp) throws Exception {
     HealthcareService res = new HealthcareService();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -3974,7 +3952,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private HealthcareService.ServiceTypeComponent parseHealthcareServiceServiceTypeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
+  protected HealthcareService.ServiceTypeComponent parseHealthcareServiceServiceTypeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
     HealthcareService.ServiceTypeComponent res = new HealthcareService.ServiceTypeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -3992,7 +3970,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private HealthcareService.HealthcareServiceAvailableTimeComponent parseHealthcareServiceHealthcareServiceAvailableTimeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
+  protected HealthcareService.HealthcareServiceAvailableTimeComponent parseHealthcareServiceHealthcareServiceAvailableTimeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
     HealthcareService.HealthcareServiceAvailableTimeComponent res = new HealthcareService.HealthcareServiceAvailableTimeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4014,7 +3992,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private HealthcareService.HealthcareServiceNotAvailableTimeComponent parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
+  protected HealthcareService.HealthcareServiceNotAvailableTimeComponent parseHealthcareServiceHealthcareServiceNotAvailableTimeComponent(XmlPullParser xpp, HealthcareService owner) throws Exception {
     HealthcareService.HealthcareServiceNotAvailableTimeComponent res = new HealthcareService.HealthcareServiceNotAvailableTimeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4034,7 +4012,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImagingStudy parseImagingStudy(XmlPullParser xpp) throws Exception {
+  protected ImagingStudy parseImagingStudy(XmlPullParser xpp) throws Exception {
     ImagingStudy res = new ImagingStudy();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4082,7 +4060,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImagingStudy.ImagingStudySeriesComponent parseImagingStudyImagingStudySeriesComponent(XmlPullParser xpp, ImagingStudy owner) throws Exception {
+  protected ImagingStudy.ImagingStudySeriesComponent parseImagingStudyImagingStudySeriesComponent(XmlPullParser xpp, ImagingStudy owner) throws Exception {
     ImagingStudy.ImagingStudySeriesComponent res = new ImagingStudy.ImagingStudySeriesComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4116,7 +4094,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImagingStudy.ImagingStudySeriesInstanceComponent parseImagingStudyImagingStudySeriesInstanceComponent(XmlPullParser xpp, ImagingStudy owner) throws Exception {
+  protected ImagingStudy.ImagingStudySeriesInstanceComponent parseImagingStudyImagingStudySeriesInstanceComponent(XmlPullParser xpp, ImagingStudy owner) throws Exception {
     ImagingStudy.ImagingStudySeriesInstanceComponent res = new ImagingStudy.ImagingStudySeriesInstanceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4144,7 +4122,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Immunization parseImmunization(XmlPullParser xpp) throws Exception {
+  protected Immunization parseImmunization(XmlPullParser xpp) throws Exception {
     Immunization res = new Immunization();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4194,7 +4172,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationExplanationComponent parseImmunizationImmunizationExplanationComponent(XmlPullParser xpp, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationExplanationComponent parseImmunizationImmunizationExplanationComponent(XmlPullParser xpp, Immunization owner) throws Exception {
     Immunization.ImmunizationExplanationComponent res = new Immunization.ImmunizationExplanationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4212,7 +4190,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationReactionComponent parseImmunizationImmunizationReactionComponent(XmlPullParser xpp, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationReactionComponent parseImmunizationImmunizationReactionComponent(XmlPullParser xpp, Immunization owner) throws Exception {
     Immunization.ImmunizationReactionComponent res = new Immunization.ImmunizationReactionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4232,7 +4210,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Immunization.ImmunizationVaccinationProtocolComponent parseImmunizationImmunizationVaccinationProtocolComponent(XmlPullParser xpp, Immunization owner) throws Exception {
+  protected Immunization.ImmunizationVaccinationProtocolComponent parseImmunizationImmunizationVaccinationProtocolComponent(XmlPullParser xpp, Immunization owner) throws Exception {
     Immunization.ImmunizationVaccinationProtocolComponent res = new Immunization.ImmunizationVaccinationProtocolComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4262,7 +4240,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation parseImmunizationRecommendation(XmlPullParser xpp) throws Exception {
+  protected ImmunizationRecommendation parseImmunizationRecommendation(XmlPullParser xpp) throws Exception {
     ImmunizationRecommendation res = new ImmunizationRecommendation();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4282,7 +4260,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4312,7 +4290,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4330,7 +4308,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
+  protected ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(XmlPullParser xpp, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4352,7 +4330,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private List_ parseList_(XmlPullParser xpp) throws Exception {
+  protected List_ parseList_(XmlPullParser xpp) throws Exception {
     List_ res = new List_();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4384,7 +4362,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private List_.ListEntryComponent parseList_ListEntryComponent(XmlPullParser xpp, List_ owner) throws Exception {
+  protected List_.ListEntryComponent parseList_ListEntryComponent(XmlPullParser xpp, List_ owner) throws Exception {
     List_.ListEntryComponent res = new List_.ListEntryComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4406,7 +4384,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Location parseLocation(XmlPullParser xpp) throws Exception {
+  protected Location parseLocation(XmlPullParser xpp) throws Exception {
     Location res = new Location();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4444,7 +4422,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Location.LocationPositionComponent parseLocationLocationPositionComponent(XmlPullParser xpp, Location owner) throws Exception {
+  protected Location.LocationPositionComponent parseLocationLocationPositionComponent(XmlPullParser xpp, Location owner) throws Exception {
     Location.LocationPositionComponent res = new Location.LocationPositionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4464,7 +4442,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Media parseMedia(XmlPullParser xpp) throws Exception {
+  protected Media parseMedia(XmlPullParser xpp) throws Exception {
     Media res = new Media();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4504,7 +4482,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Medication parseMedication(XmlPullParser xpp) throws Exception {
+  protected Medication parseMedication(XmlPullParser xpp) throws Exception {
     Medication res = new Medication();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4532,7 +4510,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Medication.MedicationProductComponent parseMedicationMedicationProductComponent(XmlPullParser xpp, Medication owner) throws Exception {
+  protected Medication.MedicationProductComponent parseMedicationMedicationProductComponent(XmlPullParser xpp, Medication owner) throws Exception {
     Medication.MedicationProductComponent res = new Medication.MedicationProductComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4550,7 +4528,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Medication.MedicationProductIngredientComponent parseMedicationMedicationProductIngredientComponent(XmlPullParser xpp, Medication owner) throws Exception {
+  protected Medication.MedicationProductIngredientComponent parseMedicationMedicationProductIngredientComponent(XmlPullParser xpp, Medication owner) throws Exception {
     Medication.MedicationProductIngredientComponent res = new Medication.MedicationProductIngredientComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4568,7 +4546,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Medication.MedicationPackageComponent parseMedicationMedicationPackageComponent(XmlPullParser xpp, Medication owner) throws Exception {
+  protected Medication.MedicationPackageComponent parseMedicationMedicationPackageComponent(XmlPullParser xpp, Medication owner) throws Exception {
     Medication.MedicationPackageComponent res = new Medication.MedicationPackageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4586,7 +4564,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Medication.MedicationPackageContentComponent parseMedicationMedicationPackageContentComponent(XmlPullParser xpp, Medication owner) throws Exception {
+  protected Medication.MedicationPackageContentComponent parseMedicationMedicationPackageContentComponent(XmlPullParser xpp, Medication owner) throws Exception {
     Medication.MedicationPackageContentComponent res = new Medication.MedicationPackageContentComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4604,7 +4582,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationAdministration parseMedicationAdministration(XmlPullParser xpp) throws Exception {
+  protected MedicationAdministration parseMedicationAdministration(XmlPullParser xpp) throws Exception {
     MedicationAdministration res = new MedicationAdministration();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4642,7 +4620,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationAdministration.MedicationAdministrationDosageComponent parseMedicationAdministrationMedicationAdministrationDosageComponent(XmlPullParser xpp, MedicationAdministration owner) throws Exception {
+  protected MedicationAdministration.MedicationAdministrationDosageComponent parseMedicationAdministrationMedicationAdministrationDosageComponent(XmlPullParser xpp, MedicationAdministration owner) throws Exception {
     MedicationAdministration.MedicationAdministrationDosageComponent res = new MedicationAdministration.MedicationAdministrationDosageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4672,7 +4650,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationDispense parseMedicationDispense(XmlPullParser xpp) throws Exception {
+  protected MedicationDispense parseMedicationDispense(XmlPullParser xpp) throws Exception {
     MedicationDispense res = new MedicationDispense();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4700,7 +4678,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseDispenseComponent parseMedicationDispenseMedicationDispenseDispenseComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseDispenseComponent parseMedicationDispenseMedicationDispenseDispenseComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseDispenseComponent res = new MedicationDispense.MedicationDispenseDispenseComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4734,7 +4712,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseDispenseDosageComponent parseMedicationDispenseMedicationDispenseDispenseDosageComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseDispenseDosageComponent parseMedicationDispenseMedicationDispenseDispenseDosageComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseDispenseDosageComponent res = new MedicationDispense.MedicationDispenseDispenseDosageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4766,7 +4744,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationDispense.MedicationDispenseSubstitutionComponent parseMedicationDispenseMedicationDispenseSubstitutionComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
+  protected MedicationDispense.MedicationDispenseSubstitutionComponent parseMedicationDispenseMedicationDispenseSubstitutionComponent(XmlPullParser xpp, MedicationDispense owner) throws Exception {
     MedicationDispense.MedicationDispenseSubstitutionComponent res = new MedicationDispense.MedicationDispenseSubstitutionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4786,7 +4764,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationPrescription parseMedicationPrescription(XmlPullParser xpp) throws Exception {
+  protected MedicationPrescription parseMedicationPrescription(XmlPullParser xpp) throws Exception {
     MedicationPrescription res = new MedicationPrescription();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4822,7 +4800,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionDosageInstructionComponent parseMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionDosageInstructionComponent parseMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionDosageInstructionComponent res = new MedicationPrescription.MedicationPrescriptionDosageInstructionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4856,7 +4834,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionDispenseComponent parseMedicationPrescriptionMedicationPrescriptionDispenseComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionDispenseComponent parseMedicationPrescriptionMedicationPrescriptionDispenseComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionDispenseComponent res = new MedicationPrescription.MedicationPrescriptionDispenseComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4880,7 +4858,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationPrescription.MedicationPrescriptionSubstitutionComponent parseMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
+  protected MedicationPrescription.MedicationPrescriptionSubstitutionComponent parseMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(XmlPullParser xpp, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionSubstitutionComponent res = new MedicationPrescription.MedicationPrescriptionSubstitutionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4898,7 +4876,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationStatement parseMedicationStatement(XmlPullParser xpp) throws Exception {
+  protected MedicationStatement parseMedicationStatement(XmlPullParser xpp) throws Exception {
     MedicationStatement res = new MedicationStatement();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4928,7 +4906,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MedicationStatement.MedicationStatementDosageComponent parseMedicationStatementMedicationStatementDosageComponent(XmlPullParser xpp, MedicationStatement owner) throws Exception {
+  protected MedicationStatement.MedicationStatementDosageComponent parseMedicationStatementMedicationStatementDosageComponent(XmlPullParser xpp, MedicationStatement owner) throws Exception {
     MedicationStatement.MedicationStatementDosageComponent res = new MedicationStatement.MedicationStatementDosageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -4958,7 +4936,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MessageHeader parseMessageHeader(XmlPullParser xpp) throws Exception {
+  protected MessageHeader parseMessageHeader(XmlPullParser xpp) throws Exception {
     MessageHeader res = new MessageHeader();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -4996,7 +4974,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MessageHeader.MessageHeaderResponseComponent parseMessageHeaderMessageHeaderResponseComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageHeaderResponseComponent parseMessageHeaderMessageHeaderResponseComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
     MessageHeader.MessageHeaderResponseComponent res = new MessageHeader.MessageHeaderResponseComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5016,7 +4994,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MessageHeader.MessageSourceComponent parseMessageHeaderMessageSourceComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageSourceComponent parseMessageHeaderMessageSourceComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
     MessageHeader.MessageSourceComponent res = new MessageHeader.MessageSourceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5040,7 +5018,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private MessageHeader.MessageDestinationComponent parseMessageHeaderMessageDestinationComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
+  protected MessageHeader.MessageDestinationComponent parseMessageHeaderMessageDestinationComponent(XmlPullParser xpp, MessageHeader owner) throws Exception {
     MessageHeader.MessageDestinationComponent res = new MessageHeader.MessageDestinationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5060,7 +5038,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NamingSystem parseNamingSystem(XmlPullParser xpp) throws Exception {
+  protected NamingSystem parseNamingSystem(XmlPullParser xpp) throws Exception {
     NamingSystem res = new NamingSystem();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5096,7 +5074,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
+  protected NamingSystem.NamingSystemUniqueIdComponent parseNamingSystemNamingSystemUniqueIdComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
     NamingSystem.NamingSystemUniqueIdComponent res = new NamingSystem.NamingSystemUniqueIdComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5118,7 +5096,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
+  protected NamingSystem.NamingSystemContactComponent parseNamingSystemNamingSystemContactComponent(XmlPullParser xpp, NamingSystem owner) throws Exception {
     NamingSystem.NamingSystemContactComponent res = new NamingSystem.NamingSystemContactComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5136,7 +5114,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder parseNutritionOrder(XmlPullParser xpp) throws Exception {
+  protected NutritionOrder parseNutritionOrder(XmlPullParser xpp) throws Exception {
     NutritionOrder res = new NutritionOrder();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5170,7 +5148,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemComponent parseNutritionOrderNutritionOrderItemComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemComponent res = new NutritionOrder.NutritionOrderItemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5194,7 +5172,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietComponent parseNutritionOrderNutritionOrderItemOralDietComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietComponent parseNutritionOrderNutritionOrderItemOralDietComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietComponent res = new NutritionOrder.NutritionOrderItemOralDietComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5218,7 +5196,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietNutrientsComponent parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietNutrientsComponent parseNutritionOrderNutritionOrderItemOralDietNutrientsComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietNutrientsComponent res = new NutritionOrder.NutritionOrderItemOralDietNutrientsComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5236,7 +5214,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemOralDietTextureComponent parseNutritionOrderNutritionOrderItemOralDietTextureComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemOralDietTextureComponent parseNutritionOrderNutritionOrderItemOralDietTextureComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemOralDietTextureComponent res = new NutritionOrder.NutritionOrderItemOralDietTextureComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5254,7 +5232,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemSupplementComponent parseNutritionOrderNutritionOrderItemSupplementComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemSupplementComponent parseNutritionOrderNutritionOrderItemSupplementComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemSupplementComponent res = new NutritionOrder.NutritionOrderItemSupplementComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5274,7 +5252,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private NutritionOrder.NutritionOrderItemEnteralFormulaComponent parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
+  protected NutritionOrder.NutritionOrderItemEnteralFormulaComponent parseNutritionOrderNutritionOrderItemEnteralFormulaComponent(XmlPullParser xpp, NutritionOrder owner) throws Exception {
     NutritionOrder.NutritionOrderItemEnteralFormulaComponent res = new NutritionOrder.NutritionOrderItemEnteralFormulaComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5300,7 +5278,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Observation parseObservation(XmlPullParser xpp) throws Exception {
+  protected Observation parseObservation(XmlPullParser xpp) throws Exception {
     Observation res = new Observation();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5350,7 +5328,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Observation.ObservationReferenceRangeComponent parseObservationObservationReferenceRangeComponent(XmlPullParser xpp, Observation owner) throws Exception {
+  protected Observation.ObservationReferenceRangeComponent parseObservationObservationReferenceRangeComponent(XmlPullParser xpp, Observation owner) throws Exception {
     Observation.ObservationReferenceRangeComponent res = new Observation.ObservationReferenceRangeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5374,7 +5352,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Observation.ObservationRelatedComponent parseObservationObservationRelatedComponent(XmlPullParser xpp, Observation owner) throws Exception {
+  protected Observation.ObservationRelatedComponent parseObservationObservationRelatedComponent(XmlPullParser xpp, Observation owner) throws Exception {
     Observation.ObservationRelatedComponent res = new Observation.ObservationRelatedComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5392,7 +5370,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OperationDefinition parseOperationDefinition(XmlPullParser xpp) throws Exception {
+  protected OperationDefinition parseOperationDefinition(XmlPullParser xpp) throws Exception {
     OperationDefinition res = new OperationDefinition();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5442,7 +5420,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OperationDefinition.OperationDefinitionParameterComponent parseOperationDefinitionOperationDefinitionParameterComponent(XmlPullParser xpp, OperationDefinition owner) throws Exception {
+  protected OperationDefinition.OperationDefinitionParameterComponent parseOperationDefinitionOperationDefinitionParameterComponent(XmlPullParser xpp, OperationDefinition owner) throws Exception {
     OperationDefinition.OperationDefinitionParameterComponent res = new OperationDefinition.OperationDefinitionParameterComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5470,7 +5448,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OperationOutcome parseOperationOutcome(XmlPullParser xpp) throws Exception {
+  protected OperationOutcome parseOperationOutcome(XmlPullParser xpp) throws Exception {
     OperationOutcome res = new OperationOutcome();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5486,7 +5464,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OperationOutcome.OperationOutcomeIssueComponent parseOperationOutcomeOperationOutcomeIssueComponent(XmlPullParser xpp, OperationOutcome owner) throws Exception {
+  protected OperationOutcome.OperationOutcomeIssueComponent parseOperationOutcomeOperationOutcomeIssueComponent(XmlPullParser xpp, OperationOutcome owner) throws Exception {
     OperationOutcome.OperationOutcomeIssueComponent res = new OperationOutcome.OperationOutcomeIssueComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5508,14 +5486,14 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim parseOralHealthClaim(XmlPullParser xpp) throws Exception {
+  protected OralHealthClaim parseOralHealthClaim(XmlPullParser xpp) throws Exception {
     OralHealthClaim res = new OralHealthClaim();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ruleset")) {
         res.setRuleset(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("originalRuleset")) {
@@ -5576,7 +5554,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.PayeeComponent parseOralHealthClaimPayeeComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.PayeeComponent parseOralHealthClaimPayeeComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.PayeeComponent res = new OralHealthClaim.PayeeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5598,7 +5576,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.DiagnosisComponent parseOralHealthClaimDiagnosisComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.DiagnosisComponent parseOralHealthClaimDiagnosisComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.DiagnosisComponent res = new OralHealthClaim.DiagnosisComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5616,7 +5594,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.CoverageComponent parseOralHealthClaimCoverageComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.CoverageComponent parseOralHealthClaimCoverageComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.CoverageComponent res = new OralHealthClaim.CoverageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5646,7 +5624,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.MissingTeethComponent parseOralHealthClaimMissingTeethComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.MissingTeethComponent parseOralHealthClaimMissingTeethComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.MissingTeethComponent res = new OralHealthClaim.MissingTeethComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5666,7 +5644,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.OrthodonticPlanComponent parseOralHealthClaimOrthodonticPlanComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.OrthodonticPlanComponent parseOralHealthClaimOrthodonticPlanComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.OrthodonticPlanComponent res = new OralHealthClaim.OrthodonticPlanComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5694,7 +5672,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.ItemsComponent parseOralHealthClaimItemsComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.ItemsComponent parseOralHealthClaimItemsComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.ItemsComponent res = new OralHealthClaim.ItemsComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5740,7 +5718,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.DetailComponent parseOralHealthClaimDetailComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.DetailComponent parseOralHealthClaimDetailComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.DetailComponent res = new OralHealthClaim.DetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5774,7 +5752,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.SubDetailComponent parseOralHealthClaimSubDetailComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.SubDetailComponent parseOralHealthClaimSubDetailComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.SubDetailComponent res = new OralHealthClaim.SubDetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5806,7 +5784,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OralHealthClaim.ProsthesisComponent parseOralHealthClaimProsthesisComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
+  protected OralHealthClaim.ProsthesisComponent parseOralHealthClaimProsthesisComponent(XmlPullParser xpp, OralHealthClaim owner) throws Exception {
     OralHealthClaim.ProsthesisComponent res = new OralHealthClaim.ProsthesisComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5826,7 +5804,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Order parseOrder(XmlPullParser xpp) throws Exception {
+  protected Order parseOrder(XmlPullParser xpp) throws Exception {
     Order res = new Order();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5858,7 +5836,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Order.OrderWhenComponent parseOrderOrderWhenComponent(XmlPullParser xpp, Order owner) throws Exception {
+  protected Order.OrderWhenComponent parseOrderOrderWhenComponent(XmlPullParser xpp, Order owner) throws Exception {
     Order.OrderWhenComponent res = new Order.OrderWhenComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5876,7 +5854,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private OrderResponse parseOrderResponse(XmlPullParser xpp) throws Exception {
+  protected OrderResponse parseOrderResponse(XmlPullParser xpp) throws Exception {
     OrderResponse res = new OrderResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5906,7 +5884,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Organization parseOrganization(XmlPullParser xpp) throws Exception {
+  protected Organization parseOrganization(XmlPullParser xpp) throws Exception {
     Organization res = new Organization();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5938,7 +5916,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Organization.OrganizationContactComponent parseOrganizationOrganizationContactComponent(XmlPullParser xpp, Organization owner) throws Exception {
+  protected Organization.OrganizationContactComponent parseOrganizationOrganizationContactComponent(XmlPullParser xpp, Organization owner) throws Exception {
     Organization.OrganizationContactComponent res = new Organization.OrganizationContactComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -5962,7 +5940,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Other parseOther(XmlPullParser xpp) throws Exception {
+  protected Other parseOther(XmlPullParser xpp) throws Exception {
     Other res = new Other();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -5986,7 +5964,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Patient parsePatient(XmlPullParser xpp) throws Exception {
+  protected Patient parsePatient(XmlPullParser xpp) throws Exception {
     Patient res = new Patient();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6034,7 +6012,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Patient.ContactComponent parsePatientContactComponent(XmlPullParser xpp, Patient owner) throws Exception {
+  protected Patient.ContactComponent parsePatientContactComponent(XmlPullParser xpp, Patient owner) throws Exception {
     Patient.ContactComponent res = new Patient.ContactComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6062,7 +6040,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Patient.AnimalComponent parsePatientAnimalComponent(XmlPullParser xpp, Patient owner) throws Exception {
+  protected Patient.AnimalComponent parsePatientAnimalComponent(XmlPullParser xpp, Patient owner) throws Exception {
     Patient.AnimalComponent res = new Patient.AnimalComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6082,7 +6060,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Patient.PatientLinkComponent parsePatientPatientLinkComponent(XmlPullParser xpp, Patient owner) throws Exception {
+  protected Patient.PatientLinkComponent parsePatientPatientLinkComponent(XmlPullParser xpp, Patient owner) throws Exception {
     Patient.PatientLinkComponent res = new Patient.PatientLinkComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6100,7 +6078,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private PendedRequest parsePendedRequest(XmlPullParser xpp) throws Exception {
+  protected PendedRequest parsePendedRequest(XmlPullParser xpp) throws Exception {
     PendedRequest res = new PendedRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6122,8 +6100,6 @@ public class XmlParser extends XmlParserBase {
         res.setOrganization(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.setRequestIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("include")) {
         res.getInclude().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("exclude")) {
@@ -6136,7 +6112,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Practitioner parsePractitioner(XmlPullParser xpp) throws Exception {
+  protected Practitioner parsePractitioner(XmlPullParser xpp) throws Exception {
     Practitioner res = new Practitioner();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6178,7 +6154,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(XmlPullParser xpp, Practitioner owner) throws Exception {
+  protected Practitioner.PractitionerQualificationComponent parsePractitionerPractitionerQualificationComponent(XmlPullParser xpp, Practitioner owner) throws Exception {
     Practitioner.PractitionerQualificationComponent res = new Practitioner.PractitionerQualificationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6200,7 +6176,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Procedure parseProcedure(XmlPullParser xpp) throws Exception {
+  protected Procedure parseProcedure(XmlPullParser xpp) throws Exception {
     Procedure res = new Procedure();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6242,7 +6218,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(XmlPullParser xpp, Procedure owner) throws Exception {
+  protected Procedure.ProcedurePerformerComponent parseProcedureProcedurePerformerComponent(XmlPullParser xpp, Procedure owner) throws Exception {
     Procedure.ProcedurePerformerComponent res = new Procedure.ProcedurePerformerComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6260,7 +6236,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Procedure.ProcedureRelatedItemComponent parseProcedureProcedureRelatedItemComponent(XmlPullParser xpp, Procedure owner) throws Exception {
+  protected Procedure.ProcedureRelatedItemComponent parseProcedureProcedureRelatedItemComponent(XmlPullParser xpp, Procedure owner) throws Exception {
     Procedure.ProcedureRelatedItemComponent res = new Procedure.ProcedureRelatedItemComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6278,7 +6254,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ProcedureRequest parseProcedureRequest(XmlPullParser xpp) throws Exception {
+  protected ProcedureRequest parseProcedureRequest(XmlPullParser xpp) throws Exception {
     ProcedureRequest res = new ProcedureRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6322,7 +6298,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Profile parseProfile(XmlPullParser xpp) throws Exception {
+  protected Profile parseProfile(XmlPullParser xpp) throws Exception {
     Profile res = new Profile();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6372,7 +6348,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Profile.ProfileMappingComponent parseProfileProfileMappingComponent(XmlPullParser xpp, Profile owner) throws Exception {
+  protected Profile.ProfileMappingComponent parseProfileProfileMappingComponent(XmlPullParser xpp, Profile owner) throws Exception {
     Profile.ProfileMappingComponent res = new Profile.ProfileMappingComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6394,7 +6370,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Profile.ConstraintComponent parseProfileConstraintComponent(XmlPullParser xpp, Profile owner) throws Exception {
+  protected Profile.ConstraintComponent parseProfileConstraintComponent(XmlPullParser xpp, Profile owner) throws Exception {
     Profile.ConstraintComponent res = new Profile.ConstraintComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6410,7 +6386,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Provenance parseProvenance(XmlPullParser xpp) throws Exception {
+  protected Provenance parseProvenance(XmlPullParser xpp) throws Exception {
     Provenance res = new Provenance();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6442,7 +6418,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Provenance.ProvenanceAgentComponent parseProvenanceProvenanceAgentComponent(XmlPullParser xpp, Provenance owner) throws Exception {
+  protected Provenance.ProvenanceAgentComponent parseProvenanceProvenanceAgentComponent(XmlPullParser xpp, Provenance owner) throws Exception {
     Provenance.ProvenanceAgentComponent res = new Provenance.ProvenanceAgentComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6464,7 +6440,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Provenance.ProvenanceEntityComponent parseProvenanceProvenanceEntityComponent(XmlPullParser xpp, Provenance owner) throws Exception {
+  protected Provenance.ProvenanceEntityComponent parseProvenanceProvenanceEntityComponent(XmlPullParser xpp, Provenance owner) throws Exception {
     Provenance.ProvenanceEntityComponent res = new Provenance.ProvenanceEntityComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6488,7 +6464,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Query parseQuery(XmlPullParser xpp) throws Exception {
+  protected Query parseQuery(XmlPullParser xpp) throws Exception {
     Query res = new Query();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6508,7 +6484,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Query.QueryResponseComponent parseQueryQueryResponseComponent(XmlPullParser xpp, Query owner) throws Exception {
+  protected Query.QueryResponseComponent parseQueryQueryResponseComponent(XmlPullParser xpp, Query owner) throws Exception {
     Query.QueryResponseComponent res = new Query.QueryResponseComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6540,7 +6516,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Questionnaire parseQuestionnaire(XmlPullParser xpp) throws Exception {
+  protected Questionnaire parseQuestionnaire(XmlPullParser xpp) throws Exception {
     Questionnaire res = new Questionnaire();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6566,7 +6542,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Questionnaire.GroupComponent parseQuestionnaireGroupComponent(XmlPullParser xpp, Questionnaire owner) throws Exception {
+  protected Questionnaire.GroupComponent parseQuestionnaireGroupComponent(XmlPullParser xpp, Questionnaire owner) throws Exception {
     Questionnaire.GroupComponent res = new Questionnaire.GroupComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6596,7 +6572,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Questionnaire.QuestionComponent parseQuestionnaireQuestionComponent(XmlPullParser xpp, Questionnaire owner) throws Exception {
+  protected Questionnaire.QuestionComponent parseQuestionnaireQuestionComponent(XmlPullParser xpp, Questionnaire owner) throws Exception {
     Questionnaire.QuestionComponent res = new Questionnaire.QuestionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6626,7 +6602,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers parseQuestionnaireAnswers(XmlPullParser xpp) throws Exception {
+  protected QuestionnaireAnswers parseQuestionnaireAnswers(XmlPullParser xpp) throws Exception {
     QuestionnaireAnswers res = new QuestionnaireAnswers();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6658,7 +6634,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.GroupComponent parseQuestionnaireAnswersGroupComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.GroupComponent parseQuestionnaireAnswersGroupComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.GroupComponent res = new QuestionnaireAnswers.GroupComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6684,7 +6660,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.QuestionComponent parseQuestionnaireAnswersQuestionComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.QuestionComponent parseQuestionnaireAnswersQuestionComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.QuestionComponent res = new QuestionnaireAnswers.QuestionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6706,7 +6682,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private QuestionnaireAnswers.QuestionAnswerComponent parseQuestionnaireAnswersQuestionAnswerComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
+  protected QuestionnaireAnswers.QuestionAnswerComponent parseQuestionnaireAnswersQuestionAnswerComponent(XmlPullParser xpp, QuestionnaireAnswers owner) throws Exception {
     QuestionnaireAnswers.QuestionAnswerComponent res = new QuestionnaireAnswers.QuestionAnswerComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6722,7 +6698,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ReferralRequest parseReferralRequest(XmlPullParser xpp) throws Exception {
+  protected ReferralRequest parseReferralRequest(XmlPullParser xpp) throws Exception {
     ReferralRequest res = new ReferralRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6766,7 +6742,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private RelatedPerson parseRelatedPerson(XmlPullParser xpp) throws Exception {
+  protected RelatedPerson parseRelatedPerson(XmlPullParser xpp) throws Exception {
     RelatedPerson res = new RelatedPerson();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6796,7 +6772,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Reversal parseReversal(XmlPullParser xpp) throws Exception {
+  protected Reversal parseReversal(XmlPullParser xpp) throws Exception {
     Reversal res = new Reversal();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6818,12 +6794,8 @@ public class XmlParser extends XmlParserBase {
         res.setOrganization(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.setRequestIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("response")) {
         res.setResponse(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("responseIdentifier")) {
-        res.setResponseIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payee")) {
         res.setPayee(parseReversalPayeeComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("coverage")) {
@@ -6838,7 +6810,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Reversal.PayeeComponent parseReversalPayeeComponent(XmlPullParser xpp, Reversal owner) throws Exception {
+  protected Reversal.PayeeComponent parseReversalPayeeComponent(XmlPullParser xpp, Reversal owner) throws Exception {
     Reversal.PayeeComponent res = new Reversal.PayeeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6860,7 +6832,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Reversal.ReversalCoverageComponent parseReversalReversalCoverageComponent(XmlPullParser xpp, Reversal owner) throws Exception {
+  protected Reversal.ReversalCoverageComponent parseReversalReversalCoverageComponent(XmlPullParser xpp, Reversal owner) throws Exception {
     Reversal.ReversalCoverageComponent res = new Reversal.ReversalCoverageComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6884,7 +6856,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private RiskAssessment parseRiskAssessment(XmlPullParser xpp) throws Exception {
+  protected RiskAssessment parseRiskAssessment(XmlPullParser xpp) throws Exception {
     RiskAssessment res = new RiskAssessment();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6916,7 +6888,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private RiskAssessment.RiskAssessmentPredictionComponent parseRiskAssessmentRiskAssessmentPredictionComponent(XmlPullParser xpp, RiskAssessment owner) throws Exception {
+  protected RiskAssessment.RiskAssessmentPredictionComponent parseRiskAssessmentRiskAssessmentPredictionComponent(XmlPullParser xpp, RiskAssessment owner) throws Exception {
     RiskAssessment.RiskAssessmentPredictionComponent res = new RiskAssessment.RiskAssessmentPredictionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -6940,7 +6912,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SearchParameter parseSearchParameter(XmlPullParser xpp) throws Exception {
+  protected SearchParameter parseSearchParameter(XmlPullParser xpp) throws Exception {
     SearchParameter res = new SearchParameter();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6974,7 +6946,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent parseSecurityEvent(XmlPullParser xpp) throws Exception {
+  protected SecurityEvent parseSecurityEvent(XmlPullParser xpp) throws Exception {
     SecurityEvent res = new SecurityEvent();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -6996,7 +6968,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventEventComponent res = new SecurityEvent.SecurityEventEventComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7022,7 +6994,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantComponent res = new SecurityEvent.SecurityEventParticipantComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7052,7 +7024,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventParticipantNetworkComponent res = new SecurityEvent.SecurityEventParticipantNetworkComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7070,7 +7042,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventSourceComponent parseSecurityEventSecurityEventSourceComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventSourceComponent parseSecurityEventSecurityEventSourceComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventSourceComponent res = new SecurityEvent.SecurityEventSourceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7090,7 +7062,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventObjectComponent res = new SecurityEvent.SecurityEventObjectComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7124,7 +7096,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SecurityEvent.SecurityEventObjectDetailComponent parseSecurityEventSecurityEventObjectDetailComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
+  protected SecurityEvent.SecurityEventObjectDetailComponent parseSecurityEventSecurityEventObjectDetailComponent(XmlPullParser xpp, SecurityEvent owner) throws Exception {
     SecurityEvent.SecurityEventObjectDetailComponent res = new SecurityEvent.SecurityEventObjectDetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7142,7 +7114,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Slot parseSlot(XmlPullParser xpp) throws Exception {
+  protected Slot parseSlot(XmlPullParser xpp) throws Exception {
     Slot res = new Slot();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7174,7 +7146,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Specimen parseSpecimen(XmlPullParser xpp) throws Exception {
+  protected Specimen parseSpecimen(XmlPullParser xpp) throws Exception {
     Specimen res = new Specimen();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7206,7 +7178,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Specimen.SpecimenSourceComponent parseSpecimenSpecimenSourceComponent(XmlPullParser xpp, Specimen owner) throws Exception {
+  protected Specimen.SpecimenSourceComponent parseSpecimenSpecimenSourceComponent(XmlPullParser xpp, Specimen owner) throws Exception {
     Specimen.SpecimenSourceComponent res = new Specimen.SpecimenSourceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7224,7 +7196,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Specimen.SpecimenCollectionComponent parseSpecimenSpecimenCollectionComponent(XmlPullParser xpp, Specimen owner) throws Exception {
+  protected Specimen.SpecimenCollectionComponent parseSpecimenSpecimenCollectionComponent(XmlPullParser xpp, Specimen owner) throws Exception {
     Specimen.SpecimenCollectionComponent res = new Specimen.SpecimenCollectionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7250,7 +7222,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Specimen.SpecimenTreatmentComponent parseSpecimenSpecimenTreatmentComponent(XmlPullParser xpp, Specimen owner) throws Exception {
+  protected Specimen.SpecimenTreatmentComponent parseSpecimenSpecimenTreatmentComponent(XmlPullParser xpp, Specimen owner) throws Exception {
     Specimen.SpecimenTreatmentComponent res = new Specimen.SpecimenTreatmentComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7270,7 +7242,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Specimen.SpecimenContainerComponent parseSpecimenSpecimenContainerComponent(XmlPullParser xpp, Specimen owner) throws Exception {
+  protected Specimen.SpecimenContainerComponent parseSpecimenSpecimenContainerComponent(XmlPullParser xpp, Specimen owner) throws Exception {
     Specimen.SpecimenContainerComponent res = new Specimen.SpecimenContainerComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7296,7 +7268,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private StatusRequest parseStatusRequest(XmlPullParser xpp) throws Exception {
+  protected StatusRequest parseStatusRequest(XmlPullParser xpp) throws Exception {
     StatusRequest res = new StatusRequest();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7318,12 +7290,8 @@ public class XmlParser extends XmlParserBase {
         res.setOrganization(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.setRequestIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("response")) {
         res.setResponse(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("responseIdentifier")) {
-        res.setResponseIdentifier(parseIdentifier(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -7332,7 +7300,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private StatusResponse parseStatusResponse(XmlPullParser xpp) throws Exception {
+  protected StatusResponse parseStatusResponse(XmlPullParser xpp) throws Exception {
     StatusResponse res = new StatusResponse();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7342,8 +7310,6 @@ public class XmlParser extends XmlParserBase {
         res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.getRequestIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("outcome")) {
         res.setOutcome(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("disposition")) {
@@ -7374,7 +7340,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private StatusResponse.StatusResponseNotesComponent parseStatusResponseStatusResponseNotesComponent(XmlPullParser xpp, StatusResponse owner) throws Exception {
+  protected StatusResponse.StatusResponseNotesComponent parseStatusResponseStatusResponseNotesComponent(XmlPullParser xpp, StatusResponse owner) throws Exception {
     StatusResponse.StatusResponseNotesComponent res = new StatusResponse.StatusResponseNotesComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7392,7 +7358,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Subscription parseSubscription(XmlPullParser xpp) throws Exception {
+  protected Subscription parseSubscription(XmlPullParser xpp) throws Exception {
     Subscription res = new Subscription();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7422,7 +7388,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Subscription.SubscriptionChannelComponent parseSubscriptionSubscriptionChannelComponent(XmlPullParser xpp, Subscription owner) throws Exception {
+  protected Subscription.SubscriptionChannelComponent parseSubscriptionSubscriptionChannelComponent(XmlPullParser xpp, Subscription owner) throws Exception {
     Subscription.SubscriptionChannelComponent res = new Subscription.SubscriptionChannelComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7444,7 +7410,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Subscription.SubscriptionTagComponent parseSubscriptionSubscriptionTagComponent(XmlPullParser xpp, Subscription owner) throws Exception {
+  protected Subscription.SubscriptionTagComponent parseSubscriptionSubscriptionTagComponent(XmlPullParser xpp, Subscription owner) throws Exception {
     Subscription.SubscriptionTagComponent res = new Subscription.SubscriptionTagComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7464,7 +7430,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Substance parseSubstance(XmlPullParser xpp) throws Exception {
+  protected Substance parseSubstance(XmlPullParser xpp) throws Exception {
     Substance res = new Substance();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7486,7 +7452,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Substance.SubstanceInstanceComponent parseSubstanceSubstanceInstanceComponent(XmlPullParser xpp, Substance owner) throws Exception {
+  protected Substance.SubstanceInstanceComponent parseSubstanceSubstanceInstanceComponent(XmlPullParser xpp, Substance owner) throws Exception {
     Substance.SubstanceInstanceComponent res = new Substance.SubstanceInstanceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7506,7 +7472,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Substance.SubstanceIngredientComponent parseSubstanceSubstanceIngredientComponent(XmlPullParser xpp, Substance owner) throws Exception {
+  protected Substance.SubstanceIngredientComponent parseSubstanceSubstanceIngredientComponent(XmlPullParser xpp, Substance owner) throws Exception {
     Substance.SubstanceIngredientComponent res = new Substance.SubstanceIngredientComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7524,7 +7490,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Supply parseSupply(XmlPullParser xpp) throws Exception {
+  protected Supply parseSupply(XmlPullParser xpp) throws Exception {
     Supply res = new Supply();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7550,7 +7516,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private Supply.SupplyDispenseComponent parseSupplySupplyDispenseComponent(XmlPullParser xpp, Supply owner) throws Exception {
+  protected Supply.SupplyDispenseComponent parseSupplySupplyDispenseComponent(XmlPullParser xpp, Supply owner) throws Exception {
     Supply.SupplyDispenseComponent res = new Supply.SupplyDispenseComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7584,7 +7550,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SupportingDocumentation parseSupportingDocumentation(XmlPullParser xpp) throws Exception {
+  protected SupportingDocumentation parseSupportingDocumentation(XmlPullParser xpp) throws Exception {
     SupportingDocumentation res = new SupportingDocumentation();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7604,12 +7570,8 @@ public class XmlParser extends XmlParserBase {
         res.setProvider(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("organization")) {
         res.setOrganization(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requestIdentifier")) {
-        res.setRequestIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("request")) {
         res.setRequest(parseReference(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("responseIdentifier")) {
-        res.setResponseIdentifier(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("response")) {
         res.setResponse(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("author")) {
@@ -7626,7 +7588,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private SupportingDocumentation.SupportingDocumentationDetailComponent parseSupportingDocumentationSupportingDocumentationDetailComponent(XmlPullParser xpp, SupportingDocumentation owner) throws Exception {
+  protected SupportingDocumentation.SupportingDocumentationDetailComponent parseSupportingDocumentationSupportingDocumentationDetailComponent(XmlPullParser xpp, SupportingDocumentation owner) throws Exception {
     SupportingDocumentation.SupportingDocumentationDetailComponent res = new SupportingDocumentation.SupportingDocumentationDetailComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7646,7 +7608,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet parseValueSet(XmlPullParser xpp) throws Exception {
+  protected ValueSet parseValueSet(XmlPullParser xpp) throws Exception {
     ValueSet res = new ValueSet();
     parseDomainResourceAttributes(xpp, res);
     next(xpp);
@@ -7694,7 +7656,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetDefineComponent parseValueSetValueSetDefineComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ValueSetDefineComponent res = new ValueSet.ValueSetDefineComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7716,7 +7678,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ConceptDefinitionComponent parseValueSetConceptDefinitionComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptDefinitionComponent parseValueSetConceptDefinitionComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ConceptDefinitionComponent res = new ValueSet.ConceptDefinitionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7742,7 +7704,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ConceptDefinitionDesignationComponent parseValueSetConceptDefinitionDesignationComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptDefinitionDesignationComponent parseValueSetConceptDefinitionDesignationComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ConceptDefinitionDesignationComponent res = new ValueSet.ConceptDefinitionDesignationComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7762,7 +7724,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetComposeComponent parseValueSetValueSetComposeComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetComposeComponent parseValueSetValueSetComposeComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ValueSetComposeComponent res = new ValueSet.ValueSetComposeComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7782,7 +7744,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ConceptSetComponent parseValueSetConceptSetComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptSetComponent parseValueSetConceptSetComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ConceptSetComponent res = new ValueSet.ConceptSetComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7804,7 +7766,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ConceptReferenceComponent parseValueSetConceptReferenceComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptReferenceComponent parseValueSetConceptReferenceComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ConceptReferenceComponent res = new ValueSet.ConceptReferenceComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7824,7 +7786,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ConceptSetFilterComponent parseValueSetConceptSetFilterComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ConceptSetFilterComponent parseValueSetConceptSetFilterComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ConceptSetFilterComponent res = new ValueSet.ConceptSetFilterComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7844,7 +7806,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetExpansionComponent parseValueSetValueSetExpansionComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetExpansionComponent parseValueSetValueSetExpansionComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ValueSetExpansionComponent res = new ValueSet.ValueSetExpansionComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -7864,7 +7826,7 @@ public class XmlParser extends XmlParserBase {
     return res;
   }
 
-  private ValueSet.ValueSetExpansionContainsComponent parseValueSetValueSetExpansionContainsComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
+  protected ValueSet.ValueSetExpansionContainsComponent parseValueSetValueSetExpansionContainsComponent(XmlPullParser xpp, ValueSet owner) throws Exception {
     ValueSet.ValueSetExpansionContainsComponent res = new ValueSet.ValueSetExpansionContainsComponent();
     parseBackboneAttributes(xpp, res);
     next(xpp);
@@ -8670,20 +8632,20 @@ public class XmlParser extends XmlParserBase {
       return true;
     return false;
   }
-  private void composeElementElements(Element element) throws Exception {
+  protected void composeElementElements(Element element) throws Exception {
     for (Extension e : element.getExtension()) {
       composeExtension("extension", e);
     }
   }
 
-  private void composeBackboneElements(BackboneElement element) throws Exception {
+  protected void composeBackboneElements(BackboneElement element) throws Exception {
     composeElementElements(element);
     for (Extension e : element.getModifierExtension()) {
       composeExtension("modifierExtension", e);
     }
   }
 
-  private <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {
+  protected <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8695,7 +8657,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeInteger(String name, IntegerType value) throws Exception {
+  protected void composeInteger(String name, IntegerType value) throws Exception {
     if (value != null) {
       composeElementAttributes(value);
         xml.attribute("value", toString(value.getValue()));
@@ -8706,7 +8668,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeDateTime(String name, DateTimeType value) throws Exception {
+  protected void composeDateTime(String name, DateTimeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8718,7 +8680,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeCode(String name, CodeType value) throws Exception {
+  protected void composeCode(String name, CodeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8730,7 +8692,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeDate(String name, DateType value) throws Exception {
+  protected void composeDate(String name, DateType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8742,7 +8704,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeDecimal(String name, DecimalType value) throws Exception {
+  protected void composeDecimal(String name, DecimalType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8754,7 +8716,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeUri(String name, UriType value) throws Exception {
+  protected void composeUri(String name, UriType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8766,7 +8728,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeId(String name, IdType value) throws Exception {
+  protected void composeId(String name, IdType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8778,7 +8740,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeBase64Binary(String name, Base64BinaryType value) throws Exception {
+  protected void composeBase64Binary(String name, Base64BinaryType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8790,7 +8752,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeTime(String name, TimeType value) throws Exception {
+  protected void composeTime(String name, TimeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8802,7 +8764,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeOid(String name, OidType value) throws Exception {
+  protected void composeOid(String name, OidType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8814,7 +8776,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeString(String name, StringType value) throws Exception {
+  protected void composeString(String name, StringType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8826,7 +8788,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeBoolean(String name, BooleanType value) throws Exception {
+  protected void composeBoolean(String name, BooleanType value) throws Exception {
     if (value != null) {
       composeElementAttributes(value);
         xml.attribute("value", toString(value.getValue()));
@@ -8837,7 +8799,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeUuid(String name, UuidType value) throws Exception {
+  protected void composeUuid(String name, UuidType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8849,7 +8811,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeInstant(String name, InstantType value) throws Exception {
+  protected void composeInstant(String name, InstantType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
@@ -8861,7 +8823,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
-  private void composeExtension(String name, Extension element) throws Exception {
+  protected void composeExtension(String name, Extension element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       if (element.hasUrlElement())
@@ -8874,7 +8836,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNarrative(String name, Narrative element) throws Exception {
+  protected void composeNarrative(String name, Narrative element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8888,7 +8850,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePeriod(String name, Period element) throws Exception {
+  protected void composePeriod(String name, Period element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8903,7 +8865,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCoding(String name, Coding element) throws Exception {
+  protected void composeCoding(String name, Coding element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8930,7 +8892,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeRange(String name, Range element) throws Exception {
+  protected void composeRange(String name, Range element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8945,7 +8907,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuantity(String name, Quantity element) throws Exception {
+  protected void composeQuantity(String name, Quantity element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8968,7 +8930,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAttachment(String name, Attachment element) throws Exception {
+  protected void composeAttachment(String name, Attachment element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -8998,7 +8960,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeRatio(String name, Ratio element) throws Exception {
+  protected void composeRatio(String name, Ratio element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9013,7 +8975,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSampledData(String name, SampledData element) throws Exception {
+  protected void composeSampledData(String name, SampledData element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9043,7 +9005,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeReference(String name, Reference element) throws Exception {
+  protected void composeReference(String name, Reference element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9058,7 +9020,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCodeableConcept(String name, CodeableConcept element) throws Exception {
+  protected void composeCodeableConcept(String name, CodeableConcept element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9074,7 +9036,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeIdentifier(String name, Identifier element) throws Exception {
+  protected void composeIdentifier(String name, Identifier element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9100,7 +9062,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAge(String name, Age element) throws Exception {
+  protected void composeAge(String name, Age element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9123,7 +9085,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCount(String name, Count element) throws Exception {
+  protected void composeCount(String name, Count element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9146,7 +9108,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMoney(String name, Money element) throws Exception {
+  protected void composeMoney(String name, Money element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9169,7 +9131,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDistance(String name, Distance element) throws Exception {
+  protected void composeDistance(String name, Distance element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9192,7 +9154,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDuration(String name, Duration element) throws Exception {
+  protected void composeDuration(String name, Duration element) throws Exception {
     if (element != null) {
       composeTypeAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9215,7 +9177,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinition(String name, ElementDefinition element) throws Exception {
+  protected void composeElementDefinition(String name, ElementDefinition element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9303,7 +9265,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionSlicingComponent(String name, ElementDefinition.ElementDefinitionSlicingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9324,7 +9286,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
+  protected void composeElementDefinitionTypeRefComponent(String name, ElementDefinition.TypeRefComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9342,7 +9304,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionConstraintComponent(String name, ElementDefinition.ElementDefinitionConstraintComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9365,7 +9327,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionBindingComponent(String name, ElementDefinition.ElementDefinitionBindingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9387,7 +9349,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
+  protected void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9402,7 +9364,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeTiming(String name, Timing element) throws Exception {
+  protected void composeTiming(String name, Timing element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9418,7 +9380,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
+  protected void composeTimingTimingRepeatComponent(String name, Timing.TimingRepeatComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9443,7 +9405,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAddress(String name, Address element) throws Exception {
+  protected void composeAddress(String name, Address element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9476,7 +9438,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeHumanName(String name, HumanName element) throws Exception {
+  protected void composeHumanName(String name, HumanName element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9509,7 +9471,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContactPoint(String name, ContactPoint element) throws Exception {
+  protected void composeContactPoint(String name, ContactPoint element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9528,7 +9490,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeParameters(String name, Parameters element) throws Exception {
+  protected void composeParameters(String name, Parameters element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9541,7 +9503,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
+  protected void composeParametersParametersParameterComponent(String name, Parameters.ParametersParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9560,10 +9522,10 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeResourceAttributes(Resource element) throws Exception {
+  protected void composeResourceAttributes(Resource element) throws Exception {
   }
 
-  private void composeResourceElements(Resource element) throws Exception {
+  protected void composeResourceElements(Resource element) throws Exception {
       if (element.hasIdElement()) {
         composeId("id", element.getIdElement());
       }
@@ -9578,7 +9540,7 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
-  private void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception {
+  protected void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9605,11 +9567,11 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDomainResourceAttributes(DomainResource element) throws Exception {
+  protected void composeDomainResourceAttributes(DomainResource element) throws Exception {
     composeResourceAttributes(element);
   }
 
-  private void composeDomainResourceElements(DomainResource element) throws Exception {
+  protected void composeDomainResourceElements(DomainResource element) throws Exception {
     composeResourceElements(element);
       if (element.hasText()) {
         composeNarrative("text", element.getText());
@@ -9631,7 +9593,7 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
-  private void composeAlert(String name, Alert element) throws Exception {
+  protected void composeAlert(String name, Alert element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9658,7 +9620,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAllergyIntolerance(String name, AllergyIntolerance element) throws Exception {
+  protected void composeAllergyIntolerance(String name, AllergyIntolerance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9701,7 +9663,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
+  protected void composeAllergyIntoleranceAllergyIntoleranceEventComponent(String name, AllergyIntolerance.AllergyIntoleranceEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9736,7 +9698,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAppointment(String name, Appointment element) throws Exception {
+  protected void composeAppointment(String name, Appointment element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9793,7 +9755,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
+  protected void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9813,7 +9775,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
+  protected void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9854,7 +9816,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeAvailability(String name, Availability element) throws Exception {
+  protected void composeAvailability(String name, Availability element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9883,7 +9845,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBasic(String name, Basic element) throws Exception {
+  protected void composeBasic(String name, Basic element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9908,7 +9870,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBinary(String name, Binary element) throws Exception {
+  protected void composeBinary(String name, Binary element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9923,7 +9885,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBundle(String name, Bundle element) throws Exception {
+  protected void composeBundle(String name, Bundle element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9951,7 +9913,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBundleBundleLinkComponent(String name, Bundle.BundleLinkComponent element) throws Exception {
+  protected void composeBundleBundleLinkComponent(String name, Bundle.BundleLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9966,7 +9928,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
+  protected void composeBundleBundleEntryComponent(String name, Bundle.BundleEntryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -9994,7 +9956,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
+  protected void composeBundleBundleEntryDeletedComponent(String name, Bundle.BundleEntryDeletedComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10015,7 +9977,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCarePlan(String name, CarePlan element) throws Exception {
+  protected void composeCarePlan(String name, CarePlan element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10058,7 +10020,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws Exception {
+  protected void composeCarePlanCarePlanParticipantComponent(String name, CarePlan.CarePlanParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10073,7 +10035,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanGoalComponent(String name, CarePlan.CarePlanGoalComponent element) throws Exception {
+  protected void composeCarePlanCarePlanGoalComponent(String name, CarePlan.CarePlanGoalComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10094,7 +10056,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanActivityComponent(String name, CarePlan.CarePlanActivityComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivityComponent(String name, CarePlan.CarePlanActivityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10125,7 +10087,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCarePlanCarePlanActivitySimpleComponent(String name, CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
+  protected void composeCarePlanCarePlanActivitySimpleComponent(String name, CarePlan.CarePlanActivitySimpleComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10160,7 +10122,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponse(String name, ClaimResponse element) throws Exception {
+  protected void composeClaimResponse(String name, ClaimResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10171,10 +10133,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasRequestIdentifier()) { 
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier("requestIdentifier", e);
       }
       if (element.hasRuleset()) {
         composeCoding("ruleset", element.getRuleset());
@@ -10252,7 +10210,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
+  protected void composeClaimResponseItemsComponent(String name, ClaimResponse.ItemsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10276,7 +10234,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseItemAdjudicationComponent(String name, ClaimResponse.ItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10294,7 +10252,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
+  protected void composeClaimResponseItemDetailComponent(String name, ClaimResponse.ItemDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10314,7 +10272,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseDetailAdjudicationComponent(String name, ClaimResponse.DetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10332,7 +10290,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
+  protected void composeClaimResponseItemSubdetailComponent(String name, ClaimResponse.ItemSubdetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10348,7 +10306,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseSubdetailAdjudicationComponent(String name, ClaimResponse.SubdetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10366,7 +10324,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemComponent(String name, ClaimResponse.AddedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10397,7 +10355,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemAdjudicationComponent(String name, ClaimResponse.AddedItemAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10415,7 +10373,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemsDetailComponent(String name, ClaimResponse.AddedItemsDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10434,7 +10392,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
+  protected void composeClaimResponseAddedItemDetailAdjudicationComponent(String name, ClaimResponse.AddedItemDetailAdjudicationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10452,7 +10410,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
+  protected void composeClaimResponseErrorsComponent(String name, ClaimResponse.ErrorsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10473,7 +10431,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
+  protected void composeClaimResponseNotesComponent(String name, ClaimResponse.NotesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10491,7 +10449,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
+  protected void composeCommunicationRequest(String name, CommunicationRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10548,7 +10506,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCommunicationRequestCommunicationRequestMessagePartComponent(String name, CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
+  protected void composeCommunicationRequestCommunicationRequestMessagePartComponent(String name, CommunicationRequest.CommunicationRequestMessagePartComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10559,7 +10517,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeComposition(String name, Composition element) throws Exception {
+  protected void composeComposition(String name, Composition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10613,7 +10571,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCompositionCompositionAttesterComponent(String name, Composition.CompositionAttesterComponent element) throws Exception {
+  protected void composeCompositionCompositionAttesterComponent(String name, Composition.CompositionAttesterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10631,7 +10589,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCompositionCompositionEventComponent(String name, Composition.CompositionEventComponent element) throws Exception {
+  protected void composeCompositionCompositionEventComponent(String name, Composition.CompositionEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10651,7 +10609,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCompositionSectionComponent(String name, Composition.SectionComponent element) throws Exception {
+  protected void composeCompositionSectionComponent(String name, Composition.SectionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10673,7 +10631,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConceptMap(String name, ConceptMap element) throws Exception {
+  protected void composeConceptMap(String name, ConceptMap element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10720,7 +10678,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10743,7 +10701,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
+  protected void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10761,7 +10719,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
+  protected void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10785,7 +10743,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCondition(String name, Condition element) throws Exception {
+  protected void composeCondition(String name, Condition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10850,7 +10808,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws Exception {
+  protected void composeConditionConditionStageComponent(String name, Condition.ConditionStageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10866,7 +10824,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConditionConditionEvidenceComponent(String name, Condition.ConditionEvidenceComponent element) throws Exception {
+  protected void composeConditionConditionEvidenceComponent(String name, Condition.ConditionEvidenceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10882,7 +10840,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConditionConditionLocationComponent(String name, Condition.ConditionLocationComponent element) throws Exception {
+  protected void composeConditionConditionLocationComponent(String name, Condition.ConditionLocationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10897,7 +10855,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConditionConditionDueToComponent(String name, Condition.ConditionDueToComponent element) throws Exception {
+  protected void composeConditionConditionDueToComponent(String name, Condition.ConditionDueToComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10912,7 +10870,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConditionConditionOccurredFollowingComponent(String name, Condition.ConditionOccurredFollowingComponent element) throws Exception {
+  protected void composeConditionConditionOccurredFollowingComponent(String name, Condition.ConditionOccurredFollowingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10927,7 +10885,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformance(String name, Conformance element) throws Exception {
+  protected void composeConformance(String name, Conformance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -10995,7 +10953,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceSoftwareComponent(String name, Conformance.ConformanceSoftwareComponent element) throws Exception {
+  protected void composeConformanceConformanceSoftwareComponent(String name, Conformance.ConformanceSoftwareComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11013,7 +10971,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceImplementationComponent(String name, Conformance.ConformanceImplementationComponent element) throws Exception {
+  protected void composeConformanceConformanceImplementationComponent(String name, Conformance.ConformanceImplementationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11028,7 +10986,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestComponent(String name, Conformance.ConformanceRestComponent element) throws Exception {
+  protected void composeConformanceConformanceRestComponent(String name, Conformance.ConformanceRestComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11061,7 +11019,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestSecurityComponent(String name, Conformance.ConformanceRestSecurityComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityComponent(String name, Conformance.ConformanceRestSecurityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11084,7 +11042,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestSecurityCertificateComponent(String name, Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
+  protected void composeConformanceConformanceRestSecurityCertificateComponent(String name, Conformance.ConformanceRestSecurityCertificateComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11099,7 +11057,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestResourceComponent(String name, Conformance.ConformanceRestResourceComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceComponent(String name, Conformance.ConformanceRestResourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11134,7 +11092,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceResourceInteractionComponent(String name, Conformance.ResourceInteractionComponent element) throws Exception {
+  protected void composeConformanceResourceInteractionComponent(String name, Conformance.ResourceInteractionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11148,7 +11106,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestResourceSearchParamComponent(String name, Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
+  protected void composeConformanceConformanceRestResourceSearchParamComponent(String name, Conformance.ConformanceRestResourceSearchParamComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11176,7 +11134,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceSystemInteractionComponent(String name, Conformance.SystemInteractionComponent element) throws Exception {
+  protected void composeConformanceSystemInteractionComponent(String name, Conformance.SystemInteractionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11190,7 +11148,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
+  protected void composeConformanceConformanceRestOperationComponent(String name, Conformance.ConformanceRestOperationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11205,7 +11163,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceMessagingComponent(String name, Conformance.ConformanceMessagingComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingComponent(String name, Conformance.ConformanceMessagingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11227,7 +11185,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceMessagingEventComponent(String name, Conformance.ConformanceMessagingEventComponent element) throws Exception {
+  protected void composeConformanceConformanceMessagingEventComponent(String name, Conformance.ConformanceMessagingEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11259,7 +11217,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeConformanceConformanceDocumentComponent(String name, Conformance.ConformanceDocumentComponent element) throws Exception {
+  protected void composeConformanceConformanceDocumentComponent(String name, Conformance.ConformanceDocumentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11276,13 +11234,14 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContract(String name, Contract element) throws Exception {
+  protected void composeContract(String name, Contract element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasSubject()) { 
         for (Reference e : element.getSubject()) 
@@ -11361,7 +11320,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContractContractSignerComponent(String name, Contract.ContractSignerComponent element) throws Exception {
+  protected void composeContractContractSignerComponent(String name, Contract.ContractSignerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11376,7 +11335,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
+  protected void composeContractContractTermComponent(String name, Contract.ContractTermComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11400,7 +11359,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContraindication(String name, Contraindication element) throws Exception {
+  protected void composeContraindication(String name, Contraindication element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11441,7 +11400,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeContraindicationContraindicationMitigationComponent(String name, Contraindication.ContraindicationMitigationComponent element) throws Exception {
+  protected void composeContraindicationContraindicationMitigationComponent(String name, Contraindication.ContraindicationMitigationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11459,7 +11418,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeCoverage(String name, Coverage element) throws Exception {
+  protected void composeCoverage(String name, Coverage element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11473,8 +11432,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasType()) {
         composeCoding("type", element.getType());
       }
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasGroupElement()) {
         composeString("group", element.getGroupElement());
@@ -11505,7 +11465,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDataElement(String name, DataElement element) throws Exception {
+  protected void composeDataElement(String name, DataElement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11577,7 +11537,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDataElementDataElementBindingComponent(String name, DataElement.DataElementBindingComponent element) throws Exception {
+  protected void composeDataElementDataElementBindingComponent(String name, DataElement.DataElementBindingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11597,7 +11557,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDataElementDataElementMappingComponent(String name, DataElement.DataElementMappingComponent element) throws Exception {
+  protected void composeDataElementDataElementMappingComponent(String name, DataElement.DataElementMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11618,7 +11578,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDevice(String name, Device element) throws Exception {
+  protected void composeDevice(String name, Device element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11668,7 +11628,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
+  protected void composeDeviceComponent(String name, DeviceComponent element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11708,7 +11668,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
+  protected void composeDeviceComponentDeviceComponentProductionSpecificationComponent(String name, DeviceComponent.DeviceComponentProductionSpecificationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11726,7 +11686,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
+  protected void composeDeviceUseRequest(String name, DeviceUseRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11778,7 +11738,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
+  protected void composeDeviceUseStatement(String name, DeviceUseStatement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11817,7 +11777,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
+  protected void composeDiagnosticOrder(String name, DiagnosticOrder element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11862,7 +11822,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderEventComponent(String name, DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderEventComponent(String name, DiagnosticOrder.DiagnosticOrderEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11882,7 +11842,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDiagnosticOrderDiagnosticOrderItemComponent(String name, DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
+  protected void composeDiagnosticOrderDiagnosticOrderItemComponent(String name, DiagnosticOrder.DiagnosticOrderItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11907,7 +11867,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDiagnosticReport(String name, DiagnosticReport element) throws Exception {
+  protected void composeDiagnosticReport(String name, DiagnosticReport element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11969,7 +11929,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDiagnosticReportDiagnosticReportImageComponent(String name, DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
+  protected void composeDiagnosticReportDiagnosticReportImageComponent(String name, DiagnosticReport.DiagnosticReportImageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -11984,7 +11944,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentManifest(String name, DocumentManifest element) throws Exception {
+  protected void composeDocumentManifest(String name, DocumentManifest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12036,7 +11996,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentReference(String name, DocumentReference element) throws Exception {
+  protected void composeDocumentReference(String name, DocumentReference element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12121,7 +12081,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceRelatesToComponent(String name, DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceRelatesToComponent(String name, DocumentReference.DocumentReferenceRelatesToComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12135,7 +12095,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceComponent(String name, DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceComponent(String name, DocumentReference.DocumentReferenceServiceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12154,7 +12114,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceServiceParameterComponent(String name, DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceServiceParameterComponent(String name, DocumentReference.DocumentReferenceServiceParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12169,7 +12129,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeDocumentReferenceDocumentReferenceContextComponent(String name, DocumentReference.DocumentReferenceContextComponent element) throws Exception {
+  protected void composeDocumentReferenceDocumentReferenceContextComponent(String name, DocumentReference.DocumentReferenceContextComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12188,7 +12148,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEligibility(String name, Eligibility element) throws Exception {
+  protected void composeEligibility(String name, Eligibility element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12219,7 +12179,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEligibilityResponse(String name, EligibilityResponse element) throws Exception {
+  protected void composeEligibilityResponse(String name, EligibilityResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12230,10 +12190,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasRequestIdentifier()) { 
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier("requestIdentifier", e);
       }
       if (element.hasOutcomeElement())
         composeEnumeration("outcome", element.getOutcomeElement(), new EligibilityResponse.RSLinkEnumFactory());
@@ -12262,7 +12218,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEncounter(String name, Encounter element) throws Exception {
+  protected void composeEncounter(String name, Encounter element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12321,7 +12277,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEncounterEncounterParticipantComponent(String name, Encounter.EncounterParticipantComponent element) throws Exception {
+  protected void composeEncounterEncounterParticipantComponent(String name, Encounter.EncounterParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12337,7 +12293,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEncounterEncounterHospitalizationComponent(String name, Encounter.EncounterHospitalizationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationComponent(String name, Encounter.EncounterHospitalizationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12385,7 +12341,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEncounterEncounterHospitalizationAccomodationComponent(String name, Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
+  protected void composeEncounterEncounterHospitalizationAccomodationComponent(String name, Encounter.EncounterHospitalizationAccomodationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12400,7 +12356,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEncounterEncounterLocationComponent(String name, Encounter.EncounterLocationComponent element) throws Exception {
+  protected void composeEncounterEncounterLocationComponent(String name, Encounter.EncounterLocationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12415,7 +12371,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEnrollment(String name, Enrollment element) throws Exception {
+  protected void composeEnrollment(String name, Enrollment element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12455,7 +12411,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeEnrollmentResponse(String name, EnrollmentResponse element) throws Exception {
+  protected void composeEnrollmentResponse(String name, EnrollmentResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12466,10 +12422,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasRequestIdentifier()) { 
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier("requestIdentifier", e);
       }
       if (element.hasOutcomeElement())
         composeEnumeration("outcome", element.getOutcomeElement(), new EnrollmentResponse.RSLinkEnumFactory());
@@ -12498,7 +12450,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeExplanationOfBenefit(String name, ExplanationOfBenefit element) throws Exception {
+  protected void composeExplanationOfBenefit(String name, ExplanationOfBenefit element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12509,10 +12461,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasRequestIdentifier()) { 
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier("requestIdentifier", e);
       }
       if (element.hasOutcomeElement())
         composeEnumeration("outcome", element.getOutcomeElement(), new ExplanationOfBenefit.RSLinkEnumFactory());
@@ -12541,7 +12489,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeExtensionDefinition(String name, ExtensionDefinition element) throws Exception {
+  protected void composeExtensionDefinition(String name, ExtensionDefinition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12602,7 +12550,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeExtensionDefinitionExtensionDefinitionMappingComponent(String name, ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
+  protected void composeExtensionDefinitionExtensionDefinitionMappingComponent(String name, ExtensionDefinition.ExtensionDefinitionMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12623,7 +12571,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeFamilyHistory(String name, FamilyHistory element) throws Exception {
+  protected void composeFamilyHistory(String name, FamilyHistory element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12649,7 +12597,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationComponent(String name, FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationComponent(String name, FamilyHistory.FamilyHistoryRelationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12677,7 +12625,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeFamilyHistoryFamilyHistoryRelationConditionComponent(String name, FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
+  protected void composeFamilyHistoryFamilyHistoryRelationConditionComponent(String name, FamilyHistory.FamilyHistoryRelationConditionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12697,7 +12645,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeGroup(String name, Group element) throws Exception {
+  protected void composeGroup(String name, Group element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12731,7 +12679,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeGroupGroupCharacteristicComponent(String name, Group.GroupCharacteristicComponent element) throws Exception {
+  protected void composeGroupGroupCharacteristicComponent(String name, Group.GroupCharacteristicComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12748,7 +12696,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeHealthcareService(String name, HealthcareService element) throws Exception {
+  protected void composeHealthcareService(String name, HealthcareService element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12845,7 +12793,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
+  protected void composeHealthcareServiceServiceTypeComponent(String name, HealthcareService.ServiceTypeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12861,7 +12809,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceAvailableTimeComponent(String name, HealthcareService.HealthcareServiceAvailableTimeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12883,7 +12831,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
+  protected void composeHealthcareServiceHealthcareServiceNotAvailableTimeComponent(String name, HealthcareService.HealthcareServiceNotAvailableTimeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12901,7 +12849,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImagingStudy(String name, ImagingStudy element) throws Exception {
+  protected void composeImagingStudy(String name, ImagingStudy element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -12964,7 +12912,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesComponent(String name, ImagingStudy.ImagingStudySeriesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13002,7 +12950,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
+  protected void composeImagingStudyImagingStudySeriesInstanceComponent(String name, ImagingStudy.ImagingStudySeriesInstanceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13032,7 +12980,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunization(String name, Immunization element) throws Exception {
+  protected void composeImmunization(String name, Immunization element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13098,7 +13046,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationExplanationComponent(String name, Immunization.ImmunizationExplanationComponent element) throws Exception {
+  protected void composeImmunizationImmunizationExplanationComponent(String name, Immunization.ImmunizationExplanationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13115,7 +13063,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationReactionComponent(String name, Immunization.ImmunizationReactionComponent element) throws Exception {
+  protected void composeImmunizationImmunizationReactionComponent(String name, Immunization.ImmunizationReactionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13133,7 +13081,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationImmunizationVaccinationProtocolComponent(String name, Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
+  protected void composeImmunizationImmunizationVaccinationProtocolComponent(String name, Immunization.ImmunizationVaccinationProtocolComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13166,7 +13114,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationRecommendation(String name, ImmunizationRecommendation element) throws Exception {
+  protected void composeImmunizationRecommendation(String name, ImmunizationRecommendation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13186,7 +13134,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13222,7 +13170,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationDateCriterionComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13237,7 +13185,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
+  protected void composeImmunizationRecommendationImmunizationRecommendationRecommendationProtocolComponent(String name, ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13258,7 +13206,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeList_(String name, List_ element) throws Exception {
+  protected void composeList_(String name, List_ element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13295,7 +13243,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeList_ListEntryComponent(String name, List_.ListEntryComponent element) throws Exception {
+  protected void composeList_ListEntryComponent(String name, List_.ListEntryComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13317,7 +13265,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeLocation(String name, Location element) throws Exception {
+  protected void composeLocation(String name, Location element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13362,7 +13310,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws Exception {
+  protected void composeLocationLocationPositionComponent(String name, Location.LocationPositionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13380,7 +13328,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedia(String name, Media element) throws Exception {
+  protected void composeMedia(String name, Media element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13428,7 +13376,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedication(String name, Medication element) throws Exception {
+  protected void composeMedication(String name, Medication element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13457,7 +13405,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationMedicationProductComponent(String name, Medication.MedicationProductComponent element) throws Exception {
+  protected void composeMedicationMedicationProductComponent(String name, Medication.MedicationProductComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13473,7 +13421,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationMedicationProductIngredientComponent(String name, Medication.MedicationProductIngredientComponent element) throws Exception {
+  protected void composeMedicationMedicationProductIngredientComponent(String name, Medication.MedicationProductIngredientComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13488,7 +13436,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationMedicationPackageComponent(String name, Medication.MedicationPackageComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageComponent(String name, Medication.MedicationPackageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13504,7 +13452,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationMedicationPackageContentComponent(String name, Medication.MedicationPackageContentComponent element) throws Exception {
+  protected void composeMedicationMedicationPackageContentComponent(String name, Medication.MedicationPackageContentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13519,7 +13467,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationAdministration(String name, MedicationAdministration element) throws Exception {
+  protected void composeMedicationAdministration(String name, MedicationAdministration element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13566,7 +13514,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationAdministrationMedicationAdministrationDosageComponent(String name, MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
+  protected void composeMedicationAdministrationMedicationAdministrationDosageComponent(String name, MedicationAdministration.MedicationAdministrationDosageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13597,7 +13545,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationDispense(String name, MedicationDispense element) throws Exception {
+  protected void composeMedicationDispense(String name, MedicationDispense element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13628,7 +13576,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseComponent(String name, MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseComponent(String name, MedicationDispense.MedicationDispenseDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13668,7 +13616,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseDispenseDosageComponent(String name, MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseDispenseDosageComponent(String name, MedicationDispense.MedicationDispenseDispenseDosageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13702,7 +13650,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationDispenseMedicationDispenseSubstitutionComponent(String name, MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
+  protected void composeMedicationDispenseMedicationDispenseSubstitutionComponent(String name, MedicationDispense.MedicationDispenseSubstitutionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13722,7 +13670,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationPrescription(String name, MedicationPrescription element) throws Exception {
+  protected void composeMedicationPrescription(String name, MedicationPrescription element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13764,7 +13712,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(String name, MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(String name, MedicationPrescription.MedicationPrescriptionDosageInstructionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13801,7 +13749,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionDispenseComponent(String name, MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionDispenseComponent(String name, MedicationPrescription.MedicationPrescriptionDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13825,7 +13773,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(String name, MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
+  protected void composeMedicationPrescriptionMedicationPrescriptionSubstitutionComponent(String name, MedicationPrescription.MedicationPrescriptionSubstitutionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13840,7 +13788,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationStatement(String name, MedicationStatement element) throws Exception {
+  protected void composeMedicationStatement(String name, MedicationStatement element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13877,7 +13825,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMedicationStatementMedicationStatementDosageComponent(String name, MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
+  protected void composeMedicationStatementMedicationStatementDosageComponent(String name, MedicationStatement.MedicationStatementDosageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13909,7 +13857,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMessageHeader(String name, MessageHeader element) throws Exception {
+  protected void composeMessageHeader(String name, MessageHeader element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13956,7 +13904,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageHeaderResponseComponent(String name, MessageHeader.MessageHeaderResponseComponent element) throws Exception {
+  protected void composeMessageHeaderMessageHeaderResponseComponent(String name, MessageHeader.MessageHeaderResponseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13973,7 +13921,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageSourceComponent(String name, MessageHeader.MessageSourceComponent element) throws Exception {
+  protected void composeMessageHeaderMessageSourceComponent(String name, MessageHeader.MessageSourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -13997,7 +13945,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeMessageHeaderMessageDestinationComponent(String name, MessageHeader.MessageDestinationComponent element) throws Exception {
+  protected void composeMessageHeaderMessageDestinationComponent(String name, MessageHeader.MessageDestinationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14015,7 +13963,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNamingSystem(String name, NamingSystem element) throws Exception {
+  protected void composeNamingSystem(String name, NamingSystem element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14056,7 +14004,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemUniqueIdComponent(String name, NamingSystem.NamingSystemUniqueIdComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14076,7 +14024,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
+  protected void composeNamingSystemNamingSystemContactComponent(String name, NamingSystem.NamingSystemContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14092,7 +14040,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
+  protected void composeNutritionOrder(String name, NutritionOrder element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14135,7 +14083,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemComponent(String name, NutritionOrder.NutritionOrderItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14158,7 +14106,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietComponent(String name, NutritionOrder.NutritionOrderItemOralDietComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14186,7 +14134,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietNutrientsComponent(String name, NutritionOrder.NutritionOrderItemOralDietNutrientsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14200,7 +14148,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemOralDietTextureComponent(String name, NutritionOrder.NutritionOrderItemOralDietTextureComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14215,7 +14163,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemSupplementComponent(String name, NutritionOrder.NutritionOrderItemSupplementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14234,7 +14182,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
+  protected void composeNutritionOrderNutritionOrderItemEnteralFormulaComponent(String name, NutritionOrder.NutritionOrderItemEnteralFormulaComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14265,7 +14213,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeObservation(String name, Observation element) throws Exception {
+  protected void composeObservation(String name, Observation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14326,7 +14274,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeObservationObservationReferenceRangeComponent(String name, Observation.ObservationReferenceRangeComponent element) throws Exception {
+  protected void composeObservationObservationReferenceRangeComponent(String name, Observation.ObservationReferenceRangeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14350,7 +14298,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeObservationObservationRelatedComponent(String name, Observation.ObservationRelatedComponent element) throws Exception {
+  protected void composeObservationObservationRelatedComponent(String name, Observation.ObservationRelatedComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14364,7 +14312,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
+  protected void composeOperationDefinition(String name, OperationDefinition element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14429,7 +14377,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
+  protected void composeOperationDefinitionOperationDefinitionParameterComponent(String name, OperationDefinition.OperationDefinitionParameterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14458,7 +14406,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
+  protected void composeOperationOutcome(String name, OperationOutcome element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14471,7 +14419,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOperationOutcomeOperationOutcomeIssueComponent(String name, OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
+  protected void composeOperationOutcomeOperationOutcomeIssueComponent(String name, OperationOutcome.OperationOutcomeIssueComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14492,13 +14440,14 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaim(String name, OralHealthClaim element) throws Exception {
+  protected void composeOralHealthClaim(String name, OralHealthClaim element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasRuleset()) {
         composeCoding("ruleset", element.getRuleset());
@@ -14589,7 +14538,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimPayeeComponent(String name, OralHealthClaim.PayeeComponent element) throws Exception {
+  protected void composeOralHealthClaimPayeeComponent(String name, OralHealthClaim.PayeeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14610,7 +14559,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimDiagnosisComponent(String name, OralHealthClaim.DiagnosisComponent element) throws Exception {
+  protected void composeOralHealthClaimDiagnosisComponent(String name, OralHealthClaim.DiagnosisComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14625,7 +14574,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimCoverageComponent(String name, OralHealthClaim.CoverageComponent element) throws Exception {
+  protected void composeOralHealthClaimCoverageComponent(String name, OralHealthClaim.CoverageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14659,7 +14608,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimMissingTeethComponent(String name, OralHealthClaim.MissingTeethComponent element) throws Exception {
+  protected void composeOralHealthClaimMissingTeethComponent(String name, OralHealthClaim.MissingTeethComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14677,7 +14626,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimOrthodonticPlanComponent(String name, OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
+  protected void composeOralHealthClaimOrthodonticPlanComponent(String name, OralHealthClaim.OrthodonticPlanComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14707,7 +14656,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimItemsComponent(String name, OralHealthClaim.ItemsComponent element) throws Exception {
+  protected void composeOralHealthClaimItemsComponent(String name, OralHealthClaim.ItemsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14767,7 +14716,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimDetailComponent(String name, OralHealthClaim.DetailComponent element) throws Exception {
+  protected void composeOralHealthClaimDetailComponent(String name, OralHealthClaim.DetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14807,7 +14756,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimSubDetailComponent(String name, OralHealthClaim.SubDetailComponent element) throws Exception {
+  protected void composeOralHealthClaimSubDetailComponent(String name, OralHealthClaim.SubDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14843,7 +14792,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOralHealthClaimProsthesisComponent(String name, OralHealthClaim.ProsthesisComponent element) throws Exception {
+  protected void composeOralHealthClaimProsthesisComponent(String name, OralHealthClaim.ProsthesisComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14861,7 +14810,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOrder(String name, Order element) throws Exception {
+  protected void composeOrder(String name, Order element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14898,7 +14847,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOrderOrderWhenComponent(String name, Order.OrderWhenComponent element) throws Exception {
+  protected void composeOrderOrderWhenComponent(String name, Order.OrderWhenComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14913,7 +14862,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOrderResponse(String name, OrderResponse element) throws Exception {
+  protected void composeOrderResponse(String name, OrderResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14946,7 +14895,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOrganization(String name, Organization element) throws Exception {
+  protected void composeOrganization(String name, Organization element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -14987,7 +14936,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
+  protected void composeOrganizationOrganizationContactComponent(String name, Organization.OrganizationContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15011,7 +14960,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeOther(String name, Other element) throws Exception {
+  protected void composeOther(String name, Other element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15036,7 +14985,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePatient(String name, Patient element) throws Exception {
+  protected void composePatient(String name, Patient element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15102,7 +15051,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {
+  protected void composePatientContactComponent(String name, Patient.ContactComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15133,7 +15082,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePatientAnimalComponent(String name, Patient.AnimalComponent element) throws Exception {
+  protected void composePatientAnimalComponent(String name, Patient.AnimalComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15151,7 +15100,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
+  protected void composePatientPatientLinkComponent(String name, Patient.PatientLinkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15165,7 +15114,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePendedRequest(String name, PendedRequest element) throws Exception {
+  protected void composePendedRequest(String name, PendedRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15195,9 +15144,6 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasInclude()) { 
         for (StringType e : element.getInclude()) 
           composeString("include", e);
@@ -15210,7 +15156,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePractitioner(String name, Practitioner element) throws Exception {
+  protected void composePractitioner(String name, Practitioner element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15269,7 +15215,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws Exception {
+  protected void composePractitionerPractitionerQualificationComponent(String name, Practitioner.PractitionerQualificationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15291,7 +15237,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProcedure(String name, Procedure element) throws Exception {
+  protected void composeProcedure(String name, Procedure element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15349,7 +15295,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
+  protected void composeProcedureProcedurePerformerComponent(String name, Procedure.ProcedurePerformerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15364,7 +15310,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
+  protected void composeProcedureProcedureRelatedItemComponent(String name, Procedure.ProcedureRelatedItemComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15378,7 +15324,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
+  protected void composeProcedureRequest(String name, ProcedureRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15431,7 +15377,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProfile(String name, Profile element) throws Exception {
+  protected void composeProfile(String name, Profile element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15497,7 +15443,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
+  protected void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15518,7 +15464,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
+  protected void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15531,7 +15477,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProvenance(String name, Provenance element) throws Exception {
+  protected void composeProvenance(String name, Provenance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15571,7 +15517,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
+  protected void composeProvenanceProvenanceAgentComponent(String name, Provenance.ProvenanceAgentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15592,7 +15538,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
+  protected void composeProvenanceProvenanceEntityComponent(String name, Provenance.ProvenanceEntityComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15615,7 +15561,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuery(String name, Query element) throws Exception {
+  protected void composeQuery(String name, Query element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15634,7 +15580,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQueryQueryResponseComponent(String name, Query.QueryResponseComponent element) throws Exception {
+  protected void composeQueryQueryResponseComponent(String name, Query.QueryResponseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15675,7 +15621,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaire(String name, Questionnaire element) throws Exception {
+  protected void composeQuestionnaire(String name, Questionnaire element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15702,7 +15648,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireGroupComponent(String name, Questionnaire.GroupComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15738,7 +15684,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireQuestionComponent(String name, Questionnaire.QuestionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15772,7 +15718,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswers(String name, QuestionnaireAnswers element) throws Exception {
+  protected void composeQuestionnaireAnswers(String name, QuestionnaireAnswers element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15807,7 +15753,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersGroupComponent(String name, QuestionnaireAnswers.GroupComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersGroupComponent(String name, QuestionnaireAnswers.GroupComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15836,7 +15782,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersQuestionComponent(String name, QuestionnaireAnswers.QuestionComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionComponent(String name, QuestionnaireAnswers.QuestionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15859,7 +15805,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeQuestionnaireAnswersQuestionAnswerComponent(String name, QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
+  protected void composeQuestionnaireAnswersQuestionAnswerComponent(String name, QuestionnaireAnswers.QuestionAnswerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15870,7 +15816,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeReferralRequest(String name, ReferralRequest element) throws Exception {
+  protected void composeReferralRequest(String name, ReferralRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15927,7 +15873,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeRelatedPerson(String name, RelatedPerson element) throws Exception {
+  protected void composeRelatedPerson(String name, RelatedPerson element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15962,7 +15908,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeReversal(String name, Reversal element) throws Exception {
+  protected void composeReversal(String name, Reversal element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -15992,14 +15938,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
-      }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
       }
       if (element.hasPayee()) {
         composeReversalPayeeComponent("payee", element.getPayee());
@@ -16014,7 +15954,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeReversalPayeeComponent(String name, Reversal.PayeeComponent element) throws Exception {
+  protected void composeReversalPayeeComponent(String name, Reversal.PayeeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16035,7 +15975,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeReversalReversalCoverageComponent(String name, Reversal.ReversalCoverageComponent element) throws Exception {
+  protected void composeReversalReversalCoverageComponent(String name, Reversal.ReversalCoverageComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16059,7 +15999,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeRiskAssessment(String name, RiskAssessment element) throws Exception {
+  protected void composeRiskAssessment(String name, RiskAssessment element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16097,7 +16037,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeRiskAssessmentRiskAssessmentPredictionComponent(String name, RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
+  protected void composeRiskAssessmentRiskAssessmentPredictionComponent(String name, RiskAssessment.RiskAssessmentPredictionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16119,7 +16059,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSearchParameter(String name, SearchParameter element) throws Exception {
+  protected void composeSearchParameter(String name, SearchParameter element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16159,7 +16099,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEvent(String name, SecurityEvent element) throws Exception {
+  protected void composeSecurityEvent(String name, SecurityEvent element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16182,7 +16122,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventEventComponent(String name, SecurityEvent.SecurityEventEventComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventEventComponent(String name, SecurityEvent.SecurityEventEventComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16208,7 +16148,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventParticipantComponent(String name, SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantComponent(String name, SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16242,7 +16182,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventParticipantNetworkComponent(String name, SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventParticipantNetworkComponent(String name, SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16256,7 +16196,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventSourceComponent(String name, SecurityEvent.SecurityEventSourceComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventSourceComponent(String name, SecurityEvent.SecurityEventSourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16275,7 +16215,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventObjectComponent(String name, SecurityEvent.SecurityEventObjectComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectComponent(String name, SecurityEvent.SecurityEventObjectComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16312,7 +16252,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSecurityEventSecurityEventObjectDetailComponent(String name, SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
+  protected void composeSecurityEventSecurityEventObjectDetailComponent(String name, SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16327,7 +16267,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSlot(String name, Slot element) throws Exception {
+  protected void composeSlot(String name, Slot element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16363,7 +16303,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSpecimen(String name, Specimen element) throws Exception {
+  protected void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16403,7 +16343,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenSourceComponent(String name, Specimen.SpecimenSourceComponent element) throws Exception {
+  protected void composeSpecimenSpecimenSourceComponent(String name, Specimen.SpecimenSourceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16418,7 +16358,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenCollectionComponent(String name, Specimen.SpecimenCollectionComponent element) throws Exception {
+  protected void composeSpecimenSpecimenCollectionComponent(String name, Specimen.SpecimenCollectionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16445,7 +16385,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
+  protected void composeSpecimenSpecimenTreatmentComponent(String name, Specimen.SpecimenTreatmentComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16464,7 +16404,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
+  protected void composeSpecimenSpecimenContainerComponent(String name, Specimen.SpecimenContainerComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16491,7 +16431,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeStatusRequest(String name, StatusRequest element) throws Exception {
+  protected void composeStatusRequest(String name, StatusRequest element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16521,20 +16461,14 @@ public class XmlParser extends XmlParserBase {
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
-      }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
       }
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeStatusResponse(String name, StatusResponse element) throws Exception {
+  protected void composeStatusResponse(String name, StatusResponse element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16545,10 +16479,6 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasRequestIdentifier()) { 
-        for (Identifier e : element.getRequestIdentifier()) 
-          composeIdentifier("requestIdentifier", e);
       }
       if (element.hasOutcome()) {
         composeCoding("outcome", element.getOutcome());
@@ -16589,7 +16519,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeStatusResponseStatusResponseNotesComponent(String name, StatusResponse.StatusResponseNotesComponent element) throws Exception {
+  protected void composeStatusResponseStatusResponseNotesComponent(String name, StatusResponse.StatusResponseNotesComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16604,7 +16534,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubscription(String name, Subscription element) throws Exception {
+  protected void composeSubscription(String name, Subscription element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16638,7 +16568,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16658,7 +16588,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
+  protected void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16676,7 +16606,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubstance(String name, Substance element) throws Exception {
+  protected void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16698,7 +16628,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
+  protected void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16716,7 +16646,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
+  protected void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16731,7 +16661,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSupply(String name, Supply element) throws Exception {
+  protected void composeSupply(String name, Supply element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16758,7 +16688,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
+  protected void composeSupplySupplyDispenseComponent(String name, Supply.SupplyDispenseComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16797,7 +16727,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSupportingDocumentation(String name, SupportingDocumentation element) throws Exception {
+  protected void composeSupportingDocumentation(String name, SupportingDocumentation element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16824,14 +16754,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
-      if (element.hasRequestIdentifier()) {
-        composeIdentifier("requestIdentifier", element.getRequestIdentifier());
-      }
       if (element.hasRequest()) {
         composeReference("request", element.getRequest());
-      }
-      if (element.hasResponseIdentifier()) {
-        composeIdentifier("responseIdentifier", element.getResponseIdentifier());
       }
       if (element.hasResponse()) {
         composeReference("response", element.getResponse());
@@ -16850,7 +16774,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeSupportingDocumentationSupportingDocumentationDetailComponent(String name, SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
+  protected void composeSupportingDocumentationSupportingDocumentationDetailComponent(String name, SupportingDocumentation.SupportingDocumentationDetailComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16867,7 +16791,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSet(String name, ValueSet element) throws Exception {
+  protected void composeValueSet(String name, ValueSet element) throws Exception {
     if (element != null) {
       composeDomainResourceAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16927,7 +16851,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
+  protected void composeValueSetValueSetDefineComponent(String name, ValueSet.ValueSetDefineComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16949,7 +16873,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionComponent(String name, ValueSet.ConceptDefinitionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16978,7 +16902,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
+  protected void composeValueSetConceptDefinitionDesignationComponent(String name, ValueSet.ConceptDefinitionDesignationComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -16996,7 +16920,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws Exception {
+  protected void composeValueSetValueSetComposeComponent(String name, ValueSet.ValueSetComposeComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -17017,7 +16941,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetConceptSetComponent(String name, ValueSet.ConceptSetComponent element) throws Exception {
+  protected void composeValueSetConceptSetComponent(String name, ValueSet.ConceptSetComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -17040,7 +16964,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
+  protected void composeValueSetConceptReferenceComponent(String name, ValueSet.ConceptReferenceComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -17059,7 +16983,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetConceptSetFilterComponent(String name, ValueSet.ConceptSetFilterComponent element) throws Exception {
+  protected void composeValueSetConceptSetFilterComponent(String name, ValueSet.ConceptSetFilterComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -17076,7 +17000,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionComponent(String name, ValueSet.ValueSetExpansionComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
@@ -17095,7 +17019,7 @@ public class XmlParser extends XmlParserBase {
     }
   }
 
-  private void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
+  protected void composeValueSetValueSetExpansionContainsComponent(String name, ValueSet.ValueSetExpansionContainsComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);

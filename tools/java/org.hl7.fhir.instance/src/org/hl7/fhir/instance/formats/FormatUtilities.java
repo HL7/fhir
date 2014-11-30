@@ -31,6 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.math.BigDecimal;
 import java.net.URI;
+
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.DateAndTime;
 

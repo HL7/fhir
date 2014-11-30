@@ -31,13 +31,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.net.URISyntaxException;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
