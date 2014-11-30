@@ -29,8 +29,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-public class Version {
   /** this is the version of the library, as opposed to the version of FHIR */
+public class Version {
   
   /*
    * Version History

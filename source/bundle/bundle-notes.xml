@@ -9,6 +9,34 @@ each entry can also assert it's applicable base if this is different to the over
 <li>Applications reading a bundle should always <a href="references.html#bundle-refs">look for a resource</a> by its identity in the bundle first before trying to access it by its URL.</li>
 </ul>
 
+<h3>Resolving references in Bundles</h3>
+
+<p>
+The <code>id</code> property of a resource is a relative URI. In the case of the RESTful API, the 
+id is relative to the system base URL such that the absolute URI of the resource is:
+</p>
+<pre>
+[base]/[Type]/[id]
+</pre>
+<p>
+When resolving references with in a bundle, the resolution is against the absolute URI. 
+For instance, if a resource with a stated base of http://example.org/fhir has a reference
+with a value of Patient/2341, then it will resolve to a Patient resource with an id of 
+2341 and a base of http://example.org/fhir, which is an absolute URI of 
+http://example.org/fhir/Patient/2341.
+</p>
+<p>
+There is one special case: for a base URI of urn:uuid: or urn:oid:, the absolute 
+URI does not include the type of the resource:
+</p>
+<pre>
+[base][id]
+</pre>
+<p>
+Resources identiifer
+</p>
+
+
 
 
 </div>

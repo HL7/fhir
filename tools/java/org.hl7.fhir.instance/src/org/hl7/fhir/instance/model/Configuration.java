@@ -31,12 +31,12 @@ POSSIBILITY OF SUCH DAMAGE.
 
 /**
  * This class is created to help implementers deal with a change to 
- * the API that was made between versions X and Y.
+ * the API that was made between versions 0.81 and 0.9
  * 
  *  The change is the behaviour of the .getX() where the cardinality of 
  *  x is 0..1 or 1..1. Before the change, these routines would return 
  *  null if the object had not previously been assigned, and after the '
- *  change, they would automatically create the object if it had not 
+ *  change, they will automatically create the object if it had not 
  *  been assigned (unless the object is polymorphic, in which case, 
  *  only the type specific getters create the object)
  *  
@@ -55,7 +55,7 @@ POSSIBILITY OF SUCH DAMAGE.
  * or else one of these two:
  *    
  *    if (obj.getProperty().isEmpty())
- *    if (obj.getProperty().isEmpty())
+ *    if (!obj.getProperty().isEmpty())
  * 
  * The only way to sort this out is by finding all these things 
  * in the code, and changing them. 
