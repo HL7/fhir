@@ -88,11 +88,13 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       generatePrimitiveParser(dc);
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      generateParser(n, JavaGenClass.Structure);
-      String t = upFirst(n.getName());
-      //      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
-      //    regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json);\r\n");
+      if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
+        generateParser(n, JavaGenClass.Structure);
+        String t = upFirst(n.getName());
+        //      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
+        //    regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+        regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json);\r\n");
+      }
     }
 
     for (ElementDefn n : definitions.getTypes().values()) {
@@ -603,9 +605,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       generatePrimitiveComposer(dc);
 
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      generateComposer(n, JavaGenClass.Structure);
-      //      String t = upFirst(n.getName());
-      //      regt.append("    else if (type instanceof "+t+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+t+") type);\r\n");
+      if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
+        generateComposer(n, JavaGenClass.Structure);
+        //      String t = upFirst(n.getName());
+        //      regt.append("    else if (type instanceof "+t+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+t+") type);\r\n");
+      }
     }
 
     for (ElementDefn n : definitions.getTypes().values()) {
@@ -620,9 +624,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
-      generateComposer(n, JavaGenClass.Structure);
-      regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-      regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
+        generateComposer(n, JavaGenClass.Structure);
+        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+        regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
     }
 
     for (String s : definitions.getBaseResources().keySet()) {
@@ -658,8 +662,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElementComposer() throws Exception {
 
     write("  protected void composeElement(Element element) throws Exception {\r\n");
-    write("    if (element.hasElementId())\r\n");
-    write("      prop(\"id\", element.getElementId());\r\n");
+    write("    if (element.hasId())\r\n");
+    write("      prop(\"id\", element.getId());\r\n");
     write("      if (makeComments(element)) {\r\n");
     write("        openArray(\"fhir_comments\");\r\n");
     write("        for (String s : element.getFormatComments())\r\n");
@@ -696,7 +700,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  }    \r\n");
     write("\r\n");
     write("  protected <E extends Enum<E>> void composeEnumerationExtras(String name, Enumeration<E> value, EnumFactory e, boolean inArray) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
     write("      close();\r\n");
@@ -735,7 +739,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("\r\n");
 
     write("  protected void compose"+upFirst(dc.getCode())+"Extras(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || makeComments(value))) {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || makeComments(value))) {\r\n");
     write("      open(inArray ? null : \"_\"+name);\r\n");
     write("      composeElement(value);\r\n");
     write("      close();\r\n");

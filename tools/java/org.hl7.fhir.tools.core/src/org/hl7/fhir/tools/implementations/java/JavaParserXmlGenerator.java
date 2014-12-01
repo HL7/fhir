@@ -84,11 +84,13 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       generatePrimitive(dc);
     
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      generate(n, JavaGenClass.Structure);
-      String t = upFirst(n.getName());
-//      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
-//    regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
+        generate(n, JavaGenClass.Structure);
+        String t = upFirst(n.getName());
+        //      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+t+"(xpp);\r\n");
+        //    regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+        regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      }
     }
     
     for (ElementDefn n : definitions.getTypes().values()) {
@@ -707,7 +709,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       generatePrimitiveComposer(dc);
     
     for (ElementDefn n : definitions.getInfrastructure().values()) {
-      generateComposer(n, JavaGenClass.Structure);
+      if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
+        generateComposer(n, JavaGenClass.Structure);
+      }
     }
     
     for (ElementDefn n : definitions.getTypes().values()) {
@@ -728,9 +732,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
-      generateComposer(n, JavaGenClass.Structure);
-      regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+        generateComposer(n, JavaGenClass.Structure);
+        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+        //      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (String s : definitions.getBaseResources().keySet()) {
@@ -783,7 +787,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private void generateEnumComposer() throws Exception {
     write("  protected <E extends Enum<E>> void composeEnumeration(String name, Enumeration<E> value, EnumFactory e) throws Exception {\r\n");
-    write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {\r\n");
+    write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {\r\n");
     write("      composeElementAttributes(value);\r\n");
     write("      if (value.getValue() != null) \r\n");
     write("        xml.attribute(\"value\", e.toCode(value.getValue()));\r\n");
@@ -803,9 +807,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     if (dc.getCode().equals("integer")  || dc.getCode().equals("boolean"))
       write("    if (value != null) {\r\n");
     else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant") || dc.getCode().equals("date") || dc.getCode().equals("dateTime"))
-      write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || value.getValue() != null)) {\r\n");
+      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {\r\n");
     else
-      write("    if (value != null && (!Utilities.noString(value.getElementId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {\r\n");
+      write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {\r\n");
     write("      composeElementAttributes(value);\r\n");
     if (!dc.getCode().equals("integer") && !dc.getCode().equals("boolean"))
       write("      if (value.getValue() != null) \r\n");

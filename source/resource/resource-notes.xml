@@ -75,7 +75,7 @@ of them may be required in particular implementations.
   <tr>
    <td>security (0..*)</td>
    <td><a href="datatypes.html#Coding">Coding</a></td>
-   <td><a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to 
+   <td><a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to 
     the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</td>
   </tr>
 	
@@ -210,7 +210,7 @@ about the information in the resource. For further information, see
   <li><a href="narrative.html">Narratives</a></li>
   <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
   <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
-  <li><a href="base-definitions.html">Detailed Descriptions</a></li>
+  <li><a href="resource-definitions.html">Detailed Descriptions</a></li>
   <li><a href="compatibility.html">Inter-version Compatibility</a></li>
 </ul>
 

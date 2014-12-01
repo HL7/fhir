@@ -110,8 +110,9 @@ sends the next message - are the easiest to understand and manage. The
 However synchronous message exchange does not cater for multiple response 
 messages, which may arise when processing queries, and also imposes 
 through-put limitations which may become relevant at high volumes. 
-Because of this, other complex message patterns are allowed, though 
-none are described in detail in this specification.
+Additionally, it may not be practical or appropriate to wait for 
+response messages. In these cases, the asynchronous message pattern
+<a href="#async">described below</a> should be used.
 </p>
 
 
@@ -256,55 +257,76 @@ statement is a <a href="conformance.html">resource with the name
 </p>
 
 <a name="mailbox"></a>
-<h2>Mailbox</h2>
+<h2>Mailbox: Synchronous Messaging</h2>
 <p>
-The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a> that accepts 
-messages and processes 
-them as transactions and returns a message response appropriate for the message received. The server is under
-no obligation to do anything particular with the resources except as required by the semantics of the event code in
-the message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
-is not required to do so.</p>
-
-<h3>Submitting query messages and documents</h3>
-<p>
-The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" 
-(the server takes responsibility for custody of the received document) 
-or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document
-except as 
-specific trading partner agreements dictate. In the case of queries, the server receives a bundle containing 
-a query and a set of other related resources, processes the query, and returns a bundle with a query which is a response,
-and any additional resources that are part of the query response.
+The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a>
+that accepts messages and processes them in a synchronous fashion as transactions and returns 
+a message response appropriate for the message received. The server is under no obligation 
+to do anything particular with the resources except as required by the semantics of the 
+event code in the message resource. e.g. In addition to processing the message event, a server 
+may choose to retain all or some the resources and make them available on a RESTful interface, but 
+is not required to do so.
 </p>
-<h3>Result of submission</h3>
-<p>Depending on the semantics of the event code or processing done on the query or document, a server may return 
-a status code 200 OK, 201 Created, 202 Accepted or 204 No Content. If the server returns 200 OK, it SHALL return a 
-bundle with the outcome of the event or document processing. In case of errors, the client SHALL interpret a 
-4xx response to indicate that there is no point resubmitting the message or document, and a 5xx response to indicate 
-an unexpected error on the part of the server, which means that it is worth resubmitting 
-(and doing so should not result in a duplicate message response).  Repeated failures indicate either a
-fatal problem with the submission or a problem with the receiving application.
+<p>
+When processing messages, a server may return a status code of 200 OK, or an process/error code (300+). 
+If the server returns 200 OK, it SHALL return a bundle that is the message response. 
+For any other response code, the message has not been processed. The server MAY return an
+<a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD 
+do so if the response code is 400 or greater.
+The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered 
+message, and a 5xx response to indicate an unexpected error on the part of the server, which means that 
+it is worth resubmitting (and doing so should not result in a duplicate message response).  
+Repeated failures indicate either a fatal problem with the submission or a problem with the 
+receiving application.
 </p>
 <p>
 The following rules apply to the mailbox:
 </p>
 <ul>
  <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
- <li>The request content type submitted is always <a href="extras.html#bundle">a bundle</a> containing a <a href="messageheader.htm">Message Header</a> or <a href="composition.htm">Composition</a> resource as the first resource</li>
- <li>The response content type returned is always an HTTP error, <a href="extras.html#bundle">a bundle</a> containing a Message Header as the first resource, or empty (if a document was received)</li>
+ <li>The request content type submitted is always <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource</li>
+ <li>The response content type returned is always an HTTP error, or <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource</li>
  <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.html">Errors &amp; Warning</a> resource with full details</li> 
  <li>The URL never takes any parameters</li>
  <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
 </ul>
 <p>
-This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages or documents, not just 
-FHIR RESTful servers.
+This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages, not just FHIR RESTful servers.
 </p>
 <p>
 In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and 
-message id described above</a> SHALL be followed when messages are processed using the mailbox. No such rules apply regarding
-documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
-accept multiple document submissions and process them correctly.
+message id described above</a> SHALL be followed when messages are processed using the mailbox. Servers SHALL 
+accept multiple concurrent message submissions and process them correctly.
 </p>
+
+<h2>Asynchronous Messaging</h2>
+<p>
+Asynchronous messaging may be implemented by using the RESTful interface and the Bundle End-point, by following
+this general pattern between "sender" and "receiver" systems, using a "MTA" (message transfer agent):
+</p>
+<ol>
+ <li>The sender constructs a bundle with type message, and a first entry which is a <a href="messageheader.html">Message Header</a> with a known MessageHeader.identifier ("src-id")</li>
+ <li>The sender creates this message on the MTA using it's <a href="bundle.html">Bundle</a> end-point</li>
+ <li>The receiver system is notified of the creation of the message. The receiver can do this by
+   <ul>
+     <li>using the <a href="http.html#history">history</a> operation to track new messages</li>
+     <li><a href="http.html#search">searching</a> the Bundle end-point (e.g. GET [base]/Bundle?message.source.endpoint=http://acme.com/systems/pas to search for messages from the system at endpoint "http://acme.com/systems/pas")</li>
+     <li>Subscribing to bundle updates using the <a href="subscription.html">Subscription</a> resource</li>
+   </ul>
+   In the first 2 approaches, the receiver polls the MTA, and in the 3rd, the MTA pushes the event to the receiver
+ </li>
+ <li>The receiver fetches the message, processes it as specified in the event.code, and builds one or more response messages</li>
+ <li>For each response message, the receiver constructs a bundle with type message, and a first entry which is a <a href="messageheader.html">Message Header</a> with the <i>src-id</i> in MessageHeader.response.identifier</li>
+ <li>When the receiver has finished processing the message, it marks it as processed using the tag ?? and the meta operation (POST to [base]/[type]/[id]/_meta where [id] is MTA id for the source message)</li>
+ <li>The source system can check on the status of messages and track responses using the same approaches as listed above for the receiver system. 
+ For the search mechanism, the operation would be GET [base]/Bundle?message.response-id=[src-id]</li>
+</ol>
+<p>
+The MTA may either be hosted on the the sender, the receiver, or on a 3rd party server.
+</p>
+
+
+
 
 <a name="endpoints"></a>
 <h2>Relationship between Messaging and REST</h2>
@@ -343,7 +365,7 @@ resource has the normal resource end-point (/MessageHeader), which is
 used to manage a set of static message resources. This could be used to 
 make an archive of past messages available. <b>Creating or updating MessageHeader resources
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
-any logic associated with the actual event.</b> It is just for managing a set of message resources.
+any logic associated with the actual event.</b> It is just for managing a set of message header resources.
 </p>
 <p>
 In, addition, as described above, this specification defines the /Mailbox end-point

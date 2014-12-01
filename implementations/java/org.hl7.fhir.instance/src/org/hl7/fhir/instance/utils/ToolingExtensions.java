@@ -37,6 +37,7 @@ import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
@@ -49,7 +50,6 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.Utilities;
-
 
 public class ToolingExtensions {
 
@@ -72,6 +72,9 @@ public class ToolingExtensions {
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
   private static final String EXT_OID = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/oid";
 
+  
+  // specific extension helpers
+  
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
     // todo: write this up and get it published with the pack (and handle the redirect?)
@@ -110,7 +113,7 @@ public class ToolingExtensions {
   }
 
   public static String readStringExtension(Element c, String uri) {
-    Extension ex = c.getExtension(uri);
+    Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return null;
     if (!(ex.getValue() instanceof StringType))
@@ -130,7 +133,7 @@ public class ToolingExtensions {
   }
 
   public static boolean findStringExtension(Element c, String uri) {
-    Extension ex = c.getExtension(uri);
+    Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return false;
     if (!(ex.getValue() instanceof StringType))
@@ -139,7 +142,7 @@ public class ToolingExtensions {
   }
 
   public static String readBooleanExtension(Element c, String uri) {
-    Extension ex = c.getExtension(uri);
+    Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return null;
     if (!(ex.getValue() instanceof BooleanType))
@@ -148,7 +151,7 @@ public class ToolingExtensions {
   }
 
   public static boolean findBooleanExtension(Element c, String uri) {
-    Extension ex = c.getExtension(uri);
+    Extension ex = ExtensionHelper.getExtension(c, uri);
     if (ex == null)
       return false;
     if (!(ex.getValue() instanceof BooleanType))

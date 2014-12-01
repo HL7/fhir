@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using LOINC with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Understanding Profiles</h2>
+
+<!--
+<p>
+Each FHIR resource is a combination of a structure (a set of defined possible elements), and rules about how these structures are used. 
+A typical structure in FHIR might look something like this: 
+</p>
+<p>
+ <i>insert structure</i>
+</p>
+<p>
+The structures all have addition
+
+
+
+A profile is a statement of rules about how an existing structure is used. Generally, structures are defined with explicit rules already, so the general case follows this diagram:
+</p>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="217.4162"
+     inkscape:cy="520"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1418"
+     inkscape:window-x="3512"
+     inkscape:window-y="270"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#aca9c3;stroke:none;stroke-width:0.96579437999999995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;fill-opacity:1"
+       id="rect3932"
+       width="70.744881"
+       height="152.56725"
+       x="271.71396"
+       y="284.62915"
+       ry="0" />
+    <rect
+       style="fill:#e1e0ff;fill-opacity:1;stroke:#000080;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985"
+       width="128.28937"
+       height="120.20815"
+       x="103.03556"
+       y="128.0726"
+       rx="1.9907857"
+       ry="4.1529646" />
+    <rect
+       style="fill:#e1e0ff;fill-opacity:1;stroke:#000080;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect2985-1"
+       width="128.28937"
+       height="120.20815"
+       x="109.60155"
+       y="473.0397"
+       rx="1.9907857"
+       ry="4.1529646" />
+    <rect
+       style="fill:#f5c2c3;fill-opacity:1;stroke:#000080;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3787"
+       width="236.3757"
+       height="114.14724"
+       x="306.07623"
+       y="131.10306"
+       ry="57.07362" />
+    <rect
+       style="fill:#f5c2c3;fill-opacity:1;stroke:#000080;stroke-width:0.83727115;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3787-7"
+       width="236.53844"
+       height="79.964783"
+       x="192.85777"
+       y="310.32373"
+       ry="39.982391" />
+    <rect
+       style="fill:#f5c2c3;fill-opacity:1;stroke:#000080;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3787-4"
+       width="236.3757"
+       height="114.14724"
+       x="324.25894"
+       y="475.06"
+       ry="57.07362" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="120.20815"
+       y="170.49901"
+       id="text3814"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3816"
+         x="120.20815"
+         y="170.49901"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Existing</tspan><tspan
+         sodipodi:role="line"
+         x="120.20815"
+         y="200.49901"
+         id="tspan3818"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Structure</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="373.75644"
+       y="173.52946"
+       id="text3820"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3822"
+         x="373.75644"
+         y="173.52946"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Existing </tspan><tspan
+         sodipodi:role="line"
+         x="373.75644"
+         y="203.52946"
+         id="tspan3824"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Rules</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="278.52771"
+       y="339.70892"
+       id="text3814-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3816-9"
+         x="278.52771"
+         y="339.70892"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">New</tspan><tspan
+         sodipodi:role="line"
+         x="278.52771"
+         y="369.70892"
+         id="tspan3818-4"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Rules</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="143.44167"
+       y="508.90012"
+       id="text3850"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3852"
+         x="143.44167"
+         y="508.90012" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="127.43965"
+       y="517.50165"
+       id="text3814-0-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3816-9-8"
+         x="127.43965"
+         y="517.50165"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Same</tspan><tspan
+         sodipodi:role="line"
+         x="127.43965"
+         y="547.50165"
+         id="tspan3818-4-2"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Structure</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="396.71555"
+       y="520.67267"
+       id="text3814-0-8-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3816-9-8-5"
+         x="396.71555"
+         y="520.67267"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Combined</tspan><tspan
+         sodipodi:role="line"
+         x="396.71555"
+         y="550.67267"
+         id="tspan3818-4-2-5"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Rules</tspan></text>
+    <rect
+       style="fill:none;stroke:#000080;stroke-width:0.95199132;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3906"
+       width="506.13446"
+       height="185.91608"
+       x="65.63591"
+       y="97.744026"
+       ry="0" />
+    <rect
+       style="fill:none;stroke:#000080;stroke-width:0.95199132;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3906-1"
+       width="506.13446"
+       height="185.91608"
+       x="65.130814"
+       y="461.39893"
+       ry="0" />
+    <path
+       sodipodi:type="star"
+       style="fill:#aca9c3;fill-opacity:1;stroke:none"
+       id="path3930"
+       sodipodi:sides="3"
+       sodipodi:cx="471.74124"
+       sodipodi:cy="394.75287"
+       sodipodi:r1="221.77393"
+       sodipodi:r2="110.88696"
+       sodipodi:arg1="-0.52479577"
+       sodipodi:arg2="0.52240178"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 663.67023,283.63609 567.83847,450.08136 472.0067,616.52664 375.77675,450.31126 279.54679,284.09588 471.60851,283.86599 z"
+       inkscape:transform-center-x="0.056192183"
+       inkscape:transform-center-y="8.2747556"
+       transform="matrix(0.423401,0,0,0.1495568,110.3046,369.13158)" />
+  </g>
+</svg>
+
+<p>
+
+
+-->
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

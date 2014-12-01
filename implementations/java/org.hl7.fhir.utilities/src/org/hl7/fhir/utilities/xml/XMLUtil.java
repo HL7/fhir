@@ -386,5 +386,21 @@ public class XMLUtil {
     return builder.parse(new ByteArrayInputStream(content.getBytes()));
   }
 
+  public static Element getLastChild(Element e) {
+    if (e == null)
+      return null;
+    Node n = e.getLastChild();
+    while (n != null && n.getNodeType() != Node.ELEMENT_NODE)
+      n = n.getPreviousSibling();
+    return (Element) n;
+  }
+
+  public static Element getPrevSibling(Element e) {
+    Node n = e.getPreviousSibling();
+    while (n != null && n.getNodeType() != Node.ELEMENT_NODE)
+      n = n.getPreviousSibling();
+    return (Element) n;
+  }
+
  	
 }

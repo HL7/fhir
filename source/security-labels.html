@@ -118,9 +118,9 @@ A JSON search result that includes a resource that the receiving application mus
   ]
 }
 </pre>
+</div>
 
 <p>Note: the actual terms used in these examples are described below.</p>
-
 
 <p>
 The basic framework for security labels is described by the HL7 Healthcare Classification 
@@ -169,7 +169,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  <tr>
    <td>Confidentiality codes</td>
    <td>
-     These <a href="v3/vs/Confidentiality/index.html">confidentiality codes</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
+     These <a href="v3/Confidentiality/index.html">confidentiality codes</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
      but can be modified subsequently as a matter of operational management. The Confidentiality codes describe the sensitivity of the information in a resource with regard to 
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
@@ -182,7 +182,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    </td>
  </tr>
  <tr>
-   <td>Celebrity / VIP: ActCode.<a href="/v3/ActCode/index.html#CEL">CEL</a></td>
+   <td>Celebrity / VIP: ActCode.<a href="v3/ActCode/index.html#CEL">CEL</a></td>
    <td>
     Use on any resource to indicate that the subject/patient is a celebrity or well known to the staff in the institution.
     <br/>Notes:
@@ -193,7 +193,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    </td>
  </tr>
  <tr>
-   <td>Staff: ActCode.<a href="/v3/ActCode/index.html#EMP">EMP</a></td>
+   <td>Staff: ActCode.<a href="v3/ActCode/index.html#EMP">EMP</a></td>
    <td>
     Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patient to indicate that the patient is a staff member of the institution. This is a variation on 
     being a celebrity.
@@ -205,7 +205,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    </td>
  </tr>
  <tr>
-   <td>Keep information from patient: ActCode.<a href="/v3/ActCode/index.html#TBOO">TBOO</a></td>
+   <td>Keep information from patient: ActCode.<a href="v3/ActCode/index.html#TBOO">TBOO</a></td>
    <td>
     Used on <a href="resourcelist.html">any</a> resource to indicate that information is not to be made available to the patient or their relatives/carers, except by the personal decision of a physician assigned to the patient.
     <br/>Notes:
@@ -216,14 +216,14 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    </td>
  </tr>
  <tr>
-   <td>Contact/Employment Details Confidential: ActCode.<a href="/v3/ActCode/index.html#DEMO">DEMO</a></td>
+   <td>Contact/Employment Details Confidential: ActCode.<a href="v3/ActCode/index.html#DEMO">DEMO</a></td>
    <td>
     Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details (phone numbers, email addresses) - including employment information - are sensitive 
     and shouldn't be shared with the patient's family or others without specific authorization
    </td>
  </tr>
  <tr>
-   <td>Diagnosis-related confidentiality: ActCode.<a href="/v3/ActCode/index.html#DIA">DIA</a></td>
+   <td>Diagnosis-related confidentiality: ActCode.<a href="v3/ActCode/index.html#DIA">DIA</a></td>
    <td>
     Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally 
     associated with confidentiality requirements - or is for this particular patient. 
@@ -236,7 +236,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    </td>
  </tr>
  <tr>
-   <td>Author Consent needed: ActCode.<a href="/v3/ActCode/index.html#ORCON">ORCON</a></td>
+   <td>Author Consent needed: ActCode.<a href="v3/ActCode/index.html#ORCON">ORCON</a></td>
    <td>
     The author's consent is needed for disclosure. Typically, this is used by a treating practitioner to label portions of their own record confidential. 
     Any such resource is only shared with the author or with other parties as arranged. 
@@ -246,7 +246,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td colspan="2" style="background-color: #EFEFEF"><b>Control of Flow</b></td>
  </tr>
  <tr>
-   <td>Delete After Use: ActCode.<a href="/v3/ActCode/index.html#DELAU">DELAU</a></td>
+   <td>Delete After Use: ActCode.<a href="v3/ActCode/index.html#DELAU">DELAU</a></td>
    <td>
      An application receiving a resource with this label must delete all copies after the immediate use for which the resource/feed was exchanged is complete. <br/> Notes:
      <ul>
@@ -257,7 +257,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  </tr>
  
  <tr>
-   <td>Do Not Re-use: ActCode.<a href="/v3/ActCode/index.html#NOREUSE">NOREUSE</a></td>
+   <td>Do Not Re-use: ActCode.<a href="v3/ActCode/index.html#NOREUSE">NOREUSE</a></td>
    <td>
      An application receiving a resource with this label may only use it for the immediate purpose of use. In particular, the application is not authorized to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
      <ul>
@@ -298,6 +298,7 @@ as a URL:
 <p>
 The URL is represented in the request as a <a href="https://tools.ietf.org/html/draft-johnston-http-category-header-02">web category</a>: 
 </p>
+<div>
 <pre>
 HTTP/1.1 GET fhir/Patient/482735/condition
 Content-Type: text/xml

@@ -241,8 +241,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = Utilities.createTempFile("tmp", ".tmp");
-	  if (dt.equals("Reference") || dt.equals("Narrative") || dt.equals("Extension"))
-	    pn = "base.html";
 	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt, false, null).get(0);
@@ -373,6 +371,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dtHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("edheader"))
         src = s1+edHeader(com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("elheader"))
+        src = s1+elHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extheader"))
         src = s1+extHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("narrheader"))
@@ -1830,6 +1830,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
+  private String elHeader(String mode) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul class=\"nav nav-tabs\">");
+    b.append(makeHeaderTab("Element", "element.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Detailed Descriptions", "element-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
   private String extHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
@@ -2585,7 +2594,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("elheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
           com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") || com[0].equals("fmtheader") || 
           com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
@@ -2905,7 +2914,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("elheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
           com[0].equals("txheader") || com[0].equals("fmtheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
         src = s1+s3;
@@ -3390,8 +3399,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
             b.append("</a>");
 
           } else if (t.startsWith("Reference(")) {
-            b.append("<a href=\"references.html#Resource\">Resource</a>");
-            String pn = t.substring(0, t.length()-1).substring(9);
+            b.append("<a href=\"references.html#Reference\">Reference</a>");
+            String pn = t.substring(0, t.length()-1).substring(10);
             b.append("(");
             boolean first = true;
             for (String tn : pn.split("\\|")) {
@@ -4703,9 +4712,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           url = ed.getExtensionDefinition().getUserData("filename")+".html";
       } else {
         Profile p = new ProfileUtilities(workerContext).getProfile(null, parts[0]);
-        if (p != null)
-          url = p.getUserData("filename")+".html";
-        else if (definitions.hasResource(linkText)) {
+        if (p != null) {
+          if (p.getUserData("filename") == null)
+            url = parts[0].toLowerCase()+".html";
+          else
+            url = p.getUserData("filename")+".html";
+        } else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
           url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
@@ -4765,6 +4777,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (ref.startsWith("http://hl7.org/fhir/vs/")) {
         if (new File(Utilities.path(folders.dstDir, "valueset-"+ref.substring(23)+".html")).exists())
           return "valueset-"+ref.substring(23)+".html";
+        else if (valueSets.containsKey(ref) && valueSets.get(ref).getUserData("filename") != null)
+          return (String) valueSets.get(ref).getUserData("filename");
         else
           return ref.substring(23)+".html";
       }  else if (ref.startsWith("http://hl7.org/fhir/v3/vs/"))

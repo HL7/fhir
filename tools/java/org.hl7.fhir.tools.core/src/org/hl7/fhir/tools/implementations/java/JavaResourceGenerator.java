@@ -127,9 +127,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		if (clss == JavaGenClass.Resource) {
 		  write("@ResourceDef(name=\""+upFirst(name)+"\", profile=\"http://hl7.org/fhir/Profile/"+upFirst(name)+"\")\r\n");
 			write("public "+(isAbstract? "abstract " : "")+"class "+upFirst(name)+" extends "+(Utilities.noString(root.typeCode()) ? "Base" : root.typeCode())+" {\r\n");
+    } else if (clss == JavaGenClass.Structure && upFirst(name).equals("Element")) {
+      write("public abstract class "+upFirst(name)+" extends Base {\r\n");
+      isAbstract = true;
 		} else if (clss == JavaGenClass.Structure) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-      write("public class "+upFirst(name)+" extends Element {\r\n");
+      isAbstract = upFirst(name).equals("BackboneElement");
+      write("public "+(isAbstract ? "abstract " : "")+"class "+upFirst(name)+" extends Element {\r\n");
 		} else if (clss == JavaGenClass.BackboneElement) {
       write("@Block()\r\n");
       write("public class "+upFirst(name)+" extends BackboneElement {\r\n");
@@ -189,12 +193,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  write("    return ResourceType."+root.getName()+";\r\n");
 		  write("   }\r\n");
 		  write("\r\n"); 
-		} else if (isAbstract && Utilities.noString(root.typeCode())) {
+		} else if (isAbstract && Utilities.noString(root.typeCode()) && clss != JavaGenClass.Structure) {
 		  write("  public abstract ResourceType getResourceType();\r\n");
 		}
 		if (map != null) {
 		  for (SearchParameterDefn sp : map.values()) {
-		    write("  @SearchParamDefinition(name=\""+sp.getCode()+"\", path=\""+pipeSeparate(sp.getPaths())+"\", description=\""+sp.getDescription()+"\", type=\""+sp.getType().toString()+"\" )\r\n");
+		    write("  @SearchParamDefinition(name=\""+sp.getCode()+"\", path=\""+pipeSeparate(sp.getPaths())+"\", description=\""+Utilities.escapeJava(sp.getDescription())+"\", type=\""+sp.getType().toString()+"\" )\r\n");
 		    write("  public static final String SP_"+clean(sp.getCode()).toUpperCase()+" = \""+sp.getCode()+"\";\r\n");
 		  }
 		}

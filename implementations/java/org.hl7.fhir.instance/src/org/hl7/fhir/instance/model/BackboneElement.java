@@ -1,151 +1,108 @@
-/*
-Copyright (c) 2011+, HL7, Inc
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met:
-
- * Redistributions of source code must retain the above copyright notice, this 
-   list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
-   and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
-   prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-POSSIBILITY OF SUCH DAMAGE.
-
-*/
-
 package org.hl7.fhir.instance.model;
 
-import java.util.ArrayList;
-import java.util.List;
+/*
+  Copyright (c) 2011+, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+*/
 
+// Generated on Tue, Dec 2, 2014 06:40+1100 for FHIR v0.3.0
+
+import java.util.*;
+
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
- * An element that is allowed to have modifier extensions on it. 
- * 
- * Technically, this is an element that is defined in a resource, and has no assigned type, but defined element children instead 
+ * Base definition for all elements that are defined inside a resource - but not those in a data type.
  */
+@DatatypeDef(name="BackboneElement")
 public abstract class BackboneElement extends Element {
 
-  private static final long serialVersionUID = 7949281299174185258L;
-	/**
-	 * Modifier extensions
-	 */
-  private List<Extension> modifierExtension = new ArrayList<Extension>();
+    /**
+     * May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.
+     */
+    @Child(name="modifierExtension", type={Extension.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Extensions that cannot be ignored", formalDefinition="May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions." )
+    protected List<Extension> modifierExtension;
 
-  /**
-   * @return Modifier extensions
-   */
-  public List<Extension> getModifierExtension() {
-		return modifierExtension;
-	}
+    private static final long serialVersionUID = -1431673179L;
 
-  /**
-   * @return true if there are any modifier extensions or any extensions
-   */
-	@Override
-  public boolean hasExtension() {
-    return modifierExtension.size() > 0 || super.hasExtension();
-  }
+    public BackboneElement() {
+      super();
+    }
 
-  /**
-   * @return true if there are any modifier extensions or any extensions
-   */
-	@Override
-  public boolean hasExtensions() {
-    return modifierExtension.size() > 0 || super.hasExtension();
-  }
+    /**
+     * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
+     */
+    public List<Extension> getModifierExtension() { 
+      if (this.modifierExtension == null)
+        this.modifierExtension = new ArrayList<Extension>();
+      return this.modifierExtension;
+    }
 
-	/**
-   * @param name the identity of the extension of interest
-   * @return true if the named extension is on this element (extensions or modifier extensions)
-	 */
-  @Override
-  public boolean hasExtension(String name) {
-    if (name == null)
+    public boolean hasModifierExtension() { 
+      if (this.modifierExtension == null)
+        return false;
+      for (Extension item : this.modifierExtension)
+        if (!item.isEmpty())
+          return true;
       return false;
-    for (Extension e : modifierExtension) {
-      if (name.equals(e.getUrl()))
-        return true;
     }
-    return super.hasExtension(name);
-  }
 
-  /**
-   * @param name the identity of the extension of interest
-   * @return The extension, if on this element (as modifier or normal), else null
-   */
-  @Override
-  public Extension getExtension(String name) {
-    if (name == null)
-      return null;
-    for (Extension e : modifierExtension) {
-      if (name.equals(e.getUrl()))
-        return e;
+    /**
+     * @return {@link #modifierExtension} (May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.)
+     */
+    // syntactic sugar
+    public Extension addModifierExtension() { //3
+      Extension t = new Extension();
+      if (this.modifierExtension == null)
+        this.modifierExtension = new ArrayList<Extension>();
+      this.modifierExtension.add(t);
+      return t;
     }
-    return super.getExtension(name);
-  }
-  
-  /**
-   * @return true if there are any modifier extensions
-   */
-  public boolean hasModifierExtension() {
-    return modifierExtension.size() > 0;
-  }
-	
-	/**
-   * @param name the identity of the extension of interest
-   * @return true if the named extension is on this element (modifier extensions only)
-	 */
-  public boolean hasModifierExtension(String name) {
-    if (name == null)
-      return false;
-    for (Extension e : modifierExtension) {
-      if (name.equals(e.getUrl()))
-        return true;
-    }
-    return false;
-  }
 
-  /**
-   * @param name the identity of the extension of interest
-   * @return The extension, if on this element (modifier only), else null
-   */
-  public Extension getModifierExtension(String name) {
-    if (name == null)
-      return null;
-    for (Extension e : modifierExtension) {
-      if (name.equals(e.getUrl()))
-        return e;
-    }
-    return null;
-  }
-  
-  @Override
-	protected void listChildren(List<Property> result) {
-    super.listChildren(result);
-		result.add(new Property("modifierExtension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, modifierExtension));	  
-  }  
-  
-  public void copyValues(BackboneElement dst) {
-  	super.copyValues(dst);
-  	
-    dst.modifierExtension = new ArrayList<Extension>();
-    for (Extension i : modifierExtension)
-      dst.modifierExtension.add(i.copy());
-  }
+      protected void listChildren(List<Property> childrenList) {
+        childrenList.add(new Property("modifierExtension", "Extension", "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.", 0, java.lang.Integer.MAX_VALUE, modifierExtension));
+      }
+
+      public abstract BackboneElement copy();
+
+      public void copyValues(BackboneElement dst) {
+        if (modifierExtension != null) {
+          dst.modifierExtension = new ArrayList<Extension>();
+          for (Extension i : modifierExtension)
+            dst.modifierExtension.add(i.copy());
+        };
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (modifierExtension == null || modifierExtension.isEmpty());
+      }
 
 
 }
+

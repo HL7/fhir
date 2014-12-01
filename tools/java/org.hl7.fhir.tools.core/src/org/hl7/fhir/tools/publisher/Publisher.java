@@ -845,7 +845,7 @@ public class Publisher implements URIResolver {
     buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    analyseV2();
+    new ValueSetImporterV2(page).execute();
     analyseV3();
     if (isGenerate) {
       generateConformanceStatement(true, "base");
@@ -2344,209 +2344,6 @@ public class Publisher implements URIResolver {
     }
   }
 
-  private ValueSet buildV2Valueset(String id, Element e) throws Exception {
-    ValueSet vs = new ValueSet();
-    vs.setId("v2-"+FormatUtilities.makeId(id));
-    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id);
-    vs.setName("v2 table " + id);
-    vs.setPublisher("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
-    vs.setStatus(ValuesetStatus.ACTIVE);
-    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
-    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
-    vs.setDefine(def);
-    def.setCaseSensitive(true);
-    def.setSystem("http://hl7.org/fhir/v2/" + id);
-    StringBuilder s = new StringBuilder();
-
-    String desc = "";
-    // we use the latest description of the table
-    Element c = XMLUtil.getFirstChild(e);
-    Map<String, String> codes = new HashMap<String, String>();
-    while (c != null) {
-      desc = c.getAttribute("desc");
-      vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
-      vs.setName("v2 " + desc);
-
-      Element g = XMLUtil.getFirstChild(c);
-      while (g != null) {
-        codes.put(g.getAttribute("code"), g.getAttribute("desc"));
-        g = XMLUtil.getNextSibling(g);
-      }
-      c = XMLUtil.getNextSibling(c);
-    }
-    s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
-    List<String> cs = new ArrayList<String>();
-    cs.addAll(codes.keySet());
-    Collections.sort(cs);
-    for (String cd : cs) {
-      String min = null;
-      String max = null;
-      c = XMLUtil.getFirstChild(e);
-      while (c != null) {
-        Element g = XMLUtil.getFirstChild(c);
-        while (g != null) {
-          if (cd.equals(g.getAttribute("code"))) {
-            if (min == null)
-              min = c.getAttribute("version");
-            max = c.getAttribute("version");
-          }
-          g = XMLUtil.getNextSibling(g);
-        }
-        c = XMLUtil.getNextSibling(c);
-      }
-      String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + ("2.7".equals(max) ? "" : ", removed after v" + max);
-      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
-      concept.setCode(cd);
-      concept.setDisplay(codes.get(cd)); // we deem the v2 description to
-      // be display name, not
-      // definition. Open for
-      // consideration
-      if (!("2.7".equals(max)))
-        ToolingExtensions.markDeprecated(concept);
-      def.getConcept().add(concept);
-      String nm = Utilities.nmtokenize(cd);
-      s.append(" <tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
-          + "</td><td>" + ver + "</td></tr>\r\n");
-    }
-    s.append("</table>\r\n");
-    vs.setText(new Narrative());
-    vs.getText().setStatus(NarrativeStatus.ADDITIONAL); // because we add
-    // v2 versioning
-    // information
-    vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
-    return vs;
-  }
-
-  private ValueSet buildV2ValuesetVersioned(String id, String version, Element e) throws Exception {
-    StringBuilder s = new StringBuilder();
-
-    ValueSet vs = new ValueSet();
-    vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
-    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
-    vs.setName("v2 table " + id + ", Version " + version);
-    vs.setPublisher("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
-    vs.setStatus(ValuesetStatus.ACTIVE);
-    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
-    ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
-    vs.setDefine(def);
-    def.setCaseSensitive(true);
-    def.setSystem("http://hl7.org/fhir/v2/" + id + "/" + version);
-
-    String desc = "";
-    String minlim = null;
-    String maxlim = null;
-
-    // we use the latest description of the table
-    Element c = XMLUtil.getFirstChild(e);
-    Map<String, String> codes = new HashMap<String, String>();
-    while (c != null) {
-      if (version.equals(c.getAttribute("namespace"))) {
-        if (minlim == null)
-          minlim = c.getAttribute("version");
-        maxlim = c.getAttribute("version");
-        desc = c.getAttribute("desc");
-        vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ver " + version + " ( " + desc + ")");
-        Element g = XMLUtil.getFirstChild(c);
-        while (g != null) {
-          codes.put(g.getAttribute("code"), g.getAttribute("desc"));
-          g = XMLUtil.getNextSibling(g);
-        }
-      }
-      c = XMLUtil.getNextSibling(c);
-    }
-
-    s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
-    List<String> cs = new ArrayList<String>();
-    cs.addAll(codes.keySet());
-    Collections.sort(cs);
-    for (String cd : cs) {
-      String min = null;
-      String max = null;
-      c = XMLUtil.getFirstChild(e);
-      while (c != null) {
-        if (version.equals(c.getAttribute("namespace"))) {
-          Element g = XMLUtil.getFirstChild(c);
-          while (g != null) {
-            if (cd.equals(g.getAttribute("code"))) {
-              if (min == null)
-                min = c.getAttribute("version");
-              max = c.getAttribute("version");
-            }
-            g = XMLUtil.getNextSibling(g);
-          }
-        }
-        c = XMLUtil.getNextSibling(c);
-      }
-      String ver = (minlim.equals(min) ? "from v" + minlim : "added v" + min) + (maxlim.equals(max) ? "" : ", removed after v" + max);
-      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
-      concept.setCode(cd);
-      concept.setDisplay(codes.get(cd)); // we deem the v2 description to
-      // be display name, not
-      // definition. Open for
-      // consideration
-      def.getConcept().add(concept);
-      s.append(" <tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(cd)) + "\"> </a></td><td>"
-          + Utilities.escapeXml(codes.get(cd)) + "</td><td>" + ver + "</td></tr>\r\n");
-    }
-    s.append("</table>\r\n");
-    vs.setText(new Narrative());
-    vs.getText().setStatus(NarrativeStatus.ADDITIONAL); // because we add
-    // v2 versioning
-    // information
-    vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    new ValueSetValidator(page.getWorkerContext()).validate("v2 table "+id, vs, false, true);
-    return vs;
-  }
-
-  private void analyseV2() throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    page.setV2src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v2" + File.separator + "source.xml"))));
-
-    Element e = XMLUtil.getFirstChild(page.getV2src().getDocumentElement());
-    while (e != null) {
-      String st = e.getAttribute("state");
-      if ("include".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        ValueSet vs = buildV2Valueset(id, e);
-        vs.setId("v2-"+FormatUtilities.makeId(id));
-        vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-        page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
-        page.getValueSets().put(vs.getIdentifier(), vs);
-        page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
-      } else if ("versioned".equals(st)) {
-        String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
-        List<String> versions = new ArrayList<String>();
-        Element c = XMLUtil.getFirstChild(e);
-        while (c != null) {
-          if (XMLUtil.getFirstChild(c) != null && !versions.contains(c.getAttribute("namespace"))) {
-            versions.add(c.getAttribute("namespace"));
-          }
-          c = XMLUtil.getNextSibling(c);
-        }
-        for (String ver : versions) {
-          ValueSet vs = buildV2ValuesetVersioned(id, ver, e);
-          vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
-          vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
-          page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
-          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
-          page.getValueSets().put(vs.getIdentifier(), vs);
-          page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
-        }
-      }
-      e = XMLUtil.getNextSibling(e);
-    }
-  }
-
   private void produceV2() throws Exception {
     page.log(" ...v2 Tables", LogMessageType.Process);
 
@@ -2827,6 +2624,7 @@ public class Publisher implements URIResolver {
     String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
     src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, tx, dict, src, mappings, mappingsList, "resource", n + ".html"), st, n + ".html");
     TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
+    page.getEpub().registerFile(n + ".html", "Base Page for " + resource.getName(), EPubManager.XHTML_TYPE);
 
     String pages = page.getIni().getStringProperty("resource-pages", n);
     if (!Utilities.noString(pages)) {

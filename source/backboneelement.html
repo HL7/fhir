@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+      
+[%settitle BackboneElement%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<!--
+ no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
+-->
+
+<%elheader base%>
+<h1>BackboneElement</h1>
+
+<p>
+The base definition for elements defined as part of a resource. <a href="datatypes.html">Data Type</a> elements do not use this type.
+</p>
+
+<a name="definition"></a>
+<h2 style="margin-bottom: 1px">
+Content
+</h2>
+
+[%dt BackboneElement%]
+
+
+</div>
+
+[%file newfooter%]
+
+  <script type="javascript" src="external/jquery/jquery.js"> </script>
+<script type="javascript" src="jquery-ui.min.js"> </script>
+<script type="javascript">
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-BackboneElement' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+  }
+  $( '#tabs-BackboneElement' ).tabs('option', 'active', currentTab);
+}     
+</script>
+  
+</body>
+</html>

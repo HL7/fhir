@@ -505,9 +505,12 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         String url = "";
         String[] parts = linkText.split("\\#");
         Profile p = utilities.getProfile(null, parts[0]);
-        if (p != null)
-          url = p.getUserData("filename")+".html";
-        else if (definitions.hasResource(linkText)) {
+        if (p != null) {
+          if (p.getUserData("filename") == null)
+            url = parts[0].toLowerCase()+".html";
+          else
+            url = p.getUserData("filename")+".html";
+        } else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
           url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;

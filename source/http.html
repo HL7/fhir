@@ -203,7 +203,7 @@ Requests MAY also specify this charset parameter in the Accept header and/or use
 <h3>Support for Versions</h3>
 <p>
 Servers that support this API SHOULD provide full version support - that is, populate and track 
-versionId correctly, support vread, and implement <a href="versionaware">version aware updates</a>. 
+versionId correctly, support vread, and implement <a href="#versionaware">version aware updates</a>. 
 Supporting versions like this allows for related systems to track the correct version of information,
 and to keep integrity in clinical records. However, many current operational systems do not 
 do this, and cannot easily be re-engineered to do so. 
@@ -212,7 +212,7 @@ do this, and cannot easily be re-engineered to do so.
 For this reason, Servers are allowed to not provide versioning support: this API does not enforce
 that they are supported. Clients may elect to only interact with servers that do provide full 
 versioning support. Systems declare their support for versioning 
-in their <a href="confomrmance-definitions.html#Conformance.rest.resource.noVersion">conformance statement</a>.
+in their <a href="conformmance-definitions.html#Conformance.rest.resource.noVersion">conformance statement</a>.
 </p>
 
 <a name="read"> </a>
@@ -281,7 +281,7 @@ The update interaction is performed by an HTTP PUT command as shown:
 </pre>
 <p>
 The submitted resource SHALL have an id element with a value that is the [id].
-If the client submits a <a href="resource.htm#meta">meta</a>, the server SHALL 
+If the client submits a <a href="resource.html#meta">meta</a>, the server SHALL 
 ignore the existing versionId and lastUpdated values. 
 The server SHALL create/update the meta.versionId 
 and meta.lastUpdated with it's current correct values. The server is allowed to 
@@ -415,7 +415,7 @@ interaction instead. The create interaction is performed by an HTTP POST command
 <p>
 A resource submitted for a create operation SHALL not have an id element (this is the
 only case where a resource exists without an id element).
-If the client submits a <a href="resource.htm#meta">meta</a>, the server SHALL 
+If the client submits a <a href="resource.html#meta">meta</a>, the server SHALL 
 ignore the existing versionId and lastUpdated values. 
 The server SHALL create/update the meta.versionId 
 and meta.lastUpdated with it's current correct values. The server is allowed to 
@@ -492,7 +492,8 @@ If the search succeeds, the return content is a <a href="extras.html#bundle">Bun
 in a defined order. The result list can be long, so servers may use paging. If they do, they SHALL use the method <a href="#paging">described below</a>
 (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving</a>) for breaking the 
 list into pages if appropriate. The server MAY also return an OperationOutcome resource with additional information about the search; 
-if one is sent it SHALL not include any errors, and it shall be marked with an <a href="bundle-definitions.html#Bundle.entry.status">entry status</a> of <a href="??">"include"</a>.
+if one is sent it SHALL not include any errors, and it shall be marked with an <a href="bundle-definitions.html#Bundle.entry.status">entry 
+status</a> of <a href="bundle-entry-status.html#include">"include"</a>.
 </p>
 
 <a name="conformance"> </a>
@@ -551,7 +552,7 @@ The transaction interaction is performed by an HTTP POST command as shown:
   POST [base] {?_format=[mime-type]}
 </pre>
 <p>
-The content of the post submission is a <a href=bundle.html">Bundle</a>.
+The content of the post submission is a <a href="bundle.html">Bundle</a>.
 The resources in the bundle are each processed separately as if they were an individual 
 <a href="#create">create</a>, <a href="#update">update</a> or <a href="#delete">delete</a>, 
 along with the normal processing for each (including the <a href="resource.html#meta">meta element</a>, 
@@ -705,7 +706,7 @@ below </a> for breaking the list into pages if appropriate.
 The history interaction can be used to set up a subscription from one system
 to another, so that resources are synchronized between them. Systems receiving such feeds and planning
 on enforcing resource integrity should note that <a href="#transaction">transaction</a> boundaries 
-are not reflected in the history list nd plan accordingly. Refer to the <a href="subsscription.html">Subscription reosurce</a>
+are not reflected in the history list nd plan accordingly. Refer to the <a href="subscription.html">Subscription reosurce</a>
 for an alternate means of system synschronization.
 </p>
  

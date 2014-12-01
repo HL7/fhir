@@ -63,6 +63,8 @@ public class HeirarchicalTableGenerator  {
   public static final String TEXT_ICON_PROFILE = "Profile";
   public static final String TEXT_ICON_EXTENSION_COMPLEX = "Complex Extension";
 
+  private static Map<String, String> files = new HashMap<String, String>();
+
   public class Piece {
     private String tag;
     private String reference;
@@ -396,14 +398,16 @@ public class HeirarchicalTableGenerator  {
   private String nmTokenize(String anchor) {
     return anchor.replace("[", "_").replace("]", "_");
   }
-
-
+  
   private String srcFor(String filename) throws IOException {
     if (inLineGraphics) {
+      if (files.containsKey(filename))
+        return files.get(filename);
       StringBuilder b = new StringBuilder();
       b.append("data: image/png;base64,");
       byte[] bytes = FileUtils.readFileToByteArray(new File(Utilities.path(dest, filename)));
       b.append(new String(Base64.encodeBase64(bytes)));
+      files.put(filename, b.toString());
       return b.toString();
     } else
       return filename;
@@ -443,13 +447,19 @@ public class HeirarchicalTableGenerator  {
 
 
   private String checkExists(List<Boolean> indents, boolean hasChildren) throws Exception {
+    String filename = makeName(indents);
+    
     StringBuilder b = new StringBuilder();
     if (inLineGraphics) {
+      if (files.containsKey(filename))
+        return files.get(filename);
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       genImage(indents, hasChildren, bytes);
       b.append("data: image/png;base64,");
       byte[] encodeBase64 = Base64.encodeBase64(bytes.toByteArray());
       b.append(new String(encodeBase64));
+      files.put(filename, b.toString());
+      return b.toString();
     } else {
       b.append("tbl_bck");
       for (Boolean i : indents)
@@ -464,8 +474,8 @@ public class HeirarchicalTableGenerator  {
         FileOutputStream stream = new FileOutputStream(file);
         genImage(indents, hasChildren, stream);
       }
+      return b.toString();
     }
-    return b.toString();
   }
 
 
@@ -481,6 +491,14 @@ public class HeirarchicalTableGenerator  {
     if (hasChildren)
       bi.setRGB(12+(indents.size()*16), 0, 0);
     ImageIO.write(bi, "PNG", stream);
+  }
+
+  private String makeName(List<Boolean> indents) {
+    StringBuilder b = new StringBuilder();
+    b.append("indents:");
+    for (Boolean i : indents)
+      b.append(i ? "1" : "0");
+    return b.toString();
   }
 
   private void check(boolean check, String message) throws Exception {

@@ -82,7 +82,7 @@ public class GeneratorUtils {
     if (name.equals("Resource"))
       return "resource";
     if (name.equals("Reference") && definitions)
-      return "base";
+      return "references";
     if (name.equals("Reference"))
       return "references";
     if (name.equals("Binary"))

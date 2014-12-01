@@ -139,7 +139,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jgen.generate(root, javaClassName(root.getName()), definitions.getBindings(), JavaGenClass.Structure, null, genDate, version, false, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
-      jFactoryGen.registerType(n,  root.getName());
+      if (!root.getName().equals("Element") && !root.getName().equals("BackboneElement") )
+        jFactoryGen.registerType(n,  root.getName());
     }
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n); 

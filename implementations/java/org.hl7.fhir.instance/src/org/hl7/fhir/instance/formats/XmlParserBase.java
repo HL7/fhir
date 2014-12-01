@@ -241,8 +241,8 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 
   protected void parseElementAttributes(XmlPullParser xpp, Element e) throws Exception {
     if (xpp.getAttributeValue(null, "id") != null) {
-      e.setElementId(xpp.getAttributeValue(null, "id"));
-      idMap.put(e.getElementId(), e);
+      e.setId(xpp.getAttributeValue(null, "id"));
+      idMap.put(e.getId(), e);
     }
     if (!comments.isEmpty()) {
       e.getFormatComments().addAll(comments);
@@ -333,8 +333,8 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 	  if (style != OutputStyle.CANONICAL)
     for (String comment : element.getFormatComments())
       xml.comment(comment, false);
-		if (element.getElementId() != null) 
-			xml.attribute("id", element.getElementId());
+		if (element.getId() != null) 
+			xml.attribute("id", element.getId());
 	}
 
 	protected void composeTypeAttributes(Type type) throws Exception {

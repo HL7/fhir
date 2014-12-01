@@ -3,13 +3,21 @@
 <h3>Notes</h3>
 <ul>
 <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
-<li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the common metadata, including profile assertions, tags, and security labels</li>
-<li>Bundle has a 'base' element, which is used to resolve relative references present in the bundled resources. In the case that the bundle includes resources with different bases, 
-each entry can also assert it's applicable base if this is different to the overall base. Each resource SHOULD have a base provided</li>
-<li>Applications reading a bundle should always <a href="references.html#bundle-refs">look for a resource</a> by its identity in the bundle first before trying to access it by its URL.</li>
+<li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
 </ul>
 
 <h3>Resolving references in Bundles</h3>
+
+<p>
+Bundle has a 'base' element, which is used to resolve relative references present in the bundled resources. 
+In the case that the bundle includes resources with different bases, each entry can also assert it's 
+applicable base if this is different to the overall base. A base SHOULD always be specified, either
+in the bundle itself, or on each entry.
+</p>
+<p>
+Applications reading a bundle should always <a href="references.html#bundle-refs">look for a resource</a> 
+by its identity in the bundle first before trying to access it by its URL.
+</p>
 
 <p>
 The <code>id</code> property of a resource is a relative URI. In the case of the RESTful API, the 
@@ -33,7 +41,8 @@ URI does not include the type of the resource:
 [base][id]
 </pre>
 <p>
-Resources identiifer
+OIDs and UUIDs are intended for use where the resource the entry is for has no established identity 
+on an existing RESTful interface.
 </p>
 
 
