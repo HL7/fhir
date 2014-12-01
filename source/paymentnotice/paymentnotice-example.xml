@@ -1,0 +1,29 @@
+<PaymentNotice xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+ <id value="77654"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the PaymentNotice</div>
+  </text>
+
+  <identifier>
+	<system value="http://happyvalley.com/paymentnotice"/>
+	<value value="776543"/>
+  </identifier>
+ 
+  <date value="2014-08-16"/>
+
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+  
+  <request>
+    <reference value="http://BenefitsInc.com/fhir/oralhealthclaim/12345"/>
+  </request>
+
+	<paymentStatus>
+		<system value="http://hl7.org/fhir/paymentstatus"/>
+		<code value="paid"/>
+	</paymentStatus>
+
+ </PaymentNotice>
