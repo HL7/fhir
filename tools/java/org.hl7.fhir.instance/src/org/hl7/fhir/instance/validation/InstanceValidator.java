@@ -372,7 +372,7 @@ public class InstanceValidator extends BaseValidator {
   private void validateElement(List<ValidationMessage> errors, Profile profile, String path, ElementDefinition definition, Profile cprofile, ElementDefinition context, WrapperElement element, String actualType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     // irrespective of what element it is, it cannot be empty
     if (NS_FHIR.equals(element.getNamespace())) {
-      rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
+      rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, extensions, or children elements)");
     }
     Map<String, ElementDefinition> children = ProfileUtilities.getChildMap(profile, definition.getPath());
     for (ElementDefinition child : children.values()) {
@@ -615,8 +615,6 @@ public class InstanceValidator extends BaseValidator {
 
   private boolean empty(WrapperElement element) {
     if (element.hasAttribute("value"))
-      return false;
-    if (element.hasAttribute("id"))
       return false;
     if (element.hasAttribute("xml:id"))
       return false;

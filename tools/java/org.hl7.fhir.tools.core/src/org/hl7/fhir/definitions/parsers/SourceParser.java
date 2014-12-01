@@ -390,7 +390,7 @@ public class SourceParser {
 	      pack.setSource(spreadsheet.getAbsolutePath());
 	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
         packs.put(n, pack);
-	      sparser.parseConformancePackage(pack, definitions);
+	      sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()));
 	    } catch (Exception e) {
 	      throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
 	    }
@@ -431,7 +431,7 @@ public class SourceParser {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
       SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
-      sparser.parseConformancePackage(ap, definitions);
+      sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
       parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()));
   }
@@ -589,10 +589,6 @@ public class SourceParser {
 		for (EventDefn e : sparser.getEvents())
 			processEvent(e, root.getRoot());
 
-		// EK: Commented this out, seems double with next statement, since
-		// loadReference()
-		// is always called with definitions.getResources in its map argument.
-		// definitions.getResources().put(root.getName(), root);
 		if (map != null) {
 		  map.put(root.getName(), root);
 		  definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));

@@ -648,7 +648,7 @@ public class SpreadsheetParser {
   }
 
 
-	public void parseConformancePackage(ConformancePackage ap, Definitions definitions) throws Exception {
+	public void parseConformancePackage(ConformancePackage ap, Definitions definitions, String folder) throws Exception {
 	  try {
 	    isProfile = true;
 	    Sheet sheet = loadSheet("Bindings");
@@ -671,6 +671,10 @@ public class SpreadsheetParser {
 	    }
       if (ap.hasMetadata("name"))
         ap.setTitle(ap.metadata("name"));
+      if (ap.hasMetadata("introduction"))
+        ap.setIntroduction(Utilities.path(folder, ap.metadata("introduction")));
+      if (ap.hasMetadata("notes"))
+        ap.setNotes(Utilities.path(folder, ap.metadata("notes")));
       if (!ap.hasMetadata("id"))
         throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" no 'id' found in metadata");
       if (!ap.metadata("id").matches(FormatUtilities.ID_REGEX))

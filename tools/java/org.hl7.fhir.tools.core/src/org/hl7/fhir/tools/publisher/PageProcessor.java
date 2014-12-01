@@ -4844,9 +4844,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(pack.getId().toUpperCase().substring(0, 1)+pack.getId().substring(1))+s3;
       else if (com[0].equals("name"))
         src = s1+pack.getId()+s3;
-      else if (com[0].equals("profile.intro"))
+      else if (com[0].equals("package.intro"))
         src = s1+(intro == null ? pack.metadata("description") : intro) +s3;
-      else if (com[0].equals("profile.notes"))
+      else if (com[0].equals("package.notes"))
         src = s1+(notes == null ? "" : notes) +s3;
       else if (com[0].equals("canonicalname"))
         src = s1+makeCanonical(pack.getId())+s3;
