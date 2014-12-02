@@ -91,7 +91,7 @@ public class XSDBaseGenerator {
     if (outer)
       write("  <xs:include schemaLocation=\"fhir-all.xsd\"/>\r\n");
 
-    genElementRoot();
+//    genElementRoot();
     write("\r\n");
     genPrimitives();
     write("\r\n");
@@ -137,39 +137,39 @@ public class XSDBaseGenerator {
     
   }
 
-  private void genElementRoot() throws Exception  {
-    write("  <xs:complexType name=\"Element\">\r\n");
-    write("    <xs:annotation>\r\n");
-    write("      <xs:documentation>The base element used for all FHIR elements and resources - allows for them to be extended with extensions</xs:documentation>\r\n");
-    write("    </xs:annotation>\r\n");
-    write("    <xs:sequence>\r\n");
-    write("      <xs:element name=\"extension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
-    write("        <xs:annotation>\r\n");
-    write("          <xs:documentation>An extension - additional local content. The extension URL defines it's meaning</xs:documentation>\r\n");
-    write("        </xs:annotation>\r\n");
-    write("      </xs:element>\r\n");
-    write("    </xs:sequence>\r\n");
-    write("    <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
-    write("  </xs:complexType>\r\n");
-    write("\r\n");    
-    write("  <xs:complexType name=\"BackboneElement\">\r\n");
-    write("    <xs:annotation>\r\n");
-    write("      <xs:documentation>An element defined in a FHIR resources - can have modifierExtension elements</xs:documentation>\r\n");
-    write("    </xs:annotation>\r\n");
-    write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"Element\">\r\n");
-    write("        <xs:sequence>\r\n");
-    write("          <xs:element name=\"modifierExtension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
-    write("            <xs:annotation>\r\n");
-    write("              <xs:documentation>An extension that modifies the meaning of the element that contains it - additional local content. The extension URL defines it's meaning</xs:documentation>\r\n");
-    write("            </xs:annotation>\r\n");
-    write("          </xs:element>\r\n");
-    write("        </xs:sequence>\r\n");
-    write("      </xs:extension>\r\n");
-    write("    </xs:complexContent>\r\n");
-    write("  </xs:complexType>\r\n");
-    write("\r\n");    
-  }
+//  private void genElementRoot() throws Exception  {
+//    write("  <xs:complexType name=\"Element\">\r\n");
+//    write("    <xs:annotation>\r\n");
+//    write("      <xs:documentation>The base element used for all FHIR elements and resources - allows for them to be extended with extensions</xs:documentation>\r\n");
+//    write("    </xs:annotation>\r\n");
+//    write("    <xs:sequence>\r\n");
+//    write("      <xs:element name=\"extension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
+//    write("        <xs:annotation>\r\n");
+//    write("          <xs:documentation>An extension - additional local content. The extension URL defines it's meaning</xs:documentation>\r\n");
+//    write("        </xs:annotation>\r\n");
+//    write("      </xs:element>\r\n");
+//    write("    </xs:sequence>\r\n");
+//    write("    <xs:attribute name=\"id\" type=\"id-primitive\"/>\r\n");
+//    write("  </xs:complexType>\r\n");
+//    write("\r\n");    
+//    write("  <xs:complexType name=\"BackboneElement\">\r\n");
+//    write("    <xs:annotation>\r\n");
+//    write("      <xs:documentation>An element defined in a FHIR resources - can have modifierExtension elements</xs:documentation>\r\n");
+//    write("    </xs:annotation>\r\n");
+//    write("    <xs:complexContent>\r\n");
+//    write("      <xs:extension base=\"Element\">\r\n");
+//    write("        <xs:sequence>\r\n");
+//    write("          <xs:element name=\"modifierExtension\" type=\"Extension\" minOccurs=\"0\" maxOccurs=\"unbounded\">\r\n");
+//    write("            <xs:annotation>\r\n");
+//    write("              <xs:documentation>An extension that modifies the meaning of the element that contains it - additional local content. The extension URL defines it's meaning</xs:documentation>\r\n");
+//    write("            </xs:annotation>\r\n");
+//    write("          </xs:element>\r\n");
+//    write("        </xs:sequence>\r\n");
+//    write("      </xs:extension>\r\n");
+//    write("    </xs:complexContent>\r\n");
+//    write("  </xs:complexType>\r\n");
+//    write("\r\n");    
+//  }
 
   //  private void genExtensionsElement() throws Exception {
   //    write("  <xs:complexType name=\"Extensions\">\r\n");
@@ -313,8 +313,10 @@ public class XSDBaseGenerator {
     write("      <xs:documentation>"+Utilities.escapeXml(elem.getDefinition())+"</xs:documentation>\r\n");
     write("      <xs:documentation>If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>\r\n");
     write("    </xs:annotation>\r\n");
-    write("    <xs:complexContent>\r\n");
-    write("      <xs:extension base=\"Element\">\r\n");
+    if (!elem.getName().equals("Element")) {
+      write("    <xs:complexContent>\r\n");
+      write("      <xs:extension base=\"Element\">\r\n");
+    }
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : elem.getElements()) {
@@ -332,8 +334,10 @@ public class XSDBaseGenerator {
       }
     }
     
-    write("      </xs:extension>\r\n");
-    write("    </xs:complexContent>\r\n");
+    if (!elem.getName().equals("Element")) {
+      write("      </xs:extension>\r\n");
+      write("    </xs:complexContent>\r\n");
+    }
     write("  </xs:complexType>\r\n");
     while (!structures.isEmpty()) {
       String s = structures.keySet().iterator().next();
