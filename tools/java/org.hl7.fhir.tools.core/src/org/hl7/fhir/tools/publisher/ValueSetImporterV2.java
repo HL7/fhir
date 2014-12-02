@@ -62,8 +62,42 @@ public class ValueSetImporterV2 {
   
   private void updateNarrative(ValueSet vs) {
     XhtmlNode table = vs.getText().getDiv().getElement("table");
-    
-    
+    List<String> langs = new ArrayList<String>(); 
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      for (ConceptDefinitionDesignationComponent d : c.getDesignation()) {
+        if (d.hasLanguage() && !d.hasUse()) {
+          if (!langs.contains(d.getLanguage()))
+            langs.add(d.getLanguage());
+        }
+      }
+    }
+    Collections.sort(langs);
+    XhtmlNode tr = table.getChildNodes().get(0);
+    int i = 2;
+    for (String s : langs) {
+      tr.addTag(i, "td").addTag("b").addText(page.getTranslations().getLangDesc(s));
+      i++;
+    }
+    int r = 1;
+    for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
+      tr = table.getChildNodes().get(r);
+      i = 2;
+      for (String s : langs) {
+        tr.addTag(i, "td").addTag("b").addText(getLang(c, s));
+        i++;
+      }
+      r++;
+    }
+  }
+
+  private String getLang(ConceptDefinitionComponent c, String s) {
+    for (ConceptDefinitionDesignationComponent d : c.getDesignation()) {
+      if (d.hasLanguage() && !d.hasUse()) {
+        if (d.getLanguage().equals(s))
+          return d.getValue();
+      }
+    }
+    return "";
   }
 
   private void loadLanguagePack(String source) throws Exception {
@@ -228,8 +262,8 @@ public class ValueSetImporterV2 {
       c = XMLUtil.getNextSibling(c);
     }
     s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
+    s.append("<table class=\"grid\">");
+    s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>");
     List<String> cs = new ArrayList<String>();
     cs.addAll(codes.keySet());
     Collections.sort(cs);
@@ -260,8 +294,8 @@ public class ValueSetImporterV2 {
         ToolingExtensions.markDeprecated(concept);
       def.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
-      s.append(" <tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
-          + "</td><td>" + ver + "</td></tr>\r\n");
+      s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
+          + "</td><td>" + ver + "</td></tr>");
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -314,8 +348,8 @@ public class ValueSetImporterV2 {
     }
 
     s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>\r\n");
+    s.append("<table class=\"grid\">");
+    s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>");
     List<String> cs = new ArrayList<String>();
     cs.addAll(codes.keySet());
     Collections.sort(cs);
@@ -345,8 +379,8 @@ public class ValueSetImporterV2 {
       // definition. Open for
       // consideration
       def.getConcept().add(concept);
-      s.append(" <tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(cd)) + "\"> </a></td><td>"
-          + Utilities.escapeXml(codes.get(cd)) + "</td><td>" + ver + "</td></tr>\r\n");
+      s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(cd)) + "\"> </a></td><td>"
+          + Utilities.escapeXml(codes.get(cd)) + "</td><td>" + ver + "</td></tr>");
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
