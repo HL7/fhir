@@ -13,7 +13,7 @@
       <a name="CDA"> </a> 
       <h2>Clinical Document Architecture (CDA) on FHIR</h2>
       <h3>What is CDA on FHIR?</h3>
-      CDA on FHIR specifies how to implement CDA with the FHIR <a href="composition.html">Composition</a> resource.<br/>
+      CDA on FHIR specifies how to implement <a href="cda.html">CDA R2</a> with the FHIR <a href="composition.html">Composition</a> resource.<br/>
       <p>
              
         The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange. 
@@ -29,19 +29,65 @@
         A CDA document is a defined and complete information object that can include text, images, sounds, and other multimedia content.
      </p>
       
-      <h3> Scope of the CDA</h3>
+      <h3>Scope of the CDA</h3>
       <p>
-        The scope of the CDA is the standardization of clinical documents for exchange....
+        The scope of the CDA is the standardization of clinical documents for exchange.<br/><br/>
+        The data format of clinical documents outside of the exchange context (e.g., the data format used to store clinical documents) is not addressed in this specification.<br/><br/>
+        The CDA does not specify the creation or management of documents, only their exchange markup. While it may be possible to directly use the CDA Schema in a document authoring environment, such use is not the primary purpose of the CDA specification.<br/><br/>
+        Document management is critically interdependent with the CDA specifications, but the specification of document management messages is outside the scope of the CDA.
+      </p>
+      <h3>Goals and Design Principles</h3>
+      <p>The goals of the CDA are:
+        <ul>
+          <li>Give priority to delivery of patient care.</li>
+          <li>Allow cost effective implementation across as wide a spectrum of systems as possible.</li>
+          <li>Support exchange of human-readable documents between users, including those with different levels of technical sophistication.</li>
+          <li>Promote longevity of all information encoded according to this architecture.</li>
+          <li>Enable a wide range of post-exchange processing applications.</li>
+          <li>Be compatible with a wide range of document creation applications.</li>
+          <li>Promote exchange that is independent of the underlying transfer or storage mechanism.</li>
+          <li>Prepare the design reasonably quickly.</li>
+          <li>Enable policy-makers to control their own information requirements without extension to this specification.</li>
+        </ul>
+        A number of design principles follow from consideration of the above goals:
+        <ul>
+          <li>This architecture must be compatible with XML.</li>
+          <li>This architecture must be compatible with representations of clinical information arising from other HL7 committees.</li>
+          <li>Technical barriers to use of the architecture should be minimized.</li>
+          <li>The architecture specifies the representation of instances required for exchange.</li>
+          <li>The architecture should impose minimal constraints or requirements on document structure and content required for exchange.</li>
+          <li>The architecture must be scalable to accommodate fine-grained markup such as highly structured text and coded data.</li>
+          <li>Document specifications based on this architecture should accommodate such constraints and requirements as supplied by appropriate professional, commercial, and regulatory agencies.</li>
+          <li>Document specifications for document creation and processing, if intended for exchange, should map to this exchange architecture.</li>
+          <li>CDA documents must be human readable using widely-available and commonly-deployed XML-aware browsers and print drivers and a generic CDA style sheet written in a standard style sheet language.</li>
+          <li>Use open standards.</li>
+        </ul>
+                
+      </p>
+      <h2>General CDA Concepts</h2>
+      <h3>Major Components of a CDA Document</h3>
+      <p>
+        This section serves as a high-level introduction to the major components of a CDA document, all of which are described again and in greater detail later on. The intent here is to familiarize the reader with the high-level concepts to facilitate an understanding of the sections that follow.
+        
+        [EDITORS: in CDA r2 there is a bunch of detail about how cda is wrapped - and an example. Consider whether the discussion is relevant here.. "A CDA document is wrapped by the &lt;ClinicalDocument&gt; element, and contains a header..."]
+       </p>
+      <h3>Human Readability and Rendering CDA Documents</h3>
+      <p>
+        The CDA requirement for human readability guarantees that a receiver of a CDA document can algorithmically display the clinical content of the note on a standard Web browser.
+        <ul>
+          <li>There must be a deterministic way for a recipient of an arbitrary CDA document to render the attested content.</li>
+          <li>Human readability shall not require a sender to transmit a special style sheet along with a CDA document. It must be possible to render all CDA documents with a single style sheet and general-market display tools.</li>
+          <li>Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.</li>
+          <li>When structured content is derived from narrative, there must be a mechanism to describe the process (e.g. by author, by human coder, by natural language processing algorithm, by specific software) by which machine-processable portions were derived from a block of narrative.</li>
+          <li>When narrative is derived from structured content, there must be a mechanism to identify the process by which narrative was generated from structured data.</li>
+        </ul>
+        These principles and requirements have led to the current approach, where the material to be rendered is placed into the Section.content...[EDITORS: current design doesn't make it clear where to consistently find narrative]
       </p>
       
-      <h3>Background - NO EDITS YET BELOW</h3>
-      <ul>
-        <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
-        <li><a href="sdc-security.html">Security</a> - Security and privacy rules and considerations</li>
-        <li><a href="http://http://wiki.siframework.org/Structured+Data+Capture+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
-      </ul>
       
-      <h3>Specification</h3>
+   
+      
+      <h3>EDITORS CONTINUE FROM HERE (SDC IG COPIED BELOW)</h3>
       <p>
         The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
       </p>
