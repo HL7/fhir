@@ -43,7 +43,8 @@
     </target>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" 
+			encoding="ISO-8859-1" source="${source}" target="${target}">
             <src path="src"/>
 	    <include name="**"/>
 	    <exclude name="**/test/**/*Test.java"/>
