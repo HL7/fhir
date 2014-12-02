@@ -178,10 +178,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     
     // delete old files to save people finding and deleting them
-    File xc = new File(javaParserDir+"XmlParser.java");
-    if (xc.exists()) xc.delete();
-    File jc = new File(javaParserDir+"JsonParser.java");
-    if (jc.exists()) jc.delete();
+    deleteOldFile("XmlComposer");
+    deleteOldFile("XmlBaseComposer");
+    deleteOldFile("JsonComposer");
+    deleteOldFile("JsonBaseComposer");
     
     JavaParserXmlGenerator jParserGenX = new JavaParserXmlGenerator(new FileOutputStream(javaParserDir+"XmlParser.java"));
     jParserGenX.generate(definitions, version, genDate);    
@@ -214,6 +214,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenX.close();
     jParserGenJ.close();
     jFactoryGen.close();
+  }
+
+  private void deleteOldFile(String name) {
+    File f = new File(javaParserDir+name+".java");
+    if (f.exists()) 
+      f.delete();
   }
 
   private String makeConstantsClass(String version, String svnRevision, Date genDate) {
