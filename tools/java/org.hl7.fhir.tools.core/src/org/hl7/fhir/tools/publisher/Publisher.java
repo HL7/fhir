@@ -1769,7 +1769,7 @@ public class Publisher implements URIResolver {
     jsonToXhtml(filename, ed.getName(), resource2Json(ed), "extension"); 
  
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    XmlSpecGenerator gen = new XmlSpecGenerator(bytes, null, null /*"http://hl7.org/fhir/"*/, page);
+    XmlSpecGenerator gen = new XmlSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page);
     gen.generate(ed);
     gen.close();
     String xml = bytes.toString();

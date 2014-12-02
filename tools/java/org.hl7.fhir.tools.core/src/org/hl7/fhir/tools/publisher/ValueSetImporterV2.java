@@ -30,6 +30,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
@@ -55,10 +56,12 @@ public class ValueSetImporterV2 {
     for (int  i = 1; i <= count; i++) {
       loadLanguagePack(ini.getStringProperty("v2", "lang"+Integer.toString(i)));
     }
-    updateNarratives();
+    for (ValueSet vs : valuesets) 
+      updateNarrative(vs);
   }
   
-  private void updateNarratives() {
+  private void updateNarrative(ValueSet vs) {
+    XhtmlNode table = vs.getText().getDiv().getElement("table");
     
     
   }
