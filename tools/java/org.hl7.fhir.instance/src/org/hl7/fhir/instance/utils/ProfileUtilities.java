@@ -644,7 +644,7 @@ public class ProfileUtilities {
     
     Row r = gen.new Row();
     model.getRows().add(r);
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-extensions.html#extension."+ed.getName(), ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, null, null, null));
     r.getCells().add(gen.new Cell("", "", "Extension", null, null));
@@ -661,7 +661,7 @@ public class ProfileUtilities {
       r.setIcon("icon_extension_complex.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
       List<ElementDefinition> children = getChildren(ed.getElement(), ed.getElement().get(0));
       for (ElementDefinition child : children)
-        genElement(defFile == null ? "" : defFile+"#extension.", gen, r.getSubRows(), child, ed.getElement(), null, pkp, true, null, false, false);
+        genElement(defFile == null ? "" : defFile+"-definitions.html#extension.", gen, r.getSubRows(), child, ed.getElement(), null, pkp, true, null, false, false);
     }
     return gen.generate(model);
   }
@@ -677,7 +677,7 @@ public class ProfileUtilities {
     else
       name = "value[x]";
     
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension.value[x]", name, e.getFormal(), null));
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension.value[x]", name, e.getFormal(), null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
     genTypes(gen, pkp, r, e, null, null);
