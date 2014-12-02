@@ -48,7 +48,8 @@ to the <b>DataElement.)</b>
 <p>
 <a href="questionnaire.html">Questionnaire</a> is to both define forms, surveys and other structures that can be filled out.  <a href="questionnaire.html">Questionnaire</a> 
 also defines data elements.  However, it does so only in the context of a particular questionnaire
-design.  In contrast, <b>DataElement</b> is focused on defining data elements independent of use.  A single <b>DataElement</b> might be referenced in numerous 
+design.  In contrast, <b>DataElement</b> is focused on defining data elements independent of their use in questionnaires
+and other structures.  A single <b>DataElement</b> might be referenced in numerous 
 <a href="questionnaire.html">Questionnaire</a>s, or even potentially in multiple places within a single <a href="questionnaire.html">Questionnaire</a>.  This reference
 might either be implicit or may be explicit through an extension.  (For implementability reasons, the data constraints should still be explicitly exposed within the
 <a href="questionnaire.html">Questionnaire</a> rather than being included "by reference" to the <b>DataElement</b>.)

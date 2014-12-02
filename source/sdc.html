@@ -15,16 +15,21 @@
 <a name="SDC"> </a> 
 <h2>Structured Data Capture (SDC) Implementation Guide</h2>
 <p>
+This implementation guide is intended to support clinical systems in the creation and population of forms with patient-specific data.  It defines a mechanism for
+linking questions in forms to pre-defined data elements to enable systems to automatically populate portions of the form based on existing data, either locally or
+by invoking an operation on a third-party system.
+</p>
+<p>
 This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
-<a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>.
+Structured Data Capture - an effort under the <a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>'s Standards and Infrastructure (S &amp; I) Framework.
 However, much of the content is likely to be useable in other jurisdictions.
 </p>
 
-<h3>Draft for Comment Ballot</h3>
+<h3>Comment-only Ballot</h3>
 <p>
-This FHIR Implementation Guide is undergoing a Draft for Comment ballot.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
+This FHIR Implementation Guide is balloted as comment-only.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
 statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted together with the FHIR specification itself as part of the
-second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
+second FHIR DSTU as part of the April-May ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
 </p>
 
 <h3>Background</h3>
@@ -36,7 +41,7 @@ second FHIR DSTU as part of the December-January ballot cycle.  This will provid
 
 <h3>Specification</h3>
 <p>
-The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
+The <i>SDC FHIR Implementation Guide</i> is based on the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
 </p>
 <ul>
   <li><a href="dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
@@ -47,7 +52,7 @@ The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.h
 <p>
 Additional resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="provenance.html">Provenance</a>, 
 <a href="securityevent.html">SecurityEvent</a> and others are likely to be used in SDC solutions, though
-no SDC-specific profiles have been created for them.    As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+no SDC-specific profiles have been created for them.    Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
 <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
 <!-- Todo: decide how explicit the list of relevant sections needs to be -->
 </p>
@@ -65,12 +70,12 @@ The SDC specification consists of the following components:
   </li>
   <li><a href="#population">Pre-population Operation</a> - The definition of the custom service that allows pre-population of forms based on 
   CDA and other data sources</li>
-  <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting SDC functionality:
+  <li><b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved in supporting SDC functionality:
     <ul>
       <li><a href="conformance-sdc-de-manager.html">SDC Data Element Manager</a> - Repository for data elements</li>
       <li><a href="conformance-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing forms</li>
       <li><a href="conformance-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input</li>
-      <li><a href="conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  Also performs pre-population</li>
+      <li><a href="conformance-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  May also perform pre-population</li>
       <li><a href="conformance-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms</li>
     </ul>
   </li>
@@ -110,9 +115,9 @@ as well as indirectly either by <code>identifier</code> or <code>questionnaire</
 Not all <a href="dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
 associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
 because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
-exactly what piece of information should be extracted from a source system, CCDA document or other data source.  (Inclusion of mappings to specifications
-such as CCDA is recommended practice whenever possible.)
-</p>
+exactly what piece of information should be extracted from a source system, CCDA document or other data source.</p>
+<p>
+Mapping to CCDA, where applicable, should be constrained and specific (e.g. for particular demographic sections) rather than making it open and generic.  These mappings should be per ONC's recommendations. Mapping to CCDA is one of many options, not the only one.</p>
 
 </div>
 

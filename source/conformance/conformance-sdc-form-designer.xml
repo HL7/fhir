@@ -11,7 +11,7 @@
           <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
         </b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the ONC's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -433,7 +433,7 @@
     <system value="url"/>
     <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the ONC's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
   <status value="draft"/>
   <date value="2014-07-06"/>
   <fhirVersion value="0.2"/>

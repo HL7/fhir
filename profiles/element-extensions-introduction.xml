@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This profile defines extensions defining additional constraints on data elements.
+This profile defines extensions that can be used to describe the additional characteristics that must be held by a data element.
 </p>
 <p>
 Data elements can be defined in several places.  The extensions defined within this profile may apply

@@ -83,22 +83,23 @@ ensure consistency of data, there needs to be several additional things:
 		<b>Data Elements</b> are a tool through which improved standardization can be achieved but without adequate processes, they will not
 achieve significant benefit.
 </p>
-	<h3>Data Element granularity and hierarchy</h3>
-	<p>
+
+<h3>Data Element granularity and hierarchy</h3>
+<p>
 Data elements can be defined at a wide variety of granularities.  For example:
 </p>
-	<ul>
-		<li>Systolic Blood pressure</li>
-		<li>Systolic Blood pressure (sitting)</li>
-		<li>Systolic Blood pressure (sitting, pressure cuff)</li>
-		<li>Systolic Blood pressure (sitting, pressure cuff) mmHg</li>
-	</ul>
-	<p>
+<ul>
+  <li>Systolic Blood pressure</li>
+  <li>Systolic Blood pressure (sitting)</li>
+  <li>Systolic Blood pressure (sitting, pressure cuff)</li>
+  <li>Systolic Blood pressure (sitting, pressure cuff) mmHg</li>
+</ul>
+<p>
 Coded data elements can be defined without value sets, with suggested value sets, with required but extensible value sets or with
 completely locked down value sets.  Numeric values can be defined with or without allowed ranges.  String data can be defined
 with or without patterns or lengths.  All are valid data elements.
 </p>
-	<p>
+<p>
 When defining data elements, it's important to decide what level of detail/granularity is appropriate for the intended purpose.
 The tighter the data element is defined, the greater interoperability of the data, however the smaller the set of systems that
 will be able to satisfy the constraints and the larger the number of data elements that will be required to cover a given
@@ -108,12 +109,14 @@ still ensuring that all data captured using the data element will be sufficientl
 defining and using the data elements.  A corollary to this is that data elements defined by one group will not always meet
 the needs of another group, even if they may be covering the same domain.
 </p>
-	<h3>Uniqueness of data elements</h3>
-	<p>
+
+<h3>Uniqueness of data elements</h3>
+<p>
 Clem to add section
 </p>
-	<h3>Comparability and conversion of data elements</h3>
-	<p>
+
+<h3>Comparability and conversion of data elements</h3>
+<p>
 Two pieces of data don't necessarily need to be based on the same data element in order to be comparable or aggregatable.
 As noted above, it's possible for one data element to be a proper subset of another.  In addition, it may be possible to
 convert data from being conformant with one data element to being conformant with another data element.  This conversion
@@ -121,5 +124,29 @@ could be lossless or may involve some loss of semantic precision.  For example, 
 can be seamlessly converted to kilograms.  Similarly, coded data captured using one value set can be converted to another
 value set provided mappings are available.  The nature of the mappings would determine whether any loss of semantics
 would occur.
+</p>
+
+<h3>Definitions</h3>
+<p>
+Data elements provide their value by clearly defining the meaning and content of a particular type of data to be exchanged.
+This value depends on the meaning associated with the element being clear for all potential implementers of the element.
+I.e. For a data element to be useful, it needs to have a good quality definition.  Characteristics of good quality
+definitions include:
+</p>
+<ul>
+  <li>The definition does not use the name of the element as part of the definition - it should provide additional information
+  above and beyond the name.</li>
+  <li>The definition should be more than one or two words.</li>
+  <li>Ideally, the definition should be phrased in a manner such that the definition could be substituted for the data element
+  name in a sentence.  E.g. "gender" might be defined as "the sexual identity of a person as used for administrative purposes"</li>
+  <li>If the data element does not have a value set and does not make use of a simple type such as date, integer or boolean,
+  it should list several example values as part of the definition.</li>
+  <li>Information about the rationale for the element or additional usage notes should not be conveyed as part of the definition
+  but should instead make use of the <code>notes</code> or <code>rationale</code> elements.</li>
+</ul>
+
+<h3>References to and from Data Elements</h3>
+<p>
+
 </p>
 </div>

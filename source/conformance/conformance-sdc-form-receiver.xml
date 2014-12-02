@@ -11,7 +11,7 @@
           <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
         </b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Receiver</i> role when conforming to the ONC's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for storing and returning completed and partially-completed forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Receiver</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for storing and returning completed and partially-completed forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -220,7 +220,7 @@
     <system value="url"/>
     <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the ONC's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for storing and returning completed and partially-completed forms."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for storing and returning completed and partially-completed forms."/>
   <status value="draft"/>
   <date value="2014-07-06"/>
   <fhirVersion value="0.2"/>
