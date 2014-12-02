@@ -1,4 +1,4 @@
-package org.hl7.fhir.instance.utils;
+﻿package org.hl7.fhir.instance.utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,7 +99,7 @@ public class Translations {
     }
     return null;
   }
-
+ 
   // http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
   public String getLangDesc(String s) {
     if (s.equals("en"))
