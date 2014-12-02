@@ -140,7 +140,7 @@ import com.github.rjeschke.txtmark.Processor;
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private ImplementationGuideDetails ig;
-  private static final String SIDEBAR_SPACER = "<p>&nbsp;</p>\r\n";
+  private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
   private List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
@@ -3899,15 +3899,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+pack.metadata("description")+s3;
+        src = s1+Utilities.escapeXml(pack.metadata("description"))+s3;
       else if (com[0].equals("status"))
         src = s1+describeStatus(pack.metadata("status"))+s3;
       else if (com[0].equals("author"))
-        src = s1+pack.metadata("author.name")+s3;
+        src = s1+Utilities.escapeXml(pack.metadata("author.name"))+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("profiledesc")) {
-        src = s1+". "+profile.getResource().getDescription()+s3;
+        src = s1+". "+Utilities.escapeXml(profile.getResource().getDescription())+s3;
       } else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
@@ -4182,7 +4182,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("status"))
         src = s1+(ed.getStatus() == null ? "??" : ed.getStatus().toCode())+s3;
       else if (com[0].equals("author"))
-        src = s1+ed.getPublisher()+s3;
+        src = s1+Utilities.escapeXml(ed.getPublisher())+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("tx"))
@@ -4224,7 +4224,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("definitions"))
         src = s1+definitionsExtension(ed)+s3;
       else if (com[0].equals("pubdetails"))
-        src = s1+ed.getPublisher()+s3;
+        src = s1+Utilities.escapeXml(ed.getPublisher())+s3;
       else if (com[0].equals("extref"))
         src = s1+"<p>usage info: todo</p>"+s3;
       else if (com[0].equals("extension-table"))
@@ -4297,7 +4297,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String path : txlist)  {
         List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
         for (ElementDefinitionConstraintComponent inv : invs) {
-          b.append("<tr><td>Inv-"+inv.getKey()+"</td><td>"+path+"</td><td>"+inv.getName()+"</td><td>"+inv.getHuman()+"<br/>XPath: "+inv.getXpath()+"</td></tr>\r\n");
+          b.append("<tr><td>Inv-"+inv.getKey()+"</td><td>"+path+"</td><td>"+Utilities.escapeXml(inv.getName())+"</td><td>"+Utilities.escapeXml(inv.getHuman())+"<br/>XPath: "+Utilities.escapeXml(inv.getXpath())+"</td></tr>\r\n");
         }
       }
       b.append("</table>\r\n");
