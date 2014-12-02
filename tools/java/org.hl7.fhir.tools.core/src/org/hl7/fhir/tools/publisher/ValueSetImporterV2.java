@@ -83,7 +83,7 @@ public class ValueSetImporterV2 {
       tr = table.getChildNodes().get(r);
       i = 2;
       for (String s : langs) {
-        tr.addTag(i, "td").addTag("b").addText(getLang(c, s));
+        tr.addTag(i, "td").addText(getLang(c, s));
         i++;
       }
       r++;
