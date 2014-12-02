@@ -8,7 +8,7 @@ into a single package that may be the subject of workflow such as access control
 targeted delivery. 
 </p>
 <p>
-Typically, Document Manifest Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.html">XDS specific profile</a>).
+Typically, Document Manifest Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds.html">XDS specific profile</a>).
 </p>
 </div>
 

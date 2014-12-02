@@ -8,7 +8,7 @@ different levels of accuracy. Sometimes the exact condition ('asthma') is known,
 Equally, sometimes the person can be identified ('my aunt Agatha') and sometimes all that is known is that the person was an uncle.
 </p>
 <p>This resource represents a simple structure used to capture an 'elementary' family history.  However, it can also be the basis for
-capturing a more rigorous history useful for genetic and other analysis - refer to the <a href="familyhistory-genetics-pedigree.html">Genetic Pedigree</a> profile
+capturing a more rigorous history useful for genetic and other analysis - refer to the <a href="family-history-genetics.html">Genetic Pedigree</a> profile
 for an example.</p>
 <p>
 The entire family history for an individual is stored in a single resource.

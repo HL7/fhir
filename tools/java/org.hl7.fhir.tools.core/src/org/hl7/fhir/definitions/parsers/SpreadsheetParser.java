@@ -586,8 +586,10 @@ public class SpreadsheetParser {
           cd.setReferredValueSet((ValueSet) p.parse(input));
 			  } else
 			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
-			  if (cd.getReferredValueSet() != null)
+			  if (cd.getReferredValueSet() != null) {
 			    cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getReference()));
+			    cd.getReferredValueSet().setUserData("filename", cd.getReference()+".html");
+			  }
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {
 				throw new Exception("Definition of binding '"

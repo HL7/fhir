@@ -1629,7 +1629,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
       String lvl = hasParent ?  "<td><b>Level</b></td>" : "";
       if (hasComment)
-        s.append("    <tr>"+src+lvl+"<td><b>Code!</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
+        s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr>");
       else if (hasDefinition)
         s.append("    <tr>"+src+lvl+"<td><b>Code</b></td><td colspan=\"2\"><b>Definition</b></td></tr>");
       else

@@ -2,8 +2,7 @@
 
 <h3>Notes</h3>
 <ul>
- <li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM, 
- which has many codes suitable to devices that make <a href="deviceobservationreport.html">Device Observation Reports</a>. 
+ <li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM. 
  Another source which will be appropriate for many devices is the FDA GUDID (see below) or equivalent. 
  Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.</li>
 </ul>

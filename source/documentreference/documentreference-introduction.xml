@@ -9,7 +9,7 @@ author etc), can be displayed to the user, and has defined update management. Th
 used with any document format that has a recognized mime type, and that conforms to this definition.
 </p>
 <p>
-Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds-profile.html">XDS specific profile</a>),
+Typically, Document Reference Resources are used in document indexing systems, such as IHE XDS (see the <a href="xds.html">XDS specific profile</a>),
 and are used to refer to:
 </p>
 <ul>

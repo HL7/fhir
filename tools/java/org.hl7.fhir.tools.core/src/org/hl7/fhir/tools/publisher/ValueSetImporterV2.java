@@ -55,8 +55,14 @@ public class ValueSetImporterV2 {
     for (int  i = 1; i <= count; i++) {
       loadLanguagePack(ini.getStringProperty("v2", "lang"+Integer.toString(i)));
     }
+    updateNarratives();
   }
   
+  private void updateNarratives() {
+    
+    
+  }
+
   private void loadLanguagePack(String source) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
@@ -189,6 +195,7 @@ public class ValueSetImporterV2 {
   private ValueSet buildV2Valueset(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
     vs.setId("v2-"+FormatUtilities.makeId(id));
+    vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id);
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
@@ -268,6 +275,7 @@ public class ValueSetImporterV2 {
 
     ValueSet vs = new ValueSet();
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
+    vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");

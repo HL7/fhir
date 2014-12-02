@@ -1974,6 +1974,7 @@ public class Publisher implements URIResolver {
   private ValueSet buildV3CodeSystem(String id, String date, Element e, String csOid, String vsOid) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
+    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
     vs.setName("v3 Code System " + id);
@@ -2162,6 +2163,7 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
+    vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
     vs.setName(id);
@@ -2205,6 +2207,7 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
+    vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
     vs.setName(id);
@@ -3006,7 +3009,7 @@ public class Publisher implements URIResolver {
       json = t.getMessage();
     }
 
-    String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+page.getFolders().dstDir + n + ".json\">Raw JSON</a> (<a href=\""+page.getFolders().dstDir + n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+    String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
         + "\r\n</pre>\r\n</div>\r\n";
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
         + "\r\n</pre>\r\n</div>\r\n";
@@ -4052,6 +4055,7 @@ public class Publisher implements URIResolver {
 
   private void generateCodeSystemPart1(String filename, BindingSpecification cd) throws Exception {
     ValueSet vs = new ValueSet();
+    vs.setUserData("filename", filename);
     vs.setId(FormatUtilities.makeId(Utilities.fileTitle(filename)));
     if (Utilities.noString(cd.getUri()))
       vs.setIdentifier("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
@@ -4178,10 +4182,14 @@ public class Publisher implements URIResolver {
 
     Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), cm);
+    json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
+    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.json")), cm);
     String n = Utilities.changeFileExt(filename, "-map-v2");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
     Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml")), cm);
+    xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
+    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.xml")), cm);
     cloneToXhtml(n, cm.getName(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
@@ -4217,7 +4225,7 @@ public class Publisher implements URIResolver {
     // DSTU, then .review
     cm.setDateElement(Factory.nowDateTime());
     cm.setSource(Factory.makeReference(src));
-    cm.setTarget(Factory.makeReference(cd.getV3Map()));
+    cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {
@@ -4260,10 +4268,14 @@ public class Publisher implements URIResolver {
     gen.generate(cm);
     Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm);
+    json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
+    json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.json")), cm);
     String n = Utilities.changeFileExt(filename, "-map-v3");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
     Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml")), cm);
+    xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
+    xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.xml")), cm);
     cloneToXhtml(n, cm.getName(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
