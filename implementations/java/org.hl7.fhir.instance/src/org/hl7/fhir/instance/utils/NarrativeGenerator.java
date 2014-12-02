@@ -112,7 +112,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import com.github.rjeschke.txtmark.Processor;
 
 
-public class NarrativeGenerator {
+public class NarrativeGenerator implements INarrativeGenerator {
 
   public class ResourceWithReference {
 

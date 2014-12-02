@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -2902,6 +2902,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uri")) {
         res.setUriElement(parseUri(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definitional")) {
+        res.setDefinitionalElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comments")) {
@@ -6336,6 +6338,8 @@ public class XmlParser extends XmlParserBase {
         res.getInclude().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("exclude")) {
         res.getExclude().add(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("period")) {
+        res.setPeriod(parsePeriod(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -11873,6 +11877,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUriElement()) {
         composeUri("uri", element.getUriElement());
       }
+      if (element.hasDefinitionalElement()) {
+        composeBoolean("definitional", element.getDefinitionalElement());
+      }
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
       }
@@ -15697,6 +15704,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExclude()) { 
         for (StringType e : element.getExclude()) 
           composeString("exclude", e);
+      }
+      if (element.hasPeriod()) {
+        composePeriod("period", element.getPeriod());
       }
       xml.close(FHIR_NS, name);
     }

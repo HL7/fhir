@@ -58,8 +58,14 @@ import com.google.gson.JsonObject;
  * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
-public abstract class JsonParserBase extends ParserBase implements Parser {
-  private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
+public abstract class JsonParserBase extends ParserBase implements IParser {
+	
+  @Override
+  public ParserType getType() {
+	  return ParserType.JSON;
+  }
+
+	private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
 
   // -- in descendent generated code --------------------------------------
   

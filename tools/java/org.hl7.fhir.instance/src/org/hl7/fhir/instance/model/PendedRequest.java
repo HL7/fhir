@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -125,17 +125,24 @@ public class PendedRequest extends DomainResource {
      * Names of resource types to include.
      */
     @Child(name="include", type={StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Resource type to include", formalDefinition="Names of resource types to include." )
+    @Description(shortDefinition="Resource type(s) to include", formalDefinition="Names of resource types to include." )
     protected List<StringType> include;
 
     /**
      * Names of resource types to exclude.
      */
     @Child(name="exclude", type={StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Resource type to exclude", formalDefinition="Names of resource types to exclude." )
+    @Description(shortDefinition="Resource type(s) to exclude", formalDefinition="Names of resource types to exclude." )
     protected List<StringType> exclude;
 
-    private static final long serialVersionUID = 426386451L;
+    /**
+     * A period of time during which the fulfilling resources would have been created.
+     */
+    @Child(name="period", type={Period.class}, order=9, min=0, max=1)
+    @Description(shortDefinition="Period", formalDefinition="A period of time during which the fulfilling resources would have been created." )
+    protected Period period;
+
+    private static final long serialVersionUID = 244503869L;
 
     public PendedRequest() {
       super();
@@ -547,6 +554,30 @@ public class PendedRequest extends DomainResource {
       return false;
     }
 
+    /**
+     * @return {@link #period} (A period of time during which the fulfilling resources would have been created.)
+     */
+    public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PendedRequest.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period();
+      return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
+    }
+
+    /**
+     * @param value {@link #period} (A period of time during which the fulfilling resources would have been created.)
+     */
+    public PendedRequest setPeriod(Period value) { 
+      this.period = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -559,6 +590,7 @@ public class PendedRequest extends DomainResource {
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include));
         childrenList.add(new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude));
+        childrenList.add(new Property("period", "Period", "A period of time during which the fulfilling resources would have been created.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 
       public PendedRequest copy() {
@@ -586,6 +618,7 @@ public class PendedRequest extends DomainResource {
           for (StringType i : exclude)
             dst.exclude.add(i.copy());
         };
+        dst.period = period == null ? null : period.copy();
         return dst;
       }
 
@@ -598,7 +631,7 @@ public class PendedRequest extends DomainResource {
            && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
            && (request == null || request.isEmpty()) && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
-          ;
+           && (period == null || period.isEmpty());
       }
 
   @Override

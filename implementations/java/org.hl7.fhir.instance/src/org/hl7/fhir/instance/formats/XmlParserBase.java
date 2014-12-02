@@ -57,11 +57,16 @@ import org.xmlpull.v1.XmlPullParserFactory;
  * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
-public abstract class XmlParserBase extends ParserBase implements Parser {
+public abstract class XmlParserBase extends ParserBase implements IParser {
 
+  @Override
+  public ParserType getType() {
+	  return ParserType.XML;
+  }
+  
   // -- in descendent generated code --------------------------------------
   
-  abstract protected Resource parseResource(XmlPullParser xpp) throws Exception;
+	abstract protected Resource parseResource(XmlPullParser xpp) throws Exception;
   abstract protected ResourceMetaComponent parseResourceResourceMetaComponent(XmlPullParser xpp, Resource owner) throws Exception;
   abstract protected void composeResourceResourceMetaComponent(String name, Resource.ResourceMetaComponent element) throws Exception;
   abstract protected Type parseType(XmlPullParser xml, String type) throws Exception;

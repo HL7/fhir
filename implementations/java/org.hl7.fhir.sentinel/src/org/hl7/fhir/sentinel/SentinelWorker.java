@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Coding;
@@ -133,7 +133,7 @@ public class SentinelWorker {
 
 	    if (!stop && !Utilities.noString(ini.getStringProperty(server, "cursor"))) {
 	    	if (feed == null) {
-	    		Parser p = new XmlParser();
+	    		IParser p = new XmlParser();
 	    		feed = (Bundle) p.parse(new FileInputStream(getWorkingFileName()));
 	    	}
 	      while(!stop && !Utilities.noString(ini.getStringProperty(server, "cursor"))) 

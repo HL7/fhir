@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -827,10 +827,10 @@ public class Questionnaire extends DomainResource {
         protected StringType linkId;
 
         /**
-         * Identifies a how this group of questions is known in a particular terminology such as LOINC.
+         * Identifies a how this question is known in a particular terminology such as LOINC.
          */
         @Child(name="concept", type={Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Concept that represents this section on a questionnaire", formalDefinition="Identifies a how this group of questions is known in a particular terminology such as LOINC." )
+        @Description(shortDefinition="Concept that represents this question on a questionnaire", formalDefinition="Identifies a how this question is known in a particular terminology such as LOINC." )
         protected List<Coding> concept;
 
         /**
@@ -936,7 +936,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
+         * @return {@link #concept} (Identifies a how this question is known in a particular terminology such as LOINC.)
          */
         public List<Coding> getConcept() { 
           if (this.concept == null)
@@ -954,7 +954,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
+         * @return {@link #concept} (Identifies a how this question is known in a particular terminology such as LOINC.)
          */
     // syntactic sugar
         public Coding addConcept() { //3
@@ -1238,7 +1238,7 @@ public class Questionnaire extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a [[[QuestionnaireAnswers]]] resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
-          childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("concept", "Coding", "Identifies a how this question is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Text of the question as it is shown to the user.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("type", "code", "The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple) choice is expected.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("required", "boolean", "If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.", 0, java.lang.Integer.MAX_VALUE, required));
@@ -1300,10 +1300,10 @@ public class Questionnaire extends DomainResource {
     protected Enumeration<QuestionnaireStatus> status;
 
     /**
-     * The date that this version of the questionnaire was authored.
+     * The date that this questionnaire was last changed.
      */
     @Child(name="date", type={DateTimeType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Date this version was authored", formalDefinition="The date that this version of the questionnaire was authored." )
+    @Description(shortDefinition="Date this version was authored", formalDefinition="The date that this questionnaire was last changed." )
     protected DateTimeType date;
 
     /**
@@ -1457,7 +1457,7 @@ public class Questionnaire extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the questionnaire was authored.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date that this questionnaire was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -1477,7 +1477,7 @@ public class Questionnaire extends DomainResource {
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the questionnaire was authored.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date that this questionnaire was last changed.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public Questionnaire setDateElement(DateTimeType value) { 
       this.date = value;
@@ -1485,14 +1485,14 @@ public class Questionnaire extends DomainResource {
     }
 
     /**
-     * @return The date that this version of the questionnaire was authored.
+     * @return The date that this questionnaire was last changed.
      */
     public DateAndTime getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date that this version of the questionnaire was authored.
+     * @param value The date that this questionnaire was last changed.
      */
     public Questionnaire setDate(DateAndTime value) { 
       if (value == null)
@@ -1583,7 +1583,7 @@ public class Questionnaire extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("date", "dateTime", "The date that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date that this questionnaire was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "Organization responsible for developing and maintaining the questionnaire.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("group", "", "A collection of related questions (or further groupings of questions).", 0, java.lang.Integer.MAX_VALUE, group));
       }

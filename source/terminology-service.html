@@ -23,13 +23,7 @@ and SHALL conform to this conformance statement: [link to be provided].
 
 <h3>Notes from Michael Lawley's talk at HL7 Australia - issues to be addressed</h3>
 <ul>
-  <li> value sets identified by URIs or URLs?</li>
-  <li> make rules about repeating codes more obvious (Michael didn't see them)</li>
-  <li> make it more obvious when you'd use define. </li>
-  <li> also make it more obvious how to publish the list of supported code systems</li>
   <li> improve the definitions of mapping equivalence, and change "inexact" map to "overlap"</li>
-  <li> explain date of expansion better</li>
-  <li> Do we need paging on expansion if the value set is too long?</li>
   <li> make explanation of what are display names clear on snomed page</li>
   <li> clarifications on subsumption testing</li>
   <li> get better snomed CT value set uri from Michael </li>
@@ -63,41 +57,27 @@ any problems with that?</i>
 
 <h3>Basic Concepts</h3>
 <p>
-The FHIR terminology specification is based two key concepts:
-</p>
-<ul>
-<li> <b>code system</b> - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology)</li>
-<li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
-</ul>
-<p>
-Note: Proper differentiation between a code system and a value set is important. For instance, it's not unusual 
-to see a mixed list of codes containing a set of LOINC codes with some additional in-house codes, with no explicit 
-differentiation between them; only the fact that code happens to look like a LOINC code betrays it's origin. 
-In FHIR, on the other hand, each code system that defines codes has a URL, and the codes they define are a pair 
-("Code Pair") - a name with a namespace. So in the case of this mixed list, there is two code systems: <a href="loinc.html">LOINC</a>
-and a local one (e.g. http://example.com/codesystems/additional-test-codes). 
-Then there's a single value set for the mixed list that says that it includes codes from each of 
-those two namespaces - a set of Code Pairs. The value set itself gets a URL as an identifier (e.g. http://example.com/fhir/ValueSet/test-codes) 
-- this identifies the set of Code Pairs, but is never used as the namespace in a actual code pair. 
-In FHIR, Code Pairs are always represented as "code" and "system", except for the simple type "code" 
-data type where the namespace (e.g. the system element/property) is fixed in the schema and not 
-represented explicitly. The URL in a system element is always a reference to a code system, 
-not to the value set. 
+A FHIR terminology service is a simply a set of functions built on the definitions 
+provided by a set of <a href="valueset.html">ValueSet</a> and 
+<a href="conceptmap.html">ConceptMap</a> resources, with additional inherently known terminologies providing support.
 </p>
 <p>
-Further reading:
+The terminology service builds on the basic principles for using terminologies 
+in FHIR. Implementers should be familiar with:
 </p>
 <ul>
  <li><a href="terminologies.html">Using codes in FHIR</a></li>
+ <li>The <a href="valueset.html">ValueSet</a> resource</li>
+ <li>The <a href="conceptmap.html">ConceptMap</a> resource</li>
+</ul>
+<p>
+In addition, implemneters should be familiar with the <a href="operations.html">operations 
+framework</a>. Further useful information may be found in:
+</p>
+<ul>
  <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">V3 Core Principles</a></li>
  <li>SNOMED CT <a href="http://ihtsdo.org/fileadmin/user_upload/doc/">technical documentation</a>. Note; "namespace" is used differentyl here from the way it is used by IHTSDO</li>
 </ul>
-
-<p>
-A terminology service is a simply a set of functions built on the definitions provided by a set of
-<a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">ConceptMap</a> resources, with
-additional inherently known terminologies providing support.
-</p>
 
 <h4>External Code Systems</h4>
 <p>
@@ -117,7 +97,17 @@ Most useful terminology servers will make one or more of these external code sys
 within the value sets that they manage. The list of additional terminologies that a terminology server supports 
 beyond those defined in it's value sets is published to clients by (still to figure out how this works). 
 </p>
+<p>
+A server SHOULD publish the additional code systems that it supports through intrinsic knowledge
+using the <a href="??">http://hl7.org/fhir/ExtensionDefinition/supported-system extension:</a>
+</p>
+<pre class="json">
+ "http://hl7.org/fhir/ExtensionDefinition/supported-system" : [
+   { "valueUri" : "http://loinc.org" }
+ ],
+</pre>
 
+</p>
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available 
 internally that serve the operational interfaces below. The internal server depends on the following 
@@ -167,8 +157,8 @@ a code system).
 </p>
 <p>
 A FHIR enabled application can simply ask the server to figure out all the details, and return it a list 
-of the current codes in the value set. This is known as "expanding" the valueset, which is <a href="valueset-operations.html#expand">a formally
-defined operation</a>. As a summary, the client passes the server the following information:
+of the current codes in the value set. This is known as <a href="valueset-operations.html#expand">"expanding" the valueset</a>. 
+As a summary, the client passes the server the following information:
 </p>
 <ul> 
  <li> the value set (either by it's URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
@@ -183,6 +173,10 @@ Note that some value sets expand to many thousands of codes, or even an infinite
 and for these, the server SHOULD return an <a href="issue-type.html#too-costly">error code 
 <i>too-costly</i></a>. In these cases the client can try again with a more specific text filter
 to reduce the number of codes returned.
+</p>
+<p>
+For further information, consult the <a href="valueset-operations.html#expand">definition of the operation</a>.
+Open Issue for connectathons: is paging support required for the iterating through an expansion?
 </p>
 
 <p>Some example uses for the expansion operation:

@@ -45,7 +45,7 @@ import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 
-public abstract class ParserBase extends FormatUtilities implements Parser {
+public abstract class ParserBase extends FormatUtilities implements IParser {
 
   // -- implementation of variant type methods from the interface --------------------------------
   
@@ -111,7 +111,7 @@ public abstract class ParserBase extends FormatUtilities implements Parser {
   protected String xhtmlMessage;
   
 	@Override
-  public Parser setSuppressXhtml(String message) {
+  public IParser setSuppressXhtml(String message) {
     xhtmlMessage = message;
     return this;
   }
@@ -122,7 +122,7 @@ public abstract class ParserBase extends FormatUtilities implements Parser {
     return handleComments;
   }
 
-  public Parser setHandleComments(boolean value) {
+  public IParser setHandleComments(boolean value) {
     this.handleComments = value;
     return this;
   }
@@ -141,7 +141,7 @@ public abstract class ParserBase extends FormatUtilities implements Parser {
   /**
    * @param allowUnknownContent Whether to throw an exception if unknown content is found (or just skip it)
    */
-  public Parser setAllowUnknownContent(boolean allowUnknownContent) {
+  public IParser setAllowUnknownContent(boolean allowUnknownContent) {
     this.allowUnknownContent = allowUnknownContent;
     return this;
   }
@@ -152,7 +152,7 @@ public abstract class ParserBase extends FormatUtilities implements Parser {
     return style;
   }
 
-  public Parser setOutputStyle(OutputStyle style) {
+  public IParser setOutputStyle(OutputStyle style) {
     this.style = style;
     return this;
   }

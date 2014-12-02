@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -486,27 +486,34 @@ public class DataElement extends DomainResource {
         protected UriType uri;
 
         /**
+         * If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.
+         */
+        @Child(name="definitional", type={BooleanType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="True if mapping defines element", formalDefinition="If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element." )
+        protected BooleanType definitional;
+
+        /**
          * A name for the specification that is being mapped to.
          */
-        @Child(name="name", type={StringType.class}, order=2, min=0, max=1)
+        @Child(name="name", type={StringType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Names what this mapping refers to", formalDefinition="A name for the specification that is being mapped to." )
         protected StringType name;
 
         /**
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        @Child(name="comments", type={StringType.class}, order=3, min=0, max=1)
+        @Child(name="comments", type={StringType.class}, order=4, min=0, max=1)
         @Description(shortDefinition="Versions, Issues, Scope limitations etc", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
         protected StringType comments;
 
         /**
          * Expresses what part of the target specification corresponds to this element.
          */
-        @Child(name="map", type={StringType.class}, order=4, min=1, max=1)
+        @Child(name="map", type={StringType.class}, order=5, min=1, max=1)
         @Description(shortDefinition="Details of the mapping", formalDefinition="Expresses what part of the target specification corresponds to this element." )
         protected StringType map;
 
-        private static final long serialVersionUID = -229299076L;
+        private static final long serialVersionUID = 797049346L;
 
       public DataElementMappingComponent() {
         super();
@@ -562,6 +569,55 @@ public class DataElement extends DomainResource {
             if (this.uri == null)
               this.uri = new UriType();
             this.uri.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #definitional} (If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.). This is the underlying object with id, value and extensions. The accessor "getDefinitional" gives direct access to the value
+         */
+        public BooleanType getDefinitionalElement() { 
+          if (this.definitional == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DataElementMappingComponent.definitional");
+            else if (Configuration.doAutoCreate())
+              this.definitional = new BooleanType();
+          return this.definitional;
+        }
+
+        public boolean hasDefinitionalElement() { 
+          return this.definitional != null && !this.definitional.isEmpty();
+        }
+
+        public boolean hasDefinitional() { 
+          return this.definitional != null && !this.definitional.isEmpty();
+        }
+
+        /**
+         * @param value {@link #definitional} (If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.). This is the underlying object with id, value and extensions. The accessor "getDefinitional" gives direct access to the value
+         */
+        public DataElementMappingComponent setDefinitionalElement(BooleanType value) { 
+          this.definitional = value;
+          return this;
+        }
+
+        /**
+         * @return If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.
+         */
+        public boolean getDefinitional() { 
+          return this.definitional == null ? false : this.definitional.getValue();
+        }
+
+        /**
+         * @param value If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.
+         */
+        public DataElementMappingComponent setDefinitional(boolean value) { 
+          if (value == false)
+            this.definitional = null;
+          else {
+            if (this.definitional == null)
+              this.definitional = new BooleanType();
+            this.definitional.setValue(value);
           }
           return this;
         }
@@ -712,6 +768,7 @@ public class DataElement extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("uri", "uri", "A URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
+          childrenList.add(new Property("definitional", "boolean", "If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.", 0, java.lang.Integer.MAX_VALUE, definitional));
           childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
@@ -721,6 +778,7 @@ public class DataElement extends DomainResource {
         DataElementMappingComponent dst = new DataElementMappingComponent();
         copyValues(dst);
         dst.uri = uri == null ? null : uri.copy();
+        dst.definitional = definitional == null ? null : definitional.copy();
         dst.name = name == null ? null : name.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.map = map == null ? null : map.copy();
@@ -728,8 +786,9 @@ public class DataElement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uri == null || uri.isEmpty()) && (name == null || name.isEmpty())
-           && (comments == null || comments.isEmpty()) && (map == null || map.isEmpty());
+        return super.isEmpty() && (uri == null || uri.isEmpty()) && (definitional == null || definitional.isEmpty())
+           && (name == null || name.isEmpty()) && (comments == null || comments.isEmpty()) && (map == null || map.isEmpty())
+          ;
       }
 
   }
@@ -808,7 +867,7 @@ public class DataElement extends DomainResource {
      * Provides a complete explanation of the meaning of the data element for human readability.
      */
     @Child(name="definition", type={StringType.class}, order=9, min=0, max=1)
-    @Description(shortDefinition="Full formal definition in human language", formalDefinition="Provides a complete explanation of the meaning of the data element for human readability." )
+    @Description(shortDefinition="Definition/description as narrative text", formalDefinition="Provides a complete explanation of the meaning of the data element for human readability." )
     protected StringType definition;
 
     /**
@@ -840,10 +899,10 @@ public class DataElement extends DomainResource {
     protected CodeType type;
 
     /**
-     * An example value for this element.
+     * An sample value for this element demonstrating the type of information that would typically be captured.
      */
     @Child(name="example", type={}, order=14, min=0, max=1)
-    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="An example value for this element." )
+    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="An sample value for this element demonstrating the type of information that would typically be captured." )
     protected org.hl7.fhir.instance.model.Type example;
 
     /**
@@ -1540,7 +1599,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #example} (An example value for this element.)
+     * @return {@link #example} (An sample value for this element demonstrating the type of information that would typically be captured.)
      */
     public org.hl7.fhir.instance.model.Type getExample() { 
       return this.example;
@@ -1551,7 +1610,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #example} (An example value for this element.)
+     * @param value {@link #example} (An sample value for this element demonstrating the type of information that would typically be captured.)
      */
     public DataElement setExample(org.hl7.fhir.instance.model.Type value) { 
       this.example = value;
@@ -1702,7 +1761,7 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("synonym", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, synonym));
         childrenList.add(new Property("type", "code", "The FHIR data type that is the type for this element.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("example[x]", "*", "An example value for this element.", 0, java.lang.Integer.MAX_VALUE, example));
+        childrenList.add(new Property("example[x]", "*", "An sample value for this element demonstrating the type of information that would typically be captured.", 0, java.lang.Integer.MAX_VALUE, example));
         childrenList.add(new Property("maxLength", "integer", "Indicates the shortest length that SHALL be supported by conformant instances without truncation.", 0, java.lang.Integer.MAX_VALUE, maxLength));
         childrenList.add(new Property("units", "CodeableConcept", "Identifies the units of measure in which the data element should be captured or expressed.", 0, java.lang.Integer.MAX_VALUE, units));
         childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));

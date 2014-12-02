@@ -34,8 +34,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.Parser.OutputStyle;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.utils.WorkerContext;
@@ -53,10 +53,10 @@ public class Test {
 			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH), WorkerContext.fromPack(Utilities.path(SRC_PATH, "validation.zip")));
 			Bundle a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";
-			Parser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+			IParser x = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
 			x.compose(new FileOutputStream(fx),  a);
 			String fj = DEF_PATH + "output.json";
-			Parser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+			IParser j = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
 			j.compose(new FileOutputStream(fj),  a);
 			System.out.println("done. save as "+fx+" and "+fj);
 		} catch (Exception e) {

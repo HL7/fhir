@@ -1,11 +1,12 @@
 package org.hl7.fhir.instance.utils;
 
-import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.Parser.ParserType;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.validation.IResourceValidator;
 
 /**
  * Standard interface for work context across reference implementations
@@ -106,7 +107,7 @@ public interface IWorkerContext {
 	 * @param type
 	 * @return
 	 */
-	public Parser getParser(ParserType type);
+	public IParser getParser(ParserType type);
 
   /**
    * Get a parser to read/write instances. Determine the type 
@@ -118,7 +119,21 @@ public interface IWorkerContext {
    * @param type
    * @return
    */	
-  public Parser getParser(String type);
+  public IParser getParser(String type);
+
+  /**
+   * Get a JSON parser
+   * 
+   * @return
+   */
+  public IParser newJsonParser();
+
+  /**
+   * Get an XML parser
+   * 
+   * @return
+   */
+public IParser newXmlParser();
 	
 	/**
 	 * 
@@ -128,4 +143,18 @@ public interface IWorkerContext {
 	 */
 	public TerminologyServices getTerminologyServices() throws Exception;
 	
+	/**
+	 * Get a generator that can generate narrative for the instance
+	 * 
+	 * @return a prepared generator
+	 */
+	public INarrativeGenerator getNarrativeGenerator();
+	
+	/**
+	 * Get a validator that can check whether a resource is valid 
+	 * 
+	 * @return a prepared generator
+	 */
+  public IResourceValidator newValidator();
+  
 }

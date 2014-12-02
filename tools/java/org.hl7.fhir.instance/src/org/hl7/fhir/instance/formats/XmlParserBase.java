@@ -57,7 +57,12 @@ import org.xmlpull.v1.XmlPullParserFactory;
  * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
-public abstract class XmlParserBase extends ParserBase implements Parser {
+public abstract class XmlParserBase extends ParserBase implements IParser {
+
+  @Override
+  public ParserType getType() {
+	  return ParserType.XML;
+  }
 
   // -- in descendent generated code --------------------------------------
   

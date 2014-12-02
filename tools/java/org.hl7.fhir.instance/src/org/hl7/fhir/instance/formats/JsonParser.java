@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -3252,6 +3252,10 @@ public class JsonParser extends JsonParserBase {
       res.setUriElement(parseUri(json.get("uri").getAsString()));
     if (json.has("_uri"))
       parseElementProperties(json.getAsJsonObject("_uri"), res.getUriElement());
+    if (json.has("definitional"))
+      res.setDefinitionalElement(parseBoolean(json.get("definitional").getAsBoolean()));
+    if (json.has("_definitional"))
+      parseElementProperties(json.getAsJsonObject("_definitional"), res.getDefinitionalElement());
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
@@ -7178,6 +7182,8 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getExclude().get(i));
       }
     };
+    if (json.has("period"))
+      res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
     return res;
   }
 
@@ -13888,6 +13894,10 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("uri", element.getUriElement(), false);
         composeUriExtras("uri", element.getUriElement(), false);
       }
+      if (element.hasDefinitionalElement()) {
+        composeBooleanCore("definitional", element.getDefinitionalElement(), false);
+        composeBooleanExtras("definitional", element.getDefinitionalElement(), false);
+      }
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
@@ -18836,6 +18846,9 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
+      if (element.hasPeriod()) {
+        composePeriod("period", element.getPeriod());
+      }
   }
 
   protected void composePractitioner(String name, Practitioner element) throws Exception {

@@ -57,11 +57,34 @@ When codes are carried in resources, one of
 <h2>Controlling the use of Coded Values</h2>
 <p>
 The set of coded values that is allowed to be used in an element of one of these
-3 data types is known as a "value set". Anywhere these data types are used, the
+3 data types is known as a <a href="valueset.html">"value set"</a>. Anywhere these data types are used, the
 specification "binds" a value set to the element. How this is done is different for 
 the simple <a href="datatypes.html#code">code</a> data type and the complex 
 data types (<a href="datatypes.html#Coding">Coding</a>/<a href="datatypes.html#CodeableConcept">CodeableConcept</a>).
 </p>
+<p>
+The difference between a code system and a value set is an important distinction that is often
+missed by implementers, since strict differentiation is often taked for granted in system
+design. For instance, it's not unusual to see a system table that is a mixed list of codes,
+containing some LOINC codes and also some additional in-house codes. Quit often, there is 
+no explicit differentiation between them; only the fact that a code happens to look like a 
+LOINC code betrays it's origin. 
+</p>
+<p>
+In FHIR, on the other hand, explicitly tracking the source of the code is both important and necessary.
+In order to do this, each code system that defines codes is assigned a URL that identifies it, and all 
+the codes it defines are actually a pair ("Code Pair":  a name with a namespace). So in the case of 
+this mixed list example, there is two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org)
+and a local one (let's say it has the URL: http://example.com/codesystems/additional-test-codes). 
+The system table is a single value set (a set of Code Pairs) that includes codes from each of 
+those two namespaces. The value set itself gets it's own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes)")
+- this identifies the set of Code Pairs, but is never used as the namespace in a actual code pair, or in an instance. 
+In FHIR, Code Pairs are always represented as "code" and "system", except for the simple <a href="datatypes.html#code">data type "code"</a>
+data type where the namespace (e.g. the system element/property) is fixed in the schema and not 
+represented explicitly. So the URL in a system element is always a reference to a code system, 
+not to a value set. 
+</p>
+
 
 <a name="simple"> </a>
 <a name="code"> </a>

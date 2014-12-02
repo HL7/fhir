@@ -53,7 +53,7 @@ import org.w3c.dom.Element;
  * todo:
  * check urn's don't start oid: or uuid: 
  */
-public class InstanceValidator extends BaseValidator {
+public class InstanceValidator extends BaseValidator implements IResourceValidator {
   // configuration items
 
   public abstract class WrapperElement {
@@ -249,6 +249,10 @@ public class InstanceValidator extends BaseValidator {
     return validateInstance(elem, null);
   }
 
+  /* (non-Javadoc)
+	 * @see org.hl7.fhir.instance.validation.IResourceValidator#validateInstance(org.w3c.dom.Element, org.hl7.fhir.instance.model.Profile, java.lang.String)
+	 */
+  @Override
   public List<ValidationMessage> validateInstance(Element elem, Profile profile, String uri) throws Exception {
     return validateInstance(new DOMWrapperElement(elem), profile);
   }

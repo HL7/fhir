@@ -33,8 +33,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.Parser.OutputStyle;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -53,7 +53,7 @@ public class ResourceTest {
   
   public void test() throws Exception {
     
-    Parser p;
+    IParser p;
     if (isJson())
       p = new JsonParser();
     else

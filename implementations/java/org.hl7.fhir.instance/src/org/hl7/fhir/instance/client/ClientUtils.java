@@ -67,8 +67,8 @@ import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.Parser;
-import org.hl7.fhir.instance.formats.Parser.OutputStyle;
+import org.hl7.fhir.instance.formats.IParser;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.OperationOutcome;
@@ -377,7 +377,7 @@ public class ClientUtils {
 		byte[] byteArray = null;
 		try {
 			baos = new ByteArrayOutputStream();
-			Parser parser = null;
+			IParser parser = null;
 			if(isJson) {
 				parser = new JsonParser();
 			} else {
@@ -403,7 +403,7 @@ public class ClientUtils {
 		byte[] byteArray = null;
 		try {
 			baos = new ByteArrayOutputStream();
-			Parser parser = null;
+			IParser parser = null;
 			if(isJson) {
 				parser = new JsonParser();
 			} else {
@@ -438,7 +438,7 @@ public class ClientUtils {
 		}
 	}
 	
-	protected static Parser getParser(String format) {
+	protected static IParser getParser(String format) {
 		if(StringUtils.isBlank(format)) {
 			format = ResourceFormat.RESOURCE_XML.getHeader();
 		}

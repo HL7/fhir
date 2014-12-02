@@ -113,11 +113,11 @@ import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.formats.Parser.OutputStyle;
+import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeType;
@@ -1852,7 +1852,7 @@ public class Publisher implements URIResolver {
   /** this is only used when generating xhtml of json **/
   private String resource2Json(Bundle profileFeed2) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
     json.compose(bytes, profileFeed);
     return new String(bytes.toByteArray());
@@ -1860,7 +1860,7 @@ public class Publisher implements URIResolver {
 
   private String resource2Json(Resource r) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.setSuppressXhtml("Snipped for Brevity");
     json.compose(bytes, r);
     return new String(bytes.toByteArray());
@@ -3061,9 +3061,9 @@ public class Publisher implements URIResolver {
     LoincToDEConvertor conv = new LoincToDEConvertor();
     conv.setDefinitions(Utilities.path(page.getFolders().srcDir, "loinc", "loincS.xml"));
     conv.process();
-    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".xml")), conv.getBundle());
-    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".json")), conv.getBundle());
     return "Loinc Narrative";
   }
@@ -3945,9 +3945,9 @@ public class Publisher implements URIResolver {
         cachePage(name + ".html", src, "Value Set " + title);
         page.setId(null);
 
-        Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+        IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
         json.compose(new FileOutputStream(page.getFolders().dstDir+name + ".json"), vs);
-        Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+        IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
         xml.compose(new FileOutputStream(page.getFolders().dstDir+name + ".xml"), vs);
         cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance");
         jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");
@@ -4024,9 +4024,9 @@ public class Publisher implements URIResolver {
       cachePage(name + ".html", src, "Value Set " + title);
       page.setId(null);
 
-      Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
       json.compose(new FileOutputStream(page.getFolders().dstDir + name + ".json"), vs);
-      Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
       xml.compose(new FileOutputStream(page.getFolders().dstDir + name + ".xml"), vs);
       cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance");
       jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");
@@ -4180,13 +4180,13 @@ public class Publisher implements URIResolver {
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
 
-    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), cm);
     json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.json")), cm);
     String n = Utilities.changeFileExt(filename, "-map-v2");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
-    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml")), cm);
     xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.canonical.xml")), cm);
@@ -4266,13 +4266,13 @@ public class Publisher implements URIResolver {
     cm.setDescription("v3 Map (" + b.toString() + ")");
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(cm);
-    Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm);
     json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.json")), cm);
     String n = Utilities.changeFileExt(filename, "-map-v3");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance");
-    Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+    IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml")), cm);
     xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.canonical.xml")), cm);
@@ -4321,9 +4321,9 @@ public class Publisher implements URIResolver {
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir + "template-tx-book.html"), "codeSystem", null);
       cachePage(filename, src, "Code System " + vs.getName());
 
-      Parser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
       json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json")), vs);
-      Parser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
       xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml")), vs);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), false, "valueset-instance");
       jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance");

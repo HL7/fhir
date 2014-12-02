@@ -26,6 +26,7 @@ be different.
  <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
    the containing concept (there is an "is-a" relationship between the codes).</li>
   <li>An abstract concept SHALL have contained concepts</li>
+  <li>The set of codes defined SHALL not contain duplicate codes</li>
 </ul>
 <p>
 Note: Value sets only define their own codes when they are not defined elsewhere,

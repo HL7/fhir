@@ -3,10 +3,21 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
+The FHIR terminology specification is based two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
+</p>
+<ul>
+<li> <b>code system</b> - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology)</li>
+<li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
+</ul>
+<p>
+Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value Sets specify 
+which codes can be used in a particular context.
+</p>
+<p>
 Value sets may be constructed in one of two ways:
 </p>
 <ul>
- <li>A value set can <i>define</i> its own codes, and/or</li>
+ <li>A value set can <i>define</i> its own codes (e.g. an in-line simple code system definition), and/or</li>
  <li>A value set can be <i>composed</i> of codes defined in other code systems, either by listing the codes or by providing a set of selection criteria</li>
 </ul>
 <p>
@@ -14,7 +25,13 @@ A value set can also be "expanded", where the value set is turned into a simple 
 This operation is performed to produce a collection of codes that are ready to use for data entry or 
 validation. An expanded value set may also contain the original definition as well. 
 </p>
-
+<p>
+Value sets that define their own codes are effectlvely providing inline code system definitions.
+These are intended for small, simple code systems that are found throughout the implementation
+context (e.g. lists of wards, status codes, enumerations). The inline code system definition is 
+not intended to represent large publically defined terminologies such as LOINC etc - these have
+their own distributions formats .
+</p>
 </div>
 <div>
 <h2>Boundaries and Relationships</h2>
@@ -22,19 +39,48 @@ validation. An expanded value set may also contain the original definition as we
  <li>Value sets are used in <a href="profile.html">Profiles</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
  <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
+ <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
+resources can be converted to CTS2 value set and code system resources</li>
 </ul>
-
 </div>
 
 <div>
 <h2>Background and Context</h2>
+
 <p>
-The ValueSet resource design is based on the fundamental definitions found in the 
-<a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document 
-and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
-resources can be converted to CTS2 value set and code system resources.
+When using value sets, proper differentiation between a code system and a value set is important. 
+This is one very common area where significant clinical safety risks occur in practice. Implementers
+should be familiar with the content in <a href="terminologies.html">Using Codes in resources</a>.
+</p>
+<p>
+Each value set has 2 different URLs that can be used to reference it, it's logical identifier, and 
+it's location. 
+</p>
+<p>
+The location of the value set is a URL by which it may be retrieved, usually from a FHIR 
+server, and is often a relative reference to a value set on the same server. 
+The logical identifier is in the value set itself, in 
+<a href="valueset-definitions.html#ValueSet.identifier">ValueSet.identifier</a>. This 
+is the logical identity (sometimes called the canonical URL) that refers to this 
+value set across all systems. Ideally, the URL should also be the location of the 
+master version of the value set, though this is not always possible. 
+</p>
+<blockquote>
+<p>
+For example, the value sets published as part of FHIR all have a logical URL
+which is also a location by which they may be accessed in the FHIR specification
+itself. However, while a new version of the FHIR Specification is being prepared,
+value sets that are published in the drafts will not be found in the current FHIR
+specification. 
+</p>
+<p>
+Because it is common practice to copy (cache) value sets locally, most 
+references to value sets can either be logical or literal URL. 
 </p>
 
+</blockquote>
+
 
 </div>
 </div>
+
