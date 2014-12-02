@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
+// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
@@ -8,6 +8,7 @@ public enum ResourceType {
     ProcedureRequest,
     DeviceComponent,
     Organization,
+    Readjudicate,
     Group,
     OralHealthClaim,
     ValueSet,
@@ -17,6 +18,7 @@ public enum ResourceType {
     MedicationDispense,
     MedicationPrescription,
     Slot,
+    PaymentNotice,
     Contraindication,
     AppointmentResponse,
     MedicationStatement,
@@ -56,15 +58,17 @@ public enum ResourceType {
     DocumentManifest,
     DataElement,
     Availability,
-    MedicationAdministration,
     QuestionnaireAnswers,
+    MedicationAdministration,
     Encounter,
     Enrollment,
+    PaymentReconciliation,
     SecurityEvent,
     PendedRequest,
     List,
     DeviceUseStatement,
     OperationDefinition,
+    ImagingObjectSelection,
     SearchParameter,
     NutritionOrder,
     ClaimResponse,
@@ -102,6 +106,8 @@ public enum ResourceType {
       return "devicecomponent";
     case Organization:
       return "organization";
+    case Readjudicate:
+      return "readjudicate";
     case Group:
       return "group";
     case OralHealthClaim:
@@ -120,6 +126,8 @@ public enum ResourceType {
       return "medicationprescription";
     case Slot:
       return "slot";
+    case PaymentNotice:
+      return "paymentnotice";
     case Contraindication:
       return "contraindication";
     case AppointmentResponse:
@@ -198,14 +206,16 @@ public enum ResourceType {
       return "dataelement";
     case Availability:
       return "availability";
-    case MedicationAdministration:
-      return "medicationadministration";
     case QuestionnaireAnswers:
       return "questionnaireanswers";
+    case MedicationAdministration:
+      return "medicationadministration";
     case Encounter:
       return "encounter";
     case Enrollment:
       return "enrollment";
+    case PaymentReconciliation:
+      return "paymentreconciliation";
     case SecurityEvent:
       return "securityevent";
     case PendedRequest:
@@ -216,6 +226,8 @@ public enum ResourceType {
       return "deviceusestatement";
     case OperationDefinition:
       return "operationdefinition";
+    case ImagingObjectSelection:
+      return "imagingobjectselection";
     case SearchParameter:
       return "searchparameter";
     case NutritionOrder:

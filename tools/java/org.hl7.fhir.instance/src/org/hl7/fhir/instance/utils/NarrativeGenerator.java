@@ -68,6 +68,7 @@ import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.HumanName.NameUse;
 import org.hl7.fhir.instance.model.IdType;
@@ -1636,8 +1637,8 @@ public class NarrativeGenerator {
         boolean hasComments = false;
         boolean hasDefinition = false;
         for (ConceptReferenceComponent c : inc.getConcept()) {
-          hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
-          hasDefinition = hasDefinition || c.hasExtension(ToolingExtensions.EXT_DEFINITION);
+          hasComments = hasComments || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT);
+          hasDefinition = hasDefinition || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION);
         }
         if (hasComments || hasDefinition)
           hasExtensions = true;
@@ -1654,12 +1655,12 @@ public class NarrativeGenerator {
             td.addText(cc.getDisplay());
           
           td = tr.addTag("td");
-          if (c.hasExtension(ToolingExtensions.EXT_DEFINITION))
+          if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION))
             smartAddText(td, ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_DEFINITION));
           else if (cc != null && !Utilities.noString(cc.getDefinition()))
             smartAddText(td, cc.getDefinition());
 
-          if (c.hasExtension(ToolingExtensions.EXT_COMMENT)) {
+          if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT)) {
             smartAddText(tr.addTag("td"), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
           }
         }
@@ -1784,7 +1785,7 @@ public class NarrativeGenerator {
     boolean success = true;
     for (OperationOutcomeIssueComponent i : op.getIssue()) {
     	success = success && i.getSeverity() != IssueSeverity.INFORMATION;
-    	hasSource = hasSource || i.hasExtension(ToolingExtensions.EXT_ISSUE_SOURCE);
+    	hasSource = hasSource || ExtensionHelper.hasExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE);
     	hasType = hasType || i.hasType();
     }
     if (success)
@@ -1816,7 +1817,7 @@ public class NarrativeGenerator {
     			if (hasType)
     				tr.addTag("td").addText(gen(i.getType()));
     			if (hasSource)
-    				tr.addTag("td").addText(gen(i.getExtension(ToolingExtensions.EXT_ISSUE_SOURCE)));
+    				tr.addTag("td").addText(gen(ExtensionHelper.getExtension(i, ToolingExtensions.EXT_ISSUE_SOURCE)));
     		}    
     	}
     inject(op, x, hasSource ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);  	

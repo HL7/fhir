@@ -175,9 +175,9 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 //  
   protected void parseElementProperties(JsonObject json, Element e) throws Exception {
     if (json != null && json.has("id"))
-      e.setElementId(json.get("id").getAsString());
-    if (!Utilities.noString(e.getElementId()))
-      idMap.put(e.getElementId(), e);
+      e.setId(json.get("id").getAsString());
+    if (!Utilities.noString(e.getId()))
+      idMap.put(e.getId(), e);
     if (json.has("fhir_comments") && handleComments) {
       JsonArray array = json.getAsJsonArray("fhir_comments");
       for (int i = 0; i < array.size(); i++) {
@@ -296,7 +296,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
 
   protected boolean anyHasExtras(List<? extends Element> list) {
 	  for (Element e : list) {
-	  	if (e.hasExtensions() || !Utilities.noString(e.getElementId()))
+	  	if (e.hasExtension() || !Utilities.noString(e.getId()))
 	  		return true;
 	  }
 	  return false;

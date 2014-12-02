@@ -1196,7 +1196,7 @@ public class SpreadsheetParser {
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
     new ProfileGenerator(definitions, null).convertElements(exe, ex, null);
-	  this.context.seeExtensionDefinition(ex);
+	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}
 

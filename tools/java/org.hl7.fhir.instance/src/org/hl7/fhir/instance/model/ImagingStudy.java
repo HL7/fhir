@@ -29,17 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
+// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */
@@ -1539,10 +1538,10 @@ public class ImagingStudy extends DomainResource {
         protected Coding bodySite;
 
         /**
-         * When the series started.
+         * The date when the series was started.
          */
         @Child(name="dateTime", type={DateTimeType.class}, order=9, min=0, max=1)
-        @Description(shortDefinition="When the series started", formalDefinition="When the series started." )
+        @Description(shortDefinition="When the series started", formalDefinition="The date when the series was started." )
         protected DateTimeType dateTime;
 
         /**
@@ -1921,7 +1920,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #dateTime} (When the series started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         * @return {@link #dateTime} (The date when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public DateTimeType getDateTimeElement() { 
           if (this.dateTime == null)
@@ -1941,7 +1940,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #dateTime} (When the series started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
+         * @param value {@link #dateTime} (The date when the series was started.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
         public ImagingStudySeriesComponent setDateTimeElement(DateTimeType value) { 
           this.dateTime = value;
@@ -1949,14 +1948,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return When the series started.
+         * @return The date when the series was started.
          */
         public DateAndTime getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
-         * @param value When the series started.
+         * @param value The date when the series was started.
          */
         public ImagingStudySeriesComponent setDateTime(DateAndTime value) { 
           if (value == null)
@@ -2009,7 +2008,7 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
           childrenList.add(new Property("url", "uri", "WADO-RS URI where Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
-          childrenList.add(new Property("dateTime", "dateTime", "When the series started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
+          childrenList.add(new Property("dateTime", "dateTime", "The date when the series was started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
           childrenList.add(new Property("instance", "", "A single image taken from a patient.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
 
@@ -2066,17 +2065,17 @@ public class ImagingStudy extends DomainResource {
         protected OidType sopclass;
 
         /**
-         * Type of instance (image etc) (0004,1430).
+         * The type of the instance.
          */
         @Child(name="type", type={StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Type of instance (image etc) (0004,1430)", formalDefinition="Type of instance (image etc) (0004,1430)." )
+        @Description(shortDefinition="Type of instance (image etc) (0004,1430)", formalDefinition="The type of the instance." )
         protected StringType type;
 
         /**
-         * Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).
+         * The description of the instance.
          */
         @Child(name="title", type={StringType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008)", formalDefinition="Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008)." )
+        @Description(shortDefinition="Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008)", formalDefinition="The description of the instance." )
         protected StringType title;
 
         /**
@@ -2090,7 +2089,7 @@ public class ImagingStudy extends DomainResource {
          * A FHIR resource with content for this instance.
          */
         @Child(name="attachment", type={}, order=7, min=0, max=1)
-        @Description(shortDefinition="A FHIR resource with content for this instance", formalDefinition="A FHIR resource with content for this instance." )
+        @Description(shortDefinition="Content for this instance", formalDefinition="A FHIR resource with content for this instance." )
         protected Reference attachment;
 
         /**
@@ -2250,7 +2249,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (Type of instance (image etc) (0004,1430).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #type} (The type of the instance.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public StringType getTypeElement() { 
           if (this.type == null)
@@ -2270,7 +2269,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Type of instance (image etc) (0004,1430).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #type} (The type of the instance.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
         public ImagingStudySeriesInstanceComponent setTypeElement(StringType value) { 
           this.type = value;
@@ -2278,14 +2277,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return Type of instance (image etc) (0004,1430).
+         * @return The type of the instance.
          */
         public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value Type of instance (image etc) (0004,1430).
+         * @param value The type of the instance.
          */
         public ImagingStudySeriesInstanceComponent setType(String value) { 
           if (Utilities.noString(value))
@@ -2299,7 +2298,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #title} (Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+         * @return {@link #title} (The description of the instance.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
         public StringType getTitleElement() { 
           if (this.title == null)
@@ -2319,7 +2318,7 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #title} (Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+         * @param value {@link #title} (The description of the instance.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
         public ImagingStudySeriesInstanceComponent setTitleElement(StringType value) { 
           this.title = value;
@@ -2327,14 +2326,14 @@ public class ImagingStudy extends DomainResource {
         }
 
         /**
-         * @return Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).
+         * @return The description of the instance.
          */
         public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
-         * @param value Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).
+         * @param value The description of the instance.
          */
         public ImagingStudySeriesInstanceComponent setTitle(String value) { 
           if (Utilities.noString(value))
@@ -2440,8 +2439,8 @@ public class ImagingStudy extends DomainResource {
           childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this image.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("sopclass", "oid", "DICOM Image type.", 0, java.lang.Integer.MAX_VALUE, sopclass));
-          childrenList.add(new Property("type", "string", "Type of instance (image etc) (0004,1430).", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("title", "string", "Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).", 0, java.lang.Integer.MAX_VALUE, title));
+          childrenList.add(new Property("type", "string", "The type of the instance.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("title", "string", "The description of the instance.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("url", "uri", "WADO-RS url where image is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("attachment", "Reference(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
         }
@@ -2475,16 +2474,16 @@ public class ImagingStudy extends DomainResource {
     protected DateTimeType started;
 
     /**
-     * Who the images are of.
+     * The patient for whom the images are of.
      */
-    @Child(name="subject", type={Patient.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="Who the images are of", formalDefinition="Who the images are of." )
-    protected Reference subject;
+    @Child(name="patient", type={Patient.class}, order=0, min=1, max=1)
+    @Description(shortDefinition="Who the images are of", formalDefinition="The patient for whom the images are of." )
+    protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (Who the images are of.)
+     * The actual object that is the target of the reference (The patient for whom the images are of.)
      */
-    protected Patient subjectTarget;
+    protected Patient patientTarget;
 
     /**
      * Formal identifier for the study.
@@ -2606,15 +2605,15 @@ public class ImagingStudy extends DomainResource {
     @Description(shortDefinition="Each study has one or more series of instances", formalDefinition="Each study has one or more series of image instances." )
     protected List<ImagingStudySeriesComponent> series;
 
-    private static final long serialVersionUID = 750367090L;
+    private static final long serialVersionUID = 712301092L;
 
     public ImagingStudy() {
       super();
     }
 
-    public ImagingStudy(Reference subject, OidType uid, IntegerType numberOfSeries, IntegerType numberOfInstances) {
+    public ImagingStudy(Reference patient, OidType uid, IntegerType numberOfSeries, IntegerType numberOfInstances) {
       super();
-      this.subject = subject;
+      this.patient = patient;
       this.uid = uid;
       this.numberOfSeries = numberOfSeries;
       this.numberOfInstances = numberOfInstances;
@@ -2670,46 +2669,46 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Who the images are of.)
+     * @return {@link #patient} (The patient for whom the images are of.)
      */
-    public Reference getSubject() { 
-      if (this.subject == null)
+    public Reference getPatient() { 
+      if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingStudy.subject");
+          throw new Error("Attempt to auto-create ImagingStudy.patient");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
-      return this.subject;
+          this.patient = new Reference();
+      return this.patient;
     }
 
-    public boolean hasSubject() { 
-      return this.subject != null && !this.subject.isEmpty();
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
-     * @param value {@link #subject} (Who the images are of.)
+     * @param value {@link #patient} (The patient for whom the images are of.)
      */
-    public ImagingStudy setSubject(Reference value) { 
-      this.subject = value;
+    public ImagingStudy setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who the images are of.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient for whom the images are of.)
      */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
+    public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingStudy.subject");
+          throw new Error("Attempt to auto-create ImagingStudy.patient");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
-      return this.subjectTarget;
+          this.patientTarget = new Patient();
+      return this.patientTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who the images are of.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient for whom the images are of.)
      */
-    public ImagingStudy setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public ImagingStudy setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -3354,7 +3353,7 @@ public class ImagingStudy extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("started", "dateTime", "Date and Time the study started.", 0, java.lang.Integer.MAX_VALUE, started));
-        childrenList.add(new Property("subject", "Reference(Patient)", "Who the images are of.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The patient for whom the images are of.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("uid", "oid", "Formal identifier for the study.", 0, java.lang.Integer.MAX_VALUE, uid));
         childrenList.add(new Property("accession", "Identifier", "Accession Number.", 0, java.lang.Integer.MAX_VALUE, accession));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers for the study.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -3376,7 +3375,7 @@ public class ImagingStudy extends DomainResource {
         ImagingStudy dst = new ImagingStudy();
         copyValues(dst);
         dst.started = started == null ? null : started.copy();
-        dst.subject = subject == null ? null : subject.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.uid = uid == null ? null : uid.copy();
         dst.accession = accession == null ? null : accession.copy();
         if (identifier != null) {
@@ -3420,7 +3419,7 @@ public class ImagingStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (started == null || started.isEmpty()) && (subject == null || subject.isEmpty())
+        return super.isEmpty() && (started == null || started.isEmpty()) && (patient == null || patient.isEmpty())
            && (uid == null || uid.isEmpty()) && (accession == null || accession.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (order == null || order.isEmpty()) && (modalityList == null || modalityList.isEmpty())
            && (referrer == null || referrer.isEmpty()) && (availability == null || availability.isEmpty())
@@ -3440,12 +3439,10 @@ public class ImagingStudy extends DomainResource {
   public static final String SP_UID = "uid";
   @SearchParamDefinition(name="series", path="ImagingStudy.series.uid", description="The series id for the image", type="token" )
   public static final String SP_SERIES = "series";
-  @SearchParamDefinition(name="patient", path="ImagingStudy.subject", description="Who the study is about", type="reference" )
+  @SearchParamDefinition(name="patient", path="ImagingStudy.patient", description="Who the study is about", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="bodysite", path="ImagingStudy.series.bodySite", description="Body part examined (Map from 0018,0015)", type="token" )
   public static final String SP_BODYSITE = "bodysite";
-  @SearchParamDefinition(name="subject", path="ImagingStudy.subject", description="Who the study is about", type="reference" )
-  public static final String SP_SUBJECT = "subject";
   @SearchParamDefinition(name="accession", path="ImagingStudy.accession", description="The accession id for the image", type="token" )
   public static final String SP_ACCESSION = "accession";
   @SearchParamDefinition(name="study", path="ImagingStudy.uid", description="The study id for the image", type="token" )

@@ -117,6 +117,9 @@ public class ValidationEngine {
     doc = builder.parse(new ByteArrayInputStream(source));
 
     WorkerContext context = WorkerContext.fromDefinitions(definitions);
+    if (profile == null)
+    	profile = context.getProfiles().get("http://hl7.org/fhir/Profile/"+doc.getDocumentElement().getNodeName());
+    
     outputs.addAll(new InstanceValidator(context).validateInstance(doc.getDocumentElement(), profile, profileURI));
     new XmlParser().parse(new ByteArrayInputStream(source));
         

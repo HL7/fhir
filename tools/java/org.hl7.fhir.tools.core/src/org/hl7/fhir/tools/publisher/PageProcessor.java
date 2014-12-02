@@ -3650,12 +3650,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       urls.addAll(workerContext.getExtensionDefinitions().keySet());
       Collections.sort(urls);
       for (String url : urls) {
-        ExtensionDefinition ed = workerContext.getExtensionDefinitions().get(url);
-        s.append("<tr><td><a href=\""+ed.getUserData("filename")+".html\">"+url.substring(40)+"</a></td>");
-        s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
-        s.append("<td><a href=\""+ed.getUserData("filename")+".xml.html\">XML</a></td>");
-        s.append("<td><a href=\""+ed.getUserData("filename")+".json.html\">JSON</a></td>");
-        s.append("</tr>\r\n");        
+        if (url.startsWith("http://hl7.org/fhir/ExtensionDefinition/")) {
+          ExtensionDefinition ed = workerContext.getExtensionDefinitions().get(url);
+          s.append("<tr><td><a href=\""+ed.getUserData("filename")+".html\">"+url.substring(40)+"</a></td>");
+          s.append("<td>"+Utilities.escapeXml(ed.getName())+"</td>");
+          s.append("<td><a href=\""+ed.getUserData("filename")+".xml.html\">XML</a></td>");
+          s.append("<td><a href=\""+ed.getUserData("filename")+".json.html\">JSON</a></td>");
+          s.append("</tr>\r\n");       
+        }
       }
     }
     if (resource.getName().equals("Profile")) {

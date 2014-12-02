@@ -133,7 +133,8 @@ public class ValueSetImporterV2 {
       }
     }
     for (Element e : getLangList(element)) {
-      
+      if (!ToolingExtensions.hasLanguageTranslation(vs.getNameElement(), e.getAttribute("lang")))
+        ToolingExtensions.addLanguageTranslation(vs.getNameElement(), e.getAttribute("lang"), e.getAttribute("value"));
     }
   }
   

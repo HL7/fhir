@@ -411,13 +411,14 @@ public class SourceParser {
       if (b.getType() != BundleType.DOCUMENT)
         throw new Exception("Error parsing Conformance package: neither a spreadsheet nor a bundle that is a document");
       for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
+        String base = ae.hasBase() ? ae.getBase() : b.getBase();
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
         else if (ae.getResource() instanceof Profile)
           pack.getProfiles().add(new ProfileDefn((Profile) ae.getResource()));
         else if (ae.getResource() instanceof ExtensionDefinition) {
           ExtensionDefinition ed = (ExtensionDefinition) ae.getResource();
-          context.seeExtensionDefinition(ed);
+          context.seeExtensionDefinition(base, ed);
           pack.getExtensions().add(ed);
         }
       }

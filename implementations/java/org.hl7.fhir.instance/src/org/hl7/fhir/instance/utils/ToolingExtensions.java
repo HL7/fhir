@@ -64,6 +64,7 @@ public class ToolingExtensions {
 
   // unregistered?
   public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
+  private static final String EXT_TRANSLATION = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/translation";
   private static final String EXT_QTYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_EXPANSION_CLOSED = "http://hl7.org/fhir/Profile/questionnaire-extensions#closed";
   private static final String EXT_QREF = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
@@ -256,5 +257,24 @@ public class ToolingExtensions {
   }
   public static void setOID(ValueSet vs, String oid) throws Exception {
     vs.getExtension().add(Factory.newExtension(EXT_OID, Factory.newUri(oid), false));       
+  }
+
+  public static boolean hasLanguageTranslation(Element element, String lang) {
+    for (Extension e : element.getExtension()) {
+      if (e.getUrl().equals(EXT_TRANSLATION)) {
+        Extension e1 = ExtensionHelper.getExtension(e, "lang");
+
+        if (e1 != null && e1.getValue() instanceof StringType && ((StringType) e.getValue()).getValue().equals(lang))
+          return true;
+      }
+    }
+    return false;
+  }
+
+  public static void addLanguageTranslation(Element element, String lang, String value) {
+    Extension extension = new Extension().setUrl(EXT_TRANSLATION);
+    extension.addExtension().setUrl("lang").setValue(new StringType(lang));
+    extension.addExtension().setUrl("value").setValue(new StringType(value));
+    element.getExtension().add(extension);
   }
 }

@@ -29,15 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
+// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Captures constraints on each element within the resource, profile, or extension.
  */
@@ -1656,7 +1655,7 @@ public class ElementDefinition extends Type {
      * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.
      */
     @Child(name="path", type={StringType.class}, order=-1, min=1, max=1)
-    @Description(shortDefinition="The path of the element (see the formal definitions)", formalDefinition="The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource or extension." )
+    @Description(shortDefinition="The path of the element (see the Detailed Descriptions)", formalDefinition="The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource or extension." )
     protected StringType path;
 
     /**

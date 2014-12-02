@@ -29,16 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
+// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The Reference(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
@@ -331,10 +331,10 @@ public class MessageHeader extends DomainResource {
     @Block()
     public static class MessageSourceComponent extends BackboneElement {
         /**
-         * Human-readable name for the target system.
+         * Human-readable name for the source system.
          */
         @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Name of system", formalDefinition="Human-readable name for the target system." )
+        @Description(shortDefinition="Name of system", formalDefinition="Human-readable name for the source system." )
         protected StringType name;
 
         /**
@@ -377,7 +377,7 @@ public class MessageHeader extends DomainResource {
       }
 
         /**
-         * @return {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -397,7 +397,7 @@ public class MessageHeader extends DomainResource {
         }
 
         /**
-         * @param value {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public MessageSourceComponent setNameElement(StringType value) { 
           this.name = value;
@@ -405,14 +405,14 @@ public class MessageHeader extends DomainResource {
         }
 
         /**
-         * @return Human-readable name for the target system.
+         * @return Human-readable name for the source system.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value Human-readable name for the target system.
+         * @param value Human-readable name for the source system.
          */
         public MessageSourceComponent setName(String value) { 
           if (Utilities.noString(value))
@@ -594,7 +594,7 @@ public class MessageHeader extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("software", "string", "May include configuration or other information useful in debugging.", 0, java.lang.Integer.MAX_VALUE, software));
           childrenList.add(new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("contact", "ContactPoint", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -623,10 +623,10 @@ public class MessageHeader extends DomainResource {
     @Block()
     public static class MessageDestinationComponent extends BackboneElement {
         /**
-         * Human-readable name for the source system.
+         * Human-readable name for the target system.
          */
         @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Name of system", formalDefinition="Human-readable name for the source system." )
+        @Description(shortDefinition="Name of system", formalDefinition="Human-readable name for the target system." )
         protected StringType name;
 
         /**
@@ -660,7 +660,7 @@ public class MessageHeader extends DomainResource {
       }
 
         /**
-         * @return {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -680,7 +680,7 @@ public class MessageHeader extends DomainResource {
         }
 
         /**
-         * @param value {@link #name} (Human-readable name for the source system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (Human-readable name for the target system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public MessageDestinationComponent setNameElement(StringType value) { 
           this.name = value;
@@ -688,14 +688,14 @@ public class MessageHeader extends DomainResource {
         }
 
         /**
-         * @return Human-readable name for the source system.
+         * @return Human-readable name for the target system.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value Human-readable name for the source system.
+         * @param value Human-readable name for the target system.
          */
         public MessageDestinationComponent setName(String value) { 
           if (Utilities.noString(value))
@@ -799,7 +799,7 @@ public class MessageHeader extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
@@ -1423,6 +1423,28 @@ public class MessageHeader extends DomainResource {
     return ResourceType.MessageHeader;
    }
 
+  @SearchParamDefinition(name="destination-uri", path="MessageHeader.destination.endpoint", description="Actual destination address or id", type="token" )
+  public static final String SP_DESTINATIONURI = "destination-uri";
+  @SearchParamDefinition(name="timestamp", path="MessageHeader.timestamp", description="Time that the message was sent", type="date" )
+  public static final String SP_TIMESTAMP = "timestamp";
+  @SearchParamDefinition(name="source-uri", path="MessageHeader.source.endpoint", description="Actual message source address or id", type="token" )
+  public static final String SP_SOURCEURI = "source-uri";
+  @SearchParamDefinition(name="receiver", path="MessageHeader.receiver", description="Intended 'real-world' recipient for the data", type="reference" )
+  public static final String SP_RECEIVER = "receiver";
+  @SearchParamDefinition(name="source", path="MessageHeader.source.name", description="Name of system", type="string" )
+  public static final String SP_SOURCE = "source";
+  @SearchParamDefinition(name="event", path="MessageHeader.event", description="Code for the event this message represents", type="token" )
+  public static final String SP_EVENT = "event";
+  @SearchParamDefinition(name="data", path="MessageHeader.data", description="The actual content of the message", type="reference" )
+  public static final String SP_DATA = "data";
+  @SearchParamDefinition(name="code", path="MessageHeader.response.code", description="ok | transient-error | fatal-error", type="token" )
+  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="response-id", path="MessageHeader.response.identifier", description="Id of original message", type="token" )
+  public static final String SP_RESPONSEID = "response-id";
+  @SearchParamDefinition(name="src-id", path="MessageHeader.identifier", description="Id of this message", type="token" )
+  public static final String SP_SRCID = "src-id";
+  @SearchParamDefinition(name="destination", path="MessageHeader.destination.name", description="Name of system", type="string" )
+  public static final String SP_DESTINATION = "destination";
 
 }
 

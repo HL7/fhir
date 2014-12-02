@@ -8,7 +8,16 @@ import java.util.Map;
 
 public abstract class Base implements Serializable {
 
-  private Map<String, Object> userData; // allow users to add extra information to the class
+  /**
+   * User appended data items - allow users to add extra information to the class
+   */
+private Map<String, Object> userData; 
+
+  /**
+   * Round tracking xml comments for testing convenience
+   */
+  private List<String> formatComments; 
+   
   
   public Object getUserData(String name) {
     if (userData == null)
@@ -22,6 +31,16 @@ public abstract class Base implements Serializable {
     userData.put(name, value);
   }
 
+  public boolean hasFormatComment() {
+  	return (formatComments != null && !formatComments.isEmpty());
+  }
+  
+  public List<String> getFormatComments() {
+    if (formatComments == null)
+    	formatComments = new ArrayList<String>();
+    return formatComments;
+  }  
+  
 	protected abstract void listChildren(List<Property> result) ;
 
   /**
@@ -57,6 +76,7 @@ public abstract class Base implements Serializable {
         return c.values;
     return new ArrayList<Base>();
   }
+
 	public boolean isEmpty() {
 	  return true; // userData does not count
   }  

@@ -42,7 +42,8 @@ public interface IWorkerContext {
    * 
    * When you find a reference to another resource in a resource, you pass in the 
    * reference itself, the resource it was found in, and (if available), the bundle
-   * that the source resource was located in. 
+   * that the source resource was located in. Note: if the reference is inside a 
+   * contained resource, provide the Container, not the contained resource
    *
    * THe implementation of this method will look through the contained resources in 
    * resource (if it's an internal reference - starts with #), or the bundle (following

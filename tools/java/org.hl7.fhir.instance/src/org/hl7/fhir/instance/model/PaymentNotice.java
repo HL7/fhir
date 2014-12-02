@@ -39,10 +39,10 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
+ * This resource provides the request and response details for the request for which the payment status is being reported.
  */
-@ResourceDef(name="Eligibility", profile="http://hl7.org/fhir/Profile/Eligibility")
-public class Eligibility extends DomainResource {
+@ResourceDef(name="PaymentNotice", profile="http://hl7.org/fhir/Profile/PaymentNotice")
+public class PaymentNotice extends DomainResource {
 
     /**
      * The Response Business Identifier.
@@ -108,10 +108,46 @@ public class Eligibility extends DomainResource {
      */
     protected Organization organizationTarget;
 
-    private static final long serialVersionUID = 459884579L;
+    /**
+     * Reference of resource to reverse.
+     */
+    @Child(name="request", type={}, order=6, min=0, max=1)
+    @Description(shortDefinition="Request reference", formalDefinition="Reference of resource to reverse." )
+    protected Reference request;
 
-    public Eligibility() {
+    /**
+     * The actual object that is the target of the reference (Reference of resource to reverse.)
+     */
+    protected Resource requestTarget;
+
+    /**
+     * Reference of response to resource to reverse.
+     */
+    @Child(name="response", type={}, order=7, min=0, max=1)
+    @Description(shortDefinition="Response reference", formalDefinition="Reference of response to resource to reverse." )
+    protected Reference response;
+
+    /**
+     * The actual object that is the target of the reference (Reference of response to resource to reverse.)
+     */
+    protected Resource responseTarget;
+
+    /**
+     * The payment status, typically paid: payment sent, cleared: payment received.
+     */
+    @Child(name="paymentStatus", type={Coding.class}, order=8, min=1, max=1)
+    @Description(shortDefinition="Status of the payment", formalDefinition="The payment status, typically paid: payment sent, cleared: payment received." )
+    protected Coding paymentStatus;
+
+    private static final long serialVersionUID = -1361815149L;
+
+    public PaymentNotice() {
       super();
+    }
+
+    public PaymentNotice(Coding paymentStatus) {
+      super();
+      this.paymentStatus = paymentStatus;
     }
 
     /**
@@ -150,7 +186,7 @@ public class Eligibility extends DomainResource {
     public Coding getRuleset() { 
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.ruleset");
+          throw new Error("Attempt to auto-create PaymentNotice.ruleset");
         else if (Configuration.doAutoCreate())
           this.ruleset = new Coding();
       return this.ruleset;
@@ -163,7 +199,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Eligibility setRuleset(Coding value) { 
+    public PaymentNotice setRuleset(Coding value) { 
       this.ruleset = value;
       return this;
     }
@@ -174,7 +210,7 @@ public class Eligibility extends DomainResource {
     public Coding getOriginalRuleset() { 
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.originalRuleset");
+          throw new Error("Attempt to auto-create PaymentNotice.originalRuleset");
         else if (Configuration.doAutoCreate())
           this.originalRuleset = new Coding();
       return this.originalRuleset;
@@ -187,7 +223,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Eligibility setOriginalRuleset(Coding value) { 
+    public PaymentNotice setOriginalRuleset(Coding value) { 
       this.originalRuleset = value;
       return this;
     }
@@ -198,7 +234,7 @@ public class Eligibility extends DomainResource {
     public DateType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.date");
+          throw new Error("Attempt to auto-create PaymentNotice.date");
         else if (Configuration.doAutoCreate())
           this.date = new DateType();
       return this.date;
@@ -215,7 +251,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #date} (The date when this resource was created.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Eligibility setDateElement(DateType value) { 
+    public PaymentNotice setDateElement(DateType value) { 
       this.date = value;
       return this;
     }
@@ -230,7 +266,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value The date when this resource was created.
      */
-    public Eligibility setDate(DateAndTime value) { 
+    public PaymentNotice setDate(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -247,7 +283,7 @@ public class Eligibility extends DomainResource {
     public Reference getTarget() { 
       if (this.target == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.target");
+          throw new Error("Attempt to auto-create PaymentNotice.target");
         else if (Configuration.doAutoCreate())
           this.target = new Reference();
       return this.target;
@@ -260,7 +296,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #target} (The Insurer who is target  of the request.)
      */
-    public Eligibility setTarget(Reference value) { 
+    public PaymentNotice setTarget(Reference value) { 
       this.target = value;
       return this;
     }
@@ -271,7 +307,7 @@ public class Eligibility extends DomainResource {
     public Organization getTargetTarget() { 
       if (this.targetTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.target");
+          throw new Error("Attempt to auto-create PaymentNotice.target");
         else if (Configuration.doAutoCreate())
           this.targetTarget = new Organization();
       return this.targetTarget;
@@ -280,7 +316,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who is target  of the request.)
      */
-    public Eligibility setTargetTarget(Organization value) { 
+    public PaymentNotice setTargetTarget(Organization value) { 
       this.targetTarget = value;
       return this;
     }
@@ -291,7 +327,7 @@ public class Eligibility extends DomainResource {
     public Reference getProvider() { 
       if (this.provider == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.provider");
+          throw new Error("Attempt to auto-create PaymentNotice.provider");
         else if (Configuration.doAutoCreate())
           this.provider = new Reference();
       return this.provider;
@@ -304,7 +340,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Eligibility setProvider(Reference value) { 
+    public PaymentNotice setProvider(Reference value) { 
       this.provider = value;
       return this;
     }
@@ -315,7 +351,7 @@ public class Eligibility extends DomainResource {
     public Practitioner getProviderTarget() { 
       if (this.providerTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.provider");
+          throw new Error("Attempt to auto-create PaymentNotice.provider");
         else if (Configuration.doAutoCreate())
           this.providerTarget = new Practitioner();
       return this.providerTarget;
@@ -324,7 +360,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Eligibility setProviderTarget(Practitioner value) { 
+    public PaymentNotice setProviderTarget(Practitioner value) { 
       this.providerTarget = value;
       return this;
     }
@@ -335,7 +371,7 @@ public class Eligibility extends DomainResource {
     public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.organization");
+          throw new Error("Attempt to auto-create PaymentNotice.organization");
         else if (Configuration.doAutoCreate())
           this.organization = new Reference();
       return this.organization;
@@ -348,7 +384,7 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #organization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Eligibility setOrganization(Reference value) { 
+    public PaymentNotice setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -359,7 +395,7 @@ public class Eligibility extends DomainResource {
     public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Eligibility.organization");
+          throw new Error("Attempt to auto-create PaymentNotice.organization");
         else if (Configuration.doAutoCreate())
           this.organizationTarget = new Organization();
       return this.organizationTarget;
@@ -368,8 +404,110 @@ public class Eligibility extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Eligibility setOrganizationTarget(Organization value) { 
+    public PaymentNotice setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #request} (Reference of resource to reverse.)
+     */
+    public Reference getRequest() { 
+      if (this.request == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PaymentNotice.request");
+        else if (Configuration.doAutoCreate())
+          this.request = new Reference();
+      return this.request;
+    }
+
+    public boolean hasRequest() { 
+      return this.request != null && !this.request.isEmpty();
+    }
+
+    /**
+     * @param value {@link #request} (Reference of resource to reverse.)
+     */
+    public PaymentNotice setRequest(Reference value) { 
+      this.request = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference of resource to reverse.)
+     */
+    public Resource getRequestTarget() { 
+      return this.requestTarget;
+    }
+
+    /**
+     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference of resource to reverse.)
+     */
+    public PaymentNotice setRequestTarget(Resource value) { 
+      this.requestTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #response} (Reference of response to resource to reverse.)
+     */
+    public Reference getResponse() { 
+      if (this.response == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PaymentNotice.response");
+        else if (Configuration.doAutoCreate())
+          this.response = new Reference();
+      return this.response;
+    }
+
+    public boolean hasResponse() { 
+      return this.response != null && !this.response.isEmpty();
+    }
+
+    /**
+     * @param value {@link #response} (Reference of response to resource to reverse.)
+     */
+    public PaymentNotice setResponse(Reference value) { 
+      this.response = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference of response to resource to reverse.)
+     */
+    public Resource getResponseTarget() { 
+      return this.responseTarget;
+    }
+
+    /**
+     * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference of response to resource to reverse.)
+     */
+    public PaymentNotice setResponseTarget(Resource value) { 
+      this.responseTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #paymentStatus} (The payment status, typically paid: payment sent, cleared: payment received.)
+     */
+    public Coding getPaymentStatus() { 
+      if (this.paymentStatus == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PaymentNotice.paymentStatus");
+        else if (Configuration.doAutoCreate())
+          this.paymentStatus = new Coding();
+      return this.paymentStatus;
+    }
+
+    public boolean hasPaymentStatus() { 
+      return this.paymentStatus != null && !this.paymentStatus.isEmpty();
+    }
+
+    /**
+     * @param value {@link #paymentStatus} (The payment status, typically paid: payment sent, cleared: payment received.)
+     */
+    public PaymentNotice setPaymentStatus(Coding value) { 
+      this.paymentStatus = value;
       return this;
     }
 
@@ -382,10 +520,13 @@ public class Eligibility extends DomainResource {
         childrenList.add(new Property("target", "Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
+        childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("response", "Reference(Any)", "Reference of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, response));
+        childrenList.add(new Property("paymentStatus", "Coding", "The payment status, typically paid: payment sent, cleared: payment received.", 0, java.lang.Integer.MAX_VALUE, paymentStatus));
       }
 
-      public Eligibility copy() {
-        Eligibility dst = new Eligibility();
+      public PaymentNotice copy() {
+        PaymentNotice dst = new PaymentNotice();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -398,10 +539,13 @@ public class Eligibility extends DomainResource {
         dst.target = target == null ? null : target.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
+        dst.request = request == null ? null : request.copy();
+        dst.response = response == null ? null : response.copy();
+        dst.paymentStatus = paymentStatus == null ? null : paymentStatus.copy();
         return dst;
       }
 
-      protected Eligibility typedCopy() {
+      protected PaymentNotice typedCopy() {
         return copy();
       }
 
@@ -409,15 +553,16 @@ public class Eligibility extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (ruleset == null || ruleset.isEmpty())
            && (originalRuleset == null || originalRuleset.isEmpty()) && (date == null || date.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
+           && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (paymentStatus == null || paymentStatus.isEmpty())
           ;
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.Eligibility;
+    return ResourceType.PaymentNotice;
    }
 
-  @SearchParamDefinition(name="identifier", path="Eligibility.identifier", description="The business identifier of the Eligibility", type="token" )
+  @SearchParamDefinition(name="identifier", path="PaymentNotice.identifier", description="The business identifier of the Eligibility", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

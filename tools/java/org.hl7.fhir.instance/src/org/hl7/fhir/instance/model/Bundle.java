@@ -29,17 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Nov 30, 2014 22:38+1100 for FHIR v0.3.0
+// Generated on Tue, Dec 2, 2014 21:09+1100 for FHIR v0.3.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A container for a group of resources.
  */
@@ -437,10 +437,10 @@ public class Bundle extends Resource {
         protected UriType base;
 
         /**
-         * The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         * The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).
          */
         @Child(name="status", type={CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="create | update | match | include - for search & transaction", formalDefinition="The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete)." )
+        @Description(shortDefinition="create | update | match | include - for search & transaction", formalDefinition="The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete)." )
         protected Enumeration<BundleEntryStatus> status;
 
         /**
@@ -527,7 +527,7 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         * @return {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
         public Enumeration<BundleEntryStatus> getStatusElement() { 
           if (this.status == null)
@@ -547,7 +547,7 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @param value {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         * @param value {@link #status} (The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
         public BundleEntryComponent setStatusElement(Enumeration<BundleEntryStatus> value) { 
           this.status = value;
@@ -555,14 +555,14 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         * @return The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).
          */
         public BundleEntryStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
-         * @param value The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).
+         * @param value The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).
          */
         public BundleEntryComponent setStatus(BundleEntryStatus value) { 
           if (value == null)
@@ -719,7 +719,7 @@ public class Bundle extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("status", "code", "The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), and for transactions (create/update/delete).", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("status", "code", "The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("search", "uri", "Search URL for this resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, java.lang.Integer.MAX_VALUE, score));
           childrenList.add(new Property("deleted", "", "If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.", 0, java.lang.Integer.MAX_VALUE, deleted));
@@ -1345,6 +1345,12 @@ public class Bundle extends Resource {
     return ResourceType.Bundle;
    }
 
+  @SearchParamDefinition(name="message", path="", description="The first resource in the bundle, if the bundle type is 'message' - this is a message header, and this parameter provides access to search it's contents", type="reference" )
+  public static final String SP_MESSAGE = "message";
+  @SearchParamDefinition(name="composition", path="", description="The first resource in the bundle, if the bundle type is 'document' - this is a composition, and this parameter provides access to searches it's contents", type="reference" )
+  public static final String SP_COMPOSITION = "composition";
+  @SearchParamDefinition(name="type", path="Bundle.type", description="document | message | transaction | transaction-response | history | searchset | collection", type="token" )
+  public static final String SP_TYPE = "type";
 
 }
 
