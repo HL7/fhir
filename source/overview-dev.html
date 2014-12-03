@@ -114,9 +114,9 @@ Each resource consists of:
 <ul>
   <li><b>resourceType</b> (line 2) - Required: FHIR defines many different types of resources. See <a href="resourcelist.html">the full index</a></li>
   <li><b>id</b> (line 3) - The id of the resource. Always present when a resource is exchanged, except during the create operation (below)</li>
-  <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resources.html#meta">Common use/context data to all resources</a> and managed by the infrasturcture. Missing if there is no metadata</li>
+  <li><b>meta</b> (lines 4 - 7) - Usually Present: <a href="resources.html#meta">Common use/context data to all resources</a> and managed by the infrastructure. Missing if there is no metadata</li>
   <li><b>text</b> (lines 12 - 17) - Recommended: XHTML that provides a <a href="narrative.html">human readable representation</a> for the resource</li>
-  <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensbility.html">Extensions</a> defined by the extensbility framework</li>
+  <li><b>extension</b> (lines 12 - 17) - Optional: <a href="extensibility.html">Extensions</a> defined by the extensibility framework</li>
   <li><b>data</b> (lines 18 - 43) - Optional: data elements defined for each type of resource</li>
 </ul>
 <p>
@@ -208,7 +208,7 @@ do so.
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
 <code>  &quot;text&quot;: {</code>
 <code>    &quot;status&quot;: &quot;generated&quot;,</code>
-<code>    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was succesful&lt;/div&gt;&quot;</code>
+<code>    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was successful&lt;/div&gt;&quot;</code>
 <code>  }</code>
 <code>}</code>
 </pre>
@@ -278,7 +278,7 @@ Notes:
 </p>
 <ul>
   <li><b>347</b> (line 1) - The id of the resource that is being fetched</li>
-  <li><b>_format=xml</b> (line 1) - this is another method for clients to indicate the desired response format, in addition to using the accept header, and is useful for clients that don't have access to the HTTP Headers (e.g. XSLT transforms) (se <a href="http.html#mimetypes">Mime Types</a></li>
+  <li><b>_format=xml</b> (line 1) - this is another method for clients to indicate the desired response format, in addition to using the accept header, and is useful for clients that don't have access to the HTTP Headers (e.g. XSLT transforms) (see <a href="http.html#mimetypes">Mime Types</a></li>
   <li><b>cache control</b> (line 4) - Concurrency control is important, though FHIR itself says nothing about it - see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</a> or <a href="https://www.mnot.net/cache_docs/">https://www.mnot.net/cache_docs/</a></li>
 </ul>
 
@@ -452,7 +452,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
 <code>  &quot;text&quot;: {</code>
 <code>    &quot;status&quot;: &quot;generated&quot;,</code>
-<code>    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was succesful&lt;/div&gt;&quot;</code>
+<code>    &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;The operation was successful&lt;/div&gt;&quot;</code>
 <code>  }</code>
 <code>}</code>
 </pre>
@@ -468,7 +468,7 @@ Notes:
 
 <h3>Base Resource Content</h3>
 <p>
-Here is an exmple that shows all the information found in all resources, fully populated:
+Here is an example that shows all the information found in all resources, fully populated:
 </p>
 
 <div class="example">
@@ -506,7 +506,7 @@ Implementers notes:
   <li><b>meta.profile</b> (line 7) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 8 - 11) - <a href="securitylabels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</li>
   <li><b>meta.tag</b> (lines 12 - 15) - <a href="extras.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
-  <li><b>implicitRules</b> (lines 16) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in orer to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
+  <li><b>implicitRules</b> (lines 16) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in order to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
   <li><b>language</b> (lines 17) - The <a href="narrative.html#language">base language of the resource</a>. The resource is allowed to have content from other languages; this is just the base, but should be the main language of the resource</li>
 </ul>
 
