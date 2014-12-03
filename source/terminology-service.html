@@ -239,7 +239,7 @@ HTTP/1.1 200 OK
 <h3>Concept Lookup</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
-combination using the lookup operation. The server returns information for both display and processing
+combination using <a href="valueset-operations.html#lookup">the lookup operation</a>. The server returns information for both display and processing
 purposes. The client passes the server the following information:
 </p>
 <ul>
@@ -327,7 +327,7 @@ One of the ways to determine whether a code is in a value set is to expand the v
 (as described above), and then look at the returned codes to see if the code is in the expansion. 
 However this is not an efficient way to test whether a code is valid, and for some value sets 
 (e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server 
-provides a "validate" operation. The client passes the server the following information:
+provides <a href="valueset-operations.html#validate">a "validate" operation</a>. The client passes the server the following information:
 </p>
 <ul>
  <li> the value set (either by it's URL on the RESTful interface, by it's logical identifier <a href="valueset-definition.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
@@ -456,8 +456,8 @@ HTTP/1.1 200 OK
 <h3>Batch Validation</h3>
 
 <p>
-It's also possible to validate a set of concepts against their relevant valuet 
-sets in a single batch operation, to support high-volume process and reduce network
+It's also possible to validate a set of concepts against their relevant value 
+sets in <a href="valueset-operations.html#batch">a single batch operation</a>, to support high-volume process and reduce network
 latency effects. In this case, the client passes the server the following information:
 </p>
 <ul>
@@ -567,7 +567,7 @@ HTTP/1.1 200 OK
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this 
 is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a v3 code to 
-a v2 code). The client calls the translate operation and passes 3 parameters:
+a v2 code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes 3 parameters:
 </p>
 <ul>
   <li> a code+system, Coding, or CodeableConcept</li>
@@ -681,7 +681,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
  <li> to facilitate the initialization process, a server can call $closure with multiple Coding values</li>
 </ol>
 <p>
-The $closure operation takes 2 parameters:
+The <a href="conceptmap-operations.html#closure">$closure operation</a> takes 2 parameters:
 </p>
 <ul>
  <li> Closure table context name</li>
