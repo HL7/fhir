@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\list.xsd">
+	<id value="uslabvaluesets"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>List of Value Sets created for the USLabOrder and USLabResult Implementation</h3>
+			<ul>
+				<li>
+					<a href="valueset-do-uslab-event">USLABDOEvent - Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="patient-uslab-nameuse">USLabNameUse - The name types for US Laboratory ordering and reporting in ambulatory care setting</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="patient-uslabph-nameuse">USLabPHNameUse - The name types for US Laboratory reporting to Public Health</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="uslab-country-codes">USLabCountry - ISO 3166 3 letter codes</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="valueset-usps-state">USPSState - Two letter USPS alphabetic codes</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="fips-county-codes">USFIPSCounty - FIPS codes for US counties and county equivalent entities</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="valueset-obs-uslab-interpretation">USLabObsInterpretation - Codes identifying interpretations of observations</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="http://hl7.org/fhir/vs/units">USLabUCUM - UCUM Codes for units of measure</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="http://hl7.org/fhir/v2/vs/0490">USLabSpecimenRejection - Specimen Rejection Reasons codes for identifying why a test was not performed</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="valueset-obs-uslab-kind">USLabObservationKind - Code to classify the kind of observation in Observation.value[x]</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="valueset-spec-uslab-type">USLabSpecimenType - Codes to describe the Specimen</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="http://hl7.org/fhir/vs/body-site">USLabSpecimenBodySite - Codes to describe the Specimen Collection Body site</a>
+				</li>
+			</ul>
+		</div>
+	</text>
+	<code>
+		<text value="List of Value Sets created for the USLabOrder and USLabResult Implementation"/>
+	</code>
+	<!--Published by:  HL7 Orders and Observations Workgroup"
+-Primary Author/Editor:  Eric M Haas, Health eData Inc"-->
+	<!-- This list contains all the USLabReport specific bindings-->
+	<date value="2014-11-29"/>
+	<ordered value="false"/>
+	<mode value="working"/>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="valueset-do-uslab-event"/>
+			<display value="USLABDOEvent	-	Information about an event that occurred to a diagnostic order that corresponds to the USLabOrder Use Cases"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="patient-uslab-nameuse"/>
+			<display value="USLabNameUse	-	The name types for US Laboratory ordering and reporting in ambulatory care setting"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="patient-uslabph-nameuse"/>
+			<display value="USLabPHNameUse	-	The name types for US Laboratory reporting to Public Health"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="uslab-country-codes"/>
+			<display value="USLabCountry	-	ISO 3166 3 letter codes"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="valueset-usps-state"/>
+			<display value="USPSState	-	Two letter USPS alphabetic codes"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="fips-county-codes"/>
+			<display value="USFIPSCounty	-	FIPS codes for US counties and county equivalent entities"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="valueset-obs-uslab-interpretation"/>
+			<display value="USLabObsInterpretation	-	Codes identifying interpretations of observations"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="http://hl7.org/fhir/vs/units"/>
+			<display value="USLabUCUM	-	UCUM Codes for units of measure"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="http://hl7.org/fhir/v2/vs/0490"/>
+			<display value="USLabSpecimenRejection	-	Specimen Rejection Reasons codes for identifying why a test was not performed"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="valueset-obs-uslab-kind"/>
+			<display value="USLabObservationKind	-	Code to classify the kind of observation in Observation.value[x]"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="valueset-spec-uslab-type"/>
+			<display value="USLabSpecimenType	-	Codes to describe the Specimen"/>
+		</item>
+	</entry>
+	<entry>
+		<deleted value="false"/>
+		<date value="2014-11-29"/>
+		<item>
+			<reference value="http://hl7.org/fhir/vs/body-site"/>
+			<display value="USLabSpecimenBodySite	-	Codes to describe the Specimen Collection Body site"/>
+		</item>
+	</entry>
+</List>
