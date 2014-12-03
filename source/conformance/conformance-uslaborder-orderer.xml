@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?><Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h2>USLabOrder Orderer</h2>
+			<p>(Requirements Definition)</p>
+			<p>Published: 2014-12-02 (draft)</p>
+			<p>Published by: <b>
+					<a href="http://www.hl7.org/">HL7 Orders and Observation Workgroup</a></b>  Primary Author: Eric Haas  Health eData Inc
+				</p>
+			<p>This profile defines the expected capabilities of the USLabOrder Orderer actor when conforming to the <a href="uslaborder.html">The US Laboratory Order Implementation (USLabOrder)</a>.  This actor is the originator of a laboratory test order request to the laboratory (order filler) and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabOrder guide.</p>
+			<h2>General</h2>
+			<table>
+				<tbody>
+					<tr>
+						<th>FHIR Version:</th>
+						<td>0.8</td>
+					</tr>
+					<tr>
+						<th>Supported formats:</th>
+						<td>xml, json</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>REST  behavior</h2>
+			<p>
+				<b>Mode:</b> Server
+			</p>
+			<p>This conformance resource assumes the USLabOrder Orderer is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabOrder Orderer MUST support querying one or more resources outlined by the <a href="uslaborder.html">USLabOrder Guide</a>. The USLabOrder Orderer MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Orderer MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>
+				<b>Security:</b>
+			</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslaborder.html">USLabOrder Guide assumptions</a>.</p>
+			<h3>Summary</h3>
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Search</th>
+						<th>Read</th>
+						<th>Read Version</th>
+						<th>Instance History</th>
+						<th>Resource History</th>
+						<th>Validate</th>
+						<th>Create</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>DiagnosticOrder</th>
+						<td>
+							<a title="Allows a user to search for existing DiagnosticOrder" href="#DiagnosticOrder-search-type">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific known DiagnosticOrder" href="#DiagnosticOrder-read">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific version of a DiagnosticOrder" href="#DiagnosticOrder-vread">Yes</a>
+						</td>
+						<td>
+							<a title="Allows review of changes to a DiagnosticOrder over time" href="#DiagnosticOrder-history-instance">Yes</a>
+						</td>
+						<td/>
+						<td>
+							<a title="Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows" href="#DiagnosticOrder-validate">Yes</a>
+						</td>
+						<td>
+							<a title="Allows defining a new DiagnosticOrder" href="#DiagnosticOrder-create">Yes</a>
+						</td>
+						<td>
+							<a title="Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder." href="#DiagnosticOrder-update">Yes</a>
+						</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<br/>
+			<br/>
+			<h3>
+				<a href="diagnosticorder.html">DiagnosticOrder</a>
+			</h3>
+			<h4>Interactions</h4>
+			<table class="list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-search-type"> </a>
+							<span>search-type</span>
+						</th>
+						<td>
+							<p>Allows a user to search for existing DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-read"> </a>
+							<span>read</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific known DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-vread"> </a>
+							<span>vread</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific version of a DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-history-instance"> </a>
+							<span>history-instance</span>
+						</th>
+						<td>
+							<p>Allows review of changes to a DiagnosticOrder over time</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-create"> </a>
+							<span>create</span>
+						</th>
+						<td>
+							<p>Allows defining a new DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-update"> </a>
+							<span>update</span>
+						</th>
+						<td>
+							<p>Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-validate"> </a>
+							<span>validate</span>
+						</th>
+						<td>
+							<p>Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Search</h4>
+			<p>Supported Includes: DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc</p>
+			<h2>REST  behavior</h2>
+			<p>
+				<b>Mode:</b> Client
+			</p>
+			<p>The following conformance rules assumes the USLabOrder Orderer is the client, in other words, operating in 'Push'  RESTful interface.  The USLabOrder Orderer MUST support querying one or more resources outlined by the <a href="uslaborder.html">USLabOrder Guide</a>. The USLabOrder Orderer MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Orderer MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>
+				<b>Security:</b>
+			</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslaborder.html">USLabOrder Guide assumptions</a>.</p>
+			<h3>Summary</h3>
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Search</th>
+						<th>Read</th>
+						<th>Read Version</th>
+						<th>Instance History</th>
+						<th>Resource History</th>
+						<th>Validate</th>
+						<th>Create</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>DiagnosticOrder</th>
+						<td>
+							<a title="Allows a user to search for existing DiagnosticOrder" href="#DiagnosticOrder-search-type">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific known DiagnosticOrder" href="#DiagnosticOrder-read">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific version of a DiagnosticOrder" href="#DiagnosticOrder-vread">Yes</a>
+						</td>
+						<td>
+							<a title="Allows review of changes to a DiagnosticOrder over time" href="#DiagnosticOrder-history-instance">Yes</a>
+						</td>
+						<td/>
+						<td>
+							<a title="Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows" href="#DiagnosticOrder-validate">Yes</a>
+						</td>
+						<td>
+							<a title="Allows defining a new DiagnosticOrder" href="#DiagnosticOrder-create">Yes</a>
+						</td>
+						<td>
+							<a title="Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder." href="#DiagnosticOrder-update">Yes</a>
+						</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<br/>
+			<br/>
+			<h3>
+				<a href="diagnosticorder.html">DiagnosticOrder</a>
+			</h3>
+			<h4>Interactions</h4>
+			<table class="list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-search-type"> </a>
+							<span>search-type</span>
+						</th>
+						<td>
+							<p>Allows a user to search for existing DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-read"> </a>
+							<span>read</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific known DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-vread"> </a>
+							<span>vread</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific version of a DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-history-instance"> </a>
+							<span>history-instance</span>
+						</th>
+						<td>
+							<p>Allows review of changes to a DiagnosticOrder over time</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-create"> </a>
+							<span>create</span>
+						</th>
+						<td>
+							<p>Allows defining a new DiagnosticOrder</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-update"> </a>
+							<span>update</span>
+						</th>
+						<td>
+							<p>Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticOrder-validate"> </a>
+							<span>validate</span>
+						</th>
+						<td>
+							<p>Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Search</h4>
+			<p>Supported Includes: DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc</p>
+		</div>
+	</text>
+	<id value="uslaborder-orderer"/>
+	<!-- EH:   this is the SDC  template for conformance examples which I will run to try to generate the text-->
+	<name value="USLabOrder Orderer"/>
+	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://www.hl7.org/"/>
+	</telecom>
+	<description value="This profile defines the expected capabilities of the USLabOrder Orderer actor when conforming to the [[uslaborder.html|The US Laboratory Order Implementation (USLabOrder)]].  This actor is the originator of a laboratory test order request to the laboratory (order filler) and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabOrder guide."/>
+	<status value="draft"/>
+	<date value="2014-12-02"/>
+	<fhirVersion value="0.8"/>
+	<acceptUnknown value="false"/>
+	<format value="xml"/>
+	<format value="json"/>
+	<!-- EH:  need to distinguish when orderer in server mode  = Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of search and read so the users can find the data they need
+Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for it's history, and replicates the changes in its own copy of the database
+...
+or when orderer in client  mode  =Push: The source is a client, and when new data is available, it uses create, update, and transaction to push data to the destination, which is a server -->
+	<rest>
+		<mode value="server"/>
+		<documentation value="This conformance resource assumes the USLabOrder Orderer is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabOrder Orderer MUST support querying one or more resources outlined by the [[uslaborder|USLabOrder Guide]]. The USLabOrder Orderer MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Orderer MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<security>
+			<description value="Implementations must meet the security requirements documented in the [[uslaborder|USLabOrder Guide assumptions]]."/>
+		</security>
+		<resource>
+			<type value="DiagnosticOrder"/>
+			<profile>
+				<reference value="do-uslab"/>
+			</profile>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="search-type"/>
+				<documentation value="Allows a user to search for existing DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="read"/>
+				<documentation value="Allows retrieval of a specific known DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="vread"/>
+				<documentation value="Allows retrieval of a specific version of a DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="history-instance"/>
+				<documentation value="Allows review of changes to a DiagnosticOrder over time"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="create"/>
+				<documentation value="Allows defining a new DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="update"/>
+				<documentation value="Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder."/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension-->
+				<code value="validate"/>
+				<documentation value="Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows"/>
+			</interaction>
+			<!-- interaction>
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Allows removal of an existing DiagnosticOrder.  Servers may choose to not support deletions or may limit deletions to DiagnosticOrder meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
+      </interaction -->
+			<!-- EH  flags for support for versioning, read history, update create 
+		<versioning value="versioned|no-version"-->
+			<searchInclude value="DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc"/>
+			<!-- EH: comment out for now 
+		<searchParam-->
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+			<!--name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam-->
+			<!-- interaction. operation-->
+		</resource>
+	</rest>
+	<rest>
+		<mode value="client"/>
+		<documentation value="The following conformance rules assumes the USLabOrder Orderer is the client, in other words, operating in 'Push'  RESTful interface.  The USLabOrder Orderer MUST support querying one or more resources outlined by the [[uslaborder|USLabOrder Guide]]. The USLabOrder Orderer MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Orderer MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<security>
+			<description value="Implementations must meet the security requirements documented in the [[uslaborder|USLabOrder Guide assumptions]]."/>
+		</security>
+		<resource>
+			<type value="DiagnosticOrder"/>
+			<profile>
+				<reference value="do-uslab"/>
+			</profile>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="search-type"/>
+				<documentation value="Allows a user to search for existing DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="read"/>
+				<documentation value="Allows retrieval of a specific known DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="vread"/>
+				<documentation value="Allows retrieval of a specific version of a DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="history-instance"/>
+				<documentation value="Allows review of changes to a DiagnosticOrder over time"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="create"/>
+				<documentation value="Allows defining a new DiagnosticOrder"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="update"/>
+				<documentation value="Allows editing of an existing DiagnosticOrder.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticOrder (and potentially the retiring of the existing DiagnosticOrder).  Servers may also limit who can change particular DiagnosticOrder."/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension-->
+				<code value="validate"/>
+				<documentation value="Allows a client to verify whether a particular new DiagnosticOrder or revision of an existing DiagnosticOrder would be accepted based on validation and other business rules.  Useful for some workflows"/>
+			</interaction>
+			<!-- interaction>
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Allows removal of an existing DiagnosticOrder.  Servers may choose to not support deletions or may limit deletions to DiagnosticOrder meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
+      </interaction -->
+			<!-- EH  flags for support for versioning, read history, update create 
+		<versioning value="versioned|no-version"-->
+			<searchInclude value="DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc"/>
+			<!-- EH: comment out for now 
+		<searchParam-->
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+			<!--name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam-->
+			<!-- interaction. operation-->
+		</resource>
+	</rest>
+</Conformance>

@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?><Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h2>USLabReport Receiver</h2>
+			<p>(Requirements Definition)</p>
+			<p>Published: 2014-12-02 (draft)</p>
+			<p>Published by: <b>
+					<a href="http://www.hl7.org/">Published by: HL7 Orders and Observation Workgroup</a>
+				</b> Primary Author: Eric Haas  Health eData Inc</p>
+			<p>This profile defines the expected capabilities of the USLabReport Receiver actor when conforming to the <a href="uslabreport.html">The US Receiver Report Implementation (USLabReport)</a>.  This actor is the receiver of a laboratory test report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide.</p>
+			<h2>General</h2>
+			<table>
+				<tbody>
+					<tr>
+						<th>FHIR Version:</th>
+						<td>0.8</td>
+					</tr>
+					<tr>
+						<th>Supported formats:</th>
+						<td>xml, json</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2>REST  behavior</h2>
+			<p>
+				<b>Mode:</b> Server
+			</p>
+			<p>This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>
+				<b>Security:</b>
+			</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslabreport.html">USLabReport Guide assumptions</a>.</p>
+			<h3>Summary</h3>
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Search</th>
+						<th>Read</th>
+						<th>Read Version</th>
+						<th>Instance History</th>
+						<th>Resource History</th>
+						<th>Validate</th>
+						<th>Create</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>DiagnosticReport</th>
+						<td>
+							<a title="Allows a user to search for existing DiagnosticReport" href="#DiagnosticReport-search-type">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific known DiagnosticReport" href="#DiagnosticReport-read">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific version of a DiagnosticReport" href="#DiagnosticReport-vread">Yes</a>
+						</td>
+						<td>
+							<a title="Allows review of changes to a DiagnosticReport over time" href="#DiagnosticReport-history-instance">Yes</a>
+						</td>
+						<td/>
+						<td>
+							<a title="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows" href="#DiagnosticReport-validate">Yes</a>
+						</td>
+						<td>
+							<a title="Allows defining a new DiagnosticReport" href="#DiagnosticReport-create">Yes</a>
+						</td>
+						<td>
+							<a title="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport." href="#DiagnosticReport-update">Yes</a>
+						</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<br/>
+			<br/>
+			<h3>
+				<a href="diagnosticreport.html">DiagnosticReport</a>
+			</h3>
+			<h4>Interactions</h4>
+			<table class="list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-search-type"> </a>
+							<span>search-type</span>
+						</th>
+						<td>
+							<p>Allows a user to search for existing DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-read"> </a>
+							<span>read</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific known DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-vread"> </a>
+							<span>vread</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific version of a DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-history-instance"> </a>
+							<span>history-instance</span>
+						</th>
+						<td>
+							<p>Allows review of changes to a DiagnosticReport over time</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-create"> </a>
+							<span>create</span>
+						</th>
+						<td>
+							<p>Allows defining a new DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-update"> </a>
+							<span>update</span>
+						</th>
+						<td>
+							<p>Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-validate"> </a>
+							<span>validate</span>
+						</th>
+						<td>
+							<p>Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Search</h4>
+			<p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
+			<h2>REST  behavior</h2>
+			<p>
+				<b>Mode:</b> Server
+			</p>
+			<p>The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>
+				<b>Security:</b>
+			</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslabreport.html">USLabReport Guide assumptions</a>.</p>
+			<h3>Summary</h3>
+			<table class="grid">
+				<thead>
+					<tr>
+						<th>Resource</th>
+						<th>Search</th>
+						<th>Read</th>
+						<th>Read Version</th>
+						<th>Instance History</th>
+						<th>Resource History</th>
+						<th>Validate</th>
+						<th>Create</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>DiagnosticReport</th>
+						<td>
+							<a title="Allows a user to search for existing DiagnosticReport" href="#DiagnosticReport-search-type">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific known DiagnosticReport" href="#DiagnosticReport-read">Yes</a>
+						</td>
+						<td>
+							<a title="Allows retrieval of a specific version of a DiagnosticReport" href="#DiagnosticReport-vread">Yes</a>
+						</td>
+						<td>
+							<a title="Allows review of changes to a DiagnosticReport over time" href="#DiagnosticReport-history-instance">Yes</a>
+						</td>
+						<td/>
+						<td>
+							<a title="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows" href="#DiagnosticReport-validate">Yes</a>
+						</td>
+						<td>
+							<a title="Allows defining a new DiagnosticReport" href="#DiagnosticReport-create">Yes</a>
+						</td>
+						<td>
+							<a title="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport." href="#DiagnosticReport-update">Yes</a>
+						</td>
+						<td/>
+					</tr>
+				</tbody>
+			</table>
+			<br/>
+			<br/>
+			<h3>
+				<a href="diagnosticreport.html">DiagnosticReport</a>
+			</h3>
+			<h4>Interactions</h4>
+			<table class="list">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-search-type"> </a>
+							<span>search-type</span>
+						</th>
+						<td>
+							<p>Allows a user to search for existing DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-read"> </a>
+							<span>read</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific known DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-vread"> </a>
+							<span>vread</span>
+						</th>
+						<td>
+							<p>Allows retrieval of a specific version of a DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-history-instance"> </a>
+							<span>history-instance</span>
+						</th>
+						<td>
+							<p>Allows review of changes to a DiagnosticReport over time</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-create"> </a>
+							<span>create</span>
+						</th>
+						<td>
+							<p>Allows defining a new DiagnosticReport</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-update"> </a>
+							<span>update</span>
+						</th>
+						<td>
+							<p>Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<a name="DiagnosticReport-validate"> </a>
+							<span>validate</span>
+						</th>
+						<td>
+							<p>Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Search</h4>
+			<p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
+		</div>
+	</text>
+	<id value="uslabreport-receiver"/>
+	<!-- EH:   this is the SDC  template for conformance examples which I will run to generate the text-->
+	<name value="USLabReport Receiver"/>
+	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://www.hl7.org/"/>
+	</telecom>
+	<description value="This profile defines the expected capabilities of the USLabReport Receiver actor when conforming to the [[uslabreport.html|The US Receiver Report Implementation (USLabReport)]].  This actor is the receiver of a laboratory test report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide."/>
+	<status value="draft"/>
+	<date value="2014-12-02"/>
+	<fhirVersion value="0.8"/>
+	<acceptUnknown value="false"/>
+	<format value="xml"/>
+	<format value="json"/>
+	<!-- EH:  need to distinguish when receiver in server mode  = Pull: The source is a server, and the destination is a client. When the client wants to use the data, it uses a combination of search and read so the users can find the data they need
+Push/Pull: The source is a server, and the destination is a client. On a regular basis, the destination queries the server for it's history, and replicates the changes in its own copy of the database
+...
+or when receiver in client  mode  =Push: The source is a client, and when new data is available, it uses create, update, and transaction to push data to the destination, which is a server -->
+	<rest>
+		<mode value="server"/>
+		<documentation value="This conformance resource assumes the USLabReport Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<security>
+			<description value="Implementations must meet the security requirements documented in the [[uslabreport|USLabReport Guide assumptions]]."/>
+		</security>
+		<resource>
+			<type value="DiagnosticReport"/>
+			<profile>
+				<reference value="dr-uslab"/>
+			</profile>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="search-type"/>
+				<documentation value="Allows a user to search for existing DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="read"/>
+				<documentation value="Allows retrieval of a specific known DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="vread"/>
+				<documentation value="Allows retrieval of a specific version of a DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="history-instance"/>
+				<documentation value="Allows review of changes to a DiagnosticReport over time"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="create"/>
+				<documentation value="Allows defining a new DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="update"/>
+				<documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension-->
+				<code value="validate"/>
+				<documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
+			</interaction>
+			<!-- interaction>
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Allows removal of an existing DiagnosticReport.  Servers may choose to not support deletions or may limit deletions to DiagnosticReport meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
+      </interaction -->
+			<!-- EH  flags for support for versioning, read history, update create 
+		<versioning value="versioned|no-version"-->
+			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
+			<!-- EH: comment out for now 
+		<searchParam-->
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+			<!--name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam-->
+			<!-- interaction. operation-->
+		</resource>
+	</rest>
+	<rest>
+		<mode value="client"/>
+		<documentation value="The following conformance rules assumes the USLabReport Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabReport Receiver MUST support querying one or more resources outlined by the [[uslabreport|USLabReport Guide]]. The USLabReport Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Receiver MUST implement REST behavior according to the [[http|FHIR specification]] and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query."/>
+		<security>
+			<description value="Implementations must meet the security requirements documented in the [[uslabreport|USLabReport Guide assumptions]]."/>
+		</security>
+		<resource>
+			<type value="DiagnosticReport"/>
+			<profile>
+				<reference value="do-uslab"/>
+			</profile>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="search-type"/>
+				<documentation value="Allows a user to search for existing DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="read"/>
+				<documentation value="Allows retrieval of a specific known DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="vread"/>
+				<documentation value="Allows retrieval of a specific version of a DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="history-instance"/>
+				<documentation value="Allows review of changes to a DiagnosticReport over time"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="create"/>
+				<documentation value="Allows defining a new DiagnosticReport"/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+				<code value="update"/>
+				<documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
+			</interaction>
+			<interaction>
+				<!-- EH: comment out for now  extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHOULD"/>
+        </extension-->
+				<code value="validate"/>
+				<documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
+			</interaction>
+			<!-- interaction>
+        EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="MAY"/>
+        </extension>
+        <code value="delete"/>
+        <documentation value="Allows removal of an existing DiagnosticReport.  Servers may choose to not support deletions or may limit deletions to DiagnosticReport meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
+      </interaction -->
+			<!-- EH  flags for support for versioning, read history, update create 
+		<versioning value="versioned|no-version"-->
+			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
+			<!-- How do we  do nested includes  ie  DiagnosticReport.orderer (Practitioner.organization)  -->
+		<!-- EH: comment out for now 
+		<searchParam-->
+			<!-- EH: comment out for now extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+          <valueCode value="SHALL"/>
+        </extension-->
+			<!--name value="category"/>
+        <definition value="http://hl7.org/fhir/Profile/dataelement#category"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam-->
+			<!-- interaction. operation-->
+		</resource>
+	</rest>
+</Conformance>
