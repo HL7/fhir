@@ -58,6 +58,7 @@
 		@@@MODELFILES@@@
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base.cs" />
     <Compile Include="Base64Binary.cs" />
     <Compile Include="Bundle.cs" />
     <Compile Include="BundleExtensions.cs" />
@@ -78,7 +79,6 @@
     <Compile Include="Query.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="DeletedResource.cs" />
-    <Compile Include="Element.cs" />
     <Compile Include="FhirDateTime.cs" />
     <Compile Include="FhirUri.cs" />
     <Compile Include="IExtendable.cs" />

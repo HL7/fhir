@@ -39,42 +39,40 @@ using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
+    // Resource is not a subclass of Composite, since it
+    // cannot be used in places where you can use composites.
     [InvokeIValidatableObject]
-    public abstract partial class Resource 
+    public abstract class Base : Hl7.Fhir.Validation.IValidatableObject, 
+                IDeepCopyable, IDeepComparable
     {
-        public static string GetResourceTypeName(Resource resource)
-        {
-            if (resource == null) throw Error.ArgumentNull("resource");
+        public abstract bool IsExactly(IDeepComparable other);
+        public abstract bool Matches(IDeepComparable pattern);
 
-            return GetResourceTypeName(resource.GetType());
-        }
+        public abstract IDeepCopyable DeepCopy();
+        public abstract IDeepCopyable CopyTo(IDeepCopyable other);
 
-        public static string GetResourceTypeName(Type type)
-        {
-            return type.Name;       // trivial now, but might be a map
-        }
-
-
-       // public string ResourceName { get { return GetResourceTypeName(this); } }
-
-        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
 
-            if (Id != null && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
-                result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry id must be an absolute URI"));
-
-            if(Meta != null)
-            {
-                if (!String.IsNullOrEmpty(this.Meta.VersionId) && !new Uri(Id,UriKind.RelativeOrAbsolute).IsAbsoluteUri)
-                    result.Add(DotNetAttributeValidation.BuildResult(validationContext, "Entry selflink must be an absolute URI"));
-
-                if (Meta.Tag != null && validationContext.ValidateRecursively())
-                    DotNetAttributeValidation.TryValidate(Meta.Tag,result,true);
-            }
-
             return result;
         }
+
+        private Dictionary<string, object> _userData = new Dictionary<string, object>();
+        public Dictionary<string, object> UserData { get { return _userData; } }
+        
+        /**
+         * Round tracking xml comments for testing convenience
+         */
+        private List<string> FormatComments { get; set; }
+
+
+        public bool HasFormatComment()
+        {
+            return (FormatComments != null && FormatComments.Any());
+        }
+
+        public abstract string TypeName { get; }
     }
 }
 
