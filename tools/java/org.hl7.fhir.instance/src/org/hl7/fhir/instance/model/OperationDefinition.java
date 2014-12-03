@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 06:31+1100 for FHIR v0.3.0
+// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -315,9 +315,9 @@ public class OperationDefinition extends DomainResource {
         /**
          * The type for this parameter.
          */
-        @Child(name="type", type={Coding.class}, order=6, min=1, max=1)
+        @Child(name="type", type={CodeType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="What type this parameter hs", formalDefinition="The type for this parameter." )
-        protected Coding type;
+        protected CodeType type;
 
         /**
          * A profile the specifies the rules that this parameter must conform to.
@@ -331,19 +331,25 @@ public class OperationDefinition extends DomainResource {
          */
         protected Profile profileTarget;
 
-        private static final long serialVersionUID = 55565452L;
+        /**
+         * The parts of a Tuple Parameter.
+         */
+        @Child(name="part", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
+        protected List<OperationDefinitionParameterPartComponent> part;
+
+        private static final long serialVersionUID = 176609099L;
 
       public OperationDefinitionParameterComponent() {
         super();
       }
 
-      public OperationDefinitionParameterComponent(CodeType name, Enumeration<OperationParameterUse> use, IntegerType min, StringType max, Coding type) {
+      public OperationDefinitionParameterComponent(CodeType name, Enumeration<OperationParameterUse> use, IntegerType min, StringType max) {
         super();
         this.name = name;
         this.use = use;
         this.min = min;
         this.max = max;
-        this.type = type;
       }
 
         /**
@@ -576,15 +582,19 @@ public class OperationDefinition extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (The type for this parameter.)
+         * @return {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Coding getType() { 
+        public CodeType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new CodeType();
           return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
         }
 
         public boolean hasType() { 
@@ -592,10 +602,31 @@ public class OperationDefinition extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (The type for this parameter.)
+         * @param value {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setType(Coding value) { 
+        public OperationDefinitionParameterComponent setTypeElement(CodeType value) { 
           this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type for this parameter.
+         */
+        public String getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type for this parameter.
+         */
+        public OperationDefinitionParameterComponent setType(String value) { 
+          if (Utilities.noString(value))
+            this.type = null;
+          else {
+            if (this.type == null)
+              this.type = new CodeType();
+            this.type.setValue(value);
+          }
           return this;
         }
 
@@ -643,6 +674,36 @@ public class OperationDefinition extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #part} (The parts of a Tuple Parameter.)
+         */
+        public List<OperationDefinitionParameterPartComponent> getPart() { 
+          if (this.part == null)
+            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+          return this.part;
+        }
+
+        public boolean hasPart() { 
+          if (this.part == null)
+            return false;
+          for (OperationDefinitionParameterPartComponent item : this.part)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #part} (The parts of a Tuple Parameter.)
+         */
+    // syntactic sugar
+        public OperationDefinitionParameterPartComponent addPart() { //3
+          OperationDefinitionParameterPartComponent t = new OperationDefinitionParameterPartComponent();
+          if (this.part == null)
+            this.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+          this.part.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "code", "The name of used to identify the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -650,8 +711,9 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("type", "Coding", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("profile", "Reference(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+          childrenList.add(new Property("part", "", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
 
       public OperationDefinitionParameterComponent copy() {
@@ -664,13 +726,385 @@ public class OperationDefinition extends DomainResource {
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
+        if (part != null) {
+          dst.part = new ArrayList<OperationDefinitionParameterPartComponent>();
+          for (OperationDefinitionParameterPartComponent i : part)
+            dst.part.add(i.copy());
+        };
         return dst;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
            && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty());
+           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty()) && (part == null || part.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class OperationDefinitionParameterPartComponent extends BackboneElement {
+        /**
+         * The name of used to identify the parameter.
+         */
+        @Child(name="name", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Name of the parameter", formalDefinition="The name of used to identify the parameter." )
+        protected CodeType name;
+
+        /**
+         * The minimum number of times this parameter SHALL appear in the request or response.
+         */
+        @Child(name="min", type={IntegerType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this parameter SHALL appear in the request or response." )
+        protected IntegerType min;
+
+        /**
+         * The maximum number of times this element is permitted to appear in the request or response.
+         */
+        @Child(name="max", type={StringType.class}, order=3, min=1, max=1)
+        @Description(shortDefinition="Maximum Cardinality (a number or *)", formalDefinition="The maximum number of times this element is permitted to appear in the request or response." )
+        protected StringType max;
+
+        /**
+         * Describes the meaning or use of this parameter.
+         */
+        @Child(name="documentation", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="Description of meaning/use", formalDefinition="Describes the meaning or use of this parameter." )
+        protected StringType documentation;
+
+        /**
+         * The type for this parameter.
+         */
+        @Child(name="type", type={CodeType.class}, order=5, min=1, max=1)
+        @Description(shortDefinition="What type this parameter hs", formalDefinition="The type for this parameter." )
+        protected CodeType type;
+
+        /**
+         * A profile the specifies the rules that this parameter must conform to.
+         */
+        @Child(name="profile", type={Profile.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
+        protected Reference profile;
+
+        /**
+         * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
+         */
+        protected Profile profileTarget;
+
+        private static final long serialVersionUID = -2143629468L;
+
+      public OperationDefinitionParameterPartComponent() {
+        super();
+      }
+
+      public OperationDefinitionParameterPartComponent(CodeType name, IntegerType min, StringType max, CodeType type) {
+        super();
+        this.name = name;
+        this.min = min;
+        this.max = max;
+        this.type = type;
+      }
+
+        /**
+         * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public CodeType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new CodeType();
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public OperationDefinitionParameterPartComponent setNameElement(CodeType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of used to identify the parameter.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of used to identify the parameter.
+         */
+        public OperationDefinitionParameterPartComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new CodeType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
+         */
+        public IntegerType getMinElement() { 
+          if (this.min == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.min");
+            else if (Configuration.doAutoCreate())
+              this.min = new IntegerType();
+          return this.min;
+        }
+
+        public boolean hasMinElement() { 
+          return this.min != null && !this.min.isEmpty();
+        }
+
+        public boolean hasMin() { 
+          return this.min != null && !this.min.isEmpty();
+        }
+
+        /**
+         * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
+         */
+        public OperationDefinitionParameterPartComponent setMinElement(IntegerType value) { 
+          this.min = value;
+          return this;
+        }
+
+        /**
+         * @return The minimum number of times this parameter SHALL appear in the request or response.
+         */
+        public int getMin() { 
+          return this.min == null ? null : this.min.getValue();
+        }
+
+        /**
+         * @param value The minimum number of times this parameter SHALL appear in the request or response.
+         */
+        public OperationDefinitionParameterPartComponent setMin(int value) { 
+            if (this.min == null)
+              this.min = new IntegerType();
+            this.min.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
+         */
+        public StringType getMaxElement() { 
+          if (this.max == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.max");
+            else if (Configuration.doAutoCreate())
+              this.max = new StringType();
+          return this.max;
+        }
+
+        public boolean hasMaxElement() { 
+          return this.max != null && !this.max.isEmpty();
+        }
+
+        public boolean hasMax() { 
+          return this.max != null && !this.max.isEmpty();
+        }
+
+        /**
+         * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
+         */
+        public OperationDefinitionParameterPartComponent setMaxElement(StringType value) { 
+          this.max = value;
+          return this;
+        }
+
+        /**
+         * @return The maximum number of times this element is permitted to appear in the request or response.
+         */
+        public String getMax() { 
+          return this.max == null ? null : this.max.getValue();
+        }
+
+        /**
+         * @param value The maximum number of times this element is permitted to appear in the request or response.
+         */
+        public OperationDefinitionParameterPartComponent setMax(String value) { 
+            if (this.max == null)
+              this.max = new StringType();
+            this.max.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType();
+          return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        /**
+         * @param value {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public OperationDefinitionParameterPartComponent setDocumentationElement(StringType value) { 
+          this.documentation = value;
+          return this;
+        }
+
+        /**
+         * @return Describes the meaning or use of this parameter.
+         */
+        public String getDocumentation() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        /**
+         * @param value Describes the meaning or use of this parameter.
+         */
+        public OperationDefinitionParameterPartComponent setDocumentation(String value) { 
+          if (Utilities.noString(value))
+            this.documentation = null;
+          else {
+            if (this.documentation == null)
+              this.documentation = new StringType();
+            this.documentation.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public CodeType getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeType();
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public OperationDefinitionParameterPartComponent setTypeElement(CodeType value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type for this parameter.
+         */
+        public String getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type for this parameter.
+         */
+        public OperationDefinitionParameterPartComponent setType(String value) { 
+            if (this.type == null)
+              this.type = new CodeType();
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
+         */
+        public Reference getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Reference();
+          return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
+        }
+
+        /**
+         * @param value {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
+         */
+        public OperationDefinitionParameterPartComponent setProfile(Reference value) { 
+          this.profile = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
+         */
+        public Profile getProfileTarget() { 
+          if (this.profileTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profileTarget = new Profile();
+          return this.profileTarget;
+        }
+
+        /**
+         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
+         */
+        public OperationDefinitionParameterPartComponent setProfileTarget(Profile value) { 
+          this.profileTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "code", "The name of used to identify the parameter.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
+          childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
+          childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("profile", "Reference(Profile)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+        }
+
+      public OperationDefinitionParameterPartComponent copy() {
+        OperationDefinitionParameterPartComponent dst = new OperationDefinitionParameterPartComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.min = min == null ? null : min.copy();
+        dst.max = max == null ? null : max.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.profile = profile == null ? null : profile.copy();
+        return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (min == null || min.isEmpty())
+           && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty()) && (type == null || type.isEmpty())
+           && (profile == null || profile.isEmpty());
       }
 
   }
@@ -800,10 +1234,10 @@ public class OperationDefinition extends DomainResource {
     protected BooleanType instance;
 
     /**
-     * Parameters for the operation/query.
+     * The parameters for the operation/query.
      */
     @Child(name="parameter", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Parameters for the operation/query", formalDefinition="Parameters for the operation/query." )
+    @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
     private static final long serialVersionUID = 300577956L;
@@ -1594,7 +2028,7 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #parameter} (Parameters for the operation/query.)
+     * @return {@link #parameter} (The parameters for the operation/query.)
      */
     public List<OperationDefinitionParameterComponent> getParameter() { 
       if (this.parameter == null)
@@ -1612,7 +2046,7 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #parameter} (Parameters for the operation/query.)
+     * @return {@link #parameter} (The parameters for the operation/query.)
      */
     // syntactic sugar
     public OperationDefinitionParameterComponent addParameter() { //3
@@ -1642,7 +2076,7 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("type", "code", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, java.lang.Integer.MAX_VALUE, instance));
-        childrenList.add(new Property("parameter", "", "Parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        childrenList.add(new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
       }
 
       public OperationDefinition copy() {

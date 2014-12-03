@@ -37,7 +37,7 @@ import org.hl7.fhir.instance.model.Profile;
 public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
    private Map<String, SearchParameterDefn> searchParams = new HashMap<String, SearchParameterDefn>();
-   private Map<String, Operation> operations = new HashMap<String, Operation>();
+   private List<Operation> operations = new ArrayList<Operation>();
    private List<ConformancePackage> conformancePackages = new ArrayList<ConformancePackage>();
       
    private String status;
@@ -147,7 +147,7 @@ public class ResourceDefn  {
     this.root.setProfile(profile);
   }
 
-  public Map<String, Operation> getOperations() {
+  public List<Operation> getOperations() {
     return operations;
   }
 

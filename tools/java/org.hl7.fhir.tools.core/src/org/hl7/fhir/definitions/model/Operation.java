@@ -96,4 +96,11 @@ public class Operation {
     this.footer = footer;
   }
 
+  public OperationParameter getParameter(String name) {
+    for (OperationParameter p : parameters) {
+      if (p.getName().equals(name))
+        return p;
+    }
+    return null;
+  }
 }

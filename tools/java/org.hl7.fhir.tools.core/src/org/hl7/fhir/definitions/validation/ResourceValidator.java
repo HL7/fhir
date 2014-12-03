@@ -192,7 +192,7 @@ public class ResourceValidator extends BaseValidator {
       if (rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
         String param = c.getResources().get(parent);
         if (!Utilities.noString(param)) {
-          rule(errors, "structure", parent.getName(), param.equals("{def}") || parent.getSearchParams().containsKey(c.getName()), "Resource "+parent.getName()+" in compartment " +c.getName()+" must have a search parameter named "+c.getName()+")");
+          rule(errors, "structure", parent.getName(), param.equals("{def}") || parent.getSearchParams().containsKey(c.getName()), "Resource "+parent.getName()+" in compartment " +c.getName()+" must have a search parameter named "+c.getName().toLowerCase()+")");
           for (String p : param.split("\\|")) {
             String pn = p.trim();
             if (pn.contains("."))

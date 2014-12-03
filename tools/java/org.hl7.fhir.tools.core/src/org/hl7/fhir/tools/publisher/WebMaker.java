@@ -171,7 +171,7 @@ public class WebMaker {
 //      for (RegisteredProfile p : r.getProfiles()) {
 //        buildRedirect(n, p.getDestFilenameNoExt()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"Profile"+File.separator+p.getDestFilenameNoExt());
 //      }
-      for (Operation op : r.getOperations().values()) {
+      for (Operation op : r.getOperations()) {
         buildRedirect(n, "operation-"+r.getName().toLowerCase()+"-"+op.getName()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"OperationDefinition"+File.separator+r.getName()+"-"+op.getName());
       }
     }

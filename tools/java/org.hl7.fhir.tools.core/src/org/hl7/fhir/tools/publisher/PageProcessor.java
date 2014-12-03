@@ -71,6 +71,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
+import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -804,19 +805,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("<table class=\"grid\">");
     for (String n : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(n);
-      List<String> nl = new ArrayList<String>();
-      nl.addAll(r.getOperations().keySet());
-      Collections.sort(nl);
-      for (String opn : nl) {
-        Operation op = r.getOperations().get(opn);
-        b.append("<tr><td><a href=\""+n.toLowerCase()+"-operations.html#"+opn+"\">");
+      for (Operation op : r.getOperations()) {
+        b.append("<tr><td><a href=\""+n.toLowerCase()+"-operations.html#"+op.getName()+"\">");
         b.append(Utilities.escapeXml(op.getTitle()));
         b.append("</a></td><td>");
         boolean first = true;
         if (op.isSystem()) {
           first = false;
           b.append("[base]/$");
-          b.append(opn);
+          b.append(op.getName());
         }
         if (op.isType()) {
           if (first) 
@@ -826,7 +823,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append("[base]/");
           b.append(n);
           b.append("/$");
-          b.append(opn);
+          b.append(op.getName());
         }
         if (op.isInstance()) {
           if (first) 
@@ -836,7 +833,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           b.append("[base]/");
           b.append(n);
           b.append("/[id]/$");
-          b.append(opn);
+          b.append(op.getName());
         }
         b.append("</td></tr>");
       }
@@ -3336,27 +3333,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genOperations(ResourceDefn resource) throws Exception {
     StringBuilder b = new StringBuilder();
-    List<String> names = new ArrayList<String>();
-    names.addAll(resource.getOperations().keySet());
-    Collections.sort(names);
-    for (String n : names) {
-      Operation op = resource.getOperations().get(n);
-      b.append("<h3>"+Utilities.escapeXml(op.getTitle())+"<a name=\""+n+"\"> </a></h3>\r\n");
+    for (Operation op : resource.getOperations()) {
+      b.append("<h3>"+Utilities.escapeXml(op.getTitle())+"<a name=\""+op.getName()+"\"> </a></h3>\r\n");
       b.append(processMarkdown(op.getDoco())+"\r\n");
       b.append("<p><a href=\"operation-"+resource.getName().toString().toLowerCase()+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
       if (op.isSystem())
-        b.append("<p>URL: [base]/$"+n+"</p>\r\n");
+        b.append("<p>URL: [base]/$"+op.getName()+"</p>\r\n");
       if (op.isType())
-        b.append("<p>URL: [base]/"+resource.getName()+"/$"+n+"</p>\r\n");
+        b.append("<p>URL: [base]/"+resource.getName()+"/$"+op.getName()+"</p>\r\n");
       if (op.isInstance())
-        b.append("<p>URL: [base]/"+resource.getName()+"/[id]/$"+n+"</p>\r\n");
+        b.append("<p>URL: [base]/"+resource.getName()+"/[id]/$"+op.getName()+"</p>\r\n");
       if (!op.getParameters().isEmpty()) {
         b.append("<p>Parameters:</p>\r\n");
         b.append("<table class=\"grid\">\r\n");
         b.append("<tr><td>");
-        b.append("<b>Name</b>");
-        b.append("</td><td>");
         b.append("<b>Use</b>");
+        b.append("</td><td>");
+        b.append("<b>Name</b>");
         b.append("</td><td>");
         b.append("<b>Cardinality</b>");
         b.append("</td><td>");
@@ -3368,9 +3361,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("</td></tr>");
         for (OperationParameter p : op.getParameters()) {
           b.append("<tr><td>");
-          b.append(p.getName());
-          b.append("</td><td>");
           b.append(p.getUse());
+          b.append("</td><td>");
+          b.append(p.getName());
           b.append("</td><td>");
           b.append(p.describeCardinality());
           b.append("</td><td>");
@@ -3415,7 +3408,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               b.append("</a>");
             }
             b.append(")");
-          } else {
+          } else if (!t.equals("Tuple")) {
             b.append(t);
           }
           b.append("</td><td>");
@@ -3427,6 +3420,67 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
             b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
           b.append("</td></tr>");
+          if (t.equals("Tuple"))
+            for (OperationTuplePart pp : p.getParts()) {
+              b.append("<tr><td>");
+              b.append("&nbsp;");
+              b.append("</td><td>");
+              b.append("&nbsp;&nbsp;"+pp.getName());
+              b.append("</td><td>");
+              b.append(pp.describeCardinality());
+              b.append("</td><td>");
+              t = pp.getType();
+              if (definitions.hasResource(t)) {
+                b.append("<a href=\"");
+                b.append(t.toLowerCase());
+                b.append(".html\">");
+                b.append(t);
+                b.append("</a>");
+
+              } else if (definitions.hasPrimitiveType(t)) {
+                b.append("<a href=\"datatypes.html#");
+                b.append(t);
+                b.append("\">");
+                b.append(t);
+                b.append("</a>");
+
+              } else if (definitions.hasElementDefn(t)) {
+                b.append("<a href=\"");
+                b.append(GeneratorUtils.getSrcFile(t, false));
+                b.append(".html#");
+                b.append(t);
+                b.append("\">");
+                b.append(t);
+                b.append("</a>");
+
+              } else if (t.startsWith("Reference(")) {
+                b.append("<a href=\"references.html#Reference\">Reference</a>");
+                String pn = t.substring(0, t.length()-1).substring(10);
+                b.append("(");
+                boolean first = true;
+                for (String tn : pn.split("\\|")) {
+                  if (first)
+                    first = false;
+                  else
+                    b.append("|");
+                  b.append("<a href=\"");
+                  b.append(tn.toLowerCase());
+                  b.append(".html\">");
+                  b.append(tn);
+                  b.append("</a>");
+                }
+                b.append(")");
+              } else {
+                b.append(t);
+              }
+              b.append("</td><td>");
+              if (pp.getProfile() != null) {
+                b.append(pp.getProfile());
+              }
+              b.append("</td><td>");
+              b.append(processMarkdown(pp.getDoc()));
+              b.append("</td></tr>");
+            }
         }
         b.append("</table>\r\n");
       }
@@ -3436,7 +3490,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  
+
   private boolean isOnlyOutParameter(List<OperationParameter> parameters, OperationParameter p) {
     for (OperationParameter q : parameters)
       if (q != p && q.getUse().equals("out"))

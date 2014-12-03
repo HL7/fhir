@@ -74,6 +74,27 @@ For each parameter, the following information is needed:
  <li>Profile - a profile that applies additional restrictions about the resource</li>
  <li>Documentation - describes its use</li>
 </ul>
+<p>
+There is a special parameter type called "Tuple" which is a parameter type that has additional 
+parts. Each part has the same information as a parameter, except for use, which is taken from 
+the parameter it is part of.
+</p>
+
+<p>
+The resource <a href="operationdefinition.html">Operation Definition</a> is used to provide a computable definition 
+of the operation.
+</p>
+
+<a name="extending"> </a>
+<h3>Extending an Operation</h3>
+<p>
+Implementations are able to extend operations by defining new named parameters.
+Implementations can publish their own extended definitions using the 
+ <a href="operationdefinition.html">Operation Definition</a> resource, and
+this variant definition can use OperationDefinition.base to refer to the 
+underlying definition.
+</p>
+
 
 <a name="executing"> </a>
 <a name="synchronous"> </a>

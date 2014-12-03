@@ -78,6 +78,7 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterPartComponent;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -1860,18 +1861,28 @@ public class NarrativeGenerator implements INarrativeGenerator {
     x.addTag("p").addText("Parameters");
     XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
     XhtmlNode tr = tbl.addTag("tr");
-    tr.addTag("td").addTag("b").addText("Name");
     tr.addTag("td").addTag("b").addText("Use");
+    tr.addTag("td").addTag("b").addText("Name");
     tr.addTag("td").addTag("b").addText("Cardinality");
     tr.addTag("td").addTag("b").addText("Type");
     tr.addTag("td").addTag("b").addText("Documentation");
     for (OperationDefinitionParameterComponent p : opd.getParameter()) {
       tr = tbl.addTag("tr");
-      tr.addTag("td").addText(p.getName());
       tr.addTag("td").addText(p.getUse().toString());
+      tr.addTag("td").addText(p.getName());
       tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
-      tr.addTag("td").addText(p.getType().getCode());
+      tr.addTag("td").addText(p.hasType() ? p.getType() : "");
       addMarkdown(tr.addTag("td"), p.getDocumentation());
+      if (!p.hasType()) {
+        for (OperationDefinitionParameterPartComponent pp : p.getPart()) {
+          tr = tbl.addTag("tr");
+          tr.addTag("td");
+          tr.addTag("td").addText(pp.getName());
+          tr.addTag("td").addText(Integer.toString(pp.getMin())+".."+pp.getMax());
+          tr.addTag("td").addText(pp.getType());
+          addMarkdown(tr.addTag("td"), pp.getDocumentation());
+        }
+      }
     }
     addMarkdown(x, opd.getNotes());
     inject(opd, x, NarrativeStatus.GENERATED);

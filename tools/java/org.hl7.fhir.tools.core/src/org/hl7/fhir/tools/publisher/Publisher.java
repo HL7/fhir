@@ -98,6 +98,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
+import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
@@ -146,6 +147,7 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterComponent;
+import org.hl7.fhir.instance.model.OperationDefinition.OperationDefinitionParameterPartComponent;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
@@ -2671,7 +2673,7 @@ public class Publisher implements URIResolver {
               + "-operations.html"), page.getFolders().dstDir + n + "-operations.html");
       page.getEpub().registerFile(n + "-operations.html", "Operations for " + resource.getName(), EPubManager.XHTML_TYPE);
 
-      for (Operation t : resource.getOperations().values()) {
+      for (Operation t : resource.getOperations()) {
         produceOperation(resource, t);
       }
       // todo: get rid of these...
@@ -2737,20 +2739,32 @@ public class Publisher implements URIResolver {
         pp.setUse(OperationParameterUse.OUT);
       else
         throw new Exception("Unable to determine parameter use: "+p.getUse()); // but this is validated elsewhere
-      // todo: min and max
       pp.setDocumentation(p.getDoc());
       pp.setMin(p.getMin());
       pp.setMax(p.getMax());
-      Coding cc = new Coding();
-      cc.setSystem("http://hl7.org/fhir/vs/defined-types");
-      cc.setCode(p.getType());
-      pp.setType(cc);
       Reference ref = new Reference();
       if (p.getProfile() != null) {
         ref.setReference(p.getProfile());
         pp.setProfile(ref);
       }
       opd.getParameter().add(pp);
+      if (p.getType().equals("Tuple")) {
+        for (OperationTuplePart part : p.getParts()) {
+          OperationDefinitionParameterPartComponent ppart = new OperationDefinitionParameterPartComponent();
+          ppart.setName(part.getName());
+          ppart.setDocumentation(part.getDoc());
+          ppart.setMin(part.getMin());
+          ppart.setMax(part.getMax());
+          ppart.setType(part.getType());
+          ref = new Reference();
+          if (part.getProfile() != null) {
+            ref.setReference(part.getProfile());
+            ppart.setProfile(ref);
+          }
+          pp.getPart().add(ppart);
+        }
+      } else
+        pp.setType(p.getType());
     }
     NarrativeGenerator gen = new NarrativeGenerator("", page.getWorkerContext());
     gen.generate(opd);
