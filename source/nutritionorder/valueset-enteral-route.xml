@@ -1,0 +1,45 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="enteral-route"/>
+  <publisher value="HL7 Nutrition Workgroup"/>
+  <telecom> 
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or
+        contains concepts to support administration of formula feeding via oral or enteral feeding tubes. This value set is provided as a suggestive example"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+      <concept>
+        <code value="PO"/>
+      </concept>
+      <concept>
+        <code value="EFT"/>
+      </concept>
+      <concept>
+        <code value="ENTINSTL"/>
+      </concept>
+              <concept>
+        <code value="GT"/>
+      </concept>
+      <concept>
+        <code value="NGT"/>
+      </concept> 
+      <concept>
+        <code value="OGT"/>
+      </concept>
+      <concept>
+        <code value="GJT"/>
+      </concept>
+      <concept>
+        <code value="JJTINSTL"/>
+      </concept>
+      <concept>
+        <code value="OJJ"/>
+      </concept>
+       </include>
+  </compose>
+</ValueSet>
+ 
