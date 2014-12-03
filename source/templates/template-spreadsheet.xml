@@ -5207,7 +5207,7 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2:R50C2</Range>
    <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,OR(AND(NOT(ISERR(FIND(&quot;.&quot;,RC1,FIND(&quot;.&quot;,RC1)+1))),RC&lt;&gt;&quot;&quot;),AND(ISERR(FIND(&quot;.&quot;,RC1,FIND(&quot;.&quot;,RC1)+1)),NOT(ISERR(FIND(&quot;.&quot;,RC1))),UPPER(RC)&lt;&gt;&quot;IN&quot;,UPPER(RC)&lt;&gt;&quot;OUT&quot;),AND(ISERR(FIND(&quot;.&quot;,RC1)),OR(RC=&quot;&quot;,RC=&quot;IN&quot;,RC=&quot;OUT&quot;))))</Value1>
+    <Value1>AND(RC1&lt;&gt;&quot;&quot;,OR(AND(NOT(ISERR(FIND(&quot;.&quot;,RC1,FIND(&quot;.&quot;,RC1)+1))),RC&lt;&gt;&quot;&quot;),AND(ISERR(FIND(&quot;.&quot;,RC1,FIND(&quot;.&quot;,RC1)+1)),NOT(ISERR(FIND(&quot;.&quot;,RC1))),UPPER(RC)&lt;&gt;&quot;IN&quot;,UPPER(RC)&lt;&gt;&quot;OUT&quot;),AND(ISERR(FIND(&quot;.&quot;,RC1)),OR(RC=&quot;&quot;,UPPER(RC)=&quot;IN&quot;,UPPER(RC)=&quot;OUT&quot;))))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
