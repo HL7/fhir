@@ -1,8 +1,9 @@
 - define a proper translation extension 
-- update the terminology service spec for the changes to operation framework
+
 - workover DAF (incl value sets)
 - get validation framework working (not working at all right now)
 - slicing is not displaying right  in differential view.  Icon is struck through. (http://hl7-fhir.github.io/do-uslab-uslabdo.html)
 - search parameters for profiles
 -  ilnks to profiles from profile view not working either.  see http://hl7-fhir.github.io/do-uslab-uslabdo.html  (used to work)  try clicking on USlabPatient
+- revise the definitions on concept map equivalence
 
