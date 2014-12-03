@@ -218,7 +218,7 @@ public class SourceParser {
 			loadCompositeType(n, definitions.getInfrastructure());
 
 		List<TypeDefn> allFhirComposites = new ArrayList<TypeDefn>();
-		allFhirComposites.add( CompositeTypeConverter.buildElementBaseType());
+	//	allFhirComposites.add( CompositeTypeConverter.buildElementBaseType());
 		allFhirComposites.addAll( PrimitiveConverter.buildCompositeTypesForPrimitives( eCoreParseResults.getPrimitive() ) );
 		allFhirComposites.addAll( CompositeTypeConverter.buildCompositeTypesFromFhirModel(definitions.getTypes().values(), null ));
 		allFhirComposites.addAll( CompositeTypeConverter.buildCompositeTypesFromFhirModel(definitions.getStructures().values(), null ));

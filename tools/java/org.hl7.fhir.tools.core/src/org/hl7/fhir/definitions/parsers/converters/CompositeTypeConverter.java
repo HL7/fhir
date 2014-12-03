@@ -140,8 +140,10 @@ public class CompositeTypeConverter {
       base = null;
     else if(name.equals("Element"))
       base = null;
-
-    Boolean isAbstract = name.equals("Element") || name.equals("Resource") || name.equals("DomainResource");
+    else if(type.isAnonymousTypedGroup())
+      base.setName("BackboneElement");
+    
+    Boolean isAbstract = name.equals("Element") || name.equals("Resource") || name.equals("DomainResource") || name.equals("BackboneElement");
     
     result.setAbstract(isAbstract);
     result.setBaseType(base);
@@ -351,68 +353,68 @@ public class CompositeTypeConverter {
 			TypeRefConverter.Fix(composite.getBaseType(),composite);
 	}
 	
-	public static CompositeTypeDefn buildElementBaseType()
-	{
-		CompositeTypeDefn result = FhirFactory.eINSTANCE.createCompositeTypeDefn();
-
-		result.setName(TypeRef.ELEMENT_TYPE_NAME);
-		result.setFullName(result.getName());
-		result.setAbstract(true);
-				
-		Annotations baseAnn = FhirFactory.eINSTANCE.createAnnotations();
-		baseAnn.setShortDefinition("Basetype for all composite-typed elements");
-		result.setAnnotations(baseAnn);
-		
-		ElementDefn extElem = GeneratorUtils.buildSimpleElementDefn("extension", "Extension", "Additional Content defined by implementations", 0, -1);		
-		result.getElement().add(extElem);
-
-		ElementDefn modExtElem = GeneratorUtils.buildSimpleElementDefn("modifierExtension", "Extension", "Extensions that cannot be ignored", 0, -1);    
-    result.getElement().add(modExtElem);
-		
-		result.getElement().add(buildInternalIdElement());
-		
-		return result;
-	}
+//	public static CompositeTypeDefn buildElementBaseType()
+//	{
+//		CompositeTypeDefn result = FhirFactory.eINSTANCE.createCompositeTypeDefn();
+//
+//		result.setName(TypeRef.ELEMENT_TYPE_NAME);
+//		result.setFullName(result.getName());
+//		result.setAbstract(true);
+//				
+//		Annotations baseAnn = FhirFactory.eINSTANCE.createAnnotations();
+//		baseAnn.setShortDefinition("Basetype for all composite-typed elements");
+//		result.setAnnotations(baseAnn);
+//		
+//		ElementDefn extElem = GeneratorUtils.buildSimpleElementDefn("extension", "Extension", "Additional Content defined by implementations", 0, -1);		
+//		result.getElement().add(extElem);
+//
+//		ElementDefn modExtElem = GeneratorUtils.buildSimpleElementDefn("modifierExtension", "Extension", "Extensions that cannot be ignored", 0, -1);    
+//    result.getElement().add(modExtElem);
+//		
+//		result.getElement().add(buildInternalIdElement());
+//		
+//		return result;
+//	}
 	
-	public static ElementDefn buildInternalIdElement()
-	{
-	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("id", "id", "Local id for element", 0, 1);	  
-		idElem.setPrimitiveContents(true);
-		idElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
-		idElem.setSummaryItem(true);		
-		return idElem;
-	}
+//	public static ElementDefn buildInternalIdElement()
+//	{
+//	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("id", "id", "Local id for element", 0, 1);	  
+//		idElem.setPrimitiveContents(true);
+//		idElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
+//		idElem.setSummaryItem(true);		
+//		return idElem;
+//	}
 	
 	
 	
 
-	public static ResourceDefn buildBinaryResourceDefn()
-	{
-	  ResourceDefn result= FhirFactory.eINSTANCE.createResourceDefn();
-
-	  result.setName(TypeRef.BINARY_TYPE_NAME);
-	  result.setFullName(result.getName());
-	  result.setAbstract(false);
-	    
-	  Annotations resourceAnn = FhirFactory.eINSTANCE.createAnnotations();
-	  resourceAnn.setShortDefinition("Resource for capturing binary data");
-	  result.setAnnotations(resourceAnn);
-	  
-    TypeRef resourceBase = FhirFactory.eINSTANCE.createTypeRef();
-    resourceBase.setName(TypeRef.RESOURCE_TYPE_NAME);
-	  result.setBaseType(resourceBase);
-
-	  ElementDefn contentElem = GeneratorUtils.buildSimpleElementDefn("content", "base64Binary", "Binary contents", 1, 1);
-	  contentElem.setPrimitiveContents(true);
-	  contentElem.setXmlFormatHint(XmlFormatHint.TEXT_NODE);
-	  result.getElement().add(contentElem);
-	   
-	   ElementDefn contentTypeElem = GeneratorUtils.buildSimpleElementDefn("contentType", "string", "Media type of contents", 1, 1);
-	   contentTypeElem.setPrimitiveContents(true);
-	   contentTypeElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
-	   result.getElement().add(contentTypeElem);
-    
-	   return result;
-	}
+//	public static ResourceDefn buildBinaryResourceDefn()
+//	{
+//	  ResourceDefn result= FhirFactory.eINSTANCE.createResourceDefn();
+//
+//	  result.setName(TypeRef.BINARY_TYPE_NAME);
+//	  result.setFullName(result.getName());
+//	  result.setAbstract(false);
+//	    
+//	  Annotations resourceAnn = FhirFactory.eINSTANCE.createAnnotations();
+//	  resourceAnn.setShortDefinition("Resource for capturing binary data");
+//	  result.setAnnotations(resourceAnn);
+//	  
+//    TypeRef resourceBase = FhirFactory.eINSTANCE.createTypeRef();
+//    resourceBase.setName(TypeRef.RESOURCE_TYPE_NAME);
+//	  result.setBaseType(resourceBase);
+//
+//	  ElementDefn contentElem = GeneratorUtils.buildSimpleElementDefn("content", "base64Binary", "Binary contents", 1, 1);
+//	  contentElem.setPrimitiveContents(true);
+//	  contentElem.setXmlFormatHint(XmlFormatHint.TEXT_NODE);
+//	  result.getElement().add(contentElem);
+//	   
+//	   ElementDefn contentTypeElem = GeneratorUtils.buildSimpleElementDefn("contentType", "string", "Media type of contents", 1, 1);
+//	   contentTypeElem.setPrimitiveContents(true);
+//	   contentTypeElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
+//	   result.getElement().add(contentTypeElem);
+//    
+//	   return result;
+//	}
 
 }

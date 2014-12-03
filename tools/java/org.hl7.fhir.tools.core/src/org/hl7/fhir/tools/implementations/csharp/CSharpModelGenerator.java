@@ -149,6 +149,7 @@ public class CSharpModelGenerator extends GenBlock
 				nl(" : ");
 				nl(GeneratorUtils.generateCSharpTypeName(constrained.getConstrainedBaseType().getName()));
 			bs("{");
+			 generateMetaTypeMembers( constrained.getName(), constrained.isReference() );
 				ln("// TODO: Add code to enforce these constraints:");
 				for( Invariant inv : constrained.getDetail() ) 
 					ln("// * " + inv.getHuman() );
@@ -190,7 +191,10 @@ public class CSharpModelGenerator extends GenBlock
 
 		// Generate the class itself		
 		compositeClassHeader( composite );
-		bs("{");		
+		bs("{");	
+		  // Generate the meta-type members
+		  generateMetaTypeMembers( composite.getName(), composite.isReference() );
+		
 			// Generate local bindings
 			if( composite.getBinding().size() > 0)
 				enums( composite.getBinding() );
@@ -243,6 +247,17 @@ public class CSharpModelGenerator extends GenBlock
 	}
 
 
+  private void generateMetaTypeMembers(String name, boolean isResource) 
+  {
+    String modifier = isResource && name.equals("Resource") ? "virtual" : "override";
+    if(isResource)
+      ln("public " + modifier + " ResourceType ResourceType { get { return ResourceType." + name + "; } }");
+      
+    ln("public override string TypeName { get { return " + "\"" + name + "\"" + "; } }");
+    ln();
+  }
+
+
   private void generateMembers(CompositeTypeDefn composite) throws Exception {
     // Start ordering the elements at 10 (increase by 10)
     // If there's a base class, start numbering after base class elements
@@ -285,8 +300,9 @@ public class CSharpModelGenerator extends GenBlock
   {
     String className = GeneratorUtils.generateCSharpTypeName(composite.getName());
     Boolean isBase = className.equals("Resource") || className.equals("Element");
-    String override = isBase ? "virtual" : "override";
-        
+    //String override = isBase ? "virtual" : "override";
+    String override = "override";
+    
     ln("public " + override + " IDeepCopyable CopyTo(IDeepCopyable other)");
     bs("{");      
       ln("var dest = other as " + className + ";");
@@ -328,7 +344,8 @@ public class CSharpModelGenerator extends GenBlock
   {
     String className = GeneratorUtils.generateCSharpTypeName(composite.getName());
     Boolean isBase = className.equals("Resource") || className.equals("Element");
-    String override = isBase ? "virtual" : "override";
+    //String override = isBase ? "virtual" : "override";
+    String override = "override";
     String method = genExactly ? "IsExactly" : "Matches";
         
     ln("public " + override + " bool " + method + "(IDeepComparable other)");
@@ -342,7 +359,6 @@ public class CSharpModelGenerator extends GenBlock
       for( ElementDefn member : composite.getElement() )
       {
         String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME);
-        String memberType = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_CSTYPE);
   
         if(member.isPrimitiveContents())
           ln("if( " + memberName + " != otherT." + memberName + " ) return false;");            
@@ -633,7 +649,9 @@ public class CSharpModelGenerator extends GenBlock
 		}
 		else
 		{
-			nl(" : System.ComponentModel.INotifyPropertyChanged");
+		  nl( " : " );
+		  nl("Base");
+			//nl(" : System.ComponentModel.INotifyPropertyChanged");
 		}
 	}
 	

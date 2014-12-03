@@ -11,6 +11,7 @@ import org.hl7.fhir.definitions.ecore.fhir.ElementDefn;
 import org.hl7.fhir.definitions.ecore.fhir.FhirFactory;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
+import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -363,6 +364,8 @@ public class GeneratorUtils {
 	public static String generateCSharpTypeName(String name) throws Exception {
 		String result;
 		
+		name = name.replace("-", "");
+		
 		if( Character.isLowerCase(name.charAt(0)) )
 			result = mapPrimitiveToFhirCSharpType(name);
 		else
@@ -454,9 +457,9 @@ public class GeneratorUtils {
 		if( result.equals("Extension") && member.getParentType().getName().equals("Extension") )
 			result = "NestedExtension";
 
-		// The property "_id" is the internal id, give it a nicer name.
-		if( result.equals("_id") )
-		  result = "LocalId";
+		// The property "id" on Element is the internal id, give it a nicer name.
+		if( member.getName().equals("id") && member.getXmlFormatHint() == XmlFormatHint.ATTRIBUTE )
+		  result = "ElementId";
 		
 		// Pluralize for arrays
 		//if( member.isRepeating() ) result += "s";
