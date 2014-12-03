@@ -186,11 +186,11 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">ReferenciaDocumento</translation>
         <translation lang="fr">RéférenceDocument</translation>
     </item>
-    <item id="Eligibility">
-        <translation lang="en">Eligibility</translation>
-    </item>
     <item id="EligibilityResponse">
         <translation lang="en">EligibilityResponse</translation>
+    </item>
+    <item id="EligibilityRequest">
+        <translation lang="en">EligibilityRequest</translation>
     </item>
     <item id="Encounter">
         <translation lang="en">Encounter</translation>

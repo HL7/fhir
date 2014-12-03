@@ -237,7 +237,7 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Eligibility</Data></Cell>
+    <Cell><Data ss:Type="String">EligibilityRequest</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EligibilityResponse</Data></Cell>
@@ -531,7 +531,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -539,7 +539,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>65</ActiveRow>
+     <ActiveRow>29</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
