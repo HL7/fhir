@@ -1,6 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
+		<p>Published by:  HL7 Orders and Observations Workgroup</p>
+		<p>Primary Author:  Eric M Haas, Health eData Inc.</p>
 		<h2>Scope and Usage</h2>
+
 		<p>         This Practioner Profile is part of the The USLabOrder and USLabReport Implementation Guides. Its scope is US Realm ambulatory care and is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for ordering clinical laboratory results. The content has been modeled after the joint HL7 and The Standards and Interoperability (S and I) Framework Laboratory Orders and Results Interface Initiatives and the HL7 Lab Order Conceptual Specification and V3 Lab Normative Standard. However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions. </p>
 		
 		<p>The is a single profile defined which is referenced for both the orderer copy to and blind copy to in the USLabOrder DiagnosticOrder  and DiagnosticReport profile.  Although  not specified in this implementation, it may be used in in other resources as well.</p>
