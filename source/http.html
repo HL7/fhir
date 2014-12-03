@@ -471,12 +471,14 @@ To search a single resource type:
   GET [base]/[type]/_search?[parameters] {&amp;_format=[mime-type]}
 </pre>
 <p>
-To search a <a href="extras.html#compartments">compartment</a>:
+To search a <a href="extras.html#compartments">compartment</a>, either all possible resources, or a single resource type, respectively:
 </p>
 <pre>
-  GET [base]/[compartment]/[id]?[parameters]  {&amp;_format=[mime-type]}
+  GET [base]/[compartment]/[id]/*?[parameters]  {&amp;_format=[mime-type]}
   GET [base]/[compartment]/[id]/[type]?[parameters]  {&amp;_format=[mime-type]}
 </pre>
+<p>
+Note that there is a specific operation defined to support <a href="patient-operations.html#everything">fetching an entire patient record</a>.
 <p>
 Because of the way that some user agents and proxies treat GET and POST requests, POST submissions to /_search 
 are also allowed with exactly the same semantics as the equivalent GET command. Servers are required 
