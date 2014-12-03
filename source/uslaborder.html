@@ -109,13 +109,13 @@
           <ul>
 			<li><a href="patient-uslab.html">USlabPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the order.  .</li>
 			<li><a href="patient-uslab.html">USlabPHPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the order for use cases where additional patient information is needed, such as for tests that may be reportable to public health and when the orderer instructs the laboratory to send copy of the results to the patient.</li>
-			<li><a href="pract-uslab.html">USlabPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is used to define the provider who ordered the lab test(s) or a non-ordering provider to whom the orderer instructs the laboratory to send the results.  USlabPHPractitioner is defined for use cases where additional provider information is needed, such as for tests that may be reportable to public health.</li>
+			<li><a href="pract-uslab.html">USlabPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is used to define the provider who ordered the lab test(s) or a non-ordering provider to whom the orderer instructs the laboratory to send the results.  </li>
 			<li><a href="pract-uslab.html">USlabPHPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is defined for use cases where additional provider information is needed, such as for tests that may be reportable to public health.  This Resource references the following profile:
 			<ul>
 					<li><a href="org-uslab.html">USLabOrderFacility</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the orderer organizaton.</li>
 			</ul>		
 </li>
-			<li><a href="obs-uslab.html">USLabObsCode|USLabObsQuantity|USLabObsOther|USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for record supporting information or other clinically relevant observations such as previous lab results and ask at order questions (AOE).  These Resources reference the following profile:
+			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for record supporting information or other clinically relevant observations such as previous lab results and ask at order questions (AOE).  These Resources reference the following profile:
 			<ul>
 					<li><a href="org-uslab.html">USLabPerformingLab</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the organization that is responsible for the observation.</li>
 			</ul>
@@ -163,33 +163,31 @@ In addition to defining the the <i>USLabOrder</i> bundle this implementation con
                </ul>
             </li>
 		  -->
-            <li>
-            <b>Operations</b> -<a href="#todo">Some USLabOrder Operation</a> - todo - may not need
-           <br></br> </li>
+             <li>
+            <b>Operations</b> -<a href="#todo">Some USLabOrder Operation</a> - Question for balloters are there any operations that <i>USLabOrder</i> should consider?
+           </li>
            <li>
           
                <b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting <i>USLabOrder</i>  functionality:
                <ul>
-                  <li><a href="conformance-uslaborder-orderer.html">USLabOrder orderer conformance</a> - Some conformance stuff for orderer - todo</li>
-                  <li><a href="conformance-uslaborder-filler.html">USLabOrder laboratory conformance</a> - Some conformance stuff for filler - todo</li>
+                  <li><a href="conformance-uslaborder-orderer.html">USLabOrder orderer conformance</a></li>
+                  <li><a href="conformance-uslaborder-receiver.html">USLabOrder receiver conformance</a></li>
                 <!--
                   <li><a href="conformance-uslabreport-sender.html">USLabReport laboratory conformance</a> - Some conformance stuff for report sender - todo</li>
                   <li><a href="conformance-uslabreport-receiver.html">USLabReport reciever conformance</a> - Some conformance stuff for report receiver - todo</li>
 				-->
                </ul>
             </li>
-            <li>
-               <b>Value Sets</b> - Definitions of <i>USLabOrder</i> value sets for the following data elements:
-               <ul>
-                  <li><a href="valueset-do-uslab-event.html">USLABDOEvent Value Set</a> Information about an event that occurred to a diagnostic order that corresponds to the 		USLabOrder Use Case</li>
-               </ul>
+             <li>
+               <b>Value Sets</b> - <a href="list-uslab-valuesets.html">USLab Value Sets</a>  lists the additional Value Set bindings created for the USLabOrder and <i>USLabReport</i> Implementations.
+               
             </li>
                         <li>
-               <b>Mappings</b> - <a href="#todo">Cross mappings from the concept codes for LOI to <i>USLabOrder</i></a> -todo
-                <br></br></li>
+               <b>Mappings</b> - <a href="conceptmap-loi-uslaborder.html">LOI to USLabOrder Concept Codes Cross-mapping</a> are translation of  the concept codes for LOI to <i>USLabOrder</i> - Note to balloters this is a stub entry for future work.
+               </li>
             
             <li>
-               <b>Examples</b> - <a href="#todo">Examples Instances of <i>USLabOrder</i> Resource Bundles</a> -todo
+               <b>Examples</b> - <a href="bundle-uslaborder-example.xml">US Lab Order Example</a>  is an examples Instance of <i>USLabOrder</i> Resource Bundle.  Note to balloters these have not yet been validated by generated schema and are provided as informational only. 
                <!--
                <ul>
                   <li><a href="#todo">Some USLabOrder Bundle example </a> - todo</li>

@@ -56,7 +56,7 @@
 	-->
 	          <li><a href="do-uslab.html">US Lab DiagnosticOrder</a> constrains and extends <a href="diagnosticorder.html">DiagnosticOrder</a> which is used to define the laboratory order.   This Resources references these <a href="uslaborder.html#doprofiles">USLabOrder Profiles</a> </li>
 			<li><a href="spec-uslab.html">USlabSpec</a> constrains and extends <a href="specimen.html">Specimen</a> which is used to define what, when, and how the specimen was collected.</li>
-			<li><a href="obs-uslab.html">USLabObsCode|USLabObsQuantity|USLabObsOther|USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for recording laboratory observations. 
+			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for recording laboratory observations. 
 						<ul>
 					<li><a href="org-uslab.html">USLabPerformingLab</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the organization that is responsible for the observation.</li>
 			</ul>
@@ -104,8 +104,8 @@ In addition to defining the the <i>USLabPHReport</i> bundle this implementation 
             </li>
 		  -->
             <li>
-            <b>Operations</b> -<a href="#todo">Some USLabPHReport Operation</a> - todo - may not need
-           <br></br> </li>
+            <b>Operations</b> -<a href="#todo">Some USLabPHReport Operation</a> - Question for balloters are there any operations that <i>USLabPHReport</i> should consider?
+           </li>
            <li>
           
                <b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting <i>USLabPHReport</i>  functionality:
@@ -114,23 +114,21 @@ In addition to defining the the <i>USLabPHReport</i> bundle this implementation 
                   <li><a href="conformance-USLabPHReport-orderer.html">USLabPHReport orderer conformance</a> - Some conformance stuff for orderer - todo</li>
                   <li><a href="conformance-USLabPHReport-filler.html">USLabPHReport laboratory conformance</a> - Some conformance stuff for filler - todo</li>
              -->
-                  <li><a href="conformance-USLabPHReport-sender.html">USLabPHReport laboratory conformance</a> - Some conformance stuff for report sender - todo</li>
-                  <li><a href="conformance-USLabPHReport-receiver.html">USLabPHReport receiver conformance</a> - Some conformance stuff for report receiver - todo</li>
+                  <li><a href="conformance-uslabreport-sender.html">USLabPHReport sender conformance</a></li>
+                  <li><a href="conformance-uslabreport-receiver.html">USLabPHReport receiver conformance</a></li>
 			
                </ul>
             </li>
-            <li>
-               <b>Value Sets</b> - Definitions of <i>USLabPHReport</i> value sets for the following data elements:
-               <ul>
-                  <li>todo</li>
-               </ul>
+           <li>
+               <b>Value Sets</b> - <a href="list-uslab-valuesets.html">USLab Value Sets</a>  lists the additional Value Set bindings created for the USLabOrder, USLabReport, and USLabPHReport Implementations.
+               
             </li>
-                        <li>
-               <b>Mappings</b> - <a href="#todo">Cross mappings from the concept codes for ELR to <i>USLabPHReport</i></a> -todo
-                <br></br></li>
+                            <li>
+               <b>Mappings</b> - <a href="conceptmap-elr-uslabphreport.html">LRI to USLabReport Concept Codes Cross-mapping</a> are translation of  the concept codes for ELR to <i>USLabPHReport</i> - Note to balloters this is a stub entry for future work.
+               </li>
             
-            <li>
-               <b>Examples</b> - <a href="#todo">Examples Instances of <i>USLabPHReport</i> Resource Bundles</a> -todo
+             <li>
+               <b>Examples</b> - <a href="bundle-uslabphreport-example.xml">US Lab Public Health Report Example</a>  is an examples Instance of <i>USLabPHReport</i> Resource Bundle.  Note to balloters these have not yet been validated by generated schema and are provided as informational only. 
                <!--
                <ul>
                   <li><a href="#todo">Some USLabPHReport Bundle example </a> - todo</li>
