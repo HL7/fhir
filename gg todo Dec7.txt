@@ -1,7 +1,5 @@
-- define a proper translation extension 
-
-- workover DAF (incl value sets)
 - get validation framework working (not working at all right now)
+- workover DAF (incl value sets)
 - slicing is not displaying right  in differential view.  Icon is struck through. (http://hl7-fhir.github.io/do-uslab-uslabdo.html)
 - search parameters for profiles
 -  ilnks to profiles from profile view not working either.  see http://hl7-fhir.github.io/do-uslab-uslabdo.html  (used to work)  try clicking on USlabPatient

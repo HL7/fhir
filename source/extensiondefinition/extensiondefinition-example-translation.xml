@@ -25,7 +25,7 @@
       &lt;extension url=&quot;lang&quot;&gt;
         &lt;valueCode value=&quot;nl&quot;/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;value&quot;&gt;
+      &lt;extension url=&quot;content&quot;&gt;
         &lt;valueString value=&quot;Testtitel&quot;/&gt;
       &lt;/extension&gt;
     &lt;/extension&gt;
@@ -40,7 +40,7 @@
     "title_" : {
       "http://hl7.org/fhir/ExtensionDefinition/translation" : [{
         "lang" : "nl",
-        "value : "Testtitel"
+        "content : "Testtitel"
       }]
     }
   }
@@ -57,7 +57,7 @@
       <extension url="lang">
         <valueCode value="nl"/>
       </extension>
-      <extension url="value">
+      <extension url="content">
         <valueString value="Andere taal"/>
       </extension>
     </extension>
@@ -101,7 +101,7 @@
     </binding>
   </element>
   <element>
-    <path value="Extension.value"/>
+    <path value="Extension.content"/>
     <short value="Value of Translation"/>
     <formal value="The content of the translation"/>
     <min value="1"/>
