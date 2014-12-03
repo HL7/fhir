@@ -4,7 +4,7 @@
 <h2>Scope and Usage</h2>
 <p>
 This profile sets expectations for use of the <a href="patient.html">Patient</a> resource within the 
-<a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project.  This includes
+<a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project. This includes
 identifying which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
 </p>
 <p>

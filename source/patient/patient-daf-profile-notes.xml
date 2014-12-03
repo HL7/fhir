@@ -3,7 +3,7 @@
 <h2>Example Usage Scenarios</h2>
 
 <p>
-The following are example usage scenarios for the DAF Patient profile
+The following are example usage scenarios for the DAF Patient profile:
 </p>
 <ul>
 	<li>Query for a Patient demographic information using identifiers such as MRN</li>
