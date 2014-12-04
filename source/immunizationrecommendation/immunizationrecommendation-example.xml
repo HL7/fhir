@@ -11,8 +11,10 @@
   <recommendation>
     <date value="2013-03-01"/>
     <vaccineType>
-      <system value="http://snomed.info/sct"/>
-      <code value="396427003"/>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="396427003"/>
+      </coding>
     </vaccineType>
     <forecastStatus>
       <coding>
