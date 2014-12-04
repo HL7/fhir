@@ -1262,7 +1262,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.sentDateTime</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.sent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1293,7 +1293,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.receivedDateTime</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.received</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3550,8 +3550,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4407,7 +4407,7 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">sent</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.sentDateTime</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.sent</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4415,7 +4415,7 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.receivedDateTime</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Communication.received</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s86"/>
    </Row>
@@ -4564,9 +4564,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R7</RangeSelection>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4669,7 +4668,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R10C6,R10C4,R12C6,R12C4,R8C6,R8C4</Range>
+   <Range>R10C6,R10C4,R12C6,R12C4,R7C6:R8C6,R7C4:R8C4</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4679,13 +4678,6 @@
    <Range>R7C1</Range>
    <Condition>
     <Value1>AND(#REF!=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R7C6,R7C4</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>

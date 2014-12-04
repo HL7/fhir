@@ -35,7 +35,7 @@
     </contentReference>
   </messagePart>
   <status value="completed"/>
-  <sentDateTime value="2014-12-12T18:01:10-08:00"/>
+  <sent value="2014-12-12T18:01:10-08:00"/>
   <subject>
     <reference value="Patient/1"/>
   </subject>
