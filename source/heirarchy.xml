@@ -181,6 +181,7 @@ todo: compartments
             <page type="resource" resource="Group"/>
             <page type="resource" resource="Encounter"/>
             <page type="resource" resource="Alert"/>
+            <page type="resource" resource="Communication"/>
             <page type="resource" resource="CommunicationRequest"/>
             <page type="resource" resource="Supply"/>
             <page type="resource" resource="Order"/>
