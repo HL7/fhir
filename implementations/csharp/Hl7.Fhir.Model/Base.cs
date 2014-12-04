@@ -39,27 +39,46 @@ using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
-    // Resource is not a subclass of Composite, since it
-    // cannot be used in places where you can use composites.
     [InvokeIValidatableObject]
-    public abstract class Base : Hl7.Fhir.Validation.IValidatableObject, 
-                IDeepCopyable, IDeepComparable
+    public abstract class Base : Hl7.Fhir.Validation.IValidatableObject, IDeepCopyable, IDeepComparable
     {
         public abstract bool IsExactly(IDeepComparable other);
         public abstract bool Matches(IDeepComparable pattern);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <remarks>Does a deep-copy of all elements, except UserData</remarks>
+        /// <returns></returns>
+        public virtual IDeepCopyable CopyTo(IDeepCopyable other)
+        {
+            var dest = other as Base;
+
+            if (dest != null)
+            {
+                if (UserData != null) dest.UserData = new Dictionary<string,object>(UserData);
+                if (FormatComments != null) dest.FormatComments = new List<string>(FormatComments);
+                return dest;
+            }
+            else
+                throw new ArgumentException("Can only copy to an object of the same type", "other");
+        }
+
         public abstract IDeepCopyable DeepCopy();
-        public abstract IDeepCopyable CopyTo(IDeepCopyable other);
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var result = new List<ValidationResult>();
-
-            return result;
+            return Enumerable.Empty<ValidationResult>();
         }
 
         private Dictionary<string, object> _userData = new Dictionary<string, object>();
-        public Dictionary<string, object> UserData { get { return _userData; } }
+
+        public Dictionary<string, object> UserData
+        {
+            get { return _userData; }
+            private set { _userData = value; }
+        }
         
         /**
          * Round tracking xml comments for testing convenience

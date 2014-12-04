@@ -65,7 +65,7 @@ namespace Hl7.Fhir.Model
             if (id == null) throw Error.ArgumentNull("id");
             if (bundle.Entry == null) return Enumerable.Empty<T>();
 
-            return FindResourceById(bundle, Resource.GetResourceTypeName(typeof(T)), id).Cast<T>();
+            return FindResourceById(bundle, ModelInfo.GetResourceNameForType(typeof(T)), id).Cast<T>();
         }
 
 

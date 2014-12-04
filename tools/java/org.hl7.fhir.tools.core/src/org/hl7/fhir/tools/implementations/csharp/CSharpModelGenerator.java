@@ -299,17 +299,16 @@ public class CSharpModelGenerator extends GenBlock
   private void generateCopyTo(CompositeTypeDefn composite) throws Exception
   {
     String className = GeneratorUtils.generateCSharpTypeName(composite.getName());
-    Boolean isBase = className.equals("Resource") || className.equals("Element");
-    //String override = isBase ? "virtual" : "override";
-    String override = "override";
+//    Boolean isBase = className.equals("Resource") || className.equals("Element");
     
-    ln("public " + override + " IDeepCopyable CopyTo(IDeepCopyable other)");
+    ln("public override IDeepCopyable CopyTo(IDeepCopyable other)");
     bs("{");      
       ln("var dest = other as " + className + ";");
       ln();
       ln("if (dest != null)");
       bs("{");
-        if(!isBase) ln("base.CopyTo(dest);");
+//        if(!isBase) ln("base.CopyTo(dest);");
+        ln("base.CopyTo(dest);");   // Since there's now a virtual CopyTo in Base.cs, you can always call base
         
         for( ElementDefn member : composite.getElement() )
         {
@@ -391,7 +390,6 @@ public class CSharpModelGenerator extends GenBlock
                                     member.isPrimitiveValueElement();
     boolean hasBothPrimitiveAndElementProperty = isFhirPrimitive && !needsNativeProperty;
     
-
     String choiceType = null;
     String choices = "";
         
@@ -504,7 +502,16 @@ public class CSharpModelGenerator extends GenBlock
 		nl( memberCsType + " " + memberName  );
 		
 		bs("{");
-		ln("get { return _"+memberName+"; }");
+		
+		if(member.getMaxCardinality() == -1)
+		{
+		  ln("get { if(_" + memberName + "==null) _" + memberName + " = new " + memberCsType + "();");
+		  nl(" return _"+memberName+"; }");		  
+		  //get { if (_Relationship == null) _Relationship = new List<Hl7.Fhir.Model.CodeableConcept>(); return _Relationship; }
+		}
+		else
+		  ln("get { return _"+memberName+"; }");
+		
 		ln("set { _"+memberName+" = value; OnPropertyChanged(\""+memberName+"\"); }");
 		es("}");
 		ln( "private " + memberCsType + " _" + memberName + ";" );

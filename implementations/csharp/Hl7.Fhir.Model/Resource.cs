@@ -42,21 +42,6 @@ namespace Hl7.Fhir.Model
     [InvokeIValidatableObject]
     public abstract partial class Resource 
     {
-        public static string GetResourceTypeName(Resource resource)
-        {
-            if (resource == null) throw Error.ArgumentNull("resource");
-
-            return GetResourceTypeName(resource.GetType());
-        }
-
-        public static string GetResourceTypeName(Type type)
-        {
-            return type.Name;       // trivial now, but might be a map
-        }
-
-
-       // public string ResourceName { get { return GetResourceTypeName(this); } }
-
         public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
