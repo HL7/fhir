@@ -862,6 +862,14 @@
     <display value="Certainty"/>
     <display value="Certain (qualifier value)"/>
   </concept>
+  <concept id="172676009" display="Myringotomy and insertion of short-term tympanic ventilation tube (procedure)">
+    <display value="Myringotomy and insertion of short-term grommet"/>
+    <display value="Gs - Short-term grommet insertion"/>
+    <display value="Myringotomy and insertion of short-term ventilation tube"/>
+    <display value="Myringotomy and insertion of short-term tympanic ventilation tube (procedure)"/>
+    <display value="Myringotomy and insertion of short-term tympanic ventilation tube"/>
+    <display value="Myringotomy and insertion of short-term grommet (procedure)"/>
+  </concept>
   <concept id="172960003" display="Incision of retropharyngeal abscess">
     <display value="Incision of retropharyngeal abscess"/>
     <display value="Incision of retropharyngeal abscess (procedure)"/>
@@ -1681,6 +1689,11 @@
     <display value="Chives"/>
     <display value="Allium schoenoprasum (organism)"/>
   </concept>
+  <concept id="248342006" display="Underweight (finding)">
+    <display value="Underweight"/>
+    <display value="Patient underweight"/>
+    <display value="Underweight (finding)"/>
+  </concept>
   <concept id="248490000" display="Bloating symptom (finding)">
     <display value="Abdomen feels bloated"/>
     <display value="Bloating symptom"/>
@@ -1695,6 +1708,7 @@
     <display value="Postprandial"/>
     <display value="Postprandial (qualifier value)"/>
   </concept>
+  <concept id="249943000:363698007=72098002,260868000=6934004" display="Weakness of distal arms and legs (finding) where Finding site (attribute) = Entire left upper arm (body structure), and Permanence (attribute) = Permanent (qualifier value)"/>
   <concept id="25062003" display="Feeding tube">
     <display value="Feeding tube, device"/>
     <display value="Feeding tube"/>
@@ -3930,6 +3944,12 @@
     <display value="Every seven days"/>
     <display value="q7days"/>
     <display value="Every 7 days"/>
+  </concept>
+  <concept id="396427003" display="Measles vaccine (substance)">
+    <display value="Measles vaccine (substance)"/>
+    <display value="Measles vaccine"/>
+    <display value="Rubeola virus vaccine"/>
+    <display value="Measles live virus vaccine"/>
   </concept>
   <concept id="397158004" display="Perianal region structure (body structure)">
     <display value="Perianal region structure (body structure)"/>

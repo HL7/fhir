@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle Search / Query (RESTful API) %]
+[%settitle Search (RESTful API) %]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,11 +12,11 @@
 <div class="col-9">
 
 <a name="base"> </a>
-<h2>Search / Query</h2>
+<h2>Search</h2>
 
 <p>
-One aspect that is fundamental to the way FHIR works is to search (or query).
-Search/Query operations search through an existing set of resources by a set 
+One aspect that is fundamental to the way FHIR works is to search a set of resources.
+Search operations search through an existing set of resources by a set 
 of search criteria supplied as parameters to the search. This page documents 
 the FHIR search framework, starting with the simple cases, and working through 
 to the full complexity. Implementations need only implement the amount of 
@@ -34,10 +34,10 @@ For this RESTful search (see <a href="http.html#search">definition in RESTful AP
 of name=[value] pairs encoded in the URL or as an 
 application/x-www-form-urlencoded submission for a POST.  
 The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
-which includes the resources that are the results of the query. The server can also
+which includes the resources that are the results of the search. The server can also
 include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a> 
 resources. Clients should ignore resources that don't have the expected type. 
-A HTTP status code of 403 signifies that the server refused to perform the query, 
+A HTTP status code of 403 signifies that the server refused to perform the search, 
 while some other 4xx or 5xx code signifies that some error occurred. 
 </p>
 <p>
@@ -49,8 +49,8 @@ while some other 4xx or 5xx code signifies that some error occurred.
  <li>All resources: GET [base]/_search?parameter(s)</li>
 </ul>
 <p>
-Search/Query operations can also be initiated by other more complex and flexible
-methods described below, which change both the way the search/query is initiated, and 
+Search operations can also be initiated by other more complex and flexible
+methods described below, which change both the way the search is initiated, and 
 the results that are returned. 
 </p>
 <a name="standard"> </a>
@@ -273,7 +273,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
  </li>
 </ul>
 <p>
-As an example, the following query searches for all the procedures in a patient compartment that occurred over a 2 year period:
+As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
  GET [base]/Patient/23/Procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
@@ -410,7 +410,7 @@ a type modifier after the name of the parameter to be explicit about the intende
 </pre>
 <p>
 This searches for any conditions where the subject refers to the patient resource with the 
-logical identifier "23". The server SHOULD reject a query where the logical id refers to 
+logical identifier "23". The server SHOULD reject a search where the logical id refers to 
 more than one matching resource across different types. Note that the :[type] modifier 
 can't be used with a reference to a resource found on another server, since the server 
 would not usually know what type that resource has (but since these are absolute
@@ -464,13 +464,13 @@ the type explicitly using the syntax in the second example above).
 <p>
 The result of the search operation is the intersection of the resources that match the criteria specified by each 
 individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
-this matches a patient who speaks both languages. This is known as an AND query parameter, since the 
+this matches a patient who speaks both languages. This is known as an AND search parameter, since the 
 server is expected to respond only with results which match both values.
 </p>
 <p>
 If, instead, the search is to find patients that speak either 
 language, then this is a single parameter with multiple values, separated by a ','. 
-For example: "/patient?language=FR,NL". This is known as an OR query parameter, 
+For example: "/patient?language=FR,NL". This is known as an OR search parameter, 
 since the server is expected to respond with results which match either value.
 </p>
 <p>
@@ -498,7 +498,7 @@ state-on-date=new$2013-05-04,active$2013-05-05.
 <p>
 Modifiers are not used on composite parameters.
 <!--
-Future note: use \p and \m in query values? if we add a double = to parameter value for text, that would get rid 
+Future note: use \p and \m in search values? if we add a double = to parameter value for text, that would get rid 
 of :exact. 
 Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line. 
 Other modifier is :text on token - use "~"? or ""?
@@ -526,7 +526,7 @@ There are two special text search parameters, _text and _content, which search
 on the narrative of the resource, and the entire content of the resource respectively. 
 These parameters SHOULD support a sophisticated search functionality of the type 
 offered by typical text indexing services is appropriate. 
-The value of the parameter is a text based query, which may involve searching
+The value of the parameter is a text based search, which may involve searching
 multiple words with thesaurus and proximity considerations, and logical operations 
 such as AND, OR etc. For example:
 </p>
@@ -639,7 +639,7 @@ search set. For a simple RESTful search, the page links are
 </p>
 <p>
 Typically a server will provide its own parameters in the links
-that it uses to manage the state of the query as pages are 
+that it uses to manage the state of the search as pages are 
 retrieved. These parameters do not need to be understood 
 or processed by the client.
 </p>
@@ -659,8 +659,8 @@ is proceeding.
 <h4>Including other resources in result (_include)</h4>
 <p>
 Clients may request that the engine return additional resources related to 
-the search results, in order to reduce the overall network query time. 
-A typical case where this is useful is where the client is querying on 
+the search results, in order to reduce the overall network delay. 
+A typical case where this is useful is where the client is searching on 
 some type of clinical resource, but for every such resource returned, 
 the client will also need the subject (patient) resource that the 
 clinical resource refers to. The client requests that the subject 
@@ -757,7 +757,7 @@ rules should be made about how _include works, based on implementation experienc
 
 <h4>Paging</h4>
 <p>
-When returning paged results for a query with _include resources, all _include resources that are 
+When returning paged results for a search with _include resources, all _include resources that are 
 related to the primary resources returned for the page SHOULD also be returned as part of that 
 same page, even if some of those resource instances have previously been returned on previous 
 pages.  This allows both sender and receiver to avoid caching results of other pages.
@@ -823,16 +823,16 @@ to supporting search:
 
 <hr/>
 <a name="advanced"> </a>
-<h3>Advanced Search/Query</h3>
+<h3>Advanced Search</h3>
 <p>
 The search framework described above is a useful framework 
 for providing a simple search based on indexed criteria, 
-but more sophistication is needed to handle precise 
+but more sophisticated query capability is needed to handle precise 
 queries, complex decision support based requests, and 
 direct queries that have human resolution.
 </p>
 <p>
-More advanced search/query operations are specified by the 
+More advanced search operations are specified by the 
 _query parameter:
 </p>
 <pre>
@@ -840,10 +840,10 @@ _query parameter:
 </pre>
 <p>
 The _query parameter names a custom search profile that
-describes a specific search/query operation. The named query
+describes a specific query operation. The named query
 may define additional named parameters that are used with that 
 particular named query. Servers can define their own additional 
-named queries to meet their own uses. 
+named queries to meet their own uses using a <a href="operationdefinition.html">OperationDefinition</a>. 
 </p>
 <p>
 There can only ever be one _query parameter in a set of search
@@ -852,31 +852,23 @@ refuse to process a search request if they do not recognize
 the _query parameter value.
 </p>
 
-<h3>Executing Search / Query</h3>
+<h3>Executing Searches</h3>
 <p>
-FHIR defines 3 different ways in which a search through a repository of 
-resources can be initiated:
+In addition to the standard <a href="http.html#search">search</a> operation on a 
+RESTful interface (as described above), searches can also be performed using 
+the messaging framework. 
 </p>
-<ul>
- <li>Perform <a href="http.html#search">search</a> operation on a RESTful interface (as described above)</li>
- <li>Send a <a href="messaging.html#query">query message</a>, and receive a query response</li>
- <li>Use the <a href="query.html">query resource</a> on a RESTful interface<!--, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)--></li>
-</ul>
 <p>
-In all 3 cases, the basic operation is simple: given a set of parameters
-which are name/value pairs, perform a query against a repository of 
-resources, and return the set of matching resources, possibly with 
-some additional related resources. The second two search methods are
-implemented using the <i>Query</i> Resource.
+<i>TODO: describe how this is done</i>
 </p>
 
 <a name="currency"> </a>
-<h3>Search/Query Result Currency</h3>
+<h3>Search Result Currency</h3>
 
 <p>
-The results of a search/query operation are only guaranteed to be current
+The results of a search operation are only guaranteed to be current
 at the moment the operation is executed. After the operation is executed,
-ongoing actions performed on the resources against which the query was
+ongoing actions performed on the resources against which the search was
 executed will render the results increasingly stale. The significance
 of this depends on the nature of the search, and the kind of use that 
 is being made of the results. 
@@ -895,8 +887,6 @@ auditing the search itself.
 </p>
 
 </div>
-
-[%onthispage Search/Query#base|Standard Parameters#standard|Managing Returned Resources#return|Conformance#conformance|Advanced Query#advanced|Managing Search Results#currency%]
 
 [%file newfooter%]
 </body>
