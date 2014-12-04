@@ -13,31 +13,30 @@
       <a name="CDA"> </a> 
       <h2>Clinical Document Architecture (CDA) on FHIR</h2>
       <h3>What is CDA on FHIR?</h3>
-      CDA on FHIR specifies how to implement <a href="cda.html">CDA R2</a> with the FHIR <a href="composition.html">Composition</a> resource.<br/>
       <p>
-             
+        CDA on FHIR specifies how to implement <a href="cda.html">CDA R2</a> with the FHIR <a href="composition.html">Composition</a> resource.<br/>        
         The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange. 
         A clinical document is a documentation of clinical observations and services, with the following characteristics:
         <ul>
           <li>Persistence - A clinical document continues to exist in an unaltered state, for a time period defined by local and regulatory requirements (NOTE: There is a distinct scope of persistence for a clinical document, independent of the persistence of any XML-encoded CDA document instance).</li>
           <li>Stewardship - A clinical document is maintained by an organization entrusted with its care.</li>
           <li>Potential for authentication - A clinical document is an assemblage of information that is intended to be legally authenticated.</li>
-          <li>Context - A clinical document establishes the default context for its contents.</li>
+          <li>Context - A clinical document establishes the context for its contents.</li>
           <li>Wholeness - Authentication of a clinical document applies to the whole and does not apply to portions of the document without the full context of the document.</li>
           <li>Human readability - A clinical document is human readable.</li>
         </ul>  
-        A CDA document is a defined and complete information object that can include text, images, sounds, and other multimedia content.
+        A CDA document on FHIR is a defined and complete information object that can include text, images, sounds, and other multimedia content.
      </p>
       
-      <h3>Scope of the CDA</h3>
+      <h3>Scope of the CDA on FHIR</h3>
       <p>
-        The scope of the CDA is the standardization of clinical documents for exchange.<br/><br/>
+        The scope of CDA on FHIR is the standardization of clinical documents for exchange.<br/><br/>
         The data format of clinical documents outside of the exchange context (e.g., the data format used to store clinical documents) is not addressed in this specification.<br/><br/>
-        The CDA does not specify the creation or management of documents, only their exchange markup. While it may be possible to directly use the CDA Schema in a document authoring environment, such use is not the primary purpose of the CDA specification.<br/><br/>
+        CDA on FHIR does not specify the creation or management of documents, only their exchange markup. While it may be possible to directly use the CDA Schema in a document authoring environment, such use is not the primary purpose of the CDA specification.<br/><br/>
         Document management is critically interdependent with the CDA specifications, but the specification of document management messages is outside the scope of the CDA.
       </p>
       <h3>Goals and Design Principles</h3>
-      <p>The goals of the CDA are:
+      <p>The goals of the CDA on FHIR are:
         <ul>
           <li>Give priority to delivery of patient care.</li>
           <li>Allow cost effective implementation across as wide a spectrum of systems as possible.</li>
@@ -51,7 +50,7 @@
         </ul>
         A number of design principles follow from consideration of the above goals:
         <ul>
-          <li>This architecture must be compatible with XML.</li>
+          <li>This architecture must be compatible with XML and JSON.</li>
           <li>This architecture must be compatible with representations of clinical information arising from other HL7 committees.</li>
           <li>Technical barriers to use of the architecture should be minimized.</li>
           <li>The architecture specifies the representation of instances required for exchange.</li>
@@ -64,8 +63,8 @@
         </ul>
                 
       </p>
-      <h2>General CDA Concepts</h2>
-      <h3>Major Components of a CDA Document</h3>
+      <h2>General CDA on FHIR Concepts</h2>
+      <h3>Major Components of a CDA on FHIR Document</h3>
       <p>
         This section serves as a high-level introduction to the major components of a CDA document, all of which are described again and in greater detail later on. The intent here is to familiarize the reader with the high-level concepts to facilitate an understanding of the sections that follow.
         
