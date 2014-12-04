@@ -247,7 +247,7 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Enrollment</Data></Cell>
+    <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -531,7 +531,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -539,7 +539,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>29</ActiveRow>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
