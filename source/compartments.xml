@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10080</WindowHeight>
-  <WindowWidth>27165</WindowWidth>
+  <WindowHeight>225</WindowHeight>
+  <WindowWidth>2370</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -108,7 +108,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="103" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="104" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -215,6 +215,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceComponent</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceMetric</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder</Data></Cell>
@@ -531,7 +534,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>

@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The DeviceMetric resource describes mandatory static properties that characterize a direct or derived, quantitative or qualitative biosignal measurement, setting, or calculation produced by a medical device. 
+The DeviceMetric resource can also be used to describe the non-static but highly relevant properties to the metric such as metric status, metric last calibration time and type, measurement mode, color, reference link to the parent DeviceComponent to where it belongs, and any capabilities that the metric offers (for example: setting the metric label).
+</p>
+<p>
+Note:
+</p>
+<p>
+For the initial scope, this DeviceMetric resource is only applicable to describe a single metric represents in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+There are two related resources
+</p>
+<ul>
+ <li><a href="device.html">Device</a>  - The physical device that this DeviceMetric belongs to.</li>
+ <li><a href="devicecomponent.html">DeviceComponent</a>  - The DeviceComponent that this DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice, a MedicalDeviceSystem, or a Channel.</li>
+</ul>
+
+</div>
+</div>

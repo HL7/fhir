@@ -158,9 +158,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     </item>-->
 	<item id="DeviceComponent">
         <translation lang="en">DeviceComponent</translation>
-        <translation lang="zh">设备组件</translation>
-        <translation lang="es">ComponenteDeDispositivo</translation>
-        <translation lang="fr">ComposanteDeL'appareil</translation>
+    </item>
+	<item id="DeviceMetric">
+        <translation lang="en">DeviceMetric</translation>
     </item>
     <item id="DiagnosticOrder">
         <translation lang="en">DiagnosticOrder</translation>

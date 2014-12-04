@@ -173,6 +173,7 @@ todo: compartments
             <page type="resource" resource="Contract"/>
             <page type="resource" resource="Device"/>
             <page type="resource" resource="DeviceComponent"/>
+			<page type="resource" resource="DeviceMetric"/>
             <page type="resource" resource="DeviceUseRequest"/>
             <page type="resource" resource="DeviceUseStatement"/>
             <page type="resource" resource="Location"/>

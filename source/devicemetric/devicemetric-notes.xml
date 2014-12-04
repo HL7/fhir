@@ -1,0 +1,16 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>
+Notes:
+</h2>
+<ul>
+ <li>The correct codes for the metric types are registered in 
+ the <a href="https://rtmms.nist.gov">RTM Management service</a>, but 
+ this is not required. See <a href="terminologies-systems.html#urn:std:iso:11073:10101">Terminology 
+ Systems</a> for the correct representation of these codes in a <a href="datatypes.html#Coding">Coding</a> datatype.
+ </li>
+</ul>
+
+
+
+</div>
