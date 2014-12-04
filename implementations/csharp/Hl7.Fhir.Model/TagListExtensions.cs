@@ -85,42 +85,6 @@ namespace Hl7.Fhir.Model
                 return BundleType.Unspecified;
         }
 
-        public static void AddProfileAssertion(this ResourceEntry entry, Uri profileUri)
-        {
-            entry.Tags.Add(new Tag(profileUri.ToString(), Tag.FHIRTAGSCHEME_PROFILE));
-        }
-
-        public static IEnumerable<Uri> GetAssertedProfiles(this ResourceEntry entry)
-        {
-            return entry.Tags.Where(t => Equals(t.Scheme, Tag.FHIRTAGSCHEME_PROFILE) && t.Term != null)
-                    .Select(t => new Uri(t.Term));
-        }
-
-        public static void RemoveProfileAssertion(this ResourceEntry entry, Uri profileUri)
-        {
-            var result = new List<Tag>(entry.Tags);
-            result.RemoveAll(t => Equals(t, new Tag(profileUri.ToString(), Tag.FHIRTAGSCHEME_PROFILE)));
-            entry.Tags = result;
-        }
-
-        public static void AddSecurityLabel(this ResourceEntry entry, Uri label)
-        {
-            entry.Tags.Add(new Tag(label.ToString(), Tag.FHIRTAGSCHEME_SECURITY));
-        }
-
-        public static IEnumerable<Uri> GetSecurityLabels(this ResourceEntry entry)
-        {
-            return entry.Tags.Where(t => Equals(t.Scheme, Tag.FHIRTAGSCHEME_SECURITY) && t.Term != null)
-                    .Select(t => new Uri(t.Term));
-        }
-
-        public static void RemoveSecurityLabel(this ResourceEntry entry, Uri label)
-        {
-            var result = new List<Tag>(entry.Tags);
-            result.RemoveAll(t => Equals(t, new Tag(label.ToString(), Tag.FHIRTAGSCHEME_SECURITY)));
-            entry.Tags = result;
-        }
-
         public static IEnumerable<Tag> FilterByScheme(this IEnumerable<Tag> tags, Uri scheme)
         {
             if (scheme == null) Error.ArgumentNull("scheme");

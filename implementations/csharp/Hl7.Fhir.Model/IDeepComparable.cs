@@ -69,14 +69,19 @@ namespace Hl7.Fhir.Model
         public static bool IsExactly<T>(this IEnumerable<T> source, IEnumerable<T> other) 
                 where T : IDeepComparable 
         {
-            if (other == null) return false;
-            if (source.Count() != other.Count()) return false;
+            if (source == null && other == null) return true;
+            if (source != null && other != null)
+            {
+                if (source.Count() != other.Count()) return false;
 
-            return  source.Zip(other, (a,b) => IsExactly(a,b)).All(r => r==true);
+                return source.Zip(other, (a, b) => IsExactly(a, b)).All(r => r == true);
+            }
+            else
+                return false;
         }
 
         public static bool Matches<T>(this IEnumerable<T> source, IEnumerable<T> pattern)
-        where T : IDeepComparable
+                    where T : IDeepComparable
         {
             if (pattern == null) return false;
 
