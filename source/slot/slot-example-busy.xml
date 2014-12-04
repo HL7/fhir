@@ -7,7 +7,10 @@
 			25 Dec 2013 9:00am - 9:15am: <b>Busy</b> Physiotherapy
 		</div>
 	</text>
-	<identifier id="example" />
+	<identifier>
+    <system value="http://example.org/identifiers/slots"/>
+    <value value="123132"/>
+  </identifier>
 	<type>
 		<coding>
 			<code value="45"/>

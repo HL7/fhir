@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FeedFormat;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -28,7 +28,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.validation.ExtensionLocatorService;
 import org.hl7.fhir.utilities.CSFileInputStream;
 
 /*
@@ -52,11 +51,13 @@ public class WorkerContext {
 	public static class ExtensionDefinitionResult {
 	  private ExtensionDefinition ex;
     private ElementDefinition ed;
+    private boolean local;
 
-    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed) {
+    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed, boolean local) {
 	    super();
 	    this.ex = ex;
 	    this.ed = ed;
+	    this.local = local;
 	  }
 
     public ExtensionDefinition getExtensionDefinition() {
@@ -67,11 +68,14 @@ public class WorkerContext {
       return ed;
     }
 
+    public boolean isLocal() {
+      return local;
+    }
+
   }
 
-	private TerminologyServices terminologyServices = new NullTerminologyServices();
-  private ExtensionLocatorService extensionLocator = new NullExtensionResolver();
-  private FHIRClient client = new NullClient();
+	private ITerminologyServices terminologyServices = new NullTerminologyServices();
+  private IFHIRClient client = new NullClient();
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
@@ -83,13 +87,11 @@ public class WorkerContext {
     super();
   }
 
-  public WorkerContext(TerminologyServices conceptLocator, ExtensionLocatorService extensionLocator, FHIRClient client, Map<String, ValueSet> codeSystems,
+  public WorkerContext(ITerminologyServices conceptLocator, IFHIRClient client, Map<String, ValueSet> codeSystems,
       Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, Profile> profiles) {
     super();
     if (conceptLocator != null)
       this.terminologyServices = conceptLocator;
-    if (extensionLocator != null)
-      this.extensionLocator = extensionLocator;
     if (client != null)
       this.client = client;
     if (codeSystems != null)
@@ -102,18 +104,14 @@ public class WorkerContext {
       this.profiles = profiles;
   }
 
-  public TerminologyServices getTerminologyServices() {
+  public ITerminologyServices getTerminologyServices() {
     return terminologyServices;
-  }
-
-  public ExtensionLocatorService getExtensionLocator() {
-    return extensionLocator;
   }
 
   public boolean hasClient() {
   	return !(client == null || client instanceof NullClient);
   }
-  public FHIRClient getClient() {
+  public IFHIRClient getClient() {
     return client;
   }
 
@@ -137,13 +135,12 @@ public class WorkerContext {
     return extensionDefinitions;
   }
 
-  public void setTerminologyServices(TerminologyServices terminologyServices) {
+  public void setTerminologyServices(ITerminologyServices terminologyServices) {
     this.terminologyServices = terminologyServices;    
   }
 
-
-  public WorkerContext clone(FHIRClient altClient) {
-    WorkerContext res = new WorkerContext(terminologyServices, extensionLocator, null, codeSystems, valueSets, maps, profiles);
+  public WorkerContext clone(IFHIRClient altClient) {
+    WorkerContext res = new WorkerContext(terminologyServices, null, codeSystems, valueSets, maps, profiles);
     res.client = altClient;
     return res;
   }
@@ -241,48 +238,7 @@ public class WorkerContext {
 	  profiles.put(p.getUrl(), p);
   }
 
-  public class NullExtensionResolver implements ExtensionLocatorService {
-
-    @Override
-    public ExtensionLocationResponse locateExtension(String uri) {
-      throw new Error("call to NullExtensionResolver");
-    }
-  }
-  public class NullTerminologyServices implements TerminologyServices {
-
-    @Override
-    public boolean supportsSystem(String system) {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-    @Override
-    public ConceptDefinitionComponent getCodeDefinition(String system, String code) {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-    @Override
-    public ValidationResult validateCode(String system, String code, String display) {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-    @Override
-    public List<ValueSetExpansionContainsComponent> expandVS(ConceptSetComponent inc) throws Exception {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-    @Override
-    public boolean checkVS(ConceptSetComponent vsi, String system, String code) {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-    @Override
-    public boolean verifiesSystem(String system) {
-      throw new Error("call to NullTerminologyServices");
-    }
-
-  }
-
-  public class NullClient implements FHIRClient {
+  public class NullClient implements IFHIRClient {
 
 	  @Override
 	  public VersionInfo getVersions() {
@@ -290,7 +246,7 @@ public class WorkerContext {
 	  }
 
 	  @Override
-	  public FHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
+	  public IFHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
       throw new Error("call to NullClient");
 	  }
 
@@ -447,10 +403,10 @@ public class WorkerContext {
 	  } else if (url.contains("#")) {
       String[] parts = url.split("\\#");	      
       ExtensionDefinition res = extensionDefinitions.get(parts[0]);
-      return res == null ? null : new ExtensionDefinitionResult(res, getElement(url, res.getElement(), parts[1]));      
+      return res == null ? null : new ExtensionDefinitionResult(res, getElement(url, res.getElement(), parts[1]), false);      
 	  } else {
 	  ExtensionDefinition res = extensionDefinitions.get(url);
-	    return res == null ? null : new ExtensionDefinitionResult(res, res.getElement().get(0));
+	    return res == null ? null : new ExtensionDefinitionResult(res, res.getElement().get(0), false);
 	  }
   }
 
@@ -460,6 +416,40 @@ public class WorkerContext {
         return element;
     }
     throw new Exception("Unable to find extension path "+context);
+  }
+
+  public class NullTerminologyServices implements ITerminologyServices {
+
+    @Override
+    public boolean supportsSystem(String system) {
+      return false;
+    }
+
+    @Override
+    public ConceptDefinitionComponent getCodeDefinition(String system, String code) {
+      throw new Error("call to NullTerminologyServices");
+    }
+
+    @Override
+    public ValidationResult validateCode(String system, String code, String display) {
+      throw new Error("call to NullTerminologyServices");
+    }
+
+    @Override
+    public List<ValueSetExpansionContainsComponent> expandVS(ConceptSetComponent inc) throws Exception {
+      throw new Error("call to NullTerminologyServices");
+    }
+
+    @Override
+    public boolean checkVS(ConceptSetComponent vsi, String system, String code) {
+      throw new Error("call to NullTerminologyServices");
+    }
+
+    @Override
+    public boolean verifiesSystem(String system) {
+      return false;
+    }
+
   }
 
 }

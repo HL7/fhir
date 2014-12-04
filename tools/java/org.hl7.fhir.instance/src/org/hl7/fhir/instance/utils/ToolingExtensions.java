@@ -54,15 +54,16 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ToolingExtensions {
 
-  // registered
-  public static final String EXT_DISPLAY_HINT = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/profile-display-hint"; 
-  public static final String EXT_SUBSUMES = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/valueset-subsumes"; 
-  public static final String EXT_DEPRECATED = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/valueset-deprecated";
-  public static final String EXT_DEFINITION = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/valueset-definition";
-  public static final String EXT_COMMENT = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/valueset-comments";
-  public static final String EXT_ISSUE_SOURCE = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/operationoutcome-issue-source";
-  private static final String EXT_IDENTIFIER = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/identifier";
-  private static final String EXT_TRANSLATION = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/translation";
+  // validated
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/ExtensionDefinition/valueset-subsumes"; 
+  private static final String EXT_OID = "http://hl7.org/fhir/ExtensionDefinition/valueset-oid";
+  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/ExtensionDefinition/valueset-deprecated";
+  public static final String EXT_DEFINITION = "http://hl7.org/fhir/ExtensionDefinition/valueset-definition";
+  public static final String EXT_COMMENT = "http://hl7.org/fhir/ExtensionDefinition/valueset-comments";
+  private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/ExtensionDefinition/identifier";
+  private static final String EXT_TRANSLATION = "http://hl7.org/fhir/ExtensionDefinition/translation";
+  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/ExtensionDefinition/operationoutcome-issue-source";
+  public static final String EXT_DISPLAY_HINT = "http://hl7.org/fhir/ExtensionDefinition/profile-display-hint"; 
 
   // unregistered?
   public static final String EXT_FLYOVER = "http://hl7.org/fhir/Profile/questionnaire-extensions#flyover";
@@ -72,7 +73,6 @@ public class ToolingExtensions {
   private static final String EXTENSION_FILTER_ONLY = "http://www.healthintersections.com.au/fhir/Profile/metadata#expandNeedsFilter";
   private static final String EXT_TYPE = "http://www.healthintersections.com.au/fhir/Profile/metadata#type";
   private static final String EXT_REFERENCE = "http://www.healthintersections.com.au/fhir/Profile/metadata#reference";
-  private static final String EXT_OID = "http://www.healthintersections.com.au/fhir/ExtensionDefinition/oid";
   
   
   // specific extension helpers

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
@@ -44,6 +44,8 @@ public class ResourceFactory extends Factory {
             return new ProcedureRequest();
         if ("DeviceComponent".equals(name))
             return new DeviceComponent();
+        if ("DeviceMetric".equals(name))
+            return new DeviceMetric();
         if ("Organization".equals(name))
             return new Organization();
         if ("Readjudicate".equals(name))
@@ -96,8 +98,6 @@ public class ResourceFactory extends Factory {
             return new Profile();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
-        if ("Eligibility".equals(name))
-            return new Eligibility();
         if ("Immunization".equals(name))
             return new Immunization();
         if ("Bundle".equals(name))
@@ -146,14 +146,14 @@ public class ResourceFactory extends Factory {
             return new DocumentManifest();
         if ("Availability".equals(name))
             return new Availability();
+        if ("EligibilityRequest".equals(name))
+            return new EligibilityRequest();
         if ("MedicationAdministration".equals(name))
             return new MedicationAdministration();
         if ("QuestionnaireAnswers".equals(name))
             return new QuestionnaireAnswers();
         if ("Encounter".equals(name))
             return new Encounter();
-        if ("Enrollment".equals(name))
-            return new Enrollment();
         if ("SecurityEvent".equals(name))
             return new SecurityEvent();
         if ("PaymentReconciliation".equals(name))
@@ -182,6 +182,8 @@ public class ResourceFactory extends Factory {
             return new RiskAssessment();
         if ("FamilyHistory".equals(name))
             return new FamilyHistory();
+        if ("EnrollmentRequest".equals(name))
+            return new EnrollmentRequest();
         if ("Location".equals(name))
             return new Location();
         if ("Observation".equals(name))

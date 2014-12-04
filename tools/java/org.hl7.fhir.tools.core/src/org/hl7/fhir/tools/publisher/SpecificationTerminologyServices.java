@@ -22,7 +22,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.instance.client.EFhirClientException;
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.JsonParser;
@@ -38,7 +38,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.TerminologyServices;
+import org.hl7.fhir.instance.utils.ITerminologyServices;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -48,7 +48,7 @@ import org.tmatesoft.sqljet.core.internal.lang.SqlParser.operation_conflict_clau
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class SpecificationTerminologyServices  implements TerminologyServices {
+public class SpecificationTerminologyServices  implements ITerminologyServices {
 
   public class Concept {
     private String display; // preferred
@@ -314,7 +314,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         triedServer = true;
         serverOk = false;
         // for this, we use the FHIR client
-        FHIRClient client = new FHIRSimpleClient();
+        IFHIRClient client = new FHIRSimpleClient();
         client.initialize("http://fhir.healthintersections.com.au/open");
         //client.initialize("http://localhost:960/open");
         Map<String, String> params = new HashMap<String, String>();
@@ -374,7 +374,7 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
         triedServer = true;
         serverOk = false;
         // for this, we use the FHIR client
-        FHIRClient client = new FHIRSimpleClient();
+        IFHIRClient client = new FHIRSimpleClient();
         client.initialize("http://fhir.healthintersections.com.au/open");
         //client.initialize("http://localhost:961/open");
         Map<String, String> params = new HashMap<String, String>();

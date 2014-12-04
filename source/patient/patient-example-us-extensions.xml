@@ -2,7 +2,7 @@
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
   <id value="us01"/>
-  <extension url="http://hl7.org/fhir/Profile/us-core#race">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-race">
     <valueCodeableConcept>
       <coding>
         <system value="http://hl7.org/fhir/v3/Race" />

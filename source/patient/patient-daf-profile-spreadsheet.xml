@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>nbashyam</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-12-03T04:29:36Z</LastSaved>
+  <LastSaved>2014-12-04T21:13:25Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -22,6 +22,7 @@
   <WindowTopY>6195</WindowTopY>
   <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3964,8 +3965,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8804,10 +8805,10 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="Search">
+ <Worksheet ss:Name="DAFPatient-Search">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='DAFPatient-Search'!R1C1:R1C5" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s129" ss:DefaultRowHeight="15">
@@ -8840,16 +8841,16 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s131"><Data ss:Type="String">birthOrderBoolean</Data></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Patient.birthOrderBoolean</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Patient.multipleBirthBoolean</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s134"><Data ss:Type="String">birthOrderInteger</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Patient.birthOrderInteger</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Patient.multipleBirthInteger</Data></Cell>
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="65.25">
@@ -9078,8 +9079,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

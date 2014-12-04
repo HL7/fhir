@@ -22,7 +22,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.instance.client.EFhirClientException;
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.JsonParser;
@@ -308,7 +308,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
         triedServer = true;
         serverOk = false;
         // for this, we use the FHIR client
-        FHIRClient client = new FHIRSimpleClient();
+        IFHIRClient client = new FHIRSimpleClient();
         //client.initialize("http://fhir.healthintersections.com.au/open");
         client.initialize("http://localhost:960/open");
         Map<String, String> params = new HashMap<String, String>();

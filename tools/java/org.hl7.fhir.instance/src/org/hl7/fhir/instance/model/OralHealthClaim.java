@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1464,97 +1464,104 @@ public class OralHealthClaim extends DomainResource {
         protected Practitioner providerTarget;
 
         /**
+         * Diagnosis applicable for this service or product line.
+         */
+        @Child(name="diagnosisLinkId", type={IntegerType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Diagnosis Link", formalDefinition="Diagnosis applicable for this service or product line." )
+        protected List<IntegerType> diagnosisLinkId;
+
+        /**
          * If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.
          */
-        @Child(name="service", type={Coding.class}, order=4, min=1, max=1)
+        @Child(name="service", type={Coding.class}, order=5, min=1, max=1)
         @Description(shortDefinition="Item Code", formalDefinition="If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied." )
         protected Coding service;
 
         /**
          * The date when the enclosed suite of services were performed or completed.
          */
-        @Child(name="serviceDate", type={DateType.class}, order=5, min=0, max=1)
+        @Child(name="serviceDate", type={DateType.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Date of Service", formalDefinition="The date when the enclosed suite of services were performed or completed." )
         protected DateType serviceDate;
 
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name="quantity", type={Quantity.class}, order=6, min=0, max=1)
+        @Child(name="quantity", type={Quantity.class}, order=7, min=0, max=1)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected Quantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name="unitPrice", type={Money.class}, order=7, min=0, max=1)
+        @Child(name="unitPrice", type={Money.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name="factor", type={DecimalType.class}, order=8, min=0, max=1)
+        @Child(name="factor", type={DecimalType.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        @Child(name="points", type={DecimalType.class}, order=9, min=0, max=1)
+        @Child(name="points", type={DecimalType.class}, order=10, min=0, max=1)
         @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
          * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name="net", type={Money.class}, order=10, min=0, max=1)
+        @Child(name="net", type={Money.class}, order=11, min=0, max=1)
         @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name="udi", type={Coding.class}, order=11, min=0, max=1)
+        @Child(name="udi", type={Coding.class}, order=12, min=0, max=1)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
         /**
          * Physical service site on the patient (limb, tooth, etc).
          */
-        @Child(name="bodySite", type={Coding.class}, order=12, min=0, max=1)
+        @Child(name="bodySite", type={Coding.class}, order=13, min=0, max=1)
         @Description(shortDefinition="Service Location", formalDefinition="Physical service site on the patient (limb, tooth, etc)." )
         protected Coding bodySite;
 
         /**
          * A region or surface of the site, eg. limb region or tooth surface(s).
          */
-        @Child(name="subsite", type={Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="subsite", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, eg. limb region or tooth surface(s)." )
         protected List<Coding> subsite;
 
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
          */
-        @Child(name="modifier", type={Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="modifier", type={Coding.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." )
         protected List<Coding> modifier;
 
         /**
          * Second tier of goods and services.
          */
-        @Child(name="detail", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="detail", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
         /**
          * The materials and placement date of prior fixed prosthesis.
          */
-        @Child(name="prosthesis", type={}, order=16, min=0, max=1)
+        @Child(name="prosthesis", type={}, order=17, min=0, max=1)
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = -1561435930L;
+        private static final long serialVersionUID = 1518140870L;
 
       public ItemsComponent() {
         super();
@@ -1678,6 +1685,60 @@ public class OralHealthClaim extends DomainResource {
         public ItemsComponent setProviderTarget(Practitioner value) { 
           this.providerTarget = value;
           return this;
+        }
+
+        /**
+         * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
+         */
+        public List<IntegerType> getDiagnosisLinkId() { 
+          if (this.diagnosisLinkId == null)
+            this.diagnosisLinkId = new ArrayList<IntegerType>();
+          return this.diagnosisLinkId;
+        }
+
+        public boolean hasDiagnosisLinkId() { 
+          if (this.diagnosisLinkId == null)
+            return false;
+          for (IntegerType item : this.diagnosisLinkId)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
+         */
+    // syntactic sugar
+        public IntegerType addDiagnosisLinkIdElement() {//2 
+          IntegerType t = new IntegerType();
+          if (this.diagnosisLinkId == null)
+            this.diagnosisLinkId = new ArrayList<IntegerType>();
+          this.diagnosisLinkId.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
+         */
+        public ItemsComponent addDiagnosisLinkId(int value) { //1
+          IntegerType t = new IntegerType();
+          t.setValue(value);
+          if (this.diagnosisLinkId == null)
+            this.diagnosisLinkId = new ArrayList<IntegerType>();
+          this.diagnosisLinkId.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
+         */
+        public boolean hasDiagnosisLinkId(int value) { 
+          if (this.diagnosisLinkId == null)
+            return false;
+          for (IntegerType v : this.diagnosisLinkId)
+            if (v.equals(value)) // integer
+              return true;
+          return false;
         }
 
         /**
@@ -2090,6 +2151,7 @@ public class OralHealthClaim extends DomainResource {
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
+          childrenList.add(new Property("diagnosisLinkId", "integer", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -2111,6 +2173,11 @@ public class OralHealthClaim extends DomainResource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.type = type == null ? null : type.copy();
         dst.provider = provider == null ? null : provider.copy();
+        if (diagnosisLinkId != null) {
+          dst.diagnosisLinkId = new ArrayList<IntegerType>();
+          for (IntegerType i : diagnosisLinkId)
+            dst.diagnosisLinkId.add(i.copy());
+        };
         dst.service = service == null ? null : service.copy();
         dst.serviceDate = serviceDate == null ? null : serviceDate.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
@@ -2141,7 +2208,8 @@ public class OralHealthClaim extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
-           && (provider == null || provider.isEmpty()) && (service == null || service.isEmpty()) && (serviceDate == null || serviceDate.isEmpty())
+           && (provider == null || provider.isEmpty()) && (diagnosisLinkId == null || diagnosisLinkId.isEmpty())
+           && (service == null || service.isEmpty()) && (serviceDate == null || serviceDate.isEmpty())
            && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
            && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
            && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subsite == null || subsite.isEmpty())

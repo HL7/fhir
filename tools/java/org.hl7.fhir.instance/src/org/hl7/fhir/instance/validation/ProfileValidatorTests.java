@@ -96,7 +96,7 @@ public class ProfileValidatorTests {
 	  Element r = parseXml(dir+XMLUtil.getNamedChildValue(test, "instance")+".xml").getDocumentElement();
 	  Profile p = (Profile) parseReference(dir+XMLUtil.getNamedChildValue(test, "profile")+".xml");
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-	  v.validateInstanceByProfile(errors , r, p);
+	  v.validate(errors, r, p);
 	  String outcome = XMLUtil.getNamedChildValue(test, "outcome");
 	  boolean ok;
 	  if ("ok".equals(outcome)) {

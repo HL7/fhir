@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -125,8 +126,9 @@ public class SourceParser {
 	private String version;
 	private WorkerContext context; 
 	private Calendar genDate;
+  private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
 
-	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate) {
+	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, ExtensionDefinition> extensionDefinitions) {
 		this.logger = logger;
 		this.registry = new BindingNameRegistry(root, forPublication);
 		this.definitions = definitions;
@@ -143,6 +145,7 @@ public class SourceParser {
 		dtDir = srcDir + "datatypes" + sl;
 		imgDir = root + sl + "images" + sl;
 		rootDir = root + sl;
+    this.extensionDefinitions = extensionDefinitions;
 	}
 
 	private org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreParseResults = null;
@@ -383,7 +386,7 @@ public class SourceParser {
 	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
+	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
 	    try {
 	      ConformancePackage pack = new ConformancePackage();
 	      pack.setTitle(n);
@@ -430,7 +433,7 @@ public class SourceParser {
 
   private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false);
+      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
@@ -533,7 +536,7 @@ public class SourceParser {
 		  TypeRef t = ts.get(0);
 		  File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
 		  if (csv.exists()) {
-		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false);
+		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
 		    org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
 		    map.put(t.getName(), el);
 		    el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -578,7 +581,7 @@ public class SourceParser {
 		File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
 		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(
-				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract);
+				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions);
 		ResourceDefn root;
 		try {
 		  root = sparser.parseResource();

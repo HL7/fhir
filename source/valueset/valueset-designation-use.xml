@@ -13,9 +13,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display-hint">
-          <valueString value="Snomed description types"/>
-        </extension>
+        <!-- Snomed description types -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="900000000000446008"/>

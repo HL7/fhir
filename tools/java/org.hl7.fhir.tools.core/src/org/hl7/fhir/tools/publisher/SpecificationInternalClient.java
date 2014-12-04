@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FeedFormat;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -21,7 +21,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 
-public class SpecificationInternalClient implements FHIRClient {
+public class SpecificationInternalClient implements IFHIRClient {
 
   private PageProcessor page;
   private Bundle feed;
@@ -32,7 +32,7 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public FHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
+  public IFHIRClient initialize(String baseServiceUrl) throws URISyntaxException {
     throw new Error("initialize not supported by the internal specification client");
 
   }

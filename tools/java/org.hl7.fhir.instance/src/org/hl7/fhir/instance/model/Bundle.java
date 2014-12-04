@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -758,9 +758,9 @@ public class Bundle extends Resource {
         /**
          * The id of the resource that was deleted.
          */
-        @Child(name="id", type={IdType.class}, order=2, min=1, max=1)
+        @Child(name="resourceId", type={IdType.class}, order=2, min=1, max=1)
         @Description(shortDefinition="Id of resource that was deleted", formalDefinition="The id of the resource that was deleted." )
-        protected IdType id;
+        protected IdType resourceId;
 
         /**
          * Version id for releted resource.
@@ -776,16 +776,16 @@ public class Bundle extends Resource {
         @Description(shortDefinition="When the resource was deleted", formalDefinition="The date/time that the resource was deleted." )
         protected InstantType instant;
 
-        private static final long serialVersionUID = 1013425873L;
+        private static final long serialVersionUID = -1528107649L;
 
       public BundleEntryDeletedComponent() {
         super();
       }
 
-      public BundleEntryDeletedComponent(CodeType type, IdType id, IdType versionId, InstantType instant) {
+      public BundleEntryDeletedComponent(CodeType type, IdType resourceId, IdType versionId, InstantType instant) {
         super();
         this.type = type;
-        this.id = id;
+        this.resourceId = resourceId;
         this.versionId = versionId;
         this.instant = instant;
       }
@@ -836,47 +836,47 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return {@link #id} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
+         * @return {@link #resourceId} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
          */
-        public IdType getIdElement() { 
-          if (this.id == null)
+        public IdType getResourceIdElement() { 
+          if (this.resourceId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryDeletedComponent.id");
+              throw new Error("Attempt to auto-create BundleEntryDeletedComponent.resourceId");
             else if (Configuration.doAutoCreate())
-              this.id = new IdType();
-          return this.id;
+              this.resourceId = new IdType();
+          return this.resourceId;
         }
 
-        public boolean hasIdElement() { 
-          return this.id != null && !this.id.isEmpty();
+        public boolean hasResourceIdElement() { 
+          return this.resourceId != null && !this.resourceId.isEmpty();
         }
 
-        public boolean hasId() { 
-          return this.id != null && !this.id.isEmpty();
+        public boolean hasResourceId() { 
+          return this.resourceId != null && !this.resourceId.isEmpty();
         }
 
         /**
-         * @param value {@link #id} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
+         * @param value {@link #resourceId} (The id of the resource that was deleted.). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
          */
-        public BundleEntryDeletedComponent setIdElement(IdType value) { 
-          this.id = value;
+        public BundleEntryDeletedComponent setResourceIdElement(IdType value) { 
+          this.resourceId = value;
           return this;
         }
 
         /**
          * @return The id of the resource that was deleted.
          */
-        public String getId() { 
-          return this.id == null ? null : this.id.getValue();
+        public String getResourceId() { 
+          return this.resourceId == null ? null : this.resourceId.getValue();
         }
 
         /**
          * @param value The id of the resource that was deleted.
          */
-        public BundleEntryDeletedComponent setId(String value) { 
-            if (this.id == null)
-              this.id = new IdType();
-            this.id.setValue(value);
+        public BundleEntryDeletedComponent setResourceId(String value) { 
+            if (this.resourceId == null)
+              this.resourceId = new IdType();
+            this.resourceId.setValue(value);
           return this;
         }
 
@@ -973,7 +973,7 @@ public class Bundle extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of resource that was deleted (required to construct the identity).", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("id", "id", "The id of the resource that was deleted.", 0, java.lang.Integer.MAX_VALUE, id));
+          childrenList.add(new Property("resourceId", "id", "The id of the resource that was deleted.", 0, java.lang.Integer.MAX_VALUE, resourceId));
           childrenList.add(new Property("versionId", "id", "Version id for releted resource.", 0, java.lang.Integer.MAX_VALUE, versionId));
           childrenList.add(new Property("instant", "instant", "The date/time that the resource was deleted.", 0, java.lang.Integer.MAX_VALUE, instant));
         }
@@ -982,15 +982,15 @@ public class Bundle extends Resource {
         BundleEntryDeletedComponent dst = new BundleEntryDeletedComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
-        dst.id = id == null ? null : id.copy();
+        dst.resourceId = resourceId == null ? null : resourceId.copy();
         dst.versionId = versionId == null ? null : versionId.copy();
         dst.instant = instant == null ? null : instant.copy();
         return dst;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (id == null || id.isEmpty()) && (versionId == null || versionId.isEmpty())
-           && (instant == null || instant.isEmpty());
+        return super.isEmpty() && (type == null || type.isEmpty()) && (resourceId == null || resourceId.isEmpty())
+           && (versionId == null || versionId.isEmpty()) && (instant == null || instant.isEmpty());
       }
 
   }

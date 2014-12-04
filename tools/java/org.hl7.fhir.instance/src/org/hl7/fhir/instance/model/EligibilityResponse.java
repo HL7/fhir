@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -127,14 +127,14 @@ public class EligibilityResponse extends DomainResource {
     /**
      * Original request resource referrence.
      */
-    @Child(name="request", type={Eligibility.class}, order=0, min=0, max=1)
+    @Child(name="request", type={EligibilityRequest.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Claim reference", formalDefinition="Original request resource referrence." )
     protected Reference request;
 
     /**
      * The actual object that is the target of the reference (Original request resource referrence.)
      */
-    protected Eligibility requestTarget;
+    protected EligibilityRequest requestTarget;
 
     /**
      * Transaction status: error, complete.
@@ -207,7 +207,7 @@ public class EligibilityResponse extends DomainResource {
      */
     protected Organization requestOrganizationTarget;
 
-    private static final long serialVersionUID = -281414348L;
+    private static final long serialVersionUID = 596423915L;
 
     public EligibilityResponse() {
       super();
@@ -270,19 +270,19 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public Eligibility getRequestTarget() { 
+    public EligibilityRequest getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new Eligibility();
+          this.requestTarget = new EligibilityRequest();
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
      */
-    public EligibilityResponse setRequestTarget(Eligibility value) { 
+    public EligibilityResponse setRequestTarget(EligibilityRequest value) { 
       this.requestTarget = value;
       return this;
     }
@@ -617,7 +617,7 @@ public class EligibilityResponse extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(Eligibility)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(EligibilityRequest)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));

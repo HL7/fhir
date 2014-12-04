@@ -1,5 +1,6 @@
 package org.hl7.fhir.instance.utils;
 
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
 import org.hl7.fhir.instance.model.Bundle;
@@ -11,91 +12,13 @@ import org.hl7.fhir.instance.validation.IResourceValidator;
 /**
  * Standard interface for work context across reference implementations
  * 
+ * Provides access to common services that code using FHIR resources needs
+ * 
  * @author Grahame
  */
 public interface IWorkerContext {
   
-  public class FindResourceResponse<T extends Resource> {
-  	Bundle bundle;
-  	DomainResource container;
-  	T resource;
-		protected FindResourceResponse(Bundle bundle, DomainResource container, T resource) {
-	    super();
-	    this.bundle = bundle;
-	    this.container = container;
-	    this.resource = resource;
-    }
-		public Bundle getBundle() {
-			return bundle;
-		}
-		public T getResource() {
-			return resource;
-		}
-		public DomainResource getContainer() {
-			return container;
-		}
-  	
-  }
-
-  /**
-   * This is the general method for resolving references to resources found within a resource
-   * Bundles provide a resolution context, so are explicitly part of the API. 
-   * 
-   * When you find a reference to another resource in a resource, you pass in the 
-   * reference itself, the resource it was found in, and (if available), the bundle
-   * that the source resource was located in. Note: if the reference is inside a 
-   * contained resource, provide the Container, not the contained resource
-   *
-   * THe implementation of this method will look through the contained resources in 
-   * resource (if it's an internal reference - starts with #), or the bundle (following
-   * the bundle documentation), if bundle != null. Otherwise, the implementation will
-   * use it's cache(s) and or other client(s) to resolve the resource.
-   * 
-   * Either the resource will be returned, or an exception will be thrown with details
-   * about why the resource could not be resolved. If the resolved resource is inside 
-   * a bundle (usually, but not always) the same bundle, then the bundle will be returned 
-   * as well as the resource, so that it can be passed back to this method for subsequent
-   * calls 
-   * @param <T>
-   *   
-   * @param bundle
-   * @param resource
-   * @param Reference
-   * @return
-   */
-	public <T extends Resource> FindResourceResponse<T> findResource(Class<T> class_, Bundle bundle, DomainResource resource, Reference Reference) throws Exception;
-
-	/**
-	 * a simplified call to the same interface that can be used if it's known in advance 
-	 * that the resource reference resolution won't depend on a bundle context, nor 
-	 * will there be contained resources
-	 * 
-	 * One place where it is safe to use this is accessing the conformance resources
-	 * published as part of the spec (no contained resources, and resolution doesn't
-	 * depend on bundle context - all absolute URLs)
-	 * 
-	 * @param resource
-	 * @param Reference
-	 * @return
-	 * @throws Exception
-	 */
-	public <T extends Resource> T findResource(Class<T> class_, Reference Reference) throws Exception;
-
-	/**
-	 * a simplified call to the same interface that can be used if it's known in advance 
-	 * that the resource reference resolution won't depend on a bundle context, nor 
-	 * will there be contained resources
-	 * 
-   * One place where it is safe to use this is accessing the conformance resources
-   * published as part of the spec (no contained resources, and resolution doesn't
-   * depend on bundle context - all absolute URLs)
-   * 
-	 * @param resource
-	 * @param Reference
-	 * @return
-	 * @throws Exception
-	 */
-	public <T extends Resource> T findResource(Class<T> class_, String uri) throws Exception;
+  // -- Parsers (read and write instances) ----------------------------------------
 
 	/**
 	 * Get a parser to read/write instances. Use the defined type (will be extended 
@@ -135,13 +58,47 @@ public interface IWorkerContext {
    */
 public IParser newXmlParser();
 	
+  // -- access to fixed content ---------------------------------------------------
+
+	/**
+	 * Fetch a fixed resource that's pre-known in advance, and loaded as part of the
+	 * context. The most common use of this is to access the the standard conformance
+	 * resources that are part of the standard - profiles, extension definitions, and 
+	 * value sets (etc).
+	 * 
+	 * The context loader may choose to make additional resources available (i.e. 
+	 * implementation specific conformance statements, profiles, 
+	 * 
+	 * Schemas and other similar non resource content can be accessed as Binary resources
+	 * using their filename in validation.zip as the id (http:/hl7/.org/fhir/Binary/[name]
+	 * 
+	 * @param resource
+	 * @param Reference
+	 * @return
+	 * @throws Exception
+	 */
+	public <T extends Resource> T fetchResource(Class<T> class_, String uri) throws Exception;
+
+  // -- Ancilliary services ------------------------------------------------------
+ 
+	/**
+	 * Return a client configured to access the nominated server by it's base URL 
+	 * 
+	 * Todo: how does security work?
+	 * 
+	 * @param base
+	 * @return
+	 * @throws Exception
+	 */
+	public IFHIRClient getClient(String base) throws Exception;
+	
 	/**
 	 * 
 	 * @return a handle to the terminology services associated with this worker context
 	 * 
 	 * @throws Exception
 	 */
-	public TerminologyServices getTerminologyServices() throws Exception;
+	public ITerminologyServices getTerminologyServices() throws Exception;
 	
 	/**
 	 * Get a generator that can generate narrative for the instance

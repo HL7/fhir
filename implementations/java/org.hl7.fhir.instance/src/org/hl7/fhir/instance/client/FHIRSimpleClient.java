@@ -76,7 +76,7 @@ import org.hl7.fhir.instance.utils.Version;
  * @author Claude Nanjo
  *
  */
-public class FHIRSimpleClient implements FHIRClient {
+public class FHIRSimpleClient implements IFHIRClient {
 	
 	public static final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ssK";
 	public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -102,7 +102,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	//public void configure() throws new not implemented exception - constrain using conformance.
 	
 	@Override
-	public FHIRClient initialize(String baseServiceUrl)  throws URISyntaxException {
+	public IFHIRClient initialize(String baseServiceUrl)  throws URISyntaxException {
 		initialize(baseServiceUrl, -1);
 		return this;
 	}

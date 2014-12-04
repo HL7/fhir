@@ -25,7 +25,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
  * @author Grahame
  *
  */
-public interface TerminologyServices {
+public interface ITerminologyServices {
   /**
    * return true if the service handles code or value set resolution on the system
    */

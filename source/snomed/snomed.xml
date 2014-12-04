@@ -4521,6 +4521,11 @@
     <display value="Then stop"/>
     <display value="Then stop - dosing instruction fragment"/>
   </concept>
+  <concept id="422504002" display="Ischemic stroke (disorder)">
+    <display value="Ischemic stroke (disorder)"/>
+    <display value="Ischemic stroke"/>
+    <display value="Ischaemic stroke"/>
+  </concept>
   <concept id="424124008" display="Sudden onset AND/OR short duration (qualifier value)">
     <display value="Sudden onset AND/OR short duration (qualifier value)"/>
     <display value="Sudden onset AND/OR short duration"/>
@@ -4982,6 +4987,11 @@
     <display value="Blood group antigen Sd^a^"/>
     <display value="Blood group antigen Sid"/>
   </concept>
+  <concept id="49436004" display="Atrial fibrillation (disorder)">
+    <display value="AF - Atrial fibrillation"/>
+    <display value="Atrial fibrillation (disorder)"/>
+    <display value="Atrial fibrillation"/>
+  </concept>
   <concept id="49521004" display="Left external ear">
     <display value="Left external ear structure"/>
     <display value="Left external ear structure (body structure)"/>
@@ -5339,6 +5349,12 @@
     <display value="Midgrade"/>
     <display value="Moderate (severity modifier)"/>
     <display value="Moderate (severity modifier) (qualifier value)"/>
+  </concept>
+  <concept id="67734004" display="Upper trunk structure (body structure)">
+    <display value="Upper trunk"/>
+    <display value="Structure of thoracic segment of trunk"/>
+    <display value="Upper trunk structure"/>
+    <display value="Upper trunk structure (body structure)"/>
   </concept>
   <concept id="67889009" display="Lavage">
     <display value="Irrigation"/>

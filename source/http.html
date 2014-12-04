@@ -467,8 +467,7 @@ To search all resources at once:
 To search a single resource type:
 </p>
 <pre>
-  GET  [base]/[type]?[parameters] {&amp;_format=[mime-type]}
-  POST [base]/[type]/_search?[parameters] {&amp;_format=[mime-type]}
+  GET [base]/[type]?[parameters] {&amp;_format=[mime-type]}
 </pre>
 <p>
 To search a <a href="extras.html#compartments">compartment</a>, either all possible resources, or a single resource type, respectively:
@@ -481,9 +480,14 @@ To search a <a href="extras.html#compartments">compartment</a>, either all possi
 Note that there is a specific operation defined to support <a href="patient-operations.html#everything">fetching an entire patient record</a>.
 </p>
 <p>
-Because of the way that some user agents and proxies treat GET and POST requests, POST submissions to /_search 
-are also allowed with exactly the same semantics as the equivalent GET command. Servers are required 
-to support both GET and POST searches. All these search interactions take a series of parameters that 
+Because of the way that some user agents and proxies treat GET and POST requests, in addition
+to the get based search method above, servers that support <i>search</i> SHALL also support a POST based search:
+</p>
+<pre>
+POST  [base]/[type]/_search?[parameters] {&amp;_format=[mime-type]}
+</pre>
+<p>
+This has exactly the same semantics as the equivalent GET command. All these search interactions take a series of parameters that 
 are a series of name'='value pairs encoded in the URL (or as an x-multi-part-form submission for a POST).
 (See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>). 
 Searches are processed as specified for the <a href="search.html">Search/Query handling mechanism</a>. 

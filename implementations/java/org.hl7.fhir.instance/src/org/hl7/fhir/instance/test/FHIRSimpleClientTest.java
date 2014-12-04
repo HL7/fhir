@@ -14,7 +14,7 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.client.ClientUtils;
 import org.hl7.fhir.instance.client.EFhirClientException;
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
 import org.hl7.fhir.instance.client.ResourceFormat;
@@ -48,7 +48,7 @@ public class FHIRSimpleClientTest {
 	private static String userAgent = null;
 	private static DateAndTime testDateAndTime = null;
 	
-	private FHIRClient testClient;
+	private IFHIRClient testClient;
 	private String testPatientId;
 	private String testPatientVersion;
 	private boolean logResource = true;
@@ -100,7 +100,7 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testFHIRSimpleClient() {
 		try {
-			FHIRClient client = new FHIRSimpleClient();
+			IFHIRClient client = new FHIRSimpleClient();
 			client.initialize(connectUrl);
 		} catch(Exception e) {
 			fail(e.getMessage());

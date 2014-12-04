@@ -158,7 +158,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else if (context.getProfiles().containsKey(r.getResourceType().toString())) {
-      Profile p = ctxt.findResource(Profile.class, "test");
+      Profile p = ctxt.fetchResource(Profile.class, "test");
       generateByProfile(r, p /* context.getProfiles().get(r.getResourceType().toString()) */, true); // todo: make this manageable externally 
     } else if (context.getProfiles().containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
       generateByProfile(r, context.getProfiles().get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
@@ -1312,14 +1312,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     boolean commentS = false;
     boolean deprecated = false;
+    boolean display = false;
+    boolean heirarchy = false;
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(c);
+      display = display || conceptsHaveDisplay(c);
+      heirarchy = heirarchy || c.hasConcept();
       scanLangs(c, langs);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, true, commentS, deprecated), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, heirarchy, display, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : vs.getDefine().getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, heirarchy, display, commentS, deprecated, mymaps) || hasExtensions;
     }    
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -1390,6 +1394,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
+  private boolean conceptsHaveDisplay(ConceptDefinitionComponent c) {
+    if (c.hasDisplay()) 
+      return true;
+    for (ConceptDefinitionComponent g : c.getConcept()) 
+      if (conceptsHaveDisplay(g))
+        return true;
+    return false;
+  }
+
   private boolean conceptsHaveDeprecated(ConceptDefinitionComponent c) {
     if (ToolingExtensions.hasDeprecated(c)) 
       return true;
@@ -1406,25 +1419,19 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean definitions, boolean comments, boolean deprecated) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean hasHeirarchy, boolean hasDisplay, boolean definitions, boolean comments, boolean deprecated) {
     XhtmlNode tr = t.addTag("tr");
-    XhtmlNode td = tr.addTag("td");
-    XhtmlNode b = td.addTag("b");
-    b.addText("Code");
-    td = tr.addTag("td");
-    b = td.addTag("b");
-    b.addText("Display");
-    if (definitions) {
-    td = tr.addTag("td");
-    b = td.addTag("b");
-    b.addText("Definition");
-    }
-    if (deprecated) {
+    if (hasHeirarchy) 
+      tr.addTag("td").addTag("b").addText("Lvl");
+    tr.addTag("td").addTag("b").addText("Code");
+    if (hasDisplay) 
+      tr.addTag("td").addTag("b").addText("Display");
+    if (definitions) 
+      tr.addTag("td").addTag("b").addText("Definition");
+    if (deprecated) 
       tr.addTag("td").addTag("b").addText("Deprecated");
-    }
-    if (comments) {
+    if (comments) 
       tr.addTag("td").addTag("b").addText("Comments");
-    }
     return tr;
   }
 
@@ -1473,12 +1480,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }    
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHeirarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
-    String s = Utilities.padLeft("", '.', i*2);
+    if (hasHeirarchy) {
+      td.addText(Integer.toString(i+1));
+      td = tr.addTag("td");
+      String s = Utilities.padLeft("", '\u00A0', i*2);
     td.addText(s);
+    }
     td.addText(c.getCode());
     XhtmlNode a;
     if (c.hasCodeElement()) {
@@ -1487,15 +1498,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     a.addText(" ");
     }
     
+    if (hasDisplay) {
     td = tr.addTag("td");
     if (c.hasDisplayElement())
       td.addText(c.getDisplay());
+    }
     td = tr.addTag("td");
     if (c != null)
       smartAddText(td, c.getDefinition());
     if (deprecated) {
       td = tr.addTag("td");
-      s = ToolingExtensions.getDeprecated(c);
+      String s = ToolingExtensions.getDeprecated(c);
       if (s != null) {
         smartAddText(td, s);
         hasExtensions = true;
@@ -1503,7 +1516,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     if (comment) {
       td = tr.addTag("td");
-      s = ToolingExtensions.getComment(c);
+      String s = ToolingExtensions.getComment(c);
       if (s != null) {
         smartAddText(td, s);
         hasExtensions = true;
@@ -1531,14 +1544,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
       hasExtensions = true;
       tr = t.addTag("tr");
       td = tr.addTag("td");
-      s = Utilities.padLeft("", '.', i*2);
+      String s = Utilities.padLeft("", '.', i*2);
       td.addText(s);
       a = td.addTag("a");
       a.setAttribute("href", "#"+Utilities.nmtokenize(e.getValue()));
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, comment, deprecated, maps) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHeirarchy, hasDisplay, comment, deprecated, maps) || hasExtensions;
     }    
     return hasExtensions;
   }
@@ -1643,7 +1656,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         }
         if (hasComments || hasDefinition)
           hasExtensions = true;
-        addTableHeaderRowStandard(t, hasDefinition, hasComments, false);
+        addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false);
         for (ConceptReferenceComponent c : inc.getConcept()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getCode());
@@ -1871,16 +1884,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
       tr.addTag("td").addText(p.getUse().toString());
       tr.addTag("td").addText(p.getName());
       tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
-      tr.addTag("td").addText(p.getType().equals("Tuple") ? "" : p.getType());
+      tr.addTag("td").addText(p.hasType() ? p.getType() : "");
       addMarkdown(tr.addTag("td"), p.getDocumentation());
-      if (p.getType().equals("Tuple")) {
+      if (!p.hasType()) {
         for (OperationDefinitionParameterPartComponent pp : p.getPart()) {
           tr = tbl.addTag("tr");
           tr.addTag("td");
-          tr.addTag("td").addText(p.getName());
-          tr.addTag("td").addText(Integer.toString(p.getMin())+".."+p.getMax());
-          tr.addTag("td").addText(p.getType());
-          addMarkdown(tr.addTag("td"), p.getDocumentation());
+          tr.addTag("td").addText(pp.getName());
+          tr.addTag("td").addText(Integer.toString(pp.getMin())+".."+pp.getMax());
+          tr.addTag("td").addText(pp.getType());
+          addMarkdown(tr.addTag("td"), pp.getDocumentation());
         }
       }
     }

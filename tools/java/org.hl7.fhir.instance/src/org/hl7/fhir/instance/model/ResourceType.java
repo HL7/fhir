@@ -1,12 +1,13 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 public enum ResourceType {
     Condition,
     Supply,
     ProcedureRequest,
     DeviceComponent,
+    DeviceMetric,
     Organization,
     Readjudicate,
     Group,
@@ -33,7 +34,6 @@ public enum ResourceType {
     HealthcareService,
     Profile,
     DocumentReference,
-    Eligibility,
     Immunization,
     Bundle,
     ExtensionDefinition,
@@ -57,11 +57,11 @@ public enum ResourceType {
     MessageHeader,
     DocumentManifest,
     DataElement,
+    EligibilityRequest,
     Availability,
     QuestionnaireAnswers,
     MedicationAdministration,
     Encounter,
-    Enrollment,
     PaymentReconciliation,
     SecurityEvent,
     PendedRequest,
@@ -76,6 +76,7 @@ public enum ResourceType {
     CommunicationRequest,
     RiskAssessment,
     FamilyHistory,
+    EnrollmentRequest,
     Location,
     ExplanationOfBenefit,
     AllergyIntolerance,
@@ -104,6 +105,8 @@ public enum ResourceType {
       return "procedurerequest";
     case DeviceComponent:
       return "devicecomponent";
+    case DeviceMetric:
+      return "devicemetric";
     case Organization:
       return "organization";
     case Readjudicate:
@@ -156,8 +159,6 @@ public enum ResourceType {
       return "profile";
     case DocumentReference:
       return "documentreference";
-    case Eligibility:
-      return "eligibility";
     case Immunization:
       return "immunization";
     case Bundle:
@@ -204,6 +205,8 @@ public enum ResourceType {
       return "documentmanifest";
     case DataElement:
       return "dataelement";
+    case EligibilityRequest:
+      return "eligibilityrequest";
     case Availability:
       return "availability";
     case QuestionnaireAnswers:
@@ -212,8 +215,6 @@ public enum ResourceType {
       return "medicationadministration";
     case Encounter:
       return "encounter";
-    case Enrollment:
-      return "enrollment";
     case PaymentReconciliation:
       return "paymentreconciliation";
     case SecurityEvent:
@@ -242,6 +243,8 @@ public enum ResourceType {
       return "riskassessment";
     case FamilyHistory:
       return "familyhistory";
+    case EnrollmentRequest:
+      return "enrollmentrequest";
     case Location:
       return "location";
     case ExplanationOfBenefit:

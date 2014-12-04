@@ -280,12 +280,12 @@ public class ProfileGenerator {
     p.setType(t.getName());
     p.setBase("http://hl7.org/fhir/Profile/Element"); // master profile
     p.setDifferential(new ConstraintComponent());
-    defineElement(null, p, p.getDifferential(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    defineElement(null, p, p.getDifferential(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true);
     
     reset();
     // now. the snapshot
     p.setSnapshot(new ConstraintComponent());
-    defineElement(null, p, p.getSnapshot(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType);
+    defineElement(null, p, p.getSnapshot(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true);
 
     containedSlices.clear();
 
@@ -378,12 +378,12 @@ public class ProfileGenerator {
     p.setType(r.getRoot().getName());
     p.setDifferential(new ConstraintComponent());
 //    p.setBase("http://hl7.org/fhir/Profile/Resource"); // this is semi-fictional, and causes errors.
-    defineElement(null, p, p.getDifferential(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    defineElement(null, p, p.getDifferential(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true);
 
     reset();
-    // now. the snashot
+    // now. the snapshot
     p.setSnapshot(new ConstraintComponent());
-    defineElement(null, p, p.getSnapshot(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource);
+    defineElement(null, p, p.getSnapshot(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true);
 
     List<String> names = new ArrayList<String>();
     names.addAll(r.getSearchParams().keySet());
@@ -407,7 +407,12 @@ public class ProfileGenerator {
   }
 
   public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, Calendar genDate) throws Exception {
-    return generate(pack, profile, resource, id, null, genDate);
+    
+    try {
+      return generate(pack, profile, resource, id, null, genDate);
+    } catch (Exception e) {
+      throw new Exception("Error processing profile '"+id+"': "+e.getMessage(), e);
+    }
   }
   
   public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, Calendar genDate) throws Exception {
@@ -444,7 +449,7 @@ public class ProfileGenerator {
     p.setType(resource.getRoot().getName());
     p.setBase("http://hl7.org/fhir/Profile/"+p.getType());
     p.setDifferential(new ConstraintComponent());
-    defineElement(pack, p, p.getDifferential(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None);
+    defineElement(pack, p, p.getDifferential(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true);
     List<String> names = new ArrayList<String>();
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
@@ -612,7 +617,7 @@ public class ProfileGenerator {
   /**
    * note: snapshot implies that we are generating a resource or a data type; for other profiles, the snapshot is generated elsewhere
    */
-  private ElementDefinition defineElement(ConformancePackage ap, Profile p, ConstraintComponent c, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot) throws Exception 
+  private ElementDefinition defineElement(ConformancePackage ap, Profile p, ConstraintComponent c, ElementDefn e, String path, Set<String> slices, List<SliceHandle> parentSlices, SnapShotMode snapshot, boolean root) throws Exception 
   {
     ElementDefinition ce = new ElementDefinition();
     c.getElement().add(ce);
@@ -675,53 +680,54 @@ public class ProfileGenerator {
     ce.setMin(e.getMinCardinality());
     ce.setMax(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString());
 
-    if (e.typeCode().startsWith("@"))  {
-      ce.setNameReference(getNameForPath(myParents, e.typeCode().substring(1)));
-    } else {
-    	List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
-    	for (TypeRef t : e.getTypes()) {
-	    	// Expand any Resource(A|B|C) references
-    		if(t.hasParams() && !"Reference".equals(t.getName())) {
-    			throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
-    		}
-        if(t.getParams().size() > 1)
-        {
-        	if (t.getProfile() != null && t.getParams().size() !=1) {
-        		throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
-        	}
-          for(String param : t.getParams()) {
-          	TypeRef childType = new TypeRef(t.getName());
-          	childType.getParams().add(param);
-          	childType.getAggregations().addAll(t.getAggregations());
-          	expandedTypes.add(childType);
+    if (!root) {
+      if (e.typeCode().startsWith("@"))  {
+        ce.setNameReference(getNameForPath(myParents, e.typeCode().substring(1)));
+      } else {
+        List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
+        for (TypeRef t : e.getTypes()) {
+          // Expand any Resource(A|B|C) references
+          if(t.hasParams() && !"Reference".equals(t.getName())) {
+            throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
           }
-        } else {
-        	expandedTypes.add(t);
+          if(t.getParams().size() > 1)
+          {
+            if (t.getProfile() != null && t.getParams().size() !=1) {
+              throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path + " in profile " + p.getName());
+            }
+            for(String param : t.getParams()) {
+              TypeRef childType = new TypeRef(t.getName());
+              childType.getParams().add(param);
+              childType.getAggregations().addAll(t.getAggregations());
+              expandedTypes.add(childType);
+            }
+          } else {
+            expandedTypes.add(t);
+          }
         }
-			}
-    	for (TypeRef t : expandedTypes) {
-        TypeRefComponent type = new TypeRefComponent();
-      	type.setCode(t.getName());
-	      String profile = t.getProfile();
-	      if (profile == null && t.hasParams()) {
-	      	profile = t.getParams().get(0);
-	      }
-	      if (profile != null) {
-		      if (profile.startsWith("http:") || profile.startsWith("#")) {
-		      	type.setProfile(profile);
-		      } else {
-	          type.setProfile("http://hl7.org/fhir/Profile/" + profile);
- 	      	}
- 	      }
- 	      
- 	      for (String aggregation : t.getAggregations()) {
-					type.addAggregation(ResourceAggregationMode.fromCode(aggregation));
-				}	      	
-    		
-        ce.getType().add(type);
-    	}
+        for (TypeRef t : expandedTypes) {
+          TypeRefComponent type = new TypeRefComponent();
+          type.setCode(t.getName());
+          String profile = t.getProfile();
+          if (profile == null && t.hasParams()) {
+            profile = t.getParams().get(0);
+          }
+          if (profile != null) {
+            if (profile.startsWith("http:") || profile.startsWith("#")) {
+              type.setProfile(profile);
+            } else {
+              type.setProfile("http://hl7.org/fhir/Profile/" + profile);
+            }
+          }
+
+          for (String aggregation : t.getAggregations()) {
+            type.addAggregation(ResourceAggregationMode.fromCode(aggregation));
+          }	      	
+
+          ce.getType().add(type);
+        }
+      }
     }
-    
     // ce.setConformance(getType(e.getConformance()));
     for (Invariant id : e.getStatedInvariants()) 
       ce.addCondition(id.getId());
@@ -767,24 +773,57 @@ public class ProfileGenerator {
     }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
-      makeExtensionSlice("extension", p, c, e, path);
-      if (snapshot == SnapShotMode.Resource) { 
-        makeExtensionSlice("modifierExtension", p, c, e, path);
+//      makeExtensionSlice("extension", p, c, e, path);
+//      if (snapshot == SnapShotMode.Resource) { 
+//        makeExtensionSlice("modifierExtension", p, c, e, path);
 
-        if (!path.contains(".")) {
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("text")));
-          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("contained")));
-        }
-      }
+//        if (!path.contains(".")) {
+//          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("Resource").getRoot().getElementByName("language")));
+//          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("text")));
+//          c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName("contained")));
+//        }
+//      }
     }
     Set<String> containedSlices = new HashSet<String>();
+    if (snapshot != SnapShotMode.None) {
+      if (!root && Utilities.noString(e.typeCode())) {
+        if (snapshot == SnapShotMode.Resource)
+          defineAncestorElements("BackboneElement", path, snapshot, containedSlices, p, c);
+        else
+          defineAncestorElements("Element", path, snapshot, containedSlices, p, c);
+      } else if (root && !Utilities.noString(e.typeCode())) 
+        defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, c);
+    }
     for (ElementDefn child : e.getElements()) 
-      defineElement(ap, p, c, child, path+"."+child.getName(), containedSlices, myParents, snapshot);
+      defineElement(ap, p, c, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false);
     
     return ce;
   }
-  
+ 
+  private String actualTypeName(String type) {
+    if (type.equals("Type"))
+      return "Element";
+    if (type.equals("Structure"))
+      return "Element";
+    return type;
+  }
+  private void defineAncestorElements(String type, String path, SnapShotMode snapshot, Set<String> containedSlices, Profile p, ConstraintComponent c) throws Exception {
+    ElementDefn e = definitions.getElementDefn(actualTypeName(type));
+    if (!Utilities.noString(e.typeCode()))
+      defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, c);
+    
+    for (ElementDefn child : e.getElements()) 
+      defineElement(null, p, c, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false);
+    
+  }
+
+  /*
+  *     // resource
+    // domain resource
+    for (ElementDefn child : definitions.getBaseResources().get("DomainResource").getRoot().getElements()) 
+      defineElement(null, p, p.getSnapshot(), child, r.getRoot().getName()+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource);
+
+  */
   private String registerMapping(ConformancePackage ap, Profile p, String m) {
     for (ProfileMappingComponent map : p.getMapping()) {
       if (map.getUri().equals(m))

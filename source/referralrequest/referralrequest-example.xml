@@ -55,7 +55,7 @@
     falling behind her peers at school, and displaying some learning difficulties."/>
   <serviceRequested>
     <coding>
-      <system value="http://loinc.org"/>
+      <system value="http://snomed.info/sct"/>
       <code value="172676009"/>
       <display value="Myringotomy and insertion of tympanic ventilation tube"/>
     </coding>

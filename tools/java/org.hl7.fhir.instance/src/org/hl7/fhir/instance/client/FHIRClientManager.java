@@ -43,15 +43,15 @@ import org.hl7.fhir.instance.model.Resource;
  */
 public class FHIRClientManager {
 
-	HashMap<String, FHIRClient> servers = new HashMap<String, FHIRClient>();
+	HashMap<String, IFHIRClient> servers = new HashMap<String, IFHIRClient>();
 	
-	public void RegisterServer(String baseUrl, FHIRClient server) throws EFhirClientException {
+	public void RegisterServer(String baseUrl, IFHIRClient server) throws EFhirClientException {
 		if (servers.containsKey(baseUrl))
 			throw new EFhirClientException("Duplicate Server Id");
 		servers.put(baseUrl, server);
 	}
 	
-	public FHIRClient resolveServer(Reference ref) {
+	public IFHIRClient resolveServer(Reference ref) {
 		return null;
 		// todo
 	}

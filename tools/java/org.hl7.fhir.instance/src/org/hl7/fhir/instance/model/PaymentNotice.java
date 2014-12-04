@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 3, 2014 12:34+1100 for FHIR v0.3.0
+// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -76,7 +76,7 @@ public class PaymentNotice extends DomainResource {
      * The Insurer who is target  of the request.
      */
     @Child(name="target", type={Organization.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who is target  of the request." )
+    @Description(shortDefinition="Insurer or Regulatory body", formalDefinition="The Insurer who is target  of the request." )
     protected Reference target;
 
     /**

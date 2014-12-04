@@ -43,6 +43,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -90,6 +91,7 @@ import org.hl7.fhir.instance.formats.IParser.OutputStyle;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
@@ -107,6 +109,7 @@ import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
+import org.hl7.fhir.instance.model.SearchParameter.SearchParamType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -181,7 +184,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   
   public PageProcessor() throws URISyntaxException {
     super();
-    workerContext  = new WorkerContext(null, null, new FHIRSimpleClient().initialize("http://local.healthintersections.com.au:960/open"), codeSystems, valueSets, conceptMaps, profiles);
+    workerContext  = new WorkerContext(null, new FHIRSimpleClient().initialize("http://local.healthintersections.com.au:960/open"), codeSystems, valueSets, conceptMaps, profiles);
   }
 
   public final static String PUB_NOTICE =
@@ -5012,7 +5015,50 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         s.append("<tr><td><a href=\"extension-"+ed.getId()+".html\">"+Utilities.escapeXml(ed.getId())+"</a></td><td><b>"+Utilities.escapeXml(ed.getName())+"</b> : "+Utilities.escapeXml(ed.getDescription())+"</td></tr>");
     }
     s.append("</table>");
+    
+    if (pack.getSearchParameters().size() > 0) {
+      // search parmaeters
+      StringBuilder b = new StringBuilder();
+      b.append("<h3>Search Parameters</h3>\r\n");
+      b.append("<p>Search parameters defined by this package. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
+      b.append("<table class=\"list\">\r\n");
+      b.append("<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td><td><b>Source</b></td></tr>\r\n");
+      List<String> names = new ArrayList<String>();
+      for (SearchParameter sp : pack.getSearchParameters())
+        names.add(sp.getName());
+      Collections.sort(names);
+      for (String name : names)  {
+        SearchParameter p = null;
+        for (SearchParameter sp : pack.getSearchParameters())
+          if (name.equals(sp.getName())) 
+            p = sp;
+        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td>" +
+            "<td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+p.getXpath()+(p.getType() == SearchParamType.REFERENCE ? asText(p.getTarget()) : "")+"</td>" +
+            "<td><a href=\""+pack.getId()+"-sp-"+p.getId()+".xml.html\">XML</a> / <a href=\""+pack.getId()+"-sp-"+p.getId()+".json.html\">JSON</a></td></tr>\r\n");
+      }
+      b.append("</table>\r\n");
+      s.append(b.toString());
+    }
     return s.toString();
+  }
+
+  private String asText(List<CodeType> target) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (CodeType rn : target) {
+      if (first) {
+        first = false;
+        b.append("<br/>(");
+      } else
+        b.append(", ");
+      if (rn.equals("Any")) 
+        b.append("Any");
+      else
+        b.append("<a href=\""+rn.getValue().toLowerCase()+".html\">"+rn.getValue()+"</a>");
+    }
+    if (!first)
+      b.append(")");
+    return b.toString();
   }
 
   

@@ -117,10 +117,15 @@ public class ValidationEngine {
     doc = builder.parse(new ByteArrayInputStream(source));
 
     WorkerContext context = WorkerContext.fromDefinitions(definitions);
-    if (profile == null)
-    	profile = context.getProfiles().get("http://hl7.org/fhir/Profile/"+doc.getDocumentElement().getNodeName());
+    InstanceValidator validator = new InstanceValidator(context);
+
+		if (profile != null)
+      outputs.addAll(validator.validate(doc.getDocumentElement(), profile));
+    else if (profileURI != null)
+      outputs.addAll(validator.validate(doc.getDocumentElement(), profileURI));
+    else
+      outputs.addAll(validator.validate(doc.getDocumentElement()));
     
-    outputs.addAll(new InstanceValidator(context).validateInstance(doc.getDocumentElement(), profile, profileURI));
     new XmlParser().parse(new ByteArrayInputStream(source));
         
     OperationOutcome op = new OperationOutcome();

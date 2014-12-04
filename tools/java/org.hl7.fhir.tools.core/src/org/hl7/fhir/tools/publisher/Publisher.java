@@ -602,6 +602,7 @@ public class Publisher implements URIResolver {
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setConformancePack(makeConformancePack(r));
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r.getConformancePack(), r, page.getGenDate()));
+      page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
@@ -707,12 +708,17 @@ public class Publisher implements URIResolver {
 
 
   private void genTypeProfile(TypeDefn t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
-    page.getProfiles().put(profile.getUrl(), profile);
-    t.setProfile(profile);
-    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
-    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-    t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+    Profile profile;
+    try {
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+      page.getProfiles().put(profile.getUrl(), profile);
+      t.setProfile(profile);
+      DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
+      t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+    } catch (Exception e) {
+      throw new Exception("Error generating profile for '"+t.getName()+"': "+e.getMessage(), e);
+    }
   }
 
   private void processProfile(ConformancePackage ap, ProfileDefn profile, String filename) throws Exception {
@@ -891,32 +897,38 @@ public class Publisher implements URIResolver {
     profileFeed.setId("resources");
     profileFeed.setType(BundleType.COLLECTION);
     profileFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    profileFeed.setBase("http://hl7.org/fhir");
 
     typeFeed = new Bundle();
     typeFeed.setId("types");
     typeFeed.setType(BundleType.COLLECTION);
     typeFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    typeFeed.setBase("http://hl7.org/fhir");
 
     valueSetsFeed = new Bundle();
     valueSetsFeed.setId("valuesets");
     valueSetsFeed.setType(BundleType.COLLECTION);
     valueSetsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    valueSetsFeed.setBase("http://hl7.org/fhir");
 
     conceptMapsFeed = new Bundle();
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
     conceptMapsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    conceptMapsFeed.setBase("http://hl7.org/fhir");
 
     v2Valuesets = new Bundle();
     v2Valuesets.setType(BundleType.COLLECTION);
     v2Valuesets.setId("v2-valuesets");
     v2Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    v2Valuesets.setBase("http://hl7.org/fhir");
     page.setV2Valuesets(v2Valuesets);
     
     v3Valuesets = new Bundle();
     v3Valuesets.setType(BundleType.COLLECTION);
     v3Valuesets.setId("v3-valuesets");
     v3Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    v3Valuesets.setBase("http://hl7.org/fhir");
     page.setv3Valuesets(v3Valuesets);
   }
 
@@ -1148,7 +1160,7 @@ public class Publisher implements URIResolver {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate());
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page.getWorkerContext().getExtensionDefinitions());
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
 
@@ -1651,8 +1663,13 @@ public class Publisher implements URIResolver {
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
       extensionsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
-      for (ExtensionDefinition ed : page.getWorkerContext().getExtensionDefinitions().values())
-        extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed));
+      Set<String> urls = new HashSet<String>();
+      for (ExtensionDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
+        if (!urls.contains(ed.getUrl())) {
+          urls.add(ed.getUrl());
+          extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed));
+        }
+      }
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.xml"), extensionsFeed);
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed);
       cloneToXhtml("extension-definitions", "Core Extension Definitions", false, "summary-instance");
@@ -1707,6 +1724,8 @@ public class Publisher implements URIResolver {
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
+      zip.addFileName("extension-definitions.xml", page.getFolders().dstDir + "extension-definitions.xml", false);
+      zip.addFileName("extension-definitions.json", page.getFolders().dstDir + "extension-definitions.json", false);
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
       zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
@@ -3084,6 +3103,7 @@ public class Publisher implements URIResolver {
 
   private Profile generateProfile(ResourceDefn root, String n, String xmlSpec) throws Exception, FileNotFoundException {
     Profile rp = root.getProfile();
+    page.getProfiles().put("http://hl7.org/fhir/Profile/"+root.getName(), rp);
     page.getProfiles().put(root.getName(), rp);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp);
@@ -3744,7 +3764,7 @@ public class Publisher implements URIResolver {
     // now, finally, we validate the resource ourselves.
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-//    validator.validateInstance(issues, root);
+    validator.validate(issues, root);
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {

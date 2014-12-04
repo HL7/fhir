@@ -103,7 +103,7 @@
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="3248342006"/>
+            <code value="248342006"/>
             <display value="Underweight"/> 
         </coding>
     </meaning>

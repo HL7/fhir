@@ -11,7 +11,7 @@
   <define>
     <system value="http://hl7.org/fhir/list-empty-reason"/>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="Other language is sometimes used for this concept, such as 'no significant [x] known'.&#13;&#10;SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>
       </extension>
       <code value="nilknown"/>
@@ -27,7 +27,7 @@
       <definition value="THe investigation to find out whether there are items for this list has not occurred"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="In spite of the definition, this code should be used carefully as it represents potential information leakage or the perception thereof"/>
       </extension>
       <code value="withheld"/>

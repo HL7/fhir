@@ -42,7 +42,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
@@ -109,7 +109,7 @@ public class ToolsHelper {
     	String[] parts = address.split("\\/Profile\\/");
     	if (parts.length != 2)
     		throw new Exception("Unable to understand address of profile");
-    	FHIRClient client = new FHIRSimpleClient();
+    	IFHIRClient client = new FHIRSimpleClient();
     	client.initialize(parts[0]);
     	Profile profile = client.read(Profile.class, parts[1]);
 			ProfileUtilities utils = new ProfileUtilities(context);

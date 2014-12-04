@@ -18,28 +18,28 @@
     <system value="http://hl7.org/fhir/provenance-participant-role"/>
     <caseSensitive value="true"/>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="The data entry person is collected optionally for internal quality control purposes. This includes the transcriptionist for dictated text"/>
       </extension>
       <code value="enterer"/>
       <definition value="A person entering the data into the originating system"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention. Need not be the principal responsible actor"/>
       </extension>
       <code value="performer"/>
       <definition value="A person, animal, organization or device that who actually and principally carries out the activity"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="Every resource should have an author"/>
       </extension>
       <code value="author"/>
       <definition value="A party that originates the resource and therefore has responsibility for the information given in the resource and ownership of this resource"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="This is often used in association with the institution that hosts an activity"/>
       </extension>
       <code value="verifier"/>
@@ -50,14 +50,14 @@
       <definition value="A verifier who attests to the accuracy of the resource"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="e.g., a next of kin who answers questions about the patient's history"/>
       </extension>
       <code value="informant"/>
       <definition value="A person who reported information that contributed to the resource"/>
     </concept>
     <concept>
-      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="May be an electronic document, application, paper record, etc.  *Not* a person"/>
       </extension>
       <code value="source"/>

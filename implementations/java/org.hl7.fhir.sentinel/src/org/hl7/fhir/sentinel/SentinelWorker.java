@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
+import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
@@ -96,7 +97,7 @@ public class SentinelWorker {
 			ini.save();
 		}
 		// trying to connect
-	  FHIRClient client = null;
+	  IFHIRClient client = null;
 	  Conformance conf = null;
 		try {
 			System.out.println("Connecting to server: "+server);
@@ -120,13 +121,13 @@ public class SentinelWorker {
 	  }
   }
 
-	private FHIRClient makeClient() throws URISyntaxException {
+	private IFHIRClient makeClient() throws URISyntaxException {
 	  FHIRSimpleClient client = new FHIRSimpleClient();
 	  client.initialize(server);
 		return client;
   }
 
-	private void updateResources(FHIRClient client) throws Exception {
+	private void updateResources(IFHIRClient client) throws Exception {
 		  Bundle feed = null;
 	    if (Utilities.noString(ini.getStringProperty(server, "cursor")) && timeToQuery())
 	      feed = downloadUpdates(client);
@@ -142,7 +143,7 @@ public class SentinelWorker {
 	    	Thread.sleep(1000);
   }
 
-  private Bundle downloadUpdates(FHIRClient client) throws Exception {
+  private Bundle downloadUpdates(IFHIRClient client) throws Exception {
   	Bundle master = new Bundle();
 	  String lasttime = ini.getStringProperty(server, "lasttime");
 
@@ -188,12 +189,12 @@ public class SentinelWorker {
     return master;
   }
 
-	private void process(Bundle feed, FHIRClient client) throws Exception {
+	private void process(Bundle feed, IFHIRClient client) throws Exception {
 	  int i = ini.getIntegerProperty(server, "cursor");
 	  Resource ae = feed.getEntry().get(i).getResource();
 	  if (ae != null) { // ignore deletions
 	  	System.out.println("Processing #"+Integer.toString(i)+" ("+ae.getResourceType().toString()+"): "+ae.getId());
-	  	process(feed, ae, client);
+	  	process(feed, feed.getEntry().get(i), ae, client);
 	  }
 	  i--;
 	  if (i < 0)
@@ -203,11 +204,11 @@ public class SentinelWorker {
 	  ini.save();
   }
 
-	private void process(Bundle feed, Resource ae, FHIRClient client) throws Exception {
+	private void process(Bundle feed, BundleEntryComponent e, Resource ae, IFHIRClient client) throws Exception {
 		ResourceMetaComponent added = new ResourceMetaComponent();
 		ResourceMetaComponent deleted = new ResourceMetaComponent();
 		for (Tagger t : taggers) 
-			t.process(ae, ae.getMeta(), added, deleted);
+			t.process(e.hasBase() ? e.getBase() : feed.getBase(), ae, ae.getMeta(), added, deleted);
 		// todo-bundle
 //		if (!added.isEmpty())
 //		  client.createTags(added, ae.getClass(), ae.getId(), ae.getMeta().getVersionId());

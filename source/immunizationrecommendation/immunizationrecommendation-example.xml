@@ -10,7 +10,10 @@
   </subject>
   <recommendation>
     <date value="2013-03-01"/>
-    <vaccineType id="396427003"/>
+    <vaccineType>
+      <system value="http://snomed.info/sct"/>
+      <code value="396427003"/>
+    </vaccineType>
     <forecastStatus>
       <coding>
         <system value="http://hl7.org/fhir/immunization-recommendation-status"/>

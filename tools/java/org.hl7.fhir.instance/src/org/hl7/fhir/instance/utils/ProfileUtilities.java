@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.model.BooleanType;
@@ -62,36 +62,6 @@ public class ProfileUtilities {
     
   }
 
-//  public static class ExtensionDefinition {
-//    private String url;
-//    private List<Profile> profiles = new ArrayList<Profile>();
-//    private ProfileExtensionDefnComponent defn;
-//    private ElementDefinition element;
-//    
-//    public ExtensionDefinition(String url, List<Profile> profiles, Profile profile, ProfileExtensionDefnComponent defn, ElementDefinition element) {
-//      super();
-//      this.url = url;
-//      this.profiles.addAll(profiles);
-//      if (profiles.isEmpty() || profiles.get(profiles.size()-1) != profile)
-//        this.profiles.add(profile);
-//      this.defn = defn;
-//      this.element = element;
-//    }
-//    public String getUrl() {
-//      return url;
-//    }
-//    public List<Profile> getProfiles() {
-//      return profiles;
-//    }
-//    public ProfileExtensionDefnComponent getDefn() {
-//      return defn;
-//    }
-//    public ElementDefinition getElement() {
-//      return element;
-//    }
-//    
-//  }
-
   public interface ProfileKnowledgeProvider {
     boolean isDatatype(String typeSimple);
     boolean hasLinkFor(String typeSimple);
@@ -107,9 +77,23 @@ public class ProfileUtilities {
  * @param structure The structure to navigate into
  * @param path The path of the element within the structure to get the children for
  * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
+ * @throws Exception 
  */
-  public static Map<String, ElementDefinition> getChildMap(Profile profile, String path) {
+  public static Map<String, ElementDefinition> getChildMap(Profile profile, String path, String nameReference) throws Exception {
     HashMap<String, ElementDefinition> res = new HashMap<String, ElementDefinition>(); 
+    
+    // if we have a name reference, we have to fid it, and iterate it's children
+    if (nameReference != null) {
+    	boolean found = false;
+      for (ElementDefinition e : profile.getSnapshot().getElement()) {
+      	if (nameReference.equals(e.getName())) {
+      		found = true;
+      		path = e.getPath();
+      	}
+      }
+      if (!found)
+      	throw new Exception("Unable to resolve name reference "+nameReference+" at path "+path);
+    }
     
     for (ElementDefinition e : profile.getSnapshot().getElement()) 
     {
@@ -123,12 +107,12 @@ public class ProfileUtilities {
         if (path.length() > p.length())
         {
           // The path navigates further into the referenced element, so go ahead along the path over there
-          return getChildMap(profile, e.getNameReference()+"."+path.substring(p.length()+1));
+          return getChildMap(profile, e.getNameReference()+"."+path.substring(p.length()+1), null);
         }
         else
         {
           // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
-          return getChildMap(profile, e.getNameReference());
+          return getChildMap(profile, e.getNameReference(), null);
         }
       } 
       else if (p.startsWith(path+".")) 
@@ -148,8 +132,8 @@ public class ProfileUtilities {
   }
 
   
-  public static Map<String, ElementDefinition> getChildMap(Profile profile, ElementDefinition element) {
-	  	return getChildMap(profile, element.getPath());
+  public static Map<String, ElementDefinition> getChildMap(Profile profile, ElementDefinition element) throws Exception {
+	  	return getChildMap(profile, element.getPath(), null);
   }
   
 
@@ -871,7 +855,7 @@ public class ProfileUtilities {
       }
       if (used.used || showMissing)
         rows.add(row);
-      if (!used.used) {
+      if (!used.used && !element.hasSlicing()) {
         for (Cell cell : row.getCells())
           for (Piece p : cell.getPieces()) {
             p.setStyle("text-decoration:line-through");
@@ -1096,7 +1080,7 @@ public class ProfileUtilities {
         	String[] ps = parts[0].split("\\/Profile\\/");
         	if (ps.length != 2)
         		throw new Exception("Unable to understand address of profile: "+parts[0]);
-        	FHIRClient client = new FHIRSimpleClient();
+        	IFHIRClient client = new FHIRSimpleClient();
         	client.initialize(ps[0]);
         	Profile ae = client.read(Profile.class, ps[1]);
         	context.getProfiles().put(parts[0], ae);

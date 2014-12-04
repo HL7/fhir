@@ -138,252 +138,252 @@
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.2	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.2"/>
         <display value="Alaska Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.1	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.1"/>
         <display value="Alabama Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.5	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.5"/>
         <display value="Arkansas Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.4	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.4"/>
         <display value="Arizona Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.6	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.6"/>
         <display value="California Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.8	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.8"/>
         <display value="Colorado Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.9	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.9"/>
         <display value="Connecticut Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.11	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.11"/>
         <display value="DC Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.10	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.10"/>
         <display value="Delaware Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.12	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.12"/>
         <display value="Florida Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.13	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.13"/>
         <display value="Georgia Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.15	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.15"/>
         <display value="Hawaii Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.19	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.19"/>
         <display value="Iowa Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.16	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.16"/>
         <display value="Idaho Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.17	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.17"/>
         <display value="Illinois Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.20	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.20"/>
         <display value="Kansas Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.21	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.21"/>
         <display value="Kentucky Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.22	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.22"/>
         <display value="Louisiana Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.25	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.25"/>
         <display value="Massachusetts Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.24	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.24"/>
         <display value="Maryland Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.23	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.23"/>
         <display value="Maine Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.26	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.26"/>
         <display value="Michigan Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.27	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.27"/>
         <display value="Minnesota Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.29	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.29"/>
         <display value="Missouri Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.28	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.28"/>
         <display value="Mississippi Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.30	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.30"/>
         <display value="Montana Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.36	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.36"/>
         <display value="NewYork Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.37	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.37"/>
         <display value="NorthCarolina Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.38	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.38"/>
         <display value="NorthDakota Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.31	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.31"/>
         <display value="Nebraska Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.33	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.33"/>
         <display value="NewHampshire Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.34	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.34"/>
         <display value="NewJersey Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.35	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.35"/>
         <display value="NewMexico Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.32	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.32"/>
         <display value="Nevada Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.39	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.39"/>
         <display value="Ohio Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.40	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.40"/>
         <display value="Oklahoma Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.41	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.41"/>
         <display value="Oregon Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.42	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.42"/>
         <display value="Pennsylvania Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.44	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.44"/>
         <display value="RhodeIsland Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.45	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.45"/>
         <display value="SouthCarolina Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.46	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.46"/>
         <display value="SouthDakota Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.47	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.47"/>
         <display value="Tennessee Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.48	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.48"/>
         <display value="Texas Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.49	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.49"/>
         <display value="Utah Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.51	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.51"/>
         <display value="Virginia Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.50	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.50"/>
         <display value="Vermont Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.53	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.53"/>
         <display value="Washington Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.55	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.55"/>
         <display value="Wisconsin Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.54	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.54"/>
         <display value="WestVirginia Driver's License"/>
       </concept>
 
       <concept>
-        <code value="urn:oid:2.16.840.1.113883.4.3.56	"/>
+        <code value="urn:oid:2.16.840.1.113883.4.3.56"/>
         <display value="Wyoming Driver's License"/>
       </concept>
 

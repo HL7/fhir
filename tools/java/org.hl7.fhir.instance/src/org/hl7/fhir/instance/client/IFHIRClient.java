@@ -48,7 +48,7 @@ import org.hl7.fhir.instance.model.ValueSet;
  * @author Grahame Grieve
  *
  */
-public interface FHIRClient {
+public interface IFHIRClient {
 
 	public interface VersionInfo {
 		public String getClientJavaLibVersion();
@@ -79,7 +79,7 @@ public interface FHIRClient {
 	 * @return 
 	 * @throws URISyntaxException
 	 */
-	public FHIRClient initialize(String baseServiceUrl)  throws URISyntaxException;
+	public IFHIRClient initialize(String baseServiceUrl)  throws URISyntaxException;
 	
 	/**
 	 * 
@@ -302,7 +302,7 @@ public interface FHIRClient {
 	 */
 	public Bundle transaction(Bundle batch);
 	
-	
+
 //	/**
 //	 * Get a list of all tags on server 
 //	 * 

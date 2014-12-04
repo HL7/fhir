@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
@@ -35,7 +35,7 @@ public class ProfileTagger implements Tagger {
 	private InstanceValidator validator;
 	
 	@Override
-	public void initialise(FHIRClient client, Conformance conf) throws Exception {
+	public void initialise(IFHIRClient client, Conformance conf) throws Exception {
 
 		validator = new InstanceValidator(WorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip"));
 
@@ -49,7 +49,7 @@ public class ProfileTagger implements Tagger {
 	      else
 	        feed = client.history(ValueSet.class);
 	      for (BundleEntryComponent e : feed.getEntry())
-	      	seeValueSet((ValueSet) e.getResource());
+	      	seeValueSet(e.hasBase() ? e.getBase() : feed.getBase(), (ValueSet) e.getResource());
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (next != null);
@@ -64,7 +64,7 @@ public class ProfileTagger implements Tagger {
 	      else
 	        feed = client.history(Profile.class);
 	      for (BundleEntryComponent e : feed.getEntry())
-	      	seeProfile((Profile) e.getResource());
+	      	seeProfile(e.hasBase() ? e.getBase() : feed.getBase(), (Profile) e.getResource());
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (next != null);
@@ -73,33 +73,33 @@ public class ProfileTagger implements Tagger {
 
 	
 	@SuppressWarnings("unchecked")
-  private void seeValueSet(ValueSet vs) throws Exception {
+  private void seeValueSet(String base, ValueSet vs) throws Exception {
 		if (isValidAgainstBase(vs, loadAsXml(vs), vs.getId())) {
 			Resource cached = cache.get(vs.getId());
 			if (cached == null || cached.getMeta().getLastUpdated().before(vs.getMeta().getLastUpdated())) {
 				cache.put(vs.getId(), vs);
-				validator.getWorkerContext().seeValueSet((ValueSet) vs);
+				validator.getContext().seeValueSet(base, (ValueSet) vs);
 			}	  
 		}
   }
 
 	@SuppressWarnings("unchecked")
-  private void seeProfile(Profile p) throws Exception {
+  private void seeProfile(String base, Profile p) throws Exception {
 		if (isValidAgainstBase(p, loadAsXml(p), p.getId())) {
 			Resource cached = cache.get(p.getResourceType().toString()+"#"+ p.getId());
 			if (cached == null || cached.getMeta().getLastUpdated().before(p.getMeta().getLastUpdated())) {
 				cache.put(p.getResourceType().toString()+"#"+ p.getId(), p);
-				validator.getWorkerContext().seeProfile((Profile) p);
+				validator.getContext().seeProfile(base, (Profile) p);
 			}
 		}
   }
 
 	@Override
-	public void process(Resource entry, ResourceMetaComponent tags, ResourceMetaComponent added, ResourceMetaComponent deleted) throws Exception  {
+	public void process(String base, Resource entry, ResourceMetaComponent tags, ResourceMetaComponent added, ResourceMetaComponent deleted) throws Exception  {
 		if (entry instanceof Profile)
-			seeProfile((Profile) entry);
+			seeProfile(base, (Profile) entry);
 		if (entry instanceof ValueSet)
-			seeValueSet((ValueSet) entry);
+			seeValueSet(base, (ValueSet) entry);
 
 		Document doc = loadAsXml(entry);
 
@@ -110,8 +110,8 @@ public class ProfileTagger implements Tagger {
 			e.printStackTrace();
 		}
 
-		for (String n : validator.getWorkerContext().getProfiles().keySet()) {
-			Profile p = validator.getWorkerContext().getProfiles().get(n);
+		for (String n : validator.getContext().getProfiles().keySet()) {
+			Profile p = validator.getContext().getProfiles().get(n);
 
 			try {
 				if (p.getUrl() != null && !p.getUrl().equals("http://hl7.org/fhir/profile/"+doc.getDocumentElement().getLocalName().toLowerCase())) {
@@ -128,7 +128,7 @@ public class ProfileTagger implements Tagger {
 
 	private boolean check(Document doc, Profile p, String id) throws Exception {
 	  List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-	  validator.validateInstanceByProfile(errors, doc.getDocumentElement(), p);
+	  validator.validate(errors, doc.getDocumentElement(), p);
 	  int i = 0;
 	  for (ValidationMessage e : errors) {
 	  	if (e.getLevel() == IssueSeverity.ERROR || e.getLevel() == IssueSeverity.FATAL) {
@@ -143,7 +143,7 @@ public class ProfileTagger implements Tagger {
 
 	private boolean isValidAgainstBase(Resource r, Document doc, String id) throws Exception {
 	  String name = doc.getDocumentElement().getLocalName();
-	  Profile p = validator.getWorkerContext().getProfiles().get(name);
+	  Profile p = validator.getContext().getProfiles().get(name);
 	  if (p == null)
 	  	throw new Exception("unable to find Profile for "+name);
 	  new XmlParser().compose(new FileOutputStream("c:\\temp\\resource.xml"), r, true);
