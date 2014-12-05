@@ -1,29 +1,178 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      This value set includes sample Contract Signer Type codes.
-    </div>
-  </text>
-  <name value="Contract Signer Type Codes"/>
-  <publisher value="CBCC"/>
-  <copyright value="This is an example set"/>
-  <status value="draft"/>
-  <telecom>  
-    <system value="url"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
-  <description value="This value set includes sample Contract Type codes."/>
-  <status value="draft"/>
-    <define>
-	<system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
-	<concept>
-      <code value="guarantor"/>
-    </concept>
-	<concept>
-      <code value="notary"/>
-    </concept>
-	</define>
+  
+<text>
+    
+<status value="generated"/>
+    
+<div xmlns="http://www.w3.org/1999/xhtml">
+      
+This value set is from ASTM E1762-05 
+</div>
+  
+</text>
+  
+<name value="Contract Signer Type Codes"/>
+  
+<publisher value="ASTM"/>
+  
+<copyright value="These codes are excerpted from ASTM Standard, E1762-95(2013) - Standard Guide for Electronic Authenticaiton of Health Care Information, Copyright by ASTM"/>
+  
+<status value="draft"/>
+  
+<telecom>  
+    
+<system value="url"/>
+    
+<value value="http://www.astm.org/Standards/E1762.htm"/>
+  
+</telecom>
+  
+<description value="The Digital Signature Purposes."/>
+  
+<status value="draft"/>
+    
+<define>
+	
+<system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.1"/>
+
+  <display value="AuthorID"/>
+  <definition value="Author"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.2"/>
+
+  <display value="Co-AuthorID"/>
+  <definition value="Co-Author"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.3"/>
+
+  <display value="Co-Participated"/>
+  <definition value="Co-Participated"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.4"/>
+
+  <display value="Transcriptionist"/>
+  <definition value="Transcriptionist"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.5"/>
+
+  <display value="Verification"/>
+  <definition value="Verification"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.6"/>
+
+  <display value="Validation"/>
+  <definition value="Validation"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.7"/>
+
+  <display value="Consent"/>
+  <definition value="Consent"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.8"/>
+
+  <display value="Witness"/>
+  <definition value="Witness"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.9"/>
+
+  <display value="Event-Witness"/>
+  <definition value="Event Witness"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.10"/>
+
+  <display value="Identity-Witness"/>
+  <definition value="Identity Witness"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.11"/>
+
+  <display value="Consent-Witness"/>
+  <definition value="Consent Witness"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.12"/>
+
+  <display value="Interpreter"/>
+  <definition value="Interpreter"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.13"/>
+
+  <display value="Review"/>
+  <definition value="Review"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.14"/>
+
+  <display value="Source"/>
+  <definition value="Source"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.15"/>
+
+  <display value="Addendum"/>
+  <definition value="Addendum"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.16"/>
+
+  <display value="Administrative"/>
+  <definition value="Administrative"/>    
+</concept>
+	
+<concept>
+      
+  <code value="1.2.840.10065.1.12.1.17"/>
+
+  <display value="Timestamp"/>
+  <definition value="Timestamp"/>    
+</concept>
+	
+</define>
+
 </ValueSet>
 
