@@ -5032,7 +5032,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         for (SearchParameter sp : pack.getSearchParameters())
           if (name.equals(sp.getName())) 
             p = sp;
-        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType()+"\">"+p.getType()+"</a></td>" +
+        b.append("<tr><td>"+p.getName()+"</td><td><a href=\"search.html#"+p.getType().toCode()+"\">"+p.getType().toCode()+"</a></td>" +
             "<td>"+Utilities.escapeXml(p.getDescription())+"</td><td>"+p.getXpath()+(p.getType() == SearchParamType.REFERENCE ? asText(p.getTarget()) : "")+"</td>" +
             "<td><a href=\""+pack.getId()+"-sp-"+p.getId()+".xml.html\">XML</a> / <a href=\""+pack.getId()+"-sp-"+p.getId()+".json.html\">JSON</a></td></tr>\r\n");
       }
