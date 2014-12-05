@@ -93,6 +93,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="ClaimResponse">
         <translation lang="en">ClaimResponse</translation>
     </item>
+    <item id="ClinicalAssessment">
+        <translation lang="en">ClinicalAssessment</translation>
+    </item>
     <item id="Communication">
         <translation lang="en">Communication</translation>
     </item>

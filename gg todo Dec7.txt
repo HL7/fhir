@@ -1,8 +1,4 @@
-
+- idref is broken in schema
 - workover DAF (incl value sets)
-
-- links to profiles from profile view not working either.  see http://hl7-fhir.github.io/do-uslab-uslabdo.html  (used to work)  try clicking on USlabPatient
 - revise the definitions on concept map equivalence
-
-
 - search parameters for profiles
