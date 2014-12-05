@@ -1,0 +1,31 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="urn:oid:2.16.840.1.114222.4.11.837"/>
+  </extension>
+  <name value="Ethnicity group"/>
+  <publisher value="CDC via PHIN VADS"/>
+  <telecom>
+      <system value="url"/>
+      <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?id=35D34BBC-617F-DD11-B38D-00188B398520"/>
+  </telecom>
+  <telecom>
+      <system value="url"/>
+      <value value="http://www.cdc.gov/"/>
+  </telecom>
+ 
+  <description value="Whether the patient is hispanic or not"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Ethnicity"/>
+      <concept>
+        <code value="2135-2"/>
+        <display value="Hispanic or Latino"/>
+      </concept>
+      <concept>
+        <code value="2186-5"/>
+        <display value="Not Hispanic or Latino"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
