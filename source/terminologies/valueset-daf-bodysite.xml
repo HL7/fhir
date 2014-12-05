@@ -15,7 +15,14 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept>
+      <filter>
+        <name value="concept"/>
+        <op value="is-a"/>
+        <value value="91723000"/>
+      </filter>
+<!--
+  PHIN VADS old expansion of this value set:
+        <concept>
         <code value="56244007"/>
         <display value="10 to 19 percent of body surface"/>
       </concept>
@@ -102954,7 +102961,9 @@
       <concept>
         <code value="28904002"/>
         <display value="Zymogen granule"/>
-      </concept>
+      </concept>  
+-->
     </include>
   </compose>
 </ValueSet>
+

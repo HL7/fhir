@@ -16,6 +16,20 @@
   <compose>
     <include>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <filter>
+        <name value="TTY"/>
+        <op value="="/>
+        <value value="SCD"/>
+      </filter>
+    </include>
+    <include>
+      <filter>
+        <name value="TTY"/>
+        <op value="="/>
+        <value value="GPCK"/>
+      </filter>
+<!--
+  PHIN VADS old expansion of this value set:
    <concept>
     <code value="433151"/>
     <display value="(1-6)-alpha-glucomannan 2500 MG Chewable Tablet"/>
@@ -124869,7 +124883,7 @@
     <code value="248373"/>
     <display value="Zuclopenthixol 50 MG/ML Injectable Solution"/>
    </concept>
-
+-->
     </include>
   </compose>
 </ValueSet>

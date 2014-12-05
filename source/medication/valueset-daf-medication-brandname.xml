@@ -16,6 +16,22 @@
   <compose>
     <include>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <filter>
+        <name value="TTY"/>
+        <op value="="/>
+        <value value="BN"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <filter>
+        <name value="TTY"/>
+        <op value="="/>
+        <value value="BPCK"/>
+      </filter>
+<!--
+  PHIN VADS old expansion of this value set:
+      
    <concept>
     <code value="763622"/>
     <display value="{1 (0.35 ML Chondroitin Sulfates 40 MG/ML / hyaluronate 30 MG/ML Prefilled &#10;Syringe [Viscoat]) / 1 (0.4 ML hyaluronate 10 MG/ML Prefilled Syringe &#10;[Provisc]) } Pack [Duovisc Kit 0.35/0.4]"/>
@@ -55556,6 +55572,8 @@
     <code value="261710"/>
     <display value="Zyvox"/>
    </concept>
+   -->
+   
     </include>
   </compose>
 </ValueSet>

@@ -15,6 +15,22 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
+      <filter>
+        <name value="concept"/>
+        <op value="is-a"/>
+        <value value="404684003"/>
+      </filter>
+    <include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <name value="concept"/>
+        <op value="is-a"/>
+        <value value="243796009"/>
+      </filter>
+      
+<!--
+  PHIN VADS old expansion of this value set:      
       <concept>
         <code value="50992006"/>
         <display value="22q partial trisomy syndrome"/>
@@ -65839,6 +65855,7 @@
         <code value="59277005"/>
         <display value="Zygomycosis"/>
       </concept>
+      -->
     </include>
   </compose>
 </ValueSet>
