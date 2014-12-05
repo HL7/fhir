@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
     <div>
-        <p>Published by:  HL7 Orders and Observations Workgroup</p>
+        <p>Published by: <a href="daf.html">Data Access Framework (DAF)</a><br/>Supporting Work Group: Public Health Emergency Response (PHER)</p>
+              
         <h2>Scope and Usage</h2>
         <p>
             This profile sets expectations for use of the <a href="immunization.html">Immunization</a> resource within the 
@@ -10,7 +11,7 @@
         <p>
             For the purposes of this profile, <i>Supported</i> means that
             <ul>
-                <li> DAF Query Requestor (client) SHALL be capable of querying the <a href="observation.html">Observation</a> resource using one or more of the search parameters defined in the profile.</li>
+                <li> DAF Query Requestor (client) SHALL be capable of querying the <a href="immunization.html">Immunization</a> resource using one or more of the search parameters defined in the profile.</li>
                 <li> DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide responses which include all the data elements identified as "MUST Support" in the profile. </li>
             </ul>
         </p>
