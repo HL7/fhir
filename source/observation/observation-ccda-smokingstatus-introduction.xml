@@ -3,7 +3,7 @@
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
-			This is FHIR Profile is mapped from the Smoking Status CCDA Entry Template : <i>HL7 Implementation Guide for CDA R2: IHE Health 	Story Consolidation, DSTU R1.1</i>, Section 5.75  Smoking Status Observation [observation: templateId 2.16.840.1.113883.10.22.4.78 (open)] 
+			This is FHIR Profile is mapped from the Smoking Status CCDA Entry Template : <i>HL7 Implementation Guide for CDA R2: IHE Health 	Story Consolidation, DSTU R1.1</i>, Section 5.75  Smoking Status Observation [observation: templateId 2.16.840.1.113883.10.20.22.4.78 (open)] 
 		</p>
 		<p>
 		This clinical statement represents a patient’s current smoking status. The 
