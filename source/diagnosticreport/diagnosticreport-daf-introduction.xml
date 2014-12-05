@@ -1,0 +1,24 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<p>Published by:  HL7 Orders and Observations Workgroup</p>
+		<h2>Scope and Usage</h2>
+		<p>
+			This profile sets expectations for use of the <a href="diagnosticreport.html">Diagnostic Report</a> resource within the 
+			<a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project.  This includes
+			identifying which core elements, extensions, vocabularies and value sets must be supported by DAF actors.
+		</p>
+		<p>
+			For the purposes of this profile, <i>Supported</i> means that
+			<ul>
+				<li> DAF Query Requestor (client) SHALL be capable of querying the <a href="observation.html">Observation</a> resource using one or more of the search parameters defined in the profile.</li>
+				<li> DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide responses which include all the data elements identified as "MUST Support" in the profile. </li>
+			</ul>
+		</p>
+	</div>
+	<div>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			This profile relies on the use of other profiles, some required, others available for use "when necessary":
+		</p>
+	</div>
+</div>
