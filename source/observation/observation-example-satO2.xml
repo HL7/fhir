@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This example is taken from the v3 data types (SLIST)
+-->
+ 
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+  <id value="satO2"/>
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Dec 04 2014: Oxygen saturation 95% (normal)</div>
+  </text>
+  
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/relatedDeviceMetric">
+    <valueReference>
+		<reference value="DeviceMetric/example"/>
+	</valueReference>
+  </extension>
+  
+  <name>
+    <coding>
+      <system value="https://rtmms.nist.gov"/> <!--   mdc   -->
+      <code value="150456"/>
+      <display value="MDC_PULS_OXIM_SAT_O2"/>
+    </coding>
+  </name>
+  
+  <valueQuantity>
+    <value value="95"/>
+    <units value="percent"/>
+    <system value="https://rtmms.nist.gov"/>
+    <code value="262688"/>
+  </valueQuantity>
+  
+  <interpretation>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+      <code value="N"/>
+      <display value="normal"/>
+    </coding>
+  </interpretation> 
+  
+  <appliesDateTime value="2014-12-05T09:30:10+01:00"/>
+    
+  <status value="final"/>
+  
+  <reliability value="ok"/>
+
+  <identifier>
+	<system value="http://goodcare.org/observation/id"/>
+	<value value="o1223435-10"/>
+  </identifier>
+	
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  
+  <performer>
+    <reference value="Device/ihe-pcd"/>
+  </performer>
+  
+  <referenceRange>
+    <low>
+      <value value="90"/>
+      <units value="percent"/>
+      <system value="https://rtmms.nist.gov"/>
+      <code value="262688"/>
+    </low>
+    <high>
+      <value value="99"/>
+      <units value="percent"/>
+      <system value="https://rtmms.nist.gov"/>
+      <code value="262688"/>
+    </high>
+  </referenceRange>
+</Observation>
