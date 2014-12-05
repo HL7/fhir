@@ -126,22 +126,40 @@ public class CompositeTypeConverter {
 
     TypeRef base = FhirFactory.eINSTANCE.createTypeRef();
     String name = type.getName();
-    
-    // Set the base class to the normal case
-    if(isResource)
-      base.setName("DomainResource");
-    else
-      base.setName("Element");
 
-    // Revisit exceptional bases
-    if(name.equals("DomainResource"))
-      base.setName("Resource");
-    else if(name.equals("Resource"))
-      base = null;
-    else if(name.equals("Element"))
-      base = null;
-    else if(type.isAnonymousTypedGroup())
+    if(type.isAnonymousTypedGroup())
       base.setName("BackboneElement");
+    else if(Utilities.noString(type.typeCode()))
+      base = null;
+    else if(type.typeCode().equals("Type"))
+      base.setName("Element");
+    else if(type.typeCode().equals("Structure"))
+      base.setName("Element");  
+    else
+      base.setName(type.typeCode());
+    
+   
+//    // Set the base class to the normal case
+//    if(isResource)
+//      base.setName("DomainResource");
+//    else
+//      base.setName("Element");
+//   
+//    // Revisit exceptional bases
+//    if(name.equals("DomainResource"))
+//      base.setName("Resource");
+//    else if(name.equals("Binary"))
+//      base.setName("Resource");
+//    else if(name.equals("Bundle"))
+//      base.setName("Resource");
+//    else if(name.equals("Parameters"))
+//      base.setName("Resource");
+//    else if(name.equals("Resource"))
+//      base = null;   // Base class
+//    else if(name.equals("Element"))
+//      base = null;   // Base class
+//    else if(type.isAnonymousTypedGroup())
+//      base.setName("BackboneElement");
     
     Boolean isAbstract = name.equals("Element") || name.equals("Resource") || name.equals("DomainResource") || name.equals("BackboneElement");
     

@@ -218,16 +218,21 @@ public class SpreadsheetParser {
 		
 				// If user has given an explicit name, use it, otherwise  automatically
 				// generated name for this nested type
-				if( element.typeCode().startsWith("=") ) {
+				if( element.typeCode().startsWith("=") ) 
+				{
 				  if (isProfile)
 				    throw new Exception("Cannot use '=' types in profiles on "+parentName);
+				  
 				  element.setStatedType(element.typeCode().substring(1));
 					nestedTypeName = element.typeCode().substring(1);
-				} else {
+				} 
+				else 
+				{
 					nestedTypeName = parentName + Utilities.capitalize(element.getName());
-					newCompositeType.setAnonymousTypedGroup(true);
 				}
-				
+			
+		    newCompositeType.setAnonymousTypedGroup(true);
+		    
 				// Add Component to the actually generated name to avoid
 				// confusing between the element name and the element's type
 				newCompositeType.setName(nestedTypeName+"Component");
