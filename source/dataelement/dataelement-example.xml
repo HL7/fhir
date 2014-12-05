@@ -222,6 +222,7 @@
     <isExtensible value="false"/>
     <conformance value="required"/>
     <valueSet>
+    <!-- 
       <extension url="http://hl7.org/fhir/ExtensionDefinition/iso-11179-permitted-value-valueset">
         <valueReference>
           <reference value="#2179414-permitted"/>
@@ -232,6 +233,7 @@
           <reference value="#2179414-cm"/>
         </valueReference>
       </extension>
+      -->
       <reference value="#2179414"/>
     </valueSet>
   </binding>
