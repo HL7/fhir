@@ -9,17 +9,15 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-30T08:46:26Z</LastSaved>
+  <LastSaved>2014-12-04T19:35:15Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowIconic/>
-  <WindowHeight>2580</WindowHeight>
-  <WindowWidth>9870</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>5</FirstVisibleSheet>
+  <WindowHeight>8760</WindowHeight>
+  <WindowWidth>21075</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>90</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1059,8 +1057,9 @@
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultColumnWidth="37.5"
    ss:DefaultRowHeight="28.5">
-   <Column ss:Index="5" ss:StyleID="s85"/>
-   <Column ss:Index="16" ss:StyleID="s85" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="163.5"/>
+   <Column ss:Index="9" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:Index="16" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s86">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Committee Notes</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
@@ -1635,7 +1634,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(patient){USlabPatient}|Reference(Patient){USlabPHPatient}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabpatient}|Reference(Patient){http://hl7.org/fhir/Profile/patient-uslab-uslabphpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1662,10 +1661,10 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticReport.performer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Practitioner){USLabPract}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Practitioner){http://hl7.org/fhir/Profile/pract-uslab-uslabpract}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1846,7 +1845,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DiagnosticOrder){USLabDO}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DiagnosticOrder){http://hl7.org/fhir/Profile/do-uslab-uslabdo}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1908,7 +1907,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Specimen){USlabSpec}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1938,7 +1937,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){USLabObsCode}|Reference(Observation){USLabObsQuantity}|Reference(Observation){USLabObsOther}|Reference(Observation){USLabObsRatio}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobscode}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-slabobsquantity}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobsother}|Reference(Observation){http://hl7.org/fhir/Profile/obs-uslab-uslabobsratio}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3880,10 +3879,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3901,8 +3901,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10887,7 +10887,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Specimen){USlabSpec}</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(Specimen){http://hl7.org/fhir/Profile/spec-uslab-uslabspec}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -19178,7 +19178,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
