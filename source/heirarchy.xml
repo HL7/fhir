@@ -238,6 +238,7 @@ todo: compartments
             <page type="resource" resource="PaymentNotice"/>
             <page type="resource" resource="PaymentReconciliation"/>
             <page type="resource" resource="PendedRequest"/>
+            <page type="resource" resource="PharmacyClaim"/>
             <page type="resource" resource="Readjudicate"/>
             <page type="resource" resource="Reversal"/>
             <page type="resource" resource="StatusRequest"/>
