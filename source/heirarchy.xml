@@ -140,6 +140,7 @@ todo: compartments
             <page type="resource" resource="AllergyIntolerance"/>
             <page type="resource" resource="Condition"/>
             <page type="resource" resource="CarePlan"/>
+            <page type="resource" resource="ClinicalAssessment"/>
             <page type="resource" resource="ReferralRequest"/>
             <page type="resource" resource="Procedure"/>
             <page type="resource" resource="ProcedureRequest"/>
