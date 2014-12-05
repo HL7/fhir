@@ -4,7 +4,7 @@
 <h2>Scope and Usage</h2>
 <p>
 This profile sets expectations for use of the <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource within the 
-<a href="http://http://wiki.siframework.org/IHE+SDC+Profile">Structured Data Capture</a> project.  This includes
+<a href="sdc.html">Structured Data Capture</a> implementation guide.  This includes
 identifying which core elements and extensions must be supported.
 </p>
 <p>

@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
   <id value="gender"/>
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
-    <valueInteger value="13"/>
-  </extension>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -142,6 +136,12 @@
       </element>
     </ConceptMap>
   </contained>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/minLength">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/maxLength">
+    <valueInteger value="13"/>
+  </extension>
   <identifier>
     <value value="2179650"/>
   </identifier>
@@ -222,12 +222,12 @@
     <isExtensible value="false"/>
     <conformance value="required"/>
     <valueSet>
-      <extension url="http://hl7.org/fhir/Profile/iso-11179#permitted-value-valueset">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/iso-11179-permitted-value-valueset">
         <valueReference>
           <reference value="#2179414-permitted"/>
         </valueReference>
       </extension>
-      <extension url="http://hl7.org/fhir/Profile/iso-11179#permitted-value-conceptmap">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/iso-11179-permitted-value-conceptmap">
         <valueReference>
           <reference value="#2179414-cm"/>
         </valueReference>

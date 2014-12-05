@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="SDC"> </a> 
+<h2>Structured Data Capture (SDC) - Data Element Exchange Implementation Guide</h2>
+<p>
+This implementation guide is a suplement to the base <a href="sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines expectations for 
+<a href="dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the create and maintenance of data elements
+within those registries.  This capability is documented as a distinct implementation guide because the expectations for systems creating and maintaining
+data elements are higher than for those systems that are merely responsible for referencing data elements when creating forms or configuring their
+systems to support pre-population or auto-population.
+</p>
+<p>
+The set of expectations described within this implementation guide reflects the consensus view of those stakeholders involved in the
+Structured Data Capture public consultation group, which included representatives from several large organizations responsible for data element
+registries, including:
+</p>
+<ul>
+  <li>The US Federal Drug Administration (FDA)</li>
+  <li>The US National Cancer Institute (NCI)</li>
+  <li>The US National Library of Medicine (NLM)</li>
+  <li>The ???? Association of Pathologists (CAP)</li>
+</ul>
+<p>
+This implementation guide is intended to be conformant with the <a href="??">ISO/IEC 11179-3</a> standard, though it only defines (and requires support for)
+only a subset of the properties defined in that specification.
+</p>
+<p>
+This implementation guide was prepared as a U.S. Realm Specification on behalf of the 
+Structured Data Capture project - an effort under the <a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>'s Standards and Infrastructure (S &amp; I) Framework
+However, much of the content is likely to be useable in other jurisdictions.
+</p>
+
+<h3>Background</h3>
+<p>
+DataElement instances do not convey patient-specific information.  However, because the mappings associated with data elements can influence the
+data that might be automatically populated into forms and could also influence the security controls around data associated with the DataElement,
+security precautions should be taken to ensure that data elements are not created or revised by someone without the proper authority.  
+<a href="sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
+SDC implementation guide.
+</p>
+<p>
+Additional information about the Structured Data Capture project can be found on the 
+<a href="http://http://wiki.siframework.org/Structured+Data+Capture+Initiative">project's wiki</a>/
+</p>
+
+<h3>Specification</h3>
+<p>
+The <i>SDC Data Element Exchange FHIR Implementation Guide</i> is based on the <a href="index.html">HL7 FHIR</a> standard.  It defines expectations
+around the creation and use of the <a href="dataelement.html">DataElement</a>.  It consists of two aspects:
+</p>
+<ul>
+<li>A single <a href="dataelement-sdc-de.html">SDC Data Element Exchange Profile</a> which documents constraints and extensions to be supported when creating and maintaining data elements; and</li>
+<li>
+  <p>Two conformance statements that describe the behavior of systems complying with this specification:</p>
+  <ul>
+    <li><a href="conformance-sdc-de-manager.html">SDC Data Element Registry</a> - Repository for data elements</li>
+    <li><a href="conformance-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
+  </ul>
+</li>
+</ul>
+
+<p>
+Systems supporting the <i>SDC Data Element Registry</i> role SHALL be capable of accepting, persisting and returning all DataElement properties marked as
+"must support" in the SDC Data Element Exchange profile.  Systems supporting the <i>SDC Data Element Curator</i> role SHALL be capable of providing and
+updating those same properties.
+</p>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

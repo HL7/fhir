@@ -417,28 +417,28 @@
         <reference value="Profile/questionnaire-sdc.xml-StructuredDataCaptureForm"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing questionnaires to be completed"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific questionnaire by id.  Allows systems to maintain a 'favorites' list of forms and retrieve them by id."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes made to a questionnaire over time.  Of interest to some systems, but probably not most."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="vread"/>
@@ -452,21 +452,21 @@
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific value set by id (as referenced in a Questionnaire)"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a specific version of a value set (as referenced in a Questionnaire)"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="history-instance"/>
@@ -479,42 +479,42 @@
         <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows recording a completed or partially-completed form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="delete"/>
         <documentation value="Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of prior versions of an answer set - allows reversion to previously recorded versions"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="validate"/>
@@ -528,7 +528,7 @@
         <reference value="http://hl7.org/fhir/Profile/documentreference-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="search-type"/>
@@ -542,14 +542,14 @@
         <reference value="http://hl7.org/fhir/Profile/binary-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific binary (as pointed to by a DocumentReference)"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="vread"/>
@@ -557,7 +557,7 @@
       </interaction>
     </resource>
     <operation>
-      <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+      <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
         <valueCode value="MAY"/>
       </extension>
       <name value="populate"/>

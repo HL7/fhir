@@ -2,7 +2,7 @@
 <!--
   - FHIR Document bundle to HTML Conversion
   -
-  - Initially developed by Rick Geimer, Lantana Consulting Ltd. & Lloyd McKenzie, Gordon Point Informatics
+  - Initially developed by Rick Geimer, Lantana Consulting Ltd. & Lloyd McKenzie, Gevity
   -
   - This transform provides an instantiation of the rendering process for FHIR documents as defined in the FHIR specification.
   - Systems are not required to make use of this transform.  It is provided for example purposes only.  If you choose to use it

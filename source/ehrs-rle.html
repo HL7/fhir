@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="SDC"> </a> 
+<h2>EHRS Functional Model - Record Lifecycle Events Implementation Guide</h2>
+<p>
+This documentation should be considered "placeholder" content.  It is not complete and has not yet undergone full review by
+the sponsoring work group.  While feedback is welcome, formal reconciliation will not be undertaken on ballot comments submitted
+against this guide, given its extremely draft nature.
+</p>
+<p>
+This implementation guide describes the expected capabilities for an Electronic Health Record System (EHRS) that  intends to adhere
+to HL7's EHRS functional model covering the logging of record life cycle events.  This implementation guide consists of three parts:
+</p>
+<ul>
+  <li>A <a href="provenance-ehr-rle.html">Profile</a> on the <a href="provenance.html">Provenance</a> resource describing the
+  information that should be retained for events involving the creation or updating of electronic health records</li>
+  <li>A <a href="securityevent-ehr-rle.html">Profile</a> on the <a href="securityevent.html">SecurityEvent</a> resource describing the
+  information that should be retained for events involving the access or any other manipulation of electronic health records</li>
+  <li>A <a href="conformance-ehr-rle.html">Conformance Statement</a> which describes the operations an EHR system claiming conformance
+  to this implementation guide must support.</li>
+</ul>
+<p>
+For the purposes of this implementation guide, "must support" means that the system must be capable of capturing and recording
+those data elements which are so-marked.</p>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

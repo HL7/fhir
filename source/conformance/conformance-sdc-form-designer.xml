@@ -452,49 +452,49 @@
         <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing questionnaires for editing"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific questionnaire by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows submission of a new form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to questionnaire over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a questionnaire"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -502,7 +502,7 @@
         <!-- Should we include this in the conformance statement at all? -->
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="validate"/>
@@ -516,49 +516,49 @@
         <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows discovery of existing value sets for use by questions in a form"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of a specific value set by id"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows definition of a new value set used by one or more questions"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a value set over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
         <documentation value="Allows retrieval of a historical version of a value set"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
@@ -566,7 +566,7 @@
         <!-- Should we include this in the conformance statement at all? -->
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="validate"/>
@@ -580,21 +580,21 @@
         <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
       </profile>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
         <documentation value="Allows a user to search for existing data elements for re-use in a form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
         <documentation value="Allows retrieval of data elements referenced in an existing form design"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
@@ -602,35 +602,35 @@
         <!-- Do we need this to be SHALL too? -->
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
         <documentation value="Allows review of changes to a data element over time"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="create"/>
         <documentation value="Allows defining new data elements for subsequent re-use while creating and editing forms"/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="update"/>
         <documentation value="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="delete"/>
         <documentation value="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
       </interaction>
       <interaction>
-        <extension url="http://hl7.org/fhir/Profile/conformance-common#expectation">
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="MAY"/>
         </extension>
         <code value="validate"/>

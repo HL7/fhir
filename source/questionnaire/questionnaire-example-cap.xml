@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaire.xsd">
+  <text>
+    <status value="empty"/>
+    <div  xmlns="http://www.w3.org/1999/xhtml">
+      <!-- Todo: fill this in-->
+    </div>
+  </text>
+  <!-- The following value-sets are treated as contained on the premise that they're not used except within
+    the context of this one questionnaire. If there's any possibility of them being used elsewhere, they
+    should be defined as stand-alone resources.-->
+  <!-- Most, if not all of these value sets should likely be drawn from SNOMED codes.  However, I wasn't sure 
+    what they should be, so I made up code systems instead.  Should ideally switch to use SNOMED where we can. -->
+  <!-- The codes are unique across the questionnaire only because that helps in understanding the instance.
+    In practice, the same codes could appear in multiple code systems and have a distinct meaning and name in
+    each. -->
+  <contained>
+    <ValueSet id="margin-status">
+      <status value="active"/>
+      <define>
+        <!-- This looks like it should be SNOMED, but not sure what the codes are -->
+        <!-- Not sure what the trailing text of {C:1} {Str} {Ch:4000}, etc. for various codes means -->
+        <system value="http://cap.org/example/fhir/margin-status"/>
+        <concept>
+          <code value="M1"/>
+          <display value="Margins univolved by tumor"/>
+        </concept>
+        <concept>
+          <code value="M2"/>
+          <display value="Margin(s) involved by tumor"/>          
+        </concept>
+        <concept>
+          <code value="M3"/>
+          <display value="Cannot be determined"/>
+        </concept>
+        <concept>
+          <code value="M4"/>
+          <display value="Not applicable"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="margin-distance">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/margin-distance"/>
+        <concept>
+          <code value="D1"/>
+          <display value="Specify (mm)"/>
+        </concept>
+        <concept>
+          <code value="D2"/>
+          <display value="Cannot be assessed (explain)"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="margin">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/margin"/>
+        <concept>
+          <code value="W1"/>
+          <display value="Specify margin"/>
+        </concept>
+        <concept>
+          <code value="W2"/>
+          <display value="Cannot be determined (explain)"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="involved-margins">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/involved-margins"/>
+        <concept>
+          <code value="I1"/>
+          <display value="Specify margin(s)"/>
+        </concept>
+        <concept>
+          <code value="I2"/>
+          <display value="Cannot be determined (explain)"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="effect">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/treatment-effect"/>
+        <concept>
+          <code value="E1"/>
+          <display value="Not identified"/>
+        </concept>
+        <concept>
+          <code value="E2"/>
+          <display value="Present (specify)"/>
+        </concept>
+        <concept>
+          <code value="E3"/>
+          <display value="Indeterminate"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="tumor">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/tumor-description"/>
+        <concept>
+          <code value="U1"/>
+          <display value="Hemorrhagic"/>
+        </concept>
+        <concept>
+          <code value="U2"/>
+          <display value="Necrotic"/>
+        </concept>
+        <concept>
+          <code value="U3"/>
+          <display value="Invasion"/>
+        </concept>
+        <concept>
+          <code value="U4"/>
+          <display value="Other (specify)"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="invasion">
+      <status value="active"/>
+      <define>
+        <system value="http://cap.org/example/fhir/tumor-invasion"/>
+        <concept>
+          <code value="V1"/>
+          <display value="Capsule"/>
+        </concept>
+        <concept>
+          <code value="V2"/>
+          <display value="Vessels"/>
+        </concept>
+        <concept>
+          <code value="V3"/>
+          <display value="Extra-adrenal (specify)"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+	<status value="published"/>
+	<group>
+    <linkId value="root"/>
+    <title value="(Ask Richard)"/>
+    <required value="true"/>
+    <repeats value="false"/>
+    <group>
+      <linkId value="1"/>
+      <title value="MARGINS"/>
+      <required value="true"/>
+      <repeats value="false"/>
+      <question>
+        <linkId value="1.1"/>
+        <!-- Should probably have a snomed code as the "concept" here -->
+        <text value="Status of surgical margin involvement by tumor (observable entity)"/>
+        <type value="choice"/>
+        <required value="true"/>
+        <repeats value="false"/>
+        <options>
+          <reference value="#margin-status"/>
+        </options>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="1.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/margin-status"/>
+                <code value="M1"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="1.1.1"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <linkId value="1.1.1.1"/>
+            <text value="Distance from Closest Margin"/>
+            <type value="choice"/>
+            <required value="false"/>
+            <repeats value="false"/>
+            <options>
+              <reference value="#margin-distance"/>
+            </options>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.1.1"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/margin-distance"/>
+                    <code value="D1"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.1.1.1"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <!-- This *has* to be treated as a distinct question, not a characteristic of the code.
+                  - it has it's own properties and could map to its own data element.  That makes it
+                  a question in its own right.  It would be possible for display software to render
+                  the question so that the question text doesn't display when it's the same as the text
+                  of the corresponding answer.  Alternatively, we could petition to allow question.text
+                  to be omitted, at least in some circumstances. -->
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#minValue">
+                  <valueDecimal value="0.01"/>
+                </extension>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxValue">
+                  <valueDecimal value="1000"/>
+                </extension>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxDecimalPlaces">
+                  <valueInteger value="2"/>
+                </extension>
+                <linkId value="1.1.1.1.1.1"/>
+                <text value="Specify (mm)"/>
+                <type value="decimal"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.1.1"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/margin-distance"/>
+                    <code value="D2"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.1.1.2"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="1.1.1.1.2.1"/>
+                <text value="Cannot be assessed (explain)"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+          </question>
+          <question>
+            <linkId value="1.1.1.2"/>
+            <text value="Specify Margin, if possible"/>
+            <type value="choice"/>
+            <required value="false"/>
+            <repeats value="false"/>
+            <options>
+              <reference value="#margin"/>
+            </options>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.1.2"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/margin"/>
+                    <code value="W1"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.1.2.1"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="1.1.1.2.1.1"/>
+                <text value="Specify margin"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.1.2"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/margin"/>
+                    <code value="W2"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.1.2.2"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="1.1.1.2.2.1"/>
+                <text value="Cannot be determined (explain)"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="1.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/margin-status"/>
+                <code value="M2"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="1.1.2"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <linkId value="1.1.2.1"/>
+            <text value="Specify Margin(s), if possible"/>
+            <type value="choice"/>
+            <required value="true"/>
+            <repeats value="false"/>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.2.1"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/involved-margins"/>
+                    <code value="I1"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.2.1.1"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="1.1.2.1.1.1"/>
+                <text value="Specify margin(s)"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="1.1.2.1"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/involved-margins"/>
+                    <code value="I2"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="1.1.2.1.2"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="1.1.2.1.2.1"/>
+                <text value="Cannot be determined (explain)"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="1.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/margin-status"/>
+                <code value="M3"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="1.1.3"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="1.1.3.1"/>
+            <text value="Cannot be determined"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="1.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/margin-status"/>
+                <code value="M4"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="1.1.4"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="1.1.4.1"/>
+            <text value="Not Applicable"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+      </question>
+    </group>
+    <group>
+      <linkId value="2"/>
+      <title value="ACCESSORY FINDINGS"/>
+      <required value="true"/>
+      <repeats value="false"/>
+      <question>
+        <linkId value="2.1"/>
+        <text value="Treatment Effect (applicable to carcinomas treated with neoadjuvant therapy)"/>
+        <type value="choice"/>
+        <required value="false"/>
+        <repeats value="false"/>
+        <options>
+          <reference value="#effect"/>
+        </options>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="2.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/treatment-effect"/>
+                <code value="E1"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="2.1.1"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="2.1.1.1"/>
+            <text value="Not identified"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="2.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/treatment-effect"/>
+                <code value="E2"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="2.1.2"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="2.1.2.1"/>
+            <text value="Present (specify)"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="2.1"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/treatment-effect"/>
+                <code value="E3"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="2.1.3"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="2.1.3.1"/>
+            <text value="Indeterminate"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+      </question>
+      <question>
+        <linkId value="2.2"/>
+        <text value="Tumor Description"/>
+        <type value="choice"/>
+        <required value="false"/>
+        <repeats value="true"/>
+        <options>
+          <reference value="#tumor"/>
+        </options>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="2.2"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/tumor-description"/>
+                <code value="U3"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="2.2.1"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <linkId value="2.2.1.1"/>
+            <text value="??"/>
+            <!-- Can't have a question with no text -->
+            <type value="choice"/>
+            <required value="false"/>
+            <repeats value="true"/>
+            <options>
+              <reference value="#invasion"/>
+            </options>
+            <group>
+              <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+                <extension url="#question">
+                  <valueString value="2.2.1.1"/>
+                </extension>
+                <extension url="#answer">
+                  <valueCoding>
+                    <system value="http://cap.org/example/fhir/tumor-invasion"/>
+                    <code value="V3"/>
+                  </valueCoding>
+                </extension>
+              </extension>
+              <linkId value="2.2.1.1.1"/>
+              <required value="true"/>
+              <repeats value="false"/>
+              <question>
+                <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+                  <valueInteger value="4000"/>
+                </extension>
+                <linkId value="2.2.1.1.1.1"/>
+                <text value="Extra-adrenal (specify)"/>
+                <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
+              </question>
+            </group>
+          </question>
+        </group>
+        <group>
+          <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire#enableWhen">
+            <extension url="#question">
+              <valueString value="2.2"/>
+            </extension>
+            <extension url="#answer">
+              <valueCoding>
+                <system value="http://cap.org/example/fhir/tumor-description"/>
+                <code value="U4"/>
+              </valueCoding>
+            </extension>
+          </extension>
+          <linkId value="2.2.2"/>
+          <required value="true"/>
+          <repeats value="false"/>
+          <question>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/element#maxLength">
+              <valueInteger value="4000"/>
+            </extension>
+            <linkId value="2.2.2.1"/>
+            <text value="Other (specify)"/>
+            <type value="string"/>
+            <required value="true"/>
+            <repeats value="false"/>
+          </question>
+        </group>
+      </question>
+    </group>
+	</group>
+</Questionnaire>
