@@ -25,6 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5904,7 +5905,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-medicationadministratin-notgiven</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-medicationadministration-notgiven</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-medicationadministration-notgiven.xml</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">medicationadministration-cqf-notgiven-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
@@ -6159,7 +6160,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
