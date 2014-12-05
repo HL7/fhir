@@ -1,0 +1,514 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-medication-route"/>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="2.16.840.1.113883.3.88.12.3221.8.11"/>
+  </extension>
+  <identifier value="http://hl7.org/fhir/ValueSet/daf-medication-route"/>
+  <name value="Medication Route FDA Value Set"/>
+  <publisher value="PHIN VADS"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7"/>
+  </telecom>
+  <description value="Route of Administration value set is based upon FDA Drug Registration and Listing Database (FDA Orange Book) which are used in FDA structured product and labelling (SPL)"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://ncimeta.nci.nih.gov"/>
+      <concept>
+        <code value="C38192"/>
+        <display value="AURICULAR (OTIC)"/>
+      </concept>
+      <concept>
+        <code value="C38193"/>
+        <display value="BUCCAL"/>
+      </concept>
+      <concept>
+        <code value="C38194"/>
+        <display value="CONJUNCTIVAL"/>
+      </concept>
+      <concept>
+        <code value="C38675"/>
+        <display value="CUTANEOUS"/>
+      </concept>
+      <concept>
+        <code value="C38197"/>
+        <display value="DENTAL"/>
+      </concept>
+      <concept>
+        <code value="C38633"/>
+        <display value="ELECTRO-OSMOSIS"/>
+      </concept>
+      <concept>
+        <code value="C38205"/>
+        <display value="ENDOCERVICAL"/>
+      </concept>
+      <concept>
+        <code value="C38206"/>
+        <display value="ENDOSINUSIAL"/>
+      </concept>
+      <concept>
+        <code value="C38208"/>
+        <display value="ENDOTRACHEAL"/>
+      </concept>
+      <concept>
+        <code value="C38209"/>
+        <display value="ENTERAL"/>
+      </concept>
+      <concept>
+        <code value="C38210"/>
+        <display value="EPIDURAL"/>
+      </concept>
+      <concept>
+        <code value="C38211"/>
+        <display value="EXTRA-AMNIOTIC"/>
+      </concept>
+      <concept>
+        <code value="C38212"/>
+        <display value="EXTRACORPOREAL"/>
+      </concept>
+      <concept>
+        <code value="C38200"/>
+        <display value="HEMODIALYSIS"/>
+      </concept>
+      <concept>
+        <code value="C38215"/>
+        <display value="INFILTRATION"/>
+      </concept>
+      <concept>
+        <code value="C38219"/>
+        <display value="INTERSTITIAL"/>
+      </concept>
+      <concept>
+        <code value="C38220"/>
+        <display value="INTRA-ABDOMINAL"/>
+      </concept>
+      <concept>
+        <code value="C38221"/>
+        <display value="INTRA-AMNIOTIC"/>
+      </concept>
+      <concept>
+        <code value="C38222"/>
+        <display value="INTRA-ARTERIAL"/>
+      </concept>
+      <concept>
+        <code value="C38223"/>
+        <display value="INTRA-ARTICULAR"/>
+      </concept>
+      <concept>
+        <code value="C38224"/>
+        <display value="INTRABILIARY"/>
+      </concept>
+      <concept>
+        <code value="C38225"/>
+        <display value="INTRABRONCHIAL"/>
+      </concept>
+      <concept>
+        <code value="C38226"/>
+        <display value="INTRABURSAL"/>
+      </concept>
+      <concept>
+        <code value="C38227"/>
+        <display value="INTRACARDIAC"/>
+      </concept>
+      <concept>
+        <code value="C38228"/>
+        <display value="INTRACARTILAGINOUS"/>
+      </concept>
+      <concept>
+        <code value="C38229"/>
+        <display value="INTRACAUDAL"/>
+      </concept>
+      <concept>
+        <code value="C38230"/>
+        <display value="INTRACAVERNOUS"/>
+      </concept>
+      <concept>
+        <code value="C38231"/>
+        <display value="INTRACAVITARY"/>
+      </concept>
+      <concept>
+        <code value="C38232"/>
+        <display value="INTRACEREBRAL"/>
+      </concept>
+      <concept>
+        <code value="C38233"/>
+        <display value="INTRACISTERNAL"/>
+      </concept>
+      <concept>
+        <code value="C38234"/>
+        <display value="INTRACORNEAL"/>
+      </concept>
+      <concept>
+        <code value="C38217"/>
+        <display value="INTRACORONAL, DENTAL"/>
+      </concept>
+      <concept>
+        <code value="C38218"/>
+        <display value="INTRACORONARY"/>
+      </concept>
+      <concept>
+        <code value="C38235"/>
+        <display value="INTRACORPORUS CAVERNOSUM"/>
+      </concept>
+      <concept>
+        <code value="C38236"/>
+        <display value="INTRACRANIAL"/>
+      </concept>
+      <concept>
+        <code value="C38238"/>
+        <display value="INTRADERMAL"/>
+      </concept>
+      <concept>
+        <code value="C38239"/>
+        <display value="INTRADISCAL"/>
+      </concept>
+      <concept>
+        <code value="C38240"/>
+        <display value="INTRADUCTAL"/>
+      </concept>
+      <concept>
+        <code value="C38241"/>
+        <display value="INTRADUODENAL"/>
+      </concept>
+      <concept>
+        <code value="C38242"/>
+        <display value="INTRADURAL"/>
+      </concept>
+      <concept>
+        <code value="C79144"/>
+        <display value="INTRAEPICARDIAL"/>
+      </concept>
+      <concept>
+        <code value="C38243"/>
+        <display value="INTRAEPIDERMAL"/>
+      </concept>
+      <concept>
+        <code value="C38245"/>
+        <display value="INTRAESOPHAGEAL"/>
+      </concept>
+      <concept>
+        <code value="C38246"/>
+        <display value="INTRAGASTRIC"/>
+      </concept>
+      <concept>
+        <code value="C38247"/>
+        <display value="INTRAGINGIVAL"/>
+      </concept>
+      <concept>
+        <code value="C38248"/>
+        <display value="INTRAHEPATIC"/>
+      </concept>
+      <concept>
+        <code value="C38249"/>
+        <display value="INTRAILEAL"/>
+      </concept>
+      <concept>
+        <code value="C38250"/>
+        <display value="INTRALESIONAL"/>
+      </concept>
+      <concept>
+        <code value="C79138"/>
+        <display value="INTRALINGUAL"/>
+      </concept>
+      <concept>
+        <code value="C38251"/>
+        <display value="INTRALUMINAL"/>
+      </concept>
+      <concept>
+        <code value="C38252"/>
+        <display value="INTRALYMPHATIC"/>
+      </concept>
+      <concept>
+        <code value="C79137"/>
+        <display value="INTRAMAMMARY"/>
+      </concept>
+      <concept>
+        <code value="C38253"/>
+        <display value="INTRAMEDULLARY"/>
+      </concept>
+      <concept>
+        <code value="C38254"/>
+        <display value="INTRAMENINGEAL"/>
+      </concept>
+      <concept>
+        <code value="C28161"/>
+        <display value="INTRAMUSCULAR"/>
+      </concept>
+      <concept>
+        <code value="C79141"/>
+        <display value="INTRANODAL"/>
+      </concept>
+      <concept>
+        <code value="C38255"/>
+        <display value="INTRAOCULAR"/>
+      </concept>
+      <concept>
+        <code value="C79142"/>
+        <display value="INTRAOMENTUM"/>
+      </concept>
+      <concept>
+        <code value="C38256"/>
+        <display value="INTRAOVARIAN"/>
+      </concept>
+      <concept>
+        <code value="C38257"/>
+        <display value="INTRAPERICARDIAL"/>
+      </concept>
+      <concept>
+        <code value="C38258"/>
+        <display value="INTRAPERITONEAL"/>
+      </concept>
+      <concept>
+        <code value="C38259"/>
+        <display value="INTRAPLEURAL"/>
+      </concept>
+      <concept>
+        <code value="C38260"/>
+        <display value="INTRAPROSTATIC"/>
+      </concept>
+      <concept>
+        <code value="C38261"/>
+        <display value="INTRAPULMONARY"/>
+      </concept>
+      <concept>
+        <code value="C79139"/>
+        <display value="INTRARUMINAL"/>
+      </concept>
+      <concept>
+        <code value="C38262"/>
+        <display value="INTRASINAL"/>
+      </concept>
+      <concept>
+        <code value="C38263"/>
+        <display value="INTRASPINAL"/>
+      </concept>
+      <concept>
+        <code value="C38264"/>
+        <display value="INTRASYNOVIAL"/>
+      </concept>
+      <concept>
+        <code value="C38265"/>
+        <display value="INTRATENDINOUS"/>
+      </concept>
+      <concept>
+        <code value="C38266"/>
+        <display value="INTRATESTICULAR"/>
+      </concept>
+      <concept>
+        <code value="C38267"/>
+        <display value="INTRATHECAL"/>
+      </concept>
+      <concept>
+        <code value="C38207"/>
+        <display value="INTRATHORACIC"/>
+      </concept>
+      <concept>
+        <code value="C38268"/>
+        <display value="INTRATUBULAR"/>
+      </concept>
+      <concept>
+        <code value="C38269"/>
+        <display value="INTRATUMOR"/>
+      </concept>
+      <concept>
+        <code value="C38270"/>
+        <display value="INTRATYMPANIC"/>
+      </concept>
+      <concept>
+        <code value="C38272"/>
+        <display value="INTRAUTERINE"/>
+      </concept>
+      <concept>
+        <code value="C38273"/>
+        <display value="INTRAVASCULAR"/>
+      </concept>
+      <concept>
+        <code value="C38276"/>
+        <display value="INTRAVENOUS"/>
+      </concept>
+      <concept>
+        <code value="C38274"/>
+        <display value="INTRAVENOUS BOLUS"/>
+      </concept>
+      <concept>
+        <code value="C38279"/>
+        <display value="INTRAVENOUS DRIP"/>
+      </concept>
+      <concept>
+        <code value="C38277"/>
+        <display value="INTRAVENTRICULAR"/>
+      </concept>
+      <concept>
+        <code value="C38278"/>
+        <display value="INTRAVESICAL"/>
+      </concept>
+      <concept>
+        <code value="C38280"/>
+        <display value="INTRAVITREAL"/>
+      </concept>
+      <concept>
+        <code value="C38203"/>
+        <display value="IONTOPHORESIS"/>
+      </concept>
+      <concept>
+        <code value="C38281"/>
+        <display value="IRRIGATION"/>
+      </concept>
+      <concept>
+        <code value="C38282"/>
+        <display value="LARYNGEAL"/>
+      </concept>
+      <concept>
+        <code value="C38284"/>
+        <display value="NASAL"/>
+      </concept>
+      <concept>
+        <code value="C38285"/>
+        <display value="NASOGASTRIC"/>
+      </concept>
+      <concept>
+        <code value="C48623"/>
+        <display value="NOT APPLICABLE"/>
+      </concept>
+      <concept>
+        <code value="C38286"/>
+        <display value="OCCLUSIVE DRESSING TECHNIQUE"/>
+      </concept>
+      <concept>
+        <code value="C38287"/>
+        <display value="OPHTHALMIC"/>
+      </concept>
+      <concept>
+        <code value="C38288"/>
+        <display value="ORAL"/>
+      </concept>
+      <concept>
+        <code value="C38289"/>
+        <display value="OROPHARYNGEAL"/>
+      </concept>
+      <concept>
+        <code value="C38290"/>
+        <display value="OTHER"/>
+      </concept>
+      <concept>
+        <code value="C38291"/>
+        <display value="PARENTERAL"/>
+      </concept>
+      <concept>
+        <code value="C38676"/>
+        <display value="PERCUTANEOUS"/>
+      </concept>
+      <concept>
+        <code value="C38292"/>
+        <display value="PERIARTICULAR"/>
+      </concept>
+      <concept>
+        <code value="C38677"/>
+        <display value="PERIDURAL"/>
+      </concept>
+      <concept>
+        <code value="C38293"/>
+        <display value="PERINEURAL"/>
+      </concept>
+      <concept>
+        <code value="C38294"/>
+        <display value="PERIODONTAL"/>
+      </concept>
+      <concept>
+        <code value="C38295"/>
+        <display value="RECTAL"/>
+      </concept>
+      <concept>
+        <code value="C38216"/>
+        <display value="RESPIRATORY (INHALATION)"/>
+      </concept>
+      <concept>
+        <code value="C38296"/>
+        <display value="RETROBULBAR"/>
+      </concept>
+      <concept>
+        <code value="C38198"/>
+        <display value="SOFT TISSUE"/>
+      </concept>
+      <concept>
+        <code value="C38297"/>
+        <display value="SUBARACHNOID"/>
+      </concept>
+      <concept>
+        <code value="C38298"/>
+        <display value="SUBCONJUNCTIVAL"/>
+      </concept>
+      <concept>
+        <code value="C38299"/>
+        <display value="SUBCUTANEOUS"/>
+      </concept>
+      <concept>
+        <code value="C65103"/>
+        <display value="SUBGINGIVAL"/>
+      </concept>
+      <concept>
+        <code value="C38300"/>
+        <display value="SUBLINGUAL"/>
+      </concept>
+      <concept>
+        <code value="C38301"/>
+        <display value="SUBMUCOSAL"/>
+      </concept>
+      <concept>
+        <code value="C79143"/>
+        <display value="SUBRETINAL"/>
+      </concept>
+      <concept>
+        <code value="C38304"/>
+        <display value="TOPICAL"/>
+      </concept>
+      <concept>
+        <code value="C38305"/>
+        <display value="TRANSDERMAL"/>
+      </concept>
+      <concept>
+        <code value="C79145"/>
+        <display value="TRANSENDOCARDIAL"/>
+      </concept>
+      <concept>
+        <code value="C38283"/>
+        <display value="TRANSMUCOSAL"/>
+      </concept>
+      <concept>
+        <code value="C38307"/>
+        <display value="TRANSPLACENTAL"/>
+      </concept>
+      <concept>
+        <code value="C38308"/>
+        <display value="TRANSTRACHEAL"/>
+      </concept>
+      <concept>
+        <code value="C38309"/>
+        <display value="TRANSTYMPANIC"/>
+      </concept>
+      <concept>
+        <code value="C38310"/>
+        <display value="UNASSIGNED"/>
+      </concept>
+      <concept>
+        <code value="C38311"/>
+        <display value="UNKNOWN"/>
+      </concept>
+      <concept>
+        <code value="C38312"/>
+        <display value="URETERAL"/>
+      </concept>
+      <concept>
+        <code value="C38271"/>
+        <display value="URETHRAL"/>
+      </concept>
+      <concept>
+        <code value="C38313"/>
+        <display value="VAGINAL"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
+

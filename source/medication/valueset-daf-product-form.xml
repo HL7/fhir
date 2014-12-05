@@ -1,0 +1,690 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-product-form"/>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="2.16.840.1.113883.3.88.12.3221.8.11"/>
+  </extension>
+  <identifier value="http://hl7.org/fhir/ValueSet/daf-product-form"/>
+  <name value="Medication Product Form Value Set"/>
+  <publisher value="PHIN VADS"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=74FDBFB5-A277-DE11-9B52-0015173D1785"/>
+  </telecom>
+  <description value="This is the physical form of the product as presented to the individual. For example: tablet, capsule, liquid or ointment. NCI concept code for pharmaceutical dosage form: C42636"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://ncimeta.nci.nih.gov"/>
+      <concept>
+        <code value="C42887"/>
+        <display value="AEROSOL"/>
+      </concept>
+      <concept>
+        <code value="C42888"/>
+        <display value="AEROSOL, FOAM"/>
+      </concept>
+      <concept>
+        <code value="C42960"/>
+        <display value="AEROSOL, METERED"/>
+      </concept>
+      <concept>
+        <code value="C42971"/>
+        <display value="AEROSOL, POWDER"/>
+      </concept>
+      <concept>
+        <code value="C42889"/>
+        <display value="AEROSOL, SPRAY"/>
+      </concept>
+      <concept>
+        <code value="C42892"/>
+        <display value="BAR, CHEWABLE"/>
+      </concept>
+      <concept>
+        <code value="C42890"/>
+        <display value="BEAD"/>
+      </concept>
+      <concept>
+        <code value="C43451"/>
+        <display value="BEAD, IMPLANT, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42891"/>
+        <display value="BLOCK"/>
+      </concept>
+      <concept>
+        <code value="C25158"/>
+        <display value="CAPSULE"/>
+      </concept>
+      <concept>
+        <code value="C42895"/>
+        <display value="CAPSULE, COATED"/>
+      </concept>
+      <concept>
+        <code value="C42896"/>
+        <display value="CAPSULE, COATED PELLETS"/>
+      </concept>
+      <concept>
+        <code value="C42917"/>
+        <display value="CAPSULE, COATED, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42902"/>
+        <display value="CAPSULE, DELAYED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42904"/>
+        <display value="CAPSULE, DELAYED RELEASE PELLETS"/>
+      </concept>
+      <concept>
+        <code value="C42916"/>
+        <display value="CAPSULE, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42928"/>
+        <display value="CAPSULE, FILM COATED, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42936"/>
+        <display value="CAPSULE, GELATIN COATED"/>
+      </concept>
+      <concept>
+        <code value="C42954"/>
+        <display value="CAPSULE, LIQUID FILLED"/>
+      </concept>
+      <concept>
+        <code value="C45414"/>
+        <display value="CEMENT"/>
+      </concept>
+      <concept>
+        <code value="C42678"/>
+        <display value="CIGARETTE"/>
+      </concept>
+      <concept>
+        <code value="C60884"/>
+        <display value="CLOTH"/>
+      </concept>
+      <concept>
+        <code value="C60891"/>
+        <display value="CONCENTRATE"/>
+      </concept>
+      <concept>
+        <code value="C42900"/>
+        <display value="CONE"/>
+      </concept>
+      <concept>
+        <code value="C42919"/>
+        <display value="CORE, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C28944"/>
+        <display value="CREAM"/>
+      </concept>
+      <concept>
+        <code value="C60897"/>
+        <display value="CREAM, AUGMENTED"/>
+      </concept>
+      <concept>
+        <code value="C42901"/>
+        <display value="CRYSTAL"/>
+      </concept>
+      <concept>
+        <code value="C45415"/>
+        <display value="CULTURE"/>
+      </concept>
+      <concept>
+        <code value="C47890"/>
+        <display value="DIAPHRAGM"/>
+      </concept>
+      <concept>
+        <code value="C43525"/>
+        <display value="DISC"/>
+      </concept>
+      <concept>
+        <code value="C42679"/>
+        <display value="DOUCHE"/>
+      </concept>
+      <concept>
+        <code value="C42763"/>
+        <display value="DRESSING"/>
+      </concept>
+      <concept>
+        <code value="C17423"/>
+        <display value="DRUG DELIVERY SYSTEM"/>
+      </concept>
+      <concept>
+        <code value="C42912"/>
+        <display value="ELIXIR"/>
+      </concept>
+      <concept>
+        <code value="C42913"/>
+        <display value="EMULSION"/>
+      </concept>
+      <concept>
+        <code value="C42915"/>
+        <display value="ENEMA"/>
+      </concept>
+      <concept>
+        <code value="C42929"/>
+        <display value="EXTRACT"/>
+      </concept>
+      <concept>
+        <code value="C60926"/>
+        <display value="FIBER, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42932"/>
+        <display value="FILM"/>
+      </concept>
+      <concept>
+        <code value="C42920"/>
+        <display value="FILM, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42984"/>
+        <display value="FILM, SOLUBLE"/>
+      </concept>
+      <concept>
+        <code value="C60927"/>
+        <display value="FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C60928"/>
+        <display value="FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C60929"/>
+        <display value="FOR SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42933"/>
+        <display value="GAS"/>
+      </concept>
+      <concept>
+        <code value="C42934"/>
+        <display value="GEL"/>
+      </concept>
+      <concept>
+        <code value="C42906"/>
+        <display value="GEL, DENTIFRICE"/>
+      </concept>
+      <concept>
+        <code value="C60930"/>
+        <display value="GEL, METERED"/>
+      </concept>
+      <concept>
+        <code value="C48193"/>
+        <display value="GENERATOR"/>
+      </concept>
+      <concept>
+        <code value="C42937"/>
+        <display value="GLOBULE"/>
+      </concept>
+      <concept>
+        <code value="C45416"/>
+        <display value="GRAFT"/>
+      </concept>
+      <concept>
+        <code value="C42938"/>
+        <display value="GRANULE"/>
+      </concept>
+      <concept>
+        <code value="C42903"/>
+        <display value="GRANULE, DELAYED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42909"/>
+        <display value="GRANULE, EFFERVESCENT"/>
+      </concept>
+      <concept>
+        <code value="C42939"/>
+        <display value="GRANULE, FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42940"/>
+        <display value="GRANULE, FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42921"/>
+        <display value="GRANULE, FOR SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42941"/>
+        <display value="GUM"/>
+      </concept>
+      <concept>
+        <code value="C42894"/>
+        <display value="GUM, CHEWING"/>
+      </concept>
+      <concept>
+        <code value="C42978"/>
+        <display value="GUM, RESIN"/>
+      </concept>
+      <concept>
+        <code value="C42942"/>
+        <display value="IMPLANT"/>
+      </concept>
+      <concept>
+        <code value="C42944"/>
+        <display value="INHALANT"/>
+      </concept>
+      <concept>
+        <code value="C60931"/>
+        <display value="INJECTABLE, LIPOSOMAL"/>
+      </concept>
+      <concept>
+        <code value="C42946"/>
+        <display value="INJECTION"/>
+      </concept>
+      <concept>
+        <code value="C42914"/>
+        <display value="INJECTION, EMULSION"/>
+      </concept>
+      <concept>
+        <code value="C42950"/>
+        <display value="INJECTION, LIPID COMPLEX"/>
+      </concept>
+      <concept>
+        <code value="C42974"/>
+        <display value="INJECTION, POWDER, FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42976"/>
+        <display value="INJECTION, POWDER, FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42977"/>
+        <display value="INJECTION, POWDER, FOR SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42959"/>
+        <display value="INJECTION, POWDER, LYOPHILIZED, FOR LIPOSOMAL SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42957"/>
+        <display value="INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42958"/>
+        <display value="INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42956"/>
+        <display value="INJECTION, POWDER, LYOPHILIZED, FOR SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42945"/>
+        <display value="INJECTION, SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42899"/>
+        <display value="INJECTION, SOLUTION, CONCENTRATE"/>
+      </concept>
+      <concept>
+        <code value="C42995"/>
+        <display value="INJECTION, SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42926"/>
+        <display value="INJECTION, SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42951"/>
+        <display value="INJECTION, SUSPENSION, LIPOSOMAL"/>
+      </concept>
+      <concept>
+        <code value="C42988"/>
+        <display value="INJECTION, SUSPENSION, SONICATED"/>
+      </concept>
+      <concept>
+        <code value="C60933"/>
+        <display value="INSERT"/>
+      </concept>
+      <concept>
+        <code value="C42922"/>
+        <display value="INSERT, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C47915"/>
+        <display value="INTRAUTERINE DEVICE"/>
+      </concept>
+      <concept>
+        <code value="C42947"/>
+        <display value="IRRIGANT"/>
+      </concept>
+      <concept>
+        <code value="C42948"/>
+        <display value="JELLY"/>
+      </concept>
+      <concept>
+        <code value="C47916"/>
+        <display value="KIT"/>
+      </concept>
+      <concept>
+        <code value="C45413"/>
+        <display value="LINER, DENTAL"/>
+      </concept>
+      <concept>
+        <code value="C42949"/>
+        <display value="LINIMENT"/>
+      </concept>
+      <concept>
+        <code value="C42952"/>
+        <display value="LIPSTICK"/>
+      </concept>
+      <concept>
+        <code value="C42953"/>
+        <display value="LIQUID"/>
+      </concept>
+      <concept>
+        <code value="C60934"/>
+        <display value="LIQUID, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C29167"/>
+        <display value="LOTION"/>
+      </concept>
+      <concept>
+        <code value="C60957"/>
+        <display value="LOTION, AUGMENTED"/>
+      </concept>
+      <concept>
+        <code value="C60958"/>
+        <display value="LOTION/SHAMPOO"/>
+      </concept>
+      <concept>
+        <code value="C42955"/>
+        <display value="LOZENGE"/>
+      </concept>
+      <concept>
+        <code value="C29269"/>
+        <display value="MOUTHWASH"/>
+      </concept>
+      <concept>
+        <code value="C42965"/>
+        <display value="OIL"/>
+      </concept>
+      <concept>
+        <code value="C42966"/>
+        <display value="OINTMENT"/>
+      </concept>
+      <concept>
+        <code value="C60984"/>
+        <display value="OINTMENT, AUGMENTED"/>
+      </concept>
+      <concept>
+        <code value="C47887"/>
+        <display value="PACKING"/>
+      </concept>
+      <concept>
+        <code value="C42967"/>
+        <display value="PASTE"/>
+      </concept>
+      <concept>
+        <code value="C42907"/>
+        <display value="PASTE, DENTIFRICE"/>
+      </concept>
+      <concept>
+        <code value="C60985"/>
+        <display value="PASTILLE"/>
+      </concept>
+      <concept>
+        <code value="C42968"/>
+        <display value="PATCH"/>
+      </concept>
+      <concept>
+        <code value="C42923"/>
+        <display value="PATCH, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42911"/>
+        <display value="PATCH, EXTENDED RELEASE, ELECTRICALLY CONTROLLED"/>
+      </concept>
+      <concept>
+        <code value="C42969"/>
+        <display value="PELLET"/>
+      </concept>
+      <concept>
+        <code value="C42943"/>
+        <display value="PELLET, IMPLANTABLE"/>
+      </concept>
+      <concept>
+        <code value="C42918"/>
+        <display value="PELLETS, COATED, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C25394"/>
+        <display value="PILL"/>
+      </concept>
+      <concept>
+        <code value="C42970"/>
+        <display value="PLASTER"/>
+      </concept>
+      <concept>
+        <code value="C47913"/>
+        <display value="POULTICE"/>
+      </concept>
+      <concept>
+        <code value="C42972"/>
+        <display value="POWDER"/>
+      </concept>
+      <concept>
+        <code value="C42908"/>
+        <display value="POWDER, DENTIFRICE"/>
+      </concept>
+      <concept>
+        <code value="C42973"/>
+        <display value="POWDER, FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42975"/>
+        <display value="POWDER, FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42961"/>
+        <display value="POWDER, METERED"/>
+      </concept>
+      <concept>
+        <code value="C60988"/>
+        <display value="RING"/>
+      </concept>
+      <concept>
+        <code value="C42979"/>
+        <display value="RINSE"/>
+      </concept>
+      <concept>
+        <code value="C42980"/>
+        <display value="SALVE"/>
+      </concept>
+      <concept>
+        <code value="C42981"/>
+        <display value="SHAMPOO"/>
+      </concept>
+      <concept>
+        <code value="C42982"/>
+        <display value="SHAMPOO, SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42983"/>
+        <display value="SOAP"/>
+      </concept>
+      <concept>
+        <code value="C42986"/>
+        <display value="SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C42898"/>
+        <display value="SOLUTION, CONCENTRATE"/>
+      </concept>
+      <concept>
+        <code value="C42987"/>
+        <display value="SOLUTION, FOR SLUSH"/>
+      </concept>
+      <concept>
+        <code value="C60994"/>
+        <display value="SOLUTION, GEL FORMING / DROPS"/>
+      </concept>
+      <concept>
+        <code value="C42935"/>
+        <display value="SOLUTION, GEL FORMING, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C60992"/>
+        <display value="SOLUTION/ DROPS"/>
+      </concept>
+      <concept>
+        <code value="C47912"/>
+        <display value="SPONGE"/>
+      </concept>
+      <concept>
+        <code value="C42989"/>
+        <display value="SPRAY"/>
+      </concept>
+      <concept>
+        <code value="C42962"/>
+        <display value="SPRAY, METERED"/>
+      </concept>
+      <concept>
+        <code value="C42990"/>
+        <display value="SPRAY, SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42991"/>
+        <display value="STICK"/>
+      </concept>
+      <concept>
+        <code value="C47914"/>
+        <display value="STRIP"/>
+      </concept>
+      <concept>
+        <code value="C42993"/>
+        <display value="SUPPOSITORY"/>
+      </concept>
+      <concept>
+        <code value="C42924"/>
+        <display value="SUPPOSITORY, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42994"/>
+        <display value="SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42925"/>
+        <display value="SUSPENSION, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C60995"/>
+        <display value="SUSPENSION/ DROPS"/>
+      </concept>
+      <concept>
+        <code value="C47889"/>
+        <display value="SUTURE"/>
+      </concept>
+      <concept>
+        <code value="C47898"/>
+        <display value="SWAB"/>
+      </concept>
+      <concept>
+        <code value="C42996"/>
+        <display value="SYRUP"/>
+      </concept>
+      <concept>
+        <code value="C42998"/>
+        <display value="TABLET"/>
+      </concept>
+      <concept>
+        <code value="C42893"/>
+        <display value="TABLET, CHEWABLE"/>
+      </concept>
+      <concept>
+        <code value="C42897"/>
+        <display value="TABLET, COATED"/>
+      </concept>
+      <concept>
+        <code value="C60997"/>
+        <display value="TABLET, COATED PARTICLES"/>
+      </concept>
+      <concept>
+        <code value="C42905"/>
+        <display value="TABLET, DELAYED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42997"/>
+        <display value="TABLET, DELAYED RELEASE PARTICLES"/>
+      </concept>
+      <concept>
+        <code value="C42910"/>
+        <display value="TABLET, EFFERVESCENT"/>
+      </concept>
+      <concept>
+        <code value="C42927"/>
+        <display value="TABLET, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42931"/>
+        <display value="TABLET, FILM COATED"/>
+      </concept>
+      <concept>
+        <code value="C42930"/>
+        <display value="TABLET, FILM COATED, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C61004"/>
+        <display value="TABLET, FOR SOLUTION"/>
+      </concept>
+      <concept>
+        <code value="C61005"/>
+        <display value="TABLET, FOR SUSPENSION"/>
+      </concept>
+      <concept>
+        <code value="C42964"/>
+        <display value="TABLET, MULTILAYER"/>
+      </concept>
+      <concept>
+        <code value="C42963"/>
+        <display value="TABLET, MULTILAYER, EXTENDED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42999"/>
+        <display value="TABLET, ORALLY DISINTEGRATING"/>
+      </concept>
+      <concept>
+        <code value="C61006"/>
+        <display value="TABLET, ORALLY DISINTEGRATING, DELAYED RELEASE"/>
+      </concept>
+      <concept>
+        <code value="C42985"/>
+        <display value="TABLET, SOLUBLE"/>
+      </concept>
+      <concept>
+        <code value="C42992"/>
+        <display value="TABLET, SUGAR COATED"/>
+      </concept>
+      <concept>
+        <code value="C47892"/>
+        <display value="TAMPON"/>
+      </concept>
+      <concept>
+        <code value="C47897"/>
+        <display value="TAPE"/>
+      </concept>
+      <concept>
+        <code value="C43000"/>
+        <display value="TINCTURE"/>
+      </concept>
+      <concept>
+        <code value="C43001"/>
+        <display value="TROCHE"/>
+      </concept>
+      <concept>
+        <code value="C43002"/>
+        <display value="UNASSIGNED"/>
+      </concept>
+      <concept>
+        <code value="C43003"/>
+        <display value="WAFER"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
+
