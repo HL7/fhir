@@ -78,7 +78,16 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="NewBundle">
       <translation lang="en">NewBundle</translation>
     </item>
+    <item id="CareActivity">
+        <translation lang="en">CareActivity</translation>
+    </item>
     <item id="CarePlan">
+        <translation lang="en">CarePlan</translation>
+        <translation lang="zh">护理计划</translation>
+        <translation lang="es">PlanCuidado</translation>
+        <translation lang="fr">PlanDeSoins</translation>
+    </item>
+    <item id="CarePlan2">
         <translation lang="en">CarePlan</translation>
         <translation lang="zh">护理计划</translation>
         <translation lang="es">PlanCuidado</translation>
@@ -221,6 +230,12 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">家族病史</translation>
         <translation lang="es">AntecedentesFamiliares</translation>
         <translation lang="fr">AntécédentsFamiliaux</translation>
+    </item>
+    <item id="Goal">
+        <translation lang="en">Goal</translation>
+    </item>
+    <item id="GoalRequest">
+        <translation lang="en">GoalRequest</translation>
     </item>
     <item id="Subscription">
         <translation lang="en">Subscription</translation>
