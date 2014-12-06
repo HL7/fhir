@@ -15,10 +15,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9960</WindowHeight>
+  <WindowHeight>13720</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>8244</WindowTopX>
-  <WindowTopY>2380</WindowTopY>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -80,7 +80,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="314"/>
@@ -436,36 +436,39 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
     <Cell><Data ss:Type="String">in progress</Data></Cell>
-    <Cell><Data ss:Type="String">review</Data></Cell>
-    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">aborted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUseRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
     <Cell><Data ss:Type="String">in progress</Data></Cell>
-    <Cell><Data ss:Type="String">review</Data></Cell>
-    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">aborted</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
     <Cell><Data ss:Type="String">in progress</Data></Cell>
-    <Cell><Data ss:Type="String">review</Data></Cell>
-    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
     <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
@@ -486,27 +489,15 @@
     <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CareActivity.status</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not started</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">scheduled</Data></Cell>
-    <Cell><Data ss:Type="String">in progress</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell><Data ss:Type="String">on hold</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal.status</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">achieved</Data></Cell>
     <Cell><Data ss:Type="String">sustaining</Data></Cell>
     <Cell><Data ss:Type="String">cancelled</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">GoalRequest.status</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">achieved</Data></Cell>
-    <Cell><Data ss:Type="String">sustaining</Data></Cell>
-    <Cell><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan2.status</Data></Cell>
@@ -529,11 +520,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>26</TopRowVisible>
+   <TopRowVisible>14</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>52</ActiveRow>
+     <ActiveRow>44</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

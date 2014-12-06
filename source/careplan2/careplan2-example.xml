@@ -4,12 +4,7 @@
   <text>
     <status value="additional"></status>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.
-        Some Notes: </p>
-      <ul>
-        <li>It would be good to have some way of specifying/coding a goal. e.g. what the target weight is</li>
-        <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
-      </ul>
+      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.</p>
     </div>
   </text>
   <contained>
@@ -65,15 +60,15 @@
     </role>
     <member>
       <reference value="#pr1"/>
-      <display value="Dorothy Dietition"/>
+      <display value="Dorothy Dietitian"/>
     </member>
   </participant>
   <goal>
     <reference value="Goal/12345"/>
-    <display value="Target weight is 80 kg. Note: be nice if this could be coded"/>
+    <display value="Target weight is 80 kg."/>
   </goal>
   <activity>
-    <reference value="CareActivity/12345"/>
+    <reference value="Procedure/12345"/>
   </activity>
 </CarePlan2>
 

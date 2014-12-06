@@ -25,15 +25,15 @@
    <recipient>
     <reference value="Practitioner/21"/>
   </recipient>
-  <messagePart>
+  <payload>
     <contentString value="Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"/>
-  </messagePart>
-  <messagePart>
+  </payload>
+  <payload>
     <!--Reference to the lab result -->
     <contentReference>
       <reference value="Observation/643666aa12f"/>
     </contentReference>
-  </messagePart>
+  </payload>
   <status value="completed"/>
   <sent value="2014-12-12T18:01:10-08:00"/>
   <subject>

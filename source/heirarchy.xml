@@ -139,11 +139,9 @@ todo: compartments
         <page title="Clinical" filename="clinical.html">
             <page type="resource" resource="AllergyIntolerance"/>
             <page type="resource" resource="Condition"/>
-            <page type="resource" resource="CareActivity"/>
             <page type="resource" resource="CarePlan"/>
             <page type="resource" resource="CarePlan2"/>
             <page type="resource" resource="Goal"/>
-            <page type="resource" resource="GoalRequest"/>
             <page type="resource" resource="ClinicalAssessment"/>
             <page type="resource" resource="ReferralRequest"/>
             <page type="resource" resource="Procedure"/>
