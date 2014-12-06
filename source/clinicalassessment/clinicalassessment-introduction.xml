@@ -19,16 +19,16 @@ assessment can explicit reference both care plans (preceeding and resulting) and
 assessment that this assessment follows on from.
 </p>
 <p>
-Unlike many other resources, thjere is little prior art with regard to exchanging records of 
+Unlike many other resources, there is little prior art with regard to exchanging records of 
 clinical assessments. For this reason, this resource should be regarded as particularly 
 prone to ongoing revision. In terms of scope and usage, the Patient Care workgroup wishes to
 draw the attention of reviewers and implementers to the following issues: 
 </p>
 <ul>
- <li>When is an existing clinical assessment revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the assesment? (e.g. for a 'provisional' assessment, which bit is provisional?</li>
+ <li>When is an existing clinical assessment revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the assesment? (e.g. for a 'provisional' assessment, which bit is provisional?)</li>
  <li>This structure doesn't differentiate between a working and a final diagnosis. Given an answer to the previous question, should it?</li>
  <li>Further clarify around the relationship between care plan and assessment is needed. Both answers to the previous questions and ongoing discussions around revisions to the care plan will influence the design of clinical assessment</li>
- <li>Should prognosis be representned, and if so, how much structure should it have?</li>
+ <li>Should prognosis be represented, and if so, how much structure should it have?</li>
  <li>Should an assessment reference other assesments that are related? (how related?)</li>
  <li>Investigations - the specification needs a good value set for the code for the group, and will be considering the name "investigations" further</li>
 </ul> 
@@ -37,9 +37,11 @@ draw the attention of reviewers and implementers to the following issues:
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-A clinical assessment should not be confused with a related concept often called "assessment", which is Asessment Tools such as Apgar (also known as "Assessment Scales"). 
-These are represented as <a href="observation.html">Observations</a>, and <a href="questionnaire.html">Questionnaires</a> may be used to help 
-generate these. Clinical Assessments will often refer to these assessment tools as one of the investigations that was performed.
+There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales"),
+and this is different to the scope of the "clinical assessment" resource. Assessment tools such as Apgar are represented as 
+<a href="observation.html">Observations</a>, and <a href="questionnaire.html">Questionnaires</a> may be used to help 
+generate these. Clinical Assessments will often refer to these assessment tools as one of the investigations that was performed
+during the assessment process.
 </p>
 </div>
 

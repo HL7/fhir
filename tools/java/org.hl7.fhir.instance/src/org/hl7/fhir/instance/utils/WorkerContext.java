@@ -51,13 +51,13 @@ public class WorkerContext {
 	public static class ExtensionDefinitionResult {
 	  private ExtensionDefinition ex;
     private ElementDefinition ed;
-    private boolean local;
+    private String path;
 
-    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed, boolean local) {
+    public ExtensionDefinitionResult(ExtensionDefinition ex, ElementDefinition ed, String path) {
 	    super();
 	    this.ex = ex;
 	    this.ed = ed;
-	    this.local = local;
+	    this.path = path;
 	  }
 
     public ExtensionDefinition getExtensionDefinition() {
@@ -69,7 +69,7 @@ public class WorkerContext {
     }
 
     public boolean isLocal() {
-      return local;
+      return path.contains(".");
     }
 
   }
@@ -399,14 +399,28 @@ public class WorkerContext {
 
 	public ExtensionDefinitionResult getExtensionDefinition(ExtensionDefinitionResult context, String url) throws Exception {
 	  if (context != null && (!url.startsWith("http:") || !url.startsWith("https:"))) {
-	    throw new Exception("not supported yet");
+	    String path = context.path+"."+url;
+      ElementDefinition match = null;
+	    for (ElementDefinition ed : context.ex.getElement()) {
+        if (ed.getPath().equals(path))
+	        match  = ed;
+	    }
+      return match == null ? null : new ExtensionDefinitionResult(context.ex, match, path);	    
 	  } else if (url.contains("#")) {
-      String[] parts = url.split("\\#");	      
-      ExtensionDefinition res = extensionDefinitions.get(parts[0]);
-      return res == null ? null : new ExtensionDefinitionResult(res, getElement(url, res.getElement(), parts[1]), false);      
+	    String[] parts = url.split("\\#");
+	    ExtensionDefinition res = extensionDefinitions.get(parts[0]);
+	    if (res == null)
+	      return null;
+      String path = "Extension."+parts[1];
+      ElementDefinition match = null;
+      for (ElementDefinition ed : res.getElement()) {
+        if (ed.getPath().equals(path))
+          match  = ed;
+      }
+      return match == null ? null : new ExtensionDefinitionResult(res, match, path);     
 	  } else {
 	  ExtensionDefinition res = extensionDefinitions.get(url);
-	    return res == null ? null : new ExtensionDefinitionResult(res, res.getElement().get(0), false);
+	    return res == null ? null : new ExtensionDefinitionResult(res, res.getElement().get(0), res.getElement().get(0).getPath());
 	  }
   }
 

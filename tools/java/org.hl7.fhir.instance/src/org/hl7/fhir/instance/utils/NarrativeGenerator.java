@@ -1265,8 +1265,29 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private Integer countMembership(ValueSet vs) {
-    // TODO Auto-generated method stub
-    return null;
+    int count = 0;
+    if (vs.hasDefine())
+      count = count + countConcepts(vs.getDefine().getConcept());
+    if (vs.hasCompose()) {
+      if (vs.getCompose().hasExclude())
+        throw new Error("Not done yet"); // can't simply subtract. do an expand?
+      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        if (inc.hasFilter())
+          return null;
+        if (!inc.hasConcept())
+          return null;
+        count = count + inc.getConcept().size();
+      }
+    }
+    return count;
+  }
+
+  private int countConcepts(List<ConceptDefinitionComponent> list) {
+    int count = list.size();
+    for (ConceptDefinitionComponent c : list)
+      if (c.hasConcept())
+        count = count + countConcepts(c.getConcept());
+    return count;
   }
 
   private boolean generateExpansion(XhtmlNode x, ValueSet vs) {

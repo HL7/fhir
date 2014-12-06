@@ -260,7 +260,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private WorkerContext context;
   private ProfileUtilities utilities;
   private ValueSetExpansionCache cache;
-  private ExtensionDefinitionResult fakeExtension = new ExtensionDefinitionResult(null, null, false);
+  private ExtensionDefinitionResult fakeExtension = new ExtensionDefinitionResult(null, null, null);
   
   public InstanceValidator(WorkerContext context) throws Exception {
     super();

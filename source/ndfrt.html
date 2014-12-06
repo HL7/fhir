@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Using NDF-RT with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%txheader%>
+
+<h2>Using NDF-RT (National Drug File – Reference Terminology) with FHIR</h2>
+
+<h3>Summary</h3>
+
+<table class="grid">
+ <tr><td>Source</td><td>National Drug File – Reference Terminology prepared by <a href="http://www.va.gov/health/">Veterans Health Administration</a>, and distributed as part of <a href="http://www.nlm.nih.gov/research/umls/">UMLS</a> by the <a href="http://www.nlm.nih.gov/">NLM</a></td></tr>
+ <tr><td>System</td><td>The URI to identify NDF-RT is not resolved. As a temporary arrangement, the URL "<code>http://hl7.org/fhir/ndfrt</code>" is to be used</td></tr>
+ <tr><td>Version</td><td>A version is not needed. Use the date of release of the UMLS release for the version of NDF-RT if a version is desired</td></tr>
+ <tr><td>Code</td><td>The NUI is used for the code value for an NDF-RT concept</td></tr>
+ <tr><td>Display</td><td>??</td></tr>
+ <tr><td>Filter Properties</td><td>None are described yet</td></tr>
+</table>
+
+<p>
+<i>This arrangement is temporary while the NDF-RT and FHIR teams discuss the 
+long term arrangements</i>. Further documentation can be <a href="http://evs.nci.nih.gov/ftp1/NDF-RT/NDF-RT%20Documentation.pdf">found 
+in evs</a>.
+</p>
+
+<h3>Version Issues</h3>
+<p>
+NDF-RT is released as part of UMLS, and therefore erach successive release has the date of the UMLS release as it's version.
+</p>
+
+<h3>Copyright/License Issues</h3>
+
+<p>
+NDF-RT has no copyright acknowledgement needed, but users must adhere to the UMLS license. 
+</p>
+
+<h3>NDF-RT Filter Properties</h3>
+
+
+<p>
+This section documents the property filters that can be used with the SNOMED CT
+code system in value set composition statements.
+</p>
+
+
+<h4>By Subsumption</h4>
+
+<table class="grid">
+ <tr><td>Description</td><td>Select a set of concepts based on subsumption testing</td></tr>
+ <tr><td>Property Name</td><td>concept</td></tr>
+ <tr><td>Operations Allowed</td><td>is-a</td></tr>
+ <tr><td>Values Allowed</td><td>NUI</td></tr>
+ <tr><td>Comments</td><td>Includes all concepts that have a transitive is-a relationship with the concept Id provided in the value as an NUI</td></tr>
+</table>
+
+<p>
+Others Yet to be done.
+</p>
+
+<h3>Implicit Value Sets</h3>
+
+<p>
+Yet to be done.
+</p>
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>
