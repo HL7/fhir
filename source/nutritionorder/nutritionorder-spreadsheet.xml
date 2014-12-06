@@ -6323,7 +6323,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Enteral Bolus</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Enteral Bolus</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Nutrition Order Enteral Bolus Feeding Canonical Example</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">enteralbolus</Data></Cell>
@@ -6332,7 +6332,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Enteral Continuous Feeding</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Enteral Continuous Feeding</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Nutrition Order Enteral Continuous Feeding Canonical Example </Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">enteralcontinuous</Data></Cell>
@@ -6341,7 +6341,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Infant Enteral</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">!Infant Enteral</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Nutrition Order Infant Enteral Feeding Canonical Example </Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">infantenteral</Data></Cell>
@@ -6697,8 +6697,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
