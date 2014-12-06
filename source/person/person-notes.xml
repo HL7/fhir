@@ -1,7 +1,51 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h2>
-Notes:
+  <h2>De-normalized Data</h2>
+  <p>
+    Most of the properties of the Person resource are replicated within the other resources that they
+    are shared with. This is intentional and highlights that the "disconnectedness" of the resources.
+  </p>
+  <p>
+    Not many systems actually implement a shared Person record, and as such the values DO become out of
+    sync with each other. The inclusion of this resource does permit a capability for systems to identify
+    other instances of this actual person's data via a centralized registry that can assist in keeping things
+    up to date.
+  </p>
+  
+  <h2>
+    Person and Linking
+  </h2>
+  <p>
+  The <i>link</i> element is used to related resources under a common person record. 
+  This element supports two primary scenarios where other resources refer to the same person resource.
+  </p>
+
+  <h2>
+  Cross-Domain Patient Directory
+  </h2>
+  <p>
+    
+    In a data sharing network, finding the location of patient records across different systems is a 
+    necessary pre-requisite for accessing external patient data. Using the <i>link</i> element, systems associate
+    patient resources from different organizations. The assuranceLevel associated with the <i>link</i> provides
+    a way for a system to qualify its confidence in the asserted <i>link</i>. For example, a relationship from
+    the person to a patient using a probabilistic matching algorithm may be represented using a <i>link</i> with
+    an assurance level of level1, while a relationship established using a government-issued photo ID may
+    be created with an assurance level of level3.
+  </p>
+  
+  <h2>
+    Cross-Domain Provider Directory
+  </h2>
+  <p>
+    Similarly, providers working in multiple healthcare service settings may be linked across different 
+    organizations using the <i>link</i> element. The various practitioner resources can be related using a common 
+    person resource with a <i>link</i> for each of the practitioner resources located in other organizations.
+  </p>
+
+
+  <h2>
+Original PA Notes
 </h2>
 <ul>
 <li>The Person resource exists to enable Person registries that keep track of Persons regardless of their role. 

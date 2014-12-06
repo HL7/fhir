@@ -14,16 +14,15 @@ and multipleBirthInd (SubjectofCare).
 </p>
 -->
 <p>
-The Person resource is the minimal set of information to carry about a person 
-regardless of their role: the type of activity that a person is playing (patient, next of kin, practitioner, 
-employee, etc.). As such is it is suitable for Person registries that keep track of Persons regardless 
-of their role. The Person resource is referred to for person details for a variety of resources 
-that represent a particular role, such as SubjectofCare (a.k.a Patient), Practitioner and Agent (a
-person acting on behalf of an organization). Very few attributes are common to any role and
-so the <i>Person</i> resource is kept lean. Most attributes are expected to be found in these other 
-resources. (e.g.: guardian on SubjectofCare, contact parties on SubjectOfCare &amp; Practitioner, 
-and multiple birth flag on SubjectofCare).
+  A natural person has identity outside of a healthcare setting. The Person resource is used to capture this
+  information and to relate the person as an individual to other resources that do have a health-related context.
 </p>
+  <p>
+    For example, while a patient resource may be created and maintained by each organization providing care for that person as a patient, a person resource provides a mechanism for linking patient resources across different organizations and their unique patient identity domains. Additionally, a person resource may be used by organizations to allow patients to manage their demographic data while maintaining stricter control of the associated patient resource data.
+  </p>
+  <p>
+    This resource is not referenced by any other resources.
+  </p>
 </div>
 
 <!-- (recommended): 

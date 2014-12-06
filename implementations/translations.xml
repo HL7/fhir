@@ -416,6 +416,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Paciente</translation>
         <translation lang="fr">Patient</translation>
     </item>
+    <item id="Person">
+        <translation lang="en">Person</translation>
+    </item>
      <item id="PaymentNotice">
         <translation lang="en">PaymentNotice</translation>
     </item>
