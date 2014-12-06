@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10080</WindowHeight>
-  <WindowWidth>27165</WindowWidth>
+  <WindowHeight>7785</WindowHeight>
+  <WindowWidth>10380</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -108,7 +108,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="112" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="113" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -405,6 +405,11 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProfessionalClaim</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">enterer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -576,7 +581,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>67</ActiveRow>
+     <ActiveRow>70</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

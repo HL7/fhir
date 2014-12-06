@@ -447,6 +447,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="en">ProcedureRequest</translation>
         <translation lang="fr">ProcédureDemande</translation>
     </item>
+    <item id="ProfessionalClaim">
+        <translation lang="en">ProfessionalClaim</translation>
+    </item>
     <item id="Profile">
         <translation lang="en">Profile</translation>
         <translation lang="zh">规范</translation>
