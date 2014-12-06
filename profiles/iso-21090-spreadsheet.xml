@@ -17,7 +17,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -980,7 +980,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/iso21090-</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/ExtensionDefinition/iso21090-"><Data
+      ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/iso21090-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
@@ -1023,6 +1024,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5839,7 +5841,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7134,7 +7135,7 @@
     <Cell ss:StyleID="s95"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">#name-part-qualifier</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
@@ -7150,7 +7151,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Codes specifying the type of probability distribution</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">#probability-distribution-type</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -7166,7 +7167,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Uses of an address not included in Address.use</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">#postal-address-use</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -7182,7 +7183,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">A collection of codes specifying why a valid value is not present</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/NullFlavor</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -7194,9 +7195,9 @@
     <Cell ss:StyleID="s136"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">StringCoding</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">A coded representation for a string.  Could be codes for country in a country address part, codes for prefixes in a name part, etc.</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
@@ -7607,6 +7608,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7626,7 +7628,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
