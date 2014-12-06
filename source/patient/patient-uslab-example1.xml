@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+file: diagnosticorder-uslab-example1.xml
+id: uslab-example1
+Name: USLabOrder DiagnosticReport Example1 
+Description: USLabOrder DiagnosticReport Canonical Example: Childhood Blood Lead Order
+
+Published by HL7 Orders and Observation Work Group
+Authored by: Eric M Haas  Health eData Inc.
+
+  Narrative: A male child of age 3 is taken by his aunt, who is his legal guardian, to be seen by a physician. The child has his blood tested for blood lead. A blood sample is taken from his left finger, using a capillary collection method on a filter paper card. The specimen collection date is 6/15/2012; date of result is 6/17/2012. Both his medical record ID and SSN are included in the patient information along with name, DOB, race/ethnicity, current and home address, and his aunt's business, home and mobile phone number and email address. The lab result is a blood lead level by electrothermal atomic absorption spectrophotometry (AAS) of 9.2 ug/dL and the jurisdiction threshold is 5.0 (reference range of 0.0-5.0). This results in an abnormal flag of “High”. University Hospital has an on-site lab and results blood level tests under the performing lab name of “University Hospital Chem Lab”. These results are sent to the local public health agency.  
+-->
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
+	<id value="uslab-example1"/>
+		<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<!--table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Peter James <b>Chalmers</b> ("Jim")</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>534 Erewhon, Pleasantville, Vic, 3999</td>
+          </tr>
+          <tr>
+            <td>Contacts</td>
+            <td>Home: unknown. Work: (03) 5555 6473</td>
+          </tr>
+          <tr>
+            <td>Id</td>
+            <td>MRN: 12345 (Acme Healthcare)</td>
+          </tr>
+        </tbody>
+      </table-->
+			<ul>
+				<li>file: patient-uslab-example1.xml</li>
+				<li> id: uslab-example1</li>
+				<li> Name: USLab Patient Example1 </li>
+				<li>Description: USLab Patient Profile Canonical Example: Todd Lerr</li>
+			</ul>
+		</div>
+	</text>
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-race">
+		<valueCodeableConcept>
+			<coding>
+				<code value="2106-3"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-ethnicity">
+		<valueCodeableConcept>
+			<coding>
+				<code value="2135-2"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+
+	<!-- EH: limit to single identifier that orderer can match to patient system can be URL -->
+	<identifier>
+		<use value="usual"/>
+		<system value="urn:oid:2.16.840.1.113883.3.72.5.30.2"/>
+		<value value="18547545"/>
+	</identifier>
+	<!--name use limited to official and anonymous-->
+	<name>
+		<use value="official"/>
+		<family value="Lerr"/>
+		<given value="Todd"/>
+		<given value="G."/>
+		<suffix value="Jr"/>
+	</name>
+	<!-- use FHIR code system for male / female -->
+	<gender value="male"/>
+	<birthDate value="2012-06-07"/>
+	<deceasedBoolean value="false"/>
+	<address>
+		<use value="home"/>
+		<line value="123 North 102nd Street"/>
+		<line value="Apt 4d"/>
+		<city value="Harrisburg"/>
+		<state value="PA"/>
+		<postalCode value="17102"/>
+		<country value="USA"/>
+	</address>
+</Patient>

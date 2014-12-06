@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+file: spec-uslab-example1.xml
+ id: uslab-example1
+ Name: USLab Specimen Example1
+Description: USLab Specimen Profile Canonical Example: Whole Blood
+
+Published by HL7 Orders and Observation Work Group
+Authored by: Eric M Haas  Health eData Inc.
+
+  Narrative: A male child of age 3 is taken by his aunt, who is his legal guardian, to be seen by a physician. The child has his blood tested for blood lead. A  Whole blood sample  is taken from arm.. The specimen collection date is 6/15/2012; date of result is 6/17/2012. Both his medical record ID and SSN are included in the patient information along with name, DOB, race/ethnicity, current and home address, and his aunt's business, home and mobile phone number and email address. The lab result is a blood lead level by electrothermal atomic absorption spectrophotometry (AAS) of 9.2 ug/dL and the jurisdiction threshold is 5.0 (reference range of 0.0-5.0). This results in an abnormal flag of “High”. University Hospital has an on-site lab and results blood level tests under the performing lab name of “Acme Labs”. These results are sent to the local public health agency.  
+-->
+<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/specimen.xsd">
+	<id value="uslab-example1"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li>file: spec-uslab-example1.xml</li>
+				<li> id: uslab-example1</li>
+				<li> Name: USLab Specimen Example1</li>
+				<li>Description: USLab Specimen Profile Canonical Example: Whole Blood</li>
+			</ul>
+		</div>
+	</text>
+	<!-- a specimen identifier - e.g. assigned when the specimen was taken by the orderer/placer  use the accession number for the filling lab -->
+	<!--Placer ID-->
+	<identifier>
+		<use value="official"/>
+		<label value="Placer Specimen ID"/>
+		<system value="http://ehr.goodhealthclinic.org/identifiers/specimen"/>
+		<value value="SID123"/>
+	</identifier>
+	<!--Filler ID moved to accsession number 
+	<identifier>
+		<use value="official"></use>
+		<label  value="Filler Specimen ID"></label>
+		<system value="http://lis.acmelabs.org/identifiers/specimen"/>
+		<value value="SID456"/>
+	</identifier>
+-->
+	<!--
+   Type is a loosely defined field because there is such a lot of variation in how it is used.
+   The principal variation is how much information that could be represented elsewhere is also 
+   represented here. For instance, here's some possible types:
+     lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
+     transfusion bag of blood (+ container.type) 
+     Peritoneal lavage        (+ collection.sourceSite)
+   If the type includes other fields, it would be normal not to populate the other fields
+
+   Note that this practice is so widespread that it's pointless to try and stop it  :( -->
+	<!--choice of SNOMED CT concept code...-->
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<!--EH: Note to balloters  - lots of choices for whole blood I chose this.-->
+			<code value="122555007"/>
+			<display value="Venous blood specimen"/>
+		</coding>
+		<!-- and or local code-->
+		<coding>
+			<system value="http://ehr.goodhealthclinic.org"/>
+			<code value="BLD"/>
+			<display value="Blood"/>
+		</coding>
+		<text value="Blood sample"/>
+	</type>
+	<!--Patient is required from core -->
+	<subject>
+		<reference value="Patient/uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<!-- accession identifier - e.g. assigned by the labaratory when it is received.
+     This is common, unlike specimen identifier -->
+	<accessionIdentifier>
+		<use value="official"/>
+		<system value="http://lis.acmelabs.org/identifiers/accession"/>
+		<value value="21041205000001"/>
+	</accessionIdentifier>
+	<collection>
+		<!-- the time of collection is required. Usually a point in time, but can be a period 
+      (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
+		<collectedDateTime value="2014-12-05"/>
+		<sourceSite>
+			<!--choice of SNOMED CT concept code...-->
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<!--EH: Note to balloters  -  this is to demonstrate use of source for body site not really needed for blood draw.-->
+				<code value=" 53120007"/>
+				<display value="Arm"/>
+			</coding>
+			<!-- and or local code-->
+			<coding>
+				<system value="http://ehr.goodhealthclinic.org"/>
+				<code value="ARM"/>
+				<display value="Arm"/>
+			</coding>
+			<text value="Drawn from Arm"/>
+		</sourceSite>
+	</collection>
+</Specimen>

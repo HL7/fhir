@@ -13,12 +13,12 @@
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6810</WindowHeight>
+  <WindowHeight>9840</WindowHeight>
   <WindowWidth>19260</WindowWidth>
-  <WindowTopX>-60</WindowTopX>
-  <WindowTopY>915</WindowTopY>
+  <WindowTopX>2280</WindowTopX>
+  <WindowTopY>705</WindowTopY>
   <TabRatio>811</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1023,7 +1023,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1386,11 +1385,11 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -[4-9]</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -3</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.value</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1415,11 +1414,11 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -3</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -[4-9]</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3910,8 +3909,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3939,12 +3938,6 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R3C10:R102C10</Range>
    <Type>List</Type>
    <CellRangeList/>
@@ -3956,6 +3949,12 @@
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <AutoFilter x:Range="R1C4:R102C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6995,13 +6994,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>21</TabColorIndex>
-   <TopRowVisible>10</TopRowVisible>
-   <LeftColumnVisible>5</LeftColumnVisible>
+   <LeftColumnVisible>3</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7377,11 +7375,11 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -[4-9]</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -3</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.value</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7406,11 +7404,11 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -3</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">XTN -[4-9]</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.system</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.telecom.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
@@ -9981,14 +9979,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>40</TabColorIndex>
-   <Zoom>80</Zoom>
-   <TopRowVisible>15</TopRowVisible>
-   <LeftColumnVisible>3</LeftColumnVisible>
+   <Zoom>90</Zoom>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10016,12 +10013,6 @@
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C9</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R3C10:R105C10</Range>
    <Type>List</Type>
    <CellRangeList/>
@@ -10033,6 +10024,12 @@
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C9</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <AutoFilter x:Range="R1C4:R105C24"
    xmlns="urn:schemas-microsoft-com:office:excel">

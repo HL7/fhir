@@ -1,0 +1,26 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>This value set includes all ICD-9CM and  ICD-10CM concepts.  This content may not be published ( EH:Todo - whether and how can display this)</p>
+		</div>
+	</text>
+	<identifier value="http://hl7.org/fhir/vs/"/>
+	<name value="USlabConditonCodes"/>
+	<publisher value="HL7 Orders and Observation Work Group"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+	<description value="This value set includes all ICD-9CM and  ICD-10CM concepts and is part of the of the The USLabOrder and USLabReport Implementation Guides.  This content may not be published ( EH:Todo - whether and how can display this)"/>
+	<copyright value="This value set includes content from ICD-9 and ICD-10 , which is © Copyright World Health Organization (WHO), 2014. All Rights Reserved."/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html"/>
+		</include>
+		<include>
+			<system value="http://www.cms.gov/Medicare/Coding/ICD10/index.html"/>
+		</include>
+	</compose>
+</ValueSet>
