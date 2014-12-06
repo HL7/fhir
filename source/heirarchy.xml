@@ -168,6 +168,7 @@ todo: compartments
             <page type="resource" resource="Questionnaire"/>
             <page type="resource" resource="QuestionnaireAnswers"/>
             <page type="resource" resource="FamilyHistory"/>
+            <page type="resource" resource="VisionPrescription"/>
         </page>
         <page title="Administrative" filename="administration.html">
             <page type="resource" resource="Patient"/>

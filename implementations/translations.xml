@@ -598,6 +598,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="VisionClaim">
         <translation lang="en">VisionClaim</translation>
     </item>
+    <item id="VisionPrescription">
+        <translation lang="en">VisionPrescription</translation>
+    </item>
     <item id="VCFMeta">
         <translation lang="en">VCFMeta</translation>
         <translation lang="nl">VCFMeta</translation>

@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7785</WindowHeight>
-  <WindowWidth>22575</WindowWidth>
+  <WindowWidth>12735</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -499,6 +499,10 @@
     <Cell><Data ss:Type="String">enterer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -581,7 +585,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>37</TopRowBottomPane>
+   <TopRowBottomPane>91</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -589,7 +593,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>41</ActiveRow>
+     <ActiveRow>101</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
