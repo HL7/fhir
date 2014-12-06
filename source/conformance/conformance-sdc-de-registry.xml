@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Lloyd McKenzie (private) -->
 <Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
   <id value="sdc-de-registry"/>
   <text>
@@ -12,7 +11,7 @@
           <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
         </b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining and maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -52,57 +51,57 @@
           <tr>
             <th>DataElement</th>
             <td>
-              <a title="Allows a user to search for existing data elements" href="#DataElement-search-type">SHALL</a>
+              <a title="Allows a user to search for existing data elements" href="#DataElement-search-type">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific known data element" href="#DataElement-read">SHALL</a>
+              <a title="Allows retrieval of a specific known data element" href="#DataElement-read">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific version of a data element" href="#DataElement-vread">SHALL</a>
+              <a title="Allows retrieval of a specific version of a data element" href="#DataElement-vread">Yes</a>
             </td>
             <td>
-              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">SHALL</a>
+              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows" href="#DataElement-validate">SHOULD</a>
+              <a title="Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows" href="#DataElement-validate">Yes</a>
             </td>
             <td>
-              <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." href="#DataElement-create">SHALL</a>
+              <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." href="#DataElement-create">Yes</a>
             </td>
             <td>
-              <a title="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." href="#DataElement-update">SHALL</a>
+              <a title="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." href="#DataElement-update">Yes</a>
             </td>
             <td>
-              <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." href="#DataElement-delete">MAY</a>
+              <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." href="#DataElement-delete">Yes</a>
             </td>
           </tr>
           <tr>
             <th>ValueSet</th>
             <td>
-              <a title="Allows discovery of existing value sets for use in authoring data elements" href="#ValueSet-search-type">SHALL</a>
+              <a title="Allows discovery of existing value sets for use in authoring data elements" href="#ValueSet-search-type">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific value set referenced within a data element" href="#ValueSet-read">SHALL</a>
+              <a title="Allows retrieval of a specific value set referenced within a data element" href="#ValueSet-read">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a value set as referenced within a data element" href="#ValueSet-vread">SHALL</a>
+              <a title="Allows retrieval of a historical version of a value set as referenced within a data element" href="#ValueSet-vread">Yes</a>
             </td>
             <td>
-              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">SHALL</a>
+              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows verification that a value set is valid prior to submission - useful for some workflows." href="#ValueSet-validate">SHOULD</a>
+              <a title="Allows verification that a value set is valid prior to submission - useful for some workflows." href="#ValueSet-validate">Yes</a>
             </td>
             <td>
-              <a title="Allows definition of a new value set used by one or more data elements" href="#ValueSet-create">SHALL</a>
+              <a title="Allows definition of a new value set used by one or more data elements" href="#ValueSet-create">Yes</a>
             </td>
             <td>
-              <a title="Allows existing value sets referenced by one or more data elements to be maintained" href="#ValueSet-update">SHALL</a>
+              <a title="Allows existing value sets referenced by one or more data elements to be maintained" href="#ValueSet-update">Yes</a>
             </td>
             <td>
-              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">MAY</a>
+              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">Yes</a>
             </td>
           </tr>
         </tbody>
@@ -117,7 +116,6 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -127,7 +125,6 @@
               <a name="DataElement-search-type"> </a>
               <span>search-type</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows a user to search for existing data elements</p>
             </td>
@@ -137,7 +134,6 @@
               <a name="DataElement-read"> </a>
               <span>read</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific known data element</p>
             </td>
@@ -147,7 +143,6 @@
               <a name="DataElement-vread"> </a>
               <span>vread</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific version of a data element</p>
             </td>
@@ -157,7 +152,6 @@
               <a name="DataElement-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows review of changes to a data element over time</p>
             </td>
@@ -167,7 +161,6 @@
               <a name="DataElement-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
             </td>
@@ -177,7 +170,6 @@
               <a name="DataElement-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
             </td>
@@ -187,7 +179,6 @@
               <a name="DataElement-validate"> </a>
               <span>validate</span>
             </th>
-            <td>SHOULD</td>
             <td>
               <p>Allows a client to verify whether a particular new data element or revision of an existing data element would be accepted based on validation and other business rules.  Useful for some workflows</p>
             </td>
@@ -197,7 +188,6 @@
               <a name="DataElement-delete"> </a>
               <span>delete</span>
             </th>
-            <td>MAY</td>
             <td>
               <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
             </td>
@@ -210,7 +200,6 @@
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -220,7 +209,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#category">category</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -228,7 +216,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#code">code</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -236,7 +223,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#date">date</a>
             </th>
-            <td>SHALL</td>
             <td>date</td>
             <td/>
           </tr>
@@ -244,7 +230,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#description">description</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -252,7 +237,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#identifier">identifier</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -260,7 +244,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#name">name</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -268,7 +251,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#publisher">publisher</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -276,7 +258,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#status">status</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -284,7 +265,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/dataelement#version">version</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -292,7 +272,6 @@
             <th>
               <a href="http://hl7.org/fhir/ExtensionDefinition/11179-meaning">meaning</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -300,7 +279,6 @@
             <th>
               <a href="http://hl7.org/fhir/ExtensionDefinition/11179-objectClass">objectClass</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -308,7 +286,6 @@
             <th>
               <a href="http://hl7.org/fhir/ExtensionDefinition/11179-property">property</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -324,7 +301,6 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -334,7 +310,6 @@
               <a name="ValueSet-search-type"> </a>
               <span>search-type</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows discovery of existing value sets for use in authoring data elements</p>
             </td>
@@ -344,7 +319,6 @@
               <a name="ValueSet-read"> </a>
               <span>read</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific value set referenced within a data element</p>
             </td>
@@ -354,7 +328,6 @@
               <a name="ValueSet-vread"> </a>
               <span>vread</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
             </td>
@@ -364,7 +337,6 @@
               <a name="ValueSet-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows review of changes to a value set over time</p>
             </td>
@@ -374,7 +346,6 @@
               <a name="ValueSet-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows definition of a new value set used by one or more data elements</p>
             </td>
@@ -384,7 +355,6 @@
               <a name="ValueSet-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
             </td>
@@ -394,7 +364,6 @@
               <a name="ValueSet-validate"> </a>
               <span>validate</span>
             </th>
-            <td>SHOULD</td>
             <td>
               <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
             </td>
@@ -404,7 +373,6 @@
               <a name="ValueSet-delete"> </a>
               <span>delete</span>
             </th>
-            <td>MAY</td>
             <td>
               <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
             </td>
@@ -417,7 +385,6 @@
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -427,7 +394,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#code">code</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -435,7 +401,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#date">date</a>
             </th>
-            <td>SHALL</td>
             <td>date</td>
             <td/>
           </tr>
@@ -443,7 +408,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#description">description</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -451,7 +415,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#identifier">identifier</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -459,7 +422,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#name">name</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -467,7 +429,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#publisher">publisher</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -475,7 +436,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#reference">reference</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -483,7 +443,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#status">status</a>
             </th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -491,7 +450,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#system">system</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
@@ -499,7 +457,6 @@
             <th>
               <a href="http://hl7.org/fhir/Profile/valueset#version">version</a>
             </th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>

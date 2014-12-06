@@ -8,7 +8,7 @@
   </xsl:template>
   <xsl:template match="/Conformance">
     <xsl:copy>
-      <xsl:copy-of select="@*"/>
+      <xsl:copy-of select="@*|id"/>
       <text xmlns="http://hl7.org/fhir">
         <status xmlns="http://hl7.org/fhir" value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -414,7 +414,7 @@
           </xsl:if>
         </div>
       </text>
-      <xsl:copy-of select="node()[not(self::text)]"/>
+      <xsl:copy-of select="node()[not(self::text or self::id)]"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:table)">
