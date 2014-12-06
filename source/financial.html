@@ -25,7 +25,7 @@
  the specified focal resource may not be required or may be employed as one of the Operation parameters.
  </p>
  
-<table>
+<table class="bare">
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td>EligibilityRequest</td><td>EligibilityResponse</td></tr>
  <tr><td>Enrollment Update</td><td>EnrollmentRequest</td><td>EnrollmentResponse</td></tr>
@@ -36,12 +36,18 @@
  <tr><td>Nullify</td><td>Reversal (nullify-true)</td><td>ClaimResponse</td></tr>
  <tr><td>Re-adjudication</td><td>Readjudication</td><td>ClaimResponse</td></tr>
  <tr><td>Status Check</td><td>StatusRequest</td><td>StatusResponse</td></tr>
+ <tr><td>Pended Check (Polling)</td><td>PendedRequest</td><td>{Resource} or StatusResponse</td></tr>
  <tr><td>Payment Notice</td><td>PaymentNotice</td><td>StatusResponse</td></tr>
  <tr><td>Payment Reconciliation</td><td>PendedRequest (include=PaymentReconciliation)</td><td>PaymentReconciliation</td></tr>
  <tr><td>Send Attachments</td><td>SupportingDocumentation</td><td>StatusResponse</td></tr>
- <tr><td>Request Explanation of Benefits</td><td>PendedRequest (include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
+ <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td>PendedRequest (include=ExplanationOfBenefit)</td><td>ExplanationOfBenefit</td></tr>
 </table>
- 
+ <p>
+ <b>{disipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
+ </p>
+  <p>
+ <b>{Resource}</b> means any pended or undelivered resource subject to the selection details specified in the request.
+ </p>
 <table class="bare">
 
 [%res-category Support|Administrative%]
@@ -61,6 +67,7 @@
 <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 <!-- [%res-item ClaimResponse%] -->
 [%res-item ClaimResponse%]
+[%res-item InstitutionalClaim%]
 [%res-item OralHealthClaim%]
 [%res-item PharmacyClaim%]
 [%res-item ProfessionalClaim%]

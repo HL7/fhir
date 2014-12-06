@@ -297,6 +297,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">RecomendaciónInmunización</translation>
         <translation lang="fr">RecommendationImmunisation</translation>
     </item>
+    <item id="InstitutionalClaim">
+        <translation lang="en">InstitutionalClaim</translation>
+    </item>
     <item id="List">
         <translation lang="en">List</translation>
         <translation lang="zh">列表</translation>
