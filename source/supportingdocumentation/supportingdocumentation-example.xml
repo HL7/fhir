@@ -11,7 +11,7 @@
      <value value="52345"/>
   </identifier>
  
-  <date value="2014-09-21"/>
+  <created value="2014-09-21"/>
 
   <target>
     <reference value="Organization/2"/>

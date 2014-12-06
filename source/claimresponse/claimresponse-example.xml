@@ -16,7 +16,7 @@
     <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
   </request>
 
-  <date value="2014-08-16"/>
+  <created value="2014-08-16"/>
 
   <organization>
     <reference value="Organization/2"/>

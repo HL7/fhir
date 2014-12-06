@@ -13,6 +13,23 @@
 <div class="col-9">
 <h2>Financial Resources</h2>
  
+ <p>
+ The table below details various common business activities whic occur in the financial realm, and the focal resources 
+ which may be exchanged, along with supporting resourecs, to accomplish the business activities. Whether or not those 
+ resources specified are actually required also requires consideration of the business itself and the exchange methodology 
+ and transport being used. 
+ </p>
+ <p>
+ For example, if a definitive 'Request' does not need to be documented and parties are using REST 
+ then a GET may be used in place of a CREATE of the requesting resource. Alternately, if FHIR Operations are being used then
+ the specified focal resource may not be required or may be employed as one of the Operation parameters.
+ </p>
+ 
+<table>
+ <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
+ <tr><td>Eligibility Check</td><td>EligibilityRequest</td><td>EligibilityResponse</td></tr>
+</table>
+ 
 <table class="bare">
 
 [%res-category Support|Generally useful resources wherever resources are used%]

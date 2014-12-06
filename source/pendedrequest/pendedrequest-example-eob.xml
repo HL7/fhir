@@ -11,7 +11,7 @@
     <value value="115"/>
   </identifier>
  
-  <date value="2014-08-16"/>
+  <created value="2014-08-16"/>
 
   <include value="ExplanationOfBenefit"/>
   

@@ -11,7 +11,7 @@
     <value value="1776543"/>
   </identifier>
  
-  <date value="2014-08-16"/>
+  <created value="2014-08-16"/>
 
   <organization>
     <reference value="Organization/1"/>

@@ -19,7 +19,7 @@
   
   <disposition value="Claim settled as per contract."/>
  
-  <date value="2014-08-16"/>
+  <created value="2014-08-16"/>
 
   <organization>
     <reference value="Organization/2"/>
