@@ -26,10 +26,10 @@ Description: USLab Condition Profile Canonical Example: Lead Exposure -->
 	<code>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="38342005"/>
-			<display value="Lead poisoning"/>
+			<code value="407151008"/>
+			<display value="Increased lead level"/>
 		</coding>
-		<text value="Lead poisoning"/>
+		<text value="Increased lead level"/>
 	</code>
 	<category>
 		<coding>
