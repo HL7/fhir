@@ -4303,7 +4303,7 @@
    <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s84" ss:Width="29.25"/>
    <Column ss:StyleID="s84" ss:Width="35.25"/>
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="198"/>
    <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="60"/>
@@ -4537,7 +4537,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">target.detail[x]</Data><NamedCell
+    <Cell ss:StyleID="s121"><Data ss:Type="String">target.detail</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5336,7 +5336,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5344,7 +5344,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5545,7 +5544,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R3C19:R3C20</Range>
+   <Range>R3C19:R4C20,R7C19:R7C20</Range>
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C[-18])),#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
@@ -5630,13 +5629,6 @@
    <Condition>
     <Value1>AND(#REF!&lt;&gt;&quot;&quot;,#REF!=#REF!)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R4C19:R4C20,R7C19:R7C20</Range>
-   <Condition>
-    <Value1>AND(#REF!&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;N/A&quot;,R2C[-18])),#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:orange'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
