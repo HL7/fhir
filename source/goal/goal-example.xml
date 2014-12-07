@@ -7,6 +7,7 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
+<!--
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/goal-common-target">
 		<extension url="measure">
 			<valueCodeableConcept>
@@ -34,6 +35,7 @@
 			</valueRange>
 		</extension>
 	</extension>
+-->
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
