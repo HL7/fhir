@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13720</WindowHeight>
+  <WindowHeight>12135</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -79,10 +79,15 @@
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s66">
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="52" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="314.25"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
@@ -393,6 +398,15 @@
     <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Appointment.status</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">pending</Data></Cell>
+    <Cell><Data ss:Type="String">arrived</Data></Cell>
+    <Cell><Data ss:Type="String">fulfilled</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">booked</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">noshow</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
@@ -534,12 +548,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>14</TopRowVisible>
+   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>44</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>36</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

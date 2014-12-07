@@ -67,6 +67,10 @@ will be marked as fulfilled, and linked to the newly created encounter.<br/>
 This new encounter may start in an "arrived" status when they are admitted with a location of the facility, and then will
 move to the ward where another part-of encounter may begin.
 </p>
+<p>
+Standard Extension: <b>Associated Encounter</b><br/>
+This extension should be used to reference an encounter where there is no property that already defines this association on the resource.
+</p>
 </div>
 
 </div>
