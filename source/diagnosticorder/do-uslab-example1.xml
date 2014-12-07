@@ -23,13 +23,14 @@ Authored by: Eric M Haas  Health eData Inc.
 			</ul>
 		</div>
 	</text>
-	<!-- extension for a CC to a non ordering party in this case another provider -->
-	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabcc">
+	<!-- comment out to see if causing build to hang extension for a CC to a non ordering party in this case another provider 
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabcc-practitioner">
 		<valueReference>
 			<reference value="Practitioner/uslab-example2"/>
 			<display value="Dr Bill T Lookafter Jr"/>
 		</valueReference>
 	</extension>
+-->
 	<subject>
 		<reference value="Patient/uslab-example1"/>
 		<display value="Todd Lerr"/>
@@ -77,7 +78,7 @@ Authored by: Eric M Haas  Health eData Inc.
 		<!-- EH:  the event is the order placer requesting a test-->
 	</event>
 	<item>
-		<!--EH :  The local and /or LOINC order code gos here -->
+		<!--EH :  The local and /or LOINC test codes go here -->
 		<code>
 			<!-- EH: LOINC code gos here-->
 			<coding>
@@ -91,6 +92,7 @@ Authored by: Eric M Haas  Health eData Inc.
 				<code value="BLDLD"/>
 				<display value="Blood Lead"/>
 			</coding>
+			<text value="Blood Lead"/>
 		</code>
 		<specimen>
 			<reference value="Specimen/uslab-example1"/>

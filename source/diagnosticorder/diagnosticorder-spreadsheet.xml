@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-12-05T06:22:27Z</LastSaved>
+  <LastSaved>2014-12-07T21:03:51Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,10 +20,11 @@
    <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\deviceusestatement\Macintosh HD:Users:cnanjo:repository:fhir:trunk:build:source:procedurerequest:Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
+  <WindowIconic/>
   <WindowHeight>3915</WindowHeight>
   <WindowWidth>22170</WindowWidth>
-  <WindowTopX>465</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
+  <WindowTopX>-1935</WindowTopX>
+  <WindowTopY>1530</WindowTopY>
   <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -6247,7 +6248,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">!USLab DiagnosticOrder Example1</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">USLab DiagnosticOrder Example1</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLabOrder  Blood Lead </Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example1</Data></Cell>
@@ -6609,7 +6610,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
