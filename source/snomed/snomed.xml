@@ -5096,6 +5096,16 @@
     <display value="Admitting diagnosis"/>
     <display value="AD"/>
   </concept>
+  <concept id="53120007" display="Upper limb structure (body structure)">
+    <display value="Arm"/>
+    <display value="Upper limb structure"/>
+    <display value="Upper limb structure (body structure)"/>
+    <display value="Upper extremity"/>
+    <display value="Upper extremity, NOS"/>
+    <display value="Upper limb, NOS"/>
+    <display value="Forelimb, NOS"/>
+    <display value="Upper limb"/>
+  </concept>
   <concept id="53410008" display="Beer (substance)">
     <display value="Beer (substance)"/>
     <display value="Beer"/>

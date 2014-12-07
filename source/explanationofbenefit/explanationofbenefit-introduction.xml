@@ -2,9 +2,8 @@
 
 <div>
 <h2>Scope and Usage</h2>
+<p><b>This resource has not yet undergone proper review by FM. At this time, it is to be considered as a draft.</b></p>
 <p>
-
-<b>DRAFT PLACEHOLDER</b>
 The ExplanationOfBenefit resource combines key information from a Claim, a ClaimResponse and optional Account information to inform 
 a patient of the goods and services rendered by a provider and the settlement made under the patients coverage in respect of that Claim.
 </p>
