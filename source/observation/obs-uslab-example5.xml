@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Observation/uslab-example5
+file: obs-uslab-example5.xml
+ id: uslab-example5
+ Name: USLab Observation Example5
+Description: USLab Quantitative Observation Profile Canonical Example: Blood Lead
+
+Published by HL7 Orders and Observation Work Group
+Authored by: Eric M Haas  Health eData Inc.
+
+
+see narrative
+-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="uslab-example5"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li> obs-uslab-example5.xml</li>
+				<li> id: uslab-example5</li>
+				<li> Name: USLab Observation Example5</li>
+				<li>Description: USLab Quantitative Observation Profile Canonical Example: Blood Lead</li>
+			</ul>
+		</div>
+	</text>
+	<!-- extenstion for specimen reject gos here - not for this use case 
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+-->
+	<!-- extenstion for observation kindt gos here -->
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
+		<valueCode value="result"/>
+	</extension>
+	<!--EH :  The local and /or LOINC test codes go here -->
+	<name>
+		<!-- EH: LOINC code gos here-->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="5671-3"/>
+			<display value="Lead [Mass/volume] in Blood"/>
+			<!-- EH: LOINC code gos here-->
+		</coding>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+			<code value="BLDLD"/>
+			<display value="Blood Lead"/>
+		</coding>
+		<text value="Blood Lead"/>
+	</name>
+	<!-- In FHIR, units may be represented twice. Once in the 
+    agreed human representation, and once in a coded form.
+    Both is best, since it's not always possible to infer
+    one from the other in code.
+
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org) 
+    is always preferred, but it doesn't provide notional units (such as 
+    "tablet"), etc. For these, something else is required (e.g. Snomed-CT) 
+   -->
+	<valueQuantity>
+		<value value="65"/>
+		<units value="microgram per deciliter"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="ug/dL"/>
+	</valueQuantity>
+	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
+	<dataAbsentReason value="error"</dataAbsentReason> -->
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="H"/>
+		</coding>
+	</interpretation>
+	<appliesDateTime value="2014-12-05"/>
+	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
+	<issued value="2014-12-06T15:42:15-08:00"/>
+	<status value="final"/>
+	<identifier>
+		<use value="official"/>
+		<label value="lab test result ID"/>
+		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+		<value value="1234"/>
+	</identifier>
+	<subject>
+		<reference value="uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<specimen>
+		<reference value="uslab-example1"/>
+		<display value="Blood sample"/>
+	</specimen>
+	<performer>
+		<reference value="uslab-example1"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</performer>
+	<referenceRange>
+		<high>
+			<value value="5.0"/>
+			
+			<units value="microgram per deciliter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="ug/dL"/>
+		</high>
+	</referenceRange>
+</Observation>

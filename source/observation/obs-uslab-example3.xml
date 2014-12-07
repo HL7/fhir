@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Observation/uslab-example 3
+file: obs-uslab-example3.xml
+ id: uslab-example3
+ Name: USLab Observation Example3
+Description: USLab Other (String) Observation Profile Canonical Example: S aureus 
+
+
+see narrative
+-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="uslab-example3"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li>file: obs-uslab-example3.xml</li>
+				<li> id: uslab-example3</li>
+				<li> Name: USLab Observation Example3</li>
+				<li>Description: USLab Other (String) Observation Profile Canonical Example: S aureus </li>
+			</ul>
+		</div>
+	</text>
+	<!-- extenstion for specimen reject gos here - not for this use case 
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+-->
+	<!-- extenstion for observation kind gos here -->
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
+		<valueCode value="result"/>
+	</extension>
+	<!--EH :  The local and LOINC test codes go here -->
+	<name>
+		<!-- EH: LOINC code gos here-->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="6463-4"/>
+			<display value="Bacteria identified in Unspecified specimen by Culture"/>
+			<!-- EH: LOCAL code gos here-->
+		</coding>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+			<code value="MSCBACT"/>
+			<display value="Misc Culture"/>
+		</coding>
+		<text value="Miscellaneous Culture"/>
+	</name>
+	<!--EH :  The text result here -->
+<valueString value="Moderate Growth of gram-positive cocci bacteria"></valueString>
+	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
+	<dataAbsentReason value="error"</dataAbsentReason> -->
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="A"/>
+		</coding>
+	</interpretation>
+	<appliesDateTime value="2014-12-05"/>
+	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
+	<issued value="2014-12-06T15:42:15-08:00"/>
+	<status value="final"/>
+	<identifier>
+		<use value="official"/>
+		<label value="lab test result ID"/>
+		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+		<value value="3456"/>
+	</identifier>
+	<subject>
+		<reference value="uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<specimen>
+		<reference value="uslab-example1"/>
+		<display value="Blood sample"/>
+	</specimen>
+	<performer>
+		<reference value="uslab-example1"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</performer>
+</Observation>

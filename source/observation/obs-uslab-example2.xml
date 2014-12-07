@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Observation/uslab-example 2
+file: obs-uslab-example2.xml
+ id: uslab-example2
+ Name: USLab Observation Example2
+Description: USLab Coded Observation Profile Canonical Example: Chlamydia PCR
+
+
+see narrative
+-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="uslab-example2"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<ul>
+				<li>file: obs-uslab-example2.xml</li>
+				<li> id: uslab-example2</li>
+				<li> Name: USLab Observation Example2</li>
+				<li>Description: USLab Coded Observation Profile Canonical Example: N gonorrhoeae PCR</li>
+			</ul>
+		</div>
+	</text>
+	<!-- extenstion for specimen reject gos here - not for this use case 
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0490"/>
+				<code value="EX"/>
+				<display value="Expired"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+-->
+	<!-- extenstion for observation kind gos here -->
+	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
+		<valueCode value="result"/>
+	</extension>
+	<!--EH :  The local and LOINC test codes go here -->
+	<name>
+		<!-- EH: LOINC code gos here-->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="43305-2"/>
+			<display value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
+			<!-- EH: LOCAL code gos here-->
+		</coding>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+			<code value="GCPCR"/>
+			<display value="APTIMA GC"/>
+		</coding>
+		<text value="Neisseria gonorrhoeae by PCR"/>
+	</name>
+	<!--EH :  The local and SNOMED Result codes go here -->
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="10828004"/>
+			<display value="Positive"/>
+		</coding>
+		<coding>
+			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
+			<code value="POS"></code><display value="Positive"></display>
+		</coding><text value="Positive for Neisseira gonorrheoea rRNA"></text>
+	</valueCodeableConcept>
+	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
+	<dataAbsentReason value="error"</dataAbsentReason> -->
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="A"/>
+		</coding>
+	</interpretation>
+	<appliesDateTime value="2014-12-05"/>
+	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
+	<issued value="2014-12-06T15:42:15-08:00"/>
+	<status value="final"/>
+	<identifier>
+		<use value="official"/>
+		<label value="lab test result ID"/>
+		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+		<value value="2345"/>
+	</identifier>
+	<subject>
+		<reference value="uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<specimen>
+		<reference value="uslab-example1"/>
+		<display value="Blood sample"/>
+	</specimen>
+	<performer>
+		<reference value="uslab-example1"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</performer>
+</Observation>
