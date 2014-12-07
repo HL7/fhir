@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -147,13 +147,17 @@ public class AllergyIntolerance extends DomainResource {
 
     public enum AllergyIntoleranceCriticality {
         /**
-         * The potential clinical impact of a future reaction is estimated as low risk. Future exposure to the Substance is considered a relative contra-indication.
+         * The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.
          */
         LOW, 
         /**
-         * The potential clinical impact of a future reaction is estimated as high risk. Future exposure to the Substance may be considered an absolute contra-indication.
+         * The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.
          */
         HIGH, 
+        /**
+         * Unable to assess the potential clinical impact with the information available.
+         */
+        UNASSESSIBLE, 
         /**
          * added to help the parsers
          */
@@ -165,12 +169,15 @@ public class AllergyIntolerance extends DomainResource {
           return LOW;
         if ("high".equals(codeString))
           return HIGH;
+        if ("unassessible".equals(codeString))
+          return UNASSESSIBLE;
         throw new Exception("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case LOW: return "low";
             case HIGH: return "high";
+            case UNASSESSIBLE: return "unassessible";
             default: return "?";
           }
         }
@@ -178,13 +185,15 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case LOW: return "";
             case HIGH: return "";
+            case UNASSESSIBLE: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case LOW: return "The potential clinical impact of a future reaction is estimated as low risk. Future exposure to the Substance is considered a relative contra-indication.";
-            case HIGH: return "The potential clinical impact of a future reaction is estimated as high risk. Future exposure to the Substance may be considered an absolute contra-indication.";
+            case LOW: return "The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.";
+            case HIGH: return "The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.";
+            case UNASSESSIBLE: return "Unable to assess the potential clinical impact with the information available.";
             default: return "?";
           }
         }
@@ -192,6 +201,7 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case LOW: return "Low Risk";
             case HIGH: return "High Risk";
+            case UNASSESSIBLE: return "Unable to determine";
             default: return "?";
           }
         }
@@ -206,6 +216,8 @@ public class AllergyIntolerance extends DomainResource {
           return AllergyIntoleranceCriticality.LOW;
         if ("high".equals(codeString))
           return AllergyIntoleranceCriticality.HIGH;
+        if ("unassessible".equals(codeString))
+          return AllergyIntoleranceCriticality.UNASSESSIBLE;
         throw new Exception("Unknown AllergyIntoleranceCriticality code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -213,6 +225,8 @@ public class AllergyIntolerance extends DomainResource {
         return "low";
       if (code == AllergyIntoleranceCriticality.HIGH)
         return "high";
+      if (code == AllergyIntoleranceCriticality.UNASSESSIBLE)
+        return "unassessible";
       return "?";
       }
     }
@@ -1063,7 +1077,7 @@ public class AllergyIntolerance extends DomainResource {
      * Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
      */
     @Child(name="criticality", type={CodeType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="low | high - Estimated potential clinical harm", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance." )
+    @Description(shortDefinition="low | high | unassessible - Estimated potential clinical harm", formalDefinition="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance." )
     protected Enumeration<AllergyIntoleranceCriticality> criticality;
 
     /**
@@ -1698,7 +1712,7 @@ public class AllergyIntolerance extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="substance", path="AllergyIntolerance.substance|AllergyIntolerance.event.substance", description="Substance, (or class) considered to be responsible for risk", type="token" )
   public static final String SP_SUBSTANCE = "substance";
-  @SearchParamDefinition(name="criticality", path="AllergyIntolerance.criticality", description="low | high - Estimated potential clinical harm", type="token" )
+  @SearchParamDefinition(name="criticality", path="AllergyIntolerance.criticality", description="low | high | unassessible - Estimated potential clinical harm", type="token" )
   public static final String SP_CRITICALITY = "criticality";
   @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment - Category of Substance", type="token" )
   public static final String SP_CATEGORY = "category";

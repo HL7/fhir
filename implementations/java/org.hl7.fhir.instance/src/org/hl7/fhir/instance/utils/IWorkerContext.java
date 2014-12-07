@@ -3,9 +3,6 @@ package org.hl7.fhir.instance.utils;
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.formats.IParser;
 import org.hl7.fhir.instance.formats.ParserType;
-import org.hl7.fhir.instance.model.Bundle;
-import org.hl7.fhir.instance.model.DomainResource;
-import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.validation.IResourceValidator;
 
@@ -67,7 +64,7 @@ public interface IWorkerContext {
 	 * value sets (etc).
 	 * 
 	 * The context loader may choose to make additional resources available (i.e. 
-	 * implementation specific conformance statements, profiles, 
+   * implementation specific conformance statements, profiles, extension definitions)
 	 * 
 	 * Schemas and other similar non resource content can be accessed as Binary resources
 	 * using their filename in validation.zip as the id (http:/hl7/.org/fhir/Binary/[name]

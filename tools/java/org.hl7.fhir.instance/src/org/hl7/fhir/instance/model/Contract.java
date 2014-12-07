@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -190,10 +190,10 @@ public class Contract extends DomainResource {
         protected CodeableConcept type;
 
         /**
-         * The subttype of the term which is appropriate to the term type.
+         * The subtype of the term which is appropriate to the term type.
          */
         @Child(name="subtype", type={CodeableConcept.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Term subtype", formalDefinition="The subttype of the term which is appropriate to the term type." )
+        @Description(shortDefinition="Term subtype", formalDefinition="The subtype of the term which is appropriate to the term type." )
         protected CodeableConcept subtype;
 
         /**
@@ -212,21 +212,21 @@ public class Contract extends DomainResource {
          * Human readable form of the term of the contract.
          */
         @Child(name="text", type={StringType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Human readable term text", formalDefinition="Human readable form of the term of the contract." )
+        @Description(shortDefinition="Human readable Term text", formalDefinition="Human readable form of the term of the contract." )
         protected StringType text;
 
         /**
-         * When this was issued.
+         * When this term was issued.
          */
         @Child(name="issued", type={DateTimeType.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="When this was issued", formalDefinition="When this was issued." )
+        @Description(shortDefinition="When issued", formalDefinition="When this term was issued." )
         protected DateTimeType issued;
 
         /**
-         * Relevant time/time-period when applicable.
+         * Relevant time/time-period when the term is applicable.
          */
         @Child(name="applies", type={Period.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="Effective time", formalDefinition="Relevant time/time-period when applicable." )
+        @Description(shortDefinition="When effective", formalDefinition="Relevant time/time-period when the term is applicable." )
         protected Period applies;
 
         /**
@@ -319,7 +319,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #subtype} (The subttype of the term which is appropriate to the term type.)
+         * @return {@link #subtype} (The subtype of the term which is appropriate to the term type.)
          */
         public CodeableConcept getSubtype() { 
           if (this.subtype == null)
@@ -335,7 +335,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @param value {@link #subtype} (The subttype of the term which is appropriate to the term type.)
+         * @param value {@link #subtype} (The subtype of the term which is appropriate to the term type.)
          */
         public ContractTermComponent setSubtype(CodeableConcept value) { 
           this.subtype = value;
@@ -431,7 +431,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #issued} (When this was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+         * @return {@link #issued} (When this term was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
          */
         public DateTimeType getIssuedElement() { 
           if (this.issued == null)
@@ -451,7 +451,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @param value {@link #issued} (When this was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+         * @param value {@link #issued} (When this term was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
          */
         public ContractTermComponent setIssuedElement(DateTimeType value) { 
           this.issued = value;
@@ -459,14 +459,14 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return When this was issued.
+         * @return When this term was issued.
          */
         public DateAndTime getIssued() { 
           return this.issued == null ? null : this.issued.getValue();
         }
 
         /**
-         * @param value When this was issued.
+         * @param value When this term was issued.
          */
         public ContractTermComponent setIssued(DateAndTime value) { 
           if (value == null)
@@ -480,7 +480,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #applies} (Relevant time/time-period when applicable.)
+         * @return {@link #applies} (Relevant time/time-period when the term is applicable.)
          */
         public Period getApplies() { 
           if (this.applies == null)
@@ -496,7 +496,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @param value {@link #applies} (Relevant time/time-period when applicable.)
+         * @param value {@link #applies} (Relevant time/time-period when the term is applicable.)
          */
         public ContractTermComponent setApplies(Period value) { 
           this.applies = value;
@@ -677,11 +677,11 @@ public class Contract extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Unique Id for this particular term.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("type", "CodeableConcept", "The type of the term.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("subtype", "CodeableConcept", "The subttype of the term which is appropriate to the term type.", 0, java.lang.Integer.MAX_VALUE, subtype));
+          childrenList.add(new Property("subtype", "CodeableConcept", "The subtype of the term which is appropriate to the term type.", 0, java.lang.Integer.MAX_VALUE, subtype));
           childrenList.add(new Property("subject", "Reference(Any)", "Who or what the contract term is about.", 0, java.lang.Integer.MAX_VALUE, subject));
           childrenList.add(new Property("text", "string", "Human readable form of the term of the contract.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("issued", "dateTime", "When this was issued.", 0, java.lang.Integer.MAX_VALUE, issued));
-          childrenList.add(new Property("applies", "Period", "Relevant time/time-period when applicable.", 0, java.lang.Integer.MAX_VALUE, applies));
+          childrenList.add(new Property("issued", "dateTime", "When this term was issued.", 0, java.lang.Integer.MAX_VALUE, issued));
+          childrenList.add(new Property("applies", "Period", "Relevant time/time-period when the term is applicable.", 0, java.lang.Integer.MAX_VALUE, applies));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "The unit price product.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
@@ -903,10 +903,10 @@ public class Contract extends DomainResource {
     protected List<ContractSignerComponent> signer;
 
     /**
-     * A contract provision.
+     * The itemized terms of the contract. The legal clause or conditions of the Contract that requires or prevents either one or both parties to perform a particular requirement by some specified time.
      */
     @Child(name="term", type={}, order=19, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contract provisions", formalDefinition="A contract provision." )
+    @Description(shortDefinition="The terms of the Contract", formalDefinition="The itemized terms of the contract. The legal clause or conditions of the Contract that requires or prevents either one or both parties to perform a particular requirement by some specified time." )
     protected List<ContractTermComponent> term;
 
     /**
@@ -1704,7 +1704,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #term} (A contract provision.)
+     * @return {@link #term} (The itemized terms of the contract. The legal clause or conditions of the Contract that requires or prevents either one or both parties to perform a particular requirement by some specified time.)
      */
     public List<ContractTermComponent> getTerm() { 
       if (this.term == null)
@@ -1722,7 +1722,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #term} (A contract provision.)
+     * @return {@link #term} (The itemized terms of the contract. The legal clause or conditions of the Contract that requires or prevents either one or both parties to perform a particular requirement by some specified time.)
      */
     // syntactic sugar
     public ContractTermComponent addTerm() { //3
@@ -2065,7 +2065,7 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("executor", "Reference(Practitioner|RelatedPerson|Organization|Patient)", "First Party to the contract, may be the party who confers or delegates the rights defined in the contract.", 0, java.lang.Integer.MAX_VALUE, executor));
         childrenList.add(new Property("notary", "Reference(Practitioner|RelatedPerson|Organization|Patient)", "First Party to the contract, may be the party who confers or delegates the rights defined in the contract.", 0, java.lang.Integer.MAX_VALUE, notary));
         childrenList.add(new Property("signer", "", "List or contract signatures.", 0, java.lang.Integer.MAX_VALUE, signer));
-        childrenList.add(new Property("term", "", "A contract provision.", 0, java.lang.Integer.MAX_VALUE, term));
+        childrenList.add(new Property("term", "", "The itemized terms of the contract. The legal clause or conditions of the Contract that requires or prevents either one or both parties to perform a particular requirement by some specified time.", 0, java.lang.Integer.MAX_VALUE, term));
         childrenList.add(new Property("binding", "Attachment", "Legally binding contract.", 0, java.lang.Integer.MAX_VALUE, binding));
         childrenList.add(new Property("bindingDateTime", "dateTime", "Relevant time/time-period when applicable.", 0, java.lang.Integer.MAX_VALUE, bindingDateTime));
         childrenList.add(new Property("friendly", "Attachment", "Friendly Human readable form (might be a reference to the UI used to capture the contract).", 0, java.lang.Integer.MAX_VALUE, friendly));

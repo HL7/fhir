@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -47,6 +47,14 @@ public class ProcedureRequest extends DomainResource {
 
     public enum ProcedureRequestStatus {
         /**
+         * The request has been proposed.
+         */
+        PROPOSED, 
+        /**
+         * The request has been planned.
+         */
+        PLANNED, 
+        /**
          * The request has been placed.
          */
         REQUESTED, 
@@ -63,10 +71,6 @@ public class ProcedureRequest extends DomainResource {
          */
         INPROGRESS, 
         /**
-         * The work is complete, and the outcomes are being reviewed for approval.
-         */
-        REVIEW, 
-        /**
          * The work has been complete, the report(s) released, and no further work is planned.
          */
         COMPLETED, 
@@ -81,7 +85,7 @@ public class ProcedureRequest extends DomainResource {
         /**
          * The request was attempted, but due to some procedural error, it could not be completed.
          */
-        FAILED, 
+        ABORTED, 
         /**
          * added to help the parsers
          */
@@ -89,6 +93,10 @@ public class ProcedureRequest extends DomainResource {
         public static ProcedureRequestStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return PROPOSED;
+        if ("planned".equals(codeString))
+          return PLANNED;
         if ("requested".equals(codeString))
           return REQUESTED;
         if ("received".equals(codeString))
@@ -97,71 +105,73 @@ public class ProcedureRequest extends DomainResource {
           return ACCEPTED;
         if ("in progress".equals(codeString))
           return INPROGRESS;
-        if ("review".equals(codeString))
-          return REVIEW;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("suspended".equals(codeString))
           return SUSPENDED;
         if ("rejected".equals(codeString))
           return REJECTED;
-        if ("failed".equals(codeString))
-          return FAILED;
+        if ("aborted".equals(codeString))
+          return ABORTED;
         throw new Exception("Unknown ProcedureRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
-            case FAILED: return "failed";
+            case ABORTED: return "aborted";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
+            case PROPOSED: return "";
+            case PLANNED: return "";
             case REQUESTED: return "";
             case RECEIVED: return "";
             case ACCEPTED: return "";
             case INPROGRESS: return "";
-            case REVIEW: return "";
             case COMPLETED: return "";
             case SUSPENDED: return "";
             case REJECTED: return "";
-            case FAILED: return "";
+            case ABORTED: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
+            case PROPOSED: return "The request has been proposed.";
+            case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case RECEIVED: return "The receiving system has received the request but not yet decided whether it will be performed.";
             case ACCEPTED: return "The receiving system has accepted the request, but work has not yet commenced.";
             case INPROGRESS: return "The work to fulfill the request is happening.";
-            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
             case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
             case SUSPENDED: return "The request has been held by originating system/user request.";
             case REJECTED: return "The receiving system has declined to fulfill the request.";
-            case FAILED: return "The request was attempted, but due to some procedural error, it could not be completed.";
+            case ABORTED: return "The request was attempted, but due to some procedural error, it could not be completed.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
-            case FAILED: return "failed";
+            case ABORTED: return "aborted";
             default: return "?";
           }
         }
@@ -172,6 +182,10 @@ public class ProcedureRequest extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return ProcedureRequestStatus.PROPOSED;
+        if ("planned".equals(codeString))
+          return ProcedureRequestStatus.PLANNED;
         if ("requested".equals(codeString))
           return ProcedureRequestStatus.REQUESTED;
         if ("received".equals(codeString))
@@ -180,19 +194,21 @@ public class ProcedureRequest extends DomainResource {
           return ProcedureRequestStatus.ACCEPTED;
         if ("in progress".equals(codeString))
           return ProcedureRequestStatus.INPROGRESS;
-        if ("review".equals(codeString))
-          return ProcedureRequestStatus.REVIEW;
         if ("completed".equals(codeString))
           return ProcedureRequestStatus.COMPLETED;
         if ("suspended".equals(codeString))
           return ProcedureRequestStatus.SUSPENDED;
         if ("rejected".equals(codeString))
           return ProcedureRequestStatus.REJECTED;
-        if ("failed".equals(codeString))
-          return ProcedureRequestStatus.FAILED;
+        if ("aborted".equals(codeString))
+          return ProcedureRequestStatus.ABORTED;
         throw new Exception("Unknown ProcedureRequestStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
+      if (code == ProcedureRequestStatus.PROPOSED)
+        return "proposed";
+      if (code == ProcedureRequestStatus.PLANNED)
+        return "planned";
       if (code == ProcedureRequestStatus.REQUESTED)
         return "requested";
       if (code == ProcedureRequestStatus.RECEIVED)
@@ -201,102 +217,14 @@ public class ProcedureRequest extends DomainResource {
         return "accepted";
       if (code == ProcedureRequestStatus.INPROGRESS)
         return "in progress";
-      if (code == ProcedureRequestStatus.REVIEW)
-        return "review";
       if (code == ProcedureRequestStatus.COMPLETED)
         return "completed";
       if (code == ProcedureRequestStatus.SUSPENDED)
         return "suspended";
       if (code == ProcedureRequestStatus.REJECTED)
         return "rejected";
-      if (code == ProcedureRequestStatus.FAILED)
-        return "failed";
-      return "?";
-      }
-    }
-
-    public enum ProcedureRequestMode {
-        /**
-         * planned.
-         */
-        PLANNED, 
-        /**
-         * proposed.
-         */
-        PROPOSED, 
-        /**
-         * ordered.
-         */
-        ORDERED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ProcedureRequestMode fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return PLANNED;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
-        if ("ordered".equals(codeString))
-          return ORDERED;
-        throw new Exception("Unknown ProcedureRequestMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case PLANNED: return "";
-            case PROPOSED: return "";
-            case ORDERED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case PLANNED: return "planned.";
-            case PROPOSED: return "proposed.";
-            case ORDERED: return "ordered.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ProcedureRequestModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return ProcedureRequestMode.PLANNED;
-        if ("proposed".equals(codeString))
-          return ProcedureRequestMode.PROPOSED;
-        if ("ordered".equals(codeString))
-          return ProcedureRequestMode.ORDERED;
-        throw new Exception("Unknown ProcedureRequestMode code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == ProcedureRequestMode.PLANNED)
-        return "planned";
-      if (code == ProcedureRequestMode.PROPOSED)
-        return "proposed";
-      if (code == ProcedureRequestMode.ORDERED)
-        return "ordered";
+      if (code == ProcedureRequestStatus.ABORTED)
+        return "aborted";
       return "?";
       }
     }
@@ -476,41 +404,34 @@ public class ProcedureRequest extends DomainResource {
      * The status of the order.
      */
     @Child(name="status", type={CodeType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the order." )
+    @Description(shortDefinition="proposed | planned | requested | received | accepted | in progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
     protected Enumeration<ProcedureRequestStatus> status;
-
-    /**
-     * The status of the order.
-     */
-    @Child(name="mode", type={CodeType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="planned | proposed | ordered", formalDefinition="The status of the order." )
-    protected Enumeration<ProcedureRequestMode> mode;
 
     /**
      * Any other notes associated with this proposal or order - e.g., provider instructions.
      */
-    @Child(name="notes", type={StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="notes", type={StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Notes", formalDefinition="Any other notes associated with this proposal or order - e.g., provider instructions." )
     protected List<StringType> notes;
 
     /**
      * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
      */
-    @Child(name="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=10, min=0, max=1)
+    @Child(name="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=9, min=0, max=1)
     @Description(shortDefinition="PRN", formalDefinition="If a CodeableConcept is present, it indicates the pre-condition for performing the procedure." )
     protected Type asNeeded;
 
     /**
      * The time when the request was made.
      */
-    @Child(name="orderedOn", type={DateTimeType.class}, order=11, min=0, max=1)
+    @Child(name="orderedOn", type={DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="When Requested", formalDefinition="The time when the request was made." )
     protected DateTimeType orderedOn;
 
     /**
      * The healthcare professional responsible for proposing or ordering the procedure.
      */
-    @Child(name="orderer", type={Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=12, min=0, max=1)
+    @Child(name="orderer", type={Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=11, min=0, max=1)
     @Description(shortDefinition="Ordering Party", formalDefinition="The healthcare professional responsible for proposing or ordering the procedure." )
     protected Reference orderer;
 
@@ -522,11 +443,11 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The clinical priority associated with this order.
      */
-    @Child(name="priority", type={CodeType.class}, order=13, min=0, max=1)
+    @Child(name="priority", type={CodeType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
     protected Enumeration<ProcedureRequestPriority> priority;
 
-    private static final long serialVersionUID = -1874623679L;
+    private static final long serialVersionUID = 1645074818L;
 
     public ProcedureRequest() {
       super();
@@ -875,55 +796,6 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #mode} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public Enumeration<ProcedureRequestMode> getModeElement() { 
-      if (this.mode == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.mode");
-        else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<ProcedureRequestMode>();
-      return this.mode;
-    }
-
-    public boolean hasModeElement() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    public boolean hasMode() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    /**
-     * @param value {@link #mode} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public ProcedureRequest setModeElement(Enumeration<ProcedureRequestMode> value) { 
-      this.mode = value;
-      return this;
-    }
-
-    /**
-     * @return The status of the order.
-     */
-    public ProcedureRequestMode getMode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value The status of the order.
-     */
-    public ProcedureRequest setMode(ProcedureRequestMode value) { 
-      if (value == null)
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<ProcedureRequestMode>();
-        this.mode.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #notes} (Any other notes associated with this proposal or order - e.g., provider instructions.)
      */
     public List<StringType> getNotes() { 
@@ -1162,7 +1034,6 @@ public class ProcedureRequest extends DomainResource {
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the procedure proposal or request was created.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "E.g. surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("mode", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, mode));
         childrenList.add(new Property("notes", "string", "Any other notes associated with this proposal or order - e.g., provider instructions.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("orderedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, orderedOn));
@@ -1194,7 +1065,6 @@ public class ProcedureRequest extends DomainResource {
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.status = status == null ? null : status.copy();
-        dst.mode = mode == null ? null : mode.copy();
         if (notes != null) {
           dst.notes = new ArrayList<StringType>();
           for (StringType i : notes)
@@ -1215,9 +1085,9 @@ public class ProcedureRequest extends DomainResource {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
            && (type == null || type.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (indication == null || indication.isEmpty())
            && (timing == null || timing.isEmpty()) && (encounter == null || encounter.isEmpty()) && (performer == null || performer.isEmpty())
-           && (status == null || status.isEmpty()) && (mode == null || mode.isEmpty()) && (notes == null || notes.isEmpty())
-           && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
-           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
+           && (status == null || status.isEmpty()) && (notes == null || notes.isEmpty()) && (asNeeded == null || asNeeded.isEmpty())
+           && (orderedOn == null || orderedOn.isEmpty()) && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty())
+          ;
       }
 
   @Override

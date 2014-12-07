@@ -439,32 +439,35 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       
       // 2. is the content of the extension valid?
       if (ex.getElementDefinition().getType().size() > 0) { // if 0, then this just contains extensions
-        if (ex.getElementDefinition().getType().size() > 1) 
-          throw new Error("exceptions with multiple types are not yet handled");
-        String cs = ex.getElementDefinition().getType().get(0).getCode();
-        if (cs.contains("("))
-          cs = cs.substring(0, cs.indexOf("("));
         WrapperElement child = element.getFirstChild();
         while (child != null && child.getName().equals("extension"))
           child = child.getNextSibling();
         boolean cok = false;
-        if (cs.equals("*")) {
-          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && isKnownType(child.getName().substring(5)), "No Extension value found (looking for '*')");
-          cs = child.getName().substring(5);
-        } else {
-          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && child.getName().substring(5).equals(Utilities.capitalize(cs)), "No Extension value found (looking for '"+cs+"')");
+        String type = null;
+        String tprofile = null;
+        if (rule(errors, "structure", path+"[url='"+url+"']", child != null, "No Extension value found")) {
+          if (rule(errors, "structure", path+"[url='"+url+"']", child.getName().startsWith("value"), "Unexpected Element '"+child.getName()+"' found")) {
+            String tn = child.getName().substring(5);
+            for (TypeRefComponent tr : ex.getElementDefinition().getType()) {
+              if (Utilities.capitalize(tr.getCode()).equals(tn)) {
+                cok = true;
+                type = tr.getCode();
+                tprofile = tr.getProfile();
+              }
+            }
+            rule(errors, "structure", path+"[url='"+url+"']", cok, "Unexpected type '"+tn+"' found (expected "+ProfileUtilities.typeCode(ex.getElementDefinition().getType())+")");
+          }
         }
         if (cok) {
-          Profile type = context.getProfiles().get(cs);
-          ElementDefinition ec = new ElementDefinition(); // gimmy up a fake element component for the next call
-          ec.setPath(path+"[url='"+url+"']");
-          ec.setName(child.getName());
+          Profile ptype = (tprofile == null || type.equals("Reference")) ? context.getProfiles().get("http://hl7.org/fhir/Profile/"+type) : context.getProfiles().get(tprofile);
+          
+          ElementDefinition ec = ptype.getSnapshot().getElement().get(0);
           if (type != null) 
-            validateElement(errors, profile, extensionContext, path+"[url='"+url+"']."+child.getName(), ec, null, null, child, "Extension");
+            validateElement(errors, ptype, extensionContext, path+"[url='"+url+"']."+child.getName(), ec, null, null, child, "Extension");
           else {
-            checkPrimitive(errors, path+"[url='"+url+"']."+child.getName(), cs, ec, child);
+            checkPrimitive(errors, path+"[url='"+url+"']."+child.getName(), type, ec, child);
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
-            if (cs.equals("code"))  {
+            if (type.equals("code"))  {
               ElementDefinitionBindingComponent binding = ex.getElementDefinition().getBinding();
               if (binding != null) {
                 if (warning(errors, "code-unknown", path, binding.hasReference() && binding.getReference() instanceof Reference, "Binding for "+path+" missing or cannot be processed")) {

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Project Argonaut%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="DAF"> </a> 
+<h2>The Argonaut Project</h2>
+<p>
+The Argonaut Project addresses the recommendations of the JASON Task Force, a joint task force of the HIT Standards and Policy Committees
+and is a joint project between HL7 and the following organizations:
+</p>
+<ul>
+ <li><a href="http://www.athenahealth.com/">athenahealth</a></li>
+ <li><a href="http://www.bidmc.org/">Beth Israel Deaconess Medical Center</a></li>
+ <li><a href="http://www.cerner.com/">Cerner</a></li>
+ <li><a href="http://www.epic.com/">Epic</a></li>
+ <li><a href="http://intermountainhealthcare.org">Intermountain Healthcare</a></li>
+ <li><a href="http://www.mayoclinic.org/">Mayo Clinic</a></li>
+ <li><a href="http://home.meditech.com">MEDITECH</a></li>
+ <li><a href="http://www.mckesson.com/">McKesson</a></li>
+ <li><a href="http://www.partners.org/">Partners HealthCare System</a></li>
+ <li><a href="http://smartplatforms.org/">SMART at the Boston Children’s Hospital Informatics Program</a></li>
+ <li><a href="http://www.advisory.com">The Advisory Board Company</a></li>
+</p>
+<p>
+The purpose of the Argonaut Project is to develop a first-generation API and Core Data Services specification 
+to enable expanded information sharing for electronic health records and other health information  
+based on the FHIR specification.
+</p>
+<h3>First Draft</h3>
+<p>
+This is the first draft; the scope of this draft is to present a simple API that provides 
+patient access to Meaningful Use based data sets. This simple API is the basis for consultation
+and testing through the FHIR connectathon process with the intent of developing a solid basis
+for Meaningful Use based access to data in the forthcoming DSTU2 ballot of FHIR.
+</p>
+<p>
+For the purpose of the HL7 connectathon, server (patient portal) implementations
+should implement the <a href="">Fetch Patient Record</a>
+
+
+
+The goal of the newly formed project is to accelerate the development and adoption of HL7’s Fast Healthcare Interoperability Resources (FHIR®)
+<h3>Draft for Comment Ballot</h3>
+<p>
+This FHIR Implementation Guide is undergoing a Draft for Comment ballot.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
+statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted seperately from the FHIR specification itself.  
+</p>
+
+<h3>Background</h3>
+<ul>
+  <li><a href="daf-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
+  <li><a href="daf-security.html">Security</a> - Security and privacy rules and considerations</li>
+  <li><a href="daf-outstandingissues.html">Outstanding Issues</a> - Issues that need to be resolved</li>
+  <li><a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Project wiki containing development materials and discussions (for additional background)</a></li>
+</ul>
+
+<h3>Specification</h3>
+<p>
+The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following profiles and resources:
+</p>
+<ul>
+		<li><a href="">DAF Allergy Intolerance profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/allergyintolerance.html">AllergyIntolerance</a> resource.</li>
+		<li><a href="">DAF Cognitive Status profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
+		<li><a href="encounter-daf.html">DAF Encounter profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/encounter.html">Encounter</a> resource.</li>
+		<li><a href="">DAF Family History profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/familyhistory.html">FamilyHistory</a> resource.</li>
+		<li><a href="">DAF Immunization profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/immunization.html">Immunization</a> resource.</li>
+		<li><a href="">DAF Lab Results profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
+		<li><a href="">DAF Medication Administration profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationadministration.html">MedicationAdministration</a> resource.</li>
+		<li><a href="">DAF Medication Dispense profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationdispense.html">MedicationDispense</a> resource.</li>
+		<li><a href="">DAF Medication Prescription profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationprescription.html">MedicationPrescription</a> resource.</li>
+		<li><a href="patient-daf.html">DAF Patient profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/patient.html">Patient</a> resource.</li>
+		<li><a href="">DAF Problems (Condition) profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/condition.html">Condition</a> resource.</li>
+		<li><a href="procedure-daf.html">DAF Procedure profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/procedure.html">Procedure</a> resource.</li>
+		<li><a href="">DAF Smoking Status profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
+		<li><a href="observation-daf-vitalsigns.html">DAF Vital Signs profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
+  
+  <li><a href="http://www.hl7.org/implement/standards/fhir/medication.html">Medication</a></li>
+  <li><a href="http://www.hl7.org/implement/standards/fhir/diagnosticorder.html">DiagnosticOrder</a></li>
+  <li><a href="http://www.hl7.org/implement/standards/fhir/diagnosticreport.html">DiagnosticReport</a></li>
+  <li><a href="http://www.hl7.org/implement/standards/fhir/practitioner.html">Practitioner</a></li>
+  <li><a href="http://www.hl7.org/implement/standards/fhir/list.html">List</a></li>
+</ul>
+<p>
+Additional resources such as <a href="provenance.html">Provenance</a>, <a href="securityevent.html">SecurityEvent</a> and others are likely to be used in DAF solutions. As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
+<!-- Todo: decide how explicit the list of relevant sections needs to be -->
+</p>
+<p>
+The DAF Conformance statements which define the expected capabilities of each of the DAF actors are listed below:
+</p>
+<ul>
+      <li><a href="conformance-daf-query-requestor.html">DAF Requestor</a> - DAF Requestors are responsible for creating and initiating the queries for patients or populations.</li>
+      <li><a href="conformance-daf-query-responder.html">DAF Responder</a>- DAF Responders are responsible to provide responses to the queries submitted by the requestors.</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

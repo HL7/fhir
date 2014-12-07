@@ -1250,12 +1250,44 @@ public class NarrativeGenerator implements INarrativeGenerator {
       else
         throw new Exception("Error: should not encounter value set expansion at this point");
     }
+    Integer count = countMembership(vs);
+    if (count == null)
+      x.addTag("p").addText("This value set does not contain a fixed number of concepts");
+    else
+      x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
+    
     boolean hasExtensions = false;
     if (vs.hasDefine())
       hasExtensions = generateDefinition(x, vs);
     if (vs.hasCompose()) 
       hasExtensions = generateComposition(x, vs) || hasExtensions;
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
+  }
+
+  private Integer countMembership(ValueSet vs) {
+    int count = 0;
+    if (vs.hasDefine())
+      count = count + countConcepts(vs.getDefine().getConcept());
+    if (vs.hasCompose()) {
+      if (vs.getCompose().hasExclude())
+        throw new Error("Not done yet"); // can't simply subtract. do an expand?
+      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        if (inc.hasFilter())
+          return null;
+        if (!inc.hasConcept())
+          return null;
+        count = count + inc.getConcept().size();
+      }
+    }
+    return count;
+  }
+
+  private int countConcepts(List<ConceptDefinitionComponent> list) {
+    int count = list.size();
+    for (ConceptDefinitionComponent c : list)
+      if (c.hasConcept())
+        count = count + countConcepts(c.getConcept());
+    return count;
   }
 
   private boolean generateExpansion(XhtmlNode x, ValueSet vs) {

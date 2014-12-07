@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -47,6 +47,14 @@ public class DeviceUseRequest extends DomainResource {
 
     public enum DeviceUseRequestStatus {
         /**
+         * The request has been proposed.
+         */
+        PROPOSED, 
+        /**
+         * The request has been planned.
+         */
+        PLANNED, 
+        /**
          * The request has been placed.
          */
         REQUESTED, 
@@ -63,10 +71,6 @@ public class DeviceUseRequest extends DomainResource {
          */
         INPROGRESS, 
         /**
-         * The work is complete, and the outcomes are being reviewed for approval.
-         */
-        REVIEW, 
-        /**
          * The work has been complete, the report(s) released, and no further work is planned.
          */
         COMPLETED, 
@@ -81,7 +85,7 @@ public class DeviceUseRequest extends DomainResource {
         /**
          * The request was attempted, but due to some procedural error, it could not be completed.
          */
-        FAILED, 
+        ABORTED, 
         /**
          * added to help the parsers
          */
@@ -89,6 +93,10 @@ public class DeviceUseRequest extends DomainResource {
         public static DeviceUseRequestStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return PROPOSED;
+        if ("planned".equals(codeString))
+          return PLANNED;
         if ("requested".equals(codeString))
           return REQUESTED;
         if ("received".equals(codeString))
@@ -97,71 +105,73 @@ public class DeviceUseRequest extends DomainResource {
           return ACCEPTED;
         if ("in progress".equals(codeString))
           return INPROGRESS;
-        if ("review".equals(codeString))
-          return REVIEW;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("suspended".equals(codeString))
           return SUSPENDED;
         if ("rejected".equals(codeString))
           return REJECTED;
-        if ("failed".equals(codeString))
-          return FAILED;
+        if ("aborted".equals(codeString))
+          return ABORTED;
         throw new Exception("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
-            case FAILED: return "failed";
+            case ABORTED: return "aborted";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
+            case PROPOSED: return "";
+            case PLANNED: return "";
             case REQUESTED: return "";
             case RECEIVED: return "";
             case ACCEPTED: return "";
             case INPROGRESS: return "";
-            case REVIEW: return "";
             case COMPLETED: return "";
             case SUSPENDED: return "";
             case REJECTED: return "";
-            case FAILED: return "";
+            case ABORTED: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
+            case PROPOSED: return "The request has been proposed.";
+            case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case RECEIVED: return "The receiving system has received the request but not yet decided whether it will be performed.";
             case ACCEPTED: return "The receiving system has accepted the request but work has not yet commenced.";
             case INPROGRESS: return "The work to fulfill the order is happening.";
-            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
             case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
             case SUSPENDED: return "The request has been held by originating system/user request.";
             case REJECTED: return "The receiving system has declined to fulfill the request.";
-            case FAILED: return "The request was attempted, but due to some procedural error, it could not be completed.";
+            case ABORTED: return "The request was attempted, but due to some procedural error, it could not be completed.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
-            case FAILED: return "failed";
+            case ABORTED: return "aborted";
             default: return "?";
           }
         }
@@ -172,6 +182,10 @@ public class DeviceUseRequest extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return DeviceUseRequestStatus.PROPOSED;
+        if ("planned".equals(codeString))
+          return DeviceUseRequestStatus.PLANNED;
         if ("requested".equals(codeString))
           return DeviceUseRequestStatus.REQUESTED;
         if ("received".equals(codeString))
@@ -180,19 +194,21 @@ public class DeviceUseRequest extends DomainResource {
           return DeviceUseRequestStatus.ACCEPTED;
         if ("in progress".equals(codeString))
           return DeviceUseRequestStatus.INPROGRESS;
-        if ("review".equals(codeString))
-          return DeviceUseRequestStatus.REVIEW;
         if ("completed".equals(codeString))
           return DeviceUseRequestStatus.COMPLETED;
         if ("suspended".equals(codeString))
           return DeviceUseRequestStatus.SUSPENDED;
         if ("rejected".equals(codeString))
           return DeviceUseRequestStatus.REJECTED;
-        if ("failed".equals(codeString))
-          return DeviceUseRequestStatus.FAILED;
+        if ("aborted".equals(codeString))
+          return DeviceUseRequestStatus.ABORTED;
         throw new Exception("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
+      if (code == DeviceUseRequestStatus.PROPOSED)
+        return "proposed";
+      if (code == DeviceUseRequestStatus.PLANNED)
+        return "planned";
       if (code == DeviceUseRequestStatus.REQUESTED)
         return "requested";
       if (code == DeviceUseRequestStatus.RECEIVED)
@@ -201,102 +217,14 @@ public class DeviceUseRequest extends DomainResource {
         return "accepted";
       if (code == DeviceUseRequestStatus.INPROGRESS)
         return "in progress";
-      if (code == DeviceUseRequestStatus.REVIEW)
-        return "review";
       if (code == DeviceUseRequestStatus.COMPLETED)
         return "completed";
       if (code == DeviceUseRequestStatus.SUSPENDED)
         return "suspended";
       if (code == DeviceUseRequestStatus.REJECTED)
         return "rejected";
-      if (code == DeviceUseRequestStatus.FAILED)
-        return "failed";
-      return "?";
-      }
-    }
-
-    public enum DeviceUseRequestMode {
-        /**
-         * planned.
-         */
-        PLANNED, 
-        /**
-         * proposed.
-         */
-        PROPOSED, 
-        /**
-         * ordered.
-         */
-        ORDERED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static DeviceUseRequestMode fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return PLANNED;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
-        if ("ordered".equals(codeString))
-          return ORDERED;
-        throw new Exception("Unknown DeviceUseRequestMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case PLANNED: return "";
-            case PROPOSED: return "";
-            case ORDERED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case PLANNED: return "planned.";
-            case PROPOSED: return "proposed.";
-            case ORDERED: return "ordered.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class DeviceUseRequestModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return DeviceUseRequestMode.PLANNED;
-        if ("proposed".equals(codeString))
-          return DeviceUseRequestMode.PROPOSED;
-        if ("ordered".equals(codeString))
-          return DeviceUseRequestMode.ORDERED;
-        throw new Exception("Unknown DeviceUseRequestMode code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == DeviceUseRequestMode.PLANNED)
-        return "planned";
-      if (code == DeviceUseRequestMode.PROPOSED)
-        return "proposed";
-      if (code == DeviceUseRequestMode.ORDERED)
-        return "ordered";
+      if (code == DeviceUseRequestStatus.ABORTED)
+        return "aborted";
       return "?";
       }
     }
@@ -412,20 +340,13 @@ public class DeviceUseRequest extends DomainResource {
      * The status of the request.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the request." )
+    @Description(shortDefinition="proposed | planned | requested | received | accepted | in progress | completed | suspended | rejected | aborted", formalDefinition="The status of the request." )
     protected Enumeration<DeviceUseRequestStatus> status;
-
-    /**
-     * The mode of the request.
-     */
-    @Child(name="mode", type={CodeType.class}, order=1, min=0, max=1)
-    @Description(shortDefinition="planned | proposed | ordered", formalDefinition="The mode of the request." )
-    protected Enumeration<DeviceUseRequestMode> mode;
 
     /**
      * The details of the device  to be used.
      */
-    @Child(name="device", type={Device.class}, order=2, min=1, max=1)
+    @Child(name="device", type={Device.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Device requested", formalDefinition="The details of the device  to be used." )
     protected Reference device;
 
@@ -437,7 +358,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * An encounter that provides additional context in which this request is made.
      */
-    @Child(name="encounter", type={Encounter.class}, order=3, min=0, max=1)
+    @Child(name="encounter", type={Encounter.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Encounter motivating request", formalDefinition="An encounter that provides additional context in which this request is made." )
     protected Reference encounter;
 
@@ -449,49 +370,49 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * Identifiers assigned to this order by the orderer or by the receiver.
      */
-    @Child(name="identifier", type={Identifier.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Request identifier", formalDefinition="Identifiers assigned to this order by the orderer or by the receiver." )
     protected List<Identifier> identifier;
 
     /**
      * Reason or justification for the use of this device.
      */
-    @Child(name="indication", type={CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="indication", type={CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Reason for request", formalDefinition="Reason or justification for the use of this device." )
     protected List<CodeableConcept> indication;
 
     /**
      * Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
      */
-    @Child(name="notes", type={StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="notes", type={StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Notes or comments", formalDefinition="Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement." )
     protected List<StringType> notes;
 
     /**
      * The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
      */
-    @Child(name="prnReason", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="prnReason", type={CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="PRN", formalDefinition="The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%." )
     protected List<CodeableConcept> prnReason;
 
     /**
      * The time when the request was made.
      */
-    @Child(name="orderedOn", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Child(name="orderedOn", type={DateTimeType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="When ordered", formalDefinition="The time when the request was made." )
     protected DateTimeType orderedOn;
 
     /**
      * The time at which the request was made/recorded.
      */
-    @Child(name="recordedOn", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name="recordedOn", type={DateTimeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="When recorded", formalDefinition="The time at which the request was made/recorded." )
     protected DateTimeType recordedOn;
 
     /**
      * The patient who will use the device.
      */
-    @Child(name="subject", type={Patient.class}, order=10, min=1, max=1)
+    @Child(name="subject", type={Patient.class}, order=9, min=1, max=1)
     @Description(shortDefinition="Focus of request", formalDefinition="The patient who will use the device." )
     protected Reference subject;
 
@@ -503,18 +424,18 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
      */
-    @Child(name="timing", type={Timing.class, Period.class, DateTimeType.class}, order=11, min=0, max=1)
+    @Child(name="timing", type={Timing.class, Period.class, DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Schedule for use", formalDefinition="The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. 'Every 8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:'; '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'." )
     protected Type timing;
 
     /**
      * Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.
      */
-    @Child(name="priority", type={CodeType.class}, order=12, min=0, max=1)
+    @Child(name="priority", type={CodeType.class}, order=11, min=0, max=1)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine." )
     protected Enumeration<DeviceUseRequestPriority> priority;
 
-    private static final long serialVersionUID = -680542754L;
+    private static final long serialVersionUID = -1244116449L;
 
     public DeviceUseRequest() {
       super();
@@ -601,55 +522,6 @@ public class DeviceUseRequest extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<DeviceUseRequestStatus>();
         this.status.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #mode} (The mode of the request.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public Enumeration<DeviceUseRequestMode> getModeElement() { 
-      if (this.mode == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DeviceUseRequest.mode");
-        else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<DeviceUseRequestMode>();
-      return this.mode;
-    }
-
-    public boolean hasModeElement() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    public boolean hasMode() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    /**
-     * @param value {@link #mode} (The mode of the request.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public DeviceUseRequest setModeElement(Enumeration<DeviceUseRequestMode> value) { 
-      this.mode = value;
-      return this;
-    }
-
-    /**
-     * @return The mode of the request.
-     */
-    public DeviceUseRequestMode getMode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value The mode of the request.
-     */
-    public DeviceUseRequest setMode(DeviceUseRequestMode value) { 
-      if (value == null)
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<DeviceUseRequestMode>();
-        this.mode.setValue(value);
       }
       return this;
     }
@@ -1127,7 +999,6 @@ public class DeviceUseRequest extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("bodySite", "CodeableConcept", "Body site where the device is to be used.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("status", "code", "The status of the request.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("mode", "code", "The mode of the request.", 0, java.lang.Integer.MAX_VALUE, mode));
         childrenList.add(new Property("device", "Reference(Device)", "The details of the device  to be used.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1150,7 +1021,6 @@ public class DeviceUseRequest extends DomainResource {
             dst.bodySite.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
-        dst.mode = mode == null ? null : mode.copy();
         dst.device = device == null ? null : device.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         if (identifier != null) {
@@ -1187,11 +1057,11 @@ public class DeviceUseRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (bodySite == null || bodySite.isEmpty()) && (status == null || status.isEmpty())
-           && (mode == null || mode.isEmpty()) && (device == null || device.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (indication == null || indication.isEmpty())
-           && (notes == null || notes.isEmpty()) && (prnReason == null || prnReason.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
-           && (recordedOn == null || recordedOn.isEmpty()) && (subject == null || subject.isEmpty())
-           && (timing == null || timing.isEmpty()) && (priority == null || priority.isEmpty());
+           && (device == null || device.isEmpty()) && (encounter == null || encounter.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (indication == null || indication.isEmpty()) && (notes == null || notes.isEmpty()) && (prnReason == null || prnReason.isEmpty())
+           && (orderedOn == null || orderedOn.isEmpty()) && (recordedOn == null || recordedOn.isEmpty())
+           && (subject == null || subject.isEmpty()) && (timing == null || timing.isEmpty()) && (priority == null || priority.isEmpty())
+          ;
       }
 
   @Override

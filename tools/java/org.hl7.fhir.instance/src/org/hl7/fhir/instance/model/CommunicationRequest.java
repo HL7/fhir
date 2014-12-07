@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -47,6 +47,14 @@ public class CommunicationRequest extends DomainResource {
 
     public enum CommunicationRequestStatus {
         /**
+         * The request has been proposed.
+         */
+        PROPOSED, 
+        /**
+         * The request has been planned.
+         */
+        PLANNED, 
+        /**
          * The request has been placed.
          */
         REQUESTED, 
@@ -63,10 +71,6 @@ public class CommunicationRequest extends DomainResource {
          */
         INPROGRESS, 
         /**
-         * The work is complete, and the outcomes are being reviewed for approval.
-         */
-        REVIEW, 
-        /**
          * The work has been complete, the report(s) released, and no further work is planned.
          */
         COMPLETED, 
@@ -79,7 +83,7 @@ public class CommunicationRequest extends DomainResource {
          */
         REJECTED, 
         /**
-         * The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
+         * The communication was attempted, but due to some procedural error, it could not be completed.
          */
         FAILED, 
         /**
@@ -89,6 +93,10 @@ public class CommunicationRequest extends DomainResource {
         public static CommunicationRequestStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return PROPOSED;
+        if ("planned".equals(codeString))
+          return PLANNED;
         if ("requested".equals(codeString))
           return REQUESTED;
         if ("received".equals(codeString))
@@ -97,8 +105,6 @@ public class CommunicationRequest extends DomainResource {
           return ACCEPTED;
         if ("in progress".equals(codeString))
           return INPROGRESS;
-        if ("review".equals(codeString))
-          return REVIEW;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("suspended".equals(codeString))
@@ -111,11 +117,12 @@ public class CommunicationRequest extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -125,11 +132,12 @@ public class CommunicationRequest extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case PROPOSED: return "";
+            case PLANNED: return "";
             case REQUESTED: return "";
             case RECEIVED: return "";
             case ACCEPTED: return "";
             case INPROGRESS: return "";
-            case REVIEW: return "";
             case COMPLETED: return "";
             case SUSPENDED: return "";
             case REJECTED: return "";
@@ -139,25 +147,27 @@ public class CommunicationRequest extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
+            case PROPOSED: return "The request has been proposed.";
+            case PLANNED: return "The request has been planned.";
             case REQUESTED: return "The request has been placed.";
             case RECEIVED: return "The receiving system has received the request but not yet decided whether it will be performed.";
             case ACCEPTED: return "The receiving system has accepted the order, but work has not yet commenced.";
             case INPROGRESS: return "The work to fulfill the order is happening.";
-            case REVIEW: return "The work is complete, and the outcomes are being reviewed for approval.";
             case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
             case SUSPENDED: return "The request has been held by originating system/user request.";
             case REJECTED: return "The receiving system has declined to fulfill the request.";
-            case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.";
+            case FAILED: return "The communication was attempted, but due to some procedural error, it could not be completed.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case PROPOSED: return "proposed";
+            case PLANNED: return "planned";
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
             case INPROGRESS: return "in progress";
-            case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -172,6 +182,10 @@ public class CommunicationRequest extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("proposed".equals(codeString))
+          return CommunicationRequestStatus.PROPOSED;
+        if ("planned".equals(codeString))
+          return CommunicationRequestStatus.PLANNED;
         if ("requested".equals(codeString))
           return CommunicationRequestStatus.REQUESTED;
         if ("received".equals(codeString))
@@ -180,8 +194,6 @@ public class CommunicationRequest extends DomainResource {
           return CommunicationRequestStatus.ACCEPTED;
         if ("in progress".equals(codeString))
           return CommunicationRequestStatus.INPROGRESS;
-        if ("review".equals(codeString))
-          return CommunicationRequestStatus.REVIEW;
         if ("completed".equals(codeString))
           return CommunicationRequestStatus.COMPLETED;
         if ("suspended".equals(codeString))
@@ -193,6 +205,10 @@ public class CommunicationRequest extends DomainResource {
         throw new Exception("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
+      if (code == CommunicationRequestStatus.PROPOSED)
+        return "proposed";
+      if (code == CommunicationRequestStatus.PLANNED)
+        return "planned";
       if (code == CommunicationRequestStatus.REQUESTED)
         return "requested";
       if (code == CommunicationRequestStatus.RECEIVED)
@@ -201,8 +217,6 @@ public class CommunicationRequest extends DomainResource {
         return "accepted";
       if (code == CommunicationRequestStatus.INPROGRESS)
         return "in progress";
-      if (code == CommunicationRequestStatus.REVIEW)
-        return "review";
       if (code == CommunicationRequestStatus.COMPLETED)
         return "completed";
       if (code == CommunicationRequestStatus.SUSPENDED)
@@ -215,94 +229,8 @@ public class CommunicationRequest extends DomainResource {
       }
     }
 
-    public enum CommunicationRequestMode {
-        /**
-         * planned.
-         */
-        PLANNED, 
-        /**
-         * proposed.
-         */
-        PROPOSED, 
-        /**
-         * ordered.
-         */
-        ORDERED, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static CommunicationRequestMode fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return PLANNED;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
-        if ("ordered".equals(codeString))
-          return ORDERED;
-        throw new Exception("Unknown CommunicationRequestMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case PLANNED: return "";
-            case PROPOSED: return "";
-            case ORDERED: return "";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case PLANNED: return "planned.";
-            case PROPOSED: return "proposed.";
-            case ORDERED: return "ordered.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case PLANNED: return "planned";
-            case PROPOSED: return "proposed";
-            case ORDERED: return "ordered";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class CommunicationRequestModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("planned".equals(codeString))
-          return CommunicationRequestMode.PLANNED;
-        if ("proposed".equals(codeString))
-          return CommunicationRequestMode.PROPOSED;
-        if ("ordered".equals(codeString))
-          return CommunicationRequestMode.ORDERED;
-        throw new Exception("Unknown CommunicationRequestMode code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == CommunicationRequestMode.PLANNED)
-        return "planned";
-      if (code == CommunicationRequestMode.PROPOSED)
-        return "proposed";
-      if (code == CommunicationRequestMode.ORDERED)
-        return "ordered";
-      return "?";
-      }
-    }
-
     @Block()
-    public static class CommunicationRequestMessagePartComponent extends BackboneElement {
+    public static class CommunicationRequestPayloadComponent extends BackboneElement {
         /**
          * An individual message part for multi-part messages.
          */
@@ -312,11 +240,11 @@ public class CommunicationRequest extends DomainResource {
 
         private static final long serialVersionUID = -1763459053L;
 
-      public CommunicationRequestMessagePartComponent() {
+      public CommunicationRequestPayloadComponent() {
         super();
       }
 
-      public CommunicationRequestMessagePartComponent(Type content) {
+      public CommunicationRequestPayloadComponent(Type content) {
         super();
         this.content = content;
       }
@@ -362,7 +290,7 @@ public class CommunicationRequest extends DomainResource {
         /**
          * @param value {@link #content} (An individual message part for multi-part messages.)
          */
-        public CommunicationRequestMessagePartComponent setContent(Type value) { 
+        public CommunicationRequestPayloadComponent setContent(Type value) { 
           this.content = value;
           return this;
         }
@@ -372,8 +300,8 @@ public class CommunicationRequest extends DomainResource {
           childrenList.add(new Property("content[x]", "string|Attachment|Reference(Any)", "An individual message part for multi-part messages.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
-      public CommunicationRequestMessagePartComponent copy() {
-        CommunicationRequestMessagePartComponent dst = new CommunicationRequestMessagePartComponent();
+      public CommunicationRequestPayloadComponent copy() {
+        CommunicationRequestPayloadComponent dst = new CommunicationRequestPayloadComponent();
         copyValues(dst);
         dst.content = content == null ? null : content.copy();
         return dst;
@@ -426,9 +354,9 @@ public class CommunicationRequest extends DomainResource {
     /**
      * Text, attachment(s), or resource(s) to be communicated to the recipient.
      */
-    @Child(name="messagePart", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="payload", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Message payload", formalDefinition="Text, attachment(s), or resource(s) to be communicated to the recipient." )
-    protected List<CommunicationRequestMessagePartComponent> messagePart;
+    protected List<CommunicationRequestPayloadComponent> payload;
 
     /**
      * The communication medium, e.g., email, fax.
@@ -453,20 +381,13 @@ public class CommunicationRequest extends DomainResource {
      * The status of the proposal or order.
      */
     @Child(name="status", type={CodeType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the proposal or order." )
+    @Description(shortDefinition="proposed | planned | requested | received | accepted | in progress | completed | suspended | rejected | failed", formalDefinition="The status of the proposal or order." )
     protected Enumeration<CommunicationRequestStatus> status;
-
-    /**
-     * Whether the communication is proposed, ordered, or planned.
-     */
-    @Child(name="mode", type={CodeType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="planned | proposed | ordered", formalDefinition="Whether the communication is proposed, ordered, or planned." )
-    protected Enumeration<CommunicationRequestMode> mode;
 
     /**
      * The encounter within which the communication request was created.
      */
-    @Child(name="encounter", type={Encounter.class}, order=8, min=0, max=1)
+    @Child(name="encounter", type={Encounter.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Encounter leading to message", formalDefinition="The encounter within which the communication request was created." )
     protected Reference encounter;
 
@@ -478,28 +399,28 @@ public class CommunicationRequest extends DomainResource {
     /**
      * The time when this communication is to occur.
      */
-    @Child(name="scheduledTime", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name="scheduledTime", type={DateTimeType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="When scheduled", formalDefinition="The time when this communication is to occur." )
     protected DateTimeType scheduledTime;
 
     /**
      * The reason or justification for the communication request.
      */
-    @Child(name="indication", type={CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="reason", type={CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Indication for message", formalDefinition="The reason or justification for the communication request." )
-    protected List<CodeableConcept> indication;
+    protected List<CodeableConcept> reason;
 
     /**
      * The time when the request was made.
      */
-    @Child(name="orderedOn", type={DateTimeType.class}, order=11, min=0, max=1)
+    @Child(name="orderedOn", type={DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="When ordered or proposed", formalDefinition="The time when the request was made." )
     protected DateTimeType orderedOn;
 
     /**
      * The patient who is the focus of this communication request.
      */
-    @Child(name="subject", type={Patient.class}, order=12, min=1, max=1)
+    @Child(name="subject", type={Patient.class}, order=11, min=0, max=1)
     @Description(shortDefinition="Focus of message", formalDefinition="The patient who is the focus of this communication request." )
     protected Reference subject;
 
@@ -511,19 +432,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
      */
-    @Child(name="priority", type={CodeableConcept.class}, order=13, min=0, max=1)
+    @Child(name="priority", type={CodeableConcept.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Message urgency", formalDefinition="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine." )
     protected CodeableConcept priority;
 
-    private static final long serialVersionUID = -515307355L;
+    private static final long serialVersionUID = 431529355L;
 
     public CommunicationRequest() {
       super();
-    }
-
-    public CommunicationRequest(Reference subject) {
-      super();
-      this.subject = subject;
     }
 
     /**
@@ -659,32 +575,32 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #messagePart} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
+     * @return {@link #payload} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
      */
-    public List<CommunicationRequestMessagePartComponent> getMessagePart() { 
-      if (this.messagePart == null)
-        this.messagePart = new ArrayList<CommunicationRequestMessagePartComponent>();
-      return this.messagePart;
+    public List<CommunicationRequestPayloadComponent> getPayload() { 
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+      return this.payload;
     }
 
-    public boolean hasMessagePart() { 
-      if (this.messagePart == null)
+    public boolean hasPayload() { 
+      if (this.payload == null)
         return false;
-      for (CommunicationRequestMessagePartComponent item : this.messagePart)
+      for (CommunicationRequestPayloadComponent item : this.payload)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #messagePart} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
+     * @return {@link #payload} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
      */
     // syntactic sugar
-    public CommunicationRequestMessagePartComponent addMessagePart() { //3
-      CommunicationRequestMessagePartComponent t = new CommunicationRequestMessagePartComponent();
-      if (this.messagePart == null)
-        this.messagePart = new ArrayList<CommunicationRequestMessagePartComponent>();
-      this.messagePart.add(t);
+    public CommunicationRequestPayloadComponent addPayload() { //3
+      CommunicationRequestPayloadComponent t = new CommunicationRequestPayloadComponent();
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+      this.payload.add(t);
       return t;
     }
 
@@ -807,55 +723,6 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #mode} (Whether the communication is proposed, ordered, or planned.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public Enumeration<CommunicationRequestMode> getModeElement() { 
-      if (this.mode == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.mode");
-        else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<CommunicationRequestMode>();
-      return this.mode;
-    }
-
-    public boolean hasModeElement() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    public boolean hasMode() { 
-      return this.mode != null && !this.mode.isEmpty();
-    }
-
-    /**
-     * @param value {@link #mode} (Whether the communication is proposed, ordered, or planned.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
-     */
-    public CommunicationRequest setModeElement(Enumeration<CommunicationRequestMode> value) { 
-      this.mode = value;
-      return this;
-    }
-
-    /**
-     * @return Whether the communication is proposed, ordered, or planned.
-     */
-    public CommunicationRequestMode getMode() { 
-      return this.mode == null ? null : this.mode.getValue();
-    }
-
-    /**
-     * @param value Whether the communication is proposed, ordered, or planned.
-     */
-    public CommunicationRequest setMode(CommunicationRequestMode value) { 
-      if (value == null)
-        this.mode = null;
-      else {
-        if (this.mode == null)
-          this.mode = new Enumeration<CommunicationRequestMode>();
-        this.mode.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #encounter} (The encounter within which the communication request was created.)
      */
     public Reference getEncounter() { 
@@ -949,32 +816,32 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #indication} (The reason or justification for the communication request.)
+     * @return {@link #reason} (The reason or justification for the communication request.)
      */
-    public List<CodeableConcept> getIndication() { 
-      if (this.indication == null)
-        this.indication = new ArrayList<CodeableConcept>();
-      return this.indication;
+    public List<CodeableConcept> getReason() { 
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      return this.reason;
     }
 
-    public boolean hasIndication() { 
-      if (this.indication == null)
+    public boolean hasReason() { 
+      if (this.reason == null)
         return false;
-      for (CodeableConcept item : this.indication)
+      for (CodeableConcept item : this.reason)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #indication} (The reason or justification for the communication request.)
+     * @return {@link #reason} (The reason or justification for the communication request.)
      */
     // syntactic sugar
-    public CodeableConcept addIndication() { //3
+    public CodeableConcept addReason() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.indication == null)
-        this.indication = new ArrayList<CodeableConcept>();
-      this.indication.add(t);
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
       return t;
     }
 
@@ -1101,14 +968,13 @@ public class CommunicationRequest extends DomainResource {
         childrenList.add(new Property("category", "CodeableConcept", "The type of message such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("sender", "Reference(Patient|Practitioner|Device|RelatedPerson|Organization)", "The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
         childrenList.add(new Property("recipient", "Reference(Patient|Device|RelatedPerson|Practitioner)", "The entity (e.g., person, organization, clinical information system, or device) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("messagePart", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, messagePart));
+        childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
         childrenList.add(new Property("medium", "CodeableConcept", "The communication medium, e.g., email, fax.", 0, java.lang.Integer.MAX_VALUE, medium));
         childrenList.add(new Property("requester", "Reference(Practitioner|Patient|RelatedPerson)", "The responsible person who authorizes this order, e.g., physician. This may be different than the author of the order statement, e.g., clerk, who may have entered the statement into the order entry application.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("status", "code", "The status of the proposal or order.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("mode", "code", "Whether the communication is proposed, ordered, or planned.", 0, java.lang.Integer.MAX_VALUE, mode));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter within which the communication request was created.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("scheduledTime", "dateTime", "The time when this communication is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduledTime));
-        childrenList.add(new Property("indication", "CodeableConcept", "The reason or justification for the communication request.", 0, java.lang.Integer.MAX_VALUE, indication));
+        childrenList.add(new Property("reason", "CodeableConcept", "The reason or justification for the communication request.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("orderedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, orderedOn));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the focus of this communication request.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("priority", "CodeableConcept", "Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
@@ -1129,10 +995,10 @@ public class CommunicationRequest extends DomainResource {
           for (Reference i : recipient)
             dst.recipient.add(i.copy());
         };
-        if (messagePart != null) {
-          dst.messagePart = new ArrayList<CommunicationRequestMessagePartComponent>();
-          for (CommunicationRequestMessagePartComponent i : messagePart)
-            dst.messagePart.add(i.copy());
+        if (payload != null) {
+          dst.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+          for (CommunicationRequestPayloadComponent i : payload)
+            dst.payload.add(i.copy());
         };
         if (medium != null) {
           dst.medium = new ArrayList<CodeableConcept>();
@@ -1141,13 +1007,12 @@ public class CommunicationRequest extends DomainResource {
         };
         dst.requester = requester == null ? null : requester.copy();
         dst.status = status == null ? null : status.copy();
-        dst.mode = mode == null ? null : mode.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.scheduledTime = scheduledTime == null ? null : scheduledTime.copy();
-        if (indication != null) {
-          dst.indication = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : indication)
-            dst.indication.add(i.copy());
+        if (reason != null) {
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
+            dst.reason.add(i.copy());
         };
         dst.orderedOn = orderedOn == null ? null : orderedOn.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -1161,11 +1026,11 @@ public class CommunicationRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (sender == null || sender.isEmpty()) && (recipient == null || recipient.isEmpty()) && (messagePart == null || messagePart.isEmpty())
+           && (sender == null || sender.isEmpty()) && (recipient == null || recipient.isEmpty()) && (payload == null || payload.isEmpty())
            && (medium == null || medium.isEmpty()) && (requester == null || requester.isEmpty()) && (status == null || status.isEmpty())
-           && (mode == null || mode.isEmpty()) && (encounter == null || encounter.isEmpty()) && (scheduledTime == null || scheduledTime.isEmpty())
-           && (indication == null || indication.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
-           && (subject == null || subject.isEmpty()) && (priority == null || priority.isEmpty());
+           && (encounter == null || encounter.isEmpty()) && (scheduledTime == null || scheduledTime.isEmpty())
+           && (reason == null || reason.isEmpty()) && (orderedOn == null || orderedOn.isEmpty()) && (subject == null || subject.isEmpty())
+           && (priority == null || priority.isEmpty());
       }
 
   @Override
@@ -1175,7 +1040,7 @@ public class CommunicationRequest extends DomainResource {
 
   @SearchParamDefinition(name="requester", path="CommunicationRequest.requester", description="Requester of communication", type="reference" )
   public static final String SP_REQUESTER = "requester";
-  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="proposed | planned | requested | received | accepted | in progress | completed | suspended | rejected | failed", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="CommunicationRequest.subject", description="Focus of message", type="reference" )
   public static final String SP_SUBJECT = "subject";
@@ -1185,8 +1050,6 @@ public class CommunicationRequest extends DomainResource {
   public static final String SP_RECIPIENT = "recipient";
   @SearchParamDefinition(name="medium", path="CommunicationRequest.medium", description="Communication medium", type="token" )
   public static final String SP_MEDIUM = "medium";
-  @SearchParamDefinition(name="mode", path="CommunicationRequest.mode", description="planned | proposed | ordered", type="token" )
-  public static final String SP_MODE = "mode";
   @SearchParamDefinition(name="sender", path="CommunicationRequest.sender", description="Message sender", type="reference" )
   public static final String SP_SENDER = "sender";
   @SearchParamDefinition(name="category", path="CommunicationRequest.category", description="Message category", type="token" )

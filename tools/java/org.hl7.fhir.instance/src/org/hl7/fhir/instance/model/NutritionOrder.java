@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 import java.util.*;
 
@@ -1050,9 +1050,9 @@ public class NutritionOrder extends DomainResource {
         /**
          * Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.
          */
-        @Child(name="rate", type={Quantity.class}, order=9, min=0, max=1)
+        @Child(name="rate", type={Ratio.class}, order=9, min=0, max=1)
         @Description(shortDefinition="Speed with which the formula is provided per period of time", formalDefinition="Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule." )
-        protected Quantity rate;
+        protected Ratio rate;
 
         /**
          * The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.
@@ -1068,7 +1068,7 @@ public class NutritionOrder extends DomainResource {
         @Description(shortDefinition="Upper limit on formula volume per unit of time", formalDefinition="The maximum total quantity of formula that may be administered to a subject over the period of time, e.g., 1440 mL over 24 hours." )
         protected Quantity maxVolumeToDeliver;
 
-        private static final long serialVersionUID = -908844157L;
+        private static final long serialVersionUID = 1106347909L;
 
       public NutritionOrderItemEnteralFormulaComponent() {
         super();
@@ -1344,12 +1344,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #rate} (Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
          */
-        public Quantity getRate() { 
+        public Ratio getRate() { 
           if (this.rate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.rate");
             else if (Configuration.doAutoCreate())
-              this.rate = new Quantity();
+              this.rate = new Ratio();
           return this.rate;
         }
 
@@ -1360,7 +1360,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #rate} (Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.)
          */
-        public NutritionOrderItemEnteralFormulaComponent setRate(Quantity value) { 
+        public NutritionOrderItemEnteralFormulaComponent setRate(Ratio value) { 
           this.rate = value;
           return this;
         }
@@ -1423,7 +1423,7 @@ public class NutritionOrder extends DomainResource {
           childrenList.add(new Property("caloricDensity", "Quantity", "The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula the provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.", 0, java.lang.Integer.MAX_VALUE, caloricDensity));
           childrenList.add(new Property("routeofAdministration", "CodeableConcept", "A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube.", 0, java.lang.Integer.MAX_VALUE, routeofAdministration));
           childrenList.add(new Property("quantity", "Quantity", "The volume of formula to provide to the patient per the specified administration schedule.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("rate", "Quantity", "Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.", 0, java.lang.Integer.MAX_VALUE, rate));
+          childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("rateAdjustment", "Quantity", "The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.", 0, java.lang.Integer.MAX_VALUE, rateAdjustment));
           childrenList.add(new Property("maxVolumeToDeliver", "Quantity", "The maximum total quantity of formula that may be administered to a subject over the period of time, e.g., 1440 mL over 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxVolumeToDeliver));
         }

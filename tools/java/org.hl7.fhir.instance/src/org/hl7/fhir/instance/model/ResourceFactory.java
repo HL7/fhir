@@ -29,27 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Dec 5, 2014 09:17+1100 for FHIR v0.3.0
+// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
 
 public class ResourceFactory extends Factory {
 
     public static Resource createReference(String name) throws Exception {
         if ("Condition".equals(name))
             return new Condition();
-        if ("Parameters".equals(name))
-            return new Parameters();
         if ("Supply".equals(name))
             return new Supply();
-        if ("ProcedureRequest".equals(name))
-            return new ProcedureRequest();
         if ("DeviceComponent".equals(name))
             return new DeviceComponent();
-        if ("DeviceMetric".equals(name))
-            return new DeviceMetric();
-        if ("Organization".equals(name))
-            return new Organization();
-        if ("Readjudicate".equals(name))
-            return new Readjudicate();
+        if ("Communication".equals(name))
+            return new Communication();
         if ("Group".equals(name))
             return new Group();
         if ("OralHealthClaim".equals(name))
@@ -58,18 +50,98 @@ public class ResourceFactory extends Factory {
             return new ValueSet();
         if ("Coverage".equals(name))
             return new Coverage();
-        if ("ImmunizationRecommendation".equals(name))
-            return new ImmunizationRecommendation();
         if ("Appointment".equals(name))
             return new Appointment();
-        if ("MedicationDispense".equals(name))
-            return new MedicationDispense();
-        if ("MedicationPrescription".equals(name))
-            return new MedicationPrescription();
         if ("Slot".equals(name))
             return new Slot();
         if ("Contraindication".equals(name))
             return new Contraindication();
+        if ("Composition".equals(name))
+            return new Composition();
+        if ("Conformance".equals(name))
+            return new Conformance();
+        if ("NamingSystem".equals(name))
+            return new NamingSystem();
+        if ("Profile".equals(name))
+            return new Profile();
+        if ("HealthcareService".equals(name))
+            return new HealthcareService();
+        if ("OrderResponse".equals(name))
+            return new OrderResponse();
+        if ("StatusResponse".equals(name))
+            return new StatusResponse();
+        if ("ConceptMap".equals(name))
+            return new ConceptMap();
+        if ("PharmacyClaim".equals(name))
+            return new PharmacyClaim();
+        if ("Reversal".equals(name))
+            return new Reversal();
+        if ("Practitioner".equals(name))
+            return new Practitioner();
+        if ("CarePlan".equals(name))
+            return new CarePlan();
+        if ("ClinicalAssessment".equals(name))
+            return new ClinicalAssessment();
+        if ("Substance".equals(name))
+            return new Substance();
+        if ("DeviceUseRequest".equals(name))
+            return new DeviceUseRequest();
+        if ("EligibilityRequest".equals(name))
+            return new EligibilityRequest();
+        if ("QuestionnaireAnswers".equals(name))
+            return new QuestionnaireAnswers();
+        if ("PaymentReconciliation".equals(name))
+            return new PaymentReconciliation();
+        if ("ProfessionalClaim".equals(name))
+            return new ProfessionalClaim();
+        if ("OperationDefinition".equals(name))
+            return new OperationDefinition();
+        if ("ImagingObjectSelection".equals(name))
+            return new ImagingObjectSelection();
+        if ("ClaimResponse".equals(name))
+            return new ClaimResponse();
+        if ("CommunicationRequest".equals(name))
+            return new CommunicationRequest();
+        if ("RiskAssessment".equals(name))
+            return new RiskAssessment();
+        if ("ExplanationOfBenefit".equals(name))
+            return new ExplanationOfBenefit();
+        if ("AllergyIntolerance".equals(name))
+            return new AllergyIntolerance();
+        if ("Observation".equals(name))
+            return new Observation();
+        if ("SupportingDocumentation".equals(name))
+            return new SupportingDocumentation();
+        if ("RelatedPerson".equals(name))
+            return new RelatedPerson();
+        if ("InstitutionalClaim".equals(name))
+            return new InstitutionalClaim();
+        if ("Alert".equals(name))
+            return new Alert();
+        if ("EligibilityResponse".equals(name))
+            return new EligibilityResponse();
+        if ("Person".equals(name))
+            return new Person();
+        if ("StatusRequest".equals(name))
+            return new StatusRequest();
+        if ("Parameters".equals(name))
+            return new Parameters();
+        if ("VisionClaim".equals(name))
+            return new VisionClaim();
+        if ("ProcedureRequest".equals(name))
+            return new ProcedureRequest();
+        if ("DeviceMetric".equals(name))
+            return new DeviceMetric();
+        if ("Organization".equals(name))
+            return new Organization();
+        if ("Readjudicate".equals(name))
+            return new Readjudicate();
+        if ("ImmunizationRecommendation".equals(name))
+            return new ImmunizationRecommendation();
+        if ("MedicationDispense".equals(name))
+            return new MedicationDispense();
+        if ("MedicationPrescription".equals(name))
+            return new MedicationPrescription();
         if ("PaymentNotice".equals(name))
             return new PaymentNotice();
         if ("MedicationStatement".equals(name))
@@ -78,62 +150,36 @@ public class ResourceFactory extends Factory {
             return new AppointmentResponse();
         if ("Questionnaire".equals(name))
             return new Questionnaire();
-        if ("Composition".equals(name))
-            return new Composition();
         if ("OperationOutcome".equals(name))
             return new OperationOutcome();
-        if ("Conformance".equals(name))
-            return new Conformance();
-        if ("NamingSystem".equals(name))
-            return new NamingSystem();
         if ("Media".equals(name))
             return new Media();
         if ("Binary".equals(name))
             return new Binary();
         if ("Other".equals(name))
             return new Other();
-        if ("HealthcareService".equals(name))
-            return new HealthcareService();
-        if ("Profile".equals(name))
-            return new Profile();
+        if ("VisionPrescription".equals(name))
+            return new VisionPrescription();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
         if ("Immunization".equals(name))
             return new Immunization();
-        if ("Bundle".equals(name))
-            return new Bundle();
         if ("ExtensionDefinition".equals(name))
             return new ExtensionDefinition();
+        if ("Bundle".equals(name))
+            return new Bundle();
         if ("Subscription".equals(name))
             return new Subscription();
-        if ("OrderResponse".equals(name))
-            return new OrderResponse();
-        if ("StatusResponse".equals(name))
-            return new StatusResponse();
-        if ("ConceptMap".equals(name))
-            return new ConceptMap();
-        if ("Reversal".equals(name))
-            return new Reversal();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
-        if ("Practitioner".equals(name))
-            return new Practitioner();
-        if ("CarePlan".equals(name))
-            return new CarePlan();
         if ("Provenance".equals(name))
             return new Provenance();
         if ("Device".equals(name))
             return new Device();
-        if ("Query".equals(name))
-            return new Query();
         if ("Order".equals(name))
             return new Order();
         if ("Procedure".equals(name))
             return new Procedure();
-        if ("Substance".equals(name))
-            return new Substance();
-        if ("DeviceUseRequest".equals(name))
-            return new DeviceUseRequest();
         if ("DiagnosticReport".equals(name))
             return new DiagnosticReport();
         if ("Medication".equals(name))
@@ -146,72 +192,44 @@ public class ResourceFactory extends Factory {
             return new DocumentManifest();
         if ("Availability".equals(name))
             return new Availability();
-        if ("EligibilityRequest".equals(name))
-            return new EligibilityRequest();
         if ("MedicationAdministration".equals(name))
             return new MedicationAdministration();
-        if ("QuestionnaireAnswers".equals(name))
-            return new QuestionnaireAnswers();
         if ("Encounter".equals(name))
             return new Encounter();
         if ("SecurityEvent".equals(name))
             return new SecurityEvent();
-        if ("PaymentReconciliation".equals(name))
-            return new PaymentReconciliation();
         if ("PendedRequest".equals(name))
             return new PendedRequest();
         if ("List".equals(name))
             return new List_();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
-        if ("ImagingObjectSelection".equals(name))
-            return new ImagingObjectSelection();
-        if ("OperationDefinition".equals(name))
-            return new OperationDefinition();
+        if ("Goal".equals(name))
+            return new Goal();
         if ("NutritionOrder".equals(name))
             return new NutritionOrder();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
-        if ("ClaimResponse".equals(name))
-            return new ClaimResponse();
         if ("ReferralRequest".equals(name))
             return new ReferralRequest();
-        if ("CommunicationRequest".equals(name))
-            return new CommunicationRequest();
-        if ("RiskAssessment".equals(name))
-            return new RiskAssessment();
         if ("FamilyHistory".equals(name))
             return new FamilyHistory();
         if ("EnrollmentRequest".equals(name))
             return new EnrollmentRequest();
         if ("Location".equals(name))
             return new Location();
-        if ("Observation".equals(name))
-            return new Observation();
-        if ("AllergyIntolerance".equals(name))
-            return new AllergyIntolerance();
-        if ("ExplanationOfBenefit".equals(name))
-            return new ExplanationOfBenefit();
         if ("Contract".equals(name))
             return new Contract();
-        if ("SupportingDocumentation".equals(name))
-            return new SupportingDocumentation();
-        if ("RelatedPerson".equals(name))
-            return new RelatedPerson();
         if ("Basic".equals(name))
             return new Basic();
         if ("Specimen".equals(name))
             return new Specimen();
-        if ("Alert".equals(name))
-            return new Alert();
         if ("EnrollmentResponse".equals(name))
             return new EnrollmentResponse();
         if ("Patient".equals(name))
             return new Patient();
-        if ("EligibilityResponse".equals(name))
-            return new EligibilityResponse();
-        if ("StatusRequest".equals(name))
-            return new StatusRequest();
+        if ("CarePlan2".equals(name))
+            return new CarePlan2();
         if ("DiagnosticOrder".equals(name))
             return new DiagnosticOrder();
         else
