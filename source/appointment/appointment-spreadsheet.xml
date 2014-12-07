@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-17T05:30:16Z</LastSaved>
+  <LastSaved>2014-12-07T11:49:40Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,6 +24,7 @@
   <WindowWidth>23685</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -823,7 +824,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1064,7 +1064,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="105">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Appointment.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1076,15 +1076,15 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ActStatus</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">AppointmentStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The overall status of the Appointment</Data><NamedCell
+    <Cell><Data ss:Type="String">Pending | Booked | Arrived | Fulfilled | Cancelled | NoShow</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status</Data><NamedCell
+    <Cell><Data ss:Type="String">The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3817,7 +3817,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4792,6 +4792,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7432,67 +7433,67 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">busy</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">pending</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The participant(s) will be unavailable during this appointment</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Pending</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Some or all of the participant(s) have not finalized their acceptance of the appointment request</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">free</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">booked</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The participant(s) will still be available during this appointment</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Booked</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">All participant(s) have been considered and the appointment is condirmed to go ahead at the date/times specified</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">tentative</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">arrived</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This appointment has not been confirmed, and may become available</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Arrived</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Some of the patients have arrived</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">outofoffice</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">fulfilled</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The participant(s) will not be at the usual location</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Fulfilled</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">This appointment has completed and may have resulted in an encounter</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">The implication of this is often that the subject is likely to have travel or other time unavailable before/after this appointment</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">The encounter may still be inprogress, however this status is managed by the Encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Cancelled</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">The appointment has been cancelled</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">noshow</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">No Show</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Some or all of the participant(s) have not/did not appear for the appointment (usually the patient)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7998,6 +7999,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>0</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
