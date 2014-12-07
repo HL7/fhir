@@ -10,19 +10,18 @@
   <LastAuthor>Brett A Marquard</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-04T21:41:17Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13020</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>12960</WindowHeight>
+  <WindowWidth>24240</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>60</WindowTopY>
   <TabRatio>837</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -941,15 +940,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">DAF Diagnostic Report Profile</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Data Access Framework (DAF) DiagnosticReport Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">HL7 International - Orders and Observations WG</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Office of the National Coordinator (ONC)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.reference</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://www.healthit.gov</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
@@ -957,7 +956,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Constraints and extensions for DAF Diagnostic Report.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines constraints and extensions on the DiagnosticReport resource for use in querying and retrieving diagnostic reports associated with a patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -973,19 +972,20 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="Number">0.01</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/Profile/diagnosticreport-daf"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/diagnosticreport-daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticreport-daf-introduction.xml</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticreport-daf-profile-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">notes</Data></Cell>
-    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">diagnosticreport-daf-profile-notes.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -1001,6 +1001,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1020,6 +1021,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>14</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1165,7 +1167,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">11/19/2014 EH: ORC.1:Order Control:ID:R::[1..1]:2..2::HL70119/OBR.1:Set ID - OBR:SI:R::[1..1]:1..4::</Data></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">update definition</Data></Cell>
     <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">DAF Diagnostic Report</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">DAFDiagnosticReport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">DiagnosticReport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3854,7 +3856,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

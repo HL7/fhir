@@ -1294,7 +1294,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DAFPatient|DAFAllergyIntolerance|DAFCondition|DAFEncounter|Observation|DAFProcedure|DAFMedicationStatement|DAFMedicationAdministration|DAFImmunization</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">DAFPatient|DAFAllergyIntolerance|DAFCondition|DAFEncounter|Observation|DAFProcedure|DAFMedicationStatement|DAFMedicationAdministration|DAFImmunization|DAFDiagnosticReport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1621,7 +1621,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="96.75">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1631,7 +1631,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DAFPatient|DAFAllergyIntolerance|DAFCondition|DAFEncounter|Observation|DAFProcedure|DAFMedicationStatement|DAFMedicationAdministration|DAFImmunization)</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Reference(DAFPatient|DAFAllergyIntolerance|DAFCondition|DAFEncounter|Observation|DAFProcedure|DAFMedicationStatement|DAFMedicationAdministration|DAFImmunization|DAFDiagnosticReport)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3780,7 +3780,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3794,10 +3794,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

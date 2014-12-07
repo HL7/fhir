@@ -3,13 +3,13 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This profile sets expectations for use of the <a href="immunization.html">Immunization</a> resource to record immunization events associated with a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
+This profile sets expectations for use of the <a href="diagnosticreport.html">DiagnosticReport</a> resource to record diagnostic reports associated with a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
 </p>
 <p>
 For the purposes of this profile, <i>Supported</i> means the following:
 <ul>
   <p><b>SearchParameters:</b></p>
-  <li>DAF Query Requestor (client) SHALL be capable of querying the Immunization resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
+  <li>DAF Query Requestor (client) SHALL be capable of querying the DiagnosticReport resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
   <li>DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide Query Results or error responses per the FHIR specifications.</li>
   <li>DAF Query Responder MAY provide valid or error responses when the query parameters submitted contain data elements which are not tagged as MUST SUPPORT by this profile.</li>
   <p/>
@@ -28,7 +28,7 @@ For the purposes of this profile, <i>Supported</i> means the following:
 <div>
 <h2>Relationship to Meaningful Use</h2>
 <p>
-The DAFImmunization profile provides a mapping for the following Meaningful Use data elements to FHIR data elements.
+The DAFDiagnosticReport profile provides a mapping for the following derived Meaningful Use data elements to FHIR data elements.
 </p>
 <br/>
 	<table class="grid">
@@ -40,52 +40,20 @@ The DAFImmunization profile provides a mapping for the following Meaningful Use 
         </thead>
         <tbody>
           <tr>
-			<td>Immunization Vaccine</td>
-			<td>Immunization.vaccineType</td>
+			<td>Diagnostic Report Code/Name</td>
+			<td>DiagnosticReport.name</td>
 		  </tr>
 		  <tr>
-			<td>Vaccination Date</td>
-			<td>Immunization.date</td>
+			<td>Diagnostic Test Category</td>
+			<td>DiagnosticReport.serviceCategory</td>
 		  </tr>
 		  <tr>
-			<td>Vaccine Manufacturer</td>
-			<td>Immunization.manufacturer</td>
+			<td>Diagnostic Report Diagnosis</td>
+			<td>DiagnosticReport.codedDiagnosis</td>
 		  </tr>
 		  <tr>
-			<td>Vaccine Lot Number</td>
-			<td>Immunization.lotNumber</td>
-		  </tr>
-		  <tr>
-			<td>Immunization Administered by Provider</td>
-			<td>Immunization.performer</td>
-		  </tr>
-		  <tr>
-			<td>Vaccine Expiration Date</td>
-			<td>Immunization.expirationDate</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Dosage Administered</td>
-			<td>Immunization.doseQuantity</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Body Site</td>
-			<td>Immunization.site</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Ordering Provider</td>
-			<td>Immunization.requester</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Reaction</td>
-			<td>Immunization.reaction.symptom.code</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Refused</td>
-			<td>Immunization.refusedIndicator</td>
-		  </tr>
-		  <tr>
-			<td>Vaccination Refusal Reason</td>
-			<td>Immunization.explanation.refusalReason</td>
+			<td>Diagnostic Report Conclusion</td>
+			<td>DiagnosticReport.conclusion</td>
 		  </tr>
 		</tbody>
 	</table>
@@ -99,7 +67,7 @@ The DAFImmunization profile provides a mapping for the following Meaningful Use 
 This profile relies on the use of other profiles, some required, others available for use "when necessary":
 </p>
 <ul>
-  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile used by Immunization.subject.</li>
+  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile used by DiagnosticReport.subject.</li>
   <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
 </ul>
 </div>

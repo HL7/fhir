@@ -75,6 +75,26 @@ The DAF Medication profile provides a mapping for the following Meaningful Use d
 			<td>No known Immunizations</td>
 			<td>List with no entries and a valid emptyReason</td>
 		  </tr>
+		  <tr>
+			<td>Lab Results List</td>
+			<td>List with item referring to DAFResults</td>
+		  </tr>
+		  <tr>
+			<td>No known Results</td>
+			<td>List with no entries and a valid emptyReason</td>
+		  </tr>
+		  <tr>
+			<td>Patient List</td>
+			<td>List with item referring to DAFPatient</td>
+		  </tr>
+		  <tr>
+			<td>Encounter List</td>
+			<td>List with item referring to DAFEncounter</td>
+		  </tr>
+		  <tr>
+			<td>DiagnosticReport List</td>
+			<td>List with item referring to DAFDiagnosticReport</td>
+		  </tr>
 		</tbody>
 	</table>
 

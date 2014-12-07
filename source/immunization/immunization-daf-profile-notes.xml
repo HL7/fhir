@@ -17,7 +17,7 @@ The following are example usage scenarios for the DAFImmunization profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<p><b>Representing No Known Immunizations:</b> No Known Allergies will be represented using the DAFImmunization List with no entries and with an empty reason.</p>
+	<p><b>Representing No Known Immunizations:</b> No Known Immunizations will be represented using the DAFImmunization List with no entries and with an empty reason.</p>
 	
 	<p><b>Specifying Patients as part of the Immunization Queries:</b> DAF Immunization profile supports the querying the Immunizations for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the allergies relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used for the query, it could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
 	
