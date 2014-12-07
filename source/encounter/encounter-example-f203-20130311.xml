@@ -15,15 +15,19 @@
        <display value="Inpatient stay for nine days"/>
     </coding>
  </type>
- <subject>
+ <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <participant>
      <individual>
          <reference value="Practitioner/f201"/>
     </individual>
  </participant>
+  <period>
+      <start value="2013-03-11"/>
+      <end value="2013-03-20"/>
+  </period>
  <reason>
    <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
  </reason> 
@@ -46,10 +50,6 @@
        <display value="Clinical Oncology Department"/>
     </coding>
   </admitSource>
-  <period>
-      <start value="2013-03-11"/>
-      <end value="2013-03-20"/>
-  </period>
   <!--accomodation details are not available-->
   <diet>
     <coding>

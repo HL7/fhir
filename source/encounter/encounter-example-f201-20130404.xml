@@ -15,10 +15,10 @@
        <display value="Consultation"/>
     </coding>
  </type>
- <subject>
+ <patient>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </subject>
+ </patient>
  <participant>
      <individual    >
          <reference value="Practitioner/f201"/>

@@ -8,7 +8,7 @@
   </text> 
   <status value="in progress" />
   <class value="inpatient" />
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
+  </patient>
 </Encounter>

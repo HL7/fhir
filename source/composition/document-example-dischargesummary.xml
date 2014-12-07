@@ -153,14 +153,14 @@
         <type>
           <text value="Orthopedic Admission"/>
         </type>
-        <subject>
+        <patient>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
-        </subject>
+        </patient>
+        <period>
+          <start value="2013-01-20T12:30:02"/>
+          <end value="2013-02-01T12:30:02"/>
+        </period>
         <hospitalization>
-          <period>
-            <start value="2013-01-20T12:30:02"/>
-            <end value="2013-02-01T12:30:02"/>
-          </period>
           <dischargeDisposition>
             <text value="Discharged to care of GP"/>
           </dischargeDisposition>

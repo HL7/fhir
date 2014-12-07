@@ -29,15 +29,43 @@ Encounter instances may exist before the actual encounter takes place to convey 
 using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 
 this case the <i>status</i> element is set to 'planned'.
 </p>
+
+<p>
+The Hospitalization component is intended to store the extended information relating to a hospitalization event.
+This is always expected to be the same period as the encounter itself, where this is different then another
+encounter is entered which captures this information which is a partOf this encounter instance.<br/>
+As such, the accomodation information is stored in the Location component 
+(which can include multiple entries, such as the bed, ward, wing, facility etc where the location.type can be used
+to determine which location entry is of interest)
+</p>
+
+<h3>Status Management</h3>
+<p>
+During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the
+organizations workflow: planned, in progress, finished/cancelled.<br/>
+This status information is often used for other things, and often an analysis of the status history is required.
+This could be done my scanning throuh all the versions of the encounter and then checking the period of each,
+and doing some form of post processing. To ease the burden of this (or where a system doesn't support resource
+histories) a status history component is included.
+</p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p> 
-Appointment information is out of scope for Encounter, the Appointment resource (yet to be defined) needs to be used for that. 
+The Encounter resource is not to be used to store appointment information, the Appointment resource is intended to be used for that.
 Note that in many systems outpatient encounters (which are in scope for Encounter) and Appointment are used 
 concurrently. In FHIR, Appointment is used for establishing a date for the encounter, while Encounter is 
-applicable to information about the actual Encounter, i.e. the patient showing up.
+applicable to information about the actual Encounter, i.e. the patient showing up.<br/>
+As such in most cases planned encounters are not really considered an appointment, but an intent that the location is
+being prepared for the encounter to occur. During this time the patient may or may not be present at the location.
+</p>
+<p>
+An appointment is normally used for the planning stage of an appointment, searching, locating an available time, then
+making the appointment. Once this process is completed and the appointment is about to start, then the appointment
+will be marked as fulfilled, and linked to the newly created encounter.<br/>
+This new encounter may start in an "arrived" status when they are admitted with a location of the facility, and then will
+move to the ward where another part-of encounter may begin.
 </p>
 </div>
 

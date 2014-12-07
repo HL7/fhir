@@ -16,10 +16,10 @@
             <display value="Patient-initiated encounter"/>
         </coding>
     </type>
-    <subject>
+    <patient>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
-    </subject>
+    </patient>
     <participant>
         <individual>
             <reference value="Practitioner/f003"/>
@@ -71,16 +71,6 @@
                 <display value="Referral by radiologist"/>
             </coding>
         </admitSource>
-        <period>
-            <start value="2012-07-06"/>
-            <end value="2012-07-13"/>
-        </period>
-        <accomodation>
-            <period>
-                <start value="2012-07-06"/>
-                <end value="2012-07-13"/>
-            </period>
-        </accomodation> 
         <dischargeDisposition>
             <coding>
                 <system value="http://snomed.info/sct"/>
