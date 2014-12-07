@@ -6211,7 +6211,7 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s136" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s136" ss:Width="88.5"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="165.75"/>
    <Column ss:StyleID="s136" ss:Width="27.75"/>
    <Column ss:StyleID="s136" ss:Width="327.75"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="107.25"/>
@@ -6397,11 +6397,11 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">USLab PHPractitioner Example3</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab PHPractitioner Canonical Example: Gregory F House PhD</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example3</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pract-uslab-example3.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
@@ -6632,9 +6632,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R16C1:R17C1</RangeSelection>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
