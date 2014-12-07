@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OralHealthClaim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
- <id value="100150"/>
+  <id value="100150"/>
 
- <text>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
   </text>
@@ -10,51 +10,51 @@
   <identifier>
     <system value="http://happyvalley.com/claims"/>
     <value value="12345"/>
- </identifier>
+  </identifier>
  
   <created value="2014-08-16"/>
 
- <target>
-  <reference value="Organization/2"/>
-</target>
+  <target>
+    <reference value="Organization/2"/>
+  </target>
 
- <organization>
+  <organization>
     <reference value="Organization/1"/>
- </organization>
+  </organization>
 
- <use value="complete"/>
+  <use value="complete"/>
 
- <priority>
+  <priority>
     <code value="normal"/>
- </priority>
+  </priority>
 
- <payee>
-   <type>
-     <code value="provider"/>
-   </type>
- </payee>
+  <payee>
+    <type>
+      <code value="provider"/>
+    </type>
+  </payee>
  
   <diagnosis>
     <sequence value="1"/>
-	<diagnosis>
-	  <code value="123456"/>
-	  </diagnosis>
+    <diagnosis>
+      <code value="123456"/>
+    </diagnosis>
   </diagnosis>
  
- <patient>
-   <reference value="Patient/1"/>
- </patient>
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
  
- <coverage>
-   <sequence value="1"/>
-   <focal value="true"/>
-   <coverage>
-     <reference value="Coverage/9876B1"/>
-   </coverage>
-   <relationship>
-     <code value="self"/>
-   </relationship>
- </coverage>
+  <coverage>
+    <sequence value="1"/>
+    <focal value="true"/>
+    <coverage>
+      <reference value="Coverage/9876B1"/>
+    </coverage>
+    <relationship>
+      <code value="self"/>
+    </relationship>
+  </coverage>
  
  
  <item>
@@ -71,12 +71,12 @@
    <serviceDate value="2014-08-16"/>
    <unitPrice>
       <value value="135.57"/>
-	  <system value="urn:std:iso:4217"/>
+      <system value="urn:std:iso:4217"/>
       <code value="USD"/> 
    </unitPrice> 
    <net>
       <value value="135.57"/>
-	  <system value="urn:std:iso:4217"/>
+      <system value="urn:std:iso:4217"/>
       <code value="USD"/> 
    </net> 
   </item>
