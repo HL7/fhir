@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-17T05:30:16Z</LastSaved>
+  <LastSaved>2014-12-06T21:14:00Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6350,7 +6350,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">!USLab Observation Example1</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example1</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Ordering Organization Profile Canonical Example: University Hospital</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example1</Data></Cell>
@@ -6359,7 +6359,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">!USLab Observation Example2</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example2</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Copy to Organization Profile Canonical Example: Children's Hospital</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example2</Data></Cell>
@@ -6368,7 +6368,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">!USLab Observation Example3</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example3</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Performing Lab Organization Profile Canonical Example: Acme Labs</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example3</Data></Cell>
@@ -6639,8 +6639,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -32,7 +32,7 @@ Authored by: Eric M Haas  Health eData Inc.
 			<display value="The Centers for Medicare and Medicaid Services (CMS) National Plan and Provider Enumeration System (NPPES)"/>
 		</assigner>
 	</identifier>
-	<name value="University Hospital"></name>
+	<name value="University Hospital"/>
 	<telecom>
 		<system value="phone"/>
 		<value value="(+1) 555-227-1234"/>
@@ -41,13 +41,32 @@ Authored by: Eric M Haas  Health eData Inc.
 		<system value="fax"/>
 		<value value="(+1) 555-227-6622"/>
 	</telecom>
-
 	<address>
+		<!--EH  repllace temporariy to pass build
 		<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
-			<valueCode value="42043"/></extension>
-			<use  value="work"></use>
+			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
+				<valueCoding>
+					<system value="https://www.census.gov/geo/reference"/>
+					<code value="42043"/>
+				</valueCoding>
+			</extension>
+		</extension>
+-->
+		<!-- EH replace with example.org temporarily to pass validation
+<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
+			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
+-->
+		<extension url="http://example.org/us-core-county">
+			<extension url="http://example.org//iso21090-SC-coding">
+				<valueCoding>
+					<system value="https://www.census.gov/geo/reference"/>
+					<code value="42043"/>
+				</valueCoding>
+			</extension>
+		</extension>
+		<use value="work"/>
 		<line value="Firstcare Way"/>
-		<line value="Building 1"></line>
+		<line value="Building 1"/>
 		<city value="Harrisburg"/>
 		<state value="PA"/>
 		<postalCode value="17111"/>
