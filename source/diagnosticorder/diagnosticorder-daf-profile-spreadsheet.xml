@@ -21,8 +21,7 @@
   <WindowTopX>660</WindowTopX>
   <WindowTopY>5940</WindowTopY>
   <TabRatio>885</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -909,15 +908,15 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">DAF Diagnostic Order Profile</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Data Access Framework (DAF) DiagnosticOrder Profile</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">HL7 International - Orders and Observations WG</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">U.S. Office of the National Coordinator (ONC)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.reference</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://www.healthit.gov</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
@@ -925,7 +924,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Constraints and extensions for DAF Diagnostic Order.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Defines constraints and extensions on the DiagnosticOrder resource for use in querying and retrieving DiagnosticOrder information.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -933,7 +932,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="DateTime">2014-11-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="DateTime">2014-08-21T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
@@ -941,19 +940,20 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">version</Data></Cell>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="Number">0.01</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://hl7.org/fhir/ExtensionDefinition/</Data></Cell>
+    <Cell ss:StyleID="s79" ss:HRef="http://hl7.org/fhir/Profile/diagnosticorder-daf"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/diagnosticorder-daf</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s80"><Data ss:Type="String">introduction</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticorder-daf-introduction.xml</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">diagnosticorder-daf-profile-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">notes</Data></Cell>
-    <Cell ss:StyleID="s83"/>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">diagnosticorder-daf-profile-notes.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -969,6 +969,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -988,7 +989,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3981,7 +3982,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

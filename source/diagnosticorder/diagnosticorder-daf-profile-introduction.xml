@@ -1,0 +1,82 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile sets expectations for use of the <a href="diagnosticorder.html">DiagnosticOrder</a> resource to record diagnostic order associated with a patient within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
+</p>
+<p>
+For the purposes of this profile, <i>Supported</i> means the following:
+<ul>
+  <p><b>SearchParameters:</b></p>
+  <li>DAF Query Requestor (client) SHALL be capable of querying the DiagnosticOrder resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
+  <li>DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide Query Results or error responses per the FHIR specifications.</li>
+  <li>DAF Query Responder MAY provide valid or error responses when the query parameters submitted contain data elements which are not tagged as MUST SUPPORT by this profile.</li>
+  <p/>
+  <p><b>Query Results:</b></p>
+  <li>Query Results returned by DAF Query Responder SHOULD contain the data elements identified as MUST SUPPORT in the profile.</li>
+  <li>Query Results returned MAY contain data elements not tagged as MUST SUPPORT by the this profile.</li>
+  <li>Query Requestor SHALL process the Query Results containing additional data elements without indicating that the response is an erroneous response.</li>
+  <p/>
+  <p><b>Missing Information:</b></p>
+  <li>When Query Results do not contain a particular data element identified as MUST SUPPORT, Query Requestors SHALL interpret the results to mean that the Query Responder did not have information and there is no further qualifying information as to why the information is missing.</li>
+  <li>In cases, where the Query Responder knows precisely the reason why the data is missing (e.g notasked in the data-absent-reason value set), then Query Responders MAY provide this additional information using the extension element as part of the data element. Query Requestors SHALL correctly process the data-absent-reason extension without rejecting the response as an erroneous response.</li>
+</ul>
+</p>
+</div>
+
+<div>
+<h2>Relationship to Meaningful Use</h2>
+<p>
+The DAFDiagnosticOrder profile provides a mapping for the following derived Meaningful Use data elements to FHIR data elements.
+</p>
+<br/>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>Meaningful Use Data Element Name</th>
+            <th>FHIR Resource Mapping</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>Diagnostic Test Ordering Provider</td>
+			<td>DiagnosticOrder.orderer</td>
+		  </tr>
+		  <tr>
+			<td>Diagnostic Test Notes</td>
+			<td>DiagnosticOrder.clinicalNotes</td>
+		  </tr>
+		  <tr>
+			<td>Diagnostic Test Ordered</td>
+			<td>DiagnosticOrder.item.code</td>
+		  </tr>
+		  <tr>
+			<td>Diagnostic Test Order Id</td>
+			<td>DiagnosticOrder.identifier</td>
+		  </tr>
+		</tbody>
+	</table>
+
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This profile relies on the use of other profiles, some required, others available for use "when necessary":
+</p>
+<ul>
+  <li><a href="patient-daf.html">DAFPatient</a> which defines DAF Patient profile used by DiagnosticOrder.subject.</li>
+  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
+</ul>
+</div>
+
+<h2><u>Profile Details</u></h2>
+
+</div>
+
+
+
+
+
