@@ -8,9 +8,10 @@ The following are example usage scenarios for the DAF Patient profile:
 <ul>
 	<li>Query for a Patient demographic information using identifiers such as MRN</li>
 	<li>Query for a Patient demographic information using first name, last name etc.</li>
-	<li>Query for Patients based on race, ethnicity, gender</li>
+	<li>Query for Patients based on race, ethnicity, gender etc.</li>
 	<li>Query for Patients based on geographical area such as city, state, zipcode information</li>
-	<li>Query for Patients based on age</li>
+	<li>Query for Patients less than 5 years</li>
+	<li>Query for Patients between ages of 25 and 50</li>
 </ul>
 
 <h2>Additional Implementation Guidance</h2>
@@ -19,11 +20,15 @@ The following are example usage scenarios for the DAF Patient profile:
 Implementers need to be mindful of the following during their implementation
 </p>
 <ul>
-	<li><b>Patient Identifiers:</b> Patient Identifiers are represented as part of the Patient.identifier data element. Identifiers have to be scoped using a URI data type represented within the Patient.identifier.system element. If systems are using OID's to scope their patient identifiers, then OID's can be converted to URI's per RFC-3001. Since DAF profiles deal with queries of Patient data, identifiers play a critical role to identify the right resources to be returned. So all DAF Responders MUST return the Patient.identifier element as part of the Patient resource and further Patient.identifier.system and Patient.identifier.value MUST be populated.</li>
-	<li><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more Patient Resources in response to a query.</li>
-	<li><b>Representing Patient Names:</b> Patient Names are represented using the <a href="file:///C:/Business/Drajer/Workspace/FHIR/publish/datatypes-definitions.html#HumanName">HumanName</a> datatype. Per the FHIR specification, the first name is represented using the first occurrence of the element HumanName.given element. Middle names and other parts of the name can be represented using subsequent occurrences of the HumanName.given element. </li>
-	<li><b>Coding Race Extension:</b> Instances SHALL return the codes corresponding to one of "American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White" in the first race element within the Patient resource. Instances can contain detailed race categories that can be rolled up to the above five categories as part of the subsequent race data elements. </li>
-	<li><b>Coding Ethnicity:</b> Instances SHALL only use the code "2135-2" representing "Hispanic or Latino" or the code "2186-5" representing "Not Hispanic or Latino" from the <a href="http://hl7.org/fhir/v3/vs/Ethnicity">Ethnicity Codesystem</a>. </li>
+	<p><b>Patient Identifiers:</b> Patient Identifiers are represented as part of the Patient.identifier data element. Identifiers have to be scoped using a URI data type represented within the Patient.identifier.system element. If systems are using OID's to scope their patient identifiers, then OID's can be converted to URI's per RFC-3001. Since DAF profiles deal with queries of Patient data, identifiers play a critical role to identify the right resources to be returned. So all DAF Responders MUST return the Patient.identifier element as part of the Patient resource and further Patient.identifier.system and Patient.identifier.value MUST be populated.</p>
+	
+	<p><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more Patient Resources in response to a query.</p>
+	
+	<p><b>Representing Patient Names:</b> Patient Names are represented using the <a href="datatypes-definitions.html#HumanName">HumanName</a> datatype. Per the FHIR specification, the first name is represented using the first occurrence of the element HumanName.given element. Middle names and other parts of the name can be represented using subsequent occurrences of the HumanName.given element. </p>
+	
+	<p><b>Coding Race Extension:</b> Instances SHALL return the codes corresponding to one of "American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White" in the first race element within the Patient resource. Instances can contain detailed race categories that can be rolled up to the above five categories as part of the subsequent race data elements. </p>
+	
+	<p><b>Coding Ethnicity:</b> Instances SHALL only use the code "2135-2" representing "Hispanic or Latino" or the code "2186-5" representing "Not Hispanic or Latino" from the <a href="http://hl7.org/fhir/v3/vs/Ethnicity">Ethnicity Codesystem</a>. </p>
 	
 </ul>
 

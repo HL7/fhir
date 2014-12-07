@@ -1,0 +1,93 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile sets expectations for use of the <a href="list.html">List</a> resource to return results for DAF queries within the <a href="daf.html">Data Access Framework (DAF)</a> Implementation Guide. This profile identifies which core elements,extensions,vocabularies and value sets must be supported by DAF actors.
+</p>
+<p>
+For the purposes of this profile, <i>Supported</i> means the following:
+<ul>
+  <p><b>Query Results:</b></p>
+  <li>Query Responders responding to queries SHALL use the DAF List profile to return results which contain more than one resource in the result set. This includes problem list, medication lists, allergies list.</li>
+  <li>Query Results returned by DAF Query Responder SHOULD contain the data elements identified as MUST SUPPORT in the profile.</li>
+  <li>Query Results returned MAY contain data elements not tagged as MUST SUPPORT by the this profile.</li>
+  <li>Query Requestor SHALL process the Query Results containing additional data elements without indicating that the response is an erroneous response.</li>
+  <p/>
+  
+  <p><b>Missing Information:</b></p>
+  <li>Query Responders SHALL use the DAF List profile to return a List with no entries and an appropriate emptyReason when queries for a Patient's problem list, allergies list and medication list result in no entries to be returned. </li>
+  <li>When Query Results do not contain a particular data element identified as MUST SUPPORT, Query Requestors SHALL interpret the results to mean that the Query Responder did not have information and there is no further qualifying information as to why the information is missing.</li>
+  <li>In cases, where the Query Responder knows precisely the reason why the data is missing (e.g notasked in the data-absent-reason value set), then Query Responders MAY provide this additional information using the extension element as part of the data element. Query Requestors SHALL correctly process the data-absent-reason extension without rejecting the response as an erroneous response.</li>
+  
+  <p><b>SearchParameters:</b></p>
+  <li>DAF Query Requestor (client) SHALL be capable of querying the List resource using one or more of the search parameters for data elements tagged as MUST SUPPORT in this profile.</li>
+  <li>DAF Query Responder (server) SHALL be capable of receiving the queries submitted by the DAF Query Requestor and provide Query Results or error responses per the FHIR specifications.</li>
+  <li>DAF Query Responder MAY provide valid or error responses when the query parameters submitted contain data elements which are not tagged as MUST SUPPORT by this profile.</li>
+  <p/>
+</ul>
+</p>
+</div>
+
+<div>
+<h2>Relationship to Meaningful Use</h2>
+<p>
+The DAF Medication profile provides a mapping for the following Meaningful Use data elements to FHIR data elements.
+</p>
+<br/>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>Meaningful Use Data Element Name</th>
+            <th>FHIR Resource Mapping</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>Problem List</td>
+			<td>List with item referring to DAFCondition</td>
+		  </tr>
+		  <tr>
+			<td>No known Problems</td>
+			<td>List with no entries and a valid emptyReason</td>
+		  </tr>
+		  <tr>
+			<td>Allergies List</td>
+			<td>List with item referring to DAFAllergyIntolerance</td>
+		  </tr>
+		  <tr>
+			<td>No known Allergies</td>
+			<td>List with no entries and a valid emptyReason</td>
+		  </tr>
+		  <tr>
+			<td>Medication List</td>
+			<td>List with item referring to DAFMedicationStatement</td>
+		  </tr>
+		  <tr>
+			<td>No known Medications</td>
+			<td>List with no entries and a valid emptyReason</td>
+		  </tr>
+		</tbody>
+	</table>
+
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This profile relies on the use of other profiles, some required, others available for use "when necessary":
+</p>
+<ul>
+  <li><a href="extensibility.html">FHIR Extensibility</a> defines how extensions can be applied to FHIR resources and data types. Specifically the <a href="extension-data-absent-reason.html">data-absent-reason</a> extension is used to code data elements with missing information when appropriate.</li>
+</ul>
+</div>
+
+<h2><u>Profile Details</u></h2>
+
+</div>
+
+
+
+
+

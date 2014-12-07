@@ -1,0 +1,24 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Example Usage Scenarios</h2>
+
+<p>
+Queries on Medication resource are expected to be within the context of a Medication Statement, Medication Administration, Medication Prescription or Medication Dispense resource query. The following are example usage scenarios for the DAF Medication profile:
+</p>
+<ul>
+	<li>Query for Medications with a particular ingredient</li>
+	<li>Query for Medications based on commercial name</li>
+	<li>Query for Medications based on Medication Material</li>
+</ul>
+
+<h2>Additional Implementation Guidance</h2>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+	<p><b>No additional guidance.</b></p>
+	
+</ul>
+
+</div>

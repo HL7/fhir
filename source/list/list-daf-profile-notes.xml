@@ -1,0 +1,23 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Example Usage Scenarios</h2>
+
+<p>
+The following are example usage scenarios for the DAF List profile:
+</p>
+<ul>
+	<li>Query for current problem list, medication list or allergy list for a patient</li>
+	<li>DAF Queries already specified as part of each resource profile may also return a list</li>
+</ul>
+
+<h2>Additional Implementation Guidance</h2>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+	<p><b>No additional guidance.</b></p>
+	
+</ul>
+
+</div>

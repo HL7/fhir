@@ -1,0 +1,31 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Example Usage Scenarios</h2>
+
+<p>
+The following are example usage scenarios for the DAF AllergyIntolerance profile:
+</p>
+<ul>
+	<li>Query for allergies belonging to a Patient</li>
+	<li>Query for all patients who have had a specific allergy category</li>
+	<li>Query for allergies experienced during a time period</li>
+	<li>Query for allergies for a patient for a specific category</li>
+	<li>Query for allergies based on reaction and severity</li>
+</ul>
+
+<h2>Additional Implementation Guidance</h2>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+	<p><b>Representing No Known Allergies:</b> No Known Allergies will be represented using the DAFAllergyIntolerance List with no entries and with an empty reason.</p>
+	
+	<p><b>Specifying Patients as part of the AllergyIntolerance Queries:</b> DAF AllergyIntolerance profile supports the querying the AllergyIntolerances for a particular patient. In order to achieve this in implementation, it is recommended to use Patient.identifier field to precisely identify the allergies relevant to the patient. While other parameters such as  Patient.name, Patient.given could be used for the query, it could lead to incorrect Patient matching and/or inefficient queries when systems are not tuned. </p>
+	
+	<p><b>Patient Matching:</b> Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more AllergyIntolerance Resources in response to a query.</p>
+	
+	
+</ul>
+
+</div>

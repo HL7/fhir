@@ -23,7 +23,7 @@ However, much of the content is likely to be usable in other jurisdictions.
 <h3>Draft for Comment Ballot</h3>
 <p>
 This FHIR Implementation Guide is undergoing a Draft for Comment ballot.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
-statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted seperately from the FHIR specification itself.  
+statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted separately from the FHIR specification itself.  
 </p>
 
 <h3>Background</h3>
@@ -36,34 +36,99 @@ statements it defines, though comments on the underlying resources will also be 
 
 <h3>Specification</h3>
 <p>
-The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following profiles and resources:
+The <i>DAF FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  The DAF FHIR IG maps various Meaningful Use data elements to FHIR resources using resource specific profiles. Each DAF resource specific profile constrains the cardinality as necessary, binds vocabularies to the data elements as appropriate, adds extensions where appropriate, defines search parameters for queries and adds invariants to the profiles. The table below provides a top-level mapping of the Meaningful Use Stage 2 data elements to the corresponding DAF Resource profile along with the identification of the base FHIR resource. 
 </p>
-<ul>
-		<li><a href="">DAF Allergy Intolerance profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/allergyintolerance.html">AllergyIntolerance</a> resource.</li>
-		<li><a href="">DAF Cognitive Status profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
-		<li><a href="encounter-daf.html">DAF Encounter profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/encounter.html">Encounter</a> resource.</li>
-		<li><a href="">DAF Family History profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/familyhistory.html">FamilyHistory</a> resource.</li>
-		<li><a href="">DAF Immunization profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/immunization.html">Immunization</a> resource.</li>
-		<li><a href="">DAF Lab Results profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
-		<li><a href="">DAF Medication Administration profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationadministration.html">MedicationAdministration</a> resource.</li>
-		<li><a href="">DAF Medication Dispense profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationdispense.html">MedicationDispense</a> resource.</li>
-		<li><a href="">DAF Medication Prescription profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/medicationprescription.html">MedicationPrescription</a> resource.</li>
-		<li><a href="patient-daf.html">DAF Patient profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/patient.html">Patient</a> resource.</li>
-		<li><a href="">DAF Problems (Condition) profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/condition.html">Condition</a> resource.</li>
-		<li><a href="procedure-daf.html">DAF Procedure profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/procedure.html">Procedure</a> resource.</li>
-		<li><a href="">DAF Smoking Status profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
-		<li><a href="observation-daf-vitalsigns.html">DAF Vital Signs profile</a> using the <a href="http://www.hl7.org/implement/standards/fhir/observation.html">Observation</a> resource.</li>
-  
-  <li><a href="http://www.hl7.org/implement/standards/fhir/medication.html">Medication</a></li>
-  <li><a href="http://www.hl7.org/implement/standards/fhir/diagnosticorder.html">DiagnosticOrder</a></li>
-  <li><a href="http://www.hl7.org/implement/standards/fhir/diagnosticreport.html">DiagnosticReport</a></li>
-  <li><a href="http://www.hl7.org/implement/standards/fhir/practitioner.html">Practitioner</a></li>
-  <li><a href="http://www.hl7.org/implement/standards/fhir/list.html">List</a></li>
-</ul>
+<div>
+<h4>Mapping of Meaningful Use data elements to DAF profiles and FHIR resources</h4>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>Meaningful Use conceptual data element</th>
+            <th>DAF FHIR profile</th>
+			<th>FHIR Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>Allergies</td>
+			<td><a href="allergyintolerance-daf.html">DAFAllergy Intolerance</a></td>
+			<td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+		  </tr>
+		  <tr>
+			<td>Encounters</td>
+			<td><a href="encounter-daf.html">DAFEncounter</a></td>
+			<td><a href="encounter">Encounter</a></td>
+		  </tr>
+		  <tr>
+			<td>FamilyHistory</td>
+			<td><a href="familyhistory-daf.html">DAFFamilyHistory</a></td>
+			<td><a href="familyhistory.html">FamilyHistory</a></td>
+		  </tr>
+		  <tr>
+			<td>Immunizations</td>
+			<td><a href="immunizations-daf.html">DAFImmunization</a></td>
+			<td><a href="immunization.html">Immunization</a></td>
+		  </tr>
+		  <tr>
+			<td>Lab Orders</td>
+			<td><a href="allergyintolerance-daf.html">DAFDiagnosticOrder</a></td>
+			<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
+		  </tr>
+		  <tr>
+			<td>LabResults</td>
+			<td><a href="allergyintolerance-daf.html">DAFLabResults</a></td>
+			<td><a href="observation.html">Observation</a></td>
+		  </tr>
+		  <tr>
+			<td>LabReport</td>
+			<td><a href="allergyintolerance-daf.html">DAFDiagnosticReport</a></td>
+			<td><a href="diagnosticreport.html">Observation</a></td>
+		  </tr>
+		  <tr>
+			<td>Medications</td>
+			<td><a href="daf-medicationusage.html">DAF profiles for medications</a></td>
+			<td>FHIR medication resources</td>
+		  </tr>
+		  <tr>
+			<td>Patient Demographics</td>
+			<td><a href="patient-daf.html">DAFPatient</a></td>
+			<td><a href="patient.html">Patient</a></td>
+		  </tr>
+		  <tr>
+			<td>Problems</td>
+			<td><a href="condition-daf.html">DAFCondition (Problem)</a></td>
+			<td><a href="condition.html">Condition</a></td>
+		  </tr>
+		  <tr>
+			<td>Procedures</td>
+			<td><a href="procedure-daf.html">DAFProcedure</a></td>
+			<td><a href="procedure.html">Procedure</a></td>
+		  </tr>
+		  <tr>
+			<td>Smoking Status</td>
+			<td><a href="observation-daf-smokingstatus.html">DAFSmokingStatus</a></td>
+			<td><a href="observation.html">Observation</a></td>
+		  </tr>
+		  <tr>
+			<td>Vital Signs</td>
+			<td><a href="observation-daf-vitalsigns.html">DAFVitalSigns</a></td>
+			<td><a href="observation.html">Observation</a></td>
+		  </tr>
+		  <tr>
+			<td>Problems,Medications,Allergies Lists</td>
+			<td><a href="list-daf.html">DAFList</a></td>
+			<td><a href="list.html">List</a></td>
+		  </tr>	  
+		</tbody>
+	</table>
+</div>
+
 <p>
 Additional resources such as <a href="provenance.html">Provenance</a>, <a href="securityevent.html">SecurityEvent</a> and others are likely to be used in DAF solutions. As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
 <!-- Todo: decide how explicit the list of relevant sections needs to be -->
 </p>
+
+<h3>Conformance Requirements</h3>
 <p>
 The DAF Conformance statements which define the expected capabilities of each of the DAF actors are listed below:
 </p>

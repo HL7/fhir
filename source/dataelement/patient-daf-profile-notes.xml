@@ -1,0 +1,32 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+
+<h2>Example Usage Scenarios</h2>
+
+<p>
+The following are example usage scenarios for the DAF Patient profile
+</p>
+<ul>
+	<li>Query for a Patient demographic information using identifiers such as MRN</li>
+	<li>Query for a Patient demographic information using first name, last name etc.</li>
+	<li>Query for Patients based on race, ethnicity, gender</li>
+	<li>Query for Patients based on geographical area such as city, state, zipcode information</li>
+	<li>Query for Patients based on age</li>
+</ul>
+
+<h2>Additional Implementation Guidance</h2>
+
+<p>
+Implementers need to be mindful of the following during their implementation
+</p>
+<ul>
+	<li>Patient Matching rules and criteria have to be evaluated by the implementing organization and have to comply with local policies and regulations. Query Requestors will have to deal with result sets that can return zero,one or more Patient Resources in response to a query.</li>
+</ul>
+
+</div>
+
+
+
+
+
