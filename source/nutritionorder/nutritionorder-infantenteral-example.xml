@@ -30,6 +30,7 @@ edited by Eric Haas Health eData Inc-->
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
+			<system value="http://hl7.org/fhir/diet"/>
 			<code value="nut-free"/>
 			<valueSet>
 				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
@@ -55,14 +56,15 @@ edited by Eric Haas Health eData Inc-->
 			<baseFormulaType>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="2467866014"/>
+					<code value="412414007"/>
 					<display value="infant formula + iron"/>
 				</coding>
 			</baseFormulaType>
 			<baseFormulaName value="Acme Infant Formula + Iron"/>
 			<additiveType>
 				<coding>
-					<code value="1186986013"/>
+					<system value="http://snomed.info/sct"/>
+					<code value="226307009"/>
 					<display value="Carbohydrate supplement"/>
 					<valueSet>
 						<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
@@ -79,6 +81,7 @@ edited by Eric Haas Health eData Inc-->
 			</caloricDensity>
 			<routeofAdministration>
 				<coding>
+					<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 					<code value="PO"/>
 					<display value="Swallow, oral"/>
 					<primary value="true"/>
@@ -88,7 +91,7 @@ edited by Eric Haas Health eData Inc-->
 					</valueSet>
 				</coding>
 			</routeofAdministration>
-<!--EH Comment out since breaks the build			
+			<!--EH Comment out since breaks the build			
 			<rate>
 				<numerator>
 					<value value="4"/>

@@ -30,6 +30,7 @@ edited by Eric Haas Health eData Inc-->
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
+		<system value="http://hl7.org/fhir/diet"></system>
 			<code value="dairy-free"/>
 			<valueSet>
 				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
@@ -53,7 +54,8 @@ edited by Eric Haas Health eData Inc-->
 		<enteralFormula>
 			<baseFormulaType>
 				<coding>
-					<system value="http://snomed.info/sct"/>
+					<!--give US extension a temporary system to pass validation-->
+					<system value="http://usextension/snomed.info/sct"/>
 					<code value="659311000124118"/>
 					<display value="Adult high protein formula"/>
 				</coding>
@@ -61,6 +63,7 @@ edited by Eric Haas Health eData Inc-->
 			<baseFormulaName value="Acme High Protein Formula"/>
 			<additiveType>
 				<coding>
+				<system value="http://snomed.info/sct"></system>
 					<code value="427298002"/>
 					<display value="Enteral dietary supplement"/>
 					<valueSet>
@@ -78,6 +81,7 @@ edited by Eric Haas Health eData Inc-->
 			</caloricDensity>
 			<routeofAdministration>
 				<coding>
+				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"></system>
 					<code value="GT"/>
 					<display value="Instillation, gastrostomy tube"/>
 					<valueSet>

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd">
-  <id value="example"/>
-<!--This is a stub for future example -->
-  <subject>
-    <reference value="Patient/example"/>
-    <display value="Peter Patient"/>
-  </subject>
-  <dateTime value="2014-09-17"/>  
-  
+	<id value="example"/>
+	<!-- id = example  file name = nutritionorder-example.xml  Name= Enteral Bolus  Description = General NutritionOrder Example 
+edited by Eric Haas Health eData Inc-->
+	<subject>
+		<display value="Paula Patient Chalmers"/>
+	</subject>
+	<dateTime value="2014-09-17"/>
+	<item>
+		<isInEffect value="true"/>
+		<oralDiet>
+			<type>
+				<text value="Low Calorie Diet"/>
+			</type>
+		</oralDiet>
+	</item>
 </NutritionOrder>

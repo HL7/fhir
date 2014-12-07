@@ -30,6 +30,7 @@ editor Eric Haas Health eData Inc-->
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
+			<system value="http://hl7.org/fhir/diet"/>
 			<code value="dairy-free"/>
 			<valueSet>
 				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
@@ -55,14 +56,18 @@ editor Eric Haas Health eData Inc-->
 			<baseFormulaType>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="6547210000124112"/>
+<!-- EH not passing validation  make issue for this US ext not validating  SNOMED code below is incorrenct-	
+					 <code value="6547210000124112"/>
+-->
+					<code  value="227983006"></code>
 					<display value="Diabetic specialty enteral formula"/>
 				</coding>
 			</baseFormulaType>
 			<baseFormulaName value=" Acme Diabetes Formula"/>
 			<additiveType>
 				<coding>
-					<code value="1186972014"/>
+					<system value="http://snomed.info/sct"/>
+					<code value="427298002"/>
 					<display value="Enteral dietary supplement"/>
 					<valueSet>
 						<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
@@ -79,6 +84,7 @@ editor Eric Haas Health eData Inc-->
 			</caloricDensity>
 			<routeofAdministration>
 				<coding>
+					<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 					<code value="NGT"/>
 					<display value="Instillation, nasogastrostomy tube"/>
 					<valueSet>
@@ -87,7 +93,7 @@ editor Eric Haas Health eData Inc-->
 					</valueSet>
 				</coding>
 			</routeofAdministration>
-<!--EH Comment out since break the build
+			<!--EH Comment out since break the build
 			<rate>
 				<numerator>
 					<value value="60"/>
