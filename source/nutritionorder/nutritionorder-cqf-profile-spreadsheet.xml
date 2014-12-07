@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13284</WindowHeight>
-  <WindowWidth>24516</WindowWidth>
+  <WindowHeight>7812</WindowHeight>
+  <WindowWidth>17280</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -1283,7 +1283,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">NutritionOrder.identifier</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!NutritionOrder.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1819,7 +1819,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">NutritionOrder.item.oralDiet.instruction</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!NutritionOrder.item.oralDiet.instruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1997,7 +1997,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">NutritionOrder.item.enteralFormula.administrationInstructions</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">!NutritionOrder.item.enteralFormula.administrationInstructions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2243,7 +2243,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Quantity</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Ratio</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3948,6 +3948,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
