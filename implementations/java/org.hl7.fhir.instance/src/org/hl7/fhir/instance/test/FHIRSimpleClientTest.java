@@ -25,6 +25,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Condition;
 import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Factory;
@@ -206,7 +207,7 @@ public class FHIRSimpleClientTest {
 			loadPatientReference();
 			Patient originalPatientEntry = testClient.read(Patient.class, testPatientId);
 			String originalEntryVersion = getEntryVersion(originalPatientEntry);
-			DateTimeType modifiedBirthday = new DateTimeType();
+			DateType modifiedBirthday = new DateType();
 			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
 			originalPatientEntry.setBirthDateElement(modifiedBirthday);
 			Patient updatedResult = testClient.update(Patient.class, originalPatientEntry, testPatientId);
@@ -256,7 +257,7 @@ public class FHIRSimpleClientTest {
 		try {
 			loadPatientReference();
 			Patient patient = testClient.read(Patient.class, testPatientId);
-			DateTimeType modifiedBirthday = new DateTimeType();
+			DateType modifiedBirthday = new DateType();
 			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
 			patient.setBirthDateElement(modifiedBirthday);
 			OperationOutcome validate = testClient.validate(Patient.class, patient, testPatientId);
@@ -681,7 +682,7 @@ public class FHIRSimpleClientTest {
 			name.setText(fullName);
 			name.addGiven(givenName);
 			name.addFamily(familyName);
-			DateTimeType birthday = new DateTimeType();
+			DateType birthday = new DateType();
 			birthday.setValue(new DateAndTime("2008-08-08"));
 			patient.setBirthDateElement(birthday);
 			patient.setGender(AdministrativeGender.FEMALE); // This is now a Simple code value
