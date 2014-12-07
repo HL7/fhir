@@ -6379,7 +6379,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">!USLab Practitioner Example1</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Practitioner Example1</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Practitioner Canonical Example: Dr Leonard T Bloodraw Jr</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example1</Data></Cell>
@@ -6388,7 +6388,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">!USLab PHPractitioner Example2</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab PHPractitioner Example2</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">USLab PHPractitioner Canonical Example: Dr Bill T Lookafter Jr</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example2</Data></Cell>
@@ -6632,8 +6632,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R16C1:R17C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
