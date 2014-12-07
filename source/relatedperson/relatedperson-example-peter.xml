@@ -62,4 +62,7 @@
     <contentType value="image/jpeg"/>
     <url value="Binary/f012"/>
   </photo>
+  <period>
+      <start value="2012-03-11"/>
+  </period>
 </RelatedPerson>

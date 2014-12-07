@@ -7,7 +7,7 @@
 	</text>
 	<priority value="5">
 	</priority>
-	<status value="normal" />
+	<status value="booked" />
 	<type>
 		<coding>
 			<code value="52"/>
