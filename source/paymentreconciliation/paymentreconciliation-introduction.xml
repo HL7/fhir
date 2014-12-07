@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The PaymentReconciliation resource provides application level error information or the bulk payment details 
+The PaymentReconciliation resource provides the bulk payment details 
 associated with a payment by the payor for goods and services rendered by a provider to patients 
 covered by insurance plans offered by that payor. These are the payment reconciliation details which 
 align to the individual payment amounts indicated on discrete ClaimResponses.
