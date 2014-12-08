@@ -108,14 +108,16 @@ todo: compartments
             </page>
             <page title="Integrated Examples" filename="integrated-examples.html"/>
             <page title="Implementation Guides" filename="iglist.html">
-                <page title="Structured Data Capture" filename="sdc.html">
-                    <page title="SDC Introduction" filename="sdc-intro.html"/>
-                    <page title="SDC Security" filename="sdc-security.html"/>
-                </page>
                 <page title="Data Access Framework (DAF)" filename="daf.html">
                     <page title="DAF Introduction" filename="daf-intro.html"/>
                     <page title="DAF Security" filename="daf-security.html"/>
                 </page>
+                <page title="EHRS Functional model - Record Lifecycle Events" filename="ehrs-rle.html"/>
+                <page title="Structured Data Capture" filename="sdc.html">
+                    <page title="SDC Introduction" filename="sdc-intro.html"/>
+                    <page title="SDC Security" filename="sdc-security.html"/>
+                </page>
+                <page title="Structured Data Capture - Data Element Exchange" filename="sdc-de.html"/>
                 <page title="US Laboratory Order Implementation" filename="uslaborder.html">
                     <page title="USLabOrder Documentation" filename="uslaborder-guide.html"/>
                 </page>
