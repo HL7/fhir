@@ -31,7 +31,7 @@ A plasma specimen in a 3.2% sodium citrate blue top tube is required."/>
 	<!-- Is this the FHIR datatype for the observation? ( ie the datatype when ordering the test) or the Result? ( ie. numeric, codeable concept or text for lab tests )-->
 	<exampleDecimal value="10.0"/>
 	<!-- Is this the an example result like "10.0"  for the observation/dataelement? -->
-	<units>
+	<unitsCodeableConcept>
 		<coding>
 			<system value="http:/unitsofmeasure.org"/>
 			<version value="1.9"/>
@@ -44,7 +44,7 @@ A plasma specimen in a 3.2% sodium citrate blue top tube is required."/>
 			</valueSet>
 		</coding>
 		<text value="second"/>
-	</units>
+	</unitsCodeableConcept>
 	<mapping>
 		<uri value="http://loinc.org/"/>
 		<name value="LOINC"/>

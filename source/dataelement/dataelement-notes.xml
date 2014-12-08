@@ -37,18 +37,20 @@ on the code or by specifying the "primary mapping" ISO 11179 extension.
 	<p>
 It is possible to create instances that are "conforming", or even "strictly conforming" to the 11179 specification. However, doing
 so will require the use of extensions to convey certain properties that are not part of the core resource and data types.  An initial
-starter <a href="dataelement-11179.html">ISO 11179 profile</a> that defines extensions that are relevant to the 
+starter <a href="dataelement-11179.html">ISO 11179 profile</a> is included in the FHIR specification.  It defines extensions that are relevant to the 
 <a href="dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
 enhanced to contain a complete set of extensions and a full 11179 in a future release of the specification.
 </p>
-	<h3>Data Elements vs. Code Systems</h3>
+	<h3>Data Elements vs. Codes</h3>
 	<p>
-Data elements and codes in code systems serve different purposes.  Data elements describe the characteristics of a piece of
+Data elements (and their registries) and codes (and their code systems) serve different purposes.  Data elements describe the characteristics of a piece of
 data while codes describe a particular concept (often in relation to other concepts).  However, because data elements provide
 a definition of the meaning of a particular element, they  
- can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
-that can be answered.  This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
-<a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
+can be thought of as being codes.  One of their purpose is to define  variables, observations, or questions, that include information about how to 
+collect a variable's value--including information about data types, and  guidance about the use of about answer lists and/or units of measure.
+This function is typically done by code systems such as <a href="http://loinc.org">LOINC</a> and
+<a href="http://www.ihtsdo.org/snomed-ct/">SNOMED CT</a>.  (Note that LOINC provides considerable detail about allowed answers, while most other code 
+systems such as SNOMED only allow identifying the question.)It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
 codes can be mapped by making use of the <a href="conceptmap.html">ConceptMap</a> resource.
 </p>
@@ -144,6 +146,15 @@ definitions include:
   <li>Information about the rationale for the element or additional usage notes should not be conveyed as part of the definition
   but should instead make use of the <code>notes</code> or <code>rationale</code> elements.</li>
 </ul>
+
+<h3>Data Elements and Access Control</h3>
+<p>
+Because Data Elements define precise pieces of data that can be conveyed in a variety of places, they may form a useful
+mechanism for the definition of fine-grained data access controls.  The base resource does not include mechanisms for linking
+access controls directly do data elements, however, an extension could allow a particular data element to be associated with
+particular <a href="security-labels.html">Security Labels</a>.  Whether this level of control is appropriate may vary by
+implementation environment.
+</p>
 
 <h3>References to and from Data Elements</h3>
 <p>

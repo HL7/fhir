@@ -1709,6 +1709,12 @@
     <display value="Bloating symptom"/>
     <display value="Bloating symptom (finding)"/>
   </concept>
+  <concept id="248536006" display="Finding of functional performance and activity (finding)">
+    <display value="Observation of functional performance and activity"/>
+    <display value="Skill and ability"/>
+    <display value="Finding of functional performance and activity"/>
+    <display value="Finding of functional performance and activity (finding)"/>
+  </concept>
   <concept id="24863003" display="Postprandial (qualifier value)">
     <display value="pc - post cibum"/>
     <display value="Post-prandial"/>
@@ -2875,6 +2881,10 @@
   <concept id="281657000" display="Travel vaccinations">
     <display value="Travel vaccinations"/>
     <display value="Travel vaccinations (procedure)"/>
+  </concept>
+  <concept id="282291009" display="Diagnosis interpretation (observable entity)">
+    <display value="Diagnosis interpretation"/>
+    <display value="Diagnosis interpretation (observable entity)"/>
   </concept>
   <concept id="28230009" display="Poultry (substance)">
     <display value="White meat"/>
@@ -4049,6 +4059,10 @@
     <display value="Neighbor of"/>
     <display value="Proximal (qualifier value)"/>
   </concept>
+  <concept id="404684003" display="Clinical finding (finding)">
+    <display value="Clinical finding (finding)"/>
+    <display value="Clinical finding"/>
+  </concept>
   <concept id="405430002" display="Catheterization of subclavian vein (procedure)">
     <display value="Catheterization of subclavian vein (procedure)"/>
     <display value="Catheterisation of subclavian vein"/>
@@ -4137,6 +4151,10 @@
     <display value="Drowning, NOS"/>
     <display value="Fatal submersion-immersion"/>
     <display value="Drowning (finding)"/>
+  </concept>
+  <concept id="409586006" display="Complaint (finding)">
+    <display value="Complaint (finding)"/>
+    <display value="Complaint"/>
   </concept>
   <concept id="410001006" display="Military medicine">
     <display value="Military medicine (qualifier value)"/>
@@ -4265,6 +4283,10 @@
     <display value="Polyp"/>
     <display value="Polyp, NOS"/>
     <display value="Polyp (morphologic abnormality)"/>
+  </concept>
+  <concept id="413322009" display="Problem resolved (finding)">
+    <display value="Problem resolved (finding)"/>
+    <display value="Problem resolved"/>
   </concept>
   <concept id="413651001" display="Bioptics">
     <display value="Bioptics (procedure)"/>
@@ -4404,6 +4426,10 @@
   <concept id="418693002" display="Swallowed whole, not chewed (qualifier value)">
     <display value="Swallowed whole, not chewed (qualifier value)"/>
     <display value="Swallowed whole, not chewed"/>
+  </concept>
+  <concept id="418799008" display="Finding reported by subject or history provider (finding)">
+    <display value="Finding reported by subject or history provider (finding)"/>
+    <display value="Finding reported by subject or history provider"/>
   </concept>
   <concept id="418849000" display="Warning. Follow the printed instructions you have been given with this medicine (qualifier value)">
     <display value="Warning. Follow the printed instructions you have been given with this medicine (qualifier value)"/>
@@ -5182,6 +5208,10 @@
     <display value="Hydrocele"/>
     <display value="Hydrocele, NOS"/>
   </concept>
+  <concept id="55561003" display="Active (qualifier value)">
+    <display value="Active (qualifier value)"/>
+    <display value="Active"/>
+  </concept>
   <concept id="5558000" display="Working diagnosis (contextual qualifier) (qualifier value)">
     <display value="Working diagnosis"/>
     <display value="WD"/>
@@ -5365,6 +5395,23 @@
     <display value="Nettle rash"/>
     <display value="Urticaria (morphologic abnormality)"/>
   </concept>
+  <concept id="64572001" display="Disease (disorder)">
+    <display value="Disease"/>
+    <display value="Disease, NOS"/>
+    <display value="Disease or syndrome present, NOS"/>
+    <display value="Clinical disease or syndrome present, NOS"/>
+    <display value="Clinical disease or syndrome, NOS"/>
+    <display value="Clinical disease AND/OR syndrome"/>
+    <display value="Disorder"/>
+    <display value="Syndrome"/>
+    <display value="Disorder, NOS"/>
+    <display value="Syndrome, NOS"/>
+    <display value="Disease AND/OR syndrome present"/>
+    <display value="Clinical disease AND/OR syndrome present"/>
+    <display value="Disorders"/>
+    <display value="Diseases"/>
+    <display value="Disease (disorder)"/>
+  </concept>
   <concept id="64915003" display="Operation on heart">
     <display value="Operative procedure on heart"/>
     <display value="Operative procedure on heart, NOS"/>
@@ -5537,6 +5584,10 @@
   <concept id="73063007" display="Colicky pain (finding)">
     <display value="Colicky pain"/>
     <display value="Colicky pain (finding)"/>
+  </concept>
+  <concept id="73425007" display="Inactive (qualifier value)">
+    <display value="Inactive"/>
+    <display value="Inactive (qualifier value)"/>
   </concept>
   <concept id="73775008" display="Morning (qualifier value)">
     <display value="Morning"/>
