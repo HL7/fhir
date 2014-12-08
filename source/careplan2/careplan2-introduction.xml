@@ -3,7 +3,9 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Todo
+This is an alternate formulation of the <a href="careplan.html">CarePlan</a> resource that breaks out goals and activities into distinct resources.  It
+has been created for experimentation purposes and to solicit feedback from implementers.  For those that have implementations of CarePlan, please share
+which of these approaches will best meet the needs of your systems.
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 </div>
