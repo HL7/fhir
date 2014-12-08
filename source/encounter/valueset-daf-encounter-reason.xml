@@ -20,7 +20,7 @@
   </telecom>
   <description value="Encounter Diagnoses: a specific code indicating type of service provided: SNOMED CT, ICD-10-AM, or CPT"/>
   <status value="draft"/>
-  <requirements value="Google OID 2.16.840.1.113883.3.88.12.80.32, but see http://www.gpo.gov/fdsys/pkg/FR-2012-09-04/pdf/2012-20982.pdf"/>
+ <!-- <requirements value="Google OID 2.16.840.1.113883.3.88.12.80.32, but see http://www.gpo.gov/fdsys/pkg/FR-2012-09-04/pdf/2012-20982.pdf"/> -->
   <compose>
     <include>
       <system value="http://snomed.info/sct/"/>
