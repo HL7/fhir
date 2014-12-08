@@ -15,6 +15,7 @@
     <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
   </telecom>
   <description value="The clinical status of the Condition or diagnosis - that is, the status of the concern about the problem"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <status value="draft"/>
   <date value="2014-12-05T23:40:31.198+11:00"/>
   <compose>

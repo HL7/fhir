@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="daf-problem"/>
   <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.3221.7.4"/>
@@ -11,20 +11,21 @@
     <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.7.4"/>
   </telecom>
   <description value="This describes the problem. Diagnosis/Problem List is broadly defined as a series of brief statements that catalog a patient’s medical, nursing, dental, social, preventative and psychiatric events and issues that are relevant to that patient’s healthcare (e.g., signs, symptoms, and defined conditions)"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <status value="active"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <name value="concept"/>
+        <property value="concept"/>
         <op value="is-a"/>
         <value value="404684003"/>
       </filter>
-    <include>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <name value="concept"/>
+        <property value="concept"/>
         <op value="is-a"/>
         <value value="243796009"/>
       </filter>
