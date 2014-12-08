@@ -14,9 +14,9 @@
 			<display value="Physiotherapy" />
 		</coding>
 	</type>
-	<availability>
-		<reference value="Availability/example" />
-	</availability>
+	<schedule>
+		<reference value="Schedule/example" />
+	</schedule>
 	<freeBusyType value="BUSY-UNAVAILABLE" />
 	<start value="2013-12-25T09:30:00Z" />
 	<end value="2013-12-25T09:45:00Z" />

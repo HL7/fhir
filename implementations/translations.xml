@@ -60,11 +60,8 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">CitaRespuesta</translation>
         <translation lang="fr">RéponseRendezVous</translation>
     </item>
-    <item id="Availability">
-        <translation lang="en">Availability</translation>
-        <translation lang="zh">可用</translation>
-        <translation lang="es">Disponibilidad</translation>
-        <translation lang="fr">Disponibilité</translation>
+    <item id="Schedule">
+        <translation lang="en">Schedule</translation>
     </item>
     <item id="Basic">
       <translation lang="en">Basic</translation>

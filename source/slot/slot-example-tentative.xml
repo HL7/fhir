@@ -13,10 +13,10 @@
 			<display value="Physiotherapy" />
 		</coding>
 	</type>
-	<availability>
-		<reference value="Availability/example" />
-	</availability>
-	<freeBusyType value="BUSY-TENTATIVE" />
+  <schedule>
+    <reference value="Schedule/example" />
+  </schedule>
+  <freeBusyType value="BUSY-TENTATIVE" />
 	<start value="2013-12-25T09:45:00Z" />
 	<end value="2013-12-25T10:00:00Z" />
 	<comment value="Dr Careful is out of the office" />

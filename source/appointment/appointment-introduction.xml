@@ -19,7 +19,7 @@
 			appointment / calendar standards widely used outside of healthcare.
 		</p>
 
-		<h3>The basic workflow to create an appointment</h3>
+    <h3>The basic workflow to create an appointment</h3>
 		<ul>
 			<li>
 				<b>Discovery/Addressing</b>
@@ -27,14 +27,14 @@
 					Before an appointment can be made the address of the resource that we want to schedule
 					an appointment with must be determined. This is often based on the healthcare Service Type,
 					any formatting information which indicates how to make the request.
-					This is typically handled via the Availability resource.
+					This is typically handled via the Schedule resource.
 				</p>
 			</li>
 			<li>
-				<b>Checking Availability (optional)</b>
+				<b>Checking Availability on the Schedule(optional)</b>
 				<p>
 					This optional step permits the checking of any existing available times 
-					(<a href="slot.html">slot</a> resources associated with a selected <a href="availability.html">availability</a>) that can be booked against.
+					(<a href="slot.html">slot</a> resources associated with a selected <a href="schedule.html">schedule</a>) that can be booked against.
 					Just because a time is indicated it is available doesn't guarantee that an appointment can be made.
 					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
@@ -111,4 +111,30 @@
 			</li>
 		</ul>
 	</div>
+  <div>
+    <h2>Boundaries and Relationships</h2>
+
+    <h3>Appointment Statuses and Encounters</h3>
+    <p>
+      Appointments can be considered as Administrative only, and the Encounter is expected to have
+      Clinical implications.
+    </p>
+    <p>
+      In general it is expected that appointments will result in the creation of an Encounter.
+      The encounter is typically created when the service starts, not when the patient arrives.
+      When the patient arrives, an appointment can be marked with a status of Arrived.
+    </p>
+    <p>
+      In an Emergency Room context, this appointment resource is probably not appropriate to be used.
+      In these cases an encounter should be created.
+    </p>
+    <p>
+      The Appointment request pattern used is different to the order-response pattern used elsewhere in FHIR.<br/>
+      This is due to the close relationship to the iCAL standard. Many non-clinical systems use generic
+      non health appointment systems which implement this standard, and the desire to integrate
+      with the consumer who has no access to health based software is highly desirable.<br/>
+      The mappings to the iCAL standard has been provided to guide implementation of gateways between
+      FHIR servers and iCAL systems.
+    </p>
+  </div>
 </div>

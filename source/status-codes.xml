@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12135</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>8280</WindowHeight>
+  <WindowWidth>14370</WindowWidth>
+  <WindowTopX>960</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -75,14 +74,14 @@
    <Interior/>
   </Style>
   <Style ss:ID="s65">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s66">
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
@@ -265,6 +264,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.status</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">arrived</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">finished</Data></Cell>
@@ -273,6 +273,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.statusHistory.status</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">arrived</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">finished</Data></Cell>
@@ -399,7 +400,7 @@
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24.9375">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Appointment.status</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Appointment.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">pending</Data></Cell>
     <Cell><Data ss:Type="String">arrived</Data></Cell>
     <Cell><Data ss:Type="String">fulfilled</Data></Cell>
@@ -408,7 +409,7 @@
     <Cell ss:Index="16"><Data ss:Type="String">noshow</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
     <Cell><Data ss:Type="String">declined</Data></Cell>
     <Cell><Data ss:Type="String">tentative</Data></Cell>
@@ -417,7 +418,7 @@
     <Cell><Data ss:Type="String">needs-action</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
     <Cell><Data ss:Type="String">declined</Data></Cell>
     <Cell><Data ss:Type="String">tentative</Data></Cell>
@@ -548,11 +549,10 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>15</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>36</ActiveRow>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

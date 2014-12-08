@@ -15,10 +15,10 @@
     <div>
 		<h2>Scope and Usage</h2>
 		<p>
-			Availability resources provide a container for time-slots that can be booked using an appointment,
-			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
-			They do not provide any information about actual appointments.
-		</p>
+      Schedule resources provide a container for time-slots that can be booked using an appointment,
+      It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
+      They do not provide any information about actual appointments.
+    </p>
 		<p>
 			In HL7 v2.7 (and the RIM) this resource is defined as a schedule (which in fhir is a simple recurrence):
 		</p>
@@ -51,10 +51,10 @@
 		</p>
 	</blockquote>
 	<p>
-		It is expected that servers could expose this information as an alternate representation
-		using the iCalendar free/busy format, joining the information in slot resources that reference
-		this availability resource.
-	</p>
+    It is expected that servers could expose this information as an alternate representation
+    using the iCalendar free/busy format, joining the information in slot resources that reference
+    this Schedule resource.
+  </p>
 </div>
 </div>
 	

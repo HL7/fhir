@@ -13,10 +13,10 @@
 			<display value="Physiotherapy" />
 		</coding>
 	</type>
-	<availability>
-		<reference value="Availability/example" />
-	</availability>
-	<freeBusyType value="FREE" />
+  <schedule>
+    <reference value="Schedule/example" />
+  </schedule>
+  <freeBusyType value="FREE" />
 	<start value="2013-12-25T09:15:00Z" />
 	<end value="2013-12-25T09:30:00Z" />
 	<comment value="Assessments should be performed before requesting appointments in this slot." />

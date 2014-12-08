@@ -17,10 +17,10 @@
 			<display value="Physiotherapy" />
 		</coding>
 	</type>
-	<availability>
-		<reference value="Availability/example" />
-	</availability>
-	<freeBusyType value="BUSY" />
+  <schedule>
+    <reference value="Schedule/example" />
+  </schedule>
+  <freeBusyType value="BUSY" />
 	<start value="2013-12-25T09:00:00Z" />
 	<end value="2013-12-25T09:15:00Z" />
 	<overbooked value="true" />

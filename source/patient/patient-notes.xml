@@ -53,6 +53,36 @@ being more complete or more authorative than another. In such cases, links of ty
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
+<h3>Patient vs Person vs Patient.Link</h3>
+<p>
+The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
+to using the Patient.Link capability.<br/>
+The intention of the Person resource is to be able to link instances of resources together that are believed to be the same
+individual. This includes across resource types, such as RelatedPerson, Practitioner, Patient and even other Person resources.<br/>
+The Patient Link however is only intended to be used for Patient resources.
+</p>
+<p>
+The primary use case for the Person resource is to be able to support Person registries that do not necessarily have a
+healthcare context, and are able to identify and quantify confidence levels that this is the same person.<br/>
+This could include consumer portals where the actual maintainer of the Person information is the actual person themselves.<br/>
+A system could use the Person entry to cross check changes to information applied to one part of a record to values in another
+system. e.g. A Consumer updates his contact numbers and address when moving in his Person record, and then a Patient Administation
+system is able to see that this data is changed, and prompt the organization to follow up with the patient that was linked to
+the person record if they want their details updated, or if they no longer need services and they should be cancelled, 
+as they've moved from the area.
+</p>
+  
+<h3>Patient.Contact vs RelatedPerson</h3>
+<p>
+The contact component on the Patient Resource should be used for storing persons to contact information.
+Where a system has a separate record for other people for purposes other than just the contact details, The RelatedPerson
+resource should be used.<br/>
+This includes cases where these related people are actually contributing to the record, and need to be referenced individually 
+(e.g. CarePlan.Participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
+</p>
+<p>It is not expected that these records will be used for primary care provider, this information should be stored in
+the Patient.careProvider field.</p>
+
 <h2>Merging records</h2>
 <p>
 This specification does not specify merge functionality: if multiple patient records are found to be 
