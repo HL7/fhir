@@ -90,7 +90,7 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Problems</td>
    <td><a href="condition.html">Condition</a></td>
-   <td><a href="??">??</a></td>
+   <td><a href="condition-daf.html">DAF Condition (a.k.a Problem)</a></td>
  </tr>
  <tr>
    <td>Medications</td>
@@ -104,15 +104,15 @@ Specifically, this is the map between the MU data list above, and their correspo
    <td>DAF:<ul>
      <li><a href="??">??</a></li>
      <li><a href="??">??</a></li>
-     <li><a href="??">??</a></li>
-     <li><a href="??">??</a></li>
+     <li><a href="medicationadministration-daf.html">DAF Medication Administration</a></li>
+     <li><a href="medicationstatement-daf.html">DAF MedicationStatement</a></li>
     </ul> 
    </td>
  </tr>
  <tr>
    <td>Medication allergies</td>
    <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-   <td><a href="??">??</a></td>
+   <td><a href="allergyintolerance-daf.html">DAF AllergyIntolerance</a></td>
  </tr>
  <tr>
    <td>Laboratory test(s)</td>
@@ -122,12 +122,12 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Laboratory value(s)/result(s)</td>
    <td><a href="diagnosticreport.html">DiagnosticReport</a> &amp; <a href="observation.html">Observation</a> </td>
-   <td><a href="diagnosticreport-daf-dafdiagnosticreport.html">DAF Diagnostic Report</a> / <a href="observation-daf-results.html">DAF Results</a></td>
+   <td><a href="diagnosticreport-daf.html">DAF Diagnostic Report</a> / <a href="observation-daf-results.html">DAF Results</a></td>
  </tr>
  <tr>
    <td>Vital signs</td>
    <td><a href="observation.html">Observation</a></td>
-   <td><a href="observation-daf-vitalsigns-daf-vital-signs.html">DAF Vital Signs</a></td>
+   <td><a href="observation-daf-vitalsigns.html">DAF Vital Signs</a></td>
  </tr>
  <tr>
    <td>Care Plan</td>
@@ -137,7 +137,7 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Procedures</td>
    <td><a href="procedure.html">Procedure</a></td>
-   <td><a href="procedure-daf-procedure-daf.html">DAF Procedure</a></td>
+   <td><a href="procedure-daf.html">DAF Procedure</a></td>
  </tr>
  <tr>
    <td>Care team</td>
@@ -146,7 +146,23 @@ Specifically, this is the map between the MU data list above, and their correspo
  </tr>
 </table>
 
-<h3>Lists, and "No Known [X}"</h3>
+<p>
+Note that the DAF profiles identify specific conformance requirements 
+around search parameters. For the purposes of the connectathon, 
+implementers are not required to implement search for the individual
+resource types - only the "Fetch Patient Record" operation is required. 
+As a result, the DAF rules about search do not apply. 
+</p>
+<p>
+However implementers should note that the DAF and JASON taskforce
+work in this space is closely related and the DAF rules should be 
+understood as candidates for the JASON taskforce deliberations in
+this space. For this reason, implementers are encouraged to implement
+these for the connectathon and/or to comment on them in depth.
+</p>
+
+
+<h3>Lists, and "No Known [X]"</h3>
 
 <p>
 In the FHIR specification, a patients problem list etc consists of 0 or more 
@@ -163,15 +179,22 @@ returned data, all responses to the Fatch Patient Operation SHALL
 return the following lists:
 </p>
 <ul>
- <li>Problems 0- a list with the code ""</li>
- <li>Medication Allergies</li>
- <li>Medications</li>
+ <li>Problems - a list with the LOINC code "11450-4"</li>
+ <li>Medication Allergies - a list with the LOINC code "48765-2"</li>
+ <li>Medications - a list with the LOINC code "10160-0"</li>
 </ul>
 <p>
 If these lists are empty, they SHALL contain a reason why (which may 
 be "not supported in this source" or equivalent). If they are not 
 empty, all the relevant resources for the list SHALL be explicitly 
 referenced in the list items. 
+</p>
+<p>
+Clients that request a patient record should only treat problems, medication-type
+and allergy/intolerance resources that appear in the patient record as 
+part of the history if they are listed in the relevant list resources. Otherwise,
+they may have been provided as supporting data for other resources, but are 
+not included in the patient summary.
 </p>
 
 <h3>Conformance Rules</h3>

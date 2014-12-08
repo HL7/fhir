@@ -6,10 +6,9 @@
 This resource is primarily used for recording which device performed an action and can also be used to track device location. It is also used for prescribing and dispensing devices for patient use. 
 If the device is implanted in a patient, then the patient element will be present, and there would be no location. 
 </p>
-
 <p>
 There are there device related resources
-</p></div>
+</p>
 <ul>
  <li>Device (this resource) - an administrative resource that tracks individual devices and their location. Primarily used for attribution of actions to devices</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting  capability of a medical device.</li>
@@ -23,13 +22,15 @@ series of log resources. The FHIR JSON format is used in this case.
 <p>
 The application that receives the log resources may choose to merge the log with the capabilities 
 statement to create a device observation, which is suitable for wider use within a EHR/Clinical record context.
-</p><div>
+</p>
+</div>
+
+<div>
 <h2>Boundaries and Relationships</h2>
 <p>
 Devices that are implanted in a patient differ from medications because they are not "used up" - they remain active in a patient in an ongoing fashion.
 The <a href="medication.html">Medication resource</a> SHOULD not be used to represent implanted devices.
 </p>
-
 
 </div>
 

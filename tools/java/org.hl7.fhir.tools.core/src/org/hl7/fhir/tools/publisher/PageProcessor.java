@@ -4020,7 +4020,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("rellink"))
         src = s1+filename+s3;
       else if (com[0].equals("summary"))
-        src = s1+generateHumanSummary(profile.getResource())+s3;
+        src = s1+generateHumanSummary(pack, profile.getResource())+s3;
       else if (com[0].equals("profile-examples"))
         src = s1+s3;      
       else if (com[0].equals("profile-extensions-table"))
@@ -4042,8 +4042,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
-  private String generateHumanSummary(Profile profile) {
+  private String generateHumanSummary(ConformancePackage pack, Profile profile) {
     try {
+      if ("true".equalsIgnoreCase(pack.metadata("no-summary")))
+          return "";
       if (profile.getDifferential() == null)
         return "<p>No Summary, as this profile has no differential</p>";
 
@@ -4073,7 +4075,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         else if (ed.getPath().endsWith(".modifierExtension"))
           ext.append(summariseExtension(ed.getType(), true, ed.getPath()));
       }
-      StringBuilder res = new StringBuilder();
+      StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<h2>\r\nSummary\r\n</h2>\r\n");
       if (tx.length() > 0)
         res.append("<p><b>Terminology Bindings</b></p>\r\n<ul>\r\n"+tx.toString()+"\r\n</ul>\r\n\r\n");
       if (card.length() > 0)

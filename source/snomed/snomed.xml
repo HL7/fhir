@@ -1138,6 +1138,12 @@
     <display value="Wound tenderness"/>
     <display value="Wound tenderness (finding)"/>
   </concept>
+  <concept id="226307009" display="Carbohydrate supplementation (product)">
+    <display value="Carbohydrate supplementation (product)"/>
+    <display value="Carbohydrate supplementation"/>
+    <display value="CHO - Carbohydrate supplementation"/>
+    <display value="Carbohydrate supplementation (substance)"/>
+  </concept>
   <concept id="226376004" display="Benzoate (substance)">
     <display value="Benzoate"/>
     <display value="Benzoate (substance)"/>
@@ -1501,6 +1507,10 @@
     <display value="Introduction of needle into vein"/>
     <display value="Puncture of vein"/>
     <display value="Venipuncture (procedure)"/>
+  </concept>
+  <concept id="227983006" display="Baby food (substance)">
+    <display value="Baby food"/>
+    <display value="Baby food (substance)"/>
   </concept>
   <concept id="22836000" display="Vegetable (substance)">
     <display value="Vegetable"/>
@@ -4234,6 +4244,10 @@
     <display value="Doxylamine (product)"/>
     <display value="Doxylamine"/>
   </concept>
+  <concept id="412414007" display="Infant formula + iron (product)">
+    <display value="Infant formula + iron (product)"/>
+    <display value="Infant formula + iron"/>
+  </concept>
   <concept id="412601002" display="Carob (substance)">
     <display value="Carob (substance)"/>
     <display value="Carob"/>
@@ -4594,6 +4608,10 @@
     <display value="Sugar beet"/>
     <display value="Mangels"/>
     <display value="Beta vulgaris (organism)"/>
+  </concept>
+  <concept id="427298002" display="Enteral dietary supplement (substance)">
+    <display value="Enteral dietary supplement (substance)"/>
+    <display value="Enteral dietary supplement"/>
   </concept>
   <concept id="428263003" display="NOT suspected (qualifier value)">
     <display value="NOT suspected (qualifier value)"/>
