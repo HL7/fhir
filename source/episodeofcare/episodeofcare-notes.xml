@@ -1,0 +1,16 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<h2>Example Scenarios</h2>
+  <p>
+    A General Practitioner wants to review how well his patient is managing his diabetes over time from information
+    within his clinic and also the regional community care organization's system(s).
+  </p>
+  <p>
+    The Episode Of Care enables him to easily separate the diabetes activities from the mental health problem's activities.
+  </p>
+  <p>
+    A Community Care organization wants to track all activities that occur with a patient relating to their disability
+    to simplify the reporting to the government to receive funding to care for the patient
+  </p>
+</div>

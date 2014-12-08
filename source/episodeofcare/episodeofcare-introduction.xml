@@ -1,0 +1,60 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The EpisodeOfCare Resource contains information about an association of a Patient with a Healthcare Provider for a period
+of time under which related healthcare activities may occur.
+</p>
+<p>
+In many cases, this represents a period of time where the Healthcare Provider has some level of responsibility for the care
+of the patient regarding a specific condition or problem, even if not currently participating in an encounter.
+</p>
+<p>
+  These resources are typically known in existing systems as:
+</p>
+  <ul>
+<li>EpisodeOfCare: Case, Program, Problem</li>
+<li>Encounter: Visit, Contact</li>
+</ul>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+  The primary difference between the EpisodeOfCare and the Encounter is that the Encounter records the details of an
+  activity directly relating to the patient, while the EpisodeOfCare is the container that can link a series of Enounters
+  together for a specific problem/issue.<br/>
+  The Example scenarios below give some good examples as to when you might want to be using an EpisodeOfCare.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+  Systems collect a coherent group of activities (such as encounters) related to a patient's health condition or problem often referred to as a Care Episode.
+
+  Information about an episode is often shared across systems, and in some cases organizational and disciplinary boundaries.
+
+  An Episode Of Care contains details about the purpose of the care and can exist without any activities.
+
+  The minimal information that would be required in an episode of care would be a patient, healthcare provider and a reason for the ongoing association.
+
+  Other reasons for creating an EpisodeOfCare could be for tracking the details required for government reporting or billing.
+</p>
+<h3>Expected Imlementations</h3>
+  <ul>
+    <li>Chronic Disease Management Systems</li>
+    <li>Community Care Systems  
+    <ul>
+      <li>Tracking progress of a specific condition</li>
+      <li>Tracking government funding</li>
+    </ul>
+    </li>
+    <li>Problem based General Practice systems</li>
+    <li>Disability Support Systems</li>
+    <li>Aged Care Systems (Community and Residential)</li>
+  </ul>
+</div>
+
+</div>

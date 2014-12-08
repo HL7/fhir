@@ -16,10 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8280</WindowHeight>
-  <WindowWidth>14370</WindowWidth>
-  <WindowTopX>960</WindowTopX>
+  <WindowHeight>9000</WindowHeight>
+  <WindowWidth>27330</WindowWidth>
+  <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -85,7 +86,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="314.25"/>
@@ -535,6 +536,24 @@
     <Cell ss:Index="9"><Data ss:Type="String">present</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">reserved</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EpisodeOfCare.currentStatus</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">withdrawn</Data></Cell>
+    <Cell><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">onhold</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">other</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EpisodeOfCare.statusHistory.status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">withdrawn</Data></Cell>
+    <Cell><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">onhold</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">other</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -549,10 +568,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>37</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>52</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

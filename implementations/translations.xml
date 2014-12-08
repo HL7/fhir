@@ -207,6 +207,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="es">Encuentro</translation>
         <translation lang="fr">Venue</translation>
     </item>
+    <item id="EpisodeOfCare">
+        <translation lang="en">EpisodeOfCare</translation>
+    </item>
     <item id="EnrollmentRequest">
         <translation lang="en">EnrollmentRequest</translation>
     </item>

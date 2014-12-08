@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EpisodeOfCare xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/episodeofcare.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current
+    </div>
+  </text>
+
+  <currentStatus value="active" />
+  <statusHistory>
+    <status value="planned" />
+    <period>
+      <start value="2014-09-01"/>
+      <end value="2014-09-14"/>
+    </period>
+  </statusHistory>
+  <statusHistory>
+    <status value="active" />
+    <period>
+      <start value="2014-09-15"/>
+      <end value="2014-09-21"/>
+    </period>
+  </statusHistory>
+  <statusHistory>
+    <status value="onhold" />
+    <period>
+      <start value="2014-09-22"/>
+      <end value="2014-09-24"/>
+    </period>
+  </statusHistory>
+  <statusHistory>
+    <status value="active" />
+    <period>
+      <start value="2014-09-25"/>
+    </period>
+  </statusHistory>
+  <type>
+    <coding>
+        <system value="http://example.org/EpisodeOfCare/Type"/>
+        <code value="HACC"/>
+        <display value="Home and Community Care Package"/>
+    </coding>
+  </type>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <managingOrganization>
+    <reference value="Organization/hl7" />
+  </managingOrganization>
+  <period>
+    <start value="2014-09-01"/>
+  </period>
+  <careManager>
+    <reference value="Practitioner/14"/>
+    <display value="Amanda Assigned" />
+  </careManager>
+  <careTeam>
+    <member>
+      <reference value="Practitioner/13"/>
+      <display value="Henry Seven"/>
+    </member>
+    <role>
+      <coding>
+        <system value="http://example.org/EpisodeOfCare/Role"/>
+        <code value="AO"/>
+        <display value="Assessment Worker"/>
+      </coding>
+    </role>
+    <period>
+      <start value="2014-09-01"/>
+      <end value="2014-09-16"/>
+    </period>
+  </careTeam>
+</EpisodeOfCare>

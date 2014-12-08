@@ -187,6 +187,7 @@ todo: compartments
             <page type="resource" resource="Substance"/>
             <page type="resource" resource="Group"/>
             <page type="resource" resource="Encounter"/>
+            <page type="resource" resource="EpisodeOfCare"/>
             <page type="resource" resource="Alert"/>
             <page type="resource" resource="Communication"/>
             <page type="resource" resource="CommunicationRequest"/>
