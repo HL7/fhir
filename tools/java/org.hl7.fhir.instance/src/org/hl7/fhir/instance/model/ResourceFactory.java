@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 public class ResourceFactory extends Factory {
 
@@ -56,6 +56,8 @@ public class ResourceFactory extends Factory {
             return new Slot();
         if ("Contraindication".equals(name))
             return new Contraindication();
+        if ("EpisodeOfCare".equals(name))
+            return new EpisodeOfCare();
         if ("Composition".equals(name))
             return new Composition();
         if ("Conformance".equals(name))
@@ -86,6 +88,8 @@ public class ResourceFactory extends Factory {
             return new Substance();
         if ("DeviceUseRequest".equals(name))
             return new DeviceUseRequest();
+        if ("Schedule".equals(name))
+            return new Schedule();
         if ("EligibilityRequest".equals(name))
             return new EligibilityRequest();
         if ("QuestionnaireAnswers".equals(name))
@@ -126,10 +130,10 @@ public class ResourceFactory extends Factory {
             return new StatusRequest();
         if ("Parameters".equals(name))
             return new Parameters();
-        if ("VisionClaim".equals(name))
-            return new VisionClaim();
         if ("ProcedureRequest".equals(name))
             return new ProcedureRequest();
+        if ("VisionClaim".equals(name))
+            return new VisionClaim();
         if ("DeviceMetric".equals(name))
             return new DeviceMetric();
         if ("Organization".equals(name))
@@ -190,8 +194,6 @@ public class ResourceFactory extends Factory {
             return new DataElement();
         if ("DocumentManifest".equals(name))
             return new DocumentManifest();
-        if ("Availability".equals(name))
-            return new Availability();
         if ("MedicationAdministration".equals(name))
             return new MedicationAdministration();
         if ("Encounter".equals(name))

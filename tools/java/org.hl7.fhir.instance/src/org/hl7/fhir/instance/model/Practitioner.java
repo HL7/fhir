@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1035,6 +1035,8 @@ public class Practitioner extends DomainResource {
   public static final String SP_PHONETIC = "phonetic";
   @SearchParamDefinition(name="given", path="Practitioner.name", description="A portion of the given name", type="string" )
   public static final String SP_GIVEN = "given";
+  @SearchParamDefinition(name="location", path="Practitioner.location", description="One of the locations at which this practitioner provides care", type="reference" )
+  public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="communication", path="Practitioner.communication", description="One of the languages that the practitioner can communicate with", type="token" )
   public static final String SP_COMMUNICATION = "communication";
   @SearchParamDefinition(name="address", path="Practitioner.address", description="An address in any kind of address/part", type="string" )

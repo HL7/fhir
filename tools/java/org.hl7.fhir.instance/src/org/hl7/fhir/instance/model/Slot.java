@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * (informative) A slot of time on a schedule that may be available for booking appointments.
+ * A slot of time on a schedule that may be available for booking appointments.
  */
 @ResourceDef(name="Slot", profile="http://hl7.org/fhir/Profile/Slot")
 public class Slot extends DomainResource {
@@ -160,16 +160,16 @@ public class Slot extends DomainResource {
     protected CodeableConcept type;
 
     /**
-     * The availability resource that this slot defines an interval of status information.
+     * The schedule resource that this slot defines an interval of status information.
      */
-    @Child(name="availability", type={Availability.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="The availability resource that this slot defines an interval of status information", formalDefinition="The availability resource that this slot defines an interval of status information." )
-    protected Reference availability;
+    @Child(name="schedule", type={Schedule.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="The schedule resource that this slot defines an interval of status information", formalDefinition="The schedule resource that this slot defines an interval of status information." )
+    protected Reference schedule;
 
     /**
-     * The actual object that is the target of the reference (The availability resource that this slot defines an interval of status information.)
+     * The actual object that is the target of the reference (The schedule resource that this slot defines an interval of status information.)
      */
-    protected Availability availabilityTarget;
+    protected Schedule scheduleTarget;
 
     /**
      * BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
@@ -213,15 +213,15 @@ public class Slot extends DomainResource {
     @Description(shortDefinition="When this slot was created, or last revised", formalDefinition="When this slot was created, or last revised." )
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 2056947959L;
+    private static final long serialVersionUID = 738744883L;
 
     public Slot() {
       super();
     }
 
-    public Slot(Reference availability, Enumeration<Slotstatus> freeBusyType, InstantType start, InstantType end) {
+    public Slot(Reference schedule, Enumeration<Slotstatus> freeBusyType, InstantType start, InstantType end) {
       super();
-      this.availability = availability;
+      this.schedule = schedule;
       this.freeBusyType = freeBusyType;
       this.start = start;
       this.end = end;
@@ -282,46 +282,46 @@ public class Slot extends DomainResource {
     }
 
     /**
-     * @return {@link #availability} (The availability resource that this slot defines an interval of status information.)
+     * @return {@link #schedule} (The schedule resource that this slot defines an interval of status information.)
      */
-    public Reference getAvailability() { 
-      if (this.availability == null)
+    public Reference getSchedule() { 
+      if (this.schedule == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Slot.availability");
+          throw new Error("Attempt to auto-create Slot.schedule");
         else if (Configuration.doAutoCreate())
-          this.availability = new Reference();
-      return this.availability;
+          this.schedule = new Reference();
+      return this.schedule;
     }
 
-    public boolean hasAvailability() { 
-      return this.availability != null && !this.availability.isEmpty();
+    public boolean hasSchedule() { 
+      return this.schedule != null && !this.schedule.isEmpty();
     }
 
     /**
-     * @param value {@link #availability} (The availability resource that this slot defines an interval of status information.)
+     * @param value {@link #schedule} (The schedule resource that this slot defines an interval of status information.)
      */
-    public Slot setAvailability(Reference value) { 
-      this.availability = value;
+    public Slot setSchedule(Reference value) { 
+      this.schedule = value;
       return this;
     }
 
     /**
-     * @return {@link #availability} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The availability resource that this slot defines an interval of status information.)
+     * @return {@link #schedule} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The schedule resource that this slot defines an interval of status information.)
      */
-    public Availability getAvailabilityTarget() { 
-      if (this.availabilityTarget == null)
+    public Schedule getScheduleTarget() { 
+      if (this.scheduleTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Slot.availability");
+          throw new Error("Attempt to auto-create Slot.schedule");
         else if (Configuration.doAutoCreate())
-          this.availabilityTarget = new Availability();
-      return this.availabilityTarget;
+          this.scheduleTarget = new Schedule();
+      return this.scheduleTarget;
     }
 
     /**
-     * @param value {@link #availability} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The availability resource that this slot defines an interval of status information.)
+     * @param value {@link #schedule} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The schedule resource that this slot defines an interval of status information.)
      */
-    public Slot setAvailabilityTarget(Availability value) { 
-      this.availabilityTarget = value;
+    public Slot setScheduleTarget(Schedule value) { 
+      this.scheduleTarget = value;
       return this;
     }
 
@@ -611,7 +611,7 @@ public class Slot extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("availability", "Reference(Availability)", "The availability resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, availability));
+        childrenList.add(new Property("schedule", "Reference(Schedule)", "The schedule resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, schedule));
         childrenList.add(new Property("freeBusyType", "code", "BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.", 0, java.lang.Integer.MAX_VALUE, freeBusyType));
         childrenList.add(new Property("start", "instant", "Date/Time that the slot is to begin.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
@@ -629,7 +629,7 @@ public class Slot extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.type = type == null ? null : type.copy();
-        dst.availability = availability == null ? null : availability.copy();
+        dst.schedule = schedule == null ? null : schedule.copy();
         dst.freeBusyType = freeBusyType == null ? null : freeBusyType.copy();
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
@@ -645,7 +645,7 @@ public class Slot extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (availability == null || availability.isEmpty()) && (freeBusyType == null || freeBusyType.isEmpty())
+           && (schedule == null || schedule.isEmpty()) && (freeBusyType == null || freeBusyType.isEmpty())
            && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (overbooked == null || overbooked.isEmpty())
            && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
           ;
@@ -656,14 +656,14 @@ public class Slot extends DomainResource {
     return ResourceType.Slot;
    }
 
+  @SearchParamDefinition(name="schedule", path="Slot.schedule", description="The Schedule Resource that we are seeking a slot within", type="reference" )
+  public static final String SP_SCHEDULE = "schedule";
   @SearchParamDefinition(name="start", path="Slot.start", description="Appointment date/time.", type="date" )
   public static final String SP_START = "start";
   @SearchParamDefinition(name="slottype", path="Slot.type", description="The type of appointments that can be booked into the slot", type="token" )
   public static final String SP_SLOTTYPE = "slottype";
   @SearchParamDefinition(name="fbtype", path="Slot.freeBusyType", description="The free/busy status of the appointment", type="token" )
   public static final String SP_FBTYPE = "fbtype";
-  @SearchParamDefinition(name="availability", path="Slot.availability", description="The Availability Resource that we are seeking a slot within", type="reference" )
-  public static final String SP_AVAILABILITY = "availability";
 
 }
 

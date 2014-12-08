@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -326,13 +326,13 @@ public class CarePlan2 extends DomainResource {
 
 
     /**
-     * Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
+     * Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
      */
-    @Child(name="activity", type={Procedure.class, MedicationPrescription.class, DiagnosticOrder.class, Encounter.class, Supply.class, ProcedureRequest.class, RiskAssessment.class, Communication.class, CommunicationRequest.class, Immunization.class, MedicationAdministration.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="CarePlan Activity", formalDefinition="Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc." )
+    @Child(name="activity", type={ProcedureRequest.class, MedicationPrescription.class, DiagnosticOrder.class, ReferralRequest.class, CommunicationRequest.class, NutritionOrder.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="CarePlan Activity", formalDefinition="Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc." )
     protected List<Reference> activity;
     /**
-     * The actual objects that are the target of the reference (Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
+     * The actual objects that are the target of the reference (Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
     protected List<Resource> activityTarget;
 
@@ -722,7 +722,7 @@ public class CarePlan2 extends DomainResource {
     }
 
     /**
-     * @return {@link #activity} (Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
+     * @return {@link #activity} (Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
     public List<Reference> getActivity() { 
       if (this.activity == null)
@@ -740,7 +740,7 @@ public class CarePlan2 extends DomainResource {
     }
 
     /**
-     * @return {@link #activity} (Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
+     * @return {@link #activity} (Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
     // syntactic sugar
     public Reference addActivity() { //3
@@ -752,7 +752,7 @@ public class CarePlan2 extends DomainResource {
     }
 
     /**
-     * @return {@link #activity} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
+     * @return {@link #activity} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.)
      */
     public List<Resource> getActivityTarget() { 
       if (this.activityTarget == null)
@@ -771,7 +771,7 @@ public class CarePlan2 extends DomainResource {
         childrenList.add(new Property("participant", "", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("notes", "string", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, notes));
         childrenList.add(new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the Care Plan.", 0, java.lang.Integer.MAX_VALUE, goal));
-        childrenList.add(new Property("activity", "Reference(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply|ProcedureRequest|RiskAssessment|Communication|CommunicationRequest|Immunization|MedicationAdministration)", "Identifies an action that has occurred or is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
+        childrenList.add(new Property("activity", "Reference(ProcedureRequest|MedicationPrescription|DiagnosticOrder|ReferralRequest|CommunicationRequest|NutritionOrder)", "Identifies an action that is planned to happen as part of the careplan. For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
       }
 
       public CarePlan2 copy() {

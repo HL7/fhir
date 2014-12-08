@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -458,10 +458,10 @@ public class Bundle extends Resource {
         protected DecimalType score;
 
         /**
-         * If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.
+         * If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further information.
          */
         @Child(name="deleted", type={}, order=5, min=0, max=1)
-        @Description(shortDefinition="If this is a deleted resource (transaction/history)", formalDefinition="If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino." )
+        @Description(shortDefinition="If this is a deleted resource (transaction/history)", formalDefinition="If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further information." )
         protected BundleEntryDeletedComponent deleted;
 
         /**
@@ -674,7 +674,7 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.)
+         * @return {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further information.)
          */
         public BundleEntryDeletedComponent getDeleted() { 
           if (this.deleted == null)
@@ -690,7 +690,7 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @param value {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.)
+         * @param value {@link #deleted} (If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further information.)
          */
         public BundleEntryComponent setDeleted(BundleEntryDeletedComponent value) { 
           this.deleted = value;
@@ -722,7 +722,7 @@ public class Bundle extends Resource {
           childrenList.add(new Property("status", "code", "The status of a resource in the bundle. Used for search (to differentiate between resources included as a match, and resources included as an _include), for history (deleted resources), and for transactions (create/update/delete).", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("search", "uri", "Search URL for this resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, java.lang.Integer.MAX_VALUE, score));
-          childrenList.add(new Property("deleted", "", "If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further informatino.", 0, java.lang.Integer.MAX_VALUE, deleted));
+          childrenList.add(new Property("deleted", "", "If this is an entry that represents a deleted resource. Only used when the bundle is a transaction or a history type. See RESTful API documentation for further information.", 0, java.lang.Integer.MAX_VALUE, deleted));
           childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
         }
 

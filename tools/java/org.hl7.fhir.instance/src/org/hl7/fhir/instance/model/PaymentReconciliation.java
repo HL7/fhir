@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * This resource provides payment details supporting a bulk payment, or the errors in,  processing a ReconciliationRequest resource.
+ * This resource provides payment details and claim references supporting a bulk payment.
  */
 @ResourceDef(name="PaymentReconciliation", profile="http://hl7.org/fhir/Profile/PaymentReconciliation")
 public class PaymentReconciliation extends DomainResource {
@@ -730,20 +730,13 @@ public class PaymentReconciliation extends DomainResource {
     protected Money total;
 
     /**
-     * List of errors detected in the request.
-     */
-    @Child(name="error", type={Coding.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Error code", formalDefinition="List of errors detected in the request." )
-    protected List<Coding> error;
-
-    /**
      * Suite of notes.
      */
-    @Child(name="note", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="note", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Note text", formalDefinition="Suite of notes." )
     protected List<NotesComponent> note;
 
-    private static final long serialVersionUID = 1739436327L;
+    private static final long serialVersionUID = 2043460985L;
 
     public PaymentReconciliation() {
       super();
@@ -1258,36 +1251,6 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @return {@link #error} (List of errors detected in the request.)
-     */
-    public List<Coding> getError() { 
-      if (this.error == null)
-        this.error = new ArrayList<Coding>();
-      return this.error;
-    }
-
-    public boolean hasError() { 
-      if (this.error == null)
-        return false;
-      for (Coding item : this.error)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #error} (List of errors detected in the request.)
-     */
-    // syntactic sugar
-    public Coding addError() { //3
-      Coding t = new Coding();
-      if (this.error == null)
-        this.error = new ArrayList<Coding>();
-      this.error.add(t);
-      return t;
-    }
-
-    /**
      * @return {@link #note} (Suite of notes.)
      */
     public List<NotesComponent> getNote() { 
@@ -1333,7 +1296,6 @@ public class PaymentReconciliation extends DomainResource {
         childrenList.add(new Property("detail", "", "List of individual settlement amounts and the corresponding transaction.", 0, java.lang.Integer.MAX_VALUE, detail));
         childrenList.add(new Property("form", "Coding", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("total", "Money", "Total payment amount.", 0, java.lang.Integer.MAX_VALUE, total));
-        childrenList.add(new Property("error", "Coding", "List of errors detected in the request.", 0, java.lang.Integer.MAX_VALUE, error));
         childrenList.add(new Property("note", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
@@ -1362,11 +1324,6 @@ public class PaymentReconciliation extends DomainResource {
         };
         dst.form = form == null ? null : form.copy();
         dst.total = total == null ? null : total.copy();
-        if (error != null) {
-          dst.error = new ArrayList<Coding>();
-          for (Coding i : error)
-            dst.error.add(i.copy());
-        };
         if (note != null) {
           dst.note = new ArrayList<NotesComponent>();
           for (NotesComponent i : note)
@@ -1386,7 +1343,7 @@ public class PaymentReconciliation extends DomainResource {
            && (created == null || created.isEmpty()) && (period == null || period.isEmpty()) && (organization == null || organization.isEmpty())
            && (requestProvider == null || requestProvider.isEmpty()) && (requestOrganization == null || requestOrganization.isEmpty())
            && (detail == null || detail.isEmpty()) && (form == null || form.isEmpty()) && (total == null || total.isEmpty())
-           && (error == null || error.isEmpty()) && (note == null || note.isEmpty());
+           && (note == null || note.isEmpty());
       }
 
   @Override

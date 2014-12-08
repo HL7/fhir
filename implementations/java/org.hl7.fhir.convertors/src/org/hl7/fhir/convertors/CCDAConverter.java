@@ -271,11 +271,10 @@ public class CCDAConverter {
 			Encounter visit = new Encounter();
 			for (Element e : cda.getChildren(ee, "id"))
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
-			visit.setHospitalization(new Encounter.EncounterHospitalizationComponent());
-			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
+			visit.setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
 			composition.getEvent().add(new Composition.CompositionEventComponent());
 			composition.getEvent().get(0).getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
-			composition.getEvent().get(0).setPeriod(visit.getHospitalization().getPeriod());
+			composition.getEvent().get(0).setPeriod(visit.getPeriod());
 			composition.getEvent().get(0).getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));			
 		}
 		
@@ -298,7 +297,7 @@ public class CCDAConverter {
 		for (Element e : cda.getChildren(p, "name"))
 			pat.getName().add(convert.makeNameFromEN(e));
 		pat.setGender(convert.makeGenderFromCD(cda.getChild(p, "administrativeGenderCode")));
-		pat.setBirthDateElement(convert.makeDateTimeFromTS(cda.getChild(p, "birthTime")));
+		pat.setBirthDateElement(convert.makeDateFromTS(cda.getChild(p, "birthTime")));
 		pat.setMaritalStatus(convert.makeCodeableConceptFromCD(cda.getChild(p, "maritalStatusCode")));
 		pat.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
 		pat.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_RACE, convert.makeCodeableConceptFromCD(cda.getChild(p, "raceCode")), false));

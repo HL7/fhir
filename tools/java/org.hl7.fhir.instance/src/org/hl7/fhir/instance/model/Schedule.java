@@ -29,538 +29,328 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Sep 28, 2014 20:18+1000 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * Specifies an event that may occur multiple times. Schedules are used for to reord when things are expected or requested to occur.
+ * A container for slot(s) of time that may be available for booking appointments.
  */
-public class Schedule extends Type {
-
-    public enum EventTiming {
-        hS, // event occurs [duration] before the hour of sleep (or trying to).
-        wAKE, // event occurs [duration] after waking.
-        aC, // event occurs [duration] before a meal (from the Latin ante cibus).
-        aCM, // event occurs [duration] before breakfast (from the Latin ante cibus matutinus).
-        aCD, // event occurs [duration] before lunch (from the Latin ante cibus diurnus).
-        aCV, // event occurs [duration] before dinner (from the Latin ante cibus vespertinus).
-        pC, // event occurs [duration] after a meal (from the Latin post cibus).
-        pCM, // event occurs [duration] after breakfast (from the Latin post cibus matutinus).
-        pCD, // event occurs [duration] after lunch (from the Latin post cibus diurnus).
-        pCV, // event occurs [duration] after dinner (from the Latin post cibus vespertinus).
-        Null; // added to help the parsers
-        public static EventTiming fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("HS".equals(codeString))
-          return hS;
-        if ("WAKE".equals(codeString))
-          return wAKE;
-        if ("AC".equals(codeString))
-          return aC;
-        if ("ACM".equals(codeString))
-          return aCM;
-        if ("ACD".equals(codeString))
-          return aCD;
-        if ("ACV".equals(codeString))
-          return aCV;
-        if ("PC".equals(codeString))
-          return pC;
-        if ("PCM".equals(codeString))
-          return pCM;
-        if ("PCD".equals(codeString))
-          return pCD;
-        if ("PCV".equals(codeString))
-          return pCV;
-        throw new Exception("Unknown EventTiming code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case hS: return "HS";
-            case wAKE: return "WAKE";
-            case aC: return "AC";
-            case aCM: return "ACM";
-            case aCD: return "ACD";
-            case aCV: return "ACV";
-            case pC: return "PC";
-            case pCM: return "PCM";
-            case pCD: return "PCD";
-            case pCV: return "PCV";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class EventTimingEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("HS".equals(codeString))
-          return EventTiming.hS;
-        if ("WAKE".equals(codeString))
-          return EventTiming.wAKE;
-        if ("AC".equals(codeString))
-          return EventTiming.aC;
-        if ("ACM".equals(codeString))
-          return EventTiming.aCM;
-        if ("ACD".equals(codeString))
-          return EventTiming.aCD;
-        if ("ACV".equals(codeString))
-          return EventTiming.aCV;
-        if ("PC".equals(codeString))
-          return EventTiming.pC;
-        if ("PCM".equals(codeString))
-          return EventTiming.pCM;
-        if ("PCD".equals(codeString))
-          return EventTiming.pCD;
-        if ("PCV".equals(codeString))
-          return EventTiming.pCV;
-        throw new Exception("Unknown EventTiming code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == EventTiming.hS)
-        return "HS";
-      if (code == EventTiming.wAKE)
-        return "WAKE";
-      if (code == EventTiming.aC)
-        return "AC";
-      if (code == EventTiming.aCM)
-        return "ACM";
-      if (code == EventTiming.aCD)
-        return "ACD";
-      if (code == EventTiming.aCV)
-        return "ACV";
-      if (code == EventTiming.pC)
-        return "PC";
-      if (code == EventTiming.pCM)
-        return "PCM";
-      if (code == EventTiming.pCD)
-        return "PCD";
-      if (code == EventTiming.pCV)
-        return "PCV";
-      return "?";
-      }
-    }
-
-    public enum UnitsOfTime {
-        s, // second.
-        min, // minute.
-        h, // hour.
-        d, // day.
-        wk, // week.
-        mo, // month.
-        a, // year.
-        Null; // added to help the parsers
-        public static UnitsOfTime fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("s".equals(codeString))
-          return s;
-        if ("min".equals(codeString))
-          return min;
-        if ("h".equals(codeString))
-          return h;
-        if ("d".equals(codeString))
-          return d;
-        if ("wk".equals(codeString))
-          return wk;
-        if ("mo".equals(codeString))
-          return mo;
-        if ("a".equals(codeString))
-          return a;
-        throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case s: return "s";
-            case min: return "min";
-            case h: return "h";
-            case d: return "d";
-            case wk: return "wk";
-            case mo: return "mo";
-            case a: return "a";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class UnitsOfTimeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("s".equals(codeString))
-          return UnitsOfTime.s;
-        if ("min".equals(codeString))
-          return UnitsOfTime.min;
-        if ("h".equals(codeString))
-          return UnitsOfTime.h;
-        if ("d".equals(codeString))
-          return UnitsOfTime.d;
-        if ("wk".equals(codeString))
-          return UnitsOfTime.wk;
-        if ("mo".equals(codeString))
-          return UnitsOfTime.mo;
-        if ("a".equals(codeString))
-          return UnitsOfTime.a;
-        throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == UnitsOfTime.s)
-        return "s";
-      if (code == UnitsOfTime.min)
-        return "min";
-      if (code == UnitsOfTime.h)
-        return "h";
-      if (code == UnitsOfTime.d)
-        return "d";
-      if (code == UnitsOfTime.wk)
-        return "wk";
-      if (code == UnitsOfTime.mo)
-        return "mo";
-      if (code == UnitsOfTime.a)
-        return "a";
-      return "?";
-      }
-    }
-
-    public static class ScheduleRepeatComponent extends Element {
-        /**
-         * Indicates how often the event should occur.
-         */
-        protected IntegerType frequency;
-
-        /**
-         * Identifies the occurrence of daily life that determines timing.
-         */
-        protected Enumeration<EventTiming> when;
-
-        /**
-         * How long each repetition should last.
-         */
-        protected DecimalType duration;
-
-        /**
-         * The units of time for the duration.
-         */
-        protected Enumeration<UnitsOfTime> units;
-
-        /**
-         * A total count of the desired number of repetitions.
-         */
-        protected IntegerType count;
-
-        /**
-         * When to stop repeating the schedule.
-         */
-        protected DateTimeType end;
-
-        private static final long serialVersionUID = -615844988L;
-
-      public ScheduleRepeatComponent() {
-        super();
-      }
-
-      public ScheduleRepeatComponent(DecimalType duration, Enumeration<UnitsOfTime> units) {
-        super();
-        this.duration = duration;
-        this.units = units;
-      }
-
-        /**
-         * @return {@link #frequency} (Indicates how often the event should occur.)
-         */
-        public IntegerType getFrequency() { 
-          return this.frequency;
-        }
-
-        /**
-         * @param value {@link #frequency} (Indicates how often the event should occur.)
-         */
-        public ScheduleRepeatComponent setFrequency(IntegerType value) { 
-          this.frequency = value;
-          return this;
-        }
-
-        /**
-         * @return Indicates how often the event should occur.
-         */
-        public int getFrequencySimple() { 
-          return this.frequency == null ? null : this.frequency.getValue();
-        }
-
-        /**
-         * @param value Indicates how often the event should occur.
-         */
-        public ScheduleRepeatComponent setFrequencySimple(int value) { 
-          if (value == -1)
-            this.frequency = null;
-          else {
-            if (this.frequency == null)
-              this.frequency = new IntegerType();
-            this.frequency.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #when} (Identifies the occurrence of daily life that determines timing.)
-         */
-        public Enumeration<EventTiming> getWhen() { 
-          return this.when;
-        }
-
-        /**
-         * @param value {@link #when} (Identifies the occurrence of daily life that determines timing.)
-         */
-        public ScheduleRepeatComponent setWhen(Enumeration<EventTiming> value) { 
-          this.when = value;
-          return this;
-        }
-
-        /**
-         * @return Identifies the occurrence of daily life that determines timing.
-         */
-        public EventTiming getWhenSimple() { 
-          return this.when == null ? null : this.when.getValue();
-        }
-
-        /**
-         * @param value Identifies the occurrence of daily life that determines timing.
-         */
-        public ScheduleRepeatComponent setWhenSimple(EventTiming value) { 
-          if (value == null)
-            this.when = null;
-          else {
-            if (this.when == null)
-              this.when = new Enumeration<EventTiming>();
-            this.when.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #duration} (How long each repetition should last.)
-         */
-        public DecimalType getDuration() { 
-          return this.duration;
-        }
-
-        /**
-         * @param value {@link #duration} (How long each repetition should last.)
-         */
-        public ScheduleRepeatComponent setDuration(DecimalType value) { 
-          this.duration = value;
-          return this;
-        }
-
-        /**
-         * @return How long each repetition should last.
-         */
-        public BigDecimal getDurationSimple() { 
-          return this.duration == null ? null : this.duration.getValue();
-        }
-
-        /**
-         * @param value How long each repetition should last.
-         */
-        public ScheduleRepeatComponent setDurationSimple(BigDecimal value) { 
-            if (this.duration == null)
-              this.duration = new DecimalType();
-            this.duration.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #units} (The units of time for the duration.)
-         */
-        public Enumeration<UnitsOfTime> getUnits() { 
-          return this.units;
-        }
-
-        /**
-         * @param value {@link #units} (The units of time for the duration.)
-         */
-        public ScheduleRepeatComponent setUnits(Enumeration<UnitsOfTime> value) { 
-          this.units = value;
-          return this;
-        }
-
-        /**
-         * @return The units of time for the duration.
-         */
-        public UnitsOfTime getUnitsSimple() { 
-          return this.units == null ? null : this.units.getValue();
-        }
-
-        /**
-         * @param value The units of time for the duration.
-         */
-        public ScheduleRepeatComponent setUnitsSimple(UnitsOfTime value) { 
-            if (this.units == null)
-              this.units = new Enumeration<UnitsOfTime>();
-            this.units.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #count} (A total count of the desired number of repetitions.)
-         */
-        public IntegerType getCount() { 
-          return this.count;
-        }
-
-        /**
-         * @param value {@link #count} (A total count of the desired number of repetitions.)
-         */
-        public ScheduleRepeatComponent setCount(IntegerType value) { 
-          this.count = value;
-          return this;
-        }
-
-        /**
-         * @return A total count of the desired number of repetitions.
-         */
-        public int getCountSimple() { 
-          return this.count == null ? null : this.count.getValue();
-        }
-
-        /**
-         * @param value A total count of the desired number of repetitions.
-         */
-        public ScheduleRepeatComponent setCountSimple(int value) { 
-          if (value == -1)
-            this.count = null;
-          else {
-            if (this.count == null)
-              this.count = new IntegerType();
-            this.count.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #end} (When to stop repeating the schedule.)
-         */
-        public DateTimeType getEnd() { 
-          return this.end;
-        }
-
-        /**
-         * @param value {@link #end} (When to stop repeating the schedule.)
-         */
-        public ScheduleRepeatComponent setEnd(DateTimeType value) { 
-          this.end = value;
-          return this;
-        }
-
-        /**
-         * @return When to stop repeating the schedule.
-         */
-        public DateAndTime getEndSimple() { 
-          return this.end == null ? null : this.end.getValue();
-        }
-
-        /**
-         * @param value When to stop repeating the schedule.
-         */
-        public ScheduleRepeatComponent setEndSimple(DateAndTime value) { 
-          if (value == null)
-            this.end = null;
-          else {
-            if (this.end == null)
-              this.end = new DateTimeType();
-            this.end.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("frequency", "integer", "Indicates how often the event should occur.", 0, java.lang.Integer.MAX_VALUE, frequency));
-          childrenList.add(new Property("when", "code", "Identifies the occurrence of daily life that determines timing.", 0, java.lang.Integer.MAX_VALUE, when));
-          childrenList.add(new Property("duration", "decimal", "How long each repetition should last.", 0, java.lang.Integer.MAX_VALUE, duration));
-          childrenList.add(new Property("units", "code", "The units of time for the duration.", 0, java.lang.Integer.MAX_VALUE, units));
-          childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("end", "dateTime", "When to stop repeating the schedule.", 0, java.lang.Integer.MAX_VALUE, end));
-        }
-
-      public ScheduleRepeatComponent copy() {
-        ScheduleRepeatComponent dst = new ScheduleRepeatComponent();
-        dst.frequency = frequency == null ? null : frequency.copy();
-        dst.when = when == null ? null : when.copy();
-        dst.duration = duration == null ? null : duration.copy();
-        dst.units = units == null ? null : units.copy();
-        dst.count = count == null ? null : count.copy();
-        dst.end = end == null ? null : end.copy();
-        return dst;
-      }
-
-  }
+@ResourceDef(name="Schedule", profile="http://hl7.org/fhir/Profile/Schedule")
+public class Schedule extends DomainResource {
 
     /**
-     * Identifies specific time periods when the event should occur.
+     * External Ids for this item.
      */
-    protected List<Period> event = new ArrayList<Period>();
+    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="External Ids for this item", formalDefinition="External Ids for this item." )
+    protected List<Identifier> identifier;
 
     /**
-     * Identifies a repeating pattern to the intended time periods.
+     * The schedule type can be used for the categorization of healthcare services or other appointment types.
      */
-    protected ScheduleRepeatComponent repeat;
+    @Child(name="type", type={CodeableConcept.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="The schedule type can be used for the categorization of healthcare services or other appointment types", formalDefinition="The schedule type can be used for the categorization of healthcare services or other appointment types." )
+    protected List<CodeableConcept> type;
 
-    private static final long serialVersionUID = -537139777L;
+    /**
+     * The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.
+     */
+    @Child(name="actor", type={}, order=1, min=1, max=1)
+    @Description(shortDefinition="The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson", formalDefinition="The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson." )
+    protected Reference actor;
+
+    /**
+     * The actual object that is the target of the reference (The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    protected Resource actorTarget;
+
+    /**
+     * The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
+     */
+    @Child(name="planningHorizon", type={Period.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates", formalDefinition="The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates." )
+    protected Period planningHorizon;
+
+    /**
+     * Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
+     */
+    @Child(name="comment", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated", formalDefinition="Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated." )
+    protected StringType comment;
+
+    /**
+     * When this Schedule was created, or last revised.
+     */
+    @Child(name="lastModified", type={DateTimeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="When this Schedule was created, or last revised", formalDefinition="When this Schedule was created, or last revised." )
+    protected DateTimeType lastModified;
+
+    private static final long serialVersionUID = -461457234L;
 
     public Schedule() {
       super();
     }
 
-    /**
-     * @return {@link #event} (Identifies specific time periods when the event should occur.)
-     */
-    public List<Period> getEvent() { 
-      return this.event;
+    public Schedule(Reference actor) {
+      super();
+      this.actor = actor;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #event} (Identifies specific time periods when the event should occur.)
+     * @return {@link #identifier} (External Ids for this item.)
      */
-    public Period addEvent() { 
-      Period t = new Period();
-      this.event.add(t);
+    public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #identifier} (External Ids for this item.)
+     */
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
       return t;
     }
 
     /**
-     * @return {@link #repeat} (Identifies a repeating pattern to the intended time periods.)
+     * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
-    public ScheduleRepeatComponent getRepeat() { 
-      return this.repeat;
+    public List<CodeableConcept> getType() { 
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      return this.type;
+    }
+
+    public boolean hasType() { 
+      if (this.type == null)
+        return false;
+      for (CodeableConcept item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #repeat} (Identifies a repeating pattern to the intended time periods.)
+     * @return {@link #type} (The schedule type can be used for the categorization of healthcare services or other appointment types.)
      */
-    public Schedule setRepeat(ScheduleRepeatComponent value) { 
-      this.repeat = value;
+    // syntactic sugar
+    public CodeableConcept addType() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      this.type.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #actor} (The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Reference getActor() { 
+      if (this.actor == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Schedule.actor");
+        else if (Configuration.doAutoCreate())
+          this.actor = new Reference();
+      return this.actor;
+    }
+
+    public boolean hasActor() { 
+      return this.actor != null && !this.actor.isEmpty();
+    }
+
+    /**
+     * @param value {@link #actor} (The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Schedule setActor(Reference value) { 
+      this.actor = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Resource getActorTarget() { 
+      return this.actorTarget;
+    }
+
+    /**
+     * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Schedule setActorTarget(Resource value) { 
+      this.actorTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #planningHorizon} (The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.)
+     */
+    public Period getPlanningHorizon() { 
+      if (this.planningHorizon == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Schedule.planningHorizon");
+        else if (Configuration.doAutoCreate())
+          this.planningHorizon = new Period();
+      return this.planningHorizon;
+    }
+
+    public boolean hasPlanningHorizon() { 
+      return this.planningHorizon != null && !this.planningHorizon.isEmpty();
+    }
+
+    /**
+     * @param value {@link #planningHorizon} (The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.)
+     */
+    public Schedule setPlanningHorizon(Period value) { 
+      this.planningHorizon = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     */
+    public StringType getCommentElement() { 
+      if (this.comment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Schedule.comment");
+        else if (Configuration.doAutoCreate())
+          this.comment = new StringType();
+      return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
+    }
+
+    /**
+     * @param value {@link #comment} (Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     */
+    public Schedule setCommentElement(StringType value) { 
+      this.comment = value;
+      return this;
+    }
+
+    /**
+     * @return Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
+     */
+    public String getComment() { 
+      return this.comment == null ? null : this.comment.getValue();
+    }
+
+    /**
+     * @param value Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.
+     */
+    public Schedule setComment(String value) { 
+      if (Utilities.noString(value))
+        this.comment = null;
+      else {
+        if (this.comment == null)
+          this.comment = new StringType();
+        this.comment.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #lastModified} (When this Schedule was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
+     */
+    public DateTimeType getLastModifiedElement() { 
+      if (this.lastModified == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Schedule.lastModified");
+        else if (Configuration.doAutoCreate())
+          this.lastModified = new DateTimeType();
+      return this.lastModified;
+    }
+
+    public boolean hasLastModifiedElement() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
+    }
+
+    public boolean hasLastModified() { 
+      return this.lastModified != null && !this.lastModified.isEmpty();
+    }
+
+    /**
+     * @param value {@link #lastModified} (When this Schedule was created, or last revised.). This is the underlying object with id, value and extensions. The accessor "getLastModified" gives direct access to the value
+     */
+    public Schedule setLastModifiedElement(DateTimeType value) { 
+      this.lastModified = value;
+      return this;
+    }
+
+    /**
+     * @return When this Schedule was created, or last revised.
+     */
+    public DateAndTime getLastModified() { 
+      return this.lastModified == null ? null : this.lastModified.getValue();
+    }
+
+    /**
+     * @param value When this Schedule was created, or last revised.
+     */
+    public Schedule setLastModified(DateAndTime value) { 
+      if (value == null)
+        this.lastModified = null;
+      else {
+        if (this.lastModified == null)
+          this.lastModified = new DateTimeType();
+        this.lastModified.setValue(value);
+      }
       return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("event", "Period", "Identifies specific time periods when the event should occur.", 0, java.lang.Integer.MAX_VALUE, event));
-        childrenList.add(new Property("repeat", "", "Identifies a repeating pattern to the intended time periods.", 0, java.lang.Integer.MAX_VALUE, repeat));
+        childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "CodeableConcept", "The schedule type can be used for the categorization of healthcare services or other appointment types.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("actor", "Reference(Any)", "The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson.", 0, java.lang.Integer.MAX_VALUE, actor));
+        childrenList.add(new Property("planningHorizon", "Period", "The period of time that the slots that are attached to this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a 'template' for planning outside these dates.", 0, java.lang.Integer.MAX_VALUE, planningHorizon));
+        childrenList.add(new Property("comment", "string", "Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.", 0, java.lang.Integer.MAX_VALUE, comment));
+        childrenList.add(new Property("lastModified", "dateTime", "When this Schedule was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
       public Schedule copy() {
         Schedule dst = new Schedule();
-        dst.event = new ArrayList<Period>();
-        for (Period i : event)
-          dst.event.add(i.copy());
-        dst.repeat = repeat == null ? null : repeat.copy();
+        copyValues(dst);
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
+        if (type != null) {
+          dst.type = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : type)
+            dst.type.add(i.copy());
+        };
+        dst.actor = actor == null ? null : actor.copy();
+        dst.planningHorizon = planningHorizon == null ? null : planningHorizon.copy();
+        dst.comment = comment == null ? null : comment.copy();
+        dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;
       }
 
@@ -568,6 +358,24 @@ public class Schedule extends Type {
         return copy();
       }
 
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (actor == null || actor.isEmpty()) && (planningHorizon == null || planningHorizon.isEmpty())
+           && (comment == null || comment.isEmpty()) && (lastModified == null || lastModified.isEmpty())
+          ;
+      }
+
+  @Override
+  public ResourceType getResourceType() {
+    return ResourceType.Schedule;
+   }
+
+  @SearchParamDefinition(name="actor", path="Schedule.actor", description="The individual(HealthcareService, Practitioner, Location, ...) to find a Schedule for", type="reference" )
+  public static final String SP_ACTOR = "actor";
+  @SearchParamDefinition(name="date", path="Schedule.planningHorizon", description="Search for Schedule resources that have a period that contains this date specified", type="date" )
+  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="type", path="Schedule.type", description="The type of appointments that can be booked into associated slot(s)", type="token" )
+  public static final String SP_TYPE = "type";
 
 }
 

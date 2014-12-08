@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -281,10 +281,10 @@ public class Patient extends DomainResource {
         protected Organization organizationTarget;
 
         /**
-         * The period during which this person or organisation is valid to be contacted relating to this patient.
+         * The period during which this person or organization is valid to be contacted relating to this patient.
          */
         @Child(name="period", type={Period.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="The period during which this person or organisation is valid to be contacted relating to this patient", formalDefinition="The period during which this person or organisation is valid to be contacted relating to this patient." )
+        @Description(shortDefinition="The period during which this person or organization is valid to be contacted relating to this patient", formalDefinition="The period during which this person or organization is valid to be contacted relating to this patient." )
         protected Period period;
 
         private static final long serialVersionUID = 364269017L;
@@ -495,7 +495,7 @@ public class Patient extends DomainResource {
         }
 
         /**
-         * @return {@link #period} (The period during which this person or organisation is valid to be contacted relating to this patient.)
+         * @return {@link #period} (The period during which this person or organization is valid to be contacted relating to this patient.)
          */
         public Period getPeriod() { 
           if (this.period == null)
@@ -511,7 +511,7 @@ public class Patient extends DomainResource {
         }
 
         /**
-         * @param value {@link #period} (The period during which this person or organisation is valid to be contacted relating to this patient.)
+         * @param value {@link #period} (The period during which this person or organization is valid to be contacted relating to this patient.)
          */
         public ContactComponent setPeriod(Period value) { 
           this.period = value;
@@ -526,7 +526,7 @@ public class Patient extends DomainResource {
           childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
           childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
           childrenList.add(new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
-          childrenList.add(new Property("period", "Period", "The period during which this person or organisation is valid to be contacted relating to this patient.", 0, java.lang.Integer.MAX_VALUE, period));
+          childrenList.add(new Property("period", "Period", "The period during which this person or organization is valid to be contacted relating to this patient.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
       public ContactComponent copy() {
@@ -862,9 +862,9 @@ public class Patient extends DomainResource {
     /**
      * The date and time of birth for the individual.
      */
-    @Child(name="birthDate", type={DateTimeType.class}, order=3, min=0, max=1)
+    @Child(name="birthDate", type={DateType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="The date and time of birth for the individual", formalDefinition="The date and time of birth for the individual." )
-    protected DateTimeType birthDate;
+    protected DateType birthDate;
 
     /**
      * Indicates if the individual is deceased or not.
@@ -960,7 +960,7 @@ public class Patient extends DomainResource {
     @Description(shortDefinition="Whether this patient's record is in active use", formalDefinition="Whether this patient record is in active use." )
     protected BooleanType active;
 
-    private static final long serialVersionUID = 1020038018L;
+    private static final long serialVersionUID = 473576981L;
 
     public Patient() {
       super();
@@ -1108,12 +1108,12 @@ public class Patient extends DomainResource {
     /**
      * @return {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateTimeType getBirthDateElement() { 
+    public DateType getBirthDateElement() { 
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.birthDate");
         else if (Configuration.doAutoCreate())
-          this.birthDate = new DateTimeType();
+          this.birthDate = new DateType();
       return this.birthDate;
     }
 
@@ -1128,7 +1128,7 @@ public class Patient extends DomainResource {
     /**
      * @param value {@link #birthDate} (The date and time of birth for the individual.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Patient setBirthDateElement(DateTimeType value) { 
+    public Patient setBirthDateElement(DateType value) { 
       this.birthDate = value;
       return this;
     }
@@ -1148,7 +1148,7 @@ public class Patient extends DomainResource {
         this.birthDate = null;
       else {
         if (this.birthDate == null)
-          this.birthDate = new DateTimeType();
+          this.birthDate = new DateType();
         this.birthDate.setValue(value);
       }
       return this;
@@ -1564,7 +1564,7 @@ public class Patient extends DomainResource {
         childrenList.add(new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
-        childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the individual.", 0, java.lang.Integer.MAX_VALUE, birthDate));
+        childrenList.add(new Property("birthDate", "date", "The date and time of birth for the individual.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, java.lang.Integer.MAX_VALUE, deceased));
         childrenList.add(new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, java.lang.Integer.MAX_VALUE, maritalStatus));

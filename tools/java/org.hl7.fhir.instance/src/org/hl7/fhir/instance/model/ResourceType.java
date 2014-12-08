@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -14,6 +14,7 @@ public enum ResourceType {
     Appointment,
     Slot,
     Contraindication,
+    EpisodeOfCare,
     Composition,
     Conformance,
     NamingSystem,
@@ -29,6 +30,7 @@ public enum ResourceType {
     ClinicalAssessment,
     Substance,
     DeviceUseRequest,
+    Schedule,
     EligibilityRequest,
     QuestionnaireAnswers,
     PaymentReconciliation,
@@ -80,7 +82,6 @@ public enum ResourceType {
     MessageHeader,
     DataElement,
     DocumentManifest,
-    Availability,
     MedicationAdministration,
     Encounter,
     SecurityEvent,
@@ -128,6 +129,8 @@ public enum ResourceType {
       return "slot";
     case Contraindication:
       return "contraindication";
+    case EpisodeOfCare:
+      return "episodeofcare";
     case Composition:
       return "composition";
     case Conformance:
@@ -158,6 +161,8 @@ public enum ResourceType {
       return "substance";
     case DeviceUseRequest:
       return "deviceuserequest";
+    case Schedule:
+      return "schedule";
     case EligibilityRequest:
       return "eligibilityrequest";
     case QuestionnaireAnswers:
@@ -260,8 +265,6 @@ public enum ResourceType {
       return "dataelement";
     case DocumentManifest:
       return "documentmanifest";
-    case Availability:
-      return "availability";
     case MedicationAdministration:
       return "medicationadministration";
     case Encounter:

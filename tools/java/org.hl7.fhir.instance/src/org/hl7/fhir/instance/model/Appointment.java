@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -44,6 +44,134 @@ import org.hl7.fhir.instance.model.annotations.Description;
  */
 @ResourceDef(name="Appointment", profile="http://hl7.org/fhir/Profile/Appointment")
 public class Appointment extends DomainResource {
+
+    public enum Appointmentstatus {
+        /**
+         * Some or all of the participant(s) have not finalized their acceptance of the appointment request.
+         */
+        PENDING, 
+        /**
+         * All participant(s) have been considered and the appointment is condirmed to go ahead at the date/times specified.
+         */
+        BOOKED, 
+        /**
+         * Some of the patients have arrived.
+         */
+        ARRIVED, 
+        /**
+         * This appointment has completed and may have resulted in an encounter.
+         */
+        FULFILLED, 
+        /**
+         * The appointment has been cancelled.
+         */
+        CANCELLED, 
+        /**
+         * Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).
+         */
+        NOSHOW, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static Appointmentstatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("pending".equals(codeString))
+          return PENDING;
+        if ("booked".equals(codeString))
+          return BOOKED;
+        if ("arrived".equals(codeString))
+          return ARRIVED;
+        if ("fulfilled".equals(codeString))
+          return FULFILLED;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
+        if ("noshow".equals(codeString))
+          return NOSHOW;
+        throw new Exception("Unknown Appointmentstatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PENDING: return "pending";
+            case BOOKED: return "booked";
+            case ARRIVED: return "arrived";
+            case FULFILLED: return "fulfilled";
+            case CANCELLED: return "cancelled";
+            case NOSHOW: return "noshow";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PENDING: return "";
+            case BOOKED: return "";
+            case ARRIVED: return "";
+            case FULFILLED: return "";
+            case CANCELLED: return "";
+            case NOSHOW: return "";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PENDING: return "Some or all of the participant(s) have not finalized their acceptance of the appointment request.";
+            case BOOKED: return "All participant(s) have been considered and the appointment is condirmed to go ahead at the date/times specified.";
+            case ARRIVED: return "Some of the patients have arrived.";
+            case FULFILLED: return "This appointment has completed and may have resulted in an encounter.";
+            case CANCELLED: return "The appointment has been cancelled.";
+            case NOSHOW: return "Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PENDING: return "Pending";
+            case BOOKED: return "Booked";
+            case ARRIVED: return "Arrived";
+            case FULFILLED: return "Fulfilled";
+            case CANCELLED: return "Cancelled";
+            case NOSHOW: return "No Show";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class AppointmentstatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("pending".equals(codeString))
+          return Appointmentstatus.PENDING;
+        if ("booked".equals(codeString))
+          return Appointmentstatus.BOOKED;
+        if ("arrived".equals(codeString))
+          return Appointmentstatus.ARRIVED;
+        if ("fulfilled".equals(codeString))
+          return Appointmentstatus.FULFILLED;
+        if ("cancelled".equals(codeString))
+          return Appointmentstatus.CANCELLED;
+        if ("noshow".equals(codeString))
+          return Appointmentstatus.NOSHOW;
+        throw new Exception("Unknown Appointmentstatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == Appointmentstatus.PENDING)
+        return "pending";
+      if (code == Appointmentstatus.BOOKED)
+        return "booked";
+      if (code == Appointmentstatus.ARRIVED)
+        return "arrived";
+      if (code == Appointmentstatus.FULFILLED)
+        return "fulfilled";
+      if (code == Appointmentstatus.CANCELLED)
+        return "cancelled";
+      if (code == Appointmentstatus.NOSHOW)
+        return "noshow";
+      return "?";
+      }
+    }
 
     public enum Participantrequired {
         /**
@@ -512,11 +640,11 @@ public class Appointment extends DomainResource {
     protected IntegerType priority;
 
     /**
-     * Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+     * The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    @Child(name="status", type={CodeType.class}, order=1, min=0, max=1)
-    @Description(shortDefinition="The overall status of the Appointment", formalDefinition="Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status." )
-    protected CodeType status;
+    @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
+    @Description(shortDefinition="pending | booked | arrived | fulfilled | cancelled | noshow", formalDefinition="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status." )
+    protected Enumeration<Appointmentstatus> status;
 
     /**
      * The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).
@@ -622,14 +750,15 @@ public class Appointment extends DomainResource {
     @Description(shortDefinition="Date when the appointment was recorded", formalDefinition="Date when the appointment was recorded." )
     protected DateTimeType lastModified;
 
-    private static final long serialVersionUID = 897214982L;
+    private static final long serialVersionUID = -733080597L;
 
     public Appointment() {
       super();
     }
 
-    public Appointment(InstantType start, InstantType end) {
+    public Appointment(Enumeration<Appointmentstatus> status, InstantType start, InstantType end) {
       super();
+      this.status = status;
       this.start = start;
       this.end = end;
     }
@@ -714,14 +843,14 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeType getStatusElement() { 
+    public Enumeration<Appointmentstatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeType();
+          this.status = new Enumeration<Appointmentstatus>();
       return this.status;
     }
 
@@ -734,31 +863,27 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Appointment setStatusElement(CodeType value) { 
+    public Appointment setStatusElement(Enumeration<Appointmentstatus> value) { 
       this.status = value;
       return this;
     }
 
     /**
-     * @return Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+     * @return The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    public String getStatus() { 
+    public Appointmentstatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+     * @param value The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    public Appointment setStatus(String value) { 
-      if (Utilities.noString(value))
-        this.status = null;
-      else {
+    public Appointment setStatus(Appointmentstatus value) { 
         if (this.status == null)
-          this.status = new CodeType();
+          this.status = new Enumeration<Appointmentstatus>();
         this.status.setValue(value);
-      }
       return this;
     }
 
@@ -1259,7 +1384,7 @@ public class Appointment extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("priority", "integer", "The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, priority));
-        childrenList.add(new Property("status", "code", "Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("type", "CodeableConcept", "The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("reason", "CodeableConcept", "The reason that this appointment is being scheduled, this is more clinical than administrative.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("description", "string", "The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -1327,6 +1452,8 @@ public class Appointment extends DomainResource {
 
   @SearchParamDefinition(name="partstatus", path="Appointment.participant.status", description="The Participation status of the subject, or other participant on the appointment", type="token" )
   public static final String SP_PARTSTATUS = "partstatus";
+  @SearchParamDefinition(name="patient", path="Appointment.participant.actor", description="One of the individuals of the appointment is this patient", type="reference" )
+  public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="status", path="Appointment.status", description="The overall status of the appointment", type="string" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )

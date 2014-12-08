@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 7, 2014 14:29+1100 for FHIR v0.3.0
+// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * (informative) The details of a Healthcare Service available at a location.
+ * The details of a Healthcare Service available at a location.
  */
 @ResourceDef(name="HealthcareService", profile="http://hl7.org/fhir/Profile/HealthcareService")
 public class HealthcareService extends DomainResource {
