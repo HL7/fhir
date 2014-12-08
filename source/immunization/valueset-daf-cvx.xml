@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="daf-cvx"/>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="2.16.840.1.113883.3.88.12.80.22"/>
+  </extension>
+  <identifier value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
+  <name value="Vaccine Administered Value Set"/>
+  <publisher value="HL7 FHIR"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This identifies the vaccine substance administered - CVX codes"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"/>   
+    </include>
+  </compose>
+</ValueSet>
+
