@@ -111,6 +111,8 @@ todo: compartments
                 <page title="Data Access Framework (DAF)" filename="daf.html">
                     <page title="DAF Introduction" filename="daf-intro.html"/>
                     <page title="DAF Security" filename="daf-security.html"/>
+					<page title="DAF Medication Profiles Usage" filename="daf-medicationusage.html"/>
+					<page title="DAF Outstanding Issues" filename="daf-outstandingissues.html"/>
                 </page>
                 <page title="EHRS Functional model - Record Lifecycle Events" filename="ehrs-rle.html"/>
                 <page title="Structured Data Capture" filename="sdc.html">
