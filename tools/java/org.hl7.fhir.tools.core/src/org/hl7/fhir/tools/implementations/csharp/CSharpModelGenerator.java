@@ -251,8 +251,12 @@ public class CSharpModelGenerator extends GenBlock
   {
     String modifier = isResource && name.equals("Resource") ? "virtual" : "override";
     if(isResource)
+    {
+      ln("[NotMapped]");
       ln("public " + modifier + " ResourceType ResourceType { get { return ResourceType." + name + "; } }");
+    }
       
+    ln("[NotMapped]");      
     ln("public override string TypeName { get { return " + "\"" + name + "\"" + "; } }");
     ln();
   }
