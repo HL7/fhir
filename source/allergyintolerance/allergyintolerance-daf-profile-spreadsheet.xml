@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>60</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1330,7 +1331,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-daf-dafpatient}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3986,7 +3987,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

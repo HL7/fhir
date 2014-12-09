@@ -10,18 +10,19 @@
   <LastAuthor>Brett A Marquard</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-05T02:31:04Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7830</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>9885</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1307,7 +1308,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">VaccineTypesCVX</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4038,8 +4040,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9899,8 +9901,8 @@
    <Column ss:StyleID="s130" ss:Width="67.5"/>
    <Column ss:StyleID="s130" ss:Width="54"/>
    <Column ss:StyleID="s130" ss:Width="146.25"/>
-   <Column ss:StyleID="s130" ss:Width="172.5"/>
-   <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="97.5"/>
+   <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="219.75"/>
+   <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="165.75"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="88.5"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s130" ss:AutoFitWidth="0" ss:Width="172.5"/>
@@ -9965,14 +9967,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">VaccineTypesCVX</Data></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">valueset-daf-cvx</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.22</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -10461,7 +10463,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
