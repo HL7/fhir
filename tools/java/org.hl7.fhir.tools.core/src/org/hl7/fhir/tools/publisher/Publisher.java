@@ -1694,6 +1694,21 @@ public class Publisher implements URIResolver {
       cloneToXhtml("search-parameters", "Search Parameters Defined in FHIR", false, "summary-instance");
       jsonToXhtml("search-parameters", "Search Parameters Defined in FHIR", resource2Json(searchParamsFeed), "summary-instance");
 
+      Bundle profileOthersFeed = new Bundle();
+      profileOthersFeed.setId("profiles-others");
+      profileOthersFeed.setType(BundleType.COLLECTION);
+      profileOthersFeed.setBase("http://hl7.org/fhir");
+      profileOthersFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      for (ResourceDefn rd : page.getDefinitions().getResources().values())
+        addOtherProfiles(profileOthersFeed, rd);
+      for (ConformancePackage cp : page.getDefinitions().getConformancePackages().values()) {
+        addOtherProfiles(profileOthersFeed, cp);
+      }
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.xml"), profileOthersFeed);
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.json"), profileOthersFeed);
+      cloneToXhtml("profiles-others", "Other Profiles defined as part of FHIR", false, "summary-instance");
+      jsonToXhtml("profiles-others", "Other Profiles defined as part of FHIR", resource2Json(profileOthersFeed), "summary-instance");
+
       // todo-bundle - should this be checked?
 //      int ec = 0;
 //      for (Resource e : valueSetsFeed.getItem()) {
@@ -1799,6 +1814,18 @@ public class Publisher implements URIResolver {
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
 
+
+  private void addOtherProfiles(Bundle bundle, ConformancePackage cp) {
+    for (ProfileDefn p : cp.getProfiles()) 
+      bundle.addEntry().setResource(p.getResource());
+  }
+
+  private void addOtherProfiles(Bundle bundle, ResourceDefn rd) {
+    for (ConformancePackage cp : rd.getConformancePackages())
+      addOtherProfiles(bundle, cp);
+      
+    
+  }
 
   private void addSearchParams(Bundle bundle, ResourceDefn rd) {
     if (rd.getConformancePack() == null) {
@@ -3692,6 +3719,15 @@ public class Publisher implements URIResolver {
       page.log(" ...validate " + "profiles-types", LogMessageType.Process);
       validateXmlFile(schema, "profiles-types", validator, null);
 
+//      page.log(" ...validate " + "profiles-others", LogMessageType.Process);
+//      validateXmlFile(schema, "profiles-others", validator, null);
+//
+//      page.log(" ...validate " + "search-parameters", LogMessageType.Process);
+//      validateXmlFile(schema, "search-parameters", validator, null);
+//
+//      page.log(" ...validate " + "extension-definitions", LogMessageType.Process);
+//      validateXmlFile(schema, "extension-definitions", validator, null);
+//
       page.log(" ...validate " + "valuesets", LogMessageType.Process);
       validateXmlFile(schema, "valuesets", validator, null);
 
