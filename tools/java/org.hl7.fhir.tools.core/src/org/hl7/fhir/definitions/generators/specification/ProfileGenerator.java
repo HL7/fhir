@@ -736,6 +736,9 @@ public class ProfileGenerator {
     ce.setPattern(e.getPattern());
     ce.setDefaultValue(e.getDefaultValue());
     ce.setExample(e.getExample());
+    ce.setRequirements(e.getRequirements());
+    for (String s : e.getAliases())
+      ce.addSynonym(s);
     
     // we don't know mustSupport here
     ce.setIsModifier(e.isModifier());
