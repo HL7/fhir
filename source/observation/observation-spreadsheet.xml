@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-12-07T21:03:50Z</LastSaved>
+  <LastSaved>2014-12-09T18:42:18Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,16 +17,14 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
+   <Path>\\ERICHPLAPTOP\Users\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowIconic/>
-  <WindowHeight>3675</WindowHeight>
-  <WindowWidth>20550</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>3615</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
+  <WindowHeight>11310</WindowHeight>
+  <WindowWidth>22995</WindowWidth>
+  <WindowTopX>360</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -827,7 +825,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>33</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1163,7 +1161,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For many results it is necessary to handle exceptional values in measurements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">&quot;Null&quot; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected”, “not detected”, “inconclusive”, or  “test not done”.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code “error” could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">&quot;Null&quot; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;test not done&quot;.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value.nullFlavor</Data><NamedCell
@@ -1554,11 +1552,11 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Who and/or what this is about</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.&quot;&#10;Comments: Indirect characteristics may be those of a specimen, fetus,&#10;other observer (for example a relative or EMT), or any observation made about the subject.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus,&#10;other observer (for example a relative or EMT), or any observation made about the subject.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Observations have no value if you don't know who or what they're about.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.  If the target of the observation is different than the subject, the generale extension (http://hl7.org/fhir/ExtensionDefinition/indirectTarget) can  be used.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.  If the target of the observation is different than the subject, the general extension (http://hl7.org/fhir/ExtensionDefinition/indirectTarget) can  be used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=SBJ]</Data><NamedCell
@@ -1600,7 +1598,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The specimen that was used when this observation was made </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources are often used in contexts that track the specimen explicity (e.g. Diagnostic Report)</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources are often used in contexts that track the specimen explicitly (e.g. Diagnostic Report)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">participation[typeCode=SPC].specimen</Data><NamedCell
@@ -4015,9 +4013,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4033,8 +4031,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>24</ActiveCol>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4084,7 +4081,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4,R4C4:R100C4</Range>
    <Type>List</Type>
-   <Value>'\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!#REF!</Value>
+   <Value>'\\ERICHPLAPTOP\Users\Users\Lloyd\Documents\SVN\FHIR\build\source\templates\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -5020,7 +5017,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6224,8 +6220,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s116"><Data ss:Type="String">C-CDA Caregiver Characteristics Observation</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">observation-ccda-caregivercharacteristics.xml</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">observation-ccda-caregivercharacteristics-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">observation-ccda-caregiverchar.xml</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">observation-ccda-caregiverchar-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -6453,6 +6449,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6472,8 +6469,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6703,7 +6699,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example1</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Quantitative Observation Profile Canonical Example: Blood Lead</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Quantitative Observation Profile Canonical Example: Capillary Blood Lead</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example1</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">obs-uslab-example1.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6712,7 +6708,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example2</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Quantitative Observation Profile Canonical Example: Blood Lead</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Coded Observation Profile Canonical Example: N gonorrhoeae PCR</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example2</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">obs-uslab-example2.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6721,7 +6717,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example3</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Quantitative Observation Profile Canonical Example: Blood Lead</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Other (string) Observation Profile Canonical Example: S.aureus</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example3</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">obs-uslab-example3.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6730,7 +6726,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">USLab Observation Example4</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Quantitative Observation Profile Canonical Example: Blood Lead</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">USLab Ratio Observation Profile Canonical Example: Dengue Titer</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uslab-example4</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">obs-uslab-example4.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6926,7 +6922,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

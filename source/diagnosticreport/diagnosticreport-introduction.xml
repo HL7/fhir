@@ -3,10 +3,10 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-A diagnostic report is the set of information that is typically provided by a diagnostic service 
+A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
-of the outcomes for a particular investigation. 
+of the outcomes for a particular investigation.
 </p>
 <p>
 The Diagnostic Report Resource is suitable for the following kinds of Diagnostic Reports:
@@ -18,7 +18,7 @@ The Diagnostic Report Resource is suitable for the following kinds of Diagnostic
  <li>Other diagnostics - Cardiology, Gastroenterology etc.</li>
 </ul>
 <p>
-The Diagnostic Report resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource). 
+The Diagnostic Report resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
 The Diagnostic Report resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
 </p>
 </div>
@@ -31,10 +31,10 @@ The Diagnostic Report resource has the following aspects:
 <ul>
  <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
- <li>requestDetails.*: A set of request information to allow the report to connected to clinical work flows</li>
- <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide 
+ <li>request details: a reference to 0 or more <a href="diagnosticorder.html">DiagnosticOrder resources</a> to allow the report to connected to clinical work flows</li>
+ <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide
     a hierarchical tree of groups of results</li>
- <li>specimen details: the specimens on which the report is based</li>   
+ <li>specimen details: a reference to 0 or more <a href="specimen.html">Specimen resources</a> on which the report is based</li>
  <li>conclusion, codedDiagnosis: support for structured reporting</li>
  <li>images, representation: image and media representations of the report and supporting images</li>
 </ul>
@@ -42,16 +42,16 @@ The Diagnostic Report resource has the following aspects:
 <h3>Diagnostic Report Names</h3>
 
 <p>
-The words "tests", "results", "observations", "panels" and "batteries" are often used interchangeably when describing 
-the various parts of a diagnostic report. This leads to much confusion. The naming confusion is 
-worsened because of the wide variety of forms that the result of a diagnostic investigation can take, 
+The words "tests", "results", "observations", "panels" and "batteries" are often used interchangeably when describing
+the various parts of a diagnostic report. This leads to much confusion. The naming confusion is
+worsened because of the wide variety of forms that the result of a diagnostic investigation can take,
 as described above. Languages other than English have their own variations on this theme.
 </p>
 <p>
 This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
-diagnostic service returns a "report" which may contain a "narrative" - a written summary of the 
-outcomes, and/or "results" - the individual pieces of atomic data which each are "observations". 
-The results are assembled in "groups" which are nested structures of Observations that can be used to 
+diagnostic service returns a "report" which may contain a "narrative" - a written summary of the
+outcomes, and/or "results" - the individual pieces of atomic data which each are "observations".
+The results are assembled in "groups" which are nested structures of Observations that can be used to
 represent relationships between the individual data items.
 </p>
 

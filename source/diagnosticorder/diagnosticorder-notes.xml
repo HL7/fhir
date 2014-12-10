@@ -8,10 +8,11 @@ Notes:
  <li>Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is processed</li>
  <li>If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) "in progress"</li>
  <li>The event list is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events</li>
- <li>Many investigation requests will create a need for specimens, but in these cases, the request itself is not actually about the specimens. 
+ <li>Many investigation requests will create a need for specimens, but in these cases, the request itself is not actually about the specimens.
   This specimen elements in this resource are provided for when the diagnostic investigation is requested on already existing specimens</li>
- <li>A single specimen should not appear in both DiagnosticOrder.specimen and DiagnosticOrder.item.specimen - DiagnosticOrder.specimen sjhould only be used when the entire order relates to a single specimen, and then there is no need to repeat it for each item</li>
+ <li>A single specimen should not appear in both DiagnosticOrder.specimen and DiagnosticOrder.item.specimen - DiagnosticOrder.specimen should only be used when the entire order relates to a single specimen, and then there is no need to repeat it for each item</li>
  <li>The clinical notes may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</li>
 </ul>
 
 </div>
+

@@ -9,7 +9,7 @@
 </ul>
 <p>
 Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs,
-body fluids, embryos, and body excretory products (source: NCIt, modified).
+body fluids, embryos, and body excretory products (source: <a href="http://ncit.nci.nih.gov/">NCI Thesaurus</a>, modified).
 </p>
 <p>The specimen resource covers substances used for diagnostic and environmental testing. The focus of the specimen resource
   is the process for gathering, maintaining and processing the specimen as well as where the specimen originated.

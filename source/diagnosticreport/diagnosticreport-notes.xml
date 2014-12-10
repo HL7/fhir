@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-Examples of nested report groups: the antibodyhepatitis order panel code for a goup of hepatitis antibody related tests, or the organism code for a group of antibiotic isolate/sensitivities, or a set of perinatal measurements on a single fetus.
+Examples of nested report groups: the antibody hepatitis order panel code for a group of hepatitis antibody related tests, or the organism code for a group of antibiotic isolate/sensitivities, or a set of perinatal measurements on a single fetus.
 
 
 
@@ -9,13 +9,13 @@ Notes:
 </h2>
 <ul>
 <li>
-If the diagnostic procedure was performed on the patient directly, <i>diagnostic[x]</i> is a dateTime, the time it was performed. 
-If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but 
+If the diagnostic procedure was performed on the patient directly, <i>diagnostic[x]</i> is a dateTime, the time it was performed.
+If specimens were taken, the diagnostically relevant time can be derived from the specimen collection times, but
 since detailed specimen information is not always available, and nor is the diagnostically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
 reports SHALL always include a <i>diagnostic[x]</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimen information.
 </li>
 <li>
-A report always contains the name of the report itself. The report can also contain a set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations. 
+A report always contains the name of the report itself. The report can also contain a set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations.
 The Observation.name is a code that indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).  When relevant, the observation can specify a particular
 specimen from which the result comes.
 </li>
@@ -23,14 +23,14 @@ specimen from which the result comes.
 There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - see <a href="diagnosticreport-micro1.html">this example</a>.
 </li>
 <li>
-Applications consuming diagnostic reports must take careful note of updated reports, and ensure that retracted reports are appropriately handled. 
+Applications consuming diagnostic reports must take careful note of updated reports, and ensure that retracted reports are appropriately handled.
 </li>
 <li>
 For applications providing diagnostic reports, a report should not be final until all the individual data items
-reported with it are final or amended. If a report is retracted, all the results should be retracted by replacing 
-every result value with the Concept "withdrawn" in the internal terminology <a href="special-values.html">"Special values"</a> 
-(url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some 
-text like "This report has been withdrawn" in the appropriate language. A reason for retraction may be provided in the 
+reported with it are final or amended. If a report is retracted, all the results should be retracted by replacing
+every result value with the Concept "withdrawn" in the internal terminology <a href="special-values.html">"Special values"</a>
+(url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some
+text like "This report has been withdrawn" in the appropriate language. A reason for retraction may be provided in the
 narrative. </li>
 </ul>
 
@@ -45,11 +45,11 @@ This resource provides for 3 different ways of presenting the Diagnostic Report:
  <li>As a "presented form": A rich text representation of the report - typically a PDF</li>
 </ul>
 <p>
-Note that the conclusion and the coded diagnoses are part of the atomic data, and SHOULD be duplicated in the narrative and in the presented form if the latter is present. 
-The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports 
-often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a 
-clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of 
-the report, and that the presented form must be used, or a generated view from the atomic data. However consumers of the report will best be served if the 
+Note that the conclusion and the coded diagnoses are part of the atomic data, and SHOULD be duplicated in the narrative and in the presented form if the latter is present.
+The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports
+often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a
+clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of
+the report, and that the presented form must be used, or a generated view from the atomic data. However consumers of the report will best be served if the
 narrative contains clinically relevant data from the form. Commonly, the following patterns are used:
 </p>
 <ul>
@@ -58,11 +58,12 @@ narrative contains clinically relevant data from the form. Commonly, the followi
  <li>imaging Report; A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
 </ul>
 <p>
-Note that the nature of reports from the various disciplines that provide diagnostic reports are changing quickly, 
-as expert systems provide improved narrative reporting in high volume reports, structured reporting brings additional 
-data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are 
+Note that the nature of reports from the various disciplines that provide diagnostic reports are changing quickly,
+as expert systems provide improved narrative reporting in high volume reports, structured reporting brings additional
+data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are
 merging. As a consequence the patterns described above are only examples of how a diagnostic report can be used.
 </p>
 
 
 </div>
+
