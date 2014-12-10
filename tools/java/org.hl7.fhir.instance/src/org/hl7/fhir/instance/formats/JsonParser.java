@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -687,14 +687,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("discriminator")) {
       JsonArray array = json.getAsJsonArray("discriminator");
       for (int i = 0; i < array.size(); i++) {
-        res.getDiscriminator().add(parseId(array.get(i).getAsString()));
+        res.getDiscriminator().add(parseString(array.get(i).getAsString()));
       }
     };
     if (json.has("_discriminator")) {
       JsonArray array = json.getAsJsonArray("_discriminator");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getDiscriminator().size())
-          res.getDiscriminator().add(parseId(null));
+          res.getDiscriminator().add(parseString(null));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getDiscriminator().get(i));
       }
@@ -12635,13 +12635,13 @@ public class JsonParser extends JsonParserBase {
       composeElement(element);
       if (element.hasDiscriminator()) {
         openArray("discriminator");
-        for (IdType e : element.getDiscriminator()) 
-          composeIdCore(null, e, true);
+        for (StringType e : element.getDiscriminator()) 
+          composeStringCore(null, e, true);
         closeArray();
         if (anyHasExtras(element.getDiscriminator())) {
           openArray("_discriminator");
-          for (IdType e : element.getDiscriminator()) 
-            composeIdExtras(null, e, true);
+          for (StringType e : element.getDiscriminator()) 
+            composeStringExtras(null, e, true);
           closeArray();
         }
       };

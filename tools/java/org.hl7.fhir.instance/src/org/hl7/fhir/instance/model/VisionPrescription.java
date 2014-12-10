@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -249,10 +249,10 @@ public class VisionPrescription extends DomainResource {
         protected DecimalType cylinder;
 
         /**
-         * Adjustment for astigmatism measured in interger degrees.
+         * Adjustment for astigmatism measured in integer degrees.
          */
         @Child(name="axis", type={IntegerType.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Lens axis", formalDefinition="Adjustment for astigmatism measured in interger degrees." )
+        @Description(shortDefinition="Lens axis", formalDefinition="Adjustment for astigmatism measured in integer degrees." )
         protected IntegerType axis;
 
         /**
@@ -284,10 +284,10 @@ public class VisionPrescription extends DomainResource {
         protected DecimalType power;
 
         /**
-         * Back Curature measured in millimeters.
+         * Back Curvature measured in millimeters.
          */
         @Child(name="backCurve", type={DecimalType.class}, order=10, min=0, max=1)
-        @Description(shortDefinition="Contact lens back curvature", formalDefinition="Back Curature measured in millimeters." )
+        @Description(shortDefinition="Contact lens back curvature", formalDefinition="Back Curvature measured in millimeters." )
         protected DecimalType backCurve;
 
         /**
@@ -508,7 +508,7 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @return {@link #axis} (Adjustment for astigmatism measured in interger degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
+         * @return {@link #axis} (Adjustment for astigmatism measured in integer degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
          */
         public IntegerType getAxisElement() { 
           if (this.axis == null)
@@ -528,7 +528,7 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @param value {@link #axis} (Adjustment for astigmatism measured in interger degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
+         * @param value {@link #axis} (Adjustment for astigmatism measured in integer degrees.). This is the underlying object with id, value and extensions. The accessor "getAxis" gives direct access to the value
          */
         public VisionPrescriptionDispenseComponent setAxisElement(IntegerType value) { 
           this.axis = value;
@@ -536,14 +536,14 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @return Adjustment for astigmatism measured in interger degrees.
+         * @return Adjustment for astigmatism measured in integer degrees.
          */
         public int getAxis() { 
           return this.axis == null ? null : this.axis.getValue();
         }
 
         /**
-         * @param value Adjustment for astigmatism measured in interger degrees.
+         * @param value Adjustment for astigmatism measured in integer degrees.
          */
         public VisionPrescriptionDispenseComponent setAxis(int value) { 
           if (value == -1)
@@ -753,7 +753,7 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @return {@link #backCurve} (Back Curature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
+         * @return {@link #backCurve} (Back Curvature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
          */
         public DecimalType getBackCurveElement() { 
           if (this.backCurve == null)
@@ -773,7 +773,7 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @param value {@link #backCurve} (Back Curature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
+         * @param value {@link #backCurve} (Back Curvature measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getBackCurve" gives direct access to the value
          */
         public VisionPrescriptionDispenseComponent setBackCurveElement(DecimalType value) { 
           this.backCurve = value;
@@ -781,14 +781,14 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
-         * @return Back Curature measured in millimeters.
+         * @return Back Curvature measured in millimeters.
          */
         public BigDecimal getBackCurve() { 
           return this.backCurve == null ? null : this.backCurve.getValue();
         }
 
         /**
-         * @param value Back Curature measured in millimeters.
+         * @param value Back Curvature measured in millimeters.
          */
         public VisionPrescriptionDispenseComponent setBackCurve(BigDecimal value) { 
           if (value == null)
@@ -1027,12 +1027,12 @@ public class VisionPrescription extends DomainResource {
           childrenList.add(new Property("eye", "code", "The eye for which the lens applies.", 0, java.lang.Integer.MAX_VALUE, eye));
           childrenList.add(new Property("sphere", "decimal", "Lens power measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, sphere));
           childrenList.add(new Property("cylinder", "decimal", "Power adjustment for astigmatism measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, cylinder));
-          childrenList.add(new Property("axis", "integer", "Adjustment for astigmatism measured in interger degrees.", 0, java.lang.Integer.MAX_VALUE, axis));
+          childrenList.add(new Property("axis", "integer", "Adjustment for astigmatism measured in integer degrees.", 0, java.lang.Integer.MAX_VALUE, axis));
           childrenList.add(new Property("prism", "decimal", "Amount of prism to compensate for eye alignment in fractional units.", 0, java.lang.Integer.MAX_VALUE, prism));
           childrenList.add(new Property("base", "code", "The relative base, or reference lens edge, for the prism.", 0, java.lang.Integer.MAX_VALUE, base));
           childrenList.add(new Property("add", "decimal", "Power adjustment for multifocal lenses measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, add));
           childrenList.add(new Property("power", "decimal", "Contact lens power measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, power));
-          childrenList.add(new Property("backCurve", "decimal", "Back Curature measured in millimeters.", 0, java.lang.Integer.MAX_VALUE, backCurve));
+          childrenList.add(new Property("backCurve", "decimal", "Back Curvature measured in millimeters.", 0, java.lang.Integer.MAX_VALUE, backCurve));
           childrenList.add(new Property("diameter", "decimal", "Contact lens diameter measured in millimeters.", 0, java.lang.Integer.MAX_VALUE, diameter));
           childrenList.add(new Property("duration", "Quantity", "The recommended maximum wear period for the lens.", 0, java.lang.Integer.MAX_VALUE, duration));
           childrenList.add(new Property("color", "string", "Special color or pattern.", 0, java.lang.Integer.MAX_VALUE, color));

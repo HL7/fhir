@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -507,10 +507,10 @@ public class ProfessionalClaim extends DomainResource {
         protected IntegerType sequence;
 
         /**
-         * The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.
+         * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         @Child(name="focal", type={BooleanType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against." )
+        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
         protected BooleanType focal;
 
         /**
@@ -526,10 +526,10 @@ public class ProfessionalClaim extends DomainResource {
         protected Coverage coverageTarget;
 
         /**
-         * The contract number of a business agrement which describes the terms and conditions.
+         * The contract number of a business agreement which describes the terms and conditions.
          */
         @Child(name="businessArrangement", type={StringType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agrement which describes the terms and conditions." )
+        @Description(shortDefinition="Business agreement", formalDefinition="The contract number of a business agreement which describes the terms and conditions." )
         protected StringType businessArrangement;
 
         /**
@@ -625,7 +625,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
         public BooleanType getFocalElement() { 
           if (this.focal == null)
@@ -645,7 +645,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
+         * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
         public CoverageComponent setFocalElement(BooleanType value) { 
           this.focal = value;
@@ -653,14 +653,14 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.
+         * @return The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         public boolean getFocal() { 
           return this.focal == null ? false : this.focal.getValue();
         }
 
         /**
-         * @param value The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.
+         * @param value The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         public CoverageComponent setFocal(boolean value) { 
             if (this.focal == null)
@@ -714,7 +714,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #businessArrangement} (The contract number of a business agrement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         * @return {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
         public StringType getBusinessArrangementElement() { 
           if (this.businessArrangement == null)
@@ -734,7 +734,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #businessArrangement} (The contract number of a business agrement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
+         * @param value {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
         public CoverageComponent setBusinessArrangementElement(StringType value) { 
           this.businessArrangement = value;
@@ -742,14 +742,14 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return The contract number of a business agrement which describes the terms and conditions.
+         * @return The contract number of a business agreement which describes the terms and conditions.
          */
         public String getBusinessArrangement() { 
           return this.businessArrangement == null ? null : this.businessArrangement.getValue();
         }
 
         /**
-         * @param value The contract number of a business agrement which describes the terms and conditions.
+         * @param value The contract number of a business agreement which describes the terms and conditions.
          */
         public CoverageComponent setBusinessArrangement(String value) { 
           if (Utilities.noString(value))
@@ -911,9 +911,9 @@ public class ProfessionalClaim extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "integer", "A service line item.", 0, java.lang.Integer.MAX_VALUE, sequence));
-          childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication, that is the Coverage to which the claim is to be adjudicated against.", 0, java.lang.Integer.MAX_VALUE, focal));
+          childrenList.add(new Property("focal", "boolean", "The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.", 0, java.lang.Integer.MAX_VALUE, focal));
           childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
-          childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agrement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
+          childrenList.add(new Property("businessArrangement", "string", "The contract number of a business agreement which describes the terms and conditions.", 0, java.lang.Integer.MAX_VALUE, businessArrangement));
           childrenList.add(new Property("relationship", "Coding", "The relationship of the patient to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("preauthref", "string", "A list of references from the Insurer to which these services pertain.", 0, java.lang.Integer.MAX_VALUE, preauthref));
           childrenList.add(new Property("claimResponse", "Reference(ClaimResponse)", "The Coverages adjudication details.", 0, java.lang.Integer.MAX_VALUE, claimResponse));
@@ -1026,10 +1026,10 @@ public class ProfessionalClaim extends DomainResource {
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
         @Child(name="net", type={Money.class}, order=11, min=0, max=1)
-        @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
@@ -1467,7 +1467,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
           if (this.net == null)
@@ -1483,7 +1483,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public ItemsComponent setNet(Money value) { 
           this.net = value;
@@ -1640,7 +1640,7 @@ public class ProfessionalClaim extends DomainResource {
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subsite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subsite));
@@ -1750,10 +1750,10 @@ public class ProfessionalClaim extends DomainResource {
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
         @Child(name="net", type={Money.class}, order=8, min=0, max=1)
-        @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
@@ -2023,7 +2023,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
           if (this.net == null)
@@ -2039,7 +2039,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public DetailComponent setNet(Money value) { 
           this.net = value;
@@ -2109,7 +2109,7 @@ public class ProfessionalClaim extends DomainResource {
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -2160,10 +2160,10 @@ public class ProfessionalClaim extends DomainResource {
         protected Coding type;
 
         /**
-         * The fee for an addtional service or product or charge.
+         * The fee for an additional service or product or charge.
          */
         @Child(name="service", type={Coding.class}, order=3, min=1, max=1)
-        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an addtional service or product or charge." )
+        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an additional service or product or charge." )
         protected Coding service;
 
         /**
@@ -2174,10 +2174,10 @@ public class ProfessionalClaim extends DomainResource {
         protected Quantity quantity;
 
         /**
-         * The fee for an addtional service or product or charge.
+         * The fee for an additional service or product or charge.
          */
         @Child(name="unitPrice", type={Money.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an addtional service or product or charge." )
+        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an additional service or product or charge." )
         protected Money unitPrice;
 
         /**
@@ -2195,10 +2195,10 @@ public class ProfessionalClaim extends DomainResource {
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
         @Child(name="net", type={Money.class}, order=8, min=0, max=1)
-        @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
@@ -2291,7 +2291,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #service} (The fee for an addtional service or product or charge.)
+         * @return {@link #service} (The fee for an additional service or product or charge.)
          */
         public Coding getService() { 
           if (this.service == null)
@@ -2307,7 +2307,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #service} (The fee for an addtional service or product or charge.)
+         * @param value {@link #service} (The fee for an additional service or product or charge.)
          */
         public SubDetailComponent setService(Coding value) { 
           this.service = value;
@@ -2339,7 +2339,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #unitPrice} (The fee for an addtional service or product or charge.)
+         * @return {@link #unitPrice} (The fee for an additional service or product or charge.)
          */
         public Money getUnitPrice() { 
           if (this.unitPrice == null)
@@ -2355,7 +2355,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #unitPrice} (The fee for an addtional service or product or charge.)
+         * @param value {@link #unitPrice} (The fee for an additional service or product or charge.)
          */
         public SubDetailComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
@@ -2461,7 +2461,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public Money getNet() { 
           if (this.net == null)
@@ -2477,7 +2477,7 @@ public class ProfessionalClaim extends DomainResource {
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
         public SubDetailComponent setNet(Money value) { 
           this.net = value;
@@ -2512,12 +2512,12 @@ public class ProfessionalClaim extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("service", "Coding", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "The fee for an additional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "Quantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("unitPrice", "Money", "The fee for an addtional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
+          childrenList.add(new Property("unitPrice", "Money", "The fee for an additional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addtional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
 
@@ -2655,10 +2655,10 @@ public class ProfessionalClaim extends DomainResource {
     protected Location facilityTarget;
 
     /**
-     * Theparty to be reimbused for the services.
+     * The party to be reimbursed for the services.
      */
     @Child(name="payee", type={}, order=11, min=0, max=1)
-    @Description(shortDefinition="Payee", formalDefinition="Theparty to be reimbused for the services." )
+    @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
@@ -2721,10 +2721,10 @@ public class ProfessionalClaim extends DomainResource {
     protected StringType school;
 
     /**
-     * Date of an accident which these services are addessing.
+     * Date of an accident which these services are addressing.
      */
     @Child(name="accident", type={DateType.class}, order=19, min=0, max=1)
-    @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addessing." )
+    @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addressing." )
     protected DateType accident;
 
     /**
@@ -2745,7 +2745,7 @@ public class ProfessionalClaim extends DomainResource {
      * First tier of goods and services.
      */
     @Child(name="item", type={}, order=22, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Goods and Servcies", formalDefinition="First tier of goods and services." )
+    @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemsComponent> item;
 
     /**
@@ -3211,7 +3211,7 @@ public class ProfessionalClaim extends DomainResource {
     }
 
     /**
-     * @return {@link #payee} (Theparty to be reimbused for the services.)
+     * @return {@link #payee} (The party to be reimbursed for the services.)
      */
     public PayeeComponent getPayee() { 
       if (this.payee == null)
@@ -3227,7 +3227,7 @@ public class ProfessionalClaim extends DomainResource {
     }
 
     /**
-     * @param value {@link #payee} (Theparty to be reimbused for the services.)
+     * @param value {@link #payee} (The party to be reimbursed for the services.)
      */
     public ProfessionalClaim setPayee(PayeeComponent value) { 
       this.payee = value;
@@ -3492,7 +3492,7 @@ public class ProfessionalClaim extends DomainResource {
     }
 
     /**
-     * @return {@link #accident} (Date of an accident which these services are addessing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
+     * @return {@link #accident} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
      */
     public DateType getAccidentElement() { 
       if (this.accident == null)
@@ -3512,7 +3512,7 @@ public class ProfessionalClaim extends DomainResource {
     }
 
     /**
-     * @param value {@link #accident} (Date of an accident which these services are addessing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
+     * @param value {@link #accident} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
      */
     public ProfessionalClaim setAccidentElement(DateType value) { 
       this.accident = value;
@@ -3520,14 +3520,14 @@ public class ProfessionalClaim extends DomainResource {
     }
 
     /**
-     * @return Date of an accident which these services are addessing.
+     * @return Date of an accident which these services are addressing.
      */
     public DateAndTime getAccident() { 
       return this.accident == null ? null : this.accident.getValue();
     }
 
     /**
-     * @param value Date of an accident which these services are addessing.
+     * @param value Date of an accident which these services are addressing.
      */
     public ProfessionalClaim setAccident(DateAndTime value) { 
       if (value == null)
@@ -3668,7 +3668,7 @@ public class ProfessionalClaim extends DomainResource {
         childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
-        childrenList.add(new Property("payee", "", "Theparty to be reimbused for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
+        childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         childrenList.add(new Property("condition", "Coding", "List of patient conditions for which care is sought.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -3676,7 +3676,7 @@ public class ProfessionalClaim extends DomainResource {
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("exception", "Coding", "Factors which may influence the applicability of coverage.", 0, java.lang.Integer.MAX_VALUE, exception));
         childrenList.add(new Property("school", "string", "Name of school for over-aged dependants.", 0, java.lang.Integer.MAX_VALUE, school));
-        childrenList.add(new Property("accident", "date", "Date of an accident which these services are addessing.", 0, java.lang.Integer.MAX_VALUE, accident));
+        childrenList.add(new Property("accident", "date", "Date of an accident which these services are addressing.", 0, java.lang.Integer.MAX_VALUE, accident));
         childrenList.add(new Property("accidentType", "Coding", "Type of accident: work, auto, etc.", 0, java.lang.Integer.MAX_VALUE, accidentType));
         childrenList.add(new Property("interventionException", "Coding", "A list of intervention and exception codes which may influence the adjudication of the claim.", 0, java.lang.Integer.MAX_VALUE, interventionException));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));

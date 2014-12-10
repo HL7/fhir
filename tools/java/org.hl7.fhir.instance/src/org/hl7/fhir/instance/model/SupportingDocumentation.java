@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -298,26 +298,26 @@ public class SupportingDocumentation extends DomainResource {
     protected Organization organizationTarget;
 
     /**
-     * Original request identifer.
+     * Original request.
      */
     @Child(name="request", type={}, order=6, min=0, max=1)
-    @Description(shortDefinition="Request reference", formalDefinition="Original request identifer." )
+    @Description(shortDefinition="Request reference", formalDefinition="Original request." )
     protected Reference request;
 
     /**
-     * The actual object that is the target of the reference (Original request identifer.)
+     * The actual object that is the target of the reference (Original request.)
      */
     protected Resource requestTarget;
 
     /**
-     * Original response identifer.
+     * Original response.
      */
     @Child(name="response", type={}, order=7, min=0, max=1)
-    @Description(shortDefinition="Response reference", formalDefinition="Original response identifer." )
+    @Description(shortDefinition="Response reference", formalDefinition="Original response." )
     protected Reference response;
 
     /**
-     * The actual object that is the target of the reference (Original response identifer.)
+     * The actual object that is the target of the reference (Original response.)
      */
     protected Resource responseTarget;
 
@@ -613,7 +613,7 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @return {@link #request} (Original request identifer.)
+     * @return {@link #request} (Original request.)
      */
     public Reference getRequest() { 
       if (this.request == null)
@@ -629,7 +629,7 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @param value {@link #request} (Original request identifer.)
+     * @param value {@link #request} (Original request.)
      */
     public SupportingDocumentation setRequest(Reference value) { 
       this.request = value;
@@ -637,14 +637,14 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request identifer.)
+     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request.)
      */
     public Resource getRequestTarget() { 
       return this.requestTarget;
     }
 
     /**
-     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request identifer.)
+     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request.)
      */
     public SupportingDocumentation setRequestTarget(Resource value) { 
       this.requestTarget = value;
@@ -652,7 +652,7 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @return {@link #response} (Original response identifer.)
+     * @return {@link #response} (Original response.)
      */
     public Reference getResponse() { 
       if (this.response == null)
@@ -668,7 +668,7 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @param value {@link #response} (Original response identifer.)
+     * @param value {@link #response} (Original response.)
      */
     public SupportingDocumentation setResponse(Reference value) { 
       this.response = value;
@@ -676,14 +676,14 @@ public class SupportingDocumentation extends DomainResource {
     }
 
     /**
-     * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original response identifer.)
+     * @return {@link #response} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original response.)
      */
     public Resource getResponseTarget() { 
       return this.responseTarget;
     }
 
     /**
-     * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original response identifer.)
+     * @param value {@link #response} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original response.)
      */
     public SupportingDocumentation setResponseTarget(Resource value) { 
       this.responseTarget = value;
@@ -817,8 +817,8 @@ public class SupportingDocumentation extends DomainResource {
         childrenList.add(new Property("target", "Reference(Organization|Practitioner)", "The Insurer, organization or Provider who is target  of the submission.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("request", "Reference(Any)", "Original request identifer.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("response", "Reference(Any)", "Original response identifer.", 0, java.lang.Integer.MAX_VALUE, response));
+        childrenList.add(new Property("request", "Reference(Any)", "Original request.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("response", "Reference(Any)", "Original response.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("author", "Reference(Practitioner)", "Person who created the submission.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is directly or indirectly the subject of the supporting information.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("detail", "", "Supporting Files.", 0, java.lang.Integer.MAX_VALUE, detail));

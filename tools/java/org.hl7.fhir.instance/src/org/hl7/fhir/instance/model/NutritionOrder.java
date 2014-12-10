@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -648,10 +648,10 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderItemOralDietNutrientsComponent extends BackboneElement {
         /**
-         * Identifies the type of nutrient that is being modified such as cabohydrate or sodium.
+         * Identifies the type of nutrient that is being modified such as carbohydrate or sodium.
          */
         @Child(name="modifier", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Type of nutrient that is being modified", formalDefinition="Identifies the type of nutrient that is being modified such as cabohydrate or sodium." )
+        @Description(shortDefinition="Type of nutrient that is being modified", formalDefinition="Identifies the type of nutrient that is being modified such as carbohydrate or sodium." )
         protected CodeableConcept modifier;
 
         /**
@@ -668,7 +668,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #modifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         * @return {@link #modifier} (Identifies the type of nutrient that is being modified such as carbohydrate or sodium.)
          */
         public CodeableConcept getModifier() { 
           if (this.modifier == null)
@@ -684,7 +684,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #modifier} (Identifies the type of nutrient that is being modified such as cabohydrate or sodium.)
+         * @param value {@link #modifier} (Identifies the type of nutrient that is being modified such as carbohydrate or sodium.)
          */
         public NutritionOrderItemOralDietNutrientsComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
@@ -730,7 +730,7 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies the type of nutrient that is being modified such as cabohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies the type of nutrient that is being modified such as carbohydrate or sodium.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("amount[x]", "Quantity|Range", "The quantity or range of the specified nutrient to supply.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -752,10 +752,10 @@ public class NutritionOrder extends DomainResource {
     @Block()
     public static class NutritionOrderItemOralDietTextureComponent extends BackboneElement {
         /**
-         * Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.
+         * Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
          */
         @Child(name="modifier", type={CodeableConcept.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Code to indicate how to alter the texture of the foods, e.g., pureed", formalDefinition="Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed." )
+        @Description(shortDefinition="Code to indicate how to alter the texture of the foods, e.g., pureed", formalDefinition="Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed." )
         protected CodeableConcept modifier;
 
         /**
@@ -772,7 +772,7 @@ public class NutritionOrder extends DomainResource {
       }
 
         /**
-         * @return {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
+         * @return {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
         public CodeableConcept getModifier() { 
           if (this.modifier == null)
@@ -788,7 +788,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.)
+         * @param value {@link #modifier} (Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
         public NutritionOrderItemOralDietTextureComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
@@ -821,7 +821,7 @@ public class NutritionOrder extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, pureed.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("modifier", "CodeableConcept", "Identifies any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("foodType", "CodeableConcept", "Indicates what specific type of food (e.g., meats) the texture modification applies to or may apply to all foods in the diet.", 0, java.lang.Integer.MAX_VALUE, foodType));
         }
 
@@ -1034,10 +1034,10 @@ public class NutritionOrder extends DomainResource {
         protected Quantity caloricDensity;
 
         /**
-         * A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube.
+         * A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.
          */
         @Child(name="routeofAdministration", type={CodeableConcept.class}, order=7, min=0, max=1)
-        @Description(shortDefinition="How the formula should enter the patient's gastrointestinal tract", formalDefinition="A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube." )
+        @Description(shortDefinition="How the formula should enter the patient's gastrointestinal tract", formalDefinition="A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube." )
         protected CodeableConcept routeofAdministration;
 
         /**
@@ -1294,7 +1294,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
+         * @return {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
          */
         public CodeableConcept getRouteofAdministration() { 
           if (this.routeofAdministration == null)
@@ -1310,7 +1310,7 @@ public class NutritionOrder extends DomainResource {
         }
 
         /**
-         * @param value {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
+         * @param value {@link #routeofAdministration} (A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.)
          */
         public NutritionOrderItemEnteralFormulaComponent setRouteofAdministration(CodeableConcept value) { 
           this.routeofAdministration = value;
@@ -1421,7 +1421,7 @@ public class NutritionOrder extends DomainResource {
           childrenList.add(new Property("additiveType", "CodeableConcept", "Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.", 0, java.lang.Integer.MAX_VALUE, additiveType));
           childrenList.add(new Property("additiveName", "string", "The product or brand name of the type of modular component to be added to the formula.", 0, java.lang.Integer.MAX_VALUE, additiveName));
           childrenList.add(new Property("caloricDensity", "Quantity", "The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula the provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.", 0, java.lang.Integer.MAX_VALUE, caloricDensity));
-          childrenList.add(new Property("routeofAdministration", "CodeableConcept", "A coded concept specifying the route or physiological path of administration into the patient 's gastroestestinal tract for purposes of providing the formula feeding, e.g., nasogastric tube.", 0, java.lang.Integer.MAX_VALUE, routeofAdministration));
+          childrenList.add(new Property("routeofAdministration", "CodeableConcept", "A coded concept specifying the route or physiological path of administration into the patient 's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube.", 0, java.lang.Integer.MAX_VALUE, routeofAdministration));
           childrenList.add(new Property("quantity", "Quantity", "The volume of formula to provide to the patient per the specified administration schedule.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the formula is introduced into the subject via a feeding pump, e.g., 60 mL per hour, according to the specified schedule.", 0, java.lang.Integer.MAX_VALUE, rate));
           childrenList.add(new Property("rateAdjustment", "Quantity", "The change in the administration rate over a given time, e.g. increase by 10 mL/hour every 4 hours.", 0, java.lang.Integer.MAX_VALUE, rateAdjustment));
@@ -1488,14 +1488,14 @@ public class NutritionOrder extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * An encounter that provides additional informaton about the healthcare context in which this request is made.
+     * An encounter that provides additional information about the healthcare context in which this request is made.
      */
     @Child(name="encounter", type={Encounter.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="The encounter associated with that this nutrition order", formalDefinition="An encounter that provides additional informaton about the healthcare context in which this request is made." )
+    @Description(shortDefinition="The encounter associated with that this nutrition order", formalDefinition="An encounter that provides additional information about the healthcare context in which this request is made." )
     protected Reference encounter;
 
     /**
-     * The actual object that is the target of the reference (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * The actual object that is the target of the reference (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     protected Encounter encounterTarget;
 
@@ -1677,7 +1677,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public Reference getEncounter() { 
       if (this.encounter == null)
@@ -1693,7 +1693,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public NutritionOrder setEncounter(Reference value) { 
       this.encounter = value;
@@ -1701,7 +1701,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
@@ -1713,7 +1713,7 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
     public NutritionOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
@@ -1960,7 +1960,7 @@ public class NutritionOrder extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order sender or by the order receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional informaton about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateTime", "dateTime", "The date and time that this nutrition order was requested.", 0, java.lang.Integer.MAX_VALUE, dateTime));
         childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "The ability to list substances that may cause allergies or intolerances which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
         childrenList.add(new Property("foodPreferenceModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, foodPreferenceModifier));

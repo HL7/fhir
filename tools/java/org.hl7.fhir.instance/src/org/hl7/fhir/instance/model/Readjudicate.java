@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * This resource provides the request and line items details for the claim which is to be readjudicated.
+ * This resource provides the request and line items details for the claim which is to be re-adjudicated.
  */
 @ResourceDef(name="Readjudicate", profile="http://hl7.org/fhir/Profile/Readjudicate")
 public class Readjudicate extends DomainResource {
@@ -224,10 +224,10 @@ public class Readjudicate extends DomainResource {
     protected StringType reference;
 
     /**
-     * List of top level items to be readjudicated, if none specified then the entire submission is readjudicated.
+     * List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.
      */
     @Child(name="item", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Items to readjudicate", formalDefinition="List of top level items to be readjudicated, if none specified then the entire submission is readjudicated." )
+    @Description(shortDefinition="Items to re-adjudicate", formalDefinition="List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated." )
     protected List<ItemsComponent> item;
 
     private static final long serialVersionUID = 445992972L;
@@ -623,7 +623,7 @@ public class Readjudicate extends DomainResource {
     }
 
     /**
-     * @return {@link #item} (List of top level items to be readjudicated, if none specified then the entire submission is readjudicated.)
+     * @return {@link #item} (List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.)
      */
     public List<ItemsComponent> getItem() { 
       if (this.item == null)
@@ -641,7 +641,7 @@ public class Readjudicate extends DomainResource {
     }
 
     /**
-     * @return {@link #item} (List of top level items to be readjudicated, if none specified then the entire submission is readjudicated.)
+     * @return {@link #item} (List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.)
      */
     // syntactic sugar
     public ItemsComponent addItem() { //3
@@ -664,7 +664,7 @@ public class Readjudicate extends DomainResource {
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("response", "Reference(Any)", "Reference of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("reference", "string", "A reference to supply which authenticated the process.", 0, java.lang.Integer.MAX_VALUE, reference));
-        childrenList.add(new Property("item", "", "List of top level items to be readjudicated, if none specified then the entire submission is readjudicated.", 0, java.lang.Integer.MAX_VALUE, item));
+        childrenList.add(new Property("item", "", "List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.", 0, java.lang.Integer.MAX_VALUE, item));
       }
 
       public Readjudicate copy() {

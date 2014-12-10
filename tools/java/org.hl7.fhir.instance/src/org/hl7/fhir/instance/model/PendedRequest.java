@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * This resource provides the request and response details for the resource for which the stsatus is to be checked.
+ * This resource provides the request and response details for the resource for which the status is to be checked.
  */
 @ResourceDef(name="PendedRequest", profile="http://hl7.org/fhir/Profile/PendedRequest")
 public class PendedRequest extends DomainResource {

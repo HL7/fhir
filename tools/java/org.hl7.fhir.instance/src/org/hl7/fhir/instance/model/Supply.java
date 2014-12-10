@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -248,10 +248,10 @@ public class Supply extends DomainResource {
     @Block()
     public static class SupplyDispenseComponent extends BackboneElement {
         /**
-         * Identifier assigned by the dispensing facility when the dispense occurs.
+         * Identifier assigned by the dispensing facility when the item(s) is dispensed.
          */
         @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="External identifier", formalDefinition="Identifier assigned by the dispensing facility when the dispense occurs." )
+        @Description(shortDefinition="External identifier", formalDefinition="Identifier assigned by the dispensing facility when the item(s) is dispensed." )
         protected Identifier identifier;
 
         /**
@@ -344,7 +344,7 @@ public class Supply extends DomainResource {
       }
 
         /**
-         * @return {@link #identifier} (Identifier assigned by the dispensing facility when the dispense occurs.)
+         * @return {@link #identifier} (Identifier assigned by the dispensing facility when the item(s) is dispensed.)
          */
         public Identifier getIdentifier() { 
           if (this.identifier == null)
@@ -360,7 +360,7 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @param value {@link #identifier} (Identifier assigned by the dispensing facility when the dispense occurs.)
+         * @param value {@link #identifier} (Identifier assigned by the dispensing facility when the item(s) is dispensed.)
          */
         public SupplyDispenseComponent setIdentifier(Identifier value) { 
           this.identifier = value;
@@ -692,7 +692,7 @@ public class Supply extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility when the dispense occurs.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility when the item(s) is dispensed.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of supply that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));

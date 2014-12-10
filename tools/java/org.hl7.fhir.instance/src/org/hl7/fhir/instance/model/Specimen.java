@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -313,10 +313,10 @@ public class Specimen extends DomainResource {
         protected CodeableConcept method;
 
         /**
-         * Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.
+         * Anatomical location from which the specimen was collected (if subject is a patient). This element is not used for environmental specimens.
          */
         @Child(name="sourceSite", type={CodeableConcept.class}, order=6, min=0, max=1)
-        @Description(shortDefinition="Anatomical collection site", formalDefinition="Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens." )
+        @Description(shortDefinition="Anatomical collection site", formalDefinition="Anatomical location from which the specimen was collected (if subject is a patient). This element is not used for environmental specimens." )
         protected CodeableConcept sourceSite;
 
         private static final long serialVersionUID = 498103158L;
@@ -509,7 +509,7 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @return {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.)
+         * @return {@link #sourceSite} (Anatomical location from which the specimen was collected (if subject is a patient). This element is not used for environmental specimens.)
          */
         public CodeableConcept getSourceSite() { 
           if (this.sourceSite == null)
@@ -525,7 +525,7 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @param value {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.)
+         * @param value {@link #sourceSite} (Anatomical location from which the specimen was collected (if subject is a patient). This element is not used for environmental specimens.)
          */
         public SpecimenCollectionComponent setSourceSite(CodeableConcept value) { 
           this.sourceSite = value;
@@ -539,7 +539,7 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, java.lang.Integer.MAX_VALUE, collected));
           childrenList.add(new Property("quantity", "Quantity", "The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value specifying the technique that is used to perform the procedure.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("sourceSite", "CodeableConcept", "Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.", 0, java.lang.Integer.MAX_VALUE, sourceSite));
+          childrenList.add(new Property("sourceSite", "CodeableConcept", "Anatomical location from which the specimen was collected (if subject is a patient). This element is not used for environmental specimens.", 0, java.lang.Integer.MAX_VALUE, sourceSite));
         }
 
       public SpecimenCollectionComponent copy() {
@@ -1045,14 +1045,14 @@ public class Specimen extends DomainResource {
     protected List<SpecimenSourceComponent> source;
 
     /**
-     * Where the specimen came from. This may be the patient(s) or from the environment or  a device.
+     * Where the specimen came from. This may be from the patient(s) or from the environment or a device.
      */
     @Child(name="subject", type={Patient.class, Group.class, Device.class, Substance.class}, order=2, min=1, max=1)
-    @Description(shortDefinition="Where the specimen came from. This may be the patient(s) or from the environment or  a device", formalDefinition="Where the specimen came from. This may be the patient(s) or from the environment or  a device." )
+    @Description(shortDefinition="Where the specimen came from. This may be from the patient(s) or from the environment or a device", formalDefinition="Where the specimen came from. This may be from the patient(s) or from the environment or a device." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * The actual object that is the target of the reference (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
     protected Resource subjectTarget;
 
@@ -1187,7 +1187,7 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @return {@link #subject} (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
     public Reference getSubject() { 
       if (this.subject == null)
@@ -1203,7 +1203,7 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @param value {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @param value {@link #subject} (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
     public Specimen setSubject(Reference value) { 
       this.subject = value;
@@ -1211,14 +1211,14 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the specimen came from. This may be from the patient(s) or from the environment or a device.)
      */
     public Specimen setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -1387,7 +1387,7 @@ public class Specimen extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Id for specimen.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "Kind of material that forms the specimen.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("source", "", "Parent specimen from which the focal specimen was a component.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Substance)", "Where the specimen came from. This may be the patient(s) or from the environment or  a device.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Substance)", "Where the specimen came from. This may be from the patient(s) or from the environment or a device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("accessionIdentifier", "Identifier", "The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.", 0, java.lang.Integer.MAX_VALUE, accessionIdentifier));
         childrenList.add(new Property("receivedTime", "dateTime", "Time when specimen was received for processing or testing.", 0, java.lang.Integer.MAX_VALUE, receivedTime));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));

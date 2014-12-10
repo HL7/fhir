@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -658,10 +658,10 @@ public class Reversal extends DomainResource {
     protected Resource responseTarget;
 
     /**
-     * Payee information suypplied for matching purposes.
+     * Payee information supplied for matching purposes.
      */
     @Child(name="payee", type={}, order=8, min=0, max=1)
-    @Description(shortDefinition="Payee", formalDefinition="Payee information suypplied for matching purposes." )
+    @Description(shortDefinition="Payee", formalDefinition="Payee information supplied for matching purposes." )
     protected PayeeComponent payee;
 
     /**
@@ -1028,7 +1028,7 @@ public class Reversal extends DomainResource {
     }
 
     /**
-     * @return {@link #payee} (Payee information suypplied for matching purposes.)
+     * @return {@link #payee} (Payee information supplied for matching purposes.)
      */
     public PayeeComponent getPayee() { 
       if (this.payee == null)
@@ -1044,7 +1044,7 @@ public class Reversal extends DomainResource {
     }
 
     /**
-     * @param value {@link #payee} (Payee information suypplied for matching purposes.)
+     * @param value {@link #payee} (Payee information supplied for matching purposes.)
      */
     public Reversal setPayee(PayeeComponent value) { 
       this.payee = value;
@@ -1131,7 +1131,7 @@ public class Reversal extends DomainResource {
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("request", "Reference(OralHealthClaim|PharmacyClaim|VisionClaim|ProfessionalClaim|InstitutionalClaim|SupportingDocumentation)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("response", "Reference(ClaimResponse|StatusResponse)", "Reference of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, response));
-        childrenList.add(new Property("payee", "", "Payee information suypplied for matching purposes.", 0, java.lang.Integer.MAX_VALUE, payee));
+        childrenList.add(new Property("payee", "", "Payee information supplied for matching purposes.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("nullify", "boolean", "If true remove all history excluding audit.", 0, java.lang.Integer.MAX_VALUE, nullify));
       }

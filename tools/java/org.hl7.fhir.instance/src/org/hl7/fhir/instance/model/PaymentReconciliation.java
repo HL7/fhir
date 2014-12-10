@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -619,14 +619,14 @@ public class PaymentReconciliation extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Original request resource referrence.
+     * Original request resource reference.
      */
     @Child(name="request", type={PendedRequest.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Claim reference", formalDefinition="Original request resource referrence." )
+    @Description(shortDefinition="Claim reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
     /**
-     * The actual object that is the target of the reference (Original request resource referrence.)
+     * The actual object that is the target of the reference (Original request resource reference.)
      */
     protected PendedRequest requestTarget;
 
@@ -778,7 +778,7 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @return {@link #request} (Original request resource referrence.)
+     * @return {@link #request} (Original request resource reference.)
      */
     public Reference getRequest() { 
       if (this.request == null)
@@ -794,7 +794,7 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @param value {@link #request} (Original request resource referrence.)
+     * @param value {@link #request} (Original request resource reference.)
      */
     public PaymentReconciliation setRequest(Reference value) { 
       this.request = value;
@@ -802,7 +802,7 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
+     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
     public PendedRequest getRequestTarget() { 
       if (this.requestTarget == null)
@@ -814,7 +814,7 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource referrence.)
+     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
     public PaymentReconciliation setRequestTarget(PendedRequest value) { 
       this.requestTarget = value;
@@ -1283,7 +1283,7 @@ public class PaymentReconciliation extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response Business Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("request", "Reference(PendedRequest)", "Original request resource referrence.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(PendedRequest)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
         childrenList.add(new Property("ruleset", "Coding", "The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.", 0, java.lang.Integer.MAX_VALUE, ruleset));

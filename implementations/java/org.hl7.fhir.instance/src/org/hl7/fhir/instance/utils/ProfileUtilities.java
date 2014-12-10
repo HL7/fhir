@@ -483,7 +483,7 @@ public class ProfileUtilities {
     return (diff == null) || (base == null) || (diff == base);
   }
 
-  private boolean discriiminatorMatches(List<IdType> diff, List<IdType> base) {
+  private boolean discriiminatorMatches(List<StringType> diff, List<StringType> base) {
     if (diff.isEmpty() || base.isEmpty()) 
     	return true; 
     if (diff.size() != base.size())
@@ -979,9 +979,9 @@ public class ProfileUtilities {
     return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+commas(slicing.getDiscriminator());
   }
 
-  private String commas(List<IdType> discriminator) {
+  private String commas(List<StringType> discriminator) {
     CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
-    for (IdType id : discriminator)
+    for (StringType id : discriminator)
       c.append(id.asStringValue());
     return c.toString();
   }

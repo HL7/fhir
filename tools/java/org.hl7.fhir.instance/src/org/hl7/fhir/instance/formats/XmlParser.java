@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -756,7 +756,7 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("discriminator")) {
-        res.getDiscriminator().add(parseId(xpp));
+        res.getDiscriminator().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ordered")) {
@@ -11167,8 +11167,8 @@ public class XmlParser extends XmlParserBase {
       xml.open(FHIR_NS, name);
       composeElementElements(element);
       if (element.hasDiscriminator()) { 
-        for (IdType e : element.getDiscriminator()) 
-          composeId("discriminator", e);
+        for (StringType e : element.getDiscriminator()) 
+          composeString("discriminator", e);
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());

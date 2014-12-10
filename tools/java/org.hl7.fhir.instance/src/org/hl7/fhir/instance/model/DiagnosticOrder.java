@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -550,13 +550,13 @@ public class DiagnosticOrder extends DomainResource {
         protected CodeableConcept code;
 
         /**
-         * If the item is related to a specific speciment.
+         * If the item is related to a specific specimen.
          */
         @Child(name="specimen", type={Specimen.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="If this item relates to specific specimens", formalDefinition="If the item is related to a specific speciment." )
+        @Description(shortDefinition="If this item relates to specific specimens", formalDefinition="If the item is related to a specific specimen." )
         protected List<Reference> specimen;
         /**
-         * The actual objects that are the target of the reference (If the item is related to a specific speciment.)
+         * The actual objects that are the target of the reference (If the item is related to a specific specimen.)
          */
         protected List<Specimen> specimenTarget;
 
@@ -618,7 +618,7 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #specimen} (If the item is related to a specific speciment.)
+         * @return {@link #specimen} (If the item is related to a specific specimen.)
          */
         public List<Reference> getSpecimen() { 
           if (this.specimen == null)
@@ -636,7 +636,7 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #specimen} (If the item is related to a specific speciment.)
+         * @return {@link #specimen} (If the item is related to a specific specimen.)
          */
     // syntactic sugar
         public Reference addSpecimen() { //3
@@ -648,7 +648,7 @@ public class DiagnosticOrder extends DomainResource {
         }
 
         /**
-         * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific speciment.)
+         * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
          */
         public List<Specimen> getSpecimenTarget() { 
           if (this.specimenTarget == null)
@@ -658,7 +658,7 @@ public class DiagnosticOrder extends DomainResource {
 
     // syntactic sugar
         /**
-         * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific speciment.)
+         * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
          */
         public Specimen addSpecimenTarget() { 
           Specimen r = new Specimen();
@@ -774,7 +774,7 @@ public class DiagnosticOrder extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("specimen", "Reference(Specimen)", "If the item is related to a specific speciment.", 0, java.lang.Integer.MAX_VALUE, specimen));
+          childrenList.add(new Property("specimen", "Reference(Specimen)", "If the item is related to a specific specimen.", 0, java.lang.Integer.MAX_VALUE, specimen));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location where the request test should be performed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));

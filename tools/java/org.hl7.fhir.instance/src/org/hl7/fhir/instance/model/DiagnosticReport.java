@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -426,13 +426,13 @@ public class DiagnosticReport extends DomainResource {
     protected Type diagnostic;
 
     /**
-     * Details about the specimens on which this Disagnostic report is based.
+     * Details about the specimens on which this diagnostic report is based.
      */
     @Child(name="specimen", type={Specimen.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Specimens this report is based on", formalDefinition="Details about the specimens on which this Disagnostic report is based." )
+    @Description(shortDefinition="Specimens this report is based on", formalDefinition="Details about the specimens on which this diagnostic report is based." )
     protected List<Reference> specimen;
     /**
-     * The actual objects that are the target of the reference (Details about the specimens on which this Disagnostic report is based.)
+     * The actual objects that are the target of the reference (Details about the specimens on which this diagnostic report is based.)
      */
     protected List<Specimen> specimenTarget;
 
@@ -834,7 +834,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (Details about the specimens on which this diagnostic report is based.)
      */
     public List<Reference> getSpecimen() { 
       if (this.specimen == null)
@@ -852,7 +852,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (Details about the specimens on which this diagnostic report is based.)
      */
     // syntactic sugar
     public Reference addSpecimen() { //3
@@ -864,7 +864,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this diagnostic report is based.)
      */
     public List<Specimen> getSpecimenTarget() { 
       if (this.specimenTarget == null)
@@ -874,7 +874,7 @@ public class DiagnosticReport extends DomainResource {
 
     // syntactic sugar
     /**
-     * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this Disagnostic report is based.)
+     * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Details about the specimens on which this diagnostic report is based.)
      */
     public Specimen addSpecimenTarget() { 
       Specimen r = new Specimen();
@@ -1136,7 +1136,7 @@ public class DiagnosticReport extends DomainResource {
         childrenList.add(new Property("requestDetail", "Reference(DiagnosticOrder)", "Details concerning a test requested.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
-        childrenList.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this Disagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. 'atomic' results), or they can be grouping observations that include references to other members of the group (e.g. 'panels').", 0, java.lang.Integer.MAX_VALUE, result));
         childrenList.add(new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 8, 2014 22:05+1100 for FHIR v0.4.0
+// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -435,9 +435,9 @@ public class ElementDefinition extends Type {
         /**
          * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
          */
-        @Child(name="discriminator", type={IdType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="discriminator", type={StringType.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Element values that used to distinguish the slices", formalDefinition="Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices." )
-        protected List<IdType> discriminator;
+        protected List<StringType> discriminator;
 
         /**
          * A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
@@ -460,7 +460,7 @@ public class ElementDefinition extends Type {
         @Description(shortDefinition="closed | open | openAtEnd", formalDefinition="Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end." )
         protected Enumeration<ResourceSlicingRules> rules;
 
-        private static final long serialVersionUID = 598129403L;
+        private static final long serialVersionUID = -321298491L;
 
       public ElementDefinitionSlicingComponent() {
         super();
@@ -474,16 +474,16 @@ public class ElementDefinition extends Type {
         /**
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public List<IdType> getDiscriminator() { 
+        public List<StringType> getDiscriminator() { 
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<IdType>();
+            this.discriminator = new ArrayList<StringType>();
           return this.discriminator;
         }
 
         public boolean hasDiscriminator() { 
           if (this.discriminator == null)
             return false;
-          for (IdType item : this.discriminator)
+          for (StringType item : this.discriminator)
             if (!item.isEmpty())
               return true;
           return false;
@@ -493,10 +493,10 @@ public class ElementDefinition extends Type {
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
     // syntactic sugar
-        public IdType addDiscriminatorElement() {//2 
-          IdType t = new IdType();
+        public StringType addDiscriminatorElement() {//2 
+          StringType t = new StringType();
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<IdType>();
+            this.discriminator = new ArrayList<StringType>();
           this.discriminator.add(t);
           return t;
         }
@@ -505,10 +505,10 @@ public class ElementDefinition extends Type {
          * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
         public ElementDefinitionSlicingComponent addDiscriminator(String value) { //1
-          IdType t = new IdType();
+          StringType t = new StringType();
           t.setValue(value);
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<IdType>();
+            this.discriminator = new ArrayList<StringType>();
           this.discriminator.add(t);
           return this;
         }
@@ -519,8 +519,8 @@ public class ElementDefinition extends Type {
         public boolean hasDiscriminator(String value) { 
           if (this.discriminator == null)
             return false;
-          for (IdType v : this.discriminator)
-            if (v.equals(value)) // id
+          for (StringType v : this.discriminator)
+            if (v.equals(value)) // string
               return true;
           return false;
         }
@@ -670,7 +670,7 @@ public class ElementDefinition extends Type {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("discriminator", "id", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
+          childrenList.add(new Property("discriminator", "string", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
           childrenList.add(new Property("description", "string", "A humane readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("ordered", "boolean", "If the matching elements have to occur in the same order as defined in the profile.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("rules", "code", "Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.", 0, java.lang.Integer.MAX_VALUE, rules));
@@ -680,8 +680,8 @@ public class ElementDefinition extends Type {
         ElementDefinitionSlicingComponent dst = new ElementDefinitionSlicingComponent();
         copyValues(dst);
         if (discriminator != null) {
-          dst.discriminator = new ArrayList<IdType>();
-          for (IdType i : discriminator)
+          dst.discriminator = new ArrayList<StringType>();
+          for (StringType i : discriminator)
             dst.discriminator.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
