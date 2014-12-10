@@ -152,7 +152,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     if (!slicing.getDiscriminator().isEmpty()) {
       b.append("<li>discriminators: ");
       boolean first = true;
-      for (IdType s : slicing.getDiscriminator()) {
+      for (StringType s : slicing.getDiscriminator()) {
         if (first)
           first = false;
         else

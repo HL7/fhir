@@ -80,7 +80,7 @@ In order to be used with a value set, a code must be defined somewhere. They can
 an <a href="valueset.html#define">inline code system definition</a>, or they can be defined elsewhere, 
 and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminology-systems.html">set of 
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g. 
-<a href="snomed.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorml.html">RxNorm</a>). 
+<a href="snomedct.html">SNOMED-CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>). 
 These code systems are often large, and have many internally defined properties that are part of their 
 formal definitions. Inline code systems in Value Set resources are not an appropriate way to define 
 these code systems; FHIR does not provide a formal representation at all. Instead, these terminologies
@@ -255,6 +255,11 @@ The server returns the following information:
  <li> Whether the code is abstract or not</li>
  <li> Other designations for the code (a value, optionally with language and/or a use code)</li>
 </ul>
+<p>
+The recommended display to the code is a text representation of the code 
+that the terminology server recommends as the default choice to show 
+to the user, though a  client may choose out of the other designations if it has reason to.
+</p>
 
 <div class="example">
 <p><b>Examples</b></p>
@@ -343,6 +348,13 @@ display for the concept for use in a UI context.
 Note that if the server is passed a CodeableConcept, the server is able to check 
 whether any of the codes are valid against the value set, and also check whether 
 multiple codings are allowed and/or the codings provided are consistent with each other. 
+</p>
+<p>
+Every code system has an implicit value set that is "all the concepts defined
+in the code system". For some code systems, these value set URIs are defined 
+in advance (e.g. for <a href="loinc.html">LOINC</a>, it's <code>http://loinc.org/vs</code>). 
+However for some code systems, they are not known. Clients can refer to these implicit 
+value sets by providing the URI for the code system itself. 
 </p>
 
 <div class="example">
@@ -466,6 +478,11 @@ latency effects. In this case, the client passes the server the following inform
  <li> a uri referring to the value set against which the code should be validated</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
+<p>
+Code system URIs may be used to refer to the implicit value set that includes
+all the codes in the code system  (as described for the validation operation).
+</p>
+
 <p>
 The server returns a series of parameters, one for each submitted item, each of 
 which has a result, a message, and a display (same as for the $validate operation).

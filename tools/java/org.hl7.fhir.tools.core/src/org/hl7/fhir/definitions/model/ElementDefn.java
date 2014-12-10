@@ -534,7 +534,7 @@ public class ElementDefn {
 
 		if (!path[0].equals(getName()))
 			throw new Exception("Element Path '" + pathname
-					+ "' is not legal in this context ("+purpose+")");
+					+ "' is not legal in this context ("+purpose+") - expected "+getName()+" found "+path[0]);
 
 		ElementDefn res = this;
 
