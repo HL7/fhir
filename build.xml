@@ -15,12 +15,26 @@
       target="cleanall"/>
   </target>
 
+  <path id="saxon.path">
+    <pathelement path="tools/java/imports/Saxon-B-9.0.jar"/>
+  </path>
+  <property name="saxon.classname" value="net.sf.saxon.TransformerFactoryImpl"/>
+
   <target name="Publisher" depends="fetch-imports">
     <ant
       antfile="build.xml"
       dir="${tools.location}"
       inheritAll="true"
       target="Publisher"/>
+    <xslt in="publish/profiles-resources.xml" out="qa/resourceProfiles.html" style="tools/xslt/ProfileToQAView.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="publish/profiles-others.xml" out="qa/otherProfiles.html" style="tools/xslt/ProfileToQAView.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="publish/profiles-types.xml" out="qa/typeProfiles.html" style="tools/xslt/ProfileToQAView.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
   </target>
 
   <property name="ivy.install.version" value="2.0.0-beta1" />
