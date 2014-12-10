@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+	<id value="uslabreport-sender"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
@@ -26,11 +28,11 @@
 			<p>
 				<b>Mode:</b> Server
 			</p>
-			<p>This conformance resource assumes the USLabReport Sender is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the <a href="uslabreport.html">USLabReport Guide</a>. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>This conformance resource assumes the USLabReport Sender is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabReport Sender MUST support querying one or more resources outlined by the <a href="uslabreport-guide.html">USLabReport Guide</a>. The USLabReport Sender MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabReport. The USLabReport Sender MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
-			<p>Implementations must meet the security requirements documented in the <a href="uslabreport.html">USLabReport Guide assumptions</a>.</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslabreport-guide.html#assumptions">USLabReport Guide assumptions</a>.</p>
 			<h3>Summary</h3>
 			<table class="grid">
 				<thead>
@@ -294,7 +296,7 @@
 			<p>Supported Includes: DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report</p>
 		</div>
 	</text>
-	<id value="uslabreport-sender"/>
+
 	<!-- EH:   this is the SDC  template for conformance examples which I will run to generate the text-->
 	<name value="USLabReport Sender"/>
 	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
@@ -380,10 +382,10 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         <code value="delete"/>
         <documentation value="Allows removal of an existing DiagnosticReport.  Servers may choose to not support deletions or may limit deletions to DiagnosticReport meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
       </interaction -->
-			<!-- EH  flags for support for versioning, read history, update create 
+			<!-- EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version"-->
 			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
-			<!-- EH: comment out for now 
+			<!-- EH: comment out for now
 		<searchParam-->
 			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
@@ -463,11 +465,11 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         <code value="delete"/>
         <documentation value="Allows removal of an existing DiagnosticReport.  Servers may choose to not support deletions or may limit deletions to DiagnosticReport meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
       </interaction -->
-			<!-- EH  flags for support for versioning, read history, update create 
+			<!-- EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version"-->
 			<searchInclude value="DiagnosticReport.subject, DiagnosticReport.performer, DiagnosticReport.requestDetail, DiagnosticReport.specimen, DiagnosticReport.report"/>
 			<!-- How do we  do nested includes  ie  DiagnosticReport.orderer (Practitioner.organization)  -->
-		<!-- EH: comment out for now 
+		<!-- EH: comment out for now
 		<searchParam-->
 			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>

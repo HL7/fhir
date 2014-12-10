@@ -7,21 +7,21 @@
    <body>
       [%file newnavbar%]
       <div class="col-9">
-         <a name="usphreport-guide"> </a>
-         <a name="purpose"></a>
+         <a id="usphreport-guide"> </a>
+         <a id="purpose"></a>
          <h2>Purpose</h2>
          <p>
             The FHIR USLab Public Health Report (FHIR ELR) Implementation (FHIR ELR) is based upon the <a href="uslabreport-guide.html">USLab Report Implementation</a> and repeats most of that content here as well as the additional requirements, specifications and standards, and on providing the implementation guidanceneeded to transmit reportable laboratory observations to appropriate US local, state, territorial and federal health agencies using  using <a href="http.html">FHIR in the RESTful framework</a>.  FHIR ELR facilitates the inclusion of information necessary for public health reporting in the larger test order - test result process between ordering providers/laboratories and performing laboratories to ensure that the data is available to be sent to PH when necessary. Harmonizing the technical specifications (format and vocabulary) for the test order (order placer sends order to lab), test result (lab sends result to order placer), and reportable test result (lab sends result to PH) enhances interoperability and data quality thus improving the overall laboratory result reporting process for both the sender and the receiver.
          </p>
          <p>This implementation is not specific to any pathogen or reportable condition and is applicable for most biological and chemistry reportable laboratory observations. Each state and territory has requirements for laboratories to report certain findings to health officials. Authority to establish a list of reportable conditions and to specify the content of those reports resides with the individual public health jurisdiction. Reports made to Public Health come in two forms: case reports (not the subject of this guide), and laboratory reports related to reportable conditions.  Reporters can access further information about reportable conditions at the website for their own Public Health jurisdiction relevant to their service area.   Additionally, this implementation does not replace the need for each public health jurisdiction to document additional constraints of their specific implementation.</p>
-         <a name="audience"></a>
+         <a id="audience"></a>
          <h2>Audience</h2>
          <p>
             This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements and specific extensions
             relative to the Laboratory Results Interface (LOI) initiative, HL7 V3 Lab Normative Standard and electronic laboratory reporting  (ELR) requirements to Public Health. Users of this guide must be familiar with the details of the FHIR Specification and resource  processing. This guide is not intended to be a tutorial on that subject.
          </p>
          <!-- EH not needed   Section  1.4  REQUISITE KNOWLEDGE  -->
-         <a name="conventions"></a>
+         <a id="conventions"></a>
          <h2>Conventions</h2>
          <p>
             This guide adheres to the following conventions:
@@ -66,9 +66,9 @@
          <!--  EH not needed : <h3>1.3.2 MESSAGE ELEMENT ATTRIBUTES </h3>-->
          <!--  EH not needed : 1.3.3  KEYWORDS -->
          <!--  EH not needed : 1.3.4  USAGE CONFORMANCE TESTING RECOMMENDATIONS  -->
-         <a name="keytechdecisions"></a>
+         <a id="keytechdecisions"></a>
          <h2>Key Technical Decisions</h2>
-         <a name="profile"></a>
+         <a id="profile"></a>
          <h3>Profile And Component Architecture </h3>
          <!-- also in uslaborder.html-->
          <p>This guide uses FHIR profiles on the following resource to define a minimum set of requirements to enable the
@@ -91,14 +91,14 @@
             developers to provide more capabilities using the same core Resource definitions.
          </p>
          <!--EH not needed: 1.1.1 USE OF ISO OBJECT IDENTIFIER (OID)             -->
-         <a name="vocabstandards"></a>
+         <a id="vocabstandards"></a>
          <h3>Use Of Vocabulary Standards</h3>
          <p>This guide calls for specific vocabulary standards for the exchange of laboratory information such as
             LOINC and SNOMED. Standard vocabularies, particularly coded laboratory tests and their results,
             enable automated decision support for patient healthcare, as well as for public health surveillance of
             populations. Value Sets resource are provided as part of this implementation.
          </p>
-         <a name="snapshot"></a>
+         <a id="snapshot"></a>
          <h3>Snapshot Mode </h3>
          <p>
             FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Obsveration Resource is necessary, the DiagnosticReport with all references to all Obsveration Resource, even if previously
@@ -112,7 +112,7 @@
          <p>Examples  of a <a href="#partialexample">partial</a>, <a href="#finalexample">final</a> and <a href="#correctedexample">corrected</a> DiagnosticReport Bundle. </p>
          <!--EH not needed:1.11.4  FIELD LENGTH AND TRUNCATION.  -->
          <!--EH not needed  1.12  Referenced Profiles - Antecedents    -->
-         <a name="implementationscope"></a>
+         <a id="implementationscope"></a>
          <h3>Scope Of Implementation</h3>
          <!--EH not needed: The base standard indicates that receiving applications "…shall process (save/print/archive/etc.)…". For
             order-specific segments, e.g., ORC, OBR, SPM, this typically means saving that data. For other
@@ -122,15 +122,15 @@
          <p>Due to receiving system variations and need, this guide does not specifically indicate for each field
             whether to store it or not. This is left to the individual system's scope and purpose.
          </p>
-         <a name="usecase"></a>
+         <a id="usecase"></a>
          <h2>Use Case</h2>
          <p>
             This use case is based upon existing regulatory requirements for laboratories to report "reportable" laboratory test results to local public health agencies. This use case was developed as a collaborative effort between CSTE and CDC and the HL7 Pubic Health and Emergency Response Workgroup.
          </p>
-         <a name="scope"></a>
+         <a id="scope"></a>
          <h3>Scope </h3>
          <p>The scope is the sending of "reportable lab results from a laboratory to a PublicHealth agency is US Realm. </p>
-         <a name="inscope"></a>
+         <a id="inscope"></a>
          <h4>In Scope</h4>
          <ul>
             <li>Defining the core data elements required for electronic laboratory reporting of reportable laboratory test results to Public Health.</li>
@@ -152,7 +152,7 @@
             <li>Laboratory results for individual living subjects (persons and animals). </li>
             <!--EH  not needed Batch processing.-->
          </ul>
-         <a name="outscope"></a>
+         <a id="outscope"></a>
          <h4>Out of Scope</h4>
          <ul>
             <li>Specifications and implementation guidance on laboratory ordering transactions. ( see <a href="uslaborder-guide.html">USLabOrder</a></li>
@@ -172,7 +172,7 @@
                <li>Results not transmitted using a standardized structured format.</li>
                -->
          </ul>
-         <a name="actors"></a>
+         <a id="actors"></a>
          <h2>Actors</h2>
          <p>
             There are two actors that have responsibilities related to the conformance profiles defined in this
@@ -187,13 +187,13 @@
                to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticReport Resource Instance or the linked resources).
             </li>
          </ul>
-         <a name="usecasesandcontext"></a>
+         <a id="usecasesandcontext"></a>
          <h2>Orders for Ambulatory Care Use Case and Context Diagrams </h2>
          <p><b>Figure 2-1. Use Case Diagram</b></p>
          <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-usecasediagram"/>
          <p><b>Figure 2-2. Context Diagram</b></p>
          <img alt="Figure 2-2. Context Diagram" src="uslaborder-contextdiagram"/>
-         <a name="userstory"></a>
+         <a id="userstory"></a>
          <h3>User Story</h3>
          <p>
             A Provider (orderer) may enter a laboratory order into an ambulatory DSS. A laboratory
@@ -214,7 +214,7 @@
             DSS and views the laboratory results in order to inform patient care decisions.
          </p>
          <p>The laboratory result is determined to be a reportable laboratory result for the patient's and/or the provider's public health jurisdiction. The results sender, e.g., LIS or EHR, transmits the results to the 		appropriate public health jurisdiction. The public health jurisdiction's ELR-PH Receiver incorporates the results in their disease surveillance system allowing for the appropriate follow up by the public health jurisdiction.</p>
-         <a name="assumptions"></a>
+         <a id="assumptions"></a>
          <h4>Use Case Assumptions</h4>
          <ul>
             <li>Public Health officials can securely access clinical information through an DSS.</li>
@@ -257,7 +257,7 @@
             </li>
             <li>Laboratories meet accreditation criteria according to jurisdiction requirements or agency criteria. </li>
          </ul>
-         <a name="preconditions"></a>
+         <a id="preconditions"></a>
          <h4>Pre-Conditions</h4>
          <ul>
             <li>An order has been generated by an Ordering Provider for one or more laboratory tests results to
@@ -295,7 +295,7 @@
             <li>Each public health jurisdictional entity has previously defined the reportable conditions appropriate to its jurisdiction.</li>
             <li>Laboratory result senders are responsible for the setup of their system with the reportable conditions appropriate to its jurisdiction.</li>
          </ul>
-         <a name="postconditions"></a>
+         <a id="postconditions"></a>
          <h4>Post-Conditions</h4>
          <ul>
             <li>Laboratory results are accurately reported and successfully transmitted electronically from the
@@ -315,7 +315,7 @@
          <img alt="FHIR ELR of reportable
             Laboratory Test(S) " src="todo"/>
          <!--EH:  need to rework for REST  acknowledgment codes -->
-         <a name="errorhandling"></a>
+         <a id="errorhandling"></a>
          <h2>Error Handling</h2>
           <p>Refer to the FHIR Specification on <a href="http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.6.2 ERROR HANDLING -->
@@ -323,7 +323,7 @@
          <!--- EH  Not needed: 2 DATA TYPES  ( covered in spec and defined extensions-->
          <!--  EH  Not needed: 3 MESSAGES-->
          <!--EH not needed  5 LABORATORY RESULT MESSAGE DEVELOPMENT-->
-         <a name="codesystems"></a>
+         <a id="codesystems"></a>
          <h2>Code Systems And Value Sets</h2>
          <p>Successful message implementation requires that transmitted messages (message instances) contain
             valid values for coded fields. For further discussion on <a href="terminologies.html">Using codes in FHIR </a> refer to the FHIR specification.
@@ -366,9 +366,9 @@
          </p>
          <!-- EH  8   ADDITIONAL IMPLEMENTATION GUIDANCE - REFLEX AND CULTURE/SUSCEPTIBILITY TESTING -->
          <!-- EH  9.   ADDITIONAL IMPLEMENTATION GUIDANCE - OTHER -->
-         <a name="addlguidance"></a>
+         <a id="addlguidance"></a>
          <h2>Additional Implementation Guidance </h2>
-         <a name="reflex"></a>
+         <a id="reflex"></a>
          <h3>Confirmatory and Reflex Testing ( Including Culture/Susceptibility Testing)</h3>
          <p><b>Definition: </b>  Additional laboratory testing included in the original test request by reference to specific
             follow-up testing, e.g. "Urinalysis w/Culture Reflex" as opposed to "Urinalysis" ordered as a
@@ -388,7 +388,7 @@
                CMS auditing purposes.
             </li>
             <li>
-               <a name="reflexprocess"></a>
+               <a id="reflexprocess"></a>
                <b> LIS Process: </b>The LIS shall report the reflexed test as one of the following:
                <ol>
                   <li>Additional results within the same DiagnosticReport.referencing the same DiagnosticOrder from the original order request in the DiagnosticReport.requestDetail element</li>
@@ -399,7 +399,7 @@
          </ul>
          <p>An <a href="todo">Culture and Susceptibility example</a> example is provided here for the scenario in which a urine cultire results in the identification of the pathogens:  E.coli, x and y and a susceptibilty is performed on all three pathogens.  todo..
          </p>
-         <a name="addon"></a>
+         <a id="addon"></a>
          <h3>Add-On Testing</h3>
          <p><b>Definition: </b> Additional laboratory testing is requested by an authorized provider (as defined by CLIA
             and state law) on an existing specimen after the original test request has been submitted to the laboratory. The decision to request additional testing is individual provider driven and based on any
@@ -420,14 +420,14 @@
             <li><b>LIS Process: </b>The LIS shall report the reflexed test as described <a href="#reflexprocess">above</a>:
             </li>
          </ul>
-         <a name="epiquestions"></a>
+         <a id="epiquestions"></a>
          <h3>Epidemiological important information from Ask at Order Entry responses</h3>
          <p>There are several common data elements that have been identified as important data elements for Public Health laboratory reporting that do not have a supported field in the ELR251 message. This data may be available in the Lab Sender system as Ask at Order Entry (AOE) responses for a particular test order.  See <a href="uslaborder-guide.html#aoe">Ask on Order Questions</a> in USLabOrder.  For FHIR-ELR the appropriate AOE answers should be sent along with the actual results as DiagnosticReport.result elements. </p>
-         <a name="reflabs"></a>
+         <a id="reflabs"></a>
          <h3>Reference test results</h3>
          <p>The Observation.performer shall be the laboratory where the reportable laboratory results originated. There may be occasions when the sending laboratory needs to transmit and ELR message for reportable results that did not originate from their facility. For example a specimen may be forwarded from one laboratory to a reference lab or to another lab as a "pass-through" test. The criterion for reporting results that did not originate with the sender is subject to the discretion of the local public health jurisdiction.</p>
          <!-- EH not needed: 8.3 How to populate CWE datatype flavors -->
-         <a name="clia"></a>
+         <a id="clia"></a>
          <h3>Clinical Laboratory Improvement Amendments Considerations </h3>
          <p>In the United States, clinical laboratory testing of human specimens is regulated by the Clinical
             Laboratory Improvements Amendments of 1988 (CLIA). Several sections of the regulations
@@ -536,7 +536,7 @@
             </tr>
          </table>
          -->
-         <a name="clsi-definitions"></a>
+         <a id="clsi-definitions"></a>
          <h3>CLSI Definitions - Quantitative, Semi-quantitative, Qualitative Results </h3>
          <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">defnitions</a> were derived from the CLSI website:
          </p>
@@ -590,7 +590,7 @@
                </ul>
             </li>
          </ul>
-         <a name="glossary"></a>
+         <a id="glossary"></a>
          <h3>Glossary</h3>
          <ul>
             <li><b>Analyte:  </b>Component represented in the name of a measurable quantity. It is the most granular level at which

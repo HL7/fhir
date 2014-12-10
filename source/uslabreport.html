@@ -7,16 +7,16 @@
    <body>
       [%file newnavbar%]
       <div class="col-9">
-         <a name="USLabReport"> </a> 
+         <a id="USLabReport"> </a>
         <p>Published by:  HL7 Orders and Observations Workgroup</p>
 		<p>Primary Author/Editor:  Eric M Haas, Health eData Inc.</p>
          <h2>US Laboratory Report Implementation</h2>
          <p>
             The <i>US Laboratory Report Implementation (USLabReport)</i> consists of the guidance documentation,  profiles, operations, value sets and conformance
-            statements it defines.  This implementation has been prepared as a U.S. Realm Specification on behalf of the HL7 Orders and Observation Workgroup.   
+            statements it defines.  This implementation has been prepared as a U.S. Realm Specification on behalf of the HL7 Orders and Observation Workgroup.
          </p>
 
-    <b>Laboratory Test Reporting in the US Realm ambulatory care setting (USLab Report) -</b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for reporting clinical laboratory results to ordering providers.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Lab+Results+Interface+(LRI)+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Results Interface (LRI) Initiative</a> and the<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=59"> HL7 V3 Lab Normative Standard </a>.  However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.  
+    <b>Laboratory Test Reporting in the US Realm ambulatory care setting (USLab Report) -</b> This use case is based upon upon existing regulatory requirements for Laboratories and Electronic Health Record Systems (EHR-S) for reporting clinical laboratory results to ordering providers.  The content has been modeled after the joint HL7 and <a href="http://wiki.siframework.org/Lab+Results+Interface+(LRI)+Initiative">The Standards and Interoperability (S&amp;I) Framework Laboratory Results Interface (LRI) Initiative</a> and the<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=59"> HL7 V3 Lab Normative Standard </a>.  However, much of the content is likely to be useable outside the ambulatory space and in other jurisdictions.
                <h4><a href="USLabReport-guide.html">USLabReport Documentation</a></h4>
                <ul>
             <li><a href="USLabReport-guide.html#purpose">Purpose</a>- How this project came to be and what it is trying to achieve</li>
@@ -24,39 +24,39 @@
             <li><a href="USLabReport-guide.html#keytechdecisions">Key Technical Decisions</a>- List of key technical decisions in creating this guide</li>
             <li><a href="USLabReport-guide.html#addlguidance">Additional Guidance</a>-Information on Add-on and Reflex testing ( Including Culture and Sensitivities),  CLIA, and Glossary of laboratory terms defined for this implementation</li>
             </ul>
- 
+
          <h3>Draft for Comment Ballot</h3>
          <p>
             This guide will be balloted together with the FHIR specification itself as part of the
             second FHIR DSTU as part of the December-January ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
          </p>
-         
+          <p><b>  Questions for Balloters:</b></p>
+		             <ol>
+		             <li>Should this implementation support all ways to exchange resources which include REST (current focus), Documents, Messaging, and Services?</li>
+		             <li>Considering the scope and use case are there any important omissions from this implementation?</li>
+
+		             <li>Are there any operations that <i>USLabResult</i> should consider ( see below )?</li>
+		             <li>What are reasonable conformance expectations including the concept of must support for profiles ( see conformance section below)?</li>
+		            <li> Comments regarding organization and design of the implementation?</li>
+		            </ol>
+
+
          <h3>Specification</h3>
          <p>
-            The <i>USLabReport</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard. 
-            Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+            The <i>USLabReport</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.
+            Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>,
             <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. apply.
          </p>
-       
+
          <p>  <b>Profiles</b> -The current focus of implementing <i>USLabReport</i> is using a FHIR <a href="bundle.html">Bundle Resource</a> <!-- create profiles for bundles too --> to exchange a <a href="diagnosticreport.html">DiagnosticReport Profile</a> and the Resource Profiles it references.  This FHIR bundle completely defines the laboratory results report.  The Resource Profiles that may be used in the bundle are outlined below: (This list is not meant to be exhaustive as additional resources may also to be used)</p>
          <ul>
-          <li><a href="do-uslab.html">US Lab DiagnosticReport</a> constrains and extends <a href="diagnosticreport.html">DiagnosticReport</a> which is used to define the laboratory results report.   This Resources references the following profiles:
+          <li><a href="dr-uslab.html">US Lab DiagnosticReport</a> constrains and extends <a href="diagnosticreport.html">DiagnosticReport</a> which is used to define the laboratory results report.   This Resources references the following profiles:
           <ul>
 			<li><a href="patient-uslab.html">USlabPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used as the subject of the report.  .</li>
-<!--  EH for PH profile 			
-			<li><a href="patient-uslab.html">USlabPHPatient</a> constrains and extends <a href="patient.html">Patient</a> which is used the subject of the report for use cases where additional patient information is needed, such as for tests that may be reportable to public health.</li>
-			<li><a href="pract-uslab.html">USlabPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> is used to define the laboratory contact for the report.</li>
 
-			<li><a href="pract-uslab.html">USlabPHPractitioner</a> constrains and extends <a href="practitioner.html">Practitioner</a> which is defined for use cases where additional provider information is needed, such as for tests that may be reportable to public health.  This Resource references the following profile:
-			<ul>
-					<li><a href="org-uslab.html">USLabReportFacility</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the orderer organizaton.</li>
-			</ul>
-		
-</li>
--->
           <li><a href="do-uslab.html">US Lab DiagnosticOrder</a> constrains and extends <a href="diagn,/osticorder.html">DiagnosticOrder</a> which is used to define the laboratory order.   This Resources references these <a href="uslaborder.html#doprofiles">USLabOrder Profiles</a></li>
 			<li><a href="spec-uslab.html">USlabSpec</a> constrains and extends <a href="specimen.html">Specimen</a> which is used to define what, when, and how the specimen was collected.</li>
-			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for recording laboratory observations. 
+			<li><a href="obs-uslab.html">USLabObsCode | USLabObsQuantity | USLabObsOther | USLabObsRatio</a> constrains and extends <a href="observation.html">Observation</a> which are used to support the various result types for recording laboratory observations.
 						<ul>
 					<li><a href="org-uslab.html">USLabPerformingLab</a> constrains and extends <a href="organization.html">Organization</a> which is used to define a the organization that is responsible for the observation.</li>
 			</ul>
@@ -67,47 +67,20 @@
 		</ul>
 		</li>
 		</ul>
-         <!--
-            <li><a href="attachment.html">Attachment</a> is used to provide PDF and CDA attachments for supplying results, previous results or clinically relevant information.</li>
-            <li><a href="condition.html">Condition</a> is used to record reasons for performing the requested test and possibly other clinically relevant information to the laboratorian or pathologist.</li>
-            <li><a href="conformance.html">Conformance </a>is used to define additional constraints </li>
-            <li><a href="diagnosticorder.html">DiagnosticOrder</a> is used to define the laboratory order</li>
-            <li><a href="diagnosticreport.html">DiagnosticReport</a> is used to define the laboratory results report</li>
-            <li><a href="observation.html">Observation</a> is used to record individual test measurements or interpretations, or other clincally relevant observations</li>
-            <li><a href="organization.html">Organization</a> is used to define the provider's office, clinic, lab or hospital.</li>
-            <li><a href="media.html">Media</a> is used to provide images for results</li>
-            <li><a href="patient.html">Patient</a> is used to define the patient</li>
-            <li><a href="practitioner.html">Practitioner</a> is used to define the provider who ordered the lab test(s)</li>
-            <li><a href="specimen.html">Specimen</a> is used to define the what when and how the specimen was collected</li>
-            <li><a href="valueset.html">Value Set</a> is used to define allowed values for data elements</li>
-        -->
 
- 
+
+
 <p>
 In addition to defining the the <i>USLabReport</i> bundle this implementation consists of the following components:
 </p>
-        
+
          <ul>
-          <!--
-            <li>
-               <b>USLab Implementation profiles</b> - Profiles on the eight FHIR resources used to support the IG requirements:
-               <ul>
-                  <li><a href="cond-uslab.html">Condition</a> Constraints and extensions for providing condition information for laboratory ordering</li>
-                  <li><a href="do-uslab.html">DiagnosticOrder</a> Constraints and extensions for the laboratory ordering</li>
-                  <li><a href="dr-uslab.html">DiagnosticReport</a> Constraints and extensions for laboratory results reporting</li>
-                  <li><a href="obs-uslab.html">Observation</a> Constraints and extensions for laboratory test and ask at order questions (AOE)</li>
-                  <li><a href="patient-uslab.html">Patient</a> Constraints and extensions for patient demographic information for laboratory ordering and resulting</li>
-                  <li><a href="pract-uslab.html">Practitioner</a> Constraints and extensions for the test orderer information and nonordering provider information</li>
-                  <li><a href="org-uslab.html">Organization</a> Constraints and extensions to define the orderer's organization, the performing laboratory, and third party organization. </li>
-                  <li><a href="spec-uslab.html">Specimen</a> Constraints and extensions to define the specimen attributes for laboratory ordering</li>
-               </ul>
-            </li>
-		  -->
+
             <li>
             <b>Operations</b> -<a href="#todo">Some USLabReport Operation</a> - Question for balloters are there any operations that <i>USLabReport</i> should consider?
            </li>
            <li>
-          
+
                <b>Conformance statements</b> - Definitions for the expected capabilities of each of the actors involved supporting <i>USLabReport</i>  functionality:
                <ul>
                <!--
@@ -116,26 +89,40 @@ In addition to defining the the <i>USLabReport</i> bundle this implementation co
              -->
                   <li><a href="conformance-uslabreport-sender.html"><i>USLabReport</i> sender conformance</a></li>
                   <li><a href="conformance-uslabreport-receiver.html"><i>USLabReport</i> receiver conformance</a></li>
-			
+
                </ul>
             </li>
             <li>
                <b>Value Sets</b> - <a href="list-uslab-valuesets.html">USLab Value Sets</a>  lists the additional Value Set bindings created for the USLabOrder and <i>USLabReport</i> Implementations.
-               
+
             </li>
                         <li>
                <b>Mappings</b> - <a href="conceptmap-lri-uslabreport.html">LRI to USLabReport Concept Codes Cross-mapping</a> are translation of  the concept codes for LRI to <i>USLabReport</i> - Note to balloters this is a stub entry for future work.
                </li>
-            
+
             <li>
-               <b>Examples</b> - <a href="bundle-uslabreport-example.xml">US Lab Report Example</a>  is an examples Instance of <i>USLabReport</i> Resource Bundle.  Note to balloters these have not yet been validated by generated schema and are provided as informational only. 
-               <!--
-               <ul>
-                  <li><a href="#todo">Some USLabReport Bundle example </a> - todo</li>
-                    <li><a href="#todo">Some USLabReport Bundle example </a> - todo</li>
-                     <li><a href="#todo">Some USLabReport Bundle example </a> - todo</li>
-               </ul>
-				-->
+			               <b>Examples</b> - Example instances of <i>USLabReport</i> Resources:  Note to balloters these have not yet been validated by generated schema and are provided as informational only:
+
+			               <ul>
+							<li><a href="do-uslab-example1.html">USLab DiagnosticOrder Example</a></li>
+							<li><a href="dr-uslab-example1.html">USLab DiagnosticReport Example</a></li>
+							<li><a href="patient-uslab-example1.html">USLab Patient Example</a></li>
+							<li><a href="patient-uslab-example2.html">USLab PHPatient Example</a></li>
+							<li><a href="pract-uslab-example1.html">USLab Practitioner Example</a></li>
+							<li><a href="pract-uslab-example2.html">USLab PHPractitioner Example</a></li>
+							<li><a href="pract-uslab-example3.html">USLab Practitioner Example</a></li>
+							<li><a href="org-uslab-example1.html">USLab Ordering Organization Example</a></li>
+							<li><a href="org-uslab-example2.html">USLab Copy to Organization Example</a></li>
+							<li><a href="org-uslab-example3.html">USLab Performing Lab Example</a></li>
+							<li><a href="obs-uslab-example1.html">USLab Quantitative Observation Example</a></li>
+							<li><a href="obs-uslab-example2.html">USLab Coded Observation Example</a></li>
+							<li><a href="obs-uslab-example3.html">USLab Other (string) Observation Example</a></li>
+							<li><a href="obs-uslab-example4.html">USLab Ratio Observation Example</a></li>
+							<li><a href="obs-uslab-example5.html">USLab Quantitative Observation Example</a></li>
+							<li><a href="cond-uslab-example1.html">USLab Condition Example</a></li>
+							<li><a href="spec-uslab-example1.html">USLab Specimen Example</a></li>
+			               </ul>
+
             </li>
          </ul>
       </div>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+	<id value="uslaborder-receiver"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
@@ -6,7 +8,8 @@
 			<p>(Requirements Definition)</p>
 			<p>Published: 2014-12-02 (draft)</p>
 			<p>Published by: <b>
-					<a href="http://www.hl7.org/">HL7 Orders and Observation Workgroup</a></b>  Primary Author: Eric Haas  Health eData Inc
+					<a href="http://www.hl7.org/">HL7 Orders and Observation Workgroup</a>
+				</b>  Primary Author: Eric Haas  Health eData Inc
 				</p>
 			<p>This profile defines the expected capabilities of the USLabOrder Receiver actor when conforming to the <a href="uslaborder.html">The US Receiver Order Implementation (USLabOrder)</a>.  This actor is the recipient/filler of a laboratory test order request and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabOrder guide.</p>
 			<h2>General</h2>
@@ -23,14 +26,14 @@
 				</tbody>
 			</table>
 			<h2>REST  behavior</h2>
-						<p>
+			<p>
 				<b>Mode:</b> Server
 			</p>
-			<p>This conformance resource assumes the USLabOrder Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabOrder Receiver MUST support querying one or more resources outlined by the <a href="uslaborder.html">USLabOrder Guide</a>. The USLabOrder Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
+			<p>This conformance resource assumes the USLabOrder Receiver is the server, in other words, operating in 'Pull'  or 'Push/Pull' RESTful interface.  The USLabOrder Receiver MUST support querying one or more resources outlined by the <a href="uslaborder-guide.html">USLabOrder Guide</a>. The USLabOrder Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
 			<p>
 				<b>Security:</b>
 			</p>
-			<p>Implementations must meet the security requirements documented in the <a href="uslaborder.html">USLabOrder Guide assumptions</a>.</p>
+			<p>Implementations must meet the security requirements documented in the <a href="uslaborder-guide.html#assumptions">USLabOrder Guide assumptions</a>.</p>
 			<h3>Summary</h3>
 			<table class="grid">
 				<thead>
@@ -158,7 +161,7 @@
 			<h4>Search</h4>
 			<p>Supported Includes: DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc</p>
 			<h2>REST  behavior</h2>
-						<p>
+			<p>
 				<b>Mode:</b> Client
 			</p>
 			<p>The following conformance rules assumes the USLabOrder Receiver is the client, in other words, operating in 'Push'  RESTful interface.  The USLabOrder Receiver MUST support querying one or more resources outlined by the <a href="uslaborder.html">USLabOrder Guide</a>. The USLabOrder Receiver MUST use all the vocabularies and value set constraints defined by the individual resource profiles used by USLabOrder. The USLabOrder Receiver MUST implement REST behavior according to the <a href="http.html">FHIR specification</a> and MUST be able to handle errors gracefully from Query Responders who may not support the submitted query.</p>
@@ -294,7 +297,6 @@
 			<p>Supported Includes: DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc</p>
 		</div>
 	</text>
-	<id value="uslaborder-receiver"/>
 	<!-- EH:   this is the SDC  template for conformance examples which I will run to generate the text-->
 	<name value="USLabOrder Receiver"/>
 	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
@@ -380,10 +382,10 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         <code value="delete"/>
         <documentation value="Allows removal of an existing DiagnosticOrder.  Servers may choose to not support deletions or may limit deletions to DiagnosticOrder meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
       </interaction -->
-			<!-- EH  flags for support for versioning, read history, update create 
+			<!-- EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version"-->
 			<searchInclude value="DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc"/>
-			<!-- EH: comment out for now 
+			<!-- EH: comment out for now
 		<searchParam-->
 			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
@@ -463,11 +465,11 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         <code value="delete"/>
         <documentation value="Allows removal of an existing DiagnosticOrder.  Servers may choose to not support deletions or may limit deletions to DiagnosticOrder meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc."/>
       </interaction -->
-			<!-- EH  flags for support for versioning, read history, update create 
+			<!-- EH  flags for support for versioning, read history, update create
 		<versioning value="versioned|no-version"-->
 			<searchInclude value="DiagnosticOrder.subject, DiagnosticOrder.orderer, DiagnosticOrder.supportingInformation, DiagnosticOrder.specimen, DiagnosticOrder.uslabcc"/>
 			<!-- How do we  do nested includes  ie  DiagnosticOrder.orderer (Practitioner.organization)  -->
-		<!-- EH: comment out for now 
+			<!-- EH: comment out for now
 		<searchParam-->
 			<!-- EH: comment out for now extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>

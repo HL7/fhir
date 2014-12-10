@@ -7,8 +7,8 @@
    <body>
       [%file newnavbar%]
       <div class="col-9">
-         <a name="usreport-guide"> </a>
-         <a name="purpose"></a>
+         <a id="usreport-guide"> </a>
+         <a id="purpose"></a>
          <h2>Purpose</h2>
          <p>
             The FHIR USLab Report Implementation focuses on identifying the requirements, specifications
@@ -22,7 +22,7 @@
             governance. Future versions of this implementation may harmonize with existing guides to extend
             interoperability of laboratory results across care settings, e.g., acute care and public health.
          </p>
-         <a name="audience"></a>
+         <a id="audience"></a>
          <h2>Audience</h2>
          <p>
             This guide is designed for use by analysts and developers who require guidance on FHIR resources, elements and specific extensions
@@ -32,7 +32,7 @@
          <!-- EH not needed
             section 1.2.1  RELEVANT LABORATORY IMPLEMENTATION GUIDES
             section  1.2.2  REQUISITE KNOWLEDGE  -->
-         <a name="conventions"></a>
+         <a id="conventions"></a>
          <h2>Conventions</h2>
          <p>
             This guide adheres to the following conventions:
@@ -76,9 +76,9 @@
          <!--  EH not needed : <h3>1.3.2 MESSAGE ELEMENT ATTRIBUTES </h3>-->
          <!--  EH not needed : 1.3.3  KEYWORDS -->
          <!--  EH not needed : 1.3.4  USAGE CONFORMANCE TESTING RECOMMENDATIONS  -->
-         <a name="keytechdecisions"></a>
+         <a id="keytechdecisions"></a>
          <h2>Key Technical Decisions</h2>
-         <a name="profile"></a>
+         <a id="profile"></a>
          <h3>Profile And Component Architecture </h3>
          <!-- also in uslaborder.html-->
          <p>This guide uses FHIR profiles on the following resource to define a minimum set of requirements to enable the
@@ -112,14 +112,14 @@
             The GU/NG profile definition discusses use of OIDs for identifiers' assigning authority only. Other
             identifiers could use OIDs as well for the assigning authority. Note that OIDs are not intended to be used
             to identify a coding system as referenced in CWE-03/CWE-06 and further enumerated in . -->
-         <a name="vocabstandards"></a>
+         <a id="vocabstandards"></a>
          <h3>Use Of Vocabulary Standards</h3>
          <p>This guide calls for specific vocabulary standards for the exchange of laboratory information such as
             LOINC and SNOMED. Standard vocabularies, particularly coded laboratory tests and their results,
             enable automated decision support for patient healthcare, as well as for public health surveillance of
             populations. Value Sets resource are provided as part of this implementation.
          </p>
-         <a name="snapshot"></a>
+         <a id="snapshot"></a>
          <h3>Snapshot Mode </h3>
          FHIR only functions using snapshot mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  If a correction and/or status update to Obsveration Resource is necessary, the DiagnosticReport with all references to all Obsveration Resource, even if previously
          sent, shall be resent with the correction and/or current status and/or current values. For example,
@@ -135,7 +135,7 @@
          <!--EH not needed
             1.5  Referenced Profiles - Antecedents
             -->
-         <a name="implementationscope"></a>
+         <a id="implementationscope"></a>
          <h3>Scope Of Implementation</h3>
          <!--EH not needed: The base standard indicates that receiving applications "…shall process (save/print/archive/etc.)…". For
             order-specific segments, e.g., ORC, OBR, SPM, this typically means saving that data. For other
@@ -145,17 +145,17 @@
          <p>Due to receiving system variations and need, this guide does not specifically indicate for each field
             whether to store it or not. This is left to the individual system's scope and purpose.
          </p>
-         <a name="usecase"></a>
+         <a id="usecase"></a>
          <h2>Use Case - Ambulatory Care Setting</h2>
          <p>
             This use case was developed as a collaborative effort between the HHS/ONC Standards and
             Interoperability Framework Laboratory Results Initiative, the California Health Care Foundation, and the
             HL7 Orders and Observations Work Group.
          </p>
-         <a name="scope"></a>
+         <a id="scope"></a>
          <h3>Scope </h3>
          <p>The scope is the sending of lab results from a laboratory to an ambulatory provider. </p>
-         <a name="inscope"></a>
+         <a id="inscope"></a>
          <h4>In Scope</h4>
          <ul>
             <li>Defining the core data elements required for ambulatory care clinical laboratory test results.</li>
@@ -175,7 +175,7 @@
             <li>Covering all <a href="#addlguidance">CLIA reporting requirements</a>.</li>
             <li>Receiving of laboratory results as a non-order placer. </li>
          </ul>
-         <a name="outscope"></a>
+         <a id="outscope"></a>
          <h4>Out of Scope</h4>
          <ul>
             <li>Specifications and implementation guidance on laboratory ordering transactions. ( see <a href="uslaborder-guide.html">USLabOrder</a></li>
@@ -193,7 +193,7 @@
                <li>Results not transmitted using a standardized structured format.</li>
                -->
          </ul>
-         <a name="actors"></a>
+         <a id="actors"></a>
          <h2>Actors</h2>
          <p>
             There are two actors that have responsibilities related to the conformance profiles defined in this
@@ -208,13 +208,13 @@
                to "RESTful FHIR" and FHIR profiles defined in this guide. This actor is implied within FHIR. ( i.e. not explicitly referenced in the DiagnosticReport Resource Instance or the linked resources).
             </li>
          </ul>
-         <a name="usecasesandcontext"></a>
+         <a id="usecasesandcontext"></a>
          <h2>Orders for Ambulatory Care Use Case and Context Diagrams </h2>
          <p><b>Figure 2-1. Use Case Diagram</b></p>
          <img alt="Figure 2-1. Use Case Diagram" src="uslaborder-usecasediagram"/>
          <p><b>Figure 2-2. Context Diagram</b></p>
          <img alt="Figure 2-2. Context Diagram" src="uslaborder-contextdiagram"/>
-         <a name="userstory"></a>
+         <a id="userstory"></a>
          <h3>User Story</h3>
          <p>
             A Provider (orderer) may enter a laboratory order into an ambulatory EHR-S. A laboratory
@@ -234,7 +234,7 @@
             The EHR-S incorporates the results into the patient's electronic record. The provider logs into his/her
             EHR-S and views the laboratory results in order to inform patient care decisions.
          </p>
-         <a name="assumptions"></a>
+         <a id="assumptions"></a>
          <h4>Use Case Assumptions</h4>
          <ul>
             <li>Providers securely access clinical information through an EHR-S.</li>
@@ -276,7 +276,7 @@
             </li>
             <li>Laboratories meet accreditation criteria according to jurisdiction requirements or agency criteria. </li>
          </ul>
-         <a name="preconditions"></a>
+         <a id="preconditions"></a>
          <h4>Pre-Conditions</h4>
          <ul>
             <li>An order has been generated by an Ordering Provider for one or more laboratory tests results to
@@ -312,7 +312,7 @@
             </li>
             <li>The laboratory result is verified and ready for release. </li>
          </ul>
-         <a name="postconditions"></a>
+         <a id="postconditions"></a>
          <h4>Post-Conditions</h4>
          <ul>
             <li>Laboratory results are accurately reported and successfully transmitted electronically from the
@@ -332,7 +332,7 @@
          <img alt="Electronic Ordering Of New Or Scheduled
             Laboratory Test(S) " src="todo"/>
          <!--EH:  need to rework for REST  acknowledgment codes -->
-         <a name="errorhandling"></a>
+         <a id="errorhandling"></a>
          <h2>Error Handling</h2>
           <p>Refer to the FHIR Specification on <a href="http.html#httpstatuscodes"> REST status codes</a> and the use of the <a href="operationoutcome.html">OperationOutcome Resource</a> when further information about the transaction error is needed.  Note to balloters: The error handling specifications are currently not fully defined for this implementation.</p>
          <!--EH needed?  these are covered by functional requirments  ? 2.6.2 ERROR HANDLING -->
@@ -340,7 +340,7 @@
          <!--- EH  Not needed: 4  DATA TYPES  ( covered in spec and defined extensions-->
          <!--  EH  Not needed: 5  MESSAGES-->
          <!--EH not needed  7 LABORATORY RESULT MESSAGE DEVELOPMENT-->
-         <a name="codesystems"></a>
+         <a id="codesystems"></a>
          <h2>Code Systems And Value Sets</h2>
          <p>Successful message implementation requires that transmitted messages (message instances) contain
             valid values for coded fields. For further discussion on <a href="terminologies.html">Using codes in FHIR </a> refer to the FHIR specification.
@@ -380,9 +380,9 @@
          </p>
          <!-- EH  8   ADDITIONAL IMPLEMENTATION GUIDANCE - REFLEX AND CULTURE/SUSCEPTIBILITY TESTING -->
          <!-- EH  9.   ADDITIONAL IMPLEMENTATION GUIDANCE - OTHER -->
-         <a name="addlguidance"></a>
+         <a id="addlguidance"></a>
          <h2>Additional Implementation Guidance </h2>
-         <a name="reflex"></a>
+         <a id="reflex"></a>
          <h3>Confirmatory and Reflex Testing ( Including Culture/Susceptibility Testing)</h3>
          <p><b>Definition: </b>  Additional laboratory testing included in the original test request by reference to specific
             follow-up testing, e.g. "Urinalysis w/Culture Reflex" as opposed to "Urinalysis" ordered as a
@@ -402,7 +402,7 @@
                CMS auditing purposes.
                </li>
                <li>
-               <a name="reflexprocess"></a>
+               <a id="reflexprocess"></a>
                <b> LIS Process: </b>The LIS shall report the reflexed test as one of the following:
                <ol>
                   <li>Additional results within the same DiagnosticReport.referencing the same DiagnosticOrder from the original order request in the DiagnosticReport.requestDetail element</li>
@@ -413,7 +413,7 @@
          </ul>
          <p>An <a href="todo">Culture and Susceptibility example</a> example is provided here for the scenario in which a urine cultire results in the identification of the pathogens:  E.coli, x and y and a susceptibilty is performed on all three pathogens.  todo..
          </p>
-            <a name="addon"></a>
+            <a id="addon"></a>
          <h3>Add-On Testing</h3>
          <p><b>Definition: </b> Additional laboratory testing is requested by an authorized provider (as defined by CLIA
             and state law) on an existing specimen after the original test request has been submitted to the laboratory. The decision to request additional testing is individual provider driven and based on any
@@ -434,7 +434,7 @@
             <li><b>LIS Process: </b>The LIS shall report the reflexed test as described <a href="#reflexprocess">above</a>:
             </li>
          </ul>
-         <a name="clia"></a>
+         <a id="clia"></a>
          <h3>Clinical Laboratory Improvement Amendments Considerations </h3>
          <p>In the United States, clinical laboratory testing of human specimens is regulated by the Clinical
             Laboratory Improvements Amendments of 1988 (CLIA). Several sections of the regulations
@@ -542,7 +542,7 @@
                </td>
             </tr>
          </table>
-         <a name="clsi-definitions"></a>
+         <a id="clsi-definitions"></a>
          <h3>CLSI Definitions - Quantitative, Semi-quantitative, Qualitative Results </h3>
          <p>The following <a href="http://www.clsi.org/Content/NavigationMenu/Resources/HarmonizedTerminologyDatabase/Harmonized_Terminolo.htm">defnitions</a> were derived from the CLSI website:
          </p>
@@ -596,7 +596,7 @@
                </ul>
             </li>
          </ul>
-         <a name="glossary"></a>
+         <a id="glossary"></a>
          <h3>Glossary</h3>
          <ul>
             <li><b>Analyte:  </b>Component represented in the name of a measurable quantity. It is the most granular level at which
