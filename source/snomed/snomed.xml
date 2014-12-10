@@ -3695,6 +3695,11 @@
     <display value="Cimetidine (substance)"/>
     <display value="Cimetidine"/>
   </concept>
+  <concept id="373930000" display="Cognitive function finding (finding)">
+    <display value="Cognitive function finding (finding)"/>
+    <display value="Cognitive function finding"/>
+    <display value="Cognitive function observations"/>
+  </concept>
   <concept id="373933003" display="Acute onset (qualifier value)">
     <display value="Acute onset (qualifier value)"/>
     <display value="Acute onset"/>
@@ -4822,6 +4827,10 @@
   <concept id="445085009" display="Tunneled central venous catheter (physical object)">
     <display value="Tunneled central venous catheter (physical object)"/>
     <display value="Tunneled central venous catheter"/>
+  </concept>
+  <concept id="445518008" display="Age at onset of clinical finding (observable entity)">
+    <display value="Age at onset of clinical finding (observable entity)"/>
+    <display value="Age at onset of clinical finding"/>
   </concept>
   <concept id="44567001" display="Tracheal structure (body structure)">
     <display value="Tracheal structure"/>

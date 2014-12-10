@@ -844,6 +844,8 @@ public class SpreadsheetParser {
 				String name = sheet.getColumn(row, "Name");
 				if (name != null && !name.equals("") && !name.startsWith("!")) {
 				  String id  = sheet.getColumn(row, "Identity");
+          if (id == null || id.equals(""))
+            throw new Exception("Example " + name + " has no identity parsing " + this.name);
 					String desc = sheet.getColumn(row, "Description");
 					if (desc == null || desc.equals(""))
 						throw new Exception("Example " + name + " has no description parsing " + this.name);
@@ -1181,7 +1183,11 @@ public class SpreadsheetParser {
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  
     parseExtensionElement(sheet, row, definitions, exe);
-    ex.setName(exe.getShortDefn());
+    String sl = exe.getShortDefn();
+    if (!Utilities.noString(sl)) 
+      ex.setName(sl);
+    if (!ex.hasName())
+      throw new Exception("Extension "+ex.getUrl()+" missing short label at "+getLocation(row));
     ex.setDescription(exe.getDefinition());
 
     ex.setPublisher(ap.metadata("author.name"));

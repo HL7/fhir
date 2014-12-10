@@ -77,6 +77,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     this.suppressLoincSnomedMessages = suppressLoincSnomedMessages;
   }
 
+  public boolean isRequireResourceId() {
+    return requiresResourceId;
+  }
+  public void setRequireResourceId(boolean requiresResourceId) {
+    this.requiresResourceId = requiresResourceId;
+  }
   
   // public API
 
@@ -101,18 +107,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   
   @Override
   public void validate(List<ValidationMessage> errors, Element element) throws Exception {
-    validateResource(errors, "", new DOMWrapperElement(element), null);
+    validateResource(errors, "", new DOMWrapperElement(element), null, false);
   }
   @Override
   public void validate(List<ValidationMessage> errors, Element element, String profile) throws Exception {
     Profile p = context.getProfiles().get(profile);
     if (p == null)
       throw new Exception("Profile '"+profile+"' not found");
-    validateResource(errors, "", new DOMWrapperElement(element), p);
+    validateResource(errors, "", new DOMWrapperElement(element), p, false);
   }
   @Override
   public void validate(List<ValidationMessage> errors, Element element, Profile profile) throws Exception {
-    validateResource(errors, "", new DOMWrapperElement(element), profile);
+    validateResource(errors, "", new DOMWrapperElement(element), profile, false);
   }
   
   // implementation
@@ -261,6 +267,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private ProfileUtilities utilities;
   private ValueSetExpansionCache cache;
   private ExtensionDefinitionResult fakeExtension = new ExtensionDefinitionResult(null, null, null);
+  private boolean requiresResourceId;
   
   public InstanceValidator(WorkerContext context) throws Exception {
     super();
@@ -277,7 +284,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   /*
    * The actual base entry point
    */
-  private void validateResource(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile) throws Exception {
+  private void validateResource(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, boolean contained) throws Exception {
     // getting going - either we got a profile, or not.
     boolean ok;
     if (element.doesNamespace()) {
@@ -293,8 +300,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     } else {
       throw new Error("not done yet");
     }
-    if (ok) 
+    if (ok) {
+      rule(errors, "invalid", path + "/f:"+element.getName(), (element.getNamedChild("id") != null) || (!(contained || requiresResourceId)), "Resource has no id");
       start(errors, element, profile);
+    }
   }
   
   // we assume that the following things are true: 
@@ -614,7 +623,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String resourceName = e.getName();
     Profile profile = this.context.getProfiles().get("http://hl7.org/fhir/Profile/"+resourceName);
     if (rule(errors, "invalid", path + "/f:"+resourceName, profile != null, "No profile found for contained resource of type '"+resourceName+"'"))
-      validateResource(errors, path, e, profile);    
+      validateResource(errors, path, e, profile, true);    
   }
 
   private boolean typeIsPrimitive(String t) {

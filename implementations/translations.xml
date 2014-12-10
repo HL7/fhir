@@ -1001,6 +1001,9 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="fr">Une ressource est requise</translation>
         <translation lang="ru">Требуется ресурс</translation>
     </item>
+    <item id="MSG_RESOURCE_ID_MISMATCH">
+        <translation lang="en">Resource Id Mismatch</translation>
+    </item>
     <item id="MSG_RESOURCE_TYPE_MISMATCH">
         <translation lang="en">Resource Type Mismatch</translation>
         <translation lang="it">Tipo Risorsa non corrispondente</translation>

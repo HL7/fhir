@@ -28,6 +28,15 @@ public interface IResourceValidator {
   void setCheckDisplay(CheckDisplayOption checkDisplay);
 
   /**
+   * whether the resource must have an id or not (depends on context)
+   * 
+   * @return
+   */
+  boolean isRequireResourceId();
+  void setRequireResourceId(boolean requiresResourceId);
+  
+  
+  /**
    * Given a DOM element, return a list of errors in the resource
    * 
    * @param errors

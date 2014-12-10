@@ -2973,7 +2973,6 @@ public class Publisher implements URIResolver {
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document xdoc;
     String narrative = null;
-
     String n = e.getFileTitle();
 
 
@@ -2984,13 +2983,8 @@ public class Publisher implements URIResolver {
     // delete namespace crap
     xdoc = e.getXml() == null ? builder.parse(new CSFileInputStream(e.getPath())) : e.getXml();
     XmlGenerator xmlgen = new XmlGenerator();
-    if (xdoc.getDocumentElement().getLocalName().equals("feed"))
-      xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://www.w3.org/2005/Atom", xdoc.getDocumentElement()
+    xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement()
           .getLocalName());
-    else {
-      xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement()
-          .getLocalName());
-    }
 
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
@@ -3001,8 +2995,8 @@ public class Publisher implements URIResolver {
       XmlParser xml = new XmlParser();
       XhtmlNode combined = new XhtmlNode(NodeType.Element, "div");
       Resource rf = xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      if (rf.getId() == null)
-        throw new Exception("Resource in "+n + ".xml needs an id");
+      if (!page.getDefinitions().getBaseResources().containsKey(rf.getResourceType().toString()) && (!rf.hasId() || !rf.getId().equals(e.getId()) || Utilities.noString(e.getId())))
+        throw new Error("Resource in "+n + ".xml needs an id of value=\""+e.getId()+"\"");
       boolean wantSave = false;
       if (rf instanceof Bundle) {
         rt = ((Bundle) rf).getEntry().get(0).getResource().getResourceType().toString();
@@ -3683,6 +3677,7 @@ public class Publisher implements URIResolver {
     Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getWorkerContext());
     validator.setSuppressLoincSnomedMessages(true);
+    validator.setRequireResourceId(true);
     page.log(".... done", LogMessageType.Process);
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
@@ -3719,15 +3714,15 @@ public class Publisher implements URIResolver {
       page.log(" ...validate " + "profiles-types", LogMessageType.Process);
       validateXmlFile(schema, "profiles-types", validator, null);
 
-//      page.log(" ...validate " + "profiles-others", LogMessageType.Process);
-//      validateXmlFile(schema, "profiles-others", validator, null);
-//
-//      page.log(" ...validate " + "search-parameters", LogMessageType.Process);
-//      validateXmlFile(schema, "search-parameters", validator, null);
-//
-//      page.log(" ...validate " + "extension-definitions", LogMessageType.Process);
-//      validateXmlFile(schema, "extension-definitions", validator, null);
-//
+      page.log(" ...validate " + "profiles-others", LogMessageType.Process);
+      validateXmlFile(schema, "profiles-others", validator, null);
+
+      page.log(" ...validate " + "search-parameters", LogMessageType.Process);
+      validateXmlFile(schema, "search-parameters", validator, null);
+
+      page.log(" ...validate " + "extension-definitions", LogMessageType.Process);
+      validateXmlFile(schema, "extension-definitions", validator, null);
+
       page.log(" ...validate " + "valuesets", LogMessageType.Process);
       validateXmlFile(schema, "valuesets", validator, null);
 

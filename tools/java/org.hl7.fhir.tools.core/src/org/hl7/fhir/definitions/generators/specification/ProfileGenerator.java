@@ -492,7 +492,7 @@ public class ProfileGenerator {
 
   public SearchParameter makeSearchParam(Profile p, String rn, SearchParameterDefn spd) {
     SearchParameter sp = new SearchParameter();
-    sp.setId(rn.toLowerCase()+"-"+spd.getCode().replace("_", ""));
+    sp.setId(rn.toLowerCase()+"-"+spd.getCode().replace("_", "").replace("[", "").replace("]", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
     sp.setName(spd.getCode());
     sp.setPublisher(p.getPublisher());
