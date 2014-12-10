@@ -909,7 +909,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         String nf = n.replace("-", "_").replace("[x]", "x");
         String t = getTarget(p.getWorkingTargets());
         if (i == l) {
-          def.append("    "+prefix+getTitle(nf)+"); {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
+          def.append("    "+prefix+getTitle(nf)+"); {@enum.value \""+p.getCode()+"\" "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con2.append(" "+prefix+getTitle(nf)+");");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+");");
           con1.append("'"+defCodeType.escape(d)+"');");
@@ -918,7 +918,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           con7.append(""+t+");");
         }
         else {
-          def.append("    "+prefix+getTitle(nf)+", {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
+          def.append("    "+prefix+getTitle(nf)+", {@enum.value \""+p.getCode()+"\" "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con2.append(" "+prefix+getTitle(nf)+", ");
           con4.append(" SearchParamType"+getTitle(p.getType().toString())+", ");
           con1.append("'"+defCodeType.escape(d)+"',\r\n     ");
@@ -3113,7 +3113,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "procedure TFHIRXmlComposer.ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource: TFhirResource; links : TAdvStringMatch);\r\n"+
+        "procedure TFHIRXmlComposer.ComposeResource(xml : TXmlBuilder; resource: TFhirResource; links : TFhirBundleLinkList);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
             "    Raise Exception.Create('error - resource is nil');\r\n"+
@@ -3176,7 +3176,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource: TFhirResource; links : TAdvStringMatch);\r\n"+
+        "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; resource: TFhirResource; links : TFhirBundleLinkList);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
             "    Raise Exception.Create('error - resource is nil');\r\n"+
@@ -3201,7 +3201,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  TFHIRXmlComposer = class (TFHIRXmlComposerBase)\r\n"+
         "  protected\r\n"+
         srlsdefX.toString()+
-        "    procedure ComposeResource(xml : TXmlBuilder; statedType, id, ver : String; resource : TFhirResource; links : TAdvStringMatch); override;\r\n"+
+        "    procedure ComposeResource(xml : TXmlBuilder; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+
@@ -3214,7 +3214,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  TFHIRJsonComposer = class (TFHIRJsonComposerBase)\r\n"+
         "  protected\r\n"+
         srlsdefJ.toString()+
-        "    procedure ComposeResource(json : TJSONWriter; statedType, id, ver : String; resource : TFhirResource; links : TAdvStringMatch); override;\r\n"+
+        "    procedure ComposeResource(json : TJSONWriter; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
         "  end;\r\n\r\n";
   }
 

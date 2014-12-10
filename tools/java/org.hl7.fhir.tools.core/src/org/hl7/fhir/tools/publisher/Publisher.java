@@ -158,6 +158,7 @@ import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.ResourceType;
+import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
@@ -1662,6 +1663,7 @@ public class Publisher implements URIResolver {
       Bundle extensionsFeed = new Bundle();
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
+      extensionsFeed.setBase("http://hl7.org/fhir");
       extensionsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       Set<String> urls = new HashSet<String>();
       for (ExtensionDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
@@ -1674,6 +1676,23 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed);
       cloneToXhtml("extension-definitions", "Core Extension Definitions", false, "summary-instance");
       jsonToXhtml("extension-definitions", "Core Extension Definitions", resource2Json(extensionsFeed), "summary-instance");
+
+      Bundle searchParamsFeed = new Bundle();
+      searchParamsFeed.setId("extensions");
+      searchParamsFeed.setType(BundleType.COLLECTION);
+      searchParamsFeed.setBase("http://hl7.org/fhir");
+      searchParamsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
+        addSearchParams(searchParamsFeed, rd);
+      for (ResourceDefn rd : page.getDefinitions().getResources().values())
+        addSearchParams(searchParamsFeed, rd);
+      for (ConformancePackage cp : page.getDefinitions().getConformancePackages().values()) {
+        addSearchParams(searchParamsFeed, cp);
+      }
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.xml"), searchParamsFeed);
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.json"), searchParamsFeed);
+      cloneToXhtml("search-parameters", "Search Parameters Defined in FHIR", false, "summary-instance");
+      jsonToXhtml("search-parameters", "Search Parameters Defined in FHIR", resource2Json(searchParamsFeed), "summary-instance");
 
       // todo-bundle - should this be checked?
 //      int ec = 0;
@@ -1780,6 +1799,26 @@ public class Publisher implements URIResolver {
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
 
+
+  private void addSearchParams(Bundle bundle, ResourceDefn rd) {
+    if (rd.getConformancePack() == null) {
+      for (SearchParameterDefn spd : rd.getSearchParams().values()) {
+        Profile p = new Profile();
+        p.setPublisher("HL7 FHIR Project");
+        p.setName(rd.getName());
+        p.addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).makeSearchParam(p, rd.getName(), spd);
+        bundle.addEntry().setResource(sp);
+      }
+    } else
+      addSearchParams(bundle, rd.getConformancePack());
+  }
+
+  private void addSearchParams(Bundle bundle, ConformancePackage conformancePack) {
+    for (SearchParameter sp : conformancePack.getSearchParameters()) {
+     bundle.addEntry().setResource(sp);
+    }
+  }
 
   private void produceExtensionDefinition(ExtensionDefinition ed) throws FileNotFoundException, Exception {
     String filename = "extension-"+ed.getUrl().substring(40);

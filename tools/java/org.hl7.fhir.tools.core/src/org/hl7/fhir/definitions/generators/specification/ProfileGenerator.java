@@ -389,7 +389,7 @@ public class ProfileGenerator {
     names.addAll(r.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      makeSearchParam(pack, p, r.getName(), r.getSearchParams().get(pn));
+      pack.getSearchParameters().add(makeSearchParam(p, r.getName(), r.getSearchParams().get(pn)));
     }
     containedSlices.clear();
 
@@ -454,7 +454,7 @@ public class ProfileGenerator {
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      makeSearchParam(pack, p, resource.getName(), resource.getSearchParams().get(pn));
+      pack.getSearchParameters().add(makeSearchParam(p, resource.getName(), resource.getSearchParams().get(pn)));
     }
     reset();
     // ok, c is the differential. now we make the snapshot
@@ -490,9 +490,9 @@ public class ProfileGenerator {
     return null;
   }
 
-  private void makeSearchParam(ConformancePackage pack, Profile p, String rn, SearchParameterDefn spd) {
+  public SearchParameter makeSearchParam(Profile p, String rn, SearchParameterDefn spd) {
     SearchParameter sp = new SearchParameter();
-    sp.setId(rn.toLowerCase()+"-"+spd.getCode());
+    sp.setId(rn.toLowerCase()+"-"+spd.getCode().replace("_", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
     sp.setName(spd.getCode());
     sp.setPublisher(p.getPublisher());
@@ -508,7 +508,7 @@ public class ProfileGenerator {
       sp.setXpath(xpath);
     }
     // todo: SearchParameter.target
-    pack.getSearchParameters().add(sp);
+    return sp;
   }
 
 
