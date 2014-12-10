@@ -10,7 +10,7 @@
 	<status value="draft"/>
 	<compose>
 		<include>
-			<system value="http://snomed.info/sct/"/>
+			<system value="http://snomed.info/sct"/>
 		</include>
 		<include>
 			<system value="http://www.who.int/classifications/icf/en/"/>
