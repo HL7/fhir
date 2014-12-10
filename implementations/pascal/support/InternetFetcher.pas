@@ -35,12 +35,15 @@ Uses
   AdvObjects;
 
 Type
+  TInternetFetcherMethod = (imfGet, imfPost);
+
   TInternetFetcher = Class (TAdvObject)
   Private
     FURL: String;
     FBuffer: TAdvBuffer;
     FUsername: String;
     FPassword: String;
+    FMethod: TInternetFetcherMethod;
     procedure SetBuffer(const Value: TAdvBuffer);
     procedure SetPassword(const Value: String);
     procedure SetUsername(const Value: String);
@@ -57,6 +60,7 @@ Type
 
     Property Username : String read FUsername write SetUsername;
     Property Password : String read FPassword write SetPassword;
+    Property Method : TInternetFetcherMethod read FMethod write FMethod;
   End;
 
 Implementation
@@ -86,6 +90,7 @@ constructor TInternetFetcher.Create;
 begin
   inherited;
   FBuffer := TAdvBuffer.create;
+  FMethod := imfGet;
 end;
 
 destructor TInternetFetcher.Destroy;
@@ -116,6 +121,9 @@ begin
           oHTTP.URL.URI := url;
           oMem := TMemoryStream.Create;
           try
+            if FMethod = imfPost then
+              oHTTP.Post(url, oMem)
+            else
             oHTTP.Get(url, oMem);
             oMem.position := 0;
             FBuffer.Capacity := oMem.Size;
@@ -135,10 +143,13 @@ begin
           Try
             oHTTP.IOHandler := oSSL;
             oSSL.SSLOptions.Mode := sslmClient;
-            oSSL.SSLOptions.Method := sslvSSLv3;
+            oSSL.SSLOptions.Method := sslvTLSv1_2;
             oHTTP.URL.URI := url;
             oMem := TMemoryStream.Create;
             try
+              if FMethod = imfPost then
+                oHTTP.Post(url, oMem)
+              else
               oHTTP.Get(url, oMem);
               oMem.position := 0;
               FBuffer.Capacity := oMem.Size;

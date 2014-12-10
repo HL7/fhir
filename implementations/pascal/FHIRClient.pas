@@ -31,14 +31,11 @@ Type
     client : TIdHTTP;
     ssl : TIdSSLIOHandlerSocketOpenSSL;
     function serialise(resource : TFhirResource):TStream; overload;
-    function serialise(batch : TFhirAtomFeed):TStream; overload;
     function makeUrl(tail : String) : String;
     function makeUrlPath(tail : String) : String;
     function CreateParser(stream : TStream) : TFHIRParser;
     function exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
-    function fetchFeed(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TFHIRAtomFeed;
-    function fetchResource(url : String; verb : TFHIRClientHTTPVerb; source : TStream) : TFhirResource;
-    procedure parseCategories(categories : TFHIRAtomCategoryList);
+    function fetchResource(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TFhirResource;
     procedure encodeTags(tags : TFHIRAtomCategoryList);
     function makeMultipart(stream: TStream; streamName: string; params: TAdvStringMatch; var mp : TStream) : String;
   public
@@ -47,18 +44,18 @@ Type
     property url : String read FUrl;
 
 
-    procedure doRequest(request : TFHIRRequest; response : TFHIRResponse);
+//    procedure doRequest(request : TFHIRRequest; response : TFHIRResponse);
     procedure cancelOperation;
 
     function conformance : TFhirConformance;
-    function transaction(bundle : TFHIRAtomFeed) : TFHIRAtomFeed;
-    function createResource(resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry;
-    function readResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList = nil) : TFHIRAtomEntry;
-    function updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry; overload;
-    function updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry; overload; // version specific update - this is encouraged where possible
+    function transaction(bundle : TFHIRBundle) : TFHIRBundle;
+    function createResource(resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
+    function readResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList = nil) : TFHIRResource;
+    function updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource; overload;
+    function updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource; overload; // version specific update - this is encouraged where possible
     procedure deleteResource(atype : TFhirResourceType; id : String; tags : TFHIRAtomCategoryList);
-    function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRAtomFeed;
-    function searchPost(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch; resource : TFhirResource) : TFHIRAtomFeed;
+    function search(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch) : TFHIRBundle;
+    function searchPost(atype : TFhirResourceType; allRecords : boolean; params : TAdvStringMatch; resource : TFhirResource) : TFHIRBundle;
   end;
 
 implementation
@@ -90,32 +87,30 @@ end;
 
 
 
-function TFhirClient.transaction(bundle : TFHIRAtomFeed) : TFHIRAtomFeed;
+function TFhirClient.transaction(bundle : TFHIRBundle) : TFHIRBundle;
 Var
   src : TStream;
 begin
   src := serialise(bundle);
   try
-    result := fetchFeed(makeUrl(''), post, src);
+    result := fetchResource(makeUrl(''), post, src) as TFhirBundle;
   finally
     src.free;
   end;
 end;
 
 
-function TFhirClient.createResource(resource: TFhirResource; tags : TFHIRAtomCategoryList): TFHIRAtomEntry;
+function TFhirClient.createResource(resource: TFhirResource; tags : TFHIRAtomCategoryList): TFHIRResource;
 Var
   src : TStream;
 begin
   encodeTags(tags);
   src := serialise(resource);
   try
-    result := TFHIRAtomEntry.create;
+    result := nil;
     try
-      result.resource := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]), post, src);
+      result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]), post, src);
       result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-      result.links.AddValue('self', client.response.location);
-      parseCategories(result.categories);
       result.link;
     finally
       result.free;
@@ -125,13 +120,13 @@ begin
   end;
 end;
 
-function TFhirClient.updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry;
+function TFhirClient.updateResource(id : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
 begin
   result := updateResource(id, '', resource, tags);
 end;
 
 
-function TFhirClient.updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRAtomEntry;
+function TFhirClient.updateResource(id, ver : String; resource : TFhirResource; tags : TFHIRAtomCategoryList) : TFHIRResource;
 Var
   src : TStream;
 begin
@@ -141,12 +136,9 @@ begin
 
   src := serialise(resource);
   try
-    result := TFHIRAtomEntry.create;
+    result := nil;
     try
-      result.resource := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]+'/'+id), put, src);
-      result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-      result.links.AddValue('self', client.response.location);
-      parseCategories(result.categories);
+      result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]+'/'+id), put, src);
       result.link;
     finally
       result.free;
@@ -178,7 +170,7 @@ begin
     else
       comp := TFHIRXmlComposer.create('en');
     try
-      comp.Compose(result, '', '', '', resource, false, nil);
+      comp.Compose(result, resource, false, nil);
     finally
       comp.free;
     end;
@@ -198,27 +190,27 @@ begin
     result := result + params.KeyByIndex[i]+'='+EncodeMIME(params.ValueByIndex[i])+'&';
 end;
 
-function TFhirClient.search(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch): TFHIRAtomFeed;
+function TFhirClient.search(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch): TFHIRBundle;
 var
   s : String;
-  feed : TFHIRAtomFeed;
+  feed : TFHIRBundle;
 begin
 //    client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+id+'/history/'+ver);
-  result := fetchFeed(makeUrl(CODES_TFhirResourceType[aType])+'?'+encodeParams(params), get, nil);
+  result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'?'+encodeParams(params), get, nil) as TFHIRBundle;
   try
     s := result.links['next'];
     while AllRecords and (s <> '') do
     begin
-      feed := fetchFeed(s, get, nil);
+      feed := fetchResource(s, get, nil) as TFhirBundle;
       try
-        result.entries.AddAll(feed.entries);
+        result.entryList.AddAll(feed.entryList);
         s := feed.links['next'];
       finally
         feed.free;
       end;
     end;
     if allRecords then
-      result.Links.Clear;
+      result.link_List.Clear;
     result.Link;
   finally
     result.Free;
@@ -226,53 +218,32 @@ begin
 
 end;
 
-function TFhirClient.searchPost(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch; resource: TFhirResource): TFHIRAtomFeed;
+function TFhirClient.searchPost(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch; resource: TFhirResource): TFHIRBundle;
 Var
   src, frm : TStream;
   ct : String;
 begin
-  src := serialise(resource);
-  try
-    src.Position := 0;
-    ct := makeMultipart(src, 'src', params, frm);
-    try
-      result := fetchFeed(makeUrl(CODES_TFhirResourceType[aType])+'/_search', post, frm, ct);
-      try
-        result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-        result.links.AddValue('self', client.response.location);
-        parseCategories(result.categories);
-        result.link;
-      finally
-        result.free;
-      end;
-    finally
-      frm.Free;
-    end;
-  finally
-    src.free;
-  end;
-
-end;
-
-function TFhirClient.serialise(batch: TFhirAtomFeed): TStream;
-var
-  ok : boolean;
-  xml : TFHIRXmlComposer;
-begin
-  ok := false;
-  result := TStringStream.create('');
-  try
-    xml := TFHIRXmlComposer.create('en');
-    try
-      xml.Compose(result, batch, false);
-    finally
-      xml.free;
-    end;
-    ok := true;
-  finally
-    if not ok then
-      result.free;
-  end;
+  raise Exception.Create('Not don yet');
+//  src := serialise(resource);
+//  try
+//    src.Position := 0;
+//    ct := makeMultipart(src, 'src', params, frm);
+//    try
+//      result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/_search', post, frm) as TFhirBundle;
+//      try
+//        result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
+//        result.links.AddValue('self', client.response.location);
+//        parseCategories(result.categories);
+//        result.link;
+//      finally
+//        result.free;
+//      end;
+//    finally
+//      frm.Free;
+//    end;
+//  finally
+//    src.free;
+//  end;
 end;
 
 function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
@@ -322,7 +293,7 @@ begin
             comp.source := TStringStream.create(e.ErrorMessage);
             comp.Parse;
             if (comp.resource <> nil) and (comp.resource.ResourceType = frtOperationOutcome) then
-              Raise EFHIRClientException.create(FhirHtmlToText(comp.resource.text.div_), comp.resource.link as TFhirOperationOutcome)
+              Raise EFHIRClientException.create(FhirHtmlToText(TFhirOperationOutcome(comp.resource).text.div_), comp.resource.link as TFhirOperationOutcome)
             else
               raise exception.Create(e.ErrorMessage)
           finally
@@ -345,90 +316,67 @@ begin
 end;
 
 
-procedure TFhirClient.doRequest(request: TFHIRRequest; response: TFHIRResponse);
-var
-  entry : TFHIRAtomEntry;
-begin
-  if FUrl = '' then
-    FUrl := request.baseUrl;
+//procedure TFhirClient.doRequest(request: TFHIRRequest; response: TFHIRResponse);
+//begin
+//  if FUrl = '' then
+//    FUrl := request.baseUrl;
+//
+//  try
+//    case request.CommandType of
+//      fcmdUnknown : raise Exception.Create('to do');
+//      fcmdMailbox : raise Exception.Create('to do');
+//      fcmdRead : raise Exception.Create('to do');
+//      fcmdVersionRead : raise Exception.Create('to do');
+//      fcmdUpdate :
+//        begin
+//        entry := updateResource(request.id, request.Resource, request.categories);
+//        try
+//          response.HTTPCode := client.ResponseCode;
+//          response.Resource := entry.resource.link;
+//          response.ContentType := client.Response.ContentType;
+//          response.lastModifiedDate := client.Response.LastModified;
+//          response.Location := client.Response.Location;
+//          response.ContentLocation := client.Response.RawHeaders.Values['Content-Location'];
+//          response.categories.Assign(entry.categories);
+//        finally
+//          entry.free;
+//        end;
+//        end;
+//      fcmdDelete : raise Exception.Create('to do');
+//      fcmdHistoryInstance : raise Exception.Create('to do');
+//      fcmdCreate : raise Exception.Create('to do');
+//      fcmdSearch : raise Exception.Create('to do');
+//      fcmdHistoryType : raise Exception.Create('to do');
+//      fcmdValidate : raise Exception.Create('to do');
+//      fcmdConformanceStmt : raise Exception.Create('to do');
+//      fcmdTransaction : raise Exception.Create('to do');
+//      fcmdHistorySystem : raise Exception.Create('to do');
+//      fcmdUpload : raise Exception.Create('to do');
+//      fcmdGetTags : raise Exception.Create('to do');
+//      fcmdUpdateTags : raise Exception.Create('to do');
+//      fcmdDeleteTags : raise Exception.Create('to do');
+//    end;
+//  except
+//    on e:EFHIRClientException do
+//    begin
+//      response.HTTPCode := client.ResponseCode;
+//      response.message := e.Message;
+//      response.resource := e.Issue.link;
+//    end;
+//    on e:exception do
+//    begin
+//      response.HTTPCode := client.ResponseCode;
+//      response.Body := e.Message;
+//    end;
+//  end;
+//end;
 
-  try
-    case request.CommandType of
-      fcmdUnknown : raise Exception.Create('to do');
-      fcmdMailbox : raise Exception.Create('to do');
-      fcmdRead : raise Exception.Create('to do');
-      fcmdVersionRead : raise Exception.Create('to do');
-      fcmdUpdate :
-        begin
-        entry := updateResource(request.id, request.Resource, request.categories);
-        try
-          response.HTTPCode := client.ResponseCode;
-          response.Resource := entry.resource.link;
-          response.ContentType := client.Response.ContentType;
-          response.lastModifiedDate := client.Response.LastModified;
-          response.Location := client.Response.Location;
-          response.ContentLocation := client.Response.RawHeaders.Values['Content-Location'];
-          response.categories.Assign(entry.categories);
-        finally
-          entry.free;
-        end;
-        end;
-      fcmdDelete : raise Exception.Create('to do');
-      fcmdHistoryInstance : raise Exception.Create('to do');
-      fcmdCreate : raise Exception.Create('to do');
-      fcmdSearch : raise Exception.Create('to do');
-      fcmdHistoryType : raise Exception.Create('to do');
-      fcmdValidate : raise Exception.Create('to do');
-      fcmdConformanceStmt : raise Exception.Create('to do');
-      fcmdTransaction : raise Exception.Create('to do');
-      fcmdHistorySystem : raise Exception.Create('to do');
-      fcmdUpload : raise Exception.Create('to do');
-      fcmdGetTags : raise Exception.Create('to do');
-      fcmdUpdateTags : raise Exception.Create('to do');
-      fcmdDeleteTags : raise Exception.Create('to do');
-    end;
-  except
-    on e:EFHIRClientException do
-    begin
-      response.HTTPCode := client.ResponseCode;
-      response.message := e.Message;
-      response.resource := e.Issue.link;
-    end;
-    on e:exception do
-    begin
-      response.HTTPCode := client.ResponseCode;
-      response.Body := e.Message;
-    end;
-  end;
-end;
-
-function TFhirClient.fetchFeed(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct : String = ''): TFHIRAtomFeed;
+function TFhirClient.fetchResource(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct : String = ''): TFhirResource;
 var
   ret : TStream;
   p : TFHIRParser;
 begin
   ret := exchange(url, verb, source, ct);
-  try
-    p := CreateParser(ret);
-    try
-      p.parse;
-      if (p.feed = nil) then
-        raise Exception.create('No response bundle');
-      result := p.feed.link;
-    finally
-      p.free;
-    end;
-  finally
-    ret.free;
-  end;
-end;
-
-function TFhirClient.fetchResource(url: String; verb: TFHIRClientHTTPVerb; source: TStream): TFhirResource;
-var
-  ret : TStream;
-  p : TFHIRParser;
-begin
-  ret := exchange(url, verb, source);
   try
     if ret.Size = 0 then
       result := nil
@@ -504,46 +452,14 @@ begin
   sRight := trim(sRight);
 end;
 
-procedure TFhirClient.parseCategories(categories: TFHIRAtomCategoryList);
-var
-  s, l, n, v : String;
-  url, scheme, lbl : String;
-begin
-  categories.Clear;
-  if client.Response.RawHeaders.IndexOfName('Category') > -1 then
-  begin
-    StringSplitTrim(client.Response.RawHeaders.Values['Category'], ':', l, s);
-    while (s <> '') do
-    begin
-      StringSplitTrim(s, '=', url, s);
-      scheme := '';
-      lbl := '';
-      while (s <> '') and (s[1] <> ',') do
-      begin
-        StringSplitTrim(s, '=', l, s);
-        StringSplitTrim(copy(s, 2, $FFFF), s[1], l, s);
-        if n = 'scheme' then
-          scheme := v
-        else if n = 'label' then
-          lbl := v;
-      end;
-      categories.AddValue(scheme, url, lbl);
-      StringSplitTrim(s, ',',  l, s);
-    end;
-  end;
-end;
-
-
-function TFhirClient.readResource(atype: TFhirResourceType; id: String; tags: TFHIRAtomCategoryList): TFHIRAtomEntry;
+function TFhirClient.readResource(atype: TFhirResourceType; id: String; tags: TFHIRAtomCategoryList): TFHIRResource;
 begin
   encodeTags(tags);
 
-  result := TFHIRAtomEntry.create;
+  result := nil;
   try
-    result.resource := fetchResource(MakeUrl(CODES_TFhirResourceType[AType]+'/'+id), get, nil);
+    result := fetchResource(MakeUrl(CODES_TFhirResourceType[AType]+'/'+id), get, nil);
     result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-    result.links.AddValue('self', client.response.location);
-    parseCategories(result.categories);
     result.link;
   finally
     result.free;
@@ -566,8 +482,8 @@ end;
 
 procedure TFhirClient.encodeTags(tags: TFHIRAtomCategoryList);
 begin
-  if (tags <> nil) and (tags.Count > 0) then
-    client.Request.RawHeaders.Values['Category'] := tags.AsHeader;
+//  if (tags <> nil) and (tags.Count > 0) then
+//    client.Request.RawHeaders.Values['Category'] := tags.AsHeader;
 end;
 
 { EFHIRClientException }

@@ -36,8 +36,10 @@ uses
   FHIRTypes, FHIRResources;
 
 type
+  TFHIRAtomCategory = TFHIRCoding;
   TFHIRAtomCategoryList = TFHIRCodingList;
-
+  TFHIRAtomFeed = TFHIRBundle;
+  TFHIRAtomEntry = TFhirBundleEntry;
 (*
 type
   {@Class TFHIRAtomLink
@@ -86,7 +88,6 @@ type
     Function GetItemN(index : Integer) : TFHIRAtomLink;
     Function AsHeader : String;
     {!script show}
-
     {@member GetRel
       Get the url for a given rel type (or blank)
     }

@@ -173,7 +173,6 @@ type
     function hasErrors : boolean;
   end;
 
-  {$IFNDEF FHIR-DSTU}
   TFhirConceptMapElementHelper = class helper (TFhirElementHelper) for TFhirConceptMapElement
   public
     function systemObject : TFhirUri;
@@ -196,7 +195,32 @@ type
     function systemObject : TFhirUri;
     function system : String;
   end;
-  {$ENDIF}
+
+  TFHIRBundleHelper = class helper (TFhirResourceHelper) for TFHIRBundle
+  private
+    function GetLinks(s: string): String;
+  public
+    property Links[s : string] : String read GetLinks;
+    class function Create(aType : TFhirBundleType) : TFhirBundle; overload;
+  end;
+
+  TFHIRCodingListHelper = class helper for TFHIRCodingList
+  public
+    procedure CopyTags(tags : TFHIRCodingList);
+    function AsHeader : String;
+    function json : TBytes;
+    procedure AddValue(code, system, display : String);
+  end;
+
+  TFhirBundleLinkListHelper = class helper for TFhirBundleLinkList
+  private
+    function getMatch(rel: String): string;
+    procedure SetMatch(rel: String; const Value: string);
+  public
+    procedure AddValue(rel, ref : String);
+    function AsHeader : String;
+    property Matches[rel : String] : string read getMatch write SetMatch;
+  end;
 
 function ZCompressBytes(const s: TBytes): TBytes;
 function ZDecompressBytes(const s: TBytes): TBytes;
@@ -1548,6 +1572,76 @@ end;
 procedure TFHIRResourceHelper.SetmlId(const Value: String);
 begin
   id := value;
+end;
+
+{ TFHIRBundleHelper }
+
+class function TFHIRBundleHelper.Create(aType: TFhirBundleType): TFhirBundle;
+begin
+  result := TFhirBundle.Create;
+  result.type_ := aType;
+end;
+
+function TFHIRBundleHelper.GetLinks(s: string): String;
+var
+  i : integer;
+begin
+  result := '';
+  for i := 0 to link_List.count -  1 do
+    if link_List[i].relation = s then
+    begin
+      result := link_List[i].url;
+      exit;
+    end;
+end;
+
+{ TFHIRCodingListHelper }
+
+procedure TFHIRCodingListHelper.AddValue(code, system, display: String);
+var
+  c : TFHIRCoding;
+begin
+  c := append;
+  c.system := system;
+  c.code := code;
+  c.display := display;
+end;
+
+function TFHIRCodingListHelper.AsHeader: String;
+begin
+  raise Exception.Create('todo');
+end;
+
+procedure TFHIRCodingListHelper.CopyTags(tags: TFHIRCodingList);
+begin
+  raise Exception.Create('todo');
+end;
+
+function TFHIRCodingListHelper.json: TBytes;
+begin
+  raise Exception.Create('todo');
+end;
+
+{ TFhirBundleLinkListHelper }
+
+procedure TFhirBundleLinkListHelper.AddValue(rel, ref: String);
+begin
+  raise Exception.Create('todo');
+end;
+
+function TFhirBundleLinkListHelper.AsHeader: String;
+begin
+  raise Exception.Create('todo');
+end;
+
+function TFhirBundleLinkListHelper.getMatch(rel: String): string;
+begin
+  raise Exception.Create('todo');
+end;
+
+procedure TFhirBundleLinkListHelper.SetMatch(rel: String; const Value: string);
+begin
+  raise Exception.Create('todo');
 end;
 
 end.

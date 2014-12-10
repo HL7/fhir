@@ -465,6 +465,7 @@ type
   private
     FCommentsStart: TAdvStringList;
     FCommentsEnd: TAdvStringList;
+    FFormat : TFHIRFormat;
     function GetCommentsStart: TAdvStringList;
     function GetCommentsEnd: TAdvStringList;
   protected
@@ -487,6 +488,8 @@ type
     }
     Property xml_commentsStart : TAdvStringList read GetCommentsStart;
     Property xml_commentsEnd : TAdvStringList read GetCommentsEnd;
+
+    Property _source_format : TFHIRFormat read FFormat write FFormat;
   end;
 
   TFHIRBaseFactory = class (TAdvObject)

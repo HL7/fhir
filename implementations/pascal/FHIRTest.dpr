@@ -151,7 +151,7 @@ begin
       c := TFHIRJsonComposer.Create('en');
       try
         TFHIRJsonComposer(c).Comments := true;
-        c.Compose(m, '', '', '', r, true, nil);
+        c.Compose(m, r, true, nil);
       finally
         c.free;
       end;
@@ -176,7 +176,7 @@ begin
     try
       c := TFHIRXMLComposer.Create('en');
       try
-        c.Compose(f, '', '', '', r, true, nil);
+        c.Compose(f, r, true, nil);
       finally
         c.free;
       end;
