@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
  Observation/uslab-example 3
-file: obs-uslab-example3.xml
+ file: obs-uslab-example3.xml
  id: uslab-example3
  Name: USLab Observation Example3
-Description: USLab Other (String) Observation Profile Canonical Example: S aureus 
+ Description: USLab Other (String) Observation Profile Canonical Example: S aureus
 
-
-see narrative
+ see narrative
 -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 	<id value="uslab-example3"/>
@@ -16,13 +15,13 @@ see narrative
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<ul>
 				<li>file: obs-uslab-example3.xml</li>
-				<li> id: uslab-example3</li>
-				<li> Name: USLab Observation Example3</li>
-				<li>Description: USLab Other (String) Observation Profile Canonical Example: S aureus </li>
+				<li>id: uslab-example3</li>
+				<li>Name: USLab Observation Example3</li>
+				<li>Description: USLab Other (String) Observation Profile Canonical Example: S aureus</li>
 			</ul>
 		</div>
 	</text>
-	<!-- extenstion for specimen reject gos here - not for this use case 
+	<!-- extension for specimen reject goes here - not for this use case 
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -33,7 +32,7 @@ see narrative
 		</valueCodeableConcept>
 	</extension>
 -->
-	<!-- extenstion for observation kind gos here -->
+	<!-- extension for observation kind goes here -->
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
 		<valueCode value="result"/>
 	</extension>
