@@ -55,11 +55,9 @@ editor Eric Haas Health eData Inc-->
 			<administrationInstructions value="Hold feedings from 7 pm to 7 am. Add MCT oil to increase calories from 1.0 cal/mL to 1.5 cal/mL"/>
 			<baseFormulaType>
 				<coding>
-					<system value="http://snomed.info/sct"/>
-<!-- EH not passing validation  make issue for this US ext not validating  SNOMED code below is incorrenct-	
-					 <code value="6547210000124112"/>
--->
-					<code  value="227983006"></code>
+					<system value="http://snomed-us.info/sct"/>
+					<!-- placeholder system value  for US extension SNOMED CT -->
+					<code value="6547210000124112"/>
 					<display value="Diabetic specialty enteral formula"/>
 				</coding>
 			</baseFormulaType>
@@ -93,7 +91,6 @@ editor Eric Haas Health eData Inc-->
 					</valueSet>
 				</coding>
 			</routeofAdministration>
-			<!--EH Comment out since break the build
 			<rate>
 				<numerator>
 					<value value="60"/>
@@ -108,7 +105,6 @@ editor Eric Haas Health eData Inc-->
 					<code value="h"/>
 				</denominator>
 			</rate>
--->
 			<rateAdjustment>
 				<value value="10"/>
 				<units value="milliliters every 4 hours"/>

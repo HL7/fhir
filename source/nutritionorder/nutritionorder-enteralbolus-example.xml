@@ -30,7 +30,7 @@ edited by Eric Haas Health eData Inc-->
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
-		<system value="http://hl7.org/fhir/diet"></system>
+			<system value="http://hl7.org/fhir/diet"/>
 			<code value="dairy-free"/>
 			<valueSet>
 				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
@@ -54,8 +54,7 @@ edited by Eric Haas Health eData Inc-->
 		<enteralFormula>
 			<baseFormulaType>
 				<coding>
-					<!--give US extension a temporary system to pass validation-->
-					<system value="http://usextension/snomed.info/sct"/>
+					<system value="http://usextension/snomed.info/sct"/><!--EH  temporary system value for us extension -->
 					<code value="659311000124118"/>
 					<display value="Adult high protein formula"/>
 				</coding>
@@ -63,7 +62,7 @@ edited by Eric Haas Health eData Inc-->
 			<baseFormulaName value="Acme High Protein Formula"/>
 			<additiveType>
 				<coding>
-				<system value="http://snomed.info/sct"></system>
+					<system value="http://snomed.info/sct"/>
 					<code value="427298002"/>
 					<display value="Enteral dietary supplement"/>
 					<valueSet>
@@ -81,7 +80,7 @@ edited by Eric Haas Health eData Inc-->
 			</caloricDensity>
 			<routeofAdministration>
 				<coding>
-				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"></system>
+					<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
 					<code value="GT"/>
 					<display value="Instillation, gastrostomy tube"/>
 					<valueSet>
@@ -96,7 +95,6 @@ edited by Eric Haas Health eData Inc-->
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL"/>
 			</quantity>
-<!--EH comment out breaks the build
 			<rate>
 				<numerator>
 					<value value="240"/>
@@ -111,7 +109,6 @@ edited by Eric Haas Health eData Inc-->
 					<code value="h"/>
 				</denominator>
 			</rate>
--->
 			<maxVolumeToDeliver>
 				<value value="1440"/>
 				<units value="milliliter"/>
