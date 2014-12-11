@@ -123,10 +123,10 @@ todo: compartments
                 <page title="US Laboratory Order Implementation" filename="uslaborder.html">
                     <page title="USLabOrder Documentation" filename="uslaborder-guide.html"/>
                 </page>
-                 <page title="US Laboratory Result Implementation" filename="uslabresult.html">
+                 <page title="US Laboratory Result Implementation" filename="uslabreport.html">
                     <page title="USLabResult Documentation" filename="uslabresult-guide.html"/>
                 </page>
-                <page title="US Laboratory Report to Public Health Implementation" filename="uslabphresult.html">
+                <page title="US Laboratory Report to Public Health Implementation" filename="uslabphreport.html">
                     <page title="USLabPHResult Documentation" filename="uslabphresult-guide.html"/>
                 </page>
             </page>
