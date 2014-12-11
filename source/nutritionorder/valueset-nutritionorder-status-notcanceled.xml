@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">	
+	<id value="nutrition-order-status-notcanceled"/>
+	<text>
+	  <status value="generated"/>
+	  <div xmlns="http://www.w3.org/1999/xhtml">
+		<p>This value set excludes cancelled status code</p>
+		<h2>NutritionOrderStatus</h2>
+		<p>TODO</p>
+		<p>This value set constrains the terms in the system http://hl7.org/fhir/nutrition-order-status
+		 excluding the cancelled code.</p>
+		<table class="codes">
+		  <tr>
+			<td>
+			  <b>Code</b>
+			</td>
+			<td>
+			  <b>Display</b>
+			</td>
+			<td>
+			  <b>Definition</b>
+			</td>
+		  </tr>
+		  <tr>
+			<td>requested
+			  <a name="requested"> </a>
+			</td>
+			<td>Requested</td>
+			<td>TODO.</td>
+		  </tr>
+		  <tr>
+			<td>active
+			  <a name="active"> </a>
+			</td>
+			<td>Active</td>
+			<td>TODO.</td>
+		  </tr>
+		  <tr>
+			<td>inactive
+			  <a name="inactive"> </a>
+			</td>
+			<td>Inactive</td>
+			<td>TODO.</td>
+		  </tr>
+		  <tr>
+			<td>held
+			  <a name="held"> </a>
+			</td>
+			<td>Held</td>
+			<td>TODO.</td>
+		  </tr>		  
+		</table>
+	  </div>
+	</text>
+	<identifier value="http://hl7.org/fhir/vs/nutrition-order-status-notcanceled"/>
+	<name value="NutritionOrderStatusNotCanceled"/>
+	<publisher value="Health Level Seven, Inc. - CQI WG"/>
+	<telecom>
+	  <system value="url"/>
+	  <value value="http://hl7.org/special/committees/CQI"/>
+	</telecom>
+	<description value="TODO"/>
+	<status value="draft"/>
+	<date value="2014-12-10T16:17:24.861-05:00"/>
+	<compose>
+	  <exclude>	  
+	  <system value="http://hl7.org/fhir/nutrition-order-status"/>	  
+	  <concept>
+		<code value="cancelled"/>
+	  </concept>
+   </exclude>
+  </compose>
+</ValueSet>
