@@ -20,7 +20,7 @@
       <!-- all lab codes. TODO: can we get just the panel ones? -->
       <system value="http://snomed.info/sct"/>
       <filter>
-        <property value="Concept"/>
+        <property value="concept"/>
         <op value="is-a"/>
         <value value="404684003"/>
       </filter>
