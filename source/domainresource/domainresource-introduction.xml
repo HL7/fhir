@@ -6,7 +6,7 @@
 <p>
 This resource is defined to add text, contained resources, and extension support
 to the base <a href="resource.html">resource</a>. As an abstract resource, this 
-resource never exists directly, only one of it's ancestor resources (<a href="resourcelist.html">list</a>).
+resource never exists directly, only one of it's descendent resources (<a href="resourcelist.html">list</a>).
 </p>
 <p>
 For further information:

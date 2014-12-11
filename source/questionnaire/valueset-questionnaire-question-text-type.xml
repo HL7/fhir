@@ -18,7 +18,7 @@
     </concept>
 	</define>
   <compose>
-    <import value="http://hl7.org/fhir/vs/valueset-questionnaire-text-type"/>
+    <import value="http://hl7.org/fhir/vs/questionnaire-text-type"/>
   </compose>
 </ValueSet>
 
