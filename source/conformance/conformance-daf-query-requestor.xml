@@ -31,6 +31,7 @@
         <b>Security:</b>
       </p>
       <p>Implementations must meet the security requirements documented in the <a href="daf-security.html">DAF implementation guide</a>.</p>
+	  
       <h3>RESTful Operations Summary</h3>
       <table class="grid">
         <thead>
@@ -40,141 +41,469 @@
             <th>Read</th>
             <th>Read Version</th>
             <th>Instance History</th>
-            <th>Resource History</th>
-            <th>Validate</th>
-            <th>Create</th>
-            <th>Update</th>
-            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>Patient</th>
+            <th>DAFPatient</th>
             <td>
-              <a title="Allows discovery of Patient resources based on different search criteria" href="#Patient-search-type">SHALL</a>
+              <a title="Allows discovery of DAFPatient resources based on different search criteria" href="#DAFPatient-search-type">SHALL</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific Patients by id" href="#Patient-read">SHALL</a>
+              <a title="Allows retrieval of a specific DAFPatients by id" href="#DAFPatient-read">SHALL</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a Patient" href="#Patient-vread">MAY</a>
+              <a title="Allows retrieval of a historical version of a DAFPatient" href="#DAFPatient-vread">SHOULD</a>
             </td>
             <td>
-              <a title="Allows review of changes to Patient over time" href="#Patient-history-instance">MAY</a>
+              <a title="Allows review of changes to DAFPatient over time" href="#DAFPatient-history-instance">SHOULD</a>
             </td>
-            <td/>
+          </tr>
+		  <tr>
+            <th>DAFAllergyIntolerance</th>
             <td>
-              <a title="Allows verification that data is valid prior to submission - useful for some workflows." href="#Patient-validate">MAY</a>
-            </td>
-            <td>
-              <a title="Allows submission of a new Patient resource instance" href="#Patient-create">MAY</a>
-            </td>
-            <td>
-              <a title="Allows revision of an existing Patient resource instance." href="#Patient-update">MAY</a>
+              <a title="Allows discovery of DAFAllergyIntolerance resources based on different search criteria" href="#DAFAllergyIntolerance-search-type">SHALL</a>
             </td>
             <td>
-              <a title="Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner." href="#Patient-delete">MAY</a>
+              <a title="Allows retrieval of a specific DAFAllergyIntolerance by id" href="#DAFAllergyIntolerance-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFAllergyIntolerance" href="#DAFAllergyIntolerance-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFAllergyIntolerance over time" href="#DAFAllergyIntolerance-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFDiagnosticOrder</th>
+            <td>
+              <a title="Allows discovery of DAFDiagnosticOrder resources based on different search criteria" href="#DAFDiagnosticOrder-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFDiagnosticOrder by id" href="#DAFDiagnosticOrder-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFDiagnosticOrder" href="#DAFDiagnosticOrder-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFDiagnosticOrder over time" href="#DAFDiagnosticOrder-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFDiagnosticReport</th>
+            <td>
+              <a title="Allows discovery of DAFDiagnosticReport resources based on different search criteria" href="#DAFDiagnosticReport-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFDiagnosticReport by id" href="#DAFDiagnosticReport-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFDiagnosticReport" href="#DAFDiagnosticReport-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFDiagnosticReport over time" href="#DAFDiagnosticReport-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFEncounter</th>
+            <td>
+              <a title="Allows discovery of DAFEncounter resources based on different search criteria" href="#DAFEncounter-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFEncounter by id" href="#DAFEncounter-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFEncounter" href="#DAFEncounter-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFEncounter over time" href="#DAFEncounter-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFFamilyHistory</th>
+            <td>
+              <a title="Allows discovery of DAFFamilyHistory resources based on different search criteria" href="#DAFFamilyHistory-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFFamilyHistory by id" href="#DAFFamilyHistory-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFFamilyHistory" href="#DAFFamilyHistory-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFFamilyHistory over time" href="#DAFFamilyHistory-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFImmunization</th>
+            <td>
+              <a title="Allows discovery of DAFImmunization resources based on different search criteria" href="#DAFImmunization-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFImmunization by id" href="#DAFImmunization-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFImmunization" href="#DAFImmunization-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFImmunization over time" href="#DAFImmunization-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFResults</th>
+            <td>
+              <a title="Allows discovery of DAFResults resources based on different search criteria" href="#DAFResults-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFResults by id" href="#DAFResults-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFResults" href="#DAFResults-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFResults over time" href="#DAFResults-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFMedication</th>
+            <td>
+              <a title="Allows discovery of DAFMedication resources based on different search criteria" href="#DAFMedication-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFMedication by id" href="#DAFMedication-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFMedication" href="#DAFMedication-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFMedication over time" href="#DAFMedication-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFMedicationStatement</th>
+            <td>
+              <a title="Allows discovery of DAFMedicationStatement resources based on different search criteria" href="#DAFMedicationStatement-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFMedicationStatement by id" href="#DAFMedicationStatement-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFMedicationStatement" href="#DAFMedicationStatement-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFMedicationStatement over time" href="#DAFMedicationStatement-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFMedicationAdministration</th>
+            <td>
+              <a title="Allows discovery of DAFMedicationAdministration resources based on different search criteria" href="#DAFMedicationAdministration-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFMedicationAdministration by id" href="#DAFMedicationAdministration-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFMedicationAdministration" href="#DAFMedicationAdministration-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFMedicationAdministration over time" href="#DAFMedicationAdministration-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFCondition</th>
+            <td>
+              <a title="Allows discovery of DAFCondition resources based on different search criteria" href="#DAFCondition-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFCondition by id" href="#DAFCondition-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFCondition" href="#DAFCondition-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFCondition over time" href="#DAFCondition-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFProcedure</th>
+            <td>
+              <a title="Allows discovery of DAFProcedure resources based on different search criteria" href="#DAFProcedure-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFProcedure by id" href="#DAFProcedure-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFProcedure" href="#DAFProcedure-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFProcedure over time" href="#DAFProcedure-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFSmokingStatus</th>
+            <td>
+              <a title="Allows discovery of DAFSmokingStatus resources based on different search criteria" href="#DAFSmokingStatus-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFSmokingStatus by id" href="#DAFSmokingStatus-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFSmokingStatus" href="#DAFSmokingStatus-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFSmokingStatus over time" href="#DAFSmokingStatus-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFVitalSigns</th>
+            <td>
+              <a title="Allows discovery of DAFVitalSigns resources based on different search criteria" href="#DAFVitalSigns-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFVitalSigns by id" href="#DAFVitalSigns-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFVitalSigns" href="#DAFVitalSigns-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFVitalSigns over time" href="#DAFVitalSigns-history-instance">SHOULD</a>
+            </td>
+          </tr>
+		  <tr>
+            <th>DAFList</th>
+            <td>
+              <a title="Allows discovery of DAFList resources based on different search criteria" href="#DAFList-search-type">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a specific DAFList by id" href="#DAFList-read">SHALL</a>
+            </td>
+            <td>
+              <a title="Allows retrieval of a historical version of a DAFList" href="#DAFList-vread">SHOULD</a>
+            </td>
+            <td>
+              <a title="Allows review of changes to DAFList over time" href="#DAFList-history-instance">SHOULD</a>
             </td>
           </tr>
         </tbody>
       </table>
       <br/>
       <br/>
-      <h3>
-        <a href="patient.html">Patient</a>
-      </h3>
-      <h4>Interactions</h4>
-      <table class="list">
+	  <h3>Search Operations Summary</h3>
+	  <table class="grid">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Conformance</th>
-            <th>Description</th>
+            <th>Resource Name</th>
+            <th>Search Parameters Supported</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>
-              <a name="Patient-search-type"> </a>
-              <span>search-type</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows discovery of existing Patient resources using different search criteria</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-read"> </a>
-              <span>read</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows retrieval of a specific Patients by id</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-create"> </a>
-              <span>create</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows submission of a new Patient resource instance</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-update"> </a>
-              <span>update</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows revision of an existing Patient resource instance.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-history-instance"> </a>
-              <span>history-instance</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows review of changes to Patient instance over time</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-vread"> </a>
-              <span>vread</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows retrieval of a historical version of a Patient</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-delete"> </a>
-              <span>delete</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Patient-validate"> </a>
-              <span>validate</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows verification that Patient instance data is valid prior to submission - useful for some workflows.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+			<td>DAFPatient</td>
+			<td>
+				<ul>
+					<li>name - Search based on given name or family name or text name</li>
+					<li>family - Search based on family name</li>
+					<li>given - Search based on given name</li>
+					<li>identifier - Search based on patient identifier</li>
+					<li>race - Search based on patient's race</li>
+					<li>ethnicity - Search based on patient's ethnicity</li>
+					<li>language - Search based on preferred language</li>
+					<li>mothersMaidenName - Search based on Patient mother's Maiden Name</li>
+					<li>birthOrderInteger - Search based on Patient's birth order</li>
+					<li>age - Search based on Patient's age</li>
+					<li>streetAddress - Search based on Patient's street address</li>
+					<li>city - Search based on City</li>
+					<li>zipcode - Search based on zip code</li>
+					<li>telecom - Search based on telecom</li>
+					<li>gender - Search based on gender </li>
+					<li>birthDate - Search based on birthDate</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFAllergyIntolerance</td>
+			<td>
+				<ul>
+					<li>identifier - Search allergy by id</li>
+					<li>subject - Search allergies for a patient</li>
+					<li>category - Search based on category</li>
+					<li>status - Search based on allergy status</li>
+					<li>substance - Search based on allergy substance</li>
+					<li>manifestation - Search based on allergy reaction</li>
+					<li>severity - Search based on allergy severity</li>
+					<li>duration - Search based on how long the allergy event lasted</li>
+					<li>onset - Search based on when allergies manifested</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFDiagnosticOrder</td>
+			<td>
+				<ul>
+					<li>identifier - Search for DiagnosticOrder by id</li>
+					<li>patient - Search for DiagnosticOrders for a patient</li>
+					<li>orderer - Search based on ordering provider</li>
+					<li>code - Search based on type of the test ordered</li>
+					<li>encounter - Search based on encounter resulting in the order</li>
+					<li>item-date - Search based on order date</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFDiagnosticReport</td>
+			<td>
+				<ul>
+					<li>identifier - Search for DiagnosticReport by id</li>
+					<li>patient - Search for DiagnosticReport for a patient</li>
+					<li>name - Search based on name of the test</li>
+					<li>date - Search based on DiagnosticReport date</li>
+					<li>service - Search based on DiagnosticReport category</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFEncounter</td>
+			<td>
+				<ul>
+					<li>identifier - Search for Encounter by id</li>
+					<li>patient - Search for Encounter for a patient</li>
+					<li>location - Search based on Encounter location</li>
+					<li>type - Search based on type of the Encounter</li>
+					<li>date - Search based on encounter start and end date</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFFamilyHistory</td>
+			<td>
+				<ul>
+					<li>identifier - Search for FamilyHistory by id</li>
+					<li>patient - Search for FamilyHistory for a patient</li>
+					<li>relationship - Search based on FamilyHistory Relationship type</li>
+					<li>familyhistorycondition - Search based on the clinical condition of the related person</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFImmunization</td>
+			<td>
+				<ul>
+					<li>identifier - Search for Immunization by id</li>
+					<li>patient - Search for Immunization for a patient</li>
+					<li>date - Search based on Immunization date</li>
+					<li>vaccine-type - Search based on type of the vaccine</li>
+					<li>refused - Search based on whether immunization was refused</li>
+					<li>reaction - Search based on type of immunization reaction</li>
+					<li>lot-number - Search based on vaccine lot number</li>
+					<li>requester - Search based on ordering provider</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFResults</td>
+			<td>
+				<ul>
+					<li>identifier - Search for lab test by id</li>
+					<li>patient - Search for lab test for a patient</li>
+					<li>name - Search based on lab test Name</li>
+					<li>value-concept - Search for a lab test with a specific value which is a Code</li>
+					<li>value-quantity - Search for a lab test with a value which is a quantity</li>
+					<li>name-value[x] - Search for a lab test with a test name and value </li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFMedication</td>
+			<td>
+				<ul>
+					<li>identifier - Search for MedicationStatement by id</li>
+					<li>code - Search by drug code</li>
+					<li>name - Search by drug name</li>
+					<li>form - Search by drug form</li>
+					<li>ingredient - Search by drug ingredient</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFMedicationStatement</td>
+			<td>
+				<ul>
+					<li>identifier - Search by id</li>
+					<li>patient - Search for medications for a patient</li>
+					<li>when-given - Search for medications by date of administration</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFMedicationAdministration</td>
+			<td>
+				<ul>
+					<li>identifier - Search by id</li>
+					<li>patient - Search for medications for a patient</li>
+					<li>effectivetime - Search for medications by date of administration</li>
+					<li>encounter - Search for medications by encounter</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFCondition</td>
+			<td>
+				<ul>
+					<li>identifier - Search for Condition by id</li>
+					<li>code - Search by Condition code</li>
+					<li>category - Search by category of condition</li>
+					<li>date-Asserted - Search by date condition was asserted</li>
+					<li>encounter - Search by encounter</li>
+					<li>onset - Search by onset Age of the condition</li>
+					<li>patient - Search for conditions for a patient</li>
+					<li>severity - Search for conditions by severity</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFProcedure</td>
+			<td>
+				<ul>
+					<li>identifier - Search for Procedure by id</li>
+					<li>type - Search by Procedure type</li>
+					<li>date - Search by date when procedure was performed</li>
+					<li>patient - Search for conditions for a patient</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFSmokingStatus</td>
+			<td>
+				<ul>
+					<li>identifier - Search for SmokingStatus observation by id</li>
+					<li>date - Search by period that applies to the smoking status</li>
+					<li>value-concept - Search by a specific value which is a Code</li>
+					<li>patient - Search for conditions for a patient</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFVitalSigns</td>
+			<td>
+				<ul>
+					<li>identifier - Search for VitalSigns by id</li>
+					<li>date - Search by period that applies to the smoking status</li>
+					<li>value-quantity - Search for Vital Signs with a value which is a quantity</li>
+					<li>name-value[x] - Search for a Vital Signs with a name and value </li>
+					<li>patient - Search for Vital Signs for a patient</li>
+				</ul>
+			</td>
+		  </tr>
+		  <tr>
+			<td>DAFList</td>
+			<td>
+				<ul>
+					<li>identifier - Search for List by id</li>
+				</ul>
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
       <br/>
       <br/>
     </div>
@@ -199,66 +528,1199 @@
       <description value="Implementations must meet the security requirements documented in the [[daf-security|DAF implementation guide]]."/>
     </security>
     <resource>
-      <type value="Patient"/>
+      <type value="DAFPatient"/>
       <profile>
-        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
+        <reference value="patient-daf.html"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Allows discovery of existing Patient resources using different search criteria"/>
+        <documentation value="Allows discovery of existing DAFPatient resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Allows retrieval of a specific Patients by id"/>
+        <documentation value="Allows retrieval of a specific DAFPatients by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHOULD"/>
         </extension>
         <code value="history-instance"/>
-        <documentation value="Allows review of changes to Patient instance over time"/>
+        <documentation value="Allows review of changes to DAFPatient instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHOULD"/>
         </extension>
         <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a Patient instance"/>
+        <documentation value="Allows retrieval of a historical version of a DAFPatient instance"/>
       </interaction>
-	  <interaction>
+	  <searchParam>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="create"/>
-        <documentation value="Allows submission of a new Patient resource instance"/>
+        <name value="name"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="family"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="given"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="race"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="ethnicity"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="language"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="mothersMaidenName"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="birthOrderInteger"/>
+        <type value="number"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="age"/>
+        <type value="number"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="streetAddress"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="city"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="zipcode"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="telecom"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="gender"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="birthDate"/>
+        <type value="date"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFAllergyIntolerance"/>
+      <profile>
+        <reference value="allergyintolerance-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFAllergyIntolerance resources using different search criteria"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHALL"/>
         </extension>
-        <code value="update"/>
-        <documentation value="Allows revision of an existing Patient resource instance."/>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFAllergyIntolerance by id"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHOULD"/>
         </extension>
-        <code value="delete"/>
-        <documentation value="Not all servers will support deletion of Patients.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFAllergyIntolerance instance over time"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
+          <valueCode value="SHOULD"/>
         </extension>
-        <code value="validate"/>
-        <documentation value="Allows verification that data is valid prior to submission - useful for some workflows."/>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFAllergyIntolerance instance"/>
       </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="subject"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="category"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="status"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="substance"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="manifestation"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="severity"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="duration"/>
+        <type value="quantity"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="onset"/>
+        <type value="date"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFDiagnosticOrder"/>
+      <profile>
+        <reference value="diagnosticorder-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFDiagnosticOrder resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFDiagnosticOrder by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFDiagnosticOrder instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFDiagnosticOrder instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="orderer"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="code"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="encounter"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="item-date"/>
+        <type value="date"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFDiagnosticReport"/>
+      <profile>
+        <reference value="diagnosticreport-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFDiagnosticReport resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFDiagnosticReport by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFDiagnosticReport instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFDiagnosticReport instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="service"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFEncounter"/>
+      <profile>
+        <reference value="encounter-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFEncounter resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFEncounter by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFEncounter instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFEncounter instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="location"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="type"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="location-period"/>
+        <type value="date"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFFamilyHistory"/>
+      <profile>
+        <reference value="familyhistory-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFFamilyHistory resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFFamilyHistory by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFFamilyHistory instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFFamilyHistory instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="relationship"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="familyHistoryCondition"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFImmunization"/>
+      <profile>
+        <reference value="immunization-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFImmunization resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFImmunization by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFImmunization instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFImmunization instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="vaccine-type"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="refused"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="reaction"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="lot-number"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="requester"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFResults"/>
+      <profile>
+        <reference value="observation-daf-results.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFResults resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFResults by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFResults instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFResults instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="value-concept"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="value-quantity"/>
+        <type value="quantity"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name-value[x]"/>
+        <type value="composite"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFMedication"/>
+      <profile>
+        <reference value="medication-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFMedication resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFMedication by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFMedication instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFMedication instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="code"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name"/>
+        <type value="string"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="form"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="ingredient"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFMedicationStatement"/>
+      <profile>
+        <reference value="medicationstatement-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFMedicationStatement resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFMedicationStatement by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFMedicationStatement instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFMedicationStatement instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="when-given"/>
+        <type value="date"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFMedicationAdministration"/>
+      <profile>
+        <reference value="medicationadministration-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFMedicationAdministration resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFMedicationAdministration by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFMedicationAdministration instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFMedicationAdministration instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="effectivetime"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="encunter"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFCondition"/>
+      <profile>
+        <reference value="condition-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFCondition resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFCondition by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFCondition instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFCondition instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="code"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date-Asserted"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="encounter"/>
+        <type value="reference"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="onset"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="severity"/>
+        <type value="token"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFProcedure"/>
+      <profile>
+        <reference value="procedure-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFProcedure resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFProcedure by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFProcedure instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFProcedure instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="type"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFSmokingStatus"/>
+      <profile>
+        <reference value="observation-daf-smokingstatus.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFSmokingStatus resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFSmokingStatus by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFSmokingStatus instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFSmokingStatus instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="value-concept"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFVitalSigns"/>
+      <profile>
+        <reference value="observation-daf-vitalsigns.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFVitalSigns resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFVitalSigns by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFVitalSigns instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFVitalSigns instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="date"/>
+        <type value="date"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="value-quantity"/>
+        <type value="quantity"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="name-value[x]"/>
+        <type value="token"/>
+      </searchParam>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="patient"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+	<resource>
+      <type value="DAFList"/>
+      <profile>
+        <reference value="list-daf.html"/>
+      </profile>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+        <documentation value="Allows discovery of existing DAFList resources using different search criteria"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+        <documentation value="Allows retrieval of a specific DAFList by id"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="history-instance"/>
+        <documentation value="Allows review of changes to DAFList instance over time"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHOULD"/>
+        </extension>
+        <code value="vread"/>
+        <documentation value="Allows retrieval of a historical version of a DAFList instance"/>
+      </interaction>
+	  <searchParam>
+        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="identifier"/>
+        <type value="token"/>
+      </searchParam>
     </resource>
   </rest>
 </Conformance>
