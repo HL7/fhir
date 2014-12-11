@@ -7511,7 +7511,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s154"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Draft</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Design is under development (nascent)</Data></Cell>
@@ -7522,7 +7522,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s158"><Data ss:Type="String">pending</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Under pre-publication review</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Design is completed and is being reviewed</Data></Cell>
@@ -7533,7 +7533,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s158"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Active</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Design has been deemed fit for the intended purpose and is published by the governance group</Data></Cell>
@@ -7544,7 +7544,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s158"><Data ss:Type="String">review</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">In Review</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Design is active, but is under review. The review may result in a change to the design. The change may necessitate a new version to be created. This in turn may result in the prior version of the template to be retired. Alternatively, the review may result in a change to the design that does not require a new version to be created, or it may result in no change to the design at all</Data></Cell>
@@ -7555,7 +7555,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s158"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Cancelled</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">A drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published in an active state</Data></Cell>
@@ -7566,7 +7566,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s158"><Data ss:Type="String">rejected</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Rejected</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">A previously drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published for consideration in a pending state</Data></Cell>
@@ -7577,7 +7577,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s158"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Retired</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state</Data></Cell>
@@ -7588,7 +7588,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s158"><Data ss:Type="String">terminated</Data></Cell>
     <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Terminated</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">A design is determined to be erroneous or not fit for the intended purpose and should no longer be used, even for historical purposes. No new designs can be developed for this template. The associated template no longer needs to be published, but if published, is shown in the terminated state</Data></Cell>
