@@ -65,13 +65,13 @@ see narrative
 	<specimen><reference value="Specimen/uslab-example1"></reference><display value="Blood Sample"></display></specimen>
 	<!-- now the atomic result -->
 	<result>
-		<reference value="Observation/example1"></reference><display value="Blood Lead" ></display>
+		<reference value="Observation/uslab-example5"></reference><display value="Blood Lead" ></display>
 	</result>
-<!-- EH here is a summary conclusion adn coded diagnosis which isnt really needed in this example - but may be fwhen there are multiple observations to summarize the report findings  diagnosis is more for AP-->
+<!-- EH here is a summary conclusion adn coded diagnosis which isnt really needed in this example - but may be when there are multiple observations to summarize the report findings  diagnosis is more for AP-->
 <conclusion value="Elevated Blood Lead levels"></conclusion>
-<!-- EH comment out until debug
+
 <codedDiagnosis><coding><system value="http://snomed.info/sct"></system><code value="407152001"></code><display value="Increased blood lead level"></display></coding></codedDiagnosis>
--->
+
 	<!-- finally, here's a pdf representation of the same report. 
     A consuming application could choose to display either the 
 	html version above, or the pdf version - they both need to convey the
