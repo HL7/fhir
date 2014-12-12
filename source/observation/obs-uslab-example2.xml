@@ -6,7 +6,6 @@ file: obs-uslab-example2.xml
  Name: USLab Observation Example2
 Description: USLab Coded Observation Profile Canonical Example: Chlamydia PCR
 
-
 see narrative
 -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
@@ -22,7 +21,7 @@ see narrative
 			</ul>
 		</div>
 	</text>
-	<!-- extenstion for specimen reject gos here - not for this use case 
+	<!-- extenstion for specimen reject goes here - not for this use case 
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -33,18 +32,18 @@ see narrative
 		</valueCodeableConcept>
 	</extension>
 -->
-	<!-- extenstion for observation kind gos here -->
+	<!-- extenstion for observation kind goes here -->
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and LOINC test codes go here -->
 	<name>
-		<!-- EH: LOINC code gos here-->
+		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="43305-2"/>
 			<display value="Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method"/>
-			<!-- EH: LOCAL code gos here-->
+			<!-- EH: LOCAL code goes here-->
 		</coding>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>

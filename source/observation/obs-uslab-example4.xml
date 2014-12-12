@@ -6,7 +6,6 @@ file: obs-uslab-example4.xml
  Name: USLab Observation Example4
 Description: USLab Ratio Observation Profile Canonical Example: Dengue Virus
 
-
 see narrative
 -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
@@ -22,7 +21,7 @@ see narrative
 			</ul>
 		</div>
 	</text>
-	<!-- extenstion for specimen reject gos here - not for this use case 
+	<!-- extension for specimen reject goes here - not for this use case 
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -33,18 +32,18 @@ see narrative
 		</valueCodeableConcept>
 	</extension>
 -->
-	<!-- extenstion for observation kindt gos here -->
+	<!-- extension for observation kindt goes here -->
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabobservationkind">
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and /or LOINC test codes go here -->
 	<name>
-		<!-- EH: LOINC code gos here-->
+		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="6812-2"/>
 			<display value="Dengue virus IgM Ab [Titer] in Serum"/>
-			<!-- EH: LOINC code gos here-->
+			<!-- EH: LOINC code goes here-->
 		</coding>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.72.5.24"/>
@@ -71,7 +70,7 @@ see narrative
 		</denominator>
 	</valueRatio>
 	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:
-	<dataAbsentReason value="error"</dataAbsentReason> -->
+	<dataAbsentReason value="error"/> -->
 	<interpretation>
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0078"/>
