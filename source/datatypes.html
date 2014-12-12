@@ -75,8 +75,8 @@ though in most cases, this specification makes additional constraints marked in 
    <td>integer</td><td>xs:int</td><td>A signed 32-bit integer (for larger values, use decimal)</td>
  </tr>
  <tr>
-   <td>decimal</td><td>xs:decimal</td><td>A rational number. Note: for implementations, do not use a IEEE type floating point 
-      type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigDecimal). <b>Decimals may 
+   <td>decimal</td><td>xs:decimal</td><td>A rational number. Note: for implementations, do not use an IEEE type floating point 
+      type. Instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigDecimal). <b>Decimals may 
 	  not use exponents</b></td>
  </tr>
  <tr>
@@ -101,7 +101,7 @@ though in most cases, this specification makes additional constraints marked in 
  Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b><br/>dateTime is a union of the w3c schema types dateTime, date, gYearMonth, gYear<br/>
  regex: -?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?
  </td></tr>
- <tr><td>time</td><td>xs:time</td><td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnght. Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b><br/>
+ <tr><td>time</td><td>xs:time</td><td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b><br/>
  regex: ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?
 <!-- these regex tested using http://www.regexr.com/ -->
  </td> 
@@ -121,7 +121,7 @@ though in most cases, this specification makes additional constraints marked in 
  <tr><td>code</td><td>string</td><td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents <br/>regex: [^\s]+([\s]+[^\s]+)*</td></tr>
  <tr><td>oid</td><td>uri</td><td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>): urn:oid:1.2.3.4.5</td></tr>
  <tr><td>uuid</td><td>uri</td><td>A UUID, represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>): urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11. Note the RFC comments about case: UUID values SHALL be represented in lower case, but systems SHOULD interpret them case insensitively</td></tr>
- <tr><td>id</td><td>string</td><td>Any combination of upper or lower case asci letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.
+ <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.
    <br/>Note: this format includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.
    <br/>regex: [%id_regex%]</td></tr>
 </table>
@@ -251,7 +251,7 @@ The <i>system</i> is a URI that references the code system that defines the <i>c
 The URI may be: 
 </p>
 <ul>
- <li>a URI defined in the <a href="terminologies-systems.html">the named systems list</a></li>
+ <li>a URI defined in the <a href="terminologies-systems.html">named systems list</a></li>
  <li>an OID (urn:oid:) or a UUID (urn:uuid:). OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a></li>
  <li>a URL that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource (i.e. the value in <i>ValueSet.define.system</i>)</li>
  <li>or any other URI that uniquely identifies the code system definition</li>
@@ -275,7 +275,7 @@ Note that the following systems SHOULD always have a version specified:
 <ul>
  <li><a href="http://loinc.org">LOINC</a></li>
  <li>Various versions of ICD</li>
- <li>National releases of SNOMED CT (consistency of definitions varies amongst jurisdications, and some jurisdictions may make their own rules on this)</li>
+ <li>National releases of SNOMED CT (consistency of definitions varies amongst jurisdictions, and some jurisdictions may make their own rules on this)</li>
 </ul>
 <p>
 See the <a href="valueset.html#versioning">discussion of code system versions in the Value Set resource</a> for further discussion on versioning.
@@ -290,7 +290,7 @@ the meaning of the code by an application that is not aware of the <i>system</i>
 </p>
 <p>
 Where the code system defines multiple possible display strings, one of these SHALL be used in <i>display</i>. 
-If one is labelled as preferred, it SHOULD be used. If the code system does not define a text representation 
+If one is labeled as preferred, it SHOULD be used. If the code system does not define a text representation 
 (e.g. SNOMED CT Expressions) then <i>display</i> cannot be populated, and the meaning of the code won't be 
 accessible to systems that don't understand the code expression.
 </p>
@@ -314,7 +314,7 @@ how they codes are related can only be determined by consulting the definitions 
 </p>
 <p>
 A coding may be marked as a "primary" if a user selected the particular coded value 
-in a user interface (e.g. the user selects an item in a picklist). A primary
+in a user interface (e.g. the user selects an item in a pick-list). A primary
 is the preferred choice for performing translations etc. 
 </p>
 <p>
@@ -322,7 +322,7 @@ A reference to a <a href="valueset.html">value set</a> may be provided to help a
 to understand the context in which the code arose. In some contexts, the possible
 set of codes from which the code was chosen influences how the code should be 
 interpreted. A value set reference is not an acceptable substitute for a logical
-URI in the system, and the system URI SHALL not contain a reference to a value set. 
+URI in the system. The system URI SHALL NOT contain a reference to a value set. 
 (If the value set defines its own codes, then the correct value for the 
 system is <i>ValueSet.define.system</i>, and the value set contains a direct reference
 to the value set resource.
@@ -377,7 +377,7 @@ Coding is used in the following places: [%dtusage Coding%]
 </p>
 <ul>
  <li><b>Coding</b>: a simple direct reference to a code defined by a code system</li>
- <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e.g a list of references to codes defned by codes systems)</li>
+ <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by codes systems)</li>
 </ul>
 <p>
 The <i>Coding</i> data type corresponds to the simple case of selecting 
@@ -390,7 +390,7 @@ multiple translation codes, and/or an original text.
 The <i>Coding</i> data type is used directly  when there is certainty that the value 
 must be selected directly from one of the available codes, and the list of 
 possible codes is agreed to by all participants. This is not usually the case
-in the context of FHIR - general interoperabiity - so Coding is mostly used
+in the context of FHIR - general interoperability - so Coding is mostly used
 in extensions, which are usually intended to be defined for a well-controlled context of use.
 </p>
 </blockquote>
@@ -465,7 +465,7 @@ The units may additionally be coded in some formal way using the <i>code</i> and
 If the units are able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code. 
 If a UCUM unit is provided in the <i>code</i> then a canonical value can be generated for 
 purposes of comparison between quantities. Note that the <i>units</i> element will often 
-contain text that is actually a valid UCUM unit, but it cannot be assumed that doesthe units element actually contains a valid UCUM unit. 
+contain text that is actually a valid UCUM unit, but it cannot be assumed that the units element actually contains a valid UCUM unit. 
 </p>
 
 <div class="use">
@@ -542,7 +542,7 @@ A relationship between two Quantity values expressed as a numerator and a denomi
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. The Ratio 
 data type is used for titers (e.g., "1:128") and other quantities produced by laboratories that 
-truly represent ratios. Ratios are not simply "structured numerics" - for example blood pressure measurements 
+truly represent ratios. Ratios are not simply "structured numbers" - for example blood pressure measurements 
 (e.g. "120/60") are not ratios. In addition, ratios are used where common factors in the numerator 
 and denominator do not cancel out. The most common example of this is where the ratio represents a 
 unit cost, and the numerator is a currency (e.g. 50/$10).
@@ -699,7 +699,7 @@ world varies widely.
 </p>
 [%dt HumanName%]
 <p>
-This table summarises where common parts of a person's name are found. 
+This table summarizes where common parts of a person's name are found. 
 </p>
 <table class="lines">
  <tr><td><b>Name</b></td><td><b>Example</b></td><td><b>Destination / Comments</b></td></tr>

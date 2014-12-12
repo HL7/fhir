@@ -40,7 +40,7 @@ manage this during the period of trial use.
 <p>
 The conformance layer (<a href="conformance.html">Conformance</a> and <a href="profile.html">Profile</a>)
 has mandatory properties declaring the FHIR specification version, and these may be used to determine
-which version of FHIR an implementation is using.  To aid in validation.
+which version of FHIR an implementation is using to aid in validation.
 </p>
 
 <h3>Change frequency</h3>
@@ -132,7 +132,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
         </p>
         <ul>
           <li>Value sets with an enumerated list of codes and having a 'fixed' binding may have additional codes introduced but will never have codes removed.</li>
-          <li>Value sets making use of filters may have filters loosened or tightened to accomodate changes to
+          <li>Value sets making use of filters may have filters loosened or tightened to accommodate changes to
           underlying code systems.  StableDates and referenced code system and value set versions may be adjusted
           to point to newer versions.</li>
           <li>Definitions and display values for codes may change, but only in a manner that would not change 
@@ -188,7 +188,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
       <td>Operations</td>    
       <td>
       New operations may be defined but operations may not be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
-      or lower cardinality be changed.  Upper cardinality may be changed from 1 to *.  (Systems should ignore unexpected reptitions.)
+      or lower cardinality be changed.  Upper cardinality may be changed from 1 to *.  (Systems should ignore unexpected repetitions.)
       Additional optional parameters may be introduced.
       </td>
     </tr>

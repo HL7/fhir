@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
   <text>
@@ -400,11 +400,11 @@
       <tr>
         <td><a name="109110">109110</a></td>
         <td>Voice</td>
-        <td>The sound of a human’s speech, recorded during a procedure.</td>
+        <td>The sound of a human's speech, recorded during a procedure.</td>
       </tr>  
       <tr>
         <td><a name="109111">109111</a></td>
-        <td>Operator’s narrative</td>
+        <td>Operator's narrative</td>
         <td>The voice of a device operator, recorded during a procedure.</td>
       </tr>  
       <tr>
@@ -499,8 +499,8 @@
       </tr>  
       <tr>
         <td><a name="109201">109201</a></td>
-        <td>America’s Pet Registry Inc.</td>
-        <td>America’s Pet Registry Inc.</td>
+        <td>America's Pet Registry Inc.</td>
+        <td>America's Pet Registry Inc.</td>
       </tr>  
       <tr>
         <td><a name="109202">109202</a></td>
@@ -564,8 +564,8 @@
       </tr>  
       <tr>
         <td><a name="109214">109214</a></td>
-        <td>International Progressive Dog Breeders’ Alliance</td>
-        <td>International Progressive Dog Breeders’ Alliance</td>
+        <td>International Progressive Dog Breeders' Alliance</td>
+        <td>International Progressive Dog Breeders' Alliance</td>
       </tr>  
       <tr>
         <td><a name="109215">109215</a></td>
@@ -1154,7 +1154,7 @@
       <tr>
         <td><a name="110803">110803</a></td>
         <td>Proton Density Weighted MR Signal Intensity</td>
-        <td>Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called ‘PD-weighted’.</td>
+        <td>Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called 'PD-weighted'.</td>
       </tr>  
       <tr>
         <td><a name="110804">110804</a></td>
@@ -1249,17 +1249,17 @@
       <tr>
         <td><a name="110822">110822</a></td>
         <td>Spatial Displacement X Component</td>
-        <td>Spatial Displacement along axis X of a non linear deformable spatial registration image. The X axis is defined in reference to the patient’s orientation, and is increasing to the left hand side of the patient.</td>
+        <td>Spatial Displacement along axis X of a non linear deformable spatial registration image. The X axis is defined in reference to the patient's orientation, and is increasing to the left hand side of the patient.</td>
       </tr>  
       <tr>
         <td><a name="110823">110823</a></td>
         <td>Spatial Displacement Y Component</td>
-        <td>Spatial Displacement along axis Y of a non linear deformable spatial registration image. The Y axis is defined in reference to the patient’s orientation, and is increasing to the posterior side of the patient.</td>
+        <td>Spatial Displacement along axis Y of a non linear deformable spatial registration image. The Y axis is defined in reference to the patient's orientation, and is increasing to the posterior side of the patient.</td>
       </tr>  
       <tr>
         <td><a name="110824">110824</a></td>
         <td>Spatial Displacement Z Component</td>
-        <td>Spatial Displacement along axis Z of a Non linear deformable spatial registration image. The Z axis is defined in reference to the patient’s orientation, and is increasing toward the head of the patient.</td>
+        <td>Spatial Displacement along axis Z of a Non linear deformable spatial registration image. The Z axis is defined in reference to the patient's orientation, and is increasing toward the head of the patient.</td>
       </tr>  
       <tr>
         <td><a name="110825">110825</a></td>
@@ -1439,17 +1439,17 @@
       <tr>
         <td><a name="110860">110860</a></td>
         <td>Left-Right Axis</td>
-        <td>A spatial dimension axis running along a line between the patient’s left and right side.</td>
+        <td>A spatial dimension axis running along a line between the patient's left and right side.</td>
       </tr>  
       <tr>
         <td><a name="110861">110861</a></td>
         <td>Head-Foot Axis</td>
-        <td>A spatial dimension axis running along a line between the patient’s head and foot.</td>
+        <td>A spatial dimension axis running along a line between the patient's head and foot.</td>
       </tr>  
       <tr>
         <td><a name="110862">110862</a></td>
         <td>Anterior-Posterior Axis</td>
-        <td>A spatial dimension axis running along a line between the patient’s anterior and posterior sides.</td>
+        <td>A spatial dimension axis running along a line between the patient's anterior and posterior sides.</td>
       </tr>  
       <tr>
         <td><a name="110863">110863</a></td>
@@ -1808,8 +1808,8 @@
       </tr>  
       <tr>
         <td><a name="113068">113068</a></td>
-        <td>Student’s T-Test</td>
-        <td>The image is derived by calculating the value of the Student’s T-Test statistic from multiple image samples.</td>
+        <td>Student's T-Test</td>
+        <td>The image is derived by calculating the value of the Student's T-Test statistic from multiple image samples.</td>
       </tr>  
       <tr>
         <td><a name="113069">113069</a></td>
@@ -1994,7 +1994,7 @@
       <tr>
         <td><a name="113108">113108</a></td>
         <td>Retain Patient Characteristics Option</td>
-        <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient’s Age, Sex, Size (height) and Weight.</td>
+        <td>Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient's Age, Sex, Size (height) and Weight.</td>
       </tr>  
       <tr>
         <td><a name="113109">113109</a></td>
@@ -2394,7 +2394,7 @@
       <tr>
         <td><a name="113763">113763</a></td>
         <td>Calibration Uncertainty</td>
-        <td>Uncertainty of the ‘actual’ value.</td>
+        <td>Uncertainty of the 'actual' value.</td>
       </tr>  
       <tr>
         <td><a name="113764">113764</a></td>
@@ -2993,17 +2993,17 @@
       </tr>  
       <tr>
         <td><a name="121009">121009</a></td>
-        <td>Person Observer’s Organization Name</td>
+        <td>Person Observer's Organization Name</td>
         <td>Organization or institution with which the human observer is affiliated for the context of the current observation</td>
       </tr>  
       <tr>
         <td><a name="121010">121010</a></td>
-        <td>Person Observer’s Role in the Organization</td>
+        <td>Person Observer's Role in the Organization</td>
         <td>Organizational role of human observer for the context of the current observation</td>
       </tr>  
       <tr>
         <td><a name="121011">121011</a></td>
-        <td>Person Observer’s Role in this Procedure</td>
+        <td>Person Observer's Role in this Procedure</td>
         <td>Procedural role of human observer for the context of the current observation</td>
       </tr>  
       <tr>
@@ -3222,7 +3222,7 @@
       <tr>
         <td><a name="121057">121057</a></td>
         <td>Perimeter outline</td>
-        <td>A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region’s intersection with, or projection into the image</td>
+        <td>A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region's intersection with, or projection into the image</td>
       </tr>  
       <tr>
         <td><a name="121058">121058</a></td>
@@ -3637,7 +3637,7 @@
       <tr>
         <td><a name="121156">121156</a></td>
         <td>Percutaneous Entry Action</td>
-        <td>Action of a clinical professional at the site of percutaneous access to a patient’s cardiovascular system</td>
+        <td>Action of a clinical professional at the site of percutaneous access to a patient's cardiovascular system</td>
       </tr>  
       <tr>
         <td><a name="121157">121157</a></td>
@@ -5444,22 +5444,22 @@
       <tr>
         <td><a name="122242">122242</a></td>
         <td>BSA = 0.0235*WT^0.51456*HT^0.42246</td>
-        <td>Body Surface Area computed from patient height and weight: BSA = 0.0235*WT[kg]^0.51456*HT[cm]^0.42246 [Gehan EA, George SL, ‘Estimation of human body surface area from height and weight’, Cancer Chemother Rep 1970 54:225-35]</td>
+        <td>Body Surface Area computed from patient height and weight: BSA = 0.0235*WT[kg]^0.51456*HT[cm]^0.42246 [Gehan EA, George SL, 'Estimation of human body surface area from height and weight', Cancer Chemother Rep 1970 54:225-35]</td>
       </tr>  
       <tr>
         <td><a name="122243">122243</a></td>
         <td>BSA = 0.024265*WT^0.5378*HT^0.3964</td>
-        <td>Body Surface Area computed from patient height and weight: BSA = 0.024265*WT[kg]^0.5378*HT[cm]^0.3964 [Haycock G.B., Schwartz G.J.,Wisotsky D.H.  ‘Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.’  The Journal of Pediatrics 1978  93:1:62-66]</td>
+        <td>Body Surface Area computed from patient height and weight: BSA = 0.024265*WT[kg]^0.5378*HT[cm]^0.3964 [Haycock G.B., Schwartz G.J.,Wisotsky D.H.  'Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.'  The Journal of Pediatrics 1978  93:1:62-66]</td>
       </tr>  
       <tr>
         <td><a name="122244">122244</a></td>
         <td>BSA = (HT * WT/36)^0.5</td>
-        <td>Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg]/36)^0.5 [Mosteller, R.D. ‘Simplified Calculation of Body Surface Area.’ N Engl J Med 1987 Oct 22;317(17):1098]</td>
+        <td>Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg]/36)^0.5 [Mosteller, R.D. 'Simplified Calculation of Body Surface Area.' N Engl J Med 1987 Oct 22;317(17):1098]</td>
       </tr>  
       <tr>
         <td><a name="122245">122245</a></td>
         <td>BSA = 1321+0.3433*WT</td>
-        <td>Body Surface Area computed from patient weight: BSA = 1321+0.3433*WT[kg] (for pediatrics 3-30 kg) [Current, J.D. ‘A Linear Equation For Estimating The Body Surface Area In Infants And Children’, The Internet Journal of Anesthesiology. 1998. 2:2]</td>
+        <td>Body Surface Area computed from patient weight: BSA = 1321+0.3433*WT[kg] (for pediatrics 3-30 kg) [Current, J.D. 'A Linear Equation For Estimating The Body Surface Area In Infants And Children', The Internet Journal of Anesthesiology. 1998. 2:2]</td>
       </tr>  
       <tr>
         <td><a name="122246">122246</a></td>
@@ -7494,7 +7494,7 @@
       <tr>
         <td><a name="125203">125203</a></td>
         <td>Acquisition Protocol</td>
-        <td>A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer’s product.</td>
+        <td>A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer's product.</td>
       </tr>  
       <tr>
         <td><a name="125204">125204</a></td>
@@ -7614,7 +7614,7 @@
       <tr>
         <td><a name="125227">125227</a></td>
         <td>Modified Simpson</td>
-        <td>Modified Simpson’s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct.</td>
+        <td>Modified Simpson's Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct.</td>
       </tr>  
       <tr>
         <td><a name="125228">125228</a></td>
@@ -8769,11 +8769,11 @@
     <concept>
       <code value="109110"/>
       <display value="Voice"/>
-      <definition value="The sound of a human’s speech, recorded during a procedure."/>
+      <definition value="The sound of a human's speech, recorded during a procedure."/>
     </concept>  
     <concept>
       <code value="109111"/>
-      <display value="Operator’s narrative"/>
+      <display value="Operator's narrative"/>
       <definition value="The voice of a device operator, recorded during a procedure."/>
     </concept>  
     <concept>
@@ -8868,8 +8868,8 @@
     </concept>  
     <concept>
       <code value="109201"/>
-      <display value="America’s Pet Registry Inc."/>
-      <definition value="America’s Pet Registry Inc."/>
+      <display value="America's Pet Registry Inc."/>
+      <definition value="America's Pet Registry Inc."/>
     </concept>  
     <concept>
       <code value="109202"/>
@@ -8933,8 +8933,8 @@
     </concept>  
     <concept>
       <code value="109214"/>
-      <display value="International Progressive Dog Breeders’ Alliance"/>
-      <definition value="International Progressive Dog Breeders’ Alliance"/>
+      <display value="International Progressive Dog Breeders' Alliance"/>
+      <definition value="International Progressive Dog Breeders' Alliance"/>
     </concept>  
     <concept>
       <code value="109215"/>
@@ -9523,7 +9523,7 @@
     <concept>
       <code value="110803"/>
       <display value="Proton Density Weighted MR Signal Intensity"/>
-      <definition value="Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called ‘PD-weighted’."/>
+      <definition value="Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called 'PD-weighted'."/>
     </concept>  
     <concept>
       <code value="110804"/>
@@ -9618,17 +9618,17 @@
     <concept>
       <code value="110822"/>
       <display value="Spatial Displacement X Component"/>
-      <definition value="Spatial Displacement along axis X of a non linear deformable spatial registration image. The X axis is defined in reference to the patient’s orientation, and is increasing to the left hand side of the patient."/>
+      <definition value="Spatial Displacement along axis X of a non linear deformable spatial registration image. The X axis is defined in reference to the patient's orientation, and is increasing to the left hand side of the patient."/>
     </concept>  
     <concept>
       <code value="110823"/>
       <display value="Spatial Displacement Y Component"/>
-      <definition value="Spatial Displacement along axis Y of a non linear deformable spatial registration image. The Y axis is defined in reference to the patient’s orientation, and is increasing to the posterior side of the patient."/>
+      <definition value="Spatial Displacement along axis Y of a non linear deformable spatial registration image. The Y axis is defined in reference to the patient's orientation, and is increasing to the posterior side of the patient."/>
     </concept>  
     <concept>
       <code value="110824"/>
       <display value="Spatial Displacement Z Component"/>
-      <definition value="Spatial Displacement along axis Z of a Non linear deformable spatial registration image. The Z axis is defined in reference to the patient’s orientation, and is increasing toward the head of the patient."/>
+      <definition value="Spatial Displacement along axis Z of a Non linear deformable spatial registration image. The Z axis is defined in reference to the patient's orientation, and is increasing toward the head of the patient."/>
     </concept>  
     <concept>
       <code value="110825"/>
@@ -9808,17 +9808,17 @@
     <concept>
       <code value="110860"/>
       <display value="Left-Right Axis"/>
-      <definition value="A spatial dimension axis running along a line between the patient’s left and right side."/>
+      <definition value="A spatial dimension axis running along a line between the patient's left and right side."/>
     </concept>  
     <concept>
       <code value="110861"/>
       <display value="Head-Foot Axis"/>
-      <definition value="A spatial dimension axis running along a line between the patient’s head and foot."/>
+      <definition value="A spatial dimension axis running along a line between the patient's head and foot."/>
     </concept>  
     <concept>
       <code value="110862"/>
       <display value="Anterior-Posterior Axis"/>
-      <definition value="A spatial dimension axis running along a line between the patient’s anterior and posterior sides."/>
+      <definition value="A spatial dimension axis running along a line between the patient's anterior and posterior sides."/>
     </concept>  
     <concept>
       <code value="110863"/>
@@ -10177,8 +10177,8 @@
     </concept>  
     <concept>
       <code value="113068"/>
-      <display value="Student’s T-Test"/>
-      <definition value="The image is derived by calculating the value of the Student’s T-Test statistic from multiple image samples."/>
+      <display value="Student's T-Test"/>
+      <definition value="The image is derived by calculating the value of the Student's T-Test statistic from multiple image samples."/>
     </concept>  
     <concept>
       <code value="113069"/>
@@ -10363,7 +10363,7 @@
     <concept>
       <code value="113108"/>
       <display value="Retain Patient Characteristics Option"/>
-      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient’s Age, Sex, Size (height) and Weight."/>
+      <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS 3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained. E.g., Patient's Age, Sex, Size (height) and Weight."/>
     </concept>  
     <concept>
       <code value="113109"/>
@@ -10763,7 +10763,7 @@
     <concept>
       <code value="113763"/>
       <display value="Calibration Uncertainty"/>
-      <definition value="Uncertainty of the ‘actual’ value."/>
+      <definition value="Uncertainty of the 'actual' value."/>
     </concept>  
     <concept>
       <code value="113764"/>
@@ -11362,17 +11362,17 @@
     </concept>  
     <concept>
       <code value="121009"/>
-      <display value="Person Observer’s Organization Name"/>
+      <display value="Person Observer's Organization Name"/>
       <definition value="Organization or institution with which the human observer is affiliated for the context of the current observation"/>
     </concept>  
     <concept>
       <code value="121010"/>
-      <display value="Person Observer’s Role in the Organization"/>
+      <display value="Person Observer's Role in the Organization"/>
       <definition value="Organizational role of human observer for the context of the current observation"/>
     </concept>  
     <concept>
       <code value="121011"/>
-      <display value="Person Observer’s Role in this Procedure"/>
+      <display value="Person Observer's Role in this Procedure"/>
       <definition value="Procedural role of human observer for the context of the current observation"/>
     </concept>  
     <concept>
@@ -11591,7 +11591,7 @@
     <concept>
       <code value="121057"/>
       <display value="Perimeter outline"/>
-      <definition value="A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region’s intersection with, or projection into the image"/>
+      <definition value="A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region's intersection with, or projection into the image"/>
     </concept>  
     <concept>
       <code value="121058"/>
@@ -12006,7 +12006,7 @@
     <concept>
       <code value="121156"/>
       <display value="Percutaneous Entry Action"/>
-      <definition value="Action of a clinical professional at the site of percutaneous access to a patient’s cardiovascular system"/>
+      <definition value="Action of a clinical professional at the site of percutaneous access to a patient's cardiovascular system"/>
     </concept>  
     <concept>
       <code value="121157"/>
@@ -13813,22 +13813,22 @@
     <concept>
       <code value="122242"/>
       <display value="BSA = 0.0235*WT^0.51456*HT^0.42246"/>
-      <definition value="Body Surface Area computed from patient height and weight: BSA = 0.0235*WT[kg]^0.51456*HT[cm]^0.42246 [Gehan EA, George SL, ‘Estimation of human body surface area from height and weight’, Cancer Chemother Rep 1970 54:225-35]"/>
+      <definition value="Body Surface Area computed from patient height and weight: BSA = 0.0235*WT[kg]^0.51456*HT[cm]^0.42246 [Gehan EA, George SL, 'Estimation of human body surface area from height and weight', Cancer Chemother Rep 1970 54:225-35]"/>
     </concept>  
     <concept>
       <code value="122243"/>
       <display value="BSA = 0.024265*WT^0.5378*HT^0.3964"/>
-      <definition value="Body Surface Area computed from patient height and weight: BSA = 0.024265*WT[kg]^0.5378*HT[cm]^0.3964 [Haycock G.B., Schwartz G.J.,Wisotsky D.H.  ‘Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.’  The Journal of Pediatrics 1978  93:1:62-66]"/>
+      <definition value="Body Surface Area computed from patient height and weight: BSA = 0.024265*WT[kg]^0.5378*HT[cm]^0.3964 [Haycock G.B., Schwartz G.J.,Wisotsky D.H.  'Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.'  The Journal of Pediatrics 1978  93:1:62-66]"/>
     </concept>  
     <concept>
       <code value="122244"/>
       <display value="BSA = (HT * WT/36)^0.5"/>
-      <definition value="Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg]/36)^0.5 [Mosteller, R.D. ‘Simplified Calculation of Body Surface Area.’ N Engl J Med 1987 Oct 22;317(17):1098]"/>
+      <definition value="Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg]/36)^0.5 [Mosteller, R.D. 'Simplified Calculation of Body Surface Area.' N Engl J Med 1987 Oct 22;317(17):1098]"/>
     </concept>  
     <concept>
       <code value="122245"/>
       <display value="BSA = 1321+0.3433*WT"/>
-      <definition value="Body Surface Area computed from patient weight: BSA = 1321+0.3433*WT[kg] (for pediatrics 3-30 kg) [Current, J.D. ‘A Linear Equation For Estimating The Body Surface Area In Infants And Children’, The Internet Journal of Anesthesiology. 1998. 2:2]"/>
+      <definition value="Body Surface Area computed from patient weight: BSA = 1321+0.3433*WT[kg] (for pediatrics 3-30 kg) [Current, J.D. 'A Linear Equation For Estimating The Body Surface Area In Infants And Children', The Internet Journal of Anesthesiology. 1998. 2:2]"/>
     </concept>  
     <concept>
       <code value="122246"/>
@@ -15863,7 +15863,7 @@
     <concept>
       <code value="125203"/>
       <display value="Acquisition Protocol"/>
-      <definition value="A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer’s product."/>
+      <definition value="A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer's product."/>
     </concept>  
     <concept>
       <code value="125204"/>
@@ -15983,7 +15983,7 @@
     <concept>
       <code value="125227"/>
       <display value="Modified Simpson"/>
-      <definition value="Modified Simpson’s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct."/>
+      <definition value="Modified Simpson's Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. “Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms”. J Am Soc Echocardiogr. 1989 2(5):358-367. Sep-Oct."/>
     </concept>  
     <concept>
       <code value="125228"/>

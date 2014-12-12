@@ -1,13 +1,13 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <h2>Scope and Usage</h2>
-Used to record detailed information pertinent to a clinician’s assessment and assertion of a particular aspect of a person’s state of health. Examples of condition include problems, diagnoses, concerns, issues. There are many uses of condition which include:
+Used to record detailed information pertinent to a clinician's assessment and assertion of a particular aspect of a person's state of health. Examples of condition include problems, diagnoses, concerns, issues. There are many uses of condition which include:
 <ul>
 <li>recording a problem, diagnosis, health concern or health issue during an encounter</li>
 <li>the use of such information to populate a problem list of a summary statement such as a discharge summary </li>
 </ul> 
-<br />This resource is used to record detailed information about a clinician’s assessment and assertion of a particular aspect of a patient’s state of health. It is intended for use to record information about a disease/illness identified from application of clinical reasoning over the pathologic and pathophysiologic findings (diagnosis), or identification of health issues/situations that require ongoing monitoring and/or management (health issue/concern), or identification of health issues/situations considered harmful, potentially harmful and required to be investigated and managed (problems).
+<br />This resource is used to record detailed information about a clinician's assessment and assertion of a particular aspect of a patient's state of health. It is intended for use to record information about a disease/illness identified from application of clinical reasoning over the pathologic and pathophysiologic findings (diagnosis), or identification of health issues/situations that require ongoing monitoring and/or management (health issue/concern), or identification of health issues/situations considered harmful, potentially harmful and required to be investigated and managed (problems).
 <br /><br />The condition resource may also be used to record certain health state of a patient which does not normally present negative outcome (until complications are predicted or detected), e.g. pregnancy. Examples of complications of pregnancy include: hyperemesis gravidarum, preeclampsia, eclampsia, which are captured as problems/diagnoses.
 <br /><br />The condition resource may be referenced by other resources as “reasons” for an action (e.g. prescription, procedure, DiagnosticOrder, etc)
 <br /><br />This resource is not to be used to record information about signs and symptoms that are typically captured using the “observation” resource; although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.

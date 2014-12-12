@@ -42,7 +42,7 @@ Further Commentary
 </div>
 
 <h2>Interpretation of ElementDefinition in different contexts</h2>
-<p>The pseudo-datatype <code>ElementDefinition</code> is used both in <a href="profile.html">Profile</a> and <a href="extensiondefinition.html">ExtensionDefinition</a>, and even within  those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used.</p>
+<p>The pseudo-data type <code>ElementDefinition</code> is used both in <a href="profile.html">Profile</a> and <a href="extensiondefinition.html">ExtensionDefinition</a>, and even within  those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used.</p>
 <!-- ### Visual
 <table>
 	<tr><th>Element</th><th>Root element<br/>of a structure</th><th>Nested element<br/>in structure
@@ -59,7 +59,7 @@ Further Commentary
 <li><code>name</code> associates a name <!-- What does this mean? --></li>
 <li><!-- LM: Do this as an invariant -->Prohibited: <code>slicing</code>, <code>nameReference</code>, <code>fixed</code>, <code>mustSupport</code>, <code>isSummary</code></li>
 <li><code>type</code> is set to &quot;DomainResource&quot; or (rarely) &quot;Resource&quot; for constraints on Resources, &quot;Element&quot; for constraints on data types</li>
-<li><!-- LM: How is this different for root? --><code>pattern</code> indicates a value that an instance of a while complex type constrained by this structure must match. May be used instead of applying constraints to the nested elements of the datatype.</li>
+<li><!-- LM: How is this different for root? --><code>pattern</code> indicates a value that an instance of a while complex type constrained by this structure must match. May be used instead of applying constraints to the nested elements of the data type.</li>
 <li><!-- LM: How is this different for root? --><code>example</code> example value for a complex type in an instance that complies to the structure</li>
 <li><!-- LM: Do this as an invariant? --><code>min</code> and <code>max</code> are prohibited unless defining an extension, in which case they set outer bounds on how the element can appear when referenced in a profile</li>
 <li><code>isModifier</code> is prohibited when defining resources or data types.  When defining extensions, this indicates whether the extension is a modifier extension</li>
@@ -126,7 +126,7 @@ against the definition, usage notes, etc. of the base element.</li>
 <li>Supplementary information may be appended to <code>comments</code>, <code>requirements</code> and <code>synonym</code></li>
 <li>Additional <code>condition</code>, <code>constraint</code> and <code>mapping</code> elements may be added</li>
 <li><code>Mapping</code> elements can be removed if they do not apply within the new context</li>
-<li><code>isModifier</code> and <code>isSummary</code> must be the same as the base definition for the datatype or Resource</li>
+<li><code>isModifier</code> and <code>isSummary</code> must be the same as the base definition for the data type or Resource</li>
 </ul>
 <p>
 ElementDefinition is used in the following places: [%dtusage ElementDefinition%]

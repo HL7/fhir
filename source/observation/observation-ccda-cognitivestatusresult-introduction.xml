@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
 		<h2>Scope and Usage</h2>
 		<p>
@@ -6,7 +6,7 @@
 [observation: templateId 2.16.840.1.113883.10.20.22.4.74 (open)]
 		</p>
 		<p>
-		This clinical statement contains details of an evaluation or assessment of a patient’s cognitive status. The evaluation may include assessment of a patient's mood, memory, and ability to make decisions. The statement, if present, will include supporting caregivers, non-medical devices, and the time period for which the evaluation and assessment were performed.
+		This clinical statement contains details of an evaluation or assessment of a patient's cognitive status. The evaluation may include assessment of a patient's mood, memory, and ability to make decisions. The statement, if present, will include supporting caregivers, non-medical devices, and the time period for which the evaluation and assessment were performed.
 		</p>
 		<p>This is different from a cognitive status problem observation, which is a clinical statement that describes a patient's cognitive condition, findings, or symptoms. Examples of cognitive problem observations are inability to recall, amnesia, dementia, and aggressive behavior.</p>
 	</div>

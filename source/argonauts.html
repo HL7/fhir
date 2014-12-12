@@ -28,7 +28,7 @@ and is a joint project between HL7 and the following organizations:
  <li><a href="http://home.meditech.com">MEDITECH</a></li>
  <li><a href="http://www.mckesson.com/">McKesson</a></li>
  <li><a href="http://www.partners.org/">Partners HealthCare System</a></li>
- <li><a href="http://smartplatforms.org/">SMART at the Boston Children’s Hospital Informatics Program</a></li>
+ <li><a href="http://smartplatforms.org/">SMART at the Boston Children's Hospital Informatics Program</a></li>
  <li><a href="http://www.advisory.com">The Advisory Board Company</a></li>
 </ul>
 <p>
@@ -90,7 +90,7 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Problems</td>
    <td><a href="condition.html">Condition</a></td>
-   <td><a href="condition-daf.html">DAF Condition (a.k.a Problem)</a></td>
+   <td><a href="condition-daf.html">DAF Condition (a.k.a. Problem)</a></td>
  </tr>
  <tr>
    <td>Medications</td>
@@ -165,7 +165,7 @@ these for the connectathon and/or to comment on them in depth.
 <h3>Lists, and "No Known [X]"</h3>
 
 <p>
-In the FHIR specification, a patients problem list etc consists of 0 or more 
+In the FHIR specification, a patient's problem list, etc. consists of 0 or more 
 instances of the <a href="condition.html">Condition</a> resource. These are
 found in the <a href="bundle.html">Bundle</a> that is returned from the 
 "Fetch Patient Record" operation.
@@ -174,8 +174,8 @@ found in the <a href="bundle.html">Bundle</a> that is returned from the
 FHIR also includes a <a href="list.html">List</a> resource that represents
 a logical list of items, such as a problem list. As well as providing
 list status tracking information, the list carries an important data 
-element - if the list is empty, a reason why. For consistency in the 
-returned data, all responses to the Fatch Patient Operation SHALL 
+element. If the list is empty, it can indicate a reason why. For consistency in the 
+returned data, all responses to the Fetch Patient Operation SHALL 
 return the following lists:
 </p>
 <ul>

@@ -66,8 +66,8 @@ in the bundle, followed by a series of other resources referenced from the <i>Co
 resource that provides guidance on how they fit together. The bundle gathers all the content
 of the document into a single XML or JSON document which may be signed and managed as required. 
 The resources include both human readable and computer processable portions. In addition, the bundle 
-may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a> 
-<a href="provenance.html">provenance</a> statements, and a signature.
+may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a>, 
+<a href="provenance.html">provenance</a> statements and a signature.
 </p>
 <p>
 The composition resource is the foundation of the clinical document. It:
@@ -270,7 +270,7 @@ of posting to them:
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end point 
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles. The search parameters
-   exposed by this end-point are those of the bunde, and the composition resource from the document bundle. <i>todo - what happens to parameters from base resource?</i></td> </tr>
+   exposed by this end-point are those of the bundle, and the composition resource from the document bundle. <i>todo - what happens to parameters from base resource?</i></td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document or after breaking a document up into 
@@ -330,7 +330,7 @@ end point:
 </pre>
 <p>
 The "id" parameter is a relative or absolute reference to composition resource (e.g.
-Composition/1234). The format of the document is specified using the accept: header or 
+Composition/1234). The format of the document is specified using the "accept:" header or 
 a <a href="http.html#mime-type">_format parameter</a>. Other parameters may be supplied:
 </p>
 <table class="grid">

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-12-08T07:15:34Z</LastSaved>
+  <LastSaved>2014-12-12T00:29:53Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
@@ -23,7 +23,6 @@
   <WindowTopY>240</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1373,7 +1372,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies how precise the data element is in its definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows determining whether the degree of comparibility of data element instances - less granular data elements result in data that is less comparable (or at least requires more work to compare)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows determining whether the degree of comparability of data element instances - less granular data elements result in data that is less comparable (or at least requires more work to compare)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Should this be an extension?</Data><NamedCell
@@ -1411,7 +1410,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that provides the meaning for a data element according to a particular terminology</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Many data elements may have codes that define the concepts described by the data element.  E.g. LOINC, SNOMED, various metathesauruses, etc.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Many data elements may have codes that define the concepts described by the data element.  E.g. LOINC, SNOMED, various meta-thesauruses, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The data element definition and other constraints SHALL be a proper constraint on the meaning (as defined in the code system, including relationships) of any code listed here.&#10;&#10;Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1430,7 +1429,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s86"><Data ss:Type="String">DataElement.question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1466,7 +1465,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell ss:StyleID="s86"><Data ss:Type="String">DataElement.label</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1578,7 +1577,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="180">
+   <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell ss:StyleID="s86"><Data ss:Type="String">DataElement.requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1711,7 +1710,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Example value: [as defined for type]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An sample value for this element demonstrating the type of information that would typically be captured.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A sample value for this element demonstrating the type of information that would typically be captured.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)</Data><NamedCell
@@ -4182,9 +4181,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>17</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4200,8 +4199,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>18</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7380,7 +7379,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s123"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s151"><Data ss:Type="String">DataElementGranularity</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the degree of precision of the data element definition</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
@@ -8612,7 +8611,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s143"><Data ss:Type="String">comparable</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"/>
@@ -8623,7 +8622,7 @@
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s145"><Data ss:Type="String">fully specified</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s122"/>
@@ -8634,7 +8633,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s145"><Data ss:Type="String">equivalent</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s122"/>
@@ -8645,7 +8644,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s145"><Data ss:Type="String">convertable</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s122"/>
@@ -8656,7 +8655,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s145"><Data ss:Type="String">scaleable</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s122"/>

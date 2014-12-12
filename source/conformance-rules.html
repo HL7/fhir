@@ -58,15 +58,15 @@ These interact to place conformance requirements on implementations.
 <a name="cardinality"> </a>
 <h3>Cardinality</h3>
 <p>
-All attributes defined in FHIR have a cardinality as part of their definition - a minimum number 
-of required appearances, and a maximum number. These numbers specify the number of times
+All attributes defined in FHIR have cardinality as part of their definition - a minimum number 
+of required appearances and a maximum number. These numbers specify the number of times
 the attribute may appear in any instance of the resource type. This specification
 only defines the following cardinalities: 0..1, 0..*, 1..1, and 1..*. Profiles 
 that describe specific use cases may use other values for cardinality within the limits 
 of the cardinality defined by the base resource. 
 </p>
 <p>
-Note that when present, elements cannot be empty - they SHALL have either a value attribute, 
+Note that when present, elements cannot be empty - they SHALL have a value attribute, 
 child elements, or extensions. This means that setting an element to a minimum cardinality
 of 1 does not ensure that valid data will be present; specific XPath constraints are required
 to ensure that the required data will be present.
@@ -79,7 +79,7 @@ the only elements that have a minimum cardinality of 1 are those where they
 are necessary to any understanding of the resource or element that contains them. 
 The minimum cardinalities should not be taken as a guide to what elements
 are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
-In some cases, this specification publish additional profiles that define which elements are required in 
+In some cases, this specification publishes additional profiles that define which elements are required in 
 particular situations. Similar profiles are published by jurisdictions, vendors, or projects.
 </p>
 <p>
@@ -136,8 +136,8 @@ of the resource.
 Implementations processing the data in resources SHALL understand the impact of the element when using the data. 
 Implementations are not required to "support" the element in any meaningful way - they 
 may achieve this understanding by rejecting instances that contain values outside those they support (for instance,
-an application may refuse to accept observations with a reliability != "ok"). Alternatively,
-implementations may be able to be sure, due to their implementation environment, that such values 
+an application may refuse to accept observations with a reliability other than "ok"). Alternatively,
+implementations may be able to be sure that, due to their implementation environment, such values 
 will never occur. However applications SHOULD always check the value irrespective of this.
 </p>
 <p>
@@ -161,7 +161,7 @@ and there are <a href="extensibility.html#modifierExtension">additional rules ab
 <a name="mustSupport"> </a>
 <h3>Must-Support</h3>
 <p>
-Labelling an element Must-Support means that implementations that produce or consume resources SHALL 
+Labeling an element Must-Support means that implementations that produce or consume resources SHALL 
 provide "support" for the element in some meaningful way. Exactly what this means is impossible
 to describe or clarify as part of the FHIR specification.
 </p>

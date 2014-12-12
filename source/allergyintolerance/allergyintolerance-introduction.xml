@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <h2>Scope and Usage</h2>
@@ -41,8 +41,8 @@ Presntly open issues for this resource:
 This resource is used to provide a single place within the health record to document a range of clinical statements about adverse reactions, including:
 </p>
 <ul>
-<li>record a clinical assessment of the individual’s propensity to a potential future reaction upon re-exposure</li>
-<li>record cumulative information about the reaction to each exposure, including ‘no reaction’ if appropriate</li>
+<li>record a clinical assessment of the individual's propensity to a potential future reaction upon re-exposure</li>
+<li>record cumulative information about the reaction to each exposure, including 'no reaction' if appropriate</li>
 </ul>
 
 <p>
@@ -75,11 +75,11 @@ which is better expressed by the manifestation in clinical practice.
 <p>
 The risk of an Adverse Reaction event or manifestation should not be recorded without identifying a proposed causative 
 substance or class of substance. If there is uncertainty that a specific substance is the cause, this uncertainty can be 
-recorded using the ‘Status’ data element. If there are multiple possible substances that may have caused a reaction/manifestation, 
+recorded using the 'Status' data element. If there are multiple possible substances that may have caused a reaction/manifestation, 
 each substance should be recorded using a separate instance of this resource with the 
-‘Status’ set to an initial state of ‘Unconfirmed’ so that adverse reaction checking can be supported in clinical systems. 
-If a substance, agent or class is later proven not to be the cause for a given reaction then the ‘Status’ can be modified 
-to ‘Refuted’.
+'Status' set to an initial state of 'Unconfirmed' so that adverse reaction checking can be supported in clinical systems. 
+If a substance, agent or class is later proven not to be the cause for a given reaction then the 'Status' can be modified 
+to 'Refuted'.
 </p>
 <p>
 This resource has been designed to allow recording of information about a specific substance (amoxicillin, 
@@ -96,9 +96,9 @@ in a clinical trial.
 <p>
 The act of recording any adverse reaction in a health record involves the clinical assessment that a potential hazard 
 exists for an individual if they are exposed to the same substance/agent/class in the future – that is, a relative 
-contraindication - and the default ‘Seriousness’ value should be set to ‘Low’. If a clinician considers that it is not 
+contraindication - and the default 'Seriousness' value should be set to 'Low'. If a clinician considers that it is not 
 safe for the individual to be deliberately re-exposed to the substance/agent again, for example, following a manifestation 
-of a life-threatening anaphylaxis, then the ‘Seriousness’ data element should be amended to ‘High’. 
+of a life-threatening anaphylaxis, then the 'Seriousness' data element should be amended to 'High'. 
 </p>
 <p>
 A formal Adverse Event Report to regulatory bodies is a document that will contain a broad range of information in 
@@ -117,7 +117,7 @@ future reactions are:
 <ul>
 <li>statements about previous clinical manifestations following exposure</li>
 <li>source of the information/reporter</li>
-<li>the 'criticality’ flag</li>
+<li>the 'criticality' flag</li>
 </ul>
 <p>
 Second-level information can be drawn from each exposure event and links to additional detailed information 
