@@ -584,20 +584,23 @@ HTTP/1.1 200 OK
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this 
 is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a v3 code to 
-a v2 code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes 3 parameters:
+a v2 code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes the following parameters:
 </p>
 <ul>
-  <li> a code+system, Coding, or CodeableConcept</li>
-  <li> the value set for the context of the source </li>
-  <li> the value set for the destination</li>
+  <li>A code+system, Coding, or CodeableConcept</li>
+  <li>A Concept Map to use for the translation</li>
+  <li>The value set for the context of the source </li>
+  <li>The value set for the destination</li>
 </ul>
 <p>
-<i>Note to reviewers/implementers: do we need to allow a specific conceptmap to be specified for a translation?</i> 
-</p>
-<p>
+The client passes either a concept map, or the value sets for the source and destination context.
+If there is no concept map, then the server may determine the appropriate map to use from 
+context provided in the value sets. 
 If there is no particular context, the appropriate value sets would be the value sets for the 
 entire coding system at question (e.g. from http://snomed.info/sct to http://loinc.org/vs).
 The server performs the translation as it is able based on the concept maps that it knows about.
+If no single mapping can be determined then the 
+server returns an error. Some servers may require a concept map to use for the translation.
 </p>
 
 <div class="example">

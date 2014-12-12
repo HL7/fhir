@@ -9,10 +9,10 @@
         "value": "12345"
     }],
     "managingOrganization": {"reference": "Organization/1"},
-    "_active": {"extension": [{
-        "url": "http://hl7.org/fhir/example-do-not-use#recordStatus",
+    "_active": {
+      "http://hl7.org/fhir/example-do-not-use#recordStatus" : [
         "valueCode": "archived"
-    }]},
+    ]},
     "name": [
         {
             "given": [
@@ -27,28 +27,19 @@
             "use": "usual"
         }
     ],
-    "extension": [
-        {
-            "url": "http://hl7.org/fhir/example-do-not-use#Patient.avatar",
+    "http://hl7.org/fhir/example-do-not-use#Patient.avatar" : [
             "valueResource": {
                 "reference": "#pic1",
                 "display": "Duck image"
             }
-        },
-        {
-            "url": "urn:example-do-not-use:pi",
-            "valueDecimal": 3.141592653589793
-        },
-        {
-            "url": "urn:example-do-not-use:avogadro",
-            "valueDecimal": 6.0221416246424E23
-        }
     ],
-    "gender": {"coding": [{
-        "system": "http://hl7.org/fhir/v3/AdministrativeGender",
-        "code": "M",
-        "display": "Male"
-    }]},
+    "urn:example-do-not-use:pi" : [
+            "valueDecimal": 3.141592653589793
+    ],
+    "urn:example-do-not-use:avogadro" : [
+            "valueDecimal": 6.0221416246424E23
+    ],
+    "gender": "male",
     "birthDate": "1974-12",
     "deceasedBoolean": true,
     "address": [{
@@ -58,10 +49,11 @@
         "state": "Vic",
         "zip": "3999"
     }],
-    "maritalStatus": {"extension": [{
-        "valueCode": "ASKU",
-        "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor"
-    }]},
+    "maritalStatus": {
+      "http://hl7.org/fhir/Profileiso-21090#nullFlavor" : [
+        "valueCode": "ASKU"
+      ]
+    },
     "multipleBirthInteger": 3,
     "text": {
         "status": "generated",
@@ -98,35 +90,34 @@
                 null
             ],
             "_family": [
-                {"extension": [{
-                    "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor",
+                "http://hl7.org/fhir/Profileiso-21090#nullFlavor" : [
                     "valueCode": "ASKU"
-                }]},
+                ],
                 {
                     "id": "a2",
-                    "extension": [{
-                        "url": "http://hl7.org/fhir/Profileiso-21090#qualifier",
+                    "http://hl7.org/fhir/Profileiso-21090#qualifier" : [
                         "valueCode": "VV"
-                    }]
+                    ]
                 },
-                {"extension": [{
-                    "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor",
+                { 
+                  "http://hl7.org/fhir/Profileiso-21090#nullFlavor" : [
                     "valueCode": "ASKU"
-                }]},
+                    ]
+                },
                 null,
-                {"extension": [{
-                    "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor",
+                { 
+                  "http://hl7.org/fhir/Profileiso-21090#nullFlavor" : [
                     "valueCode": "ASKU"
-                }]}
+                  ]
+                }
             ],
             "_given": [
                 null,
                 {
                     "id": "a3",
-                    "extension": [{
-                        "url": "http://hl7.org/fhir/Profileiso-21090#qualifier",
+                    "http://hl7.org/fhir/Profileiso-21090#qualifier" : [
                         "valueCode": "MID"
-                    }]
+                    ]
                 },
                 null
             ],

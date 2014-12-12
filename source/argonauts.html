@@ -33,7 +33,7 @@ and is a joint project between HL7 and the following organizations:
 </ul>
 <p>
 The purpose of the Argonaut Project is to develop a first-generation API and Core Data Services specification 
-to enable expanded information sharing for electronic health records and other health information  
+to enable expanded information sharing for electronic health records, documents, and other health information  
 based on the FHIR specification.
 </p>
 <h3>First Draft</h3>
@@ -60,6 +60,7 @@ the following Meaningful Use based Data:
  <li>Care plan field(s), including goals and instructions</li>
  <li>Procedures</li>
  <li>Care team member(s)</li>
+ <li>Documents relating to a patient</li>
 </ol>
 <p>
 The connectathon will be open for both client and server (e.g. patient portal 
@@ -79,8 +80,8 @@ Specifically, this is the map between the MU data list above, and their correspo
  </tr>
  <tr>
    <td>Patient Details</td>
-   <td><a href="patient.html">Patient</a></td>
-   <td><a href="patient-daf.html">DAF Patient</a></td>
+   <td><a href="patient.html">Patient</a><br/>+ <a href="encounter.html">Encounter</a> in support</td>
+   <td><a href="patient-daf.html">DAF Patient</a><br/><a href="encounter-daf.html">DAF Encounter</a></td>
  </tr>
  <tr>
    <td>Smoking status</td>
@@ -99,13 +100,15 @@ Specifically, this is the map between the MU data list above, and their correspo
      <li><a href="medicationdispense.html">MedicationDispense</a></li>
      <li><a href="medicationadministration.html">MedicationAdministration</a></li>
      <li><a href="medicationstatement.html">MedicationStatement</a></li>
+     <li><a href="immunization.html">Immunization</a></li>
     </ul> 
    </td>
    <td>DAF:<ul>
-     <li><a href="??">??</a></li>
-     <li><a href="??">??</a></li>
+     <li><i>Not done yet</i></li>
+     <li><i>Not done yet</i></li>
      <li><a href="medicationadministration-daf.html">DAF Medication Administration</a></li>
      <li><a href="medicationstatement-daf.html">DAF MedicationStatement</a></li>
+     <li><a href="immunization-daf.html">DAF Immunization</a> (note: it is expected that this be replaced by use of MedicationAdministration)</li>
     </ul> 
    </td>
  </tr>
@@ -132,7 +135,7 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Care Plan</td>
    <td><a href="careplan.html">CarePlan</a> or <a href="careplan2.html">CarePlan2</a></td>
-   <td><i>Not done yet</i>. Implementers are free to experiment and make recommendations. HL7 is considering two different approaches here</td>
+   <td><i>Not done yet</i> (HL7 is considering two different approaches here)</td>
  </tr>
  <tr>
    <td>Procedures</td>
@@ -142,7 +145,12 @@ Specifically, this is the map between the MU data list above, and their correspo
  <tr>
    <td>Care team</td>
    <td><a href="practitioner.html">Practitioner</a></td>
-   <td><a href="??">??</a></td>
+   <td><i>Not done yet</i></td>
+ </tr>
+ <tr>
+   <td>Patient Documents</td>
+   <td><a href="documentreference.html">DocumentReference</a></td>
+   <td><i>Not done yet</i> (will be consistent with IHE use in the <a href="ftp://ftp.ihe.net/IT_Infrastructure/iheitiyr13-2015-2016/Technical_Cmte/Workitems/MHD2/IHE_ITI_Suppl_MHD_20141205.docx">MHD profile</a>)</td>
  </tr>
 </table>
 
@@ -159,6 +167,12 @@ work in this space is closely related and the DAF rules should be
 understood as candidates for the JASON taskforce deliberations in
 this space. For this reason, implementers are encouraged to implement
 these for the connectathon and/or to comment on them in depth.
+</p>
+<p>
+Where no particular profile is nominated (<i>not done yet</i>), implementers 
+are free to experiment and make recommendations for the next phase 
+of development, which is expected to refine this list and the details
+of the profiles based on implementation experience.
 </p>
 
 

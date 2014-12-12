@@ -4124,6 +4124,12 @@
     <display value="Parent, NOS"/>
     <display value="Parent (person)"/>
   </concept>
+  <concept id="407152001" display="Raised blood lead level">
+    <display value="Increased blood lead level (finding)"/>
+    <display value="Increased blood lead level"/>
+    <display value="Elevated blood lead level"/>
+    <display value="Raised blood lead level"/>
+  </concept>
   <concept id="40768004" display="Left thorax">
     <display value="Left thorax structure"/>
     <display value="Left thorax"/>

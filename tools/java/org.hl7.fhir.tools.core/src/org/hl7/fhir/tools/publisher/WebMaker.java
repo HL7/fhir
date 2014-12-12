@@ -85,14 +85,18 @@ public class WebMaker {
 
   public void produceHL7Copy() throws Exception {
     List<String> folderList = new ArrayList<String>();
-    Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload");
+    Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload1");
+    Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload2");
     Utilities.clearDirectory(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web");
     File fw = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-web-"+version+".zip");
     if (fw.exists())
       fw.delete();
-    File fd = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-dload-"+version+".zip");
-    if (fd.exists())
-      fd.delete();
+    File fd1 = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-dload1-"+version+".zip");
+    if (fd1.exists())
+      fd1.delete();
+    File fd2 = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-dload2-"+version+".zip");
+    if (fd2.exists())
+      fd2.delete();
     makeArchives();
     
     String[] files = new CSFile(folders.dstDir).list();
@@ -122,8 +126,10 @@ public class WebMaker {
           throw new Exception("exception processing: "+src+": "+e.getMessage());
         }
       } else if (f.endsWith(".chm") || f.endsWith(".eap") || f.endsWith(".zip")) {
-//         if (!f.equals("fhir-spec.zip"))
-          Utilities.copyFile(new CSFile(folders.dstDir+f), new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator+f));
+         if (f.equals("fhir-spec.zip"))
+           Utilities.copyFile(new CSFile(folders.dstDir+f), new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload2"+File.separator+f));
+         else
+           Utilities.copyFile(new CSFile(folders.dstDir+f), new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload1"+File.separator+f));
       } else if (!f.matches(Config.VERSION_REGEX) && !f.equals("html") && !f.equals("examples") ) {
         if (new CSFile(folders.dstDir+f).isDirectory()) {
           Utilities.copyDirectory(folders.dstDir+f, folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+f, null);
@@ -189,8 +195,11 @@ public class WebMaker {
       zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator, false);
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v2"+File.separator, "v2"+File.separator, false); 
     zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v3"+File.separator, "v3"+File.separator, false); 
-    ZipGenerator zipd = new ZipGenerator(fd.getAbsolutePath());
-    zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload"+File.separator, "", null, null);
+    ZipGenerator zipd = new ZipGenerator(fd1.getAbsolutePath());
+    zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload1"+File.separator, "", null, null);
+    zipd.close();    
+    zipd = new ZipGenerator(fd2.getAbsolutePath());
+    zipd.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"dload2"+File.separator, "", null, null);
     zipd.close();    
   }
 
