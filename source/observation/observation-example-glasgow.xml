@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This is an example of a Glasgow Coma Score using the .related to bundle the  measurements  will use contained elements for this example only but coudl just as easily use external or bundled elements..  source http://www.choa.org/~/media/CHOA/Documents/Services/Concussion/Concussion-glasgow-coma-scale.pdf
+-->
+
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+	<id value="glasgow"/>
+	<text>
+		<status value="generated"></status>
+		 <div xmlns="http://www.w3.org/1999/xhtml">
+		 <h2>Observation: Glasgow Coma Scale , (GCS)</h2>
+	<h3>Date Time: 2014-12-11 20:44PM</h3>
+	<h3>Patient Name: Peter James Chalmers</h3>
+	
+		<ul>
+			<li>
+				<b>Glasgow Coma Scale , (GCS)=</b>13<ul>
+					<li>
+						<b>Motor=</b>5</li>
+					<li>
+						<b>Verbal=</b>4</li>
+					<li>
+						<b>Eyes=</b>4</li>
+				</ul></li>
+		</ul>
+	
+		 </div>
+	</text>
+<!-- Note: will use contained elements for this example but could just as easily use external or bundled elements..-->
+<!-- First contained element = Motor component. --> 
+	<contained>
+		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+			<id value="motor"/>
+			<name>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="9268-4"/>
+					<display value="Glasgow coma score motor"/>
+				</coding>
+				<text value="Motor"/>
+			</name>
+			<valueQuantity>
+				<value value="5"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="{score}"/>
+			</valueQuantity>
+			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<status value="final"/>
+			<reliability value="ok"/>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+		</Observation>
+	</contained>
+	<!-- Second contained element = Verbal component. --> 
+	<contained>
+		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+			<id value="verbal"/>
+			<name>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="9270-0"/>
+					<display value="Glasgow coma score verbal"/>
+				</coding>
+				<text value="Verbal"/>
+			</name>
+			<valueQuantity>
+				<value value="4"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="{score}"/>
+			</valueQuantity>
+			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<status value="final"/>
+			<reliability value="ok"/>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+		</Observation>
+	</contained>
+	<!-- Third contained element = Eyes component. --> 
+	<contained>
+		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+			<id value="eyes"/>
+			<name>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="9267-6"/>
+					<display value="Glasgow coma score eye opening"/>
+				</coding>
+				<text value="Eyes"/>
+			</name>
+			<valueQuantity>
+				<value value="4"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="{score}"/>
+			</valueQuantity>
+			<appliesDateTime value="2014-12-11T04:44:16Z"/>
+			<status value="final"/>
+			<reliability value="ok"/>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+		</Observation>
+	</contained>
+	<!-- 
+    Observations are often coded in multiple code systems. 
+      - LOINC
+		- or SNOMED     
+      -and/or the source system may provides it's own "local" code, which may be less or more granular than LOINC.  
+	In this example there is only LOINC 
+  -->
+	<name>
+		<!-- LOINC - always recommended to have a LOINC code -->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="9269-2"/>
+			<display value="Glasgow coma score total"/>
+		</coding>
+		<text value="Glasgow Coma Scale , (GCS)"/>
+	</name>
+	<!-- In FHIR, units may be represented twice. Once in the 
+    agreed human representation, and once in a coded form.
+    In this example the UCUM unit is provided but no human representation since this is often not displayed
+   -->
+	<valueQuantity>
+		<value value="13"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="{score}"/>
+	</valueQuantity>
+	<appliesDateTime value="2014-12-11T04:44:16Z"/>
+	<!-- the mandatory quality flags: -->
+	<status value="final"/>
+	<reliability value="ok"/>
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"></display>
+	</subject>
+	<referenceRange>
+	<high>
+			<value value="8"/>
+
+			<system value="http://unitsofmeasure.org"/>
+			<code value="{score}"/>
+	</high>
+		<!-- meaning as text -->
+		<meaning>
+			<text value="Severe TBI"/>
+		</meaning>
+	</referenceRange>
+	<referenceRange>
+		<low>
+			<value value="9"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="{score}"/>
+		</low>
+		<high>
+			<value value="12"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="{score}"/>
+		</high>
+		<!-- meaning as text -->
+		<meaning>
+			<text value="Moderate TBI"/>
+		</meaning>
+	</referenceRange>
+	<referenceRange>
+		<low>
+			<value value="13"/>
+	
+			<system value="http://unitsofmeasure.org"/>
+			<code value="{score}"/>
+		</low>
+		<!-- meaning as text -->
+		<meaning>
+			<text value="Mild TBI"/>
+		</meaning>
+	</referenceRange>
+	<!-- put the references to the contained components here  -->
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#motor"/>
+			<display value="Motor score"/>
+		</target>
+	</related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#verbal"/>
+			<display value="Verbal score"/>
+		</target>
+	</related>
+	<related>
+		<type value="derived-from"/>
+		<target>
+			<reference value="#eyes"/>
+			<display value="Eyes score"/>
+		</target>
+	</related>
+</Observation>
