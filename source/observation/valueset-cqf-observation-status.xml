@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="valueset-cqf-observation-status"/>
+	<meta>
+	  <lastUpdated value="2014-12-18T15:12:48.063-05:00"/>
+	</meta>
+	<text>
+	  <status value="generated"/>
+	  <div xmlns="http://www.w3.org/1999/xhtml">
+		<p>This value set contains 2 concepts</p>
+		<h2>CQFObservationStatus</h2>
+		<p>Codes providing the status of an observation</p>
+		<p>This value set defines its own terms in the system http://hl7.org/fhir/observation-status</p>
+		<table class="codes">
+		  <tr>
+			<td>
+			  <b>Code</b>
+			</td>
+			<td>
+			  <b>Display</b>
+			</td>
+			<td>
+			  <b>Definition</b>
+			</td>
+		  </tr>
+		  <tr>
+			<td>final
+			  <a name="final"> </a>
+			</td>
+			<td/>
+			<td>The observation is complete and verified by an authorized person.</td>
+		  </tr>
+		  <tr>
+			<td>amended
+			  <a name="amended"> </a>
+			</td>
+			<td/>
+			<td>The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.</td>
+		  </tr>
+		</table>
+	  </div>
+	</text>
+	<identifier value="http://hl7.org/fhir/vs/cqf-observation-status"/>
+	<name value="CQFObservationStatus"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org"/>
+  </telecom>
+  <description value="Codes providing the status of a CQF observation"/>
+  <status value="draft"/>
+  <date value="2014-12-18T15:13:01.056-05:00"/>
+  <compose>
+    <include>
+	  <system value="http://hl7.org/fhir/observation-status"/>
+	  <concept>
+		<code value="final"/>
+	  </concept>
+	  <concept>
+		<code value="amended"/>
+	  </concept>
+    </include>
+  </compose>
+</ValueSet>
