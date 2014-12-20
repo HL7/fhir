@@ -49,11 +49,11 @@ All resources have the following optional or mandatory elements and properties:
  <li>A reference to "Implicit Rules"</li>
 </ul>
 <p>
-Most resources are derived from <a href="domainresource.html">Domain Resources</a> - they also contain text, contained resources, and extensions,
+Most resources are derived from <a href="domainresource.html">Domain Resources</a> - they also contain text, contained resources, extensions,
 and data elements specific to the particular domain of the resource. There is a special type of resource called <a href="bundle.html">Bundle</a> for groups/lists of resources. 
 </p>
 <p>
-Note: there is documentation for the <a href="formats.html">Struture</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations. 
+Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations. 
 </p>
 
 </div>

@@ -108,10 +108,10 @@ eco-system is highly fractured, and not yet ready to define, collect, and exchan
 data in a generally exchangeable sense. 
 </p>
 <p>
-Note that reosurces are almost always constructed following some custom agreement.
+Note that resources are almost always constructed following some custom agreement.
 Best practice is that such agreements make all knowledge about the content 
-of the resouce explicit; if custom agreements do this, and declare their extensions
-as required, then it is not necessary to understand the agrement when processing the 
+of the resource explicit; if custom agreements do this, and declare their extensions
+as required, then it is not necessary to understand the agreement when processing the 
 resource content.
 </p>
 
