@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="valueset-cqf-encounter-state"/>	
+	<meta>
+	<lastUpdated value="2014-12-22T12:52:58.614-05:00"/>
+	</meta>
+	<text>
+	  <status value="generated"/>
+	  <div xmlns="http://www.w3.org/1999/xhtml">
+		<p>This value set contains 3 concepts</p>
+		<h2>CQF EncounterState</h2>
+		<p>Current state of the CQF encounter</p>
+		<p>This value set defines its own terms in the system http://hl7.org/fhir/encounter-state</p>
+		<table class="codes">
+		  <tr>
+			<td>
+			  <b>Code</b>
+			</td>
+			<td>
+			  <b>Display</b>
+			</td>
+			<td>
+			  <b>Definition</b>
+			</td>
+		  </tr>
+		  <tr>
+			<td>in progress
+			  <a name="inprogress"> </a>
+			</td>
+			<td>In Progress</td>
+			<td>The Encounter has begun and the patient is present / the practitioner and the patient are meeting.</td>
+		  </tr>
+		  <tr>
+			<td>onleave
+			  <a name="onleave"> </a>
+			</td>
+			<td>On Leave</td>
+			<td>The Encounter has begun, but the patient is temporarily on leave.</td>
+		  </tr>
+		  <tr>
+			<td>finished
+			  <a name="finished"> </a>
+			</td>
+			<td>Finished</td>
+			<td>The Encounter has ended.</td>
+		  </tr>
+		</table>
+	  </div>
+	</text>
+  <identifier value="http://hl7.org/fhir/vs/cqf-encounter-state"/>
+  <name value="CQFEncounterState"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org/Special/committees/cqi/"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.hl7.org"/>
+  </telecom>
+  <description value="Current state of the CQF encounter"/>
+  <status value="draft"/>
+  <date value="2014-12-22T12:52:58.614-05:00"/>
+  <compose>
+    <include>
+	  <system value="http://hl7.org/fhir/encounter-state"/>
+	  <concept>
+		<code value="in progress"/>
+	  </concept>
+	  <concept>
+		<code value="onleave"/>
+	  </concept>
+	  <concept>
+		<code value="finished"/>
+	  </concept>		
+    </include>
+  </compose>
+</ValueSet>
