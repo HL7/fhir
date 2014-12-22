@@ -5,7 +5,7 @@
   </text>
   <identifier value="http://hl7.org/fhir/vs/allergy-intolerance-status-present"/>
   <name value="AllergyIntoleranceStatusPresent"/>
-  <publisher value="CQF Project team"/>
+  <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
