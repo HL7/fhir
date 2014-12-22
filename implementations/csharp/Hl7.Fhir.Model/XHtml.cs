@@ -67,17 +67,7 @@ namespace Hl7.Fhir.Model
 
         private static XmlSchemaSet compileXhtmlSchema()
         {
-            var assembly = typeof(XHtml).Assembly;
-            XmlSchemaSet schemas = new XmlSchemaSet();
-
-            var schema = new StringReader(Properties.Resources.fhir_xhtml);
-            schemas.Add(null, XmlReader.Create(schema));   // null = use schema namespace as specified in schema file
-            schema = new StringReader(Properties.Resources.xml);
-            schemas.Add(null, XmlReader.Create(schema));   // null = use schema namespace as specified in schema file
-
-            schemas.Compile();
-
-            return schemas;
+            return null; 
         }
 #endif
 

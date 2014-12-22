@@ -35,6 +35,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.codec.binary.StringUtils;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
@@ -229,8 +230,9 @@ public class CSharpModelGenerator extends GenBlock
 			//generateValidationMethod(composite);
 
 			// Put in the NotifyPropertyChanged bits
-			String derivation = composite.getName();
-			if(	derivation.compareTo("Element") == 0 || derivation.compareTo("Resource") == 0 )
+			//String derivation = composite.getName();
+			
+			if( composite.getBaseType() == null )
 			{
 				ln("public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;");
 				ln("protected void OnPropertyChanged(String property)");
@@ -655,7 +657,13 @@ public class CSharpModelGenerator extends GenBlock
 		if( composite.getBaseType() != null ) 
 		{
 			nl( " : " ); 						
-		  nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
+			
+			String baseName = composite.getBaseType().getFullName();
+			
+			if(Character.isLowerCase(composite.getName().charAt(0)))
+			  baseName = "Primitive";
+			
+		  nl(GeneratorUtils.buildFullyScopedTypeName(baseName));
 			nl(", System.ComponentModel.INotifyPropertyChanged");
 		}
 		else

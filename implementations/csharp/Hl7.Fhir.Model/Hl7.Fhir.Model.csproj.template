@@ -61,7 +61,6 @@
     <Compile Include="Base.cs" />
     <Compile Include="Base64Binary.cs" />
     <Compile Include="Bundle.cs" />
-    <Compile Include="BundleExtensions.cs" />
     <Compile Include="FhirBoolean.cs" />
     <Compile Include="FhirDecimal.cs" />
     <Compile Include="FhirString.cs" />
@@ -76,7 +75,7 @@
     <Compile Include="Oid.cs" />
     <Compile Include="DomainResource.cs" />
     <Compile Include="OperationOutcomeExtensions.cs" />
-    <Compile Include="Query.cs" />
+    <Compile Include="Primitive.cs" />
     <Compile Include="Date.cs" />
     <Compile Include="DeletedResource.cs" />
     <Compile Include="FhirDateTime.cs" />
