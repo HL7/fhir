@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -80,7 +80,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ServiceTypeComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -225,7 +225,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.allDay");
             else if (Configuration.doAutoCreate())
-              this.allDay = new BooleanType();
+              this.allDay = new BooleanType(); // bb
           return this.allDay;
         }
 
@@ -274,7 +274,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.availableStartTime");
             else if (Configuration.doAutoCreate())
-              this.availableStartTime = new DateTimeType();
+              this.availableStartTime = new DateTimeType(); // bb
           return this.availableStartTime;
         }
 
@@ -297,14 +297,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return The opening time of day (the date is not included). Note: If the AllDay flag is set, then this time is ignored.
          */
-        public DateAndTime getAvailableStartTime() { 
+        public Date getAvailableStartTime() { 
           return this.availableStartTime == null ? null : this.availableStartTime.getValue();
         }
 
         /**
          * @param value The opening time of day (the date is not included). Note: If the AllDay flag is set, then this time is ignored.
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableStartTime(DateAndTime value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableStartTime(Date value) { 
           if (value == null)
             this.availableStartTime = null;
           else {
@@ -323,7 +323,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceAvailableTimeComponent.availableEndTime");
             else if (Configuration.doAutoCreate())
-              this.availableEndTime = new DateTimeType();
+              this.availableEndTime = new DateTimeType(); // bb
           return this.availableEndTime;
         }
 
@@ -346,14 +346,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return The closing time of day (the date is not included). Note: If the AllDay flag is set, then this time is ignored.
          */
-        public DateAndTime getAvailableEndTime() { 
+        public Date getAvailableEndTime() { 
           return this.availableEndTime == null ? null : this.availableEndTime.getValue();
         }
 
         /**
          * @param value The closing time of day (the date is not included). Note: If the AllDay flag is set, then this time is ignored.
          */
-        public HealthcareServiceAvailableTimeComponent setAvailableEndTime(DateAndTime value) { 
+        public HealthcareServiceAvailableTimeComponent setAvailableEndTime(Date value) { 
           if (value == null)
             this.availableEndTime = null;
           else {
@@ -436,7 +436,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceNotAvailableTimeComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -481,7 +481,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceNotAvailableTimeComponent.startDate");
             else if (Configuration.doAutoCreate())
-              this.startDate = new DateTimeType();
+              this.startDate = new DateTimeType(); // bb
           return this.startDate;
         }
 
@@ -504,14 +504,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return Service is not available (seasonally or for a public holiday) from this date.
          */
-        public DateAndTime getStartDate() { 
+        public Date getStartDate() { 
           return this.startDate == null ? null : this.startDate.getValue();
         }
 
         /**
          * @param value Service is not available (seasonally or for a public holiday) from this date.
          */
-        public HealthcareServiceNotAvailableTimeComponent setStartDate(DateAndTime value) { 
+        public HealthcareServiceNotAvailableTimeComponent setStartDate(Date value) { 
           if (value == null)
             this.startDate = null;
           else {
@@ -530,7 +530,7 @@ public class HealthcareService extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create HealthcareServiceNotAvailableTimeComponent.endDate");
             else if (Configuration.doAutoCreate())
-              this.endDate = new DateTimeType();
+              this.endDate = new DateTimeType(); // bb
           return this.endDate;
         }
 
@@ -553,14 +553,14 @@ public class HealthcareService extends DomainResource {
         /**
          * @return Service is not available (seasonally or for a public holiday) until this date.
          */
-        public DateAndTime getEndDate() { 
+        public Date getEndDate() { 
           return this.endDate == null ? null : this.endDate.getValue();
         }
 
         /**
          * @param value Service is not available (seasonally or for a public holiday) until this date.
          */
-        public HealthcareServiceNotAvailableTimeComponent setEndDate(DateAndTime value) { 
+        public HealthcareServiceNotAvailableTimeComponent setEndDate(Date value) { 
           if (value == null)
             this.endDate = null;
           else {
@@ -823,7 +823,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.location");
         else if (Configuration.doAutoCreate())
-          this.location = new Reference();
+          this.location = new Reference(); // cc
       return this.location;
     }
 
@@ -847,7 +847,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.location");
         else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location();
+          this.locationTarget = new Location(); // aa
       return this.locationTarget;
     }
 
@@ -867,7 +867,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.serviceCategory");
         else if (Configuration.doAutoCreate())
-          this.serviceCategory = new CodeableConcept();
+          this.serviceCategory = new CodeableConcept(); // cc
       return this.serviceCategory;
     }
 
@@ -921,7 +921,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.serviceName");
         else if (Configuration.doAutoCreate())
-          this.serviceName = new StringType();
+          this.serviceName = new StringType(); // bb
       return this.serviceName;
     }
 
@@ -970,7 +970,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType();
+          this.comment = new StringType(); // bb
       return this.comment;
     }
 
@@ -1019,7 +1019,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.extraDetails");
         else if (Configuration.doAutoCreate())
-          this.extraDetails = new StringType();
+          this.extraDetails = new StringType(); // bb
       return this.extraDetails;
     }
 
@@ -1068,7 +1068,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.freeProvisionCode");
         else if (Configuration.doAutoCreate())
-          this.freeProvisionCode = new CodeableConcept();
+          this.freeProvisionCode = new CodeableConcept(); // cc
       return this.freeProvisionCode;
     }
 
@@ -1092,7 +1092,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.eligibility");
         else if (Configuration.doAutoCreate())
-          this.eligibility = new CodeableConcept();
+          this.eligibility = new CodeableConcept(); // cc
       return this.eligibility;
     }
 
@@ -1116,7 +1116,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.eligibilityNote");
         else if (Configuration.doAutoCreate())
-          this.eligibilityNote = new StringType();
+          this.eligibilityNote = new StringType(); // bb
       return this.eligibilityNote;
     }
 
@@ -1165,7 +1165,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.appointmentRequired");
         else if (Configuration.doAutoCreate())
-          this.appointmentRequired = new CodeableConcept();
+          this.appointmentRequired = new CodeableConcept(); // cc
       return this.appointmentRequired;
     }
 
@@ -1189,7 +1189,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.imageURI");
         else if (Configuration.doAutoCreate())
-          this.imageURI = new UriType();
+          this.imageURI = new UriType(); // bb
       return this.imageURI;
     }
 
@@ -1298,7 +1298,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.availabilityExceptions");
         else if (Configuration.doAutoCreate())
-          this.availabilityExceptions = new StringType();
+          this.availabilityExceptions = new StringType(); // bb
       return this.availabilityExceptions;
     }
 
@@ -1347,7 +1347,7 @@ public class HealthcareService extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HealthcareService.publicKey");
         else if (Configuration.doAutoCreate())
-          this.publicKey = new StringType();
+          this.publicKey = new StringType(); // bb
       return this.publicKey;
     }
 

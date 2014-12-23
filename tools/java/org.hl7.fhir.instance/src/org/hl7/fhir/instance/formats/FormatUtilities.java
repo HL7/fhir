@@ -33,7 +33,6 @@ import java.math.BigDecimal;
 import java.net.URI;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.DateAndTime;
 
 public abstract class FormatUtilities {
   public static final String ID_REGEX = "[A-Za-z0-9\\-\\.]{1,64}";
@@ -65,10 +64,6 @@ public abstract class FormatUtilities {
     return new String(encodeBase64);
   }
   
-  protected String toString(DateAndTime value) {
-    return value.toString();
-  }
-
 	public static boolean isValidId(String tail) {
 	  return tail.matches(ID_REGEX);
   }

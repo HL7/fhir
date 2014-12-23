@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -145,8 +145,8 @@ public class HumanName extends Type {
         }
     }
 
-  public static class NameUseEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NameUseEnumFactory implements EnumFactory<NameUse> {
+    public NameUse fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -164,9 +164,9 @@ public class HumanName extends Type {
           return NameUse.OLD;
         if ("maiden".equals(codeString))
           return NameUse.MAIDEN;
-        throw new Exception("Unknown NameUse code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NameUse code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NameUse code) {
       if (code == NameUse.USUAL)
         return "usual";
       if (code == NameUse.OFFICIAL)
@@ -248,7 +248,7 @@ public class HumanName extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<NameUse>();
+          this.use = new Enumeration<NameUse>(new NameUseEnumFactory()); // bb
       return this.use;
     }
 
@@ -283,7 +283,7 @@ public class HumanName extends Type {
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<NameUse>();
+          this.use = new Enumeration<NameUse>(new NameUseEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -297,7 +297,7 @@ public class HumanName extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.text");
         else if (Configuration.doAutoCreate())
-          this.text = new StringType();
+          this.text = new StringType(); // bb
       return this.text;
     }
 
@@ -562,7 +562,7 @@ public class HumanName extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 

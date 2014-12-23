@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,8 +97,8 @@ public class PaymentReconciliation extends DomainResource {
         }
     }
 
-  public static class RSLinkEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class RSLinkEnumFactory implements EnumFactory<RSLink> {
+    public RSLink fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -106,9 +106,9 @@ public class PaymentReconciliation extends DomainResource {
           return RSLink.COMPLETE;
         if ("error".equals(codeString))
           return RSLink.ERROR;
-        throw new Exception("Unknown RSLink code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown RSLink code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(RSLink code) {
       if (code == RSLink.COMPLETE)
         return "complete";
       if (code == RSLink.ERROR)
@@ -207,7 +207,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -231,7 +231,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.request");
             else if (Configuration.doAutoCreate())
-              this.request = new Reference();
+              this.request = new Reference(); // cc
           return this.request;
         }
 
@@ -270,7 +270,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.responce");
             else if (Configuration.doAutoCreate())
-              this.responce = new Reference();
+              this.responce = new Reference(); // cc
           return this.responce;
         }
 
@@ -309,7 +309,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.submitter");
             else if (Configuration.doAutoCreate())
-              this.submitter = new Reference();
+              this.submitter = new Reference(); // cc
           return this.submitter;
         }
 
@@ -333,7 +333,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.submitter");
             else if (Configuration.doAutoCreate())
-              this.submitterTarget = new Organization();
+              this.submitterTarget = new Organization(); // aa
           return this.submitterTarget;
         }
 
@@ -353,7 +353,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.payee");
             else if (Configuration.doAutoCreate())
-              this.payee = new Reference();
+              this.payee = new Reference(); // cc
           return this.payee;
         }
 
@@ -377,7 +377,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.payee");
             else if (Configuration.doAutoCreate())
-              this.payeeTarget = new Organization();
+              this.payeeTarget = new Organization(); // aa
           return this.payeeTarget;
         }
 
@@ -397,7 +397,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.date");
             else if (Configuration.doAutoCreate())
-              this.date = new DateType();
+              this.date = new DateType(); // bb
           return this.date;
         }
 
@@ -420,14 +420,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return The date of the invoice or financial resource.
          */
-        public DateAndTime getDate() { 
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date of the invoice or financial resource.
          */
-        public DetailsComponent setDate(DateAndTime value) { 
+        public DetailsComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -446,7 +446,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -525,7 +525,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -549,7 +549,7 @@ public class PaymentReconciliation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -785,7 +785,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.request");
         else if (Configuration.doAutoCreate())
-          this.request = new Reference();
+          this.request = new Reference(); // cc
       return this.request;
     }
 
@@ -809,7 +809,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new PendedRequest();
+          this.requestTarget = new PendedRequest(); // aa
       return this.requestTarget;
     }
 
@@ -829,7 +829,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.outcome");
         else if (Configuration.doAutoCreate())
-          this.outcome = new Enumeration<RSLink>();
+          this.outcome = new Enumeration<RSLink>(new RSLinkEnumFactory()); // bb
       return this.outcome;
     }
 
@@ -864,7 +864,7 @@ public class PaymentReconciliation extends DomainResource {
         this.outcome = null;
       else {
         if (this.outcome == null)
-          this.outcome = new Enumeration<RSLink>();
+          this.outcome = new Enumeration<RSLink>(new RSLinkEnumFactory());
         this.outcome.setValue(value);
       }
       return this;
@@ -878,7 +878,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.disposition");
         else if (Configuration.doAutoCreate())
-          this.disposition = new StringType();
+          this.disposition = new StringType(); // bb
       return this.disposition;
     }
 
@@ -927,7 +927,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -951,7 +951,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -975,7 +975,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -998,14 +998,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public PaymentReconciliation setCreated(DateAndTime value) { 
+    public PaymentReconciliation setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -1024,7 +1024,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -1048,7 +1048,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -1072,7 +1072,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -1092,7 +1092,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestProvider");
         else if (Configuration.doAutoCreate())
-          this.requestProvider = new Reference();
+          this.requestProvider = new Reference(); // cc
       return this.requestProvider;
     }
 
@@ -1116,7 +1116,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestProvider");
         else if (Configuration.doAutoCreate())
-          this.requestProviderTarget = new Practitioner();
+          this.requestProviderTarget = new Practitioner(); // aa
       return this.requestProviderTarget;
     }
 
@@ -1136,7 +1136,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestOrganization");
         else if (Configuration.doAutoCreate())
-          this.requestOrganization = new Reference();
+          this.requestOrganization = new Reference(); // cc
       return this.requestOrganization;
     }
 
@@ -1160,7 +1160,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestOrganization");
         else if (Configuration.doAutoCreate())
-          this.requestOrganizationTarget = new Organization();
+          this.requestOrganizationTarget = new Organization(); // aa
       return this.requestOrganizationTarget;
     }
 
@@ -1210,7 +1210,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.form");
         else if (Configuration.doAutoCreate())
-          this.form = new Coding();
+          this.form = new Coding(); // cc
       return this.form;
     }
 
@@ -1234,7 +1234,7 @@ public class PaymentReconciliation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.total");
         else if (Configuration.doAutoCreate())
-          this.total = new Money();
+          this.total = new Money(); // cc
       return this.total;
     }
 

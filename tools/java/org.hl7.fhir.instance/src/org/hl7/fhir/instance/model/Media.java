@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class Media extends DomainResource {
         }
     }
 
-  public static class MediaTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MediaTypeEnumFactory implements EnumFactory<MediaType> {
+    public MediaType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class Media extends DomainResource {
           return MediaType.VIDEO;
         if ("audio".equals(codeString))
           return MediaType.AUDIO;
-        throw new Exception("Unknown MediaType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MediaType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MediaType code) {
       if (code == MediaType.PHOTO)
         return "photo";
       if (code == MediaType.VIDEO)
@@ -252,7 +252,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<MediaType>();
+          this.type = new Enumeration<MediaType>(new MediaTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -284,7 +284,7 @@ public class Media extends DomainResource {
      */
     public Media setType(MediaType value) { 
         if (this.type == null)
-          this.type = new Enumeration<MediaType>();
+          this.type = new Enumeration<MediaType>(new MediaTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -297,7 +297,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.subtype");
         else if (Configuration.doAutoCreate())
-          this.subtype = new CodeableConcept();
+          this.subtype = new CodeableConcept(); // cc
       return this.subtype;
     }
 
@@ -351,7 +351,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -374,14 +374,14 @@ public class Media extends DomainResource {
     /**
      * @return The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date/time when the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the start of the recording.
      */
-    public Media setCreated(DateAndTime value) { 
+    public Media setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -400,7 +400,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -439,7 +439,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.operator");
         else if (Configuration.doAutoCreate())
-          this.operator = new Reference();
+          this.operator = new Reference(); // cc
       return this.operator;
     }
 
@@ -463,7 +463,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.operator");
         else if (Configuration.doAutoCreate())
-          this.operatorTarget = new Practitioner();
+          this.operatorTarget = new Practitioner(); // aa
       return this.operatorTarget;
     }
 
@@ -483,7 +483,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.view");
         else if (Configuration.doAutoCreate())
-          this.view = new CodeableConcept();
+          this.view = new CodeableConcept(); // cc
       return this.view;
     }
 
@@ -507,7 +507,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.deviceName");
         else if (Configuration.doAutoCreate())
-          this.deviceName = new StringType();
+          this.deviceName = new StringType(); // bb
       return this.deviceName;
     }
 
@@ -556,7 +556,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.height");
         else if (Configuration.doAutoCreate())
-          this.height = new IntegerType();
+          this.height = new IntegerType(); // bb
       return this.height;
     }
 
@@ -605,7 +605,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.width");
         else if (Configuration.doAutoCreate())
-          this.width = new IntegerType();
+          this.width = new IntegerType(); // bb
       return this.width;
     }
 
@@ -654,7 +654,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.frames");
         else if (Configuration.doAutoCreate())
-          this.frames = new IntegerType();
+          this.frames = new IntegerType(); // bb
       return this.frames;
     }
 
@@ -703,7 +703,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.duration");
         else if (Configuration.doAutoCreate())
-          this.duration = new IntegerType();
+          this.duration = new IntegerType(); // bb
       return this.duration;
     }
 
@@ -752,7 +752,7 @@ public class Media extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.content");
         else if (Configuration.doAutoCreate())
-          this.content = new Attachment();
+          this.content = new Attachment(); // cc
       return this.content;
     }
 

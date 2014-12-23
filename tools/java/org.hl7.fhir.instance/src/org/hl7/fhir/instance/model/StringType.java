@@ -28,62 +28,72 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+import org.apache.commons.lang3.StringUtils;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+
+
 /**
  * Primitive type "string" in FHIR - any sequence of unicode characters less than 1MB in length
  */
+@DatatypeDef(name = "string")
+public class StringType extends PrimitiveType<String> {
 
-public class StringType extends PrimitiveType {
+	private static final long serialVersionUID = 3L;
 
-  private static final long serialVersionUID = 4115820767194238069L;
 	/**
-	 * The string value
+	 * Create a new String
 	 */
-	private String value;
-
   public StringType() {
+		super();
   }
 
-  public StringType(String value) {
-    this.value = value;
+	/**
+	 * Create a new String
+	 */
+	public StringType(String theValue) {
+		setValue(theValue);
   }
 
   /**
-	 * @return the string value
+	 * Returns the value of this StringType, or an empty string ("") if the
+	 * value is <code>null</code>. This method is provided as a convenience to
+	 * users of this API.
 	 */
-	public String getValue() {
-		return value;
+	public String getValueNotNull() {
+		return StringUtils.defaultString(getValue());
 	}
 
 	/**
-	 * @param value the value of the string
+	 * Returns the value of this string, or <code>null</code> if no value
+	 * is present
 	 */
-	public StringType setValue(String value) {
-		this.value = value;
-		return this;
+	@Override
+	public String toString() {
+		return getValue();
+	}
+	
+	/**
+	 * Returns <code>true</code> if this datatype has no extensions, and has either a <code>null</code> value or an empty ("") value.
+	 */
+	@Override
+	public boolean isEmpty() {
+		boolean retVal = super.isEmpty() && StringUtils.isBlank(getValue());
+		return retVal;
 	}
 	
 	@Override
-  public StringType copy() {
-		StringType dst = new StringType();
-		dst.value = value;
-		return dst;
-	}
-	
-	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected String parse(String theValue) {
+		return theValue;
 	}
 
   @Override
-  public String asStringValue() {
-    return value;
+	protected String encode(String theValue) {
+		return theValue;
   }
 
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
+	@Override
+	public StringType copy() {
+		return new StringType(getValue());
 	}
 
-  public boolean hasValue() {
-    return value != null;
-  }
 }

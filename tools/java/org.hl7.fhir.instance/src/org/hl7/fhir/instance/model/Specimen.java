@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,8 +97,8 @@ public class Specimen extends DomainResource {
         }
     }
 
-  public static class HierarchicalRelationshipTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class HierarchicalRelationshipTypeEnumFactory implements EnumFactory<HierarchicalRelationshipType> {
+    public HierarchicalRelationshipType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -106,9 +106,9 @@ public class Specimen extends DomainResource {
           return HierarchicalRelationshipType.PARENT;
         if ("child".equals(codeString))
           return HierarchicalRelationshipType.CHILD;
-        throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown HierarchicalRelationshipType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(HierarchicalRelationshipType code) {
       if (code == HierarchicalRelationshipType.PARENT)
         return "parent";
       if (code == HierarchicalRelationshipType.CHILD)
@@ -157,7 +157,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenSourceComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new Enumeration<HierarchicalRelationshipType>();
+              this.relationship = new Enumeration<HierarchicalRelationshipType>(new HierarchicalRelationshipTypeEnumFactory()); // bb
           return this.relationship;
         }
 
@@ -189,7 +189,7 @@ public class Specimen extends DomainResource {
          */
         public SpecimenSourceComponent setRelationship(HierarchicalRelationshipType value) { 
             if (this.relationship == null)
-              this.relationship = new Enumeration<HierarchicalRelationshipType>();
+              this.relationship = new Enumeration<HierarchicalRelationshipType>(new HierarchicalRelationshipTypeEnumFactory());
             this.relationship.setValue(value);
           return this;
         }
@@ -333,7 +333,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.collector");
             else if (Configuration.doAutoCreate())
-              this.collector = new Reference();
+              this.collector = new Reference(); // cc
           return this.collector;
         }
 
@@ -357,7 +357,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.collector");
             else if (Configuration.doAutoCreate())
-              this.collectorTarget = new Practitioner();
+              this.collectorTarget = new Practitioner(); // aa
           return this.collectorTarget;
         }
 
@@ -468,7 +468,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -492,7 +492,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.method");
             else if (Configuration.doAutoCreate())
-              this.method = new CodeableConcept();
+              this.method = new CodeableConcept(); // cc
           return this.method;
         }
 
@@ -516,7 +516,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.sourceSite");
             else if (Configuration.doAutoCreate())
-              this.sourceSite = new CodeableConcept();
+              this.sourceSite = new CodeableConcept(); // cc
           return this.sourceSite;
         }
 
@@ -608,7 +608,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenTreatmentComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -657,7 +657,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenTreatmentComponent.procedure");
             else if (Configuration.doAutoCreate())
-              this.procedure = new CodeableConcept();
+              this.procedure = new CodeableConcept(); // cc
           return this.procedure;
         }
 
@@ -839,7 +839,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -888,7 +888,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -912,7 +912,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.capacity");
             else if (Configuration.doAutoCreate())
-              this.capacity = new Quantity();
+              this.capacity = new Quantity(); // cc
           return this.capacity;
         }
 
@@ -936,7 +936,7 @@ public class Specimen extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.specimenQuantity");
             else if (Configuration.doAutoCreate())
-              this.specimenQuantity = new Quantity();
+              this.specimenQuantity = new Quantity(); // cc
           return this.specimenQuantity;
         }
 
@@ -1140,7 +1140,7 @@ public class Specimen extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -1194,7 +1194,7 @@ public class Specimen extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1233,7 +1233,7 @@ public class Specimen extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.accessionIdentifier");
         else if (Configuration.doAutoCreate())
-          this.accessionIdentifier = new Identifier();
+          this.accessionIdentifier = new Identifier(); // cc
       return this.accessionIdentifier;
     }
 
@@ -1257,7 +1257,7 @@ public class Specimen extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.receivedTime");
         else if (Configuration.doAutoCreate())
-          this.receivedTime = new DateTimeType();
+          this.receivedTime = new DateTimeType(); // bb
       return this.receivedTime;
     }
 
@@ -1280,14 +1280,14 @@ public class Specimen extends DomainResource {
     /**
      * @return Time when specimen was received for processing or testing.
      */
-    public DateAndTime getReceivedTime() { 
+    public Date getReceivedTime() { 
       return this.receivedTime == null ? null : this.receivedTime.getValue();
     }
 
     /**
      * @param value Time when specimen was received for processing or testing.
      */
-    public Specimen setReceivedTime(DateAndTime value) { 
+    public Specimen setReceivedTime(Date value) { 
       if (value == null)
         this.receivedTime = null;
       else {
@@ -1306,7 +1306,7 @@ public class Specimen extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Specimen.collection");
         else if (Configuration.doAutoCreate())
-          this.collection = new SpecimenCollectionComponent();
+          this.collection = new SpecimenCollectionComponent(); // cc
       return this.collection;
     }
 

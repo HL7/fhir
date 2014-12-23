@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -167,8 +167,8 @@ public class OrderResponse extends DomainResource {
         }
     }
 
-  public static class OrderOutcomeCodeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class OrderOutcomeCodeEnumFactory implements EnumFactory<OrderOutcomeCode> {
+    public OrderOutcomeCode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -190,9 +190,9 @@ public class OrderResponse extends DomainResource {
           return OrderOutcomeCode.ABORTED;
         if ("complete".equals(codeString))
           return OrderOutcomeCode.COMPLETE;
-        throw new Exception("Unknown OrderOutcomeCode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown OrderOutcomeCode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(OrderOutcomeCode code) {
       if (code == OrderOutcomeCode.PENDING)
         return "pending";
       if (code == OrderOutcomeCode.REVIEW)
@@ -336,7 +336,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.request");
         else if (Configuration.doAutoCreate())
-          this.request = new Reference();
+          this.request = new Reference(); // cc
       return this.request;
     }
 
@@ -360,7 +360,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new Order();
+          this.requestTarget = new Order(); // aa
       return this.requestTarget;
     }
 
@@ -380,7 +380,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -403,14 +403,14 @@ public class OrderResponse extends DomainResource {
     /**
      * @return The date and time at which this order response was made (created/posted).
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date and time at which this order response was made (created/posted).
      */
-    public OrderResponse setDate(DateAndTime value) { 
+    public OrderResponse setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -429,7 +429,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.who");
         else if (Configuration.doAutoCreate())
-          this.who = new Reference();
+          this.who = new Reference(); // cc
       return this.who;
     }
 
@@ -505,7 +505,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.code");
         else if (Configuration.doAutoCreate())
-          this.code = new Enumeration<OrderOutcomeCode>();
+          this.code = new Enumeration<OrderOutcomeCode>(new OrderOutcomeCodeEnumFactory()); // bb
       return this.code;
     }
 
@@ -537,7 +537,7 @@ public class OrderResponse extends DomainResource {
      */
     public OrderResponse setCode(OrderOutcomeCode value) { 
         if (this.code == null)
-          this.code = new Enumeration<OrderOutcomeCode>();
+          this.code = new Enumeration<OrderOutcomeCode>(new OrderOutcomeCodeEnumFactory());
         this.code.setValue(value);
       return this;
     }
@@ -550,7 +550,7 @@ public class OrderResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 

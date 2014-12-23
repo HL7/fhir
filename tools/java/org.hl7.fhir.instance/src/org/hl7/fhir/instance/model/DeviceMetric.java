@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class DeviceMetric extends Resource {
         }
     }
 
-  public static class MetricOperationalStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MetricOperationalStatusEnumFactory implements EnumFactory<MetricOperationalStatus> {
+    public MetricOperationalStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class DeviceMetric extends Resource {
           return MetricOperationalStatus.OFF;
         if ("standby".equals(codeString))
           return MetricOperationalStatus.STANDBY;
-        throw new Exception("Unknown MetricOperationalStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MetricOperationalStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MetricOperationalStatus code) {
       if (code == MetricOperationalStatus.ON)
         return "on";
       if (code == MetricOperationalStatus.OFF)
@@ -203,8 +203,8 @@ public class DeviceMetric extends Resource {
         }
     }
 
-  public static class MetricCategoryEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MetricCategoryEnumFactory implements EnumFactory<MetricCategory> {
+    public MetricCategory fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -216,9 +216,9 @@ public class DeviceMetric extends Resource {
           return MetricCategory.CALCULATION;
         if ("unspecified".equals(codeString))
           return MetricCategory.UNSPECIFIED;
-        throw new Exception("Unknown MetricCategory code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MetricCategory code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MetricCategory code) {
       if (code == MetricCategory.MEASUREMENT)
         return "measurement";
       if (code == MetricCategory.SETTING)
@@ -303,8 +303,8 @@ public class DeviceMetric extends Resource {
         }
     }
 
-  public static class MetricCalibrationTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MetricCalibrationTypeEnumFactory implements EnumFactory<MetricCalibrationType> {
+    public MetricCalibrationType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -316,9 +316,9 @@ public class DeviceMetric extends Resource {
           return MetricCalibrationType.GAIN;
         if ("two-point".equals(codeString))
           return MetricCalibrationType.TWOPOINT;
-        throw new Exception("Unknown MetricCalibrationType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MetricCalibrationType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MetricCalibrationType code) {
       if (code == MetricCalibrationType.UNSPECIFIED)
         return "unspecified";
       if (code == MetricCalibrationType.OFFSET)
@@ -403,8 +403,8 @@ public class DeviceMetric extends Resource {
         }
     }
 
-  public static class MetricCalibrationStateEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MetricCalibrationStateEnumFactory implements EnumFactory<MetricCalibrationState> {
+    public MetricCalibrationState fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -416,9 +416,9 @@ public class DeviceMetric extends Resource {
           return MetricCalibrationState.CALIBRATED;
         if ("unspecified".equals(codeString))
           return MetricCalibrationState.UNSPECIFIED;
-        throw new Exception("Unknown MetricCalibrationState code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MetricCalibrationState code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MetricCalibrationState code) {
       if (code == MetricCalibrationState.NOTCALIBRATED)
         return "not-calibrated";
       if (code == MetricCalibrationState.CALIBRATIONREQUIRED)
@@ -468,7 +468,7 @@ public class DeviceMetric extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationInfoComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<MetricCalibrationType>();
+              this.type = new Enumeration<MetricCalibrationType>(new MetricCalibrationTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -503,7 +503,7 @@ public class DeviceMetric extends Resource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<MetricCalibrationType>();
+              this.type = new Enumeration<MetricCalibrationType>(new MetricCalibrationTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -517,7 +517,7 @@ public class DeviceMetric extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationInfoComponent.state");
             else if (Configuration.doAutoCreate())
-              this.state = new Enumeration<MetricCalibrationState>();
+              this.state = new Enumeration<MetricCalibrationState>(new MetricCalibrationStateEnumFactory()); // bb
           return this.state;
         }
 
@@ -552,7 +552,7 @@ public class DeviceMetric extends Resource {
             this.state = null;
           else {
             if (this.state == null)
-              this.state = new Enumeration<MetricCalibrationState>();
+              this.state = new Enumeration<MetricCalibrationState>(new MetricCalibrationStateEnumFactory());
             this.state.setValue(value);
           }
           return this;
@@ -566,7 +566,7 @@ public class DeviceMetric extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceMetricCalibrationInfoComponent.time");
             else if (Configuration.doAutoCreate())
-              this.time = new InstantType();
+              this.time = new InstantType(); // bb
           return this.time;
         }
 
@@ -589,14 +589,14 @@ public class DeviceMetric extends Resource {
         /**
          * @return Describes the time last calibration has been performed.
          */
-        public DateAndTime getTime() { 
+        public Date getTime() { 
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value Describes the time last calibration has been performed.
          */
-        public DeviceMetricCalibrationInfoComponent setTime(DateAndTime value) { 
+        public DeviceMetricCalibrationInfoComponent setTime(Date value) { 
           if (value == null)
             this.time = null;
           else {
@@ -743,7 +743,7 @@ period.
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -768,7 +768,7 @@ It should be noted that in order to make the identifier unique, the system eleme
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -793,7 +793,7 @@ It should be noted that in order to make the identifier unique, the system eleme
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.unit");
         else if (Configuration.doAutoCreate())
-          this.unit = new CodeableConcept();
+          this.unit = new CodeableConcept(); // cc
       return this.unit;
     }
 
@@ -817,7 +817,7 @@ It should be noted that in order to make the identifier unique, the system eleme
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.source");
         else if (Configuration.doAutoCreate())
-          this.source = new Reference();
+          this.source = new Reference(); // cc
       return this.source;
     }
 
@@ -841,7 +841,7 @@ It should be noted that in order to make the identifier unique, the system eleme
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.source");
         else if (Configuration.doAutoCreate())
-          this.sourceTarget = new Device();
+          this.sourceTarget = new Device(); // aa
       return this.sourceTarget;
     }
 
@@ -862,7 +862,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.parent");
         else if (Configuration.doAutoCreate())
-          this.parent = new Reference();
+          this.parent = new Reference(); // cc
       return this.parent;
     }
 
@@ -888,7 +888,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.parent");
         else if (Configuration.doAutoCreate())
-          this.parentTarget = new DeviceComponent();
+          this.parentTarget = new DeviceComponent(); // aa
       return this.parentTarget;
     }
 
@@ -909,7 +909,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.operationalState");
         else if (Configuration.doAutoCreate())
-          this.operationalState = new Enumeration<MetricOperationalStatus>();
+          this.operationalState = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory()); // bb
       return this.operationalState;
     }
 
@@ -944,7 +944,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         this.operationalState = null;
       else {
         if (this.operationalState == null)
-          this.operationalState = new Enumeration<MetricOperationalStatus>();
+          this.operationalState = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory());
         this.operationalState.setValue(value);
       }
       return this;
@@ -958,7 +958,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.measurementMode");
         else if (Configuration.doAutoCreate())
-          this.measurementMode = new Identifier();
+          this.measurementMode = new Identifier(); // cc
       return this.measurementMode;
     }
 
@@ -982,7 +982,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.color");
         else if (Configuration.doAutoCreate())
-          this.color = new Identifier();
+          this.color = new Identifier(); // cc
       return this.color;
     }
 
@@ -1006,7 +1006,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.category");
         else if (Configuration.doAutoCreate())
-          this.category = new Enumeration<MetricCategory>();
+          this.category = new Enumeration<MetricCategory>(new MetricCategoryEnumFactory()); // bb
       return this.category;
     }
 
@@ -1038,7 +1038,7 @@ An example would be a DeviceComponent that represents a Channel. This reference 
      */
     public DeviceMetric setCategory(MetricCategory value) { 
         if (this.category == null)
-          this.category = new Enumeration<MetricCategory>();
+          this.category = new Enumeration<MetricCategory>(new MetricCategoryEnumFactory());
         this.category.setValue(value);
       return this;
     }
@@ -1053,7 +1053,7 @@ period.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceMetric.measurementPeriod");
         else if (Configuration.doAutoCreate())
-          this.measurementPeriod = new Timing();
+          this.measurementPeriod = new Timing(); // cc
       return this.measurementPeriod;
     }
 

@@ -53,13 +53,14 @@ import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
 import org.hl7.fhir.instance.model.Composition.CompositionAttesterComponent;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ContactPoint;
-import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Device;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Encounter;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.Location;
@@ -206,7 +207,7 @@ public class CCDAConverter {
 
 		// check it's a CDA/CCD
 		feed = new Bundle();
-		feed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+		feed.setMeta(new ResourceMetaComponent().setLastUpdatedElement(InstantType.now()));
 		feed.setId(makeUUIDReference());
 		feed.getMeta().getTag().add(new Coding()); // todo-bundle  ("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tag/document", "Document"));
 		
@@ -239,7 +240,7 @@ public class CCDAConverter {
 			r.getText().setStatus(NarrativeStatus.GENERATED);
 			new NarrativeGenerator("", context).generate(r);
 		}
-		r.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+		r.setMeta(new ResourceMetaComponent().setLastUpdatedElement(InstantType.now()));
 		r.setId(id);
 		feed.getEntry().add(new BundleEntryComponent().setResource(r));
 		return id;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,8 +97,8 @@ public class Procedure extends DomainResource {
         }
     }
 
-  public static class ProcedureRelationshipTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ProcedureRelationshipTypeEnumFactory implements EnumFactory<ProcedureRelationshipType> {
+    public ProcedureRelationshipType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -106,9 +106,9 @@ public class Procedure extends DomainResource {
           return ProcedureRelationshipType.CAUSEDBY;
         if ("because-of".equals(codeString))
           return ProcedureRelationshipType.BECAUSEOF;
-        throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ProcedureRelationshipType code) {
       if (code == ProcedureRelationshipType.CAUSEDBY)
         return "caused-by";
       if (code == ProcedureRelationshipType.BECAUSEOF)
@@ -152,7 +152,7 @@ public class Procedure extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedurePerformerComponent.person");
             else if (Configuration.doAutoCreate())
-              this.person = new Reference();
+              this.person = new Reference(); // cc
           return this.person;
         }
 
@@ -176,7 +176,7 @@ public class Procedure extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedurePerformerComponent.person");
             else if (Configuration.doAutoCreate())
-              this.personTarget = new Practitioner();
+              this.personTarget = new Practitioner(); // aa
           return this.personTarget;
         }
 
@@ -196,7 +196,7 @@ public class Procedure extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedurePerformerComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept();
+              this.role = new CodeableConcept(); // cc
           return this.role;
         }
 
@@ -268,7 +268,7 @@ public class Procedure extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedureRelatedItemComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ProcedureRelationshipType>();
+              this.type = new Enumeration<ProcedureRelationshipType>(new ProcedureRelationshipTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -303,7 +303,7 @@ public class Procedure extends DomainResource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<ProcedureRelationshipType>();
+              this.type = new Enumeration<ProcedureRelationshipType>(new ProcedureRelationshipTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -317,7 +317,7 @@ public class Procedure extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedureRelatedItemComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -532,7 +532,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -556,7 +556,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -576,7 +576,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -690,7 +690,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.date");
         else if (Configuration.doAutoCreate())
-          this.date = new Period();
+          this.date = new Period(); // cc
       return this.date;
     }
 
@@ -714,7 +714,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -738,7 +738,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -758,7 +758,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.outcome");
         else if (Configuration.doAutoCreate())
-          this.outcome = new StringType();
+          this.outcome = new StringType(); // bb
       return this.outcome;
     }
 
@@ -888,7 +888,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.followUp");
         else if (Configuration.doAutoCreate())
-          this.followUp = new StringType();
+          this.followUp = new StringType(); // bb
       return this.followUp;
     }
 
@@ -967,7 +967,7 @@ public class Procedure extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 

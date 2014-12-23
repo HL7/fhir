@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Patient extends DomainResource {
         }
     }
 
-  public static class AdministrativeGenderEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AdministrativeGenderEnumFactory implements EnumFactory<AdministrativeGender> {
+    public AdministrativeGender fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Patient extends DomainResource {
           return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
           return AdministrativeGender.UNKNOWN;
-        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AdministrativeGender code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AdministrativeGender code) {
       if (code == AdministrativeGender.MALE)
         return "male";
       if (code == AdministrativeGender.FEMALE)
@@ -207,8 +207,8 @@ public class Patient extends DomainResource {
         }
     }
 
-  public static class LinkTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class LinkTypeEnumFactory implements EnumFactory<LinkType> {
+    public LinkType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -218,9 +218,9 @@ public class Patient extends DomainResource {
           return LinkType.REFER;
         if ("seealso".equals(codeString))
           return LinkType.SEEALSO;
-        throw new Exception("Unknown LinkType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown LinkType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(LinkType code) {
       if (code == LinkType.REPLACE)
         return "replace";
       if (code == LinkType.REFER)
@@ -331,7 +331,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new HumanName();
+              this.name = new HumanName(); // cc
           return this.name;
         }
 
@@ -385,7 +385,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.address");
             else if (Configuration.doAutoCreate())
-              this.address = new Address();
+              this.address = new Address(); // cc
           return this.address;
         }
 
@@ -409,7 +409,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.gender");
             else if (Configuration.doAutoCreate())
-              this.gender = new Enumeration<AdministrativeGender>();
+              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
           return this.gender;
         }
 
@@ -444,7 +444,7 @@ public class Patient extends DomainResource {
             this.gender = null;
           else {
             if (this.gender == null)
-              this.gender = new Enumeration<AdministrativeGender>();
+              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
             this.gender.setValue(value);
           }
           return this;
@@ -458,7 +458,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organization = new Reference();
+              this.organization = new Reference(); // cc
           return this.organization;
         }
 
@@ -482,7 +482,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organizationTarget = new Organization();
+              this.organizationTarget = new Organization(); // aa
           return this.organizationTarget;
         }
 
@@ -502,7 +502,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContactComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -601,7 +601,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.species");
             else if (Configuration.doAutoCreate())
-              this.species = new CodeableConcept();
+              this.species = new CodeableConcept(); // cc
           return this.species;
         }
 
@@ -625,7 +625,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.breed");
             else if (Configuration.doAutoCreate())
-              this.breed = new CodeableConcept();
+              this.breed = new CodeableConcept(); // cc
           return this.breed;
         }
 
@@ -649,7 +649,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AnimalComponent.genderStatus");
             else if (Configuration.doAutoCreate())
-              this.genderStatus = new CodeableConcept();
+              this.genderStatus = new CodeableConcept(); // cc
           return this.genderStatus;
         }
 
@@ -729,7 +729,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.other");
             else if (Configuration.doAutoCreate())
-              this.other = new Reference();
+              this.other = new Reference(); // cc
           return this.other;
         }
 
@@ -753,7 +753,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.other");
             else if (Configuration.doAutoCreate())
-              this.otherTarget = new Patient();
+              this.otherTarget = new Patient(); // aa
           return this.otherTarget;
         }
 
@@ -773,7 +773,7 @@ public class Patient extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PatientLinkComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<LinkType>();
+              this.type = new Enumeration<LinkType>(new LinkTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -805,7 +805,7 @@ public class Patient extends DomainResource {
          */
         public PatientLinkComponent setType(LinkType value) { 
             if (this.type == null)
-              this.type = new Enumeration<LinkType>();
+              this.type = new Enumeration<LinkType>(new LinkTypeEnumFactory());
             this.type.setValue(value);
           return this;
         }
@@ -1064,7 +1064,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.gender");
         else if (Configuration.doAutoCreate())
-          this.gender = new Enumeration<AdministrativeGender>();
+          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
       return this.gender;
     }
 
@@ -1099,7 +1099,7 @@ public class Patient extends DomainResource {
         this.gender = null;
       else {
         if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>();
+          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
       }
       return this;
@@ -1113,7 +1113,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.birthDate");
         else if (Configuration.doAutoCreate())
-          this.birthDate = new DateType();
+          this.birthDate = new DateType(); // bb
       return this.birthDate;
     }
 
@@ -1136,14 +1136,14 @@ public class Patient extends DomainResource {
     /**
      * @return The date and time of birth for the individual.
      */
-    public DateAndTime getBirthDate() { 
+    public Date getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date and time of birth for the individual.
      */
-    public Patient setBirthDate(DateAndTime value) { 
+    public Patient setBirthDate(Date value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -1229,7 +1229,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.maritalStatus");
         else if (Configuration.doAutoCreate())
-          this.maritalStatus = new CodeableConcept();
+          this.maritalStatus = new CodeableConcept(); // cc
       return this.maritalStatus;
     }
 
@@ -1350,7 +1350,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.animal");
         else if (Configuration.doAutoCreate())
-          this.animal = new AnimalComponent();
+          this.animal = new AnimalComponent(); // cc
       return this.animal;
     }
 
@@ -1443,7 +1443,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganization = new Reference();
+          this.managingOrganization = new Reference(); // cc
       return this.managingOrganization;
     }
 
@@ -1467,7 +1467,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganizationTarget = new Organization();
+          this.managingOrganizationTarget = new Organization(); // aa
       return this.managingOrganizationTarget;
     }
 
@@ -1517,7 +1517,7 @@ public class Patient extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Patient.active");
         else if (Configuration.doAutoCreate())
-          this.active = new BooleanType();
+          this.active = new BooleanType(); // bb
       return this.active;
     }
 

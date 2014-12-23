@@ -28,67 +28,43 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
  */
-public class Base64BinaryType extends PrimitiveType {
+public class Base64BinaryType extends PrimitiveType<byte[]> {
 
-  private static final long serialVersionUID = 6170198697716842056L;
+	private static final long serialVersionUID = 3L;
+
 	/**
-	 * The byte content in the base64Binary
+	 * Constructor
 	 */
-	private byte[] value;
-
-	public Base64BinaryType(byte[] value) {
-    this.value = value;  
-  }
-
   public Base64BinaryType() {
+		super();
   }
 
-  /**
-	 * @return The byte content in the base64Binary
-	 */
-	public byte[] getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value The byte content in the base64Binary
-	 */
-	public void setValue(byte[] value) {
-		this.value = value;
+	public Base64BinaryType(byte[] theBytes) {
+		super();
+		setValue(theBytes);
 	}
 	
-	@Override
-  public Base64BinaryType copy() {
-		Base64BinaryType dst = new Base64BinaryType();
-		dst.value = value;
-		return dst;
+	public Base64BinaryType(String theValue) {
+		super();
+		setValueAsString(theValue);
 	}
 	
-	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected byte[] parse(String theValue) {
+		return Base64.decodeBase64(theValue);
 	}
 
-	public String getStringValue() {
-	  return FormatUtilities.toString(value);
+	protected String encode(byte[] theValue) {
+		return Base64.encodeBase64String(theValue);
   }
 
   @Override
-  public String asStringValue() {
-    return new String(value);
-  }
-  
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
-	}
-
-	public boolean hasValue() {
-		return value != null;
+	public Base64BinaryType copy() {
+		return new Base64BinaryType(getValue());
 	}
 	
 }

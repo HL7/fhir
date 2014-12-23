@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -67,7 +67,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     try {
       focus = source.copy();
       focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
-      focus.getExpansion().setTimestamp(DateAndTime.now());
+      focus.getExpansion().setTimestampElement(DateTimeType.now());
 
 
       handleDefine(source);

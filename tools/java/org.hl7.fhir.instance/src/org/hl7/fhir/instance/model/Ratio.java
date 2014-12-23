@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -70,7 +70,7 @@ public class Ratio extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Ratio.numerator");
         else if (Configuration.doAutoCreate())
-          this.numerator = new Quantity();
+          this.numerator = new Quantity(); // cc
       return this.numerator;
     }
 
@@ -94,7 +94,7 @@ public class Ratio extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Ratio.denominator");
         else if (Configuration.doAutoCreate())
-          this.denominator = new Quantity();
+          this.denominator = new Quantity(); // cc
       return this.denominator;
     }
 

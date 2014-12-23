@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -115,7 +115,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -164,7 +164,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new CodeableConcept();
+              this.relationship = new CodeableConcept(); // cc
           return this.relationship;
         }
 
@@ -344,7 +344,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationComponent.note");
             else if (Configuration.doAutoCreate())
-              this.note = new StringType();
+              this.note = new StringType(); // bb
           return this.note;
         }
 
@@ -500,7 +500,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -524,7 +524,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.outcome");
             else if (Configuration.doAutoCreate())
-              this.outcome = new CodeableConcept();
+              this.outcome = new CodeableConcept(); // cc
           return this.outcome;
         }
 
@@ -594,7 +594,7 @@ public class FamilyHistory extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FamilyHistoryRelationConditionComponent.note");
             else if (Configuration.doAutoCreate())
-              this.note = new StringType();
+              this.note = new StringType(); // bb
           return this.note;
         }
 
@@ -749,7 +749,7 @@ public class FamilyHistory extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create FamilyHistory.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -773,7 +773,7 @@ public class FamilyHistory extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create FamilyHistory.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -793,7 +793,7 @@ public class FamilyHistory extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create FamilyHistory.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -816,14 +816,14 @@ public class FamilyHistory extends DomainResource {
     /**
      * @return The date (and possibly time) when the family history was taken.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date (and possibly time) when the family history was taken.
      */
-    public FamilyHistory setDate(DateAndTime value) { 
+    public FamilyHistory setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -842,7 +842,7 @@ public class FamilyHistory extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create FamilyHistory.note");
         else if (Configuration.doAutoCreate())
-          this.note = new StringType();
+          this.note = new StringType(); // bb
       return this.note;
     }
 

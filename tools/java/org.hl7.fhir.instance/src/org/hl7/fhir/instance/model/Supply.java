@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class Supply extends DomainResource {
         }
     }
 
-  public static class ValuesetSupplyStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ValuesetSupplyStatusEnumFactory implements EnumFactory<ValuesetSupplyStatus> {
+    public ValuesetSupplyStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class Supply extends DomainResource {
           return ValuesetSupplyStatus.FAILED;
         if ("cancelled".equals(codeString))
           return ValuesetSupplyStatus.CANCELLED;
-        throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ValuesetSupplyStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ValuesetSupplyStatus code) {
       if (code == ValuesetSupplyStatus.REQUESTED)
         return "requested";
       if (code == ValuesetSupplyStatus.DISPENSED)
@@ -221,8 +221,8 @@ public class Supply extends DomainResource {
         }
     }
 
-  public static class ValuesetSupplyDispenseStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ValuesetSupplyDispenseStatusEnumFactory implements EnumFactory<ValuesetSupplyDispenseStatus> {
+    public ValuesetSupplyDispenseStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -232,9 +232,9 @@ public class Supply extends DomainResource {
           return ValuesetSupplyDispenseStatus.DISPENSED;
         if ("abandoned".equals(codeString))
           return ValuesetSupplyDispenseStatus.ABANDONED;
-        throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ValuesetSupplyDispenseStatus code) {
       if (code == ValuesetSupplyDispenseStatus.INPROGRESS)
         return "in progress";
       if (code == ValuesetSupplyDispenseStatus.DISPENSED)
@@ -351,7 +351,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -375,7 +375,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<ValuesetSupplyDispenseStatus>();
+              this.status = new Enumeration<ValuesetSupplyDispenseStatus>(new ValuesetSupplyDispenseStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -410,7 +410,7 @@ public class Supply extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<ValuesetSupplyDispenseStatus>();
+              this.status = new Enumeration<ValuesetSupplyDispenseStatus>(new ValuesetSupplyDispenseStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -424,7 +424,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -448,7 +448,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -472,7 +472,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.suppliedItem");
             else if (Configuration.doAutoCreate())
-              this.suppliedItem = new Reference();
+              this.suppliedItem = new Reference(); // cc
           return this.suppliedItem;
         }
 
@@ -511,7 +511,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.supplier");
             else if (Configuration.doAutoCreate())
-              this.supplier = new Reference();
+              this.supplier = new Reference(); // cc
           return this.supplier;
         }
 
@@ -535,7 +535,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.supplier");
             else if (Configuration.doAutoCreate())
-              this.supplierTarget = new Practitioner();
+              this.supplierTarget = new Practitioner(); // aa
           return this.supplierTarget;
         }
 
@@ -555,7 +555,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.whenPrepared");
             else if (Configuration.doAutoCreate())
-              this.whenPrepared = new Period();
+              this.whenPrepared = new Period(); // cc
           return this.whenPrepared;
         }
 
@@ -579,7 +579,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.whenHandedOver");
             else if (Configuration.doAutoCreate())
-              this.whenHandedOver = new Period();
+              this.whenHandedOver = new Period(); // cc
           return this.whenHandedOver;
         }
 
@@ -603,7 +603,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destination = new Reference();
+              this.destination = new Reference(); // cc
           return this.destination;
         }
 
@@ -627,7 +627,7 @@ public class Supply extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destinationTarget = new Location();
+              this.destinationTarget = new Location(); // aa
           return this.destinationTarget;
         }
 
@@ -800,7 +800,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.kind");
         else if (Configuration.doAutoCreate())
-          this.kind = new CodeableConcept();
+          this.kind = new CodeableConcept(); // cc
       return this.kind;
     }
 
@@ -824,7 +824,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -848,7 +848,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ValuesetSupplyStatus>();
+          this.status = new Enumeration<ValuesetSupplyStatus>(new ValuesetSupplyStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -883,7 +883,7 @@ public class Supply extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<ValuesetSupplyStatus>();
+          this.status = new Enumeration<ValuesetSupplyStatus>(new ValuesetSupplyStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -897,7 +897,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.orderedItem");
         else if (Configuration.doAutoCreate())
-          this.orderedItem = new Reference();
+          this.orderedItem = new Reference(); // cc
       return this.orderedItem;
     }
 
@@ -936,7 +936,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -960,7 +960,7 @@ public class Supply extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Supply.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 

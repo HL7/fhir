@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -147,8 +147,8 @@ public class SearchParameter extends DomainResource {
         }
     }
 
-  public static class SearchParamTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SearchParamTypeEnumFactory implements EnumFactory<SearchParamType> {
+    public SearchParamType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -166,9 +166,9 @@ public class SearchParameter extends DomainResource {
           return SearchParamType.COMPOSITE;
         if ("quantity".equals(codeString))
           return SearchParamType.QUANTITY;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SearchParamType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SearchParamType code) {
       if (code == SearchParamType.NUMBER)
         return "number";
       if (code == SearchParamType.DATE)
@@ -280,7 +280,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 
@@ -325,7 +325,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -370,7 +370,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -449,7 +449,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.requirements");
         else if (Configuration.doAutoCreate())
-          this.requirements = new StringType();
+          this.requirements = new StringType(); // bb
       return this.requirements;
     }
 
@@ -498,7 +498,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.base");
         else if (Configuration.doAutoCreate())
-          this.base = new CodeType();
+          this.base = new CodeType(); // bb
       return this.base;
     }
 
@@ -543,7 +543,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<SearchParamType>();
+          this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -575,7 +575,7 @@ public class SearchParameter extends DomainResource {
      */
     public SearchParameter setType(SearchParamType value) { 
         if (this.type == null)
-          this.type = new Enumeration<SearchParamType>();
+          this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -588,7 +588,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -633,7 +633,7 @@ public class SearchParameter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.xpath");
         else if (Configuration.doAutoCreate())
-          this.xpath = new StringType();
+          this.xpath = new StringType(); // bb
       return this.xpath;
     }
 

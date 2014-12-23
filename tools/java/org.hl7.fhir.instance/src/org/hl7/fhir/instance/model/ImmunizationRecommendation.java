@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -134,7 +134,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.date");
             else if (Configuration.doAutoCreate())
-              this.date = new DateTimeType();
+              this.date = new DateTimeType(); // bb
           return this.date;
         }
 
@@ -157,14 +157,14 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * @return The date the immunization recommendation was created.
          */
-        public DateAndTime getDate() { 
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date the immunization recommendation was created.
          */
-        public ImmunizationRecommendationRecommendationComponent setDate(DateAndTime value) { 
+        public ImmunizationRecommendationRecommendationComponent setDate(Date value) { 
             if (this.date == null)
               this.date = new DateTimeType();
             this.date.setValue(value);
@@ -179,7 +179,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.vaccineType");
             else if (Configuration.doAutoCreate())
-              this.vaccineType = new CodeableConcept();
+              this.vaccineType = new CodeableConcept(); // cc
           return this.vaccineType;
         }
 
@@ -203,7 +203,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.doseNumber");
             else if (Configuration.doAutoCreate())
-              this.doseNumber = new IntegerType();
+              this.doseNumber = new IntegerType(); // bb
           return this.doseNumber;
         }
 
@@ -252,7 +252,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.forecastStatus");
             else if (Configuration.doAutoCreate())
-              this.forecastStatus = new CodeableConcept();
+              this.forecastStatus = new CodeableConcept(); // cc
           return this.forecastStatus;
         }
 
@@ -306,7 +306,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationComponent.protocol");
             else if (Configuration.doAutoCreate())
-              this.protocol = new ImmunizationRecommendationRecommendationProtocolComponent();
+              this.protocol = new ImmunizationRecommendationRecommendationProtocolComponent(); // cc
           return this.protocol;
         }
 
@@ -496,7 +496,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationDateCriterionComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -520,7 +520,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationDateCriterionComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DateTimeType();
+              this.value = new DateTimeType(); // bb
           return this.value;
         }
 
@@ -543,14 +543,14 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * @return Date recommendation.
          */
-        public DateAndTime getValue() { 
+        public Date getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value Date recommendation.
          */
-        public ImmunizationRecommendationRecommendationDateCriterionComponent setValue(DateAndTime value) { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent setValue(Date value) { 
             if (this.value == null)
               this.value = new DateTimeType();
             this.value.setValue(value);
@@ -627,7 +627,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationProtocolComponent.doseSequence");
             else if (Configuration.doAutoCreate())
-              this.doseSequence = new IntegerType();
+              this.doseSequence = new IntegerType(); // bb
           return this.doseSequence;
         }
 
@@ -676,7 +676,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationProtocolComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -725,7 +725,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationProtocolComponent.authority");
             else if (Configuration.doAutoCreate())
-              this.authority = new Reference();
+              this.authority = new Reference(); // cc
           return this.authority;
         }
 
@@ -749,7 +749,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationProtocolComponent.authority");
             else if (Configuration.doAutoCreate())
-              this.authorityTarget = new Organization();
+              this.authorityTarget = new Organization(); // aa
           return this.authorityTarget;
         }
 
@@ -769,7 +769,7 @@ public class ImmunizationRecommendation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationRecommendationRecommendationProtocolComponent.series");
             else if (Configuration.doAutoCreate())
-              this.series = new StringType();
+              this.series = new StringType(); // bb
           return this.series;
         }
 
@@ -910,7 +910,7 @@ public class ImmunizationRecommendation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImmunizationRecommendation.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -934,7 +934,7 @@ public class ImmunizationRecommendation extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImmunizationRecommendation.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class Profile extends DomainResource {
         }
     }
 
-  public static class ResourceProfileStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ResourceProfileStatusEnumFactory implements EnumFactory<ResourceProfileStatus> {
+    public ResourceProfileStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class Profile extends DomainResource {
           return ResourceProfileStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ResourceProfileStatus.RETIRED;
-        throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ResourceProfileStatus code) {
       if (code == ResourceProfileStatus.DRAFT)
         return "draft";
       if (code == ResourceProfileStatus.ACTIVE)
@@ -180,7 +180,7 @@ public class Profile extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProfileMappingComponent.identity");
             else if (Configuration.doAutoCreate())
-              this.identity = new IdType();
+              this.identity = new IdType(); // bb
           return this.identity;
         }
 
@@ -225,7 +225,7 @@ public class Profile extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProfileMappingComponent.uri");
             else if (Configuration.doAutoCreate())
-              this.uri = new UriType();
+              this.uri = new UriType(); // bb
           return this.uri;
         }
 
@@ -274,7 +274,7 @@ public class Profile extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProfileMappingComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -323,7 +323,7 @@ public class Profile extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProfileMappingComponent.comments");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType();
+              this.comments = new StringType(); // bb
           return this.comments;
         }
 
@@ -604,7 +604,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 
@@ -679,7 +679,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -728,7 +728,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -773,7 +773,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -852,7 +852,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -931,7 +931,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -963,7 +963,7 @@ public class Profile extends DomainResource {
      */
     public Profile setStatus(ResourceProfileStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -976,7 +976,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -1025,7 +1025,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1048,14 +1048,14 @@ public class Profile extends DomainResource {
     /**
      * @return The date that this version of the profile was published.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the profile was published.
      */
-    public Profile setDate(DateAndTime value) { 
+    public Profile setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1074,7 +1074,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.requirements");
         else if (Configuration.doAutoCreate())
-          this.requirements = new StringType();
+          this.requirements = new StringType(); // bb
       return this.requirements;
     }
 
@@ -1123,7 +1123,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new IdType();
+          this.fhirVersion = new IdType(); // bb
       return this.fhirVersion;
     }
 
@@ -1202,7 +1202,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeType();
+          this.type = new CodeType(); // bb
       return this.type;
     }
 
@@ -1247,7 +1247,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.base");
         else if (Configuration.doAutoCreate())
-          this.base = new UriType();
+          this.base = new UriType(); // bb
       return this.base;
     }
 
@@ -1296,7 +1296,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.snapshot");
         else if (Configuration.doAutoCreate())
-          this.snapshot = new ConstraintComponent();
+          this.snapshot = new ConstraintComponent(); // cc
       return this.snapshot;
     }
 
@@ -1320,7 +1320,7 @@ public class Profile extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Profile.differential");
         else if (Configuration.doAutoCreate())
-          this.differential = new ConstraintComponent();
+          this.differential = new ConstraintComponent(); // cc
       return this.differential;
     }
 

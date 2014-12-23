@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -108,8 +108,8 @@ public class Location extends DomainResource {
         }
     }
 
-  public static class LocationStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class LocationStatusEnumFactory implements EnumFactory<LocationStatus> {
+    public LocationStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -119,9 +119,9 @@ public class Location extends DomainResource {
           return LocationStatus.SUSPENDED;
         if ("inactive".equals(codeString))
           return LocationStatus.INACTIVE;
-        throw new Exception("Unknown LocationStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown LocationStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(LocationStatus code) {
       if (code == LocationStatus.ACTIVE)
         return "active";
       if (code == LocationStatus.SUSPENDED)
@@ -184,8 +184,8 @@ public class Location extends DomainResource {
         }
     }
 
-  public static class LocationModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class LocationModeEnumFactory implements EnumFactory<LocationMode> {
+    public LocationMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -193,9 +193,9 @@ public class Location extends DomainResource {
           return LocationMode.INSTANCE;
         if ("kind".equals(codeString))
           return LocationMode.KIND;
-        throw new Exception("Unknown LocationMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown LocationMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(LocationMode code) {
       if (code == LocationMode.INSTANCE)
         return "instance";
       if (code == LocationMode.KIND)
@@ -247,7 +247,7 @@ public class Location extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.longitude");
             else if (Configuration.doAutoCreate())
-              this.longitude = new DecimalType();
+              this.longitude = new DecimalType(); // bb
           return this.longitude;
         }
 
@@ -292,7 +292,7 @@ public class Location extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.latitude");
             else if (Configuration.doAutoCreate())
-              this.latitude = new DecimalType();
+              this.latitude = new DecimalType(); // bb
           return this.latitude;
         }
 
@@ -337,7 +337,7 @@ public class Location extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create LocationPositionComponent.altitude");
             else if (Configuration.doAutoCreate())
-              this.altitude = new DecimalType();
+              this.altitude = new DecimalType(); // bb
           return this.altitude;
         }
 
@@ -539,7 +539,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -588,7 +588,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -637,7 +637,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -691,7 +691,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.address");
         else if (Configuration.doAutoCreate())
-          this.address = new Address();
+          this.address = new Address(); // cc
       return this.address;
     }
 
@@ -715,7 +715,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.physicalType");
         else if (Configuration.doAutoCreate())
-          this.physicalType = new CodeableConcept();
+          this.physicalType = new CodeableConcept(); // cc
       return this.physicalType;
     }
 
@@ -739,7 +739,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.position");
         else if (Configuration.doAutoCreate())
-          this.position = new LocationPositionComponent();
+          this.position = new LocationPositionComponent(); // cc
       return this.position;
     }
 
@@ -763,7 +763,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganization = new Reference();
+          this.managingOrganization = new Reference(); // cc
       return this.managingOrganization;
     }
 
@@ -787,7 +787,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganizationTarget = new Organization();
+          this.managingOrganizationTarget = new Organization(); // aa
       return this.managingOrganizationTarget;
     }
 
@@ -807,7 +807,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<LocationStatus>();
+          this.status = new Enumeration<LocationStatus>(new LocationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -842,7 +842,7 @@ public class Location extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<LocationStatus>();
+          this.status = new Enumeration<LocationStatus>(new LocationStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -856,7 +856,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOf = new Reference();
+          this.partOf = new Reference(); // cc
       return this.partOf;
     }
 
@@ -880,7 +880,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOfTarget = new Location();
+          this.partOfTarget = new Location(); // aa
       return this.partOfTarget;
     }
 
@@ -900,7 +900,7 @@ public class Location extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Location.mode");
         else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<LocationMode>();
+          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory()); // bb
       return this.mode;
     }
 
@@ -935,7 +935,7 @@ public class Location extends DomainResource {
         this.mode = null;
       else {
         if (this.mode == null)
-          this.mode = new Enumeration<LocationMode>();
+          this.mode = new Enumeration<LocationMode>(new LocationModeEnumFactory());
         this.mode.setValue(value);
       }
       return this;

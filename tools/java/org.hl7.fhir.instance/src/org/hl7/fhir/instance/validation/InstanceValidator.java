@@ -1085,15 +1085,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		else {
 			String value = focus.getAttribute("value");
 			if (fixed instanceof org.hl7.fhir.instance.model.BooleanType)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.BooleanType) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.BooleanType) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.BooleanType) fixed).asStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.BooleanType) fixed).asStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.IntegerType)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.IntegerType) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.IntegerType) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.IntegerType) fixed).asStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.IntegerType) fixed).asStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.DecimalType)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.DecimalType) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.DecimalType) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.DecimalType) fixed).asStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.DecimalType) fixed).asStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Base64BinaryType)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Base64BinaryType) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Base64BinaryType) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Base64BinaryType) fixed).asStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Base64BinaryType) fixed).asStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.InstantType)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.InstantType) fixed).getValue().toString(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.InstantType) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.InstantType) fixed).getValue().toString(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.InstantType) fixed).asStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.StringType)
 				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.StringType) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.StringType) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.UriType)

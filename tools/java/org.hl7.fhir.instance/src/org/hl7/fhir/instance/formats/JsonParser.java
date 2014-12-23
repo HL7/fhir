@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -71,107 +71,79 @@ public class JsonParser extends JsonParserBase {
 
   @SuppressWarnings("unchecked")
   protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {
-    Enumeration<E> res = new Enumeration<E>();
+    Enumeration<E> res = new Enumeration<E>(e);
     if (s != null)
       res.setValue((E) e.fromCode(s));
     return res;
   }
 
   protected IntegerType parseInteger(java.lang.Long v) throws Exception {
-    IntegerType res = new IntegerType();
-    if (v != null)
-      res.setValue(parseIntegerPrimitive(v));
+    IntegerType res = new IntegerType(v);
     return res;
   }
 
   protected DateTimeType parseDateTime(String v) throws Exception {
-    DateTimeType res = new DateTimeType();
-    if (v != null)
-      res.setValue(parseDateTimePrimitive(v));
+    DateTimeType res = new DateTimeType(v);
     return res;
   }
 
   protected CodeType parseCode(String v) throws Exception {
-    CodeType res = new CodeType();
-    if (v != null)
-      res.setValue(parseCodePrimitive(v));
+    CodeType res = new CodeType(v);
     return res;
   }
 
   protected DateType parseDate(String v) throws Exception {
-    DateType res = new DateType();
-    if (v != null)
-      res.setValue(parseDatePrimitive(v));
+    DateType res = new DateType(v);
     return res;
   }
 
   protected DecimalType parseDecimal(java.math.BigDecimal v) throws Exception {
-    DecimalType res = new DecimalType();
-    if (v != null)
-      res.setValue(parseDecimalPrimitive(v));
+    DecimalType res = new DecimalType(v);
     return res;
   }
 
   protected UriType parseUri(String v) throws Exception {
-    UriType res = new UriType();
-    if (v != null)
-      res.setValue(parseUriPrimitive(v));
+    UriType res = new UriType(v);
     return res;
   }
 
   protected IdType parseId(String v) throws Exception {
-    IdType res = new IdType();
-    if (v != null)
-      res.setValue(parseIdPrimitive(v));
+    IdType res = new IdType(v);
     return res;
   }
 
   protected Base64BinaryType parseBase64Binary(String v) throws Exception {
-    Base64BinaryType res = new Base64BinaryType();
-    if (v != null)
-      res.setValue(parseBase64BinaryPrimitive(v));
+    Base64BinaryType res = new Base64BinaryType(v);
     return res;
   }
 
   protected TimeType parseTime(String v) throws Exception {
-    TimeType res = new TimeType();
-    if (v != null)
-      res.setValue(parseTimePrimitive(v));
+    TimeType res = new TimeType(v);
     return res;
   }
 
   protected OidType parseOid(String v) throws Exception {
-    OidType res = new OidType();
-    if (v != null)
-      res.setValue(parseOidPrimitive(v));
+    OidType res = new OidType(v);
     return res;
   }
 
   protected StringType parseString(String v) throws Exception {
-    StringType res = new StringType();
-    if (v != null)
-      res.setValue(parseStringPrimitive(v));
+    StringType res = new StringType(v);
     return res;
   }
 
   protected BooleanType parseBoolean(java.lang.Boolean v) throws Exception {
-    BooleanType res = new BooleanType();
-    if (v != null)
-      res.setValue(parseBooleanPrimitive(v));
+    BooleanType res = new BooleanType(v);
     return res;
   }
 
   protected UuidType parseUuid(String v) throws Exception {
-    UuidType res = new UuidType();
-    if (v != null)
-      res.setValue(parseUuidPrimitive(v));
+    UuidType res = new UuidType(v);
     return res;
   }
 
   protected InstantType parseInstant(String v) throws Exception {
-    InstantType res = new InstantType();
-    if (v != null)
-      res.setValue(parseInstantPrimitive(v));
+    InstantType res = new InstantType(v);
     return res;
   }
 
@@ -11775,7 +11747,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDateTimeCore(String name, DateTimeType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, value.asStringValue());
     }    
     else if (inArray) 
       writeNull(name); 
@@ -11811,7 +11783,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDateCore(String name, DateType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, value.asStringValue());
     }    
     else if (inArray) 
       writeNull(name); 
@@ -11901,7 +11873,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeTimeCore(String name, TimeType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, value.asStringValue());
     }    
     else if (inArray) 
       writeNull(name); 
@@ -11991,7 +11963,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeInstantCore(String name, InstantType value, boolean inArray) throws Exception {
     if (value != null && value.hasValue()) {
-        prop(name, toString(value.getValue()));
+        prop(name, value.asStringValue());
     }    
     else if (inArray) 
       writeNull(name); 

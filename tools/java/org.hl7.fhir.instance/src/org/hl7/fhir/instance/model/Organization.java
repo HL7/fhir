@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Organization extends DomainResource {
         }
     }
 
-  public static class AdministrativeGenderEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AdministrativeGenderEnumFactory implements EnumFactory<AdministrativeGender> {
+    public AdministrativeGender fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Organization extends DomainResource {
           return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
           return AdministrativeGender.UNKNOWN;
-        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AdministrativeGender code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AdministrativeGender code) {
       if (code == AdministrativeGender.MALE)
         return "male";
       if (code == AdministrativeGender.FEMALE)
@@ -196,7 +196,7 @@ public class Organization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.purpose");
             else if (Configuration.doAutoCreate())
-              this.purpose = new CodeableConcept();
+              this.purpose = new CodeableConcept(); // cc
           return this.purpose;
         }
 
@@ -220,7 +220,7 @@ public class Organization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new HumanName();
+              this.name = new HumanName(); // cc
           return this.name;
         }
 
@@ -274,7 +274,7 @@ public class Organization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.address");
             else if (Configuration.doAutoCreate())
-              this.address = new Address();
+              this.address = new Address(); // cc
           return this.address;
         }
 
@@ -298,7 +298,7 @@ public class Organization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.gender");
             else if (Configuration.doAutoCreate())
-              this.gender = new Enumeration<AdministrativeGender>();
+              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
           return this.gender;
         }
 
@@ -333,7 +333,7 @@ public class Organization extends DomainResource {
             this.gender = null;
           else {
             if (this.gender == null)
-              this.gender = new Enumeration<AdministrativeGender>();
+              this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
             this.gender.setValue(value);
           }
           return this;
@@ -488,7 +488,7 @@ public class Organization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -537,7 +537,7 @@ public class Organization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -621,7 +621,7 @@ public class Organization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOf = new Reference();
+          this.partOf = new Reference(); // cc
       return this.partOf;
     }
 
@@ -645,7 +645,7 @@ public class Organization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOfTarget = new Organization();
+          this.partOfTarget = new Organization(); // aa
       return this.partOfTarget;
     }
 
@@ -746,7 +746,7 @@ public class Organization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.active");
         else if (Configuration.doAutoCreate())
-          this.active = new BooleanType();
+          this.active = new BooleanType(); // bb
       return this.active;
     }
 

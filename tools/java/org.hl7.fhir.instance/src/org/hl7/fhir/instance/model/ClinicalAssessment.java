@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -85,7 +85,7 @@ public class ClinicalAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalAssessmentInvestigationsComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -200,7 +200,7 @@ public class ClinicalAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalAssessmentDiagnosisComponent.item");
             else if (Configuration.doAutoCreate())
-              this.item = new CodeableConcept();
+              this.item = new CodeableConcept(); // cc
           return this.item;
         }
 
@@ -224,7 +224,7 @@ public class ClinicalAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalAssessmentDiagnosisComponent.cause");
             else if (Configuration.doAutoCreate())
-              this.cause = new StringType();
+              this.cause = new StringType(); // bb
           return this.cause;
         }
 
@@ -321,7 +321,7 @@ public class ClinicalAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalAssessmentRuledOutComponent.item");
             else if (Configuration.doAutoCreate())
-              this.item = new CodeableConcept();
+              this.item = new CodeableConcept(); // cc
           return this.item;
         }
 
@@ -345,7 +345,7 @@ public class ClinicalAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ClinicalAssessmentRuledOutComponent.reason");
             else if (Configuration.doAutoCreate())
-              this.reason = new StringType();
+              this.reason = new StringType(); // bb
           return this.reason;
         }
 
@@ -587,7 +587,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -611,7 +611,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -631,7 +631,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.assessor");
         else if (Configuration.doAutoCreate())
-          this.assessor = new Reference();
+          this.assessor = new Reference(); // cc
       return this.assessor;
     }
 
@@ -655,7 +655,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.assessor");
         else if (Configuration.doAutoCreate())
-          this.assessorTarget = new Practitioner();
+          this.assessorTarget = new Practitioner(); // aa
       return this.assessorTarget;
     }
 
@@ -675,7 +675,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -698,14 +698,14 @@ public class ClinicalAssessment extends DomainResource {
     /**
      * @return The point in time at which the assessment was concluded (not when it was recorded).
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The point in time at which the assessment was concluded (not when it was recorded).
      */
-    public ClinicalAssessment setDate(DateAndTime value) { 
+    public ClinicalAssessment setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -720,7 +720,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -769,7 +769,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.previous");
         else if (Configuration.doAutoCreate())
-          this.previous = new Reference();
+          this.previous = new Reference(); // cc
       return this.previous;
     }
 
@@ -793,7 +793,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.previous");
         else if (Configuration.doAutoCreate())
-          this.previousTarget = new ClinicalAssessment();
+          this.previousTarget = new ClinicalAssessment(); // aa
       return this.previousTarget;
     }
 
@@ -852,7 +852,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.careplan");
         else if (Configuration.doAutoCreate())
-          this.careplan = new Reference();
+          this.careplan = new Reference(); // cc
       return this.careplan;
     }
 
@@ -876,7 +876,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.careplan");
         else if (Configuration.doAutoCreate())
-          this.careplanTarget = new CarePlan();
+          this.careplanTarget = new CarePlan(); // aa
       return this.careplanTarget;
     }
 
@@ -896,7 +896,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.referral");
         else if (Configuration.doAutoCreate())
-          this.referral = new Reference();
+          this.referral = new Reference(); // cc
       return this.referral;
     }
 
@@ -920,7 +920,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.referral");
         else if (Configuration.doAutoCreate())
-          this.referralTarget = new ReferralRequest();
+          this.referralTarget = new ReferralRequest(); // aa
       return this.referralTarget;
     }
 
@@ -970,7 +970,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.protocol");
         else if (Configuration.doAutoCreate())
-          this.protocol = new UriType();
+          this.protocol = new UriType(); // bb
       return this.protocol;
     }
 
@@ -1019,7 +1019,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.summary");
         else if (Configuration.doAutoCreate())
-          this.summary = new StringType();
+          this.summary = new StringType(); // bb
       return this.summary;
     }
 
@@ -1158,7 +1158,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.prognosis");
         else if (Configuration.doAutoCreate())
-          this.prognosis = new StringType();
+          this.prognosis = new StringType(); // bb
       return this.prognosis;
     }
 
@@ -1207,7 +1207,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.plan");
         else if (Configuration.doAutoCreate())
-          this.plan = new Reference();
+          this.plan = new Reference(); // cc
       return this.plan;
     }
 
@@ -1231,7 +1231,7 @@ public class ClinicalAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClinicalAssessment.plan");
         else if (Configuration.doAutoCreate())
-          this.planTarget = new CarePlan();
+          this.planTarget = new CarePlan(); // aa
       return this.planTarget;
     }
 

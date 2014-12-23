@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class Reference extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reference.reference");
         else if (Configuration.doAutoCreate())
-          this.reference = new StringType();
+          this.reference = new StringType(); // bb
       return this.reference;
     }
 
@@ -120,7 +120,7 @@ public class Reference extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reference.display");
         else if (Configuration.doAutoCreate())
-          this.display = new StringType();
+          this.display = new StringType(); // bb
       return this.display;
     }
 

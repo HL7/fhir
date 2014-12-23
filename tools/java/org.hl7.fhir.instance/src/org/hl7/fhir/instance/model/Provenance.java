@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Provenance extends DomainResource {
         }
     }
 
-  public static class ProvenanceEntityRoleEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ProvenanceEntityRoleEnumFactory implements EnumFactory<ProvenanceEntityRole> {
+    public ProvenanceEntityRole fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Provenance extends DomainResource {
           return ProvenanceEntityRole.QUOTATION;
         if ("source".equals(codeString))
           return ProvenanceEntityRole.SOURCE;
-        throw new Exception("Unknown ProvenanceEntityRole code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ProvenanceEntityRole code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ProvenanceEntityRole code) {
       if (code == ProvenanceEntityRole.DERIVATION)
         return "derivation";
       if (code == ProvenanceEntityRole.REVISION)
@@ -196,7 +196,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new Coding();
+              this.role = new Coding(); // cc
           return this.role;
         }
 
@@ -220,7 +220,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -244,7 +244,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.reference");
             else if (Configuration.doAutoCreate())
-              this.reference = new UriType();
+              this.reference = new UriType(); // bb
           return this.reference;
         }
 
@@ -289,7 +289,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceAgentComponent.display");
             else if (Configuration.doAutoCreate())
-              this.display = new StringType();
+              this.display = new StringType(); // bb
           return this.display;
         }
 
@@ -413,7 +413,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new Enumeration<ProvenanceEntityRole>();
+              this.role = new Enumeration<ProvenanceEntityRole>(new ProvenanceEntityRoleEnumFactory()); // bb
           return this.role;
         }
 
@@ -445,7 +445,7 @@ public class Provenance extends DomainResource {
          */
         public ProvenanceEntityComponent setRole(ProvenanceEntityRole value) { 
             if (this.role == null)
-              this.role = new Enumeration<ProvenanceEntityRole>();
+              this.role = new Enumeration<ProvenanceEntityRole>(new ProvenanceEntityRoleEnumFactory());
             this.role.setValue(value);
           return this;
         }
@@ -458,7 +458,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -482,7 +482,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.reference");
             else if (Configuration.doAutoCreate())
-              this.reference = new UriType();
+              this.reference = new UriType(); // bb
           return this.reference;
         }
 
@@ -527,7 +527,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.display");
             else if (Configuration.doAutoCreate())
-              this.display = new StringType();
+              this.display = new StringType(); // bb
           return this.display;
         }
 
@@ -576,7 +576,7 @@ public class Provenance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProvenanceEntityComponent.agent");
             else if (Configuration.doAutoCreate())
-              this.agent = new ProvenanceAgentComponent();
+              this.agent = new ProvenanceAgentComponent(); // cc
           return this.agent;
         }
 
@@ -751,7 +751,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -775,7 +775,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.recorded");
         else if (Configuration.doAutoCreate())
-          this.recorded = new InstantType();
+          this.recorded = new InstantType(); // bb
       return this.recorded;
     }
 
@@ -798,14 +798,14 @@ public class Provenance extends DomainResource {
     /**
      * @return The instant of time at which the activity was recorded.
      */
-    public DateAndTime getRecorded() { 
+    public Date getRecorded() { 
       return this.recorded == null ? null : this.recorded.getValue();
     }
 
     /**
      * @param value The instant of time at which the activity was recorded.
      */
-    public Provenance setRecorded(DateAndTime value) { 
+    public Provenance setRecorded(Date value) { 
         if (this.recorded == null)
           this.recorded = new InstantType();
         this.recorded.setValue(value);
@@ -820,7 +820,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept();
+          this.reason = new CodeableConcept(); // cc
       return this.reason;
     }
 
@@ -844,7 +844,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.location");
         else if (Configuration.doAutoCreate())
-          this.location = new Reference();
+          this.location = new Reference(); // cc
       return this.location;
     }
 
@@ -868,7 +868,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.location");
         else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location();
+          this.locationTarget = new Location(); // aa
       return this.locationTarget;
     }
 
@@ -1002,7 +1002,7 @@ public class Provenance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.integritySignature");
         else if (Configuration.doAutoCreate())
-          this.integritySignature = new StringType();
+          this.integritySignature = new StringType(); // bb
       return this.integritySignature;
     }
 

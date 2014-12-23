@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -111,7 +111,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractSignerComponent.signature");
             else if (Configuration.doAutoCreate())
-              this.signature = new StringType();
+              this.signature = new StringType(); // bb
           return this.signature;
         }
 
@@ -278,7 +278,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -302,7 +302,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -326,7 +326,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.subtype");
             else if (Configuration.doAutoCreate())
-              this.subtype = new CodeableConcept();
+              this.subtype = new CodeableConcept(); // cc
           return this.subtype;
         }
 
@@ -350,7 +350,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.subject");
             else if (Configuration.doAutoCreate())
-              this.subject = new Reference();
+              this.subject = new Reference(); // cc
           return this.subject;
         }
 
@@ -389,7 +389,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -438,7 +438,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.issued");
             else if (Configuration.doAutoCreate())
-              this.issued = new DateTimeType();
+              this.issued = new DateTimeType(); // bb
           return this.issued;
         }
 
@@ -461,14 +461,14 @@ public class Contract extends DomainResource {
         /**
          * @return When this term was issued.
          */
-        public DateAndTime getIssued() { 
+        public Date getIssued() { 
           return this.issued == null ? null : this.issued.getValue();
         }
 
         /**
          * @param value When this term was issued.
          */
-        public ContractTermComponent setIssued(DateAndTime value) { 
+        public ContractTermComponent setIssued(Date value) { 
           if (value == null)
             this.issued = null;
           else {
@@ -487,7 +487,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.applies");
             else if (Configuration.doAutoCreate())
-              this.applies = new Period();
+              this.applies = new Period(); // cc
           return this.applies;
         }
 
@@ -511,7 +511,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -535,7 +535,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -559,7 +559,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -608,7 +608,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -657,7 +657,7 @@ public class Contract extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContractTermComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -1150,7 +1150,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -1204,7 +1204,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.issued");
         else if (Configuration.doAutoCreate())
-          this.issued = new DateTimeType();
+          this.issued = new DateTimeType(); // bb
       return this.issued;
     }
 
@@ -1227,14 +1227,14 @@ public class Contract extends DomainResource {
     /**
      * @return When this was issued.
      */
-    public DateAndTime getIssued() { 
+    public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value When this was issued.
      */
-    public Contract setIssued(DateAndTime value) { 
+    public Contract setIssued(Date value) { 
       if (value == null)
         this.issued = null;
       else {
@@ -1253,7 +1253,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.applies");
         else if (Configuration.doAutoCreate())
-          this.applies = new Period();
+          this.applies = new Period(); // cc
       return this.applies;
     }
 
@@ -1277,7 +1277,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new Quantity();
+          this.quantity = new Quantity(); // cc
       return this.quantity;
     }
 
@@ -1301,7 +1301,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.unitPrice");
         else if (Configuration.doAutoCreate())
-          this.unitPrice = new Money();
+          this.unitPrice = new Money(); // cc
       return this.unitPrice;
     }
 
@@ -1325,7 +1325,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.factor");
         else if (Configuration.doAutoCreate())
-          this.factor = new DecimalType();
+          this.factor = new DecimalType(); // bb
       return this.factor;
     }
 
@@ -1374,7 +1374,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.points");
         else if (Configuration.doAutoCreate())
-          this.points = new DecimalType();
+          this.points = new DecimalType(); // bb
       return this.points;
     }
 
@@ -1423,7 +1423,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.net");
         else if (Configuration.doAutoCreate())
-          this.net = new Money();
+          this.net = new Money(); // cc
       return this.net;
     }
 
@@ -1741,7 +1741,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.binding");
         else if (Configuration.doAutoCreate())
-          this.binding = new Attachment();
+          this.binding = new Attachment(); // cc
       return this.binding;
     }
 
@@ -1765,7 +1765,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.bindingDateTime");
         else if (Configuration.doAutoCreate())
-          this.bindingDateTime = new DateTimeType();
+          this.bindingDateTime = new DateTimeType(); // bb
       return this.bindingDateTime;
     }
 
@@ -1788,14 +1788,14 @@ public class Contract extends DomainResource {
     /**
      * @return Relevant time/time-period when applicable.
      */
-    public DateAndTime getBindingDateTime() { 
+    public Date getBindingDateTime() { 
       return this.bindingDateTime == null ? null : this.bindingDateTime.getValue();
     }
 
     /**
      * @param value Relevant time/time-period when applicable.
      */
-    public Contract setBindingDateTime(DateAndTime value) { 
+    public Contract setBindingDateTime(Date value) { 
       if (value == null)
         this.bindingDateTime = null;
       else {
@@ -1844,7 +1844,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.friendlyDateTime");
         else if (Configuration.doAutoCreate())
-          this.friendlyDateTime = new DateTimeType();
+          this.friendlyDateTime = new DateTimeType(); // bb
       return this.friendlyDateTime;
     }
 
@@ -1867,14 +1867,14 @@ public class Contract extends DomainResource {
     /**
      * @return Relevant time/time-period when applicable.
      */
-    public DateAndTime getFriendlyDateTime() { 
+    public Date getFriendlyDateTime() { 
       return this.friendlyDateTime == null ? null : this.friendlyDateTime.getValue();
     }
 
     /**
      * @param value Relevant time/time-period when applicable.
      */
-    public Contract setFriendlyDateTime(DateAndTime value) { 
+    public Contract setFriendlyDateTime(Date value) { 
       if (value == null)
         this.friendlyDateTime = null;
       else {
@@ -1923,7 +1923,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.legalDateTime");
         else if (Configuration.doAutoCreate())
-          this.legalDateTime = new DateTimeType();
+          this.legalDateTime = new DateTimeType(); // bb
       return this.legalDateTime;
     }
 
@@ -1946,14 +1946,14 @@ public class Contract extends DomainResource {
     /**
      * @return Relevant time/time-period when applicable.
      */
-    public DateAndTime getLegalDateTime() { 
+    public Date getLegalDateTime() { 
       return this.legalDateTime == null ? null : this.legalDateTime.getValue();
     }
 
     /**
      * @param value Relevant time/time-period when applicable.
      */
-    public Contract setLegalDateTime(DateAndTime value) { 
+    public Contract setLegalDateTime(Date value) { 
       if (value == null)
         this.legalDateTime = null;
       else {
@@ -2002,7 +2002,7 @@ public class Contract extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.ruleDateTime");
         else if (Configuration.doAutoCreate())
-          this.ruleDateTime = new DateTimeType();
+          this.ruleDateTime = new DateTimeType(); // bb
       return this.ruleDateTime;
     }
 
@@ -2025,14 +2025,14 @@ public class Contract extends DomainResource {
     /**
      * @return Relevant time/time-period when applicable.
      */
-    public DateAndTime getRuleDateTime() { 
+    public Date getRuleDateTime() { 
       return this.ruleDateTime == null ? null : this.ruleDateTime.getValue();
     }
 
     /**
      * @param value Relevant time/time-period when applicable.
      */
-    public Contract setRuleDateTime(DateAndTime value) { 
+    public Contract setRuleDateTime(Date value) { 
       if (value == null)
         this.ruleDateTime = null;
       else {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -106,7 +106,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.contentType");
         else if (Configuration.doAutoCreate())
-          this.contentType = new CodeType();
+          this.contentType = new CodeType(); // bb
       return this.contentType;
     }
 
@@ -155,7 +155,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.language");
         else if (Configuration.doAutoCreate())
-          this.language = new CodeType();
+          this.language = new CodeType(); // bb
       return this.language;
     }
 
@@ -204,7 +204,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.data");
         else if (Configuration.doAutoCreate())
-          this.data = new Base64BinaryType();
+          this.data = new Base64BinaryType(); // bb
       return this.data;
     }
 
@@ -253,7 +253,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 
@@ -302,7 +302,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.size");
         else if (Configuration.doAutoCreate())
-          this.size = new IntegerType();
+          this.size = new IntegerType(); // bb
       return this.size;
     }
 
@@ -351,7 +351,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.hash");
         else if (Configuration.doAutoCreate())
-          this.hash = new Base64BinaryType();
+          this.hash = new Base64BinaryType(); // bb
       return this.hash;
     }
 
@@ -400,7 +400,7 @@ public class Attachment extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.title");
         else if (Configuration.doAutoCreate())
-          this.title = new StringType();
+          this.title = new StringType(); // bb
       return this.title;
     }
 

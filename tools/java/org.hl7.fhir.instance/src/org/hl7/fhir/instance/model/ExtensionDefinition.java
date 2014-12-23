@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class ExtensionDefinition extends DomainResource {
         }
     }
 
-  public static class ResourceProfileStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ResourceProfileStatusEnumFactory implements EnumFactory<ResourceProfileStatus> {
+    public ResourceProfileStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class ExtensionDefinition extends DomainResource {
           return ResourceProfileStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ResourceProfileStatus.RETIRED;
-        throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ResourceProfileStatus code) {
       if (code == ResourceProfileStatus.DRAFT)
         return "draft";
       if (code == ResourceProfileStatus.ACTIVE)
@@ -203,8 +203,8 @@ public class ExtensionDefinition extends DomainResource {
         }
     }
 
-  public static class ExtensionContextEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ExtensionContextEnumFactory implements EnumFactory<ExtensionContext> {
+    public ExtensionContext fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -216,9 +216,9 @@ public class ExtensionDefinition extends DomainResource {
           return ExtensionContext.MAPPING;
         if ("extension".equals(codeString))
           return ExtensionContext.EXTENSION;
-        throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ExtensionContext code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ExtensionContext code) {
       if (code == ExtensionContext.RESOURCE)
         return "resource";
       if (code == ExtensionContext.DATATYPE)
@@ -280,7 +280,7 @@ public class ExtensionDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExtensionDefinitionMappingComponent.identity");
             else if (Configuration.doAutoCreate())
-              this.identity = new IdType();
+              this.identity = new IdType(); // bb
           return this.identity;
         }
 
@@ -325,7 +325,7 @@ public class ExtensionDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExtensionDefinitionMappingComponent.uri");
             else if (Configuration.doAutoCreate())
-              this.uri = new UriType();
+              this.uri = new UriType(); // bb
           return this.uri;
         }
 
@@ -374,7 +374,7 @@ public class ExtensionDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExtensionDefinitionMappingComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -423,7 +423,7 @@ public class ExtensionDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExtensionDefinitionMappingComponent.comments");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType();
+              this.comments = new StringType(); // bb
           return this.comments;
         }
 
@@ -623,7 +623,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 
@@ -698,7 +698,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -743,7 +743,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.display");
         else if (Configuration.doAutoCreate())
-          this.display = new StringType();
+          this.display = new StringType(); // bb
       return this.display;
     }
 
@@ -792,7 +792,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -871,7 +871,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -950,7 +950,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -982,7 +982,7 @@ public class ExtensionDefinition extends DomainResource {
      */
     public ExtensionDefinition setStatus(ResourceProfileStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -995,7 +995,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -1044,7 +1044,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1067,14 +1067,14 @@ public class ExtensionDefinition extends DomainResource {
     /**
      * @return The date that this version of the extension was published.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the extension was published.
      */
-    public ExtensionDefinition setDate(DateAndTime value) { 
+    public ExtensionDefinition setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1093,7 +1093,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.requirements");
         else if (Configuration.doAutoCreate())
-          this.requirements = new StringType();
+          this.requirements = new StringType(); // bb
       return this.requirements;
     }
 
@@ -1172,7 +1172,7 @@ public class ExtensionDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExtensionDefinition.contextType");
         else if (Configuration.doAutoCreate())
-          this.contextType = new Enumeration<ExtensionContext>();
+          this.contextType = new Enumeration<ExtensionContext>(new ExtensionContextEnumFactory()); // bb
       return this.contextType;
     }
 
@@ -1204,7 +1204,7 @@ public class ExtensionDefinition extends DomainResource {
      */
     public ExtensionDefinition setContextType(ExtensionContext value) { 
         if (this.contextType == null)
-          this.contextType = new Enumeration<ExtensionContext>();
+          this.contextType = new Enumeration<ExtensionContext>(new ExtensionContextEnumFactory());
         this.contextType.setValue(value);
       return this;
     }

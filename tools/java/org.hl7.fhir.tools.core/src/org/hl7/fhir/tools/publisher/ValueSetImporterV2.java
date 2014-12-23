@@ -15,7 +15,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.FormatUtilities;
-import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -239,7 +240,7 @@ public class ValueSetImporterV2 {
     vs.setPublisher("HL7, Inc");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
-    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
+    vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitive(true);
@@ -319,7 +320,7 @@ public class ValueSetImporterV2 {
     vs.setPublisher("HL7, Inc");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
-    vs.setDate(new DateAndTime("2011-01-28")); // v2.7 version
+    vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitive(true);

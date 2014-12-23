@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -98,8 +98,8 @@ public class ClaimResponse extends DomainResource {
         }
     }
 
-  public static class RSLinkEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class RSLinkEnumFactory implements EnumFactory<RSLink> {
+    public RSLink fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -107,9 +107,9 @@ public class ClaimResponse extends DomainResource {
           return RSLink.COMPLETE;
         if ("error".equals(codeString))
           return RSLink.ERROR;
-        throw new Exception("Unknown RSLink code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown RSLink code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(RSLink code) {
       if (code == RSLink.COMPLETE)
         return "complete";
       if (code == RSLink.ERROR)
@@ -167,7 +167,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -398,7 +398,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -422,7 +422,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -446,7 +446,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemAdjudicationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DecimalType();
+              this.value = new DecimalType(); // bb
           return this.value;
         }
 
@@ -552,7 +552,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemDetailComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -722,7 +722,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -746,7 +746,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -770,7 +770,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailAdjudicationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DecimalType();
+              this.value = new DecimalType(); // bb
           return this.value;
         }
 
@@ -869,7 +869,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemSubdetailComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -1003,7 +1003,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -1027,7 +1027,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -1051,7 +1051,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubdetailAdjudicationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DecimalType();
+              this.value = new DecimalType(); // bb
           return this.value;
         }
 
@@ -1232,7 +1232,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -1256,7 +1256,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemComponent.fee");
             else if (Configuration.doAutoCreate())
-              this.fee = new Money();
+              this.fee = new Money(); // cc
           return this.fee;
         }
 
@@ -1475,7 +1475,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -1499,7 +1499,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -1523,7 +1523,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemAdjudicationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DecimalType();
+              this.value = new DecimalType(); // bb
           return this.value;
         }
 
@@ -1629,7 +1629,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemsDetailComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -1653,7 +1653,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemsDetailComponent.fee");
             else if (Configuration.doAutoCreate())
-              this.fee = new Money();
+              this.fee = new Money(); // cc
           return this.fee;
         }
 
@@ -1768,7 +1768,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -1792,7 +1792,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Money();
+              this.amount = new Money(); // cc
           return this.amount;
         }
 
@@ -1816,7 +1816,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AddedItemDetailAdjudicationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new DecimalType();
+              this.value = new DecimalType(); // bb
           return this.value;
         }
 
@@ -1929,7 +1929,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -1978,7 +1978,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.detailSequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.detailSequenceLinkId = new IntegerType();
+              this.detailSequenceLinkId = new IntegerType(); // bb
           return this.detailSequenceLinkId;
         }
 
@@ -2027,7 +2027,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.subdetailSequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.subdetailSequenceLinkId = new IntegerType();
+              this.subdetailSequenceLinkId = new IntegerType(); // bb
           return this.subdetailSequenceLinkId;
         }
 
@@ -2076,7 +2076,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ErrorsComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -2155,7 +2155,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType();
+              this.number = new IntegerType(); // bb
           return this.number;
         }
 
@@ -2204,7 +2204,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -2228,7 +2228,7 @@ public class ClaimResponse extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -2531,7 +2531,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.request");
         else if (Configuration.doAutoCreate())
-          this.request = new Reference();
+          this.request = new Reference(); // cc
       return this.request;
     }
 
@@ -2570,7 +2570,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -2594,7 +2594,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -2618,7 +2618,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -2641,14 +2641,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public ClaimResponse setCreated(DateAndTime value) { 
+    public ClaimResponse setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -2667,7 +2667,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -2691,7 +2691,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -2711,7 +2711,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
         else if (Configuration.doAutoCreate())
-          this.requestProvider = new Reference();
+          this.requestProvider = new Reference(); // cc
       return this.requestProvider;
     }
 
@@ -2735,7 +2735,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestProvider");
         else if (Configuration.doAutoCreate())
-          this.requestProviderTarget = new Practitioner();
+          this.requestProviderTarget = new Practitioner(); // aa
       return this.requestProviderTarget;
     }
 
@@ -2755,7 +2755,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
         else if (Configuration.doAutoCreate())
-          this.requestOrganization = new Reference();
+          this.requestOrganization = new Reference(); // cc
       return this.requestOrganization;
     }
 
@@ -2779,7 +2779,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.requestOrganization");
         else if (Configuration.doAutoCreate())
-          this.requestOrganizationTarget = new Organization();
+          this.requestOrganizationTarget = new Organization(); // aa
       return this.requestOrganizationTarget;
     }
 
@@ -2799,7 +2799,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.outcome");
         else if (Configuration.doAutoCreate())
-          this.outcome = new Enumeration<RSLink>();
+          this.outcome = new Enumeration<RSLink>(new RSLinkEnumFactory()); // bb
       return this.outcome;
     }
 
@@ -2834,7 +2834,7 @@ public class ClaimResponse extends DomainResource {
         this.outcome = null;
       else {
         if (this.outcome == null)
-          this.outcome = new Enumeration<RSLink>();
+          this.outcome = new Enumeration<RSLink>(new RSLinkEnumFactory());
         this.outcome.setValue(value);
       }
       return this;
@@ -2848,7 +2848,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.disposition");
         else if (Configuration.doAutoCreate())
-          this.disposition = new StringType();
+          this.disposition = new StringType(); // bb
       return this.disposition;
     }
 
@@ -2897,7 +2897,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.payeeType");
         else if (Configuration.doAutoCreate())
-          this.payeeType = new Coding();
+          this.payeeType = new Coding(); // cc
       return this.payeeType;
     }
 
@@ -3011,7 +3011,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.totalCost");
         else if (Configuration.doAutoCreate())
-          this.totalCost = new Money();
+          this.totalCost = new Money(); // cc
       return this.totalCost;
     }
 
@@ -3035,7 +3035,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.unallocDeductable");
         else if (Configuration.doAutoCreate())
-          this.unallocDeductable = new Money();
+          this.unallocDeductable = new Money(); // cc
       return this.unallocDeductable;
     }
 
@@ -3059,7 +3059,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.totalBenefit");
         else if (Configuration.doAutoCreate())
-          this.totalBenefit = new Money();
+          this.totalBenefit = new Money(); // cc
       return this.totalBenefit;
     }
 
@@ -3083,7 +3083,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustment");
         else if (Configuration.doAutoCreate())
-          this.paymentAdjustment = new Money();
+          this.paymentAdjustment = new Money(); // cc
       return this.paymentAdjustment;
     }
 
@@ -3107,7 +3107,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAdjustmentReason");
         else if (Configuration.doAutoCreate())
-          this.paymentAdjustmentReason = new Coding();
+          this.paymentAdjustmentReason = new Coding(); // cc
       return this.paymentAdjustmentReason;
     }
 
@@ -3131,7 +3131,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentDate");
         else if (Configuration.doAutoCreate())
-          this.paymentDate = new DateType();
+          this.paymentDate = new DateType(); // bb
       return this.paymentDate;
     }
 
@@ -3154,14 +3154,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * @return Estimated payment data.
      */
-    public DateAndTime getPaymentDate() { 
+    public Date getPaymentDate() { 
       return this.paymentDate == null ? null : this.paymentDate.getValue();
     }
 
     /**
      * @param value Estimated payment data.
      */
-    public ClaimResponse setPaymentDate(DateAndTime value) { 
+    public ClaimResponse setPaymentDate(Date value) { 
       if (value == null)
         this.paymentDate = null;
       else {
@@ -3180,7 +3180,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentAmount");
         else if (Configuration.doAutoCreate())
-          this.paymentAmount = new Money();
+          this.paymentAmount = new Money(); // cc
       return this.paymentAmount;
     }
 
@@ -3204,7 +3204,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.paymentRef");
         else if (Configuration.doAutoCreate())
-          this.paymentRef = new Identifier();
+          this.paymentRef = new Identifier(); // cc
       return this.paymentRef;
     }
 
@@ -3228,7 +3228,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.reserved");
         else if (Configuration.doAutoCreate())
-          this.reserved = new Coding();
+          this.reserved = new Coding(); // cc
       return this.reserved;
     }
 
@@ -3252,7 +3252,7 @@ public class ClaimResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ClaimResponse.form");
         else if (Configuration.doAutoCreate())
-          this.form = new Coding();
+          this.form = new Coding(); // cc
       return this.form;
     }
 

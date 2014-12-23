@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class DataElement extends DomainResource {
         }
     }
 
-  public static class ResourceObservationDefStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ResourceObservationDefStatusEnumFactory implements EnumFactory<ResourceObservationDefStatus> {
+    public ResourceObservationDefStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class DataElement extends DomainResource {
           return ResourceObservationDefStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ResourceObservationDefStatus.RETIRED;
-        throw new Exception("Unknown ResourceObservationDefStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ResourceObservationDefStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ResourceObservationDefStatus code) {
       if (code == ResourceObservationDefStatus.DRAFT)
         return "draft";
       if (code == ResourceObservationDefStatus.ACTIVE)
@@ -223,8 +223,8 @@ public class DataElement extends DomainResource {
         }
     }
 
-  public static class DataelementGranularityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DataelementGranularityEnumFactory implements EnumFactory<DataelementGranularity> {
+    public DataelementGranularity fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -240,9 +240,9 @@ public class DataElement extends DomainResource {
           return DataelementGranularity.SCALEABLE;
         if ("flexible".equals(codeString))
           return DataelementGranularity.FLEXIBLE;
-        throw new Exception("Unknown DataelementGranularity code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DataelementGranularity code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DataelementGranularity code) {
       if (code == DataelementGranularity.COMPARABLE)
         return "comparable";
       if (code == DataelementGranularity.FULLYSPECIFIED)
@@ -321,8 +321,8 @@ public class DataElement extends DomainResource {
         }
     }
 
-  public static class BindingConformanceEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class BindingConformanceEnumFactory implements EnumFactory<BindingConformance> {
+    public BindingConformance fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -332,9 +332,9 @@ public class DataElement extends DomainResource {
           return BindingConformance.PREFERRED;
         if ("example".equals(codeString))
           return BindingConformance.EXAMPLE;
-        throw new Exception("Unknown BindingConformance code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown BindingConformance code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(BindingConformance code) {
       if (code == BindingConformance.REQUIRED)
         return "required";
       if (code == BindingConformance.PREFERRED)
@@ -399,7 +399,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementBindingComponent.isExtensible");
             else if (Configuration.doAutoCreate())
-              this.isExtensible = new BooleanType();
+              this.isExtensible = new BooleanType(); // bb
           return this.isExtensible;
         }
 
@@ -444,7 +444,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementBindingComponent.conformance");
             else if (Configuration.doAutoCreate())
-              this.conformance = new Enumeration<BindingConformance>();
+              this.conformance = new Enumeration<BindingConformance>(new BindingConformanceEnumFactory()); // bb
           return this.conformance;
         }
 
@@ -479,7 +479,7 @@ public class DataElement extends DomainResource {
             this.conformance = null;
           else {
             if (this.conformance == null)
-              this.conformance = new Enumeration<BindingConformance>();
+              this.conformance = new Enumeration<BindingConformance>(new BindingConformanceEnumFactory());
             this.conformance.setValue(value);
           }
           return this;
@@ -493,7 +493,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementBindingComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -542,7 +542,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementBindingComponent.valueSet");
             else if (Configuration.doAutoCreate())
-              this.valueSet = new Reference();
+              this.valueSet = new Reference(); // cc
           return this.valueSet;
         }
 
@@ -566,7 +566,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementBindingComponent.valueSet");
             else if (Configuration.doAutoCreate())
-              this.valueSetTarget = new ValueSet();
+              this.valueSetTarget = new ValueSet(); // aa
           return this.valueSetTarget;
         }
 
@@ -660,7 +660,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.uri");
             else if (Configuration.doAutoCreate())
-              this.uri = new UriType();
+              this.uri = new UriType(); // bb
           return this.uri;
         }
 
@@ -709,7 +709,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.definitional");
             else if (Configuration.doAutoCreate())
-              this.definitional = new BooleanType();
+              this.definitional = new BooleanType(); // bb
           return this.definitional;
         }
 
@@ -758,7 +758,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -807,7 +807,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.comments");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType();
+              this.comments = new StringType(); // bb
           return this.comments;
         }
 
@@ -856,7 +856,7 @@ public class DataElement extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.map");
             else if (Configuration.doAutoCreate())
-              this.map = new StringType();
+              this.map = new StringType(); // bb
           return this.map;
         }
 
@@ -1041,10 +1041,10 @@ public class DataElement extends DomainResource {
     protected CodeType type;
 
     /**
-     * An sample value for this element demonstrating the type of information that would typically be captured.
+     * A sample value for this element demonstrating the type of information that would typically be captured.
      */
     @Child(name="example", type={}, order=16, min=0, max=1)
-    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="An sample value for this element demonstrating the type of information that would typically be captured." )
+    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="A sample value for this element demonstrating the type of information that would typically be captured." )
     protected org.hl7.fhir.instance.model.Type example;
 
     /**
@@ -1094,7 +1094,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -1118,7 +1118,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -1167,7 +1167,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -1246,7 +1246,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceObservationDefStatus>();
+          this.status = new Enumeration<ResourceObservationDefStatus>(new ResourceObservationDefStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1278,7 +1278,7 @@ public class DataElement extends DomainResource {
      */
     public DataElement setStatus(ResourceObservationDefStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceObservationDefStatus>();
+          this.status = new Enumeration<ResourceObservationDefStatus>(new ResourceObservationDefStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1291,7 +1291,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1314,14 +1314,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
      */
-    public DataElement setDate(DateAndTime value) { 
+    public DataElement setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1340,7 +1340,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -1419,7 +1419,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.granularity");
         else if (Configuration.doAutoCreate())
-          this.granularity = new Enumeration<DataelementGranularity>();
+          this.granularity = new Enumeration<DataelementGranularity>(new DataelementGranularityEnumFactory()); // bb
       return this.granularity;
     }
 
@@ -1454,7 +1454,7 @@ public class DataElement extends DomainResource {
         this.granularity = null;
       else {
         if (this.granularity == null)
-          this.granularity = new Enumeration<DataelementGranularity>();
+          this.granularity = new Enumeration<DataelementGranularity>(new DataelementGranularityEnumFactory());
         this.granularity.setValue(value);
       }
       return this;
@@ -1498,7 +1498,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.question");
         else if (Configuration.doAutoCreate())
-          this.question = new StringType();
+          this.question = new StringType(); // bb
       return this.question;
     }
 
@@ -1547,7 +1547,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.label");
         else if (Configuration.doAutoCreate())
-          this.label = new StringType();
+          this.label = new StringType(); // bb
       return this.label;
     }
 
@@ -1596,7 +1596,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.definition");
         else if (Configuration.doAutoCreate())
-          this.definition = new StringType();
+          this.definition = new StringType(); // bb
       return this.definition;
     }
 
@@ -1645,7 +1645,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.comments");
         else if (Configuration.doAutoCreate())
-          this.comments = new StringType();
+          this.comments = new StringType(); // bb
       return this.comments;
     }
 
@@ -1694,7 +1694,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.requirements");
         else if (Configuration.doAutoCreate())
-          this.requirements = new StringType();
+          this.requirements = new StringType(); // bb
       return this.requirements;
     }
 
@@ -1797,7 +1797,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeType();
+          this.type = new CodeType(); // bb
       return this.type;
     }
 
@@ -1839,7 +1839,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #example} (An sample value for this element demonstrating the type of information that would typically be captured.)
+     * @return {@link #example} (A sample value for this element demonstrating the type of information that would typically be captured.)
      */
     public org.hl7.fhir.instance.model.Type getExample() { 
       return this.example;
@@ -1850,7 +1850,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #example} (An sample value for this element demonstrating the type of information that would typically be captured.)
+     * @param value {@link #example} (A sample value for this element demonstrating the type of information that would typically be captured.)
      */
     public DataElement setExample(org.hl7.fhir.instance.model.Type value) { 
       this.example = value;
@@ -1865,7 +1865,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.maxLength");
         else if (Configuration.doAutoCreate())
-          this.maxLength = new IntegerType();
+          this.maxLength = new IntegerType(); // bb
       return this.maxLength;
     }
 
@@ -1951,7 +1951,7 @@ public class DataElement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.binding");
         else if (Configuration.doAutoCreate())
-          this.binding = new DataElementBindingComponent();
+          this.binding = new DataElementBindingComponent(); // cc
       return this.binding;
     }
 
@@ -2016,7 +2016,7 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("synonym", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, synonym));
         childrenList.add(new Property("type", "code", "The FHIR data type that is the type for data that corresponds to this data element.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("example[x]", "*", "An sample value for this element demonstrating the type of information that would typically be captured.", 0, java.lang.Integer.MAX_VALUE, example));
+        childrenList.add(new Property("example[x]", "*", "A sample value for this element demonstrating the type of information that would typically be captured.", 0, java.lang.Integer.MAX_VALUE, example));
         childrenList.add(new Property("maxLength", "integer", "Indicates the shortest length that SHALL be supported by conformant instances without truncation.", 0, java.lang.Integer.MAX_VALUE, maxLength));
         childrenList.add(new Property("units[x]", "CodeableConcept|Reference(ValueSet)", "Identifies the units of measure in which the data element should be captured or expressed.", 0, java.lang.Integer.MAX_VALUE, units));
         childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));

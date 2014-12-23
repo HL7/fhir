@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class Order extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderWhenComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -98,7 +98,7 @@ public class Order extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderWhenComponent.schedule");
             else if (Configuration.doAutoCreate())
-              this.schedule = new Timing();
+              this.schedule = new Timing(); // cc
           return this.schedule;
         }
 
@@ -267,7 +267,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -290,14 +290,14 @@ public class Order extends DomainResource {
     /**
      * @return When the order was made.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value When the order was made.
      */
-    public Order setDate(DateAndTime value) { 
+    public Order setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -316,7 +316,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -340,7 +340,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -360,7 +360,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.source");
         else if (Configuration.doAutoCreate())
-          this.source = new Reference();
+          this.source = new Reference(); // cc
       return this.source;
     }
 
@@ -384,7 +384,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.source");
         else if (Configuration.doAutoCreate())
-          this.sourceTarget = new Practitioner();
+          this.sourceTarget = new Practitioner(); // aa
       return this.sourceTarget;
     }
 
@@ -404,7 +404,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.target");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference();
+          this.target = new Reference(); // cc
       return this.target;
     }
 
@@ -480,7 +480,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.authority");
         else if (Configuration.doAutoCreate())
-          this.authority = new Reference();
+          this.authority = new Reference(); // cc
       return this.authority;
     }
 
@@ -519,7 +519,7 @@ public class Order extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.when");
         else if (Configuration.doAutoCreate())
-          this.when = new OrderWhenComponent();
+          this.when = new OrderWhenComponent(); // cc
       return this.when;
     }
 

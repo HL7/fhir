@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class DocumentReference extends DomainResource {
         }
     }
 
-  public static class DocumentReferenceStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DocumentReferenceStatusEnumFactory implements EnumFactory<DocumentReferenceStatus> {
+    public DocumentReferenceStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class DocumentReference extends DomainResource {
           return DocumentReferenceStatus.SUPERCEDED;
         if ("entered in error".equals(codeString))
           return DocumentReferenceStatus.ENTEREDINERROR;
-        throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DocumentReferenceStatus code) {
       if (code == DocumentReferenceStatus.CURRENT)
         return "current";
       if (code == DocumentReferenceStatus.SUPERCEDED)
@@ -203,8 +203,8 @@ public class DocumentReference extends DomainResource {
         }
     }
 
-  public static class DocumentRelationshipTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DocumentRelationshipTypeEnumFactory implements EnumFactory<DocumentRelationshipType> {
+    public DocumentRelationshipType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -216,9 +216,9 @@ public class DocumentReference extends DomainResource {
           return DocumentRelationshipType.SIGNS;
         if ("appends".equals(codeString))
           return DocumentRelationshipType.APPENDS;
-        throw new Exception("Unknown DocumentRelationshipType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DocumentRelationshipType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DocumentRelationshipType code) {
       if (code == DocumentRelationshipType.REPLACES)
         return "replaces";
       if (code == DocumentRelationshipType.TRANSFORMS)
@@ -272,7 +272,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceRelatesToComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<DocumentRelationshipType>();
+              this.code = new Enumeration<DocumentRelationshipType>(new DocumentRelationshipTypeEnumFactory()); // bb
           return this.code;
         }
 
@@ -304,7 +304,7 @@ public class DocumentReference extends DomainResource {
          */
         public DocumentReferenceRelatesToComponent setCode(DocumentRelationshipType value) { 
             if (this.code == null)
-              this.code = new Enumeration<DocumentRelationshipType>();
+              this.code = new Enumeration<DocumentRelationshipType>(new DocumentRelationshipTypeEnumFactory());
             this.code.setValue(value);
           return this;
         }
@@ -317,7 +317,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceRelatesToComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -341,7 +341,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceRelatesToComponent.target");
             else if (Configuration.doAutoCreate())
-              this.targetTarget = new DocumentReference();
+              this.targetTarget = new DocumentReference(); // aa
           return this.targetTarget;
         }
 
@@ -416,7 +416,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceServiceComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -440,7 +440,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceServiceComponent.address");
             else if (Configuration.doAutoCreate())
-              this.address = new StringType();
+              this.address = new StringType(); // bb
           return this.address;
         }
 
@@ -573,7 +573,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceServiceParameterComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -618,7 +618,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceServiceParameterComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new StringType();
+              this.value = new StringType(); // bb
           return this.value;
         }
 
@@ -747,7 +747,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceContextComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -771,7 +771,7 @@ public class DocumentReference extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentReferenceContextComponent.facilityType");
             else if (Configuration.doAutoCreate())
-              this.facilityType = new CodeableConcept();
+              this.facilityType = new CodeableConcept(); // cc
           return this.facilityType;
         }
 
@@ -1026,7 +1026,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.masterIdentifier");
         else if (Configuration.doAutoCreate())
-          this.masterIdentifier = new Identifier();
+          this.masterIdentifier = new Identifier(); // cc
       return this.masterIdentifier;
     }
 
@@ -1080,7 +1080,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1119,7 +1119,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -1143,7 +1143,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.class_");
         else if (Configuration.doAutoCreate())
-          this.class_ = new CodeableConcept();
+          this.class_ = new CodeableConcept(); // cc
       return this.class_;
     }
 
@@ -1206,7 +1206,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.custodian");
         else if (Configuration.doAutoCreate())
-          this.custodian = new Reference();
+          this.custodian = new Reference(); // cc
       return this.custodian;
     }
 
@@ -1230,7 +1230,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.custodian");
         else if (Configuration.doAutoCreate())
-          this.custodianTarget = new Organization();
+          this.custodianTarget = new Organization(); // aa
       return this.custodianTarget;
     }
 
@@ -1250,7 +1250,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.policyManager");
         else if (Configuration.doAutoCreate())
-          this.policyManager = new UriType();
+          this.policyManager = new UriType(); // bb
       return this.policyManager;
     }
 
@@ -1299,7 +1299,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.authenticator");
         else if (Configuration.doAutoCreate())
-          this.authenticator = new Reference();
+          this.authenticator = new Reference(); // cc
       return this.authenticator;
     }
 
@@ -1338,7 +1338,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -1361,14 +1361,14 @@ public class DocumentReference extends DomainResource {
     /**
      * @return When the document was created.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value When the document was created.
      */
-    public DocumentReference setCreated(DateAndTime value) { 
+    public DocumentReference setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -1387,7 +1387,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.indexed");
         else if (Configuration.doAutoCreate())
-          this.indexed = new InstantType();
+          this.indexed = new InstantType(); // bb
       return this.indexed;
     }
 
@@ -1410,14 +1410,14 @@ public class DocumentReference extends DomainResource {
     /**
      * @return When the document reference was created.
      */
-    public DateAndTime getIndexed() { 
+    public Date getIndexed() { 
       return this.indexed == null ? null : this.indexed.getValue();
     }
 
     /**
      * @param value When the document reference was created.
      */
-    public DocumentReference setIndexed(DateAndTime value) { 
+    public DocumentReference setIndexed(Date value) { 
         if (this.indexed == null)
           this.indexed = new InstantType();
         this.indexed.setValue(value);
@@ -1432,7 +1432,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DocumentReferenceStatus>();
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1464,7 +1464,7 @@ public class DocumentReference extends DomainResource {
      */
     public DocumentReference setStatus(DocumentReferenceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<DocumentReferenceStatus>();
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1477,7 +1477,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.docStatus");
         else if (Configuration.doAutoCreate())
-          this.docStatus = new CodeableConcept();
+          this.docStatus = new CodeableConcept(); // cc
       return this.docStatus;
     }
 
@@ -1531,7 +1531,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -1610,7 +1610,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.primaryLanguage");
         else if (Configuration.doAutoCreate())
-          this.primaryLanguage = new CodeType();
+          this.primaryLanguage = new CodeType(); // bb
       return this.primaryLanguage;
     }
 
@@ -1659,7 +1659,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.mimeType");
         else if (Configuration.doAutoCreate())
-          this.mimeType = new CodeType();
+          this.mimeType = new CodeType(); // bb
       return this.mimeType;
     }
 
@@ -1758,7 +1758,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.size");
         else if (Configuration.doAutoCreate())
-          this.size = new IntegerType();
+          this.size = new IntegerType(); // bb
       return this.size;
     }
 
@@ -1807,7 +1807,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.hash");
         else if (Configuration.doAutoCreate())
-          this.hash = new Base64BinaryType();
+          this.hash = new Base64BinaryType(); // bb
       return this.hash;
     }
 
@@ -1856,7 +1856,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.location");
         else if (Configuration.doAutoCreate())
-          this.location = new UriType();
+          this.location = new UriType(); // bb
       return this.location;
     }
 
@@ -1905,7 +1905,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.service");
         else if (Configuration.doAutoCreate())
-          this.service = new DocumentReferenceServiceComponent();
+          this.service = new DocumentReferenceServiceComponent(); // cc
       return this.service;
     }
 
@@ -1929,7 +1929,7 @@ public class DocumentReference extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.context");
         else if (Configuration.doAutoCreate())
-          this.context = new DocumentReferenceContextComponent();
+          this.context = new DocumentReferenceContextComponent(); // cc
       return this.context;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -98,8 +98,8 @@ public class VisionPrescription extends DomainResource {
         }
     }
 
-  public static class EyeCodesEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EyeCodesEnumFactory implements EnumFactory<EyeCodes> {
+    public EyeCodes fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -107,9 +107,9 @@ public class VisionPrescription extends DomainResource {
           return EyeCodes.RIGHT;
         if ("left".equals(codeString))
           return EyeCodes.LEFT;
-        throw new Exception("Unknown EyeCodes code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EyeCodes code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EyeCodes code) {
       if (code == EyeCodes.RIGHT)
         return "right";
       if (code == EyeCodes.LEFT)
@@ -190,8 +190,8 @@ public class VisionPrescription extends DomainResource {
         }
     }
 
-  public static class BaseCodesEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class BaseCodesEnumFactory implements EnumFactory<BaseCodes> {
+    public BaseCodes fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -203,9 +203,9 @@ public class VisionPrescription extends DomainResource {
           return BaseCodes.IN;
         if ("out".equals(codeString))
           return BaseCodes.OUT;
-        throw new Exception("Unknown BaseCodes code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown BaseCodes code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(BaseCodes code) {
       if (code == BaseCodes.UP)
         return "up";
       if (code == BaseCodes.DOWN)
@@ -344,7 +344,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.product");
             else if (Configuration.doAutoCreate())
-              this.product = new Coding();
+              this.product = new Coding(); // cc
           return this.product;
         }
 
@@ -368,7 +368,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.eye");
             else if (Configuration.doAutoCreate())
-              this.eye = new Enumeration<EyeCodes>();
+              this.eye = new Enumeration<EyeCodes>(new EyeCodesEnumFactory()); // bb
           return this.eye;
         }
 
@@ -403,7 +403,7 @@ public class VisionPrescription extends DomainResource {
             this.eye = null;
           else {
             if (this.eye == null)
-              this.eye = new Enumeration<EyeCodes>();
+              this.eye = new Enumeration<EyeCodes>(new EyeCodesEnumFactory());
             this.eye.setValue(value);
           }
           return this;
@@ -417,7 +417,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.sphere");
             else if (Configuration.doAutoCreate())
-              this.sphere = new DecimalType();
+              this.sphere = new DecimalType(); // bb
           return this.sphere;
         }
 
@@ -466,7 +466,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.cylinder");
             else if (Configuration.doAutoCreate())
-              this.cylinder = new DecimalType();
+              this.cylinder = new DecimalType(); // bb
           return this.cylinder;
         }
 
@@ -515,7 +515,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.axis");
             else if (Configuration.doAutoCreate())
-              this.axis = new IntegerType();
+              this.axis = new IntegerType(); // bb
           return this.axis;
         }
 
@@ -564,7 +564,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.prism");
             else if (Configuration.doAutoCreate())
-              this.prism = new DecimalType();
+              this.prism = new DecimalType(); // bb
           return this.prism;
         }
 
@@ -613,7 +613,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.base");
             else if (Configuration.doAutoCreate())
-              this.base = new Enumeration<BaseCodes>();
+              this.base = new Enumeration<BaseCodes>(new BaseCodesEnumFactory()); // bb
           return this.base;
         }
 
@@ -648,7 +648,7 @@ public class VisionPrescription extends DomainResource {
             this.base = null;
           else {
             if (this.base == null)
-              this.base = new Enumeration<BaseCodes>();
+              this.base = new Enumeration<BaseCodes>(new BaseCodesEnumFactory());
             this.base.setValue(value);
           }
           return this;
@@ -662,7 +662,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.add");
             else if (Configuration.doAutoCreate())
-              this.add = new DecimalType();
+              this.add = new DecimalType(); // bb
           return this.add;
         }
 
@@ -711,7 +711,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.power");
             else if (Configuration.doAutoCreate())
-              this.power = new DecimalType();
+              this.power = new DecimalType(); // bb
           return this.power;
         }
 
@@ -760,7 +760,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.backCurve");
             else if (Configuration.doAutoCreate())
-              this.backCurve = new DecimalType();
+              this.backCurve = new DecimalType(); // bb
           return this.backCurve;
         }
 
@@ -809,7 +809,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.diameter");
             else if (Configuration.doAutoCreate())
-              this.diameter = new DecimalType();
+              this.diameter = new DecimalType(); // bb
           return this.diameter;
         }
 
@@ -858,7 +858,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.duration");
             else if (Configuration.doAutoCreate())
-              this.duration = new Quantity();
+              this.duration = new Quantity(); // cc
           return this.duration;
         }
 
@@ -882,7 +882,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.color");
             else if (Configuration.doAutoCreate())
-              this.color = new StringType();
+              this.color = new StringType(); // bb
           return this.color;
         }
 
@@ -931,7 +931,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.brand");
             else if (Configuration.doAutoCreate())
-              this.brand = new StringType();
+              this.brand = new StringType(); // bb
           return this.brand;
         }
 
@@ -980,7 +980,7 @@ public class VisionPrescription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.notes");
             else if (Configuration.doAutoCreate())
-              this.notes = new StringType();
+              this.notes = new StringType(); // bb
           return this.notes;
         }
 
@@ -1180,7 +1180,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.dateWritten");
         else if (Configuration.doAutoCreate())
-          this.dateWritten = new DateTimeType();
+          this.dateWritten = new DateTimeType(); // bb
       return this.dateWritten;
     }
 
@@ -1203,14 +1203,14 @@ public class VisionPrescription extends DomainResource {
     /**
      * @return The date (and perhaps time) when the prescription was written.
      */
-    public DateAndTime getDateWritten() { 
+    public Date getDateWritten() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
      * @param value The date (and perhaps time) when the prescription was written.
      */
-    public VisionPrescription setDateWritten(DateAndTime value) { 
+    public VisionPrescription setDateWritten(Date value) { 
       if (value == null)
         this.dateWritten = null;
       else {
@@ -1229,7 +1229,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -1253,7 +1253,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -1273,7 +1273,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.prescriber");
         else if (Configuration.doAutoCreate())
-          this.prescriber = new Reference();
+          this.prescriber = new Reference(); // cc
       return this.prescriber;
     }
 
@@ -1297,7 +1297,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.prescriber");
         else if (Configuration.doAutoCreate())
-          this.prescriberTarget = new Practitioner();
+          this.prescriberTarget = new Practitioner(); // aa
       return this.prescriberTarget;
     }
 
@@ -1317,7 +1317,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1341,7 +1341,7 @@ public class VisionPrescription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionPrescription.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 

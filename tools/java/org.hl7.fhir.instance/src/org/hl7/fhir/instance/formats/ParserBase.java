@@ -39,7 +39,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.Type;
@@ -177,17 +176,8 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
   }
 
 
-  protected DateAndTime parseDateTimePrimitive(String value) throws ParseException {
-    return new DateAndTime(value);
-  }
-
-
   protected String parseCodePrimitive(String value) {
     return value;
-  }
-
-  protected DateAndTime parseDatePrimitive(String value) throws ParseException {
-    return new DateAndTime(value);
   }
 
   protected String parseTimePrimitive(String value) throws ParseException {
@@ -222,10 +212,6 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
     return java.lang.Boolean.valueOf(value);
   }
   
-  protected DateAndTime parseInstantPrimitive(String value) throws Exception {
-    return new DateAndTime(value);
-  }
-
   protected String parseIdPrimitive(String value) {
     return value;
   }

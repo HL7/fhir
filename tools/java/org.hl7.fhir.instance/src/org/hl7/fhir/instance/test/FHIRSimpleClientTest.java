@@ -8,6 +8,7 @@ import static org.junit.Assert.fail;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,6 @@ import org.hl7.fhir.instance.model.Condition;
 import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateType;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.HumanName;
@@ -47,7 +47,7 @@ public class FHIRSimpleClientTest {
 	
 	private static String connectUrl = null;
 	private static String userAgent = null;
-	private static DateAndTime testDateAndTime = null;
+	private static DateType testDateAndTime = null;
 	
 	private IFHIRClient testClient;
 	private String testPatientId;
@@ -74,7 +74,7 @@ public class FHIRSimpleClientTest {
 	public static void setUpBeforeClass() throws Exception {
 		configureForHealthIntersection();
 		//configureForFurore();
-		testDateAndTime = new DateAndTime("2008-08-08");
+		testDateAndTime = new DateType("2008-08-08");
 	}
 
 	@AfterClass
@@ -176,7 +176,7 @@ public class FHIRSimpleClientTest {
 	public void testRead() {
 		loadPatientReference();
 		Patient fetchedPatient = testClient.read(Patient.class, testPatientId);
-		assertEqualDate(fetchedPatient.getBirthDate(),testDateAndTime);
+		assertEqualDate(fetchedPatient.getBirthDateElement(),testDateAndTime);
 		assertEquals(2, fetchedPatient.getMeta().getTag().size());
 		unloadPatientReference();
 	}
@@ -186,7 +186,7 @@ public class FHIRSimpleClientTest {
 		try {
 			loadPatientReference();
 			Patient fetchedPatient = testClient.vread(Patient.class, testPatientId, testPatientVersion);
-			assertEqualDate(fetchedPatient.getBirthDate(),testDateAndTime);
+			assertEqualDate(fetchedPatient.getBirthDateElement(),testDateAndTime);
 			assertEquals(2, fetchedPatient.getMeta().getTag().size());
 			unloadPatientReference();
 		} catch(EFhirClientException e) {
@@ -203,12 +203,10 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testUpdate() {
-		try {
 			loadPatientReference();
 			Patient originalPatientEntry = testClient.read(Patient.class, testPatientId);
 			String originalEntryVersion = getEntryVersion(originalPatientEntry);
-			DateType modifiedBirthday = new DateType();
-			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
+		DateType modifiedBirthday = new DateType("2002-09-09");
 			originalPatientEntry.setBirthDateElement(modifiedBirthday);
 			Patient updatedResult = testClient.update(Patient.class, originalPatientEntry, testPatientId);
 			if (updatedResult == null) {
@@ -221,12 +219,8 @@ public class FHIRSimpleClientTest {
 			assertEquals("Patient", resourceType);
 			assertEquals(Integer.parseInt(originalEntryVersion) + 1, Integer.parseInt(entryVersion));
 			Patient fetchedUpdatedPatientEntry = testClient.read(Patient.class, testPatientId);
-			assertEqualDate(new DateAndTime("2002-09-09"), fetchedUpdatedPatientEntry.getBirthDate());
+		assertEqualDate(new DateType("2002-09-09"), fetchedUpdatedPatientEntry.getBirthDateElement());
 			unloadPatientReference();
-		} catch (ParseException e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 	
 	@Test
@@ -254,19 +248,13 @@ public class FHIRSimpleClientTest {
 	
 	@Test
 	public void testValidate() {
-		try {
 			loadPatientReference();
 			Patient patient = testClient.read(Patient.class, testPatientId);
-			DateType modifiedBirthday = new DateType();
-			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
+		DateType modifiedBirthday = new DateType("2009-08-08");
 			patient.setBirthDateElement(modifiedBirthday);
 			OperationOutcome validate = testClient.validate(Patient.class, patient, testPatientId);
 			assertTrue(validate.getIssue().size() == 0);//TODO not sure why bad syntax
 			unloadPatientReference();
-		} catch (ParseException e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 	
 
@@ -302,11 +290,9 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testHistoryForAllResourceTypes() throws Exception {
-		DateAndTime testDate = DateAndTime.now();
-		//testDate.add(Calendar.HOUR, -24);
-		Calendar cal = testDate.toCalendar();
+		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR, -24);
-		testDate = new DateAndTime(cal);
+		Date testDate = cal.getTime();
 		Bundle feed = testClient.history(testDate);
 		assertNotNull(feed);
 		assertTrue(feed.getEntry().size() > 1);
@@ -314,11 +300,9 @@ public class FHIRSimpleClientTest {
 	
 	@Test
 	public void testHistoryForAllResourceTypesWithCount() throws Exception {
-		DateAndTime testDate = DateAndTime.now();
-		testClient.setMaximumRecordCount(5);
-		Calendar cal = testDate.toCalendar();
+		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR, -24);
-		testDate = new DateAndTime(cal);
+		Date testDate = cal.getTime();
 		Bundle feed = testClient.history(testDate);
 		assertNotNull(feed);
 		System.out.println(feed.getEntry().size());
@@ -376,7 +360,7 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			OperationOutcome createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDate(new DateAndTime("1966-01-10"));
+			patient.setBirthDateElement(new DateType("1966-01-10"));
 			Reference patientReference = new Reference();
 			patient.setId(getEntryPath(createdPatientEntry));
 			patientReference.setReference(getEntryPath(createdPatientEntry));
@@ -424,7 +408,7 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			OperationOutcome createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDate(new DateAndTime("1966-01-10"));
+			patient.setBirthDateElement(new DateType("1966-01-10"));
 			Bundle batchFeed = new Bundle();
 			patient.setId(getEntryPath(createdPatientEntry));
 			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
@@ -449,7 +433,7 @@ public class FHIRSimpleClientTest {
 		try {
 			Patient patient = buildPatient();
 			OperationOutcome createdPatientEntry = testClient.create(Patient.class, patient);
-			patient.setBirthDate(new DateAndTime("1966-01-10"));
+			patient.setBirthDateElement(new DateType("1966-01-10"));
 			Bundle batchFeed = new Bundle();
 			patient.setId(getEntryId(createdPatientEntry));
 			batchFeed.getEntry().add(new BundleEntryComponent().setResource(patient));
@@ -677,19 +661,13 @@ public class FHIRSimpleClientTest {
 	
 	private Patient buildPatient(String fullName, String givenName, String familyName) {
 		Patient patient = new Patient();
-		try {
 			HumanName name = patient.addName();
 			name.setText(fullName);
 			name.addGiven(givenName);
 			name.addFamily(familyName);
-			DateType birthday = new DateType();
-			birthday.setValue(new DateAndTime("2008-08-08"));
+		DateType birthday = new DateType("2008-08-08");
 			patient.setBirthDateElement(birthday);
 			patient.setGender(AdministrativeGender.FEMALE); // This is now a Simple code value
-		} catch (ParseException e) {
-			e.printStackTrace();
-			fail();
-		}
 		return patient;
 	}
 	
@@ -748,9 +726,7 @@ public class FHIRSimpleClientTest {
 		}
 	}
 	
-	private void assertEqualDate(DateAndTime OriginalDate, DateAndTime modifiedDate) {
-		assertEquals(modifiedDate.getYear(),OriginalDate.getYear());
-		assertEquals(modifiedDate.getMonth(),OriginalDate.getMonth());
-		assertEquals(modifiedDate.getDay(),OriginalDate.getDay());
+	private void assertEqualDate(DateType originalDate, DateType modifiedDate) {
+		assert(originalDate.equals(modifiedDate));
 	}
 }

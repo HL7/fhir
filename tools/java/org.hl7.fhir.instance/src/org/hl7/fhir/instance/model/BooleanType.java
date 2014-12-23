@@ -37,63 +37,49 @@ import org.hl7.fhir.instance.model.annotations.DatatypeDef;
  * Primitive type "boolean" in FHIR "true" or "false"
  */
 @DatatypeDef(name="boolean")
-public class BooleanType extends PrimitiveType {
+public class BooleanType extends PrimitiveType<Boolean> {
 
-  private static final long serialVersionUID = 2983474044199586731L;
-	/**
-	 * The value of the boolean
-	 */
-	private java.lang.Boolean value;
-	
-	public BooleanType(Boolean value) {
-    this.value = value;  
-  }
+	private static final long serialVersionUID = 3L;
 
   public BooleanType() {
+		super();
   }
 
-  /**
-	 * @return The value of the boolean
-	 */
-	public java.lang.Boolean getValue() {
-		return value;
+	public BooleanType(boolean theBoolean) {
+		super();
+		setValue(theBoolean);
 	}
 
-	/**
-	 * @param value The value of the boolean
-	 */
-	public void setValue(java.lang.Boolean value) {
-	  this.value = value;
+	public BooleanType(Boolean theBoolean) {
+		super();
+		setValue(theBoolean);
 	}
 
-	@Override
-  public BooleanType copy() {
-		BooleanType dst = new BooleanType();
-		dst.value = value;
-		return dst;
+	public BooleanType(String value) {
+		super();
+		setValueAsString(value);  
 	}
 	
-	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected Boolean parse(String theValue) {
+		String value = theValue.trim();
+		if ("true".equals(value)) {
+			return Boolean.TRUE;
+		} else if ("false".equals(value)) {
+			return Boolean.FALSE;
+		} else {
+			throw new IllegalArgumentException("Invalid boolean string: '" + theValue + "'");
+	}
 	}
 
-	public String getStringValue() {
-		return value == null ? null : value.toString();
-	}
-
-  @Override
-  public String asStringValue() {
-    return value.toString();
+	protected String encode(Boolean theValue) {
+		if (Boolean.TRUE.equals(theValue)) {
+			return "true";
+		} else {
+			return "false";
   }
-	
-
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
 	}
 
-	public boolean hasValue() {
-		return value != null;
+	public BooleanType copy() {
+		return new BooleanType(getValue());
 	}
-	
 }

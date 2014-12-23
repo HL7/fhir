@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class Readjudicate extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequenceLinkId");
             else if (Configuration.doAutoCreate())
-              this.sequenceLinkId = new IntegerType();
+              this.sequenceLinkId = new IntegerType(); // bb
           return this.sequenceLinkId;
         }
 
@@ -274,7 +274,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -298,7 +298,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -322,7 +322,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -345,14 +345,14 @@ public class Readjudicate extends DomainResource {
     /**
      * @return The date when this resource was created.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when this resource was created.
      */
-    public Readjudicate setCreated(DateAndTime value) { 
+    public Readjudicate setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -371,7 +371,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.target");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference();
+          this.target = new Reference(); // cc
       return this.target;
     }
 
@@ -395,7 +395,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.target");
         else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization();
+          this.targetTarget = new Organization(); // aa
       return this.targetTarget;
     }
 
@@ -415,7 +415,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.provider");
         else if (Configuration.doAutoCreate())
-          this.provider = new Reference();
+          this.provider = new Reference(); // cc
       return this.provider;
     }
 
@@ -439,7 +439,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.provider");
         else if (Configuration.doAutoCreate())
-          this.providerTarget = new Practitioner();
+          this.providerTarget = new Practitioner(); // aa
       return this.providerTarget;
     }
 
@@ -459,7 +459,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -483,7 +483,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -503,7 +503,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.request");
         else if (Configuration.doAutoCreate())
-          this.request = new Reference();
+          this.request = new Reference(); // cc
       return this.request;
     }
 
@@ -542,7 +542,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.response");
         else if (Configuration.doAutoCreate())
-          this.response = new Reference();
+          this.response = new Reference(); // cc
       return this.response;
     }
 
@@ -581,7 +581,7 @@ public class Readjudicate extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Readjudicate.reference");
         else if (Configuration.doAutoCreate())
-          this.reference = new StringType();
+          this.reference = new StringType(); // bb
       return this.reference;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -115,8 +115,8 @@ public class Address extends Type {
         }
     }
 
-  public static class AddressUseEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AddressUseEnumFactory implements EnumFactory<AddressUse> {
+    public AddressUse fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -128,9 +128,9 @@ public class Address extends Type {
           return AddressUse.TEMP;
         if ("old".equals(codeString))
           return AddressUse.OLD;
-        throw new Exception("Unknown AddressUse code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AddressUse code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AddressUse code) {
       if (code == AddressUse.HOME)
         return "home";
       if (code == AddressUse.WORK)
@@ -214,7 +214,7 @@ P.O. Box number, delivery hints, and similar address information.
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<AddressUse>();
+          this.use = new Enumeration<AddressUse>(new AddressUseEnumFactory()); // bb
       return this.use;
     }
 
@@ -249,7 +249,7 @@ P.O. Box number, delivery hints, and similar address information.
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<AddressUse>();
+          this.use = new Enumeration<AddressUse>(new AddressUseEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -263,7 +263,7 @@ P.O. Box number, delivery hints, and similar address information.
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.text");
         else if (Configuration.doAutoCreate())
-          this.text = new StringType();
+          this.text = new StringType(); // bb
       return this.text;
     }
 
@@ -370,7 +370,7 @@ P.O. Box number, delivery hints, and similar address information.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.city");
         else if (Configuration.doAutoCreate())
-          this.city = new StringType();
+          this.city = new StringType(); // bb
       return this.city;
     }
 
@@ -419,7 +419,7 @@ P.O. Box number, delivery hints, and similar address information.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.state");
         else if (Configuration.doAutoCreate())
-          this.state = new StringType();
+          this.state = new StringType(); // bb
       return this.state;
     }
 
@@ -468,7 +468,7 @@ P.O. Box number, delivery hints, and similar address information.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.postalCode");
         else if (Configuration.doAutoCreate())
-          this.postalCode = new StringType();
+          this.postalCode = new StringType(); // bb
       return this.postalCode;
     }
 
@@ -517,7 +517,7 @@ P.O. Box number, delivery hints, and similar address information.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.country");
         else if (Configuration.doAutoCreate())
-          this.country = new StringType();
+          this.country = new StringType(); // bb
       return this.country;
     }
 
@@ -566,7 +566,7 @@ P.O. Box number, delivery hints, and similar address information.)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Address.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 

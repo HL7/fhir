@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -70,7 +70,7 @@ public class Period extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Period.start");
         else if (Configuration.doAutoCreate())
-          this.start = new DateTimeType();
+          this.start = new DateTimeType(); // bb
       return this.start;
     }
 
@@ -93,14 +93,14 @@ public class Period extends Type {
     /**
      * @return The start of the period. The boundary is inclusive.
      */
-    public DateAndTime getStart() { 
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value The start of the period. The boundary is inclusive.
      */
-    public Period setStart(DateAndTime value) { 
+    public Period setStart(Date value) { 
       if (value == null)
         this.start = null;
       else {
@@ -119,7 +119,7 @@ public class Period extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Period.end");
         else if (Configuration.doAutoCreate())
-          this.end = new DateTimeType();
+          this.end = new DateTimeType(); // bb
       return this.end;
     }
 
@@ -142,14 +142,14 @@ public class Period extends Type {
     /**
      * @return The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
-    public DateAndTime getEnd() { 
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
-    public Period setEnd(DateAndTime value) { 
+    public Period setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {

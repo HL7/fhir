@@ -34,6 +34,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,6 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Constants;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -259,7 +259,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 
 	@Override
-	public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
+	public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass, String id) {
 		Bundle history = null;
 		try {
 			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
@@ -281,7 +281,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 	
 	@Override
-	public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass) {
+	public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass) {
 		Bundle history = null;
 		try {
 			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
@@ -314,7 +314,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 
 	@Override
-	public <T extends Resource> Bundle history(DateAndTime lastUpdate) {
+	public <T extends Resource> Bundle history(Date lastUpdate) {
 		Bundle history = null;
 		try {
 			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);

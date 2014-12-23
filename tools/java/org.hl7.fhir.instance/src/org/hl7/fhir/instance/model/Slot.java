@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Slot extends DomainResource {
         }
     }
 
-  public static class SlotstatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SlotstatusEnumFactory implements EnumFactory<Slotstatus> {
+    public Slotstatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Slot extends DomainResource {
           return Slotstatus.BUSYUNAVAILABLE;
         if ("BUSY-TENTATIVE".equals(codeString))
           return Slotstatus.BUSYTENTATIVE;
-        throw new Exception("Unknown Slotstatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Slotstatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Slotstatus code) {
       if (code == Slotstatus.BUSY)
         return "BUSY";
       if (code == Slotstatus.FREE)
@@ -265,7 +265,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -289,7 +289,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.schedule");
         else if (Configuration.doAutoCreate())
-          this.schedule = new Reference();
+          this.schedule = new Reference(); // cc
       return this.schedule;
     }
 
@@ -313,7 +313,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.schedule");
         else if (Configuration.doAutoCreate())
-          this.scheduleTarget = new Schedule();
+          this.scheduleTarget = new Schedule(); // aa
       return this.scheduleTarget;
     }
 
@@ -333,7 +333,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.freeBusyType");
         else if (Configuration.doAutoCreate())
-          this.freeBusyType = new Enumeration<Slotstatus>();
+          this.freeBusyType = new Enumeration<Slotstatus>(new SlotstatusEnumFactory()); // bb
       return this.freeBusyType;
     }
 
@@ -365,7 +365,7 @@ public class Slot extends DomainResource {
      */
     public Slot setFreeBusyType(Slotstatus value) { 
         if (this.freeBusyType == null)
-          this.freeBusyType = new Enumeration<Slotstatus>();
+          this.freeBusyType = new Enumeration<Slotstatus>(new SlotstatusEnumFactory());
         this.freeBusyType.setValue(value);
       return this;
     }
@@ -378,7 +378,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.start");
         else if (Configuration.doAutoCreate())
-          this.start = new InstantType();
+          this.start = new InstantType(); // bb
       return this.start;
     }
 
@@ -401,14 +401,14 @@ public class Slot extends DomainResource {
     /**
      * @return Date/Time that the slot is to begin.
      */
-    public DateAndTime getStart() { 
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the slot is to begin.
      */
-    public Slot setStart(DateAndTime value) { 
+    public Slot setStart(Date value) { 
         if (this.start == null)
           this.start = new InstantType();
         this.start.setValue(value);
@@ -423,7 +423,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.end");
         else if (Configuration.doAutoCreate())
-          this.end = new InstantType();
+          this.end = new InstantType(); // bb
       return this.end;
     }
 
@@ -446,14 +446,14 @@ public class Slot extends DomainResource {
     /**
      * @return Date/Time that the slot is to conclude.
      */
-    public DateAndTime getEnd() { 
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the slot is to conclude.
      */
-    public Slot setEnd(DateAndTime value) { 
+    public Slot setEnd(Date value) { 
         if (this.end == null)
           this.end = new InstantType();
         this.end.setValue(value);
@@ -468,7 +468,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.overbooked");
         else if (Configuration.doAutoCreate())
-          this.overbooked = new BooleanType();
+          this.overbooked = new BooleanType(); // bb
       return this.overbooked;
     }
 
@@ -517,7 +517,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType();
+          this.comment = new StringType(); // bb
       return this.comment;
     }
 
@@ -566,7 +566,7 @@ public class Slot extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Slot.lastModified");
         else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType();
+          this.lastModified = new DateTimeType(); // bb
       return this.lastModified;
     }
 
@@ -589,14 +589,14 @@ public class Slot extends DomainResource {
     /**
      * @return When this slot was created, or last revised.
      */
-    public DateAndTime getLastModified() { 
+    public Date getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value When this slot was created, or last revised.
      */
-    public Slot setLastModified(DateAndTime value) { 
+    public Slot setLastModified(Date value) { 
       if (value == null)
         this.lastModified = null;
       else {

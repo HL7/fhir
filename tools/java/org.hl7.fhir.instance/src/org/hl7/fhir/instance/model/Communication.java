@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class Communication extends DomainResource {
         }
     }
 
-  public static class CommunicationStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CommunicationStatusEnumFactory implements EnumFactory<CommunicationStatus> {
+    public CommunicationStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class Communication extends DomainResource {
           return CommunicationStatus.REJECTED;
         if ("failed".equals(codeString))
           return CommunicationStatus.FAILED;
-        throw new Exception("Unknown CommunicationStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CommunicationStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CommunicationStatus code) {
       if (code == CommunicationStatus.INPROGRESS)
         return "in progress";
       if (code == CommunicationStatus.COMPLETED)
@@ -391,7 +391,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -415,7 +415,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.sender");
         else if (Configuration.doAutoCreate())
-          this.sender = new Reference();
+          this.sender = new Reference(); // cc
       return this.sender;
     }
 
@@ -553,7 +553,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CommunicationStatus>();
+          this.status = new Enumeration<CommunicationStatus>(new CommunicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -588,7 +588,7 @@ public class Communication extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<CommunicationStatus>();
+          this.status = new Enumeration<CommunicationStatus>(new CommunicationStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -602,7 +602,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -626,7 +626,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -646,7 +646,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.sent");
         else if (Configuration.doAutoCreate())
-          this.sent = new DateTimeType();
+          this.sent = new DateTimeType(); // bb
       return this.sent;
     }
 
@@ -669,14 +669,14 @@ public class Communication extends DomainResource {
     /**
      * @return The time when this communication was sent.
      */
-    public DateAndTime getSent() { 
+    public Date getSent() { 
       return this.sent == null ? null : this.sent.getValue();
     }
 
     /**
      * @param value The time when this communication was sent.
      */
-    public Communication setSent(DateAndTime value) { 
+    public Communication setSent(Date value) { 
       if (value == null)
         this.sent = null;
       else {
@@ -695,7 +695,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.received");
         else if (Configuration.doAutoCreate())
-          this.received = new DateTimeType();
+          this.received = new DateTimeType(); // bb
       return this.received;
     }
 
@@ -718,14 +718,14 @@ public class Communication extends DomainResource {
     /**
      * @return The time when this communication arrived at the destination.
      */
-    public DateAndTime getReceived() { 
+    public Date getReceived() { 
       return this.received == null ? null : this.received.getValue();
     }
 
     /**
      * @param value The time when this communication arrived at the destination.
      */
-    public Communication setReceived(DateAndTime value) { 
+    public Communication setReceived(Date value) { 
       if (value == null)
         this.received = null;
       else {
@@ -774,7 +774,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -798,7 +798,7 @@ public class Communication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Communication.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 

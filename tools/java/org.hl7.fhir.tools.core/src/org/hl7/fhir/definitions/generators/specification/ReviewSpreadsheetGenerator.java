@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.List;
 
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.utilities.Utilities;

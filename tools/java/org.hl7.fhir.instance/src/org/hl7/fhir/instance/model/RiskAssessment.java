@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -102,7 +102,7 @@ public class RiskAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.outcome");
             else if (Configuration.doAutoCreate())
-              this.outcome = new CodeableConcept();
+              this.outcome = new CodeableConcept(); // cc
           return this.outcome;
         }
 
@@ -172,7 +172,7 @@ public class RiskAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.relativeRisk");
             else if (Configuration.doAutoCreate())
-              this.relativeRisk = new DecimalType();
+              this.relativeRisk = new DecimalType(); // bb
           return this.relativeRisk;
         }
 
@@ -258,7 +258,7 @@ public class RiskAssessment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.rationale");
             else if (Configuration.doAutoCreate())
-              this.rationale = new StringType();
+              this.rationale = new StringType(); // bb
           return this.rationale;
         }
 
@@ -424,7 +424,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -463,7 +463,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -486,14 +486,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * @return The date (and possibly time) the risk assessment was performed.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date (and possibly time) the risk assessment was performed.
      */
-    public RiskAssessment setDate(DateAndTime value) { 
+    public RiskAssessment setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -512,7 +512,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.condition");
         else if (Configuration.doAutoCreate())
-          this.condition = new Reference();
+          this.condition = new Reference(); // cc
       return this.condition;
     }
 
@@ -536,7 +536,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.condition");
         else if (Configuration.doAutoCreate())
-          this.conditionTarget = new Condition();
+          this.conditionTarget = new Condition(); // aa
       return this.conditionTarget;
     }
 
@@ -556,7 +556,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.performer");
         else if (Configuration.doAutoCreate())
-          this.performer = new Reference();
+          this.performer = new Reference(); // cc
       return this.performer;
     }
 
@@ -595,7 +595,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -619,7 +619,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.method");
         else if (Configuration.doAutoCreate())
-          this.method = new CodeableConcept();
+          this.method = new CodeableConcept(); // cc
       return this.method;
     }
 
@@ -712,7 +712,7 @@ public class RiskAssessment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.mitigation");
         else if (Configuration.doAutoCreate())
-          this.mitigation = new StringType();
+          this.mitigation = new StringType(); // bb
       return this.mitigation;
     }
 

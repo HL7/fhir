@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -81,7 +81,7 @@ public class XmlParser extends XmlParserBase {
 
   @SuppressWarnings("unchecked")
   protected <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {
-    Enumeration<E> res = new Enumeration<E>();
+    Enumeration<E> res = new Enumeration<E>(e);
     parseElementAttributes(xpp, res);
     res.setValue((E) e.fromCode(xpp.getAttributeValue(null, "value")));
     next(xpp);
@@ -96,9 +96,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected IntegerType parseInteger(XmlPullParser xpp) throws Exception {
-    IntegerType res = new IntegerType();
+    IntegerType res = new IntegerType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseIntegerPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -111,9 +110,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected DateTimeType parseDateTime(XmlPullParser xpp) throws Exception {
-    DateTimeType res = new DateTimeType();
+    DateTimeType res = new DateTimeType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseDateTimePrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -126,9 +124,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected CodeType parseCode(XmlPullParser xpp) throws Exception {
-    CodeType res = new CodeType();
+    CodeType res = new CodeType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseCodePrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -141,9 +138,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected DateType parseDate(XmlPullParser xpp) throws Exception {
-    DateType res = new DateType();
+    DateType res = new DateType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseDatePrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -156,9 +152,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected DecimalType parseDecimal(XmlPullParser xpp) throws Exception {
-    DecimalType res = new DecimalType();
+    DecimalType res = new DecimalType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseDecimalPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -171,9 +166,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected UriType parseUri(XmlPullParser xpp) throws Exception {
-    UriType res = new UriType();
+    UriType res = new UriType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseUriPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -186,9 +180,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected IdType parseId(XmlPullParser xpp) throws Exception {
-    IdType res = new IdType();
+    IdType res = new IdType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseIdPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -201,9 +194,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected Base64BinaryType parseBase64Binary(XmlPullParser xpp) throws Exception {
-    Base64BinaryType res = new Base64BinaryType();
+    Base64BinaryType res = new Base64BinaryType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseBase64BinaryPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -216,9 +208,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected TimeType parseTime(XmlPullParser xpp) throws Exception {
-    TimeType res = new TimeType();
+    TimeType res = new TimeType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseTimePrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -231,9 +222,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected OidType parseOid(XmlPullParser xpp) throws Exception {
-    OidType res = new OidType();
+    OidType res = new OidType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseOidPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -246,9 +236,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected StringType parseString(XmlPullParser xpp) throws Exception {
-    StringType res = new StringType();
+    StringType res = new StringType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseStringPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -261,9 +250,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected BooleanType parseBoolean(XmlPullParser xpp) throws Exception {
-    BooleanType res = new BooleanType();
+    BooleanType res = new BooleanType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseBooleanPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -276,9 +264,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected UuidType parseUuid(XmlPullParser xpp) throws Exception {
-    UuidType res = new UuidType();
+    UuidType res = new UuidType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseUuidPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -291,9 +278,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected InstantType parseInstant(XmlPullParser xpp) throws Exception {
-    InstantType res = new InstantType();
+    InstantType res = new InstantType(xpp.getAttributeValue(null, "value"));
     parseElementAttributes(xpp, res);
-    res.setValue(parseInstantPrimitive(xpp.getAttributeValue(null, "value")));
     next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
@@ -10556,7 +10542,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeInteger(String name, IntegerType value) throws Exception {
     if (value != null) {
       composeElementAttributes(value);
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10567,8 +10554,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeDateTime(String name, DateTimeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10579,8 +10566,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeCode(String name, CodeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10591,8 +10578,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeDate(String name, DateType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10603,8 +10590,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeDecimal(String name, DecimalType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10615,8 +10602,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeUri(String name, UriType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10627,8 +10614,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeId(String name, IdType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10639,8 +10626,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeBase64Binary(String name, Base64BinaryType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10651,8 +10638,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeTime(String name, TimeType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10663,8 +10650,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeOid(String name, OidType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10675,8 +10662,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeString(String name, StringType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10687,7 +10674,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeBoolean(String name, BooleanType value) throws Exception {
     if (value != null) {
       composeElementAttributes(value);
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10698,8 +10686,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeUuid(String name, UuidType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);
@@ -10710,8 +10698,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeInstant(String name, InstantType value) throws Exception {
     if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || value.getValue() != null)) {
       composeElementAttributes(value);
-      if (value.getValue() != null) 
-        xml.attribute("value", toString(value.getValue()));
+      if (value.asStringValue() != null) 
+        xml.attribute("value", value.asStringValue());
         
       xml.open(FHIR_NS, name);
       composeElementElements(value);

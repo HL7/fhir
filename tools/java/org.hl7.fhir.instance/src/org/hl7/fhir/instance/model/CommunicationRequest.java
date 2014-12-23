@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -177,8 +177,8 @@ public class CommunicationRequest extends DomainResource {
         }
     }
 
-  public static class CommunicationRequestStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CommunicationRequestStatusEnumFactory implements EnumFactory<CommunicationRequestStatus> {
+    public CommunicationRequestStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -202,9 +202,9 @@ public class CommunicationRequest extends DomainResource {
           return CommunicationRequestStatus.REJECTED;
         if ("failed".equals(codeString))
           return CommunicationRequestStatus.FAILED;
-        throw new Exception("Unknown CommunicationRequestStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CommunicationRequestStatus code) {
       if (code == CommunicationRequestStatus.PROPOSED)
         return "proposed";
       if (code == CommunicationRequestStatus.PLANNED)
@@ -480,7 +480,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -504,7 +504,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.sender");
         else if (Configuration.doAutoCreate())
-          this.sender = new Reference();
+          this.sender = new Reference(); // cc
       return this.sender;
     }
 
@@ -642,7 +642,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new Reference();
+          this.requester = new Reference(); // cc
       return this.requester;
     }
 
@@ -681,7 +681,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CommunicationRequestStatus>();
+          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -716,7 +716,7 @@ public class CommunicationRequest extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<CommunicationRequestStatus>();
+          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -730,7 +730,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -754,7 +754,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -774,7 +774,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.scheduledTime");
         else if (Configuration.doAutoCreate())
-          this.scheduledTime = new DateTimeType();
+          this.scheduledTime = new DateTimeType(); // bb
       return this.scheduledTime;
     }
 
@@ -797,14 +797,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return The time when this communication is to occur.
      */
-    public DateAndTime getScheduledTime() { 
+    public Date getScheduledTime() { 
       return this.scheduledTime == null ? null : this.scheduledTime.getValue();
     }
 
     /**
      * @param value The time when this communication is to occur.
      */
-    public CommunicationRequest setScheduledTime(DateAndTime value) { 
+    public CommunicationRequest setScheduledTime(Date value) { 
       if (value == null)
         this.scheduledTime = null;
       else {
@@ -853,7 +853,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.orderedOn");
         else if (Configuration.doAutoCreate())
-          this.orderedOn = new DateTimeType();
+          this.orderedOn = new DateTimeType(); // bb
       return this.orderedOn;
     }
 
@@ -876,14 +876,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public DateAndTime getOrderedOn() { 
+    public Date getOrderedOn() { 
       return this.orderedOn == null ? null : this.orderedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public CommunicationRequest setOrderedOn(DateAndTime value) { 
+    public CommunicationRequest setOrderedOn(Date value) { 
       if (value == null)
         this.orderedOn = null;
       else {
@@ -902,7 +902,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -926,7 +926,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -946,7 +946,7 @@ public class CommunicationRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new CodeableConcept();
+          this.priority = new CodeableConcept(); // cc
       return this.priority;
     }
 

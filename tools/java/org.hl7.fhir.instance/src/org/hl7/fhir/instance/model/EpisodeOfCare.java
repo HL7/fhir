@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class EpisodeOfCare extends DomainResource {
         }
     }
 
-  public static class EpisodeOfCareStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EpisodeOfCareStatusEnumFactory implements EnumFactory<EpisodeOfCareStatus> {
+    public EpisodeOfCareStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class EpisodeOfCare extends DomainResource {
           return EpisodeOfCareStatus.WITHDRAWN;
         if ("other".equals(codeString))
           return EpisodeOfCareStatus.OTHER;
-        throw new Exception("Unknown EpisodeOfCareStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EpisodeOfCareStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EpisodeOfCareStatus code) {
       if (code == EpisodeOfCareStatus.PLANNED)
         return "planned";
       if (code == EpisodeOfCareStatus.ACTIVE)
@@ -209,7 +209,7 @@ public class EpisodeOfCare extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareStatusHistoryComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<EpisodeOfCareStatus>();
+              this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -241,7 +241,7 @@ public class EpisodeOfCare extends DomainResource {
          */
         public EpisodeOfCareStatusHistoryComponent setStatus(EpisodeOfCareStatus value) { 
             if (this.status == null)
-              this.status = new Enumeration<EpisodeOfCareStatus>();
+              this.status = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
             this.status.setValue(value);
           return this;
         }
@@ -254,7 +254,7 @@ public class EpisodeOfCare extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareStatusHistoryComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -333,7 +333,7 @@ public class EpisodeOfCare extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareCareTeamComponent.member");
             else if (Configuration.doAutoCreate())
-              this.member = new Reference();
+              this.member = new Reference(); // cc
           return this.member;
         }
 
@@ -357,7 +357,7 @@ public class EpisodeOfCare extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareCareTeamComponent.member");
             else if (Configuration.doAutoCreate())
-              this.memberTarget = new Practitioner();
+              this.memberTarget = new Practitioner(); // aa
           return this.memberTarget;
         }
 
@@ -407,7 +407,7 @@ public class EpisodeOfCare extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EpisodeOfCareCareTeamComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -602,7 +602,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.currentStatus");
         else if (Configuration.doAutoCreate())
-          this.currentStatus = new Enumeration<EpisodeOfCareStatus>();
+          this.currentStatus = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory()); // bb
       return this.currentStatus;
     }
 
@@ -634,7 +634,7 @@ public class EpisodeOfCare extends DomainResource {
      */
     public EpisodeOfCare setCurrentStatus(EpisodeOfCareStatus value) { 
         if (this.currentStatus == null)
-          this.currentStatus = new Enumeration<EpisodeOfCareStatus>();
+          this.currentStatus = new Enumeration<EpisodeOfCareStatus>(new EpisodeOfCareStatusEnumFactory());
         this.currentStatus.setValue(value);
       return this;
     }
@@ -707,7 +707,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -731,7 +731,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -751,7 +751,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganization = new Reference();
+          this.managingOrganization = new Reference(); // cc
       return this.managingOrganization;
     }
 
@@ -775,7 +775,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganizationTarget = new Organization();
+          this.managingOrganizationTarget = new Organization(); // aa
       return this.managingOrganizationTarget;
     }
 
@@ -795,7 +795,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -870,7 +870,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.referralRequest");
         else if (Configuration.doAutoCreate())
-          this.referralRequest = new Reference();
+          this.referralRequest = new Reference(); // cc
       return this.referralRequest;
     }
 
@@ -894,7 +894,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.referralRequest");
         else if (Configuration.doAutoCreate())
-          this.referralRequestTarget = new ReferralRequest();
+          this.referralRequestTarget = new ReferralRequest(); // aa
       return this.referralRequestTarget;
     }
 
@@ -914,7 +914,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.careManager");
         else if (Configuration.doAutoCreate())
-          this.careManager = new Reference();
+          this.careManager = new Reference(); // cc
       return this.careManager;
     }
 
@@ -938,7 +938,7 @@ public class EpisodeOfCare extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EpisodeOfCare.careManager");
         else if (Configuration.doAutoCreate())
-          this.careManagerTarget = new Practitioner();
+          this.careManagerTarget = new Practitioner(); // aa
       return this.careManagerTarget;
     }
 

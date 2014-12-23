@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class CarePlan2 extends DomainResource {
         }
     }
 
-  public static class CarePlan2StatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CarePlan2StatusEnumFactory implements EnumFactory<CarePlan2Status> {
+    public CarePlan2Status fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class CarePlan2 extends DomainResource {
           return CarePlan2Status.ACTIVE;
         if ("completed".equals(codeString))
           return CarePlan2Status.COMPLETED;
-        throw new Exception("Unknown CarePlan2Status code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CarePlan2Status code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CarePlan2Status code) {
       if (code == CarePlan2Status.PLANNED)
         return "planned";
       if (code == CarePlan2Status.ACTIVE)
@@ -171,7 +171,7 @@ public class CarePlan2 extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlan2ParticipantComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept();
+              this.role = new CodeableConcept(); // cc
           return this.role;
         }
 
@@ -195,7 +195,7 @@ public class CarePlan2 extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlan2ParticipantComponent.member");
             else if (Configuration.doAutoCreate())
-              this.member = new Reference();
+              this.member = new Reference(); // cc
           return this.member;
         }
 
@@ -386,7 +386,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -410,7 +410,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -430,7 +430,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CarePlan2Status>();
+          this.status = new Enumeration<CarePlan2Status>(new CarePlan2StatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -462,7 +462,7 @@ public class CarePlan2 extends DomainResource {
      */
     public CarePlan2 setStatus(CarePlan2Status value) { 
         if (this.status == null)
-          this.status = new Enumeration<CarePlan2Status>();
+          this.status = new Enumeration<CarePlan2Status>(new CarePlan2StatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -475,7 +475,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -499,7 +499,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.modified");
         else if (Configuration.doAutoCreate())
-          this.modified = new DateTimeType();
+          this.modified = new DateTimeType(); // bb
       return this.modified;
     }
 
@@ -522,14 +522,14 @@ public class CarePlan2 extends DomainResource {
     /**
      * @return Identifies the most recent date on which the plan has been revised.
      */
-    public DateAndTime getModified() { 
+    public Date getModified() { 
       return this.modified == null ? null : this.modified.getValue();
     }
 
     /**
      * @param value Identifies the most recent date on which the plan has been revised.
      */
-    public CarePlan2 setModified(DateAndTime value) { 
+    public CarePlan2 setModified(Date value) { 
       if (value == null)
         this.modified = null;
       else {
@@ -629,7 +629,7 @@ public class CarePlan2 extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan2.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 

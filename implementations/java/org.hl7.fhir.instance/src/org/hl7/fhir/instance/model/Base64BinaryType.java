@@ -25,70 +25,46 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.instance.model;
 
-import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
  */
-public class Base64BinaryType extends PrimitiveType {
+public class Base64BinaryType extends PrimitiveType<byte[]> {
 
-  private static final long serialVersionUID = 6170198697716842056L;
-	/**
-	 * The byte content in the base64Binary
-	 */
-	private byte[] value;
-
-	public Base64BinaryType(byte[] value) {
-    this.value = value;  
-  }
-
-  public Base64BinaryType() {
-  }
+	private static final long serialVersionUID = 3L;
 
 	/**
-	 * @return The byte content in the base64Binary
+	 * Constructor
 	 */
-	public byte[] getValue() {
-		return value;
+	public Base64BinaryType() {
+		super();
 	}
 
-	/**
-	 * @param value The byte content in the base64Binary
-	 */
-	public void setValue(byte[] value) {
-		this.value = value;
+	public Base64BinaryType(byte[] theBytes) {
+		super();
+		setValue(theBytes);
 	}
-	
+
+	public Base64BinaryType(String theValue) {
+		super();
+		setValueAsString(theValue);
+	}
+
+	protected byte[] parse(String theValue) {
+		return Base64.decodeBase64(theValue);
+	}
+
+	protected String encode(byte[] theValue) {
+		return Base64.encodeBase64String(theValue);
+	}
+
 	@Override
-  public Base64BinaryType copy() {
-		Base64BinaryType dst = new Base64BinaryType();
-		dst.value = value;
-		return dst;
-	}
-	
-	@Override
-  protected Type typedCopy() {
-		return copy();
+	public Base64BinaryType copy() {
+		return new Base64BinaryType(getValue());
 	}
 
-	public String getStringValue() {
-	  return FormatUtilities.toString(value);
-  }
-
-  @Override
-  public String asStringValue() {
-    return new String(value);
-  }
-  
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
-	}
-
-	public boolean hasValue() {
-		return value != null;
-	}
-	
 }

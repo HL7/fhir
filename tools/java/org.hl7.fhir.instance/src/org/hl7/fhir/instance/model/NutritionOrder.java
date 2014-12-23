@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class NutritionOrder extends DomainResource {
         }
     }
 
-  public static class NutritionOrderStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NutritionOrderStatusEnumFactory implements EnumFactory<NutritionOrderStatus> {
+    public NutritionOrderStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class NutritionOrder extends DomainResource {
           return NutritionOrderStatus.HELD;
         if ("cancelled".equals(codeString))
           return NutritionOrderStatus.CANCELLED;
-        throw new Exception("Unknown NutritionOrderStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NutritionOrderStatus code) {
       if (code == NutritionOrderStatus.REQUESTED)
         return "requested";
       if (code == NutritionOrderStatus.ACTIVE)
@@ -252,7 +252,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemComponent.isInEffect");
             else if (Configuration.doAutoCreate())
-              this.isInEffect = new BooleanType();
+              this.isInEffect = new BooleanType(); // bb
           return this.isInEffect;
         }
 
@@ -297,7 +297,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemComponent.oralDiet");
             else if (Configuration.doAutoCreate())
-              this.oralDiet = new NutritionOrderItemOralDietComponent();
+              this.oralDiet = new NutritionOrderItemOralDietComponent(); // cc
           return this.oralDiet;
         }
 
@@ -321,7 +321,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemComponent.supplement");
             else if (Configuration.doAutoCreate())
-              this.supplement = new NutritionOrderItemSupplementComponent();
+              this.supplement = new NutritionOrderItemSupplementComponent(); // cc
           return this.supplement;
         }
 
@@ -345,7 +345,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemComponent.enteralFormula");
             else if (Configuration.doAutoCreate())
-              this.enteralFormula = new NutritionOrderItemEnteralFormulaComponent();
+              this.enteralFormula = new NutritionOrderItemEnteralFormulaComponent(); // cc
           return this.enteralFormula;
         }
 
@@ -560,7 +560,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemOralDietComponent.instruction");
             else if (Configuration.doAutoCreate())
-              this.instruction = new StringType();
+              this.instruction = new StringType(); // bb
           return this.instruction;
         }
 
@@ -675,7 +675,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemOralDietNutrientsComponent.modifier");
             else if (Configuration.doAutoCreate())
-              this.modifier = new CodeableConcept();
+              this.modifier = new CodeableConcept(); // cc
           return this.modifier;
         }
 
@@ -779,7 +779,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemOralDietTextureComponent.modifier");
             else if (Configuration.doAutoCreate())
-              this.modifier = new CodeableConcept();
+              this.modifier = new CodeableConcept(); // cc
           return this.modifier;
         }
 
@@ -803,7 +803,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemOralDietTextureComponent.foodType");
             else if (Configuration.doAutoCreate())
-              this.foodType = new CodeableConcept();
+              this.foodType = new CodeableConcept(); // cc
           return this.foodType;
         }
 
@@ -877,7 +877,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemSupplementComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -901,7 +901,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemSupplementComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -925,7 +925,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemSupplementComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -1082,7 +1082,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.administrationInstructions");
             else if (Configuration.doAutoCreate())
-              this.administrationInstructions = new StringType();
+              this.administrationInstructions = new StringType(); // bb
           return this.administrationInstructions;
         }
 
@@ -1131,7 +1131,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.baseFormulaType");
             else if (Configuration.doAutoCreate())
-              this.baseFormulaType = new CodeableConcept();
+              this.baseFormulaType = new CodeableConcept(); // cc
           return this.baseFormulaType;
         }
 
@@ -1155,7 +1155,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.baseFormulaName");
             else if (Configuration.doAutoCreate())
-              this.baseFormulaName = new StringType();
+              this.baseFormulaName = new StringType(); // bb
           return this.baseFormulaName;
         }
 
@@ -1204,7 +1204,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.additiveType");
             else if (Configuration.doAutoCreate())
-              this.additiveType = new CodeableConcept();
+              this.additiveType = new CodeableConcept(); // cc
           return this.additiveType;
         }
 
@@ -1228,7 +1228,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.additiveName");
             else if (Configuration.doAutoCreate())
-              this.additiveName = new StringType();
+              this.additiveName = new StringType(); // bb
           return this.additiveName;
         }
 
@@ -1277,7 +1277,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.caloricDensity");
             else if (Configuration.doAutoCreate())
-              this.caloricDensity = new Quantity();
+              this.caloricDensity = new Quantity(); // cc
           return this.caloricDensity;
         }
 
@@ -1301,7 +1301,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.routeofAdministration");
             else if (Configuration.doAutoCreate())
-              this.routeofAdministration = new CodeableConcept();
+              this.routeofAdministration = new CodeableConcept(); // cc
           return this.routeofAdministration;
         }
 
@@ -1325,7 +1325,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1349,7 +1349,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.rate");
             else if (Configuration.doAutoCreate())
-              this.rate = new Ratio();
+              this.rate = new Ratio(); // cc
           return this.rate;
         }
 
@@ -1373,7 +1373,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.rateAdjustment");
             else if (Configuration.doAutoCreate())
-              this.rateAdjustment = new Quantity();
+              this.rateAdjustment = new Quantity(); // cc
           return this.rateAdjustment;
         }
 
@@ -1397,7 +1397,7 @@ public class NutritionOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderItemEnteralFormulaComponent.maxVolumeToDeliver");
             else if (Configuration.doAutoCreate())
-              this.maxVolumeToDeliver = new Quantity();
+              this.maxVolumeToDeliver = new Quantity(); // cc
           return this.maxVolumeToDeliver;
         }
 
@@ -1566,7 +1566,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1590,7 +1590,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -1610,7 +1610,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.orderer");
         else if (Configuration.doAutoCreate())
-          this.orderer = new Reference();
+          this.orderer = new Reference(); // cc
       return this.orderer;
     }
 
@@ -1634,7 +1634,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.orderer");
         else if (Configuration.doAutoCreate())
-          this.ordererTarget = new Practitioner();
+          this.ordererTarget = new Practitioner(); // aa
       return this.ordererTarget;
     }
 
@@ -1684,7 +1684,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1708,7 +1708,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -1728,7 +1728,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.dateTime");
         else if (Configuration.doAutoCreate())
-          this.dateTime = new DateTimeType();
+          this.dateTime = new DateTimeType(); // bb
       return this.dateTime;
     }
 
@@ -1751,14 +1751,14 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return The date and time that this nutrition order was requested.
      */
-    public DateAndTime getDateTime() { 
+    public Date getDateTime() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value The date and time that this nutrition order was requested.
      */
-    public NutritionOrder setDateTime(DateAndTime value) { 
+    public NutritionOrder setDateTime(Date value) { 
         if (this.dateTime == null)
           this.dateTime = new DateTimeType();
         this.dateTime.setValue(value);
@@ -1914,7 +1914,7 @@ public class NutritionOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<NutritionOrderStatus>();
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1949,7 +1949,7 @@ public class NutritionOrder extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<NutritionOrderStatus>();
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;

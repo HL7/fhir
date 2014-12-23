@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -157,8 +157,8 @@ public class Observation extends DomainResource {
         }
     }
 
-  public static class DataAbsentReasonEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DataAbsentReasonEnumFactory implements EnumFactory<DataAbsentReason> {
+    public DataAbsentReason fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -178,9 +178,9 @@ public class Observation extends DomainResource {
           return DataAbsentReason.ASTEXT;
         if ("error".equals(codeString))
           return DataAbsentReason.ERROR;
-        throw new Exception("Unknown DataAbsentReason code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DataAbsentReason code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DataAbsentReason code) {
       if (code == DataAbsentReason.UNKNOWN)
         return "unknown";
       if (code == DataAbsentReason.ASKED)
@@ -293,8 +293,8 @@ public class Observation extends DomainResource {
         }
     }
 
-  public static class ObservationStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObservationStatusEnumFactory implements EnumFactory<ObservationStatus> {
+    public ObservationStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -310,9 +310,9 @@ public class Observation extends DomainResource {
           return ObservationStatus.CANCELLED;
         if ("entered in error".equals(codeString))
           return ObservationStatus.ENTEREDINERROR;
-        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObservationStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObservationStatus code) {
       if (code == ObservationStatus.REGISTERED)
         return "registered";
       if (code == ObservationStatus.PRELIMINARY)
@@ -431,8 +431,8 @@ public class Observation extends DomainResource {
         }
     }
 
-  public static class ObservationReliabilityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObservationReliabilityEnumFactory implements EnumFactory<ObservationReliability> {
+    public ObservationReliability fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -450,9 +450,9 @@ public class Observation extends DomainResource {
           return ObservationReliability.ERROR;
         if ("unknown".equals(codeString))
           return ObservationReliability.UNKNOWN;
-        throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObservationReliability code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObservationReliability code) {
       if (code == ObservationReliability.OK)
         return "ok";
       if (code == ObservationReliability.ONGOING)
@@ -573,8 +573,8 @@ public class Observation extends DomainResource {
         }
     }
 
-  public static class ObservationRelationshiptypesEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObservationRelationshiptypesEnumFactory implements EnumFactory<ObservationRelationshiptypes> {
+    public ObservationRelationshiptypes fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -592,9 +592,9 @@ public class Observation extends DomainResource {
           return ObservationRelationshiptypes.QUALIFIEDBY;
         if ("interfered-by".equals(codeString))
           return ObservationRelationshiptypes.INTERFEREDBY;
-        throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObservationRelationshiptypes code) {
       if (code == ObservationRelationshiptypes.HASCOMPONENT)
         return "has-component";
       if (code == ObservationRelationshiptypes.HASMEMBER)
@@ -664,7 +664,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.low");
             else if (Configuration.doAutoCreate())
-              this.low = new Quantity();
+              this.low = new Quantity(); // cc
           return this.low;
         }
 
@@ -688,7 +688,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.high");
             else if (Configuration.doAutoCreate())
-              this.high = new Quantity();
+              this.high = new Quantity(); // cc
           return this.high;
         }
 
@@ -712,7 +712,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.meaning");
             else if (Configuration.doAutoCreate())
-              this.meaning = new CodeableConcept();
+              this.meaning = new CodeableConcept(); // cc
           return this.meaning;
         }
 
@@ -736,7 +736,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.age");
             else if (Configuration.doAutoCreate())
-              this.age = new Range();
+              this.age = new Range(); // cc
           return this.age;
         }
 
@@ -760,7 +760,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -869,7 +869,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationRelatedComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ObservationRelationshiptypes>();
+              this.type = new Enumeration<ObservationRelationshiptypes>(new ObservationRelationshiptypesEnumFactory()); // bb
           return this.type;
         }
 
@@ -904,7 +904,7 @@ public class Observation extends DomainResource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<ObservationRelationshiptypes>();
+              this.type = new Enumeration<ObservationRelationshiptypes>(new ObservationRelationshiptypesEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -918,7 +918,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationRelatedComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -942,7 +942,7 @@ public class Observation extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationRelatedComponent.target");
             else if (Configuration.doAutoCreate())
-              this.targetTarget = new Observation();
+              this.targetTarget = new Observation(); // aa
           return this.targetTarget;
         }
 
@@ -1143,7 +1143,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.name");
         else if (Configuration.doAutoCreate())
-          this.name = new CodeableConcept();
+          this.name = new CodeableConcept(); // cc
       return this.name;
     }
 
@@ -1267,7 +1267,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.dataAbsentReason");
         else if (Configuration.doAutoCreate())
-          this.dataAbsentReason = new Enumeration<DataAbsentReason>();
+          this.dataAbsentReason = new Enumeration<DataAbsentReason>(new DataAbsentReasonEnumFactory()); // bb
       return this.dataAbsentReason;
     }
 
@@ -1302,7 +1302,7 @@ other observer (for example a relative or EMT), or any observation made about th
         this.dataAbsentReason = null;
       else {
         if (this.dataAbsentReason == null)
-          this.dataAbsentReason = new Enumeration<DataAbsentReason>();
+          this.dataAbsentReason = new Enumeration<DataAbsentReason>(new DataAbsentReasonEnumFactory());
         this.dataAbsentReason.setValue(value);
       }
       return this;
@@ -1316,7 +1316,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.interpretation");
         else if (Configuration.doAutoCreate())
-          this.interpretation = new CodeableConcept();
+          this.interpretation = new CodeableConcept(); // cc
       return this.interpretation;
     }
 
@@ -1340,7 +1340,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.comments");
         else if (Configuration.doAutoCreate())
-          this.comments = new StringType();
+          this.comments = new StringType(); // bb
       return this.comments;
     }
 
@@ -1426,7 +1426,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.issued");
         else if (Configuration.doAutoCreate())
-          this.issued = new InstantType();
+          this.issued = new InstantType(); // bb
       return this.issued;
     }
 
@@ -1449,14 +1449,14 @@ other observer (for example a relative or EMT), or any observation made about th
     /**
      * @return The date and time this observation was made available.
      */
-    public DateAndTime getIssued() { 
+    public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value The date and time this observation was made available.
      */
-    public Observation setIssued(DateAndTime value) { 
+    public Observation setIssued(Date value) { 
       if (value == null)
         this.issued = null;
       else {
@@ -1475,7 +1475,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ObservationStatus>();
+          this.status = new Enumeration<ObservationStatus>(new ObservationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1507,7 +1507,7 @@ other observer (for example a relative or EMT), or any observation made about th
      */
     public Observation setStatus(ObservationStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ObservationStatus>();
+          this.status = new Enumeration<ObservationStatus>(new ObservationStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1520,7 +1520,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.reliability");
         else if (Configuration.doAutoCreate())
-          this.reliability = new Enumeration<ObservationReliability>();
+          this.reliability = new Enumeration<ObservationReliability>(new ObservationReliabilityEnumFactory()); // bb
       return this.reliability;
     }
 
@@ -1555,7 +1555,7 @@ other observer (for example a relative or EMT), or any observation made about th
         this.reliability = null;
       else {
         if (this.reliability == null)
-          this.reliability = new Enumeration<ObservationReliability>();
+          this.reliability = new Enumeration<ObservationReliability>(new ObservationReliabilityEnumFactory());
         this.reliability.setValue(value);
       }
       return this;
@@ -1569,7 +1569,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.bodySite");
         else if (Configuration.doAutoCreate())
-          this.bodySite = new CodeableConcept();
+          this.bodySite = new CodeableConcept(); // cc
       return this.bodySite;
     }
 
@@ -1593,7 +1593,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.method");
         else if (Configuration.doAutoCreate())
-          this.method = new CodeableConcept();
+          this.method = new CodeableConcept(); // cc
       return this.method;
     }
 
@@ -1617,7 +1617,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -1642,7 +1642,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1684,7 +1684,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.specimen");
         else if (Configuration.doAutoCreate())
-          this.specimen = new Reference();
+          this.specimen = new Reference(); // cc
       return this.specimen;
     }
 
@@ -1708,7 +1708,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.specimen");
         else if (Configuration.doAutoCreate())
-          this.specimenTarget = new Specimen();
+          this.specimenTarget = new Specimen(); // aa
       return this.specimenTarget;
     }
 
@@ -1767,7 +1767,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1791,7 +1791,7 @@ other observer (for example a relative or EMT), or any observation made about th
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Observation.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 

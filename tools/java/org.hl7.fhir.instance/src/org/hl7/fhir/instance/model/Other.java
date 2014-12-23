@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -138,7 +138,7 @@ public class Other extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Other.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept();
+          this.code = new CodeableConcept(); // cc
       return this.code;
     }
 
@@ -162,7 +162,7 @@ public class Other extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Other.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -201,7 +201,7 @@ public class Other extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Other.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -240,7 +240,7 @@ public class Other extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Other.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateType();
+          this.created = new DateType(); // bb
       return this.created;
     }
 
@@ -263,14 +263,14 @@ public class Other extends DomainResource {
     /**
      * @return Identifies when the resource was first created.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value Identifies when the resource was first created.
      */
-    public Other setCreated(DateAndTime value) { 
+    public Other setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {

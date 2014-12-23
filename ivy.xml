@@ -16,7 +16,7 @@
     <dependency org="net.sf.saxon" name="Saxon-B" rev="9.0"/>
     <dependency org="org.antlr" name="antlr-runtime" rev="3.4"/>
     <dependency org="org.antlr" name="ST4" rev="4.0.7"/>
-    <dependency org="org.apache.commons" name="commons-lang3" rev="3.1"/>
+    <dependency org="org.apache.commons" name="commons-lang3" rev="3.3.2"/>
     <dependency org="org.apache.httpcomponents" name="fluent-hc" rev="4.2.3"/>
     <dependency org="org.apache.httpcomponents" name="httpclient" rev="4.2.3"/>
     <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.2.2"/>

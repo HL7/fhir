@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class MedicationDispense extends DomainResource {
         }
     }
 
-  public static class MedicationDispenseStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MedicationDispenseStatusEnumFactory implements EnumFactory<MedicationDispenseStatus> {
+    public MedicationDispenseStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class MedicationDispense extends DomainResource {
           return MedicationDispenseStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationDispenseStatus.STOPPED;
-        throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MedicationDispenseStatus code) {
       if (code == MedicationDispenseStatus.INPROGRESS)
         return "in progress";
       if (code == MedicationDispenseStatus.ONHOLD)
@@ -260,7 +260,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -284,7 +284,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<MedicationDispenseStatus>();
+              this.status = new Enumeration<MedicationDispenseStatus>(new MedicationDispenseStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -319,7 +319,7 @@ public class MedicationDispense extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<MedicationDispenseStatus>();
+              this.status = new Enumeration<MedicationDispenseStatus>(new MedicationDispenseStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -333,7 +333,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -357,7 +357,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -381,7 +381,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.medication");
             else if (Configuration.doAutoCreate())
-              this.medication = new Reference();
+              this.medication = new Reference(); // cc
           return this.medication;
         }
 
@@ -405,7 +405,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.medication");
             else if (Configuration.doAutoCreate())
-              this.medicationTarget = new Medication();
+              this.medicationTarget = new Medication(); // aa
           return this.medicationTarget;
         }
 
@@ -425,7 +425,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.whenPrepared");
             else if (Configuration.doAutoCreate())
-              this.whenPrepared = new DateTimeType();
+              this.whenPrepared = new DateTimeType(); // bb
           return this.whenPrepared;
         }
 
@@ -448,14 +448,14 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return The time when the dispensed product was packaged and reviewed.
          */
-        public DateAndTime getWhenPrepared() { 
+        public Date getWhenPrepared() { 
           return this.whenPrepared == null ? null : this.whenPrepared.getValue();
         }
 
         /**
          * @param value The time when the dispensed product was packaged and reviewed.
          */
-        public MedicationDispenseDispenseComponent setWhenPrepared(DateAndTime value) { 
+        public MedicationDispenseDispenseComponent setWhenPrepared(Date value) { 
           if (value == null)
             this.whenPrepared = null;
           else {
@@ -474,7 +474,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.whenHandedOver");
             else if (Configuration.doAutoCreate())
-              this.whenHandedOver = new DateTimeType();
+              this.whenHandedOver = new DateTimeType(); // bb
           return this.whenHandedOver;
         }
 
@@ -497,14 +497,14 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return The time the dispensed product was provided to the patient or their representative.
          */
-        public DateAndTime getWhenHandedOver() { 
+        public Date getWhenHandedOver() { 
           return this.whenHandedOver == null ? null : this.whenHandedOver.getValue();
         }
 
         /**
          * @param value The time the dispensed product was provided to the patient or their representative.
          */
-        public MedicationDispenseDispenseComponent setWhenHandedOver(DateAndTime value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOver(Date value) { 
           if (value == null)
             this.whenHandedOver = null;
           else {
@@ -523,7 +523,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destination = new Reference();
+              this.destination = new Reference(); // cc
           return this.destination;
         }
 
@@ -547,7 +547,7 @@ public class MedicationDispense extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destinationTarget = new Location();
+              this.destinationTarget = new Location(); // aa
           return this.destinationTarget;
         }
 
@@ -757,7 +757,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.additionalInstructions");
             else if (Configuration.doAutoCreate())
-              this.additionalInstructions = new CodeableConcept();
+              this.additionalInstructions = new CodeableConcept(); // cc
           return this.additionalInstructions;
         }
 
@@ -864,7 +864,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.site");
             else if (Configuration.doAutoCreate())
-              this.site = new CodeableConcept();
+              this.site = new CodeableConcept(); // cc
           return this.site;
         }
 
@@ -888,7 +888,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.route");
             else if (Configuration.doAutoCreate())
-              this.route = new CodeableConcept();
+              this.route = new CodeableConcept(); // cc
           return this.route;
         }
 
@@ -914,7 +914,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.method");
             else if (Configuration.doAutoCreate())
-              this.method = new CodeableConcept();
+              this.method = new CodeableConcept(); // cc
           return this.method;
         }
 
@@ -940,7 +940,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -964,7 +964,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.rate");
             else if (Configuration.doAutoCreate())
-              this.rate = new Ratio();
+              this.rate = new Ratio(); // cc
           return this.rate;
         }
 
@@ -988,7 +988,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseDispenseDosageComponent.maxDosePerPeriod");
             else if (Configuration.doAutoCreate())
-              this.maxDosePerPeriod = new Ratio();
+              this.maxDosePerPeriod = new Ratio(); // cc
           return this.maxDosePerPeriod;
         }
 
@@ -1089,7 +1089,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseSubstitutionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -1295,7 +1295,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -1319,7 +1319,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationDispenseStatus>();
+          this.status = new Enumeration<MedicationDispenseStatus>(new MedicationDispenseStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1354,7 +1354,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<MedicationDispenseStatus>();
+          this.status = new Enumeration<MedicationDispenseStatus>(new MedicationDispenseStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -1368,7 +1368,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -1392,7 +1392,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -1412,7 +1412,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.dispenser");
         else if (Configuration.doAutoCreate())
-          this.dispenser = new Reference();
+          this.dispenser = new Reference(); // cc
       return this.dispenser;
     }
 
@@ -1436,7 +1436,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.dispenser");
         else if (Configuration.doAutoCreate())
-          this.dispenserTarget = new Practitioner();
+          this.dispenserTarget = new Practitioner(); // aa
       return this.dispenserTarget;
     }
 
@@ -1537,7 +1537,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.substitution");
         else if (Configuration.doAutoCreate())
-          this.substitution = new MedicationDispenseSubstitutionComponent();
+          this.substitution = new MedicationDispenseSubstitutionComponent(); // cc
       return this.substitution;
     }
 

@@ -179,7 +179,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
     write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(String s, E item, EnumFactory e) throws Exception {\r\n");
-    write("    Enumeration<E> res = new Enumeration<E>();\r\n");
+    write("    Enumeration<E> res = new Enumeration<E>(e);\r\n");
     //    write("    parseElementProperties(json, res);\r\n");
     write("    if (s != null)\r\n");
     write("      res.setValue((E) e.fromCode(s));\r\n");
@@ -192,9 +192,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     String tn = getPrimitiveTypeModelName(dc.getCode());
     String jpn = getAsJsonPrimitive(dc.getCode(), false);
     write("  protected "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
-    write("    "+tn+" res = new "+tn+"();\r\n");
-    write("    if (v != null)\r\n");
-    write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
+    write("    "+tn+" res = new "+tn+"(v);\r\n");
+//    write("    if (v != null)\r\n");
+//    write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -729,6 +729,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("        prop(name, value.getValue());\r\n");
     else  if (dc.getCode().equals("decimal")) 
       write("        prop(name, value.getValue());\r\n");
+    else  if (dc.getCode().equals("date") || dc.getCode().equals("dateTime") || dc.getCode().equals("instant") || dc.getCode().equals("time")) 
+      write("        prop(name, value.asStringValue());\r\n");
     else {
       write("        prop(name, toString(value.getValue()));\r\n");
     }

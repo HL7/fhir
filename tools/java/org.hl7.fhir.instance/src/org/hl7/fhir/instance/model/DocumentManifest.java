@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class DocumentManifest extends DomainResource {
         }
     }
 
-  public static class DocumentReferenceStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DocumentReferenceStatusEnumFactory implements EnumFactory<DocumentReferenceStatus> {
+    public DocumentReferenceStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class DocumentManifest extends DomainResource {
           return DocumentReferenceStatus.SUPERCEDED;
         if ("entered in error".equals(codeString))
           return DocumentReferenceStatus.ENTEREDINERROR;
-        throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DocumentReferenceStatus code) {
       if (code == DocumentReferenceStatus.CURRENT)
         return "current";
       if (code == DocumentReferenceStatus.SUPERCEDED)
@@ -267,7 +267,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.masterIdentifier");
         else if (Configuration.doAutoCreate())
-          this.masterIdentifier = new Identifier();
+          this.masterIdentifier = new Identifier(); // cc
       return this.masterIdentifier;
     }
 
@@ -399,7 +399,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -462,7 +462,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -485,14 +485,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    public DocumentManifest setCreated(DateAndTime value) { 
+    public DocumentManifest setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -511,7 +511,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.source");
         else if (Configuration.doAutoCreate())
-          this.source = new UriType();
+          this.source = new UriType(); // bb
       return this.source;
     }
 
@@ -560,7 +560,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DocumentReferenceStatus>();
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -592,7 +592,7 @@ public class DocumentManifest extends DomainResource {
      */
     public DocumentManifest setStatus(DocumentReferenceStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<DocumentReferenceStatus>();
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -605,7 +605,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.supercedes");
         else if (Configuration.doAutoCreate())
-          this.supercedes = new Reference();
+          this.supercedes = new Reference(); // cc
       return this.supercedes;
     }
 
@@ -629,7 +629,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.supercedes");
         else if (Configuration.doAutoCreate())
-          this.supercedesTarget = new DocumentManifest();
+          this.supercedesTarget = new DocumentManifest(); // aa
       return this.supercedesTarget;
     }
 
@@ -649,7 +649,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -698,7 +698,7 @@ public class DocumentManifest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.confidentiality");
         else if (Configuration.doAutoCreate())
-          this.confidentiality = new CodeableConcept();
+          this.confidentiality = new CodeableConcept(); // cc
       return this.confidentiality;
     }
 

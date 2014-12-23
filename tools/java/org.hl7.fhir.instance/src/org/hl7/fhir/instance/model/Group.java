@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class Group extends DomainResource {
         }
     }
 
-  public static class GroupTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class GroupTypeEnumFactory implements EnumFactory<GroupType> {
+    public GroupType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class Group extends DomainResource {
           return GroupType.MEDICATION;
         if ("substance".equals(codeString))
           return GroupType.SUBSTANCE;
-        throw new Exception("Unknown GroupType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown GroupType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(GroupType code) {
       if (code == GroupType.PERSON)
         return "person";
       if (code == GroupType.ANIMAL)
@@ -217,7 +217,7 @@ public class Group extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupCharacteristicComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -296,7 +296,7 @@ public class Group extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupCharacteristicComponent.exclude");
             else if (Configuration.doAutoCreate())
-              this.exclude = new BooleanType();
+              this.exclude = new BooleanType(); // bb
           return this.exclude;
         }
 
@@ -437,7 +437,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -461,7 +461,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<GroupType>();
+          this.type = new Enumeration<GroupType>(new GroupTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -493,7 +493,7 @@ public class Group extends DomainResource {
      */
     public Group setType(GroupType value) { 
         if (this.type == null)
-          this.type = new Enumeration<GroupType>();
+          this.type = new Enumeration<GroupType>(new GroupTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -506,7 +506,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.actual");
         else if (Configuration.doAutoCreate())
-          this.actual = new BooleanType();
+          this.actual = new BooleanType(); // bb
       return this.actual;
     }
 
@@ -551,7 +551,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept();
+          this.code = new CodeableConcept(); // cc
       return this.code;
     }
 
@@ -575,7 +575,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -624,7 +624,7 @@ public class Group extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Group.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new IntegerType();
+          this.quantity = new IntegerType(); // bb
       return this.quantity;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class ReferralRequest extends DomainResource {
         }
     }
 
-  public static class ReferralstatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ReferralstatusEnumFactory implements EnumFactory<Referralstatus> {
+    public Referralstatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class ReferralRequest extends DomainResource {
           return Referralstatus.REFUSED;
         if ("completed".equals(codeString))
           return Referralstatus.COMPLETED;
-        throw new Exception("Unknown Referralstatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Referralstatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Referralstatus code) {
       if (code == Referralstatus.DRAFT)
         return "draft";
       if (code == Referralstatus.SENT)
@@ -322,7 +322,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<Referralstatus>();
+          this.status = new Enumeration<Referralstatus>(new ReferralstatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -354,7 +354,7 @@ public class ReferralRequest extends DomainResource {
      */
     public ReferralRequest setStatus(Referralstatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<Referralstatus>();
+          this.status = new Enumeration<Referralstatus>(new ReferralstatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -397,7 +397,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -421,7 +421,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.specialty");
         else if (Configuration.doAutoCreate())
-          this.specialty = new CodeableConcept();
+          this.specialty = new CodeableConcept(); // cc
       return this.specialty;
     }
 
@@ -445,7 +445,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new CodeableConcept();
+          this.priority = new CodeableConcept(); // cc
       return this.priority;
     }
 
@@ -469,7 +469,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -493,7 +493,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -513,7 +513,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new Reference();
+          this.requester = new Reference(); // cc
       return this.requester;
     }
 
@@ -591,7 +591,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -615,7 +615,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -635,7 +635,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.dateSent");
         else if (Configuration.doAutoCreate())
-          this.dateSent = new DateTimeType();
+          this.dateSent = new DateTimeType(); // bb
       return this.dateSent;
     }
 
@@ -658,14 +658,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public DateAndTime getDateSent() { 
+    public Date getDateSent() { 
       return this.dateSent == null ? null : this.dateSent.getValue();
     }
 
     /**
      * @param value Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public ReferralRequest setDateSent(DateAndTime value) { 
+    public ReferralRequest setDateSent(Date value) { 
       if (value == null)
         this.dateSent = null;
       else {
@@ -684,7 +684,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept();
+          this.reason = new CodeableConcept(); // cc
       return this.reason;
     }
 
@@ -708,7 +708,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -826,7 +826,7 @@ public class ReferralRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.fulfillmentTime");
         else if (Configuration.doAutoCreate())
-          this.fulfillmentTime = new Period();
+          this.fulfillmentTime = new Period(); // cc
       return this.fulfillmentTime;
     }
 

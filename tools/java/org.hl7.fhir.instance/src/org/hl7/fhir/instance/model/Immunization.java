@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -198,7 +198,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationReactionComponent.date");
             else if (Configuration.doAutoCreate())
-              this.date = new DateTimeType();
+              this.date = new DateTimeType(); // bb
           return this.date;
         }
 
@@ -221,14 +221,14 @@ public class Immunization extends DomainResource {
         /**
          * @return Date of reaction to the immunization.
          */
-        public DateAndTime getDate() { 
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Date of reaction to the immunization.
          */
-        public ImmunizationReactionComponent setDate(DateAndTime value) { 
+        public ImmunizationReactionComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -247,7 +247,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationReactionComponent.detail");
             else if (Configuration.doAutoCreate())
-              this.detail = new Reference();
+              this.detail = new Reference(); // cc
           return this.detail;
         }
 
@@ -271,7 +271,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationReactionComponent.detail");
             else if (Configuration.doAutoCreate())
-              this.detailTarget = new Observation();
+              this.detailTarget = new Observation(); // aa
           return this.detailTarget;
         }
 
@@ -291,7 +291,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationReactionComponent.reported");
             else if (Configuration.doAutoCreate())
-              this.reported = new BooleanType();
+              this.reported = new BooleanType(); // bb
           return this.reported;
         }
 
@@ -439,7 +439,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseSequence");
             else if (Configuration.doAutoCreate())
-              this.doseSequence = new IntegerType();
+              this.doseSequence = new IntegerType(); // bb
           return this.doseSequence;
         }
 
@@ -484,7 +484,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -533,7 +533,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.authority");
             else if (Configuration.doAutoCreate())
-              this.authority = new Reference();
+              this.authority = new Reference(); // cc
           return this.authority;
         }
 
@@ -557,7 +557,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.authority");
             else if (Configuration.doAutoCreate())
-              this.authorityTarget = new Organization();
+              this.authorityTarget = new Organization(); // aa
           return this.authorityTarget;
         }
 
@@ -577,7 +577,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.series");
             else if (Configuration.doAutoCreate())
-              this.series = new StringType();
+              this.series = new StringType(); // bb
           return this.series;
         }
 
@@ -626,7 +626,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.seriesDoses");
             else if (Configuration.doAutoCreate())
-              this.seriesDoses = new IntegerType();
+              this.seriesDoses = new IntegerType(); // bb
           return this.seriesDoses;
         }
 
@@ -675,7 +675,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseTarget");
             else if (Configuration.doAutoCreate())
-              this.doseTarget = new CodeableConcept();
+              this.doseTarget = new CodeableConcept(); // cc
           return this.doseTarget;
         }
 
@@ -699,7 +699,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseStatus");
             else if (Configuration.doAutoCreate())
-              this.doseStatus = new CodeableConcept();
+              this.doseStatus = new CodeableConcept(); // cc
           return this.doseStatus;
         }
 
@@ -723,7 +723,7 @@ public class Immunization extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImmunizationVaccinationProtocolComponent.doseStatusReason");
             else if (Configuration.doAutoCreate())
-              this.doseStatusReason = new CodeableConcept();
+              this.doseStatusReason = new CodeableConcept(); // cc
           return this.doseStatusReason;
         }
 
@@ -978,7 +978,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1001,14 +1001,14 @@ public class Immunization extends DomainResource {
     /**
      * @return Date vaccine administered or was to be administered.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value Date vaccine administered or was to be administered.
      */
-    public Immunization setDate(DateAndTime value) { 
+    public Immunization setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -1023,7 +1023,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.vaccineType");
         else if (Configuration.doAutoCreate())
-          this.vaccineType = new CodeableConcept();
+          this.vaccineType = new CodeableConcept(); // cc
       return this.vaccineType;
     }
 
@@ -1047,7 +1047,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1071,7 +1071,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -1091,7 +1091,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.refusedIndicator");
         else if (Configuration.doAutoCreate())
-          this.refusedIndicator = new BooleanType();
+          this.refusedIndicator = new BooleanType(); // bb
       return this.refusedIndicator;
     }
 
@@ -1136,7 +1136,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.reported");
         else if (Configuration.doAutoCreate())
-          this.reported = new BooleanType();
+          this.reported = new BooleanType(); // bb
       return this.reported;
     }
 
@@ -1181,7 +1181,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.performer");
         else if (Configuration.doAutoCreate())
-          this.performer = new Reference();
+          this.performer = new Reference(); // cc
       return this.performer;
     }
 
@@ -1205,7 +1205,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.performer");
         else if (Configuration.doAutoCreate())
-          this.performerTarget = new Practitioner();
+          this.performerTarget = new Practitioner(); // aa
       return this.performerTarget;
     }
 
@@ -1225,7 +1225,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new Reference();
+          this.requester = new Reference(); // cc
       return this.requester;
     }
 
@@ -1249,7 +1249,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.requester");
         else if (Configuration.doAutoCreate())
-          this.requesterTarget = new Practitioner();
+          this.requesterTarget = new Practitioner(); // aa
       return this.requesterTarget;
     }
 
@@ -1269,7 +1269,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.manufacturer");
         else if (Configuration.doAutoCreate())
-          this.manufacturer = new Reference();
+          this.manufacturer = new Reference(); // cc
       return this.manufacturer;
     }
 
@@ -1293,7 +1293,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.manufacturer");
         else if (Configuration.doAutoCreate())
-          this.manufacturerTarget = new Organization();
+          this.manufacturerTarget = new Organization(); // aa
       return this.manufacturerTarget;
     }
 
@@ -1313,7 +1313,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.location");
         else if (Configuration.doAutoCreate())
-          this.location = new Reference();
+          this.location = new Reference(); // cc
       return this.location;
     }
 
@@ -1337,7 +1337,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.location");
         else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location();
+          this.locationTarget = new Location(); // aa
       return this.locationTarget;
     }
 
@@ -1357,7 +1357,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.lotNumber");
         else if (Configuration.doAutoCreate())
-          this.lotNumber = new StringType();
+          this.lotNumber = new StringType(); // bb
       return this.lotNumber;
     }
 
@@ -1406,7 +1406,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.expirationDate");
         else if (Configuration.doAutoCreate())
-          this.expirationDate = new DateType();
+          this.expirationDate = new DateType(); // bb
       return this.expirationDate;
     }
 
@@ -1429,14 +1429,14 @@ public class Immunization extends DomainResource {
     /**
      * @return Date vaccine batch expires.
      */
-    public DateAndTime getExpirationDate() { 
+    public Date getExpirationDate() { 
       return this.expirationDate == null ? null : this.expirationDate.getValue();
     }
 
     /**
      * @param value Date vaccine batch expires.
      */
-    public Immunization setExpirationDate(DateAndTime value) { 
+    public Immunization setExpirationDate(Date value) { 
       if (value == null)
         this.expirationDate = null;
       else {
@@ -1455,7 +1455,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.site");
         else if (Configuration.doAutoCreate())
-          this.site = new CodeableConcept();
+          this.site = new CodeableConcept(); // cc
       return this.site;
     }
 
@@ -1479,7 +1479,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.route");
         else if (Configuration.doAutoCreate())
-          this.route = new CodeableConcept();
+          this.route = new CodeableConcept(); // cc
       return this.route;
     }
 
@@ -1503,7 +1503,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.doseQuantity");
         else if (Configuration.doAutoCreate())
-          this.doseQuantity = new Quantity();
+          this.doseQuantity = new Quantity(); // cc
       return this.doseQuantity;
     }
 
@@ -1527,7 +1527,7 @@ public class Immunization extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.explanation");
         else if (Configuration.doAutoCreate())
-          this.explanation = new ImmunizationExplanationComponent();
+          this.explanation = new ImmunizationExplanationComponent(); // cc
       return this.explanation;
     }
 

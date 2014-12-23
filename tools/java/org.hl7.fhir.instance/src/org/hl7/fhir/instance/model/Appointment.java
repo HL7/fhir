@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class Appointment extends DomainResource {
         }
     }
 
-  public static class AppointmentstatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AppointmentstatusEnumFactory implements EnumFactory<Appointmentstatus> {
+    public Appointmentstatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class Appointment extends DomainResource {
           return Appointmentstatus.CANCELLED;
         if ("noshow".equals(codeString))
           return Appointmentstatus.NOSHOW;
-        throw new Exception("Unknown Appointmentstatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Appointmentstatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Appointmentstatus code) {
       if (code == Appointmentstatus.PENDING)
         return "pending";
       if (code == Appointmentstatus.BOOKED)
@@ -235,8 +235,8 @@ public class Appointment extends DomainResource {
         }
     }
 
-  public static class ParticipantrequiredEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ParticipantrequiredEnumFactory implements EnumFactory<Participantrequired> {
+    public Participantrequired fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -246,9 +246,9 @@ public class Appointment extends DomainResource {
           return Participantrequired.OPTIONAL;
         if ("information-only".equals(codeString))
           return Participantrequired.INFORMATIONONLY;
-        throw new Exception("Unknown Participantrequired code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Participantrequired code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Participantrequired code) {
       if (code == Participantrequired.REQUIRED)
         return "required";
       if (code == Participantrequired.OPTIONAL)
@@ -351,8 +351,8 @@ public class Appointment extends DomainResource {
         }
     }
 
-  public static class ParticipationstatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ParticipationstatusEnumFactory implements EnumFactory<Participationstatus> {
+    public Participationstatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -368,9 +368,9 @@ public class Appointment extends DomainResource {
           return Participationstatus.COMPLETED;
         if ("needs-action".equals(codeString))
           return Participationstatus.NEEDSACTION;
-        throw new Exception("Unknown Participationstatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Participationstatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Participationstatus code) {
       if (code == Participationstatus.ACCEPTED)
         return "accepted";
       if (code == Participationstatus.DECLINED)
@@ -471,7 +471,7 @@ public class Appointment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.actor");
             else if (Configuration.doAutoCreate())
-              this.actor = new Reference();
+              this.actor = new Reference(); // cc
           return this.actor;
         }
 
@@ -510,7 +510,7 @@ public class Appointment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.required");
             else if (Configuration.doAutoCreate())
-              this.required = new Enumeration<Participantrequired>();
+              this.required = new Enumeration<Participantrequired>(new ParticipantrequiredEnumFactory()); // bb
           return this.required;
         }
 
@@ -545,7 +545,7 @@ public class Appointment extends DomainResource {
             this.required = null;
           else {
             if (this.required == null)
-              this.required = new Enumeration<Participantrequired>();
+              this.required = new Enumeration<Participantrequired>(new ParticipantrequiredEnumFactory());
             this.required.setValue(value);
           }
           return this;
@@ -559,7 +559,7 @@ public class Appointment extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<Participationstatus>();
+              this.status = new Enumeration<Participationstatus>(new ParticipationstatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -591,7 +591,7 @@ public class Appointment extends DomainResource {
          */
         public AppointmentParticipantComponent setStatus(Participationstatus value) { 
             if (this.status == null)
-              this.status = new Enumeration<Participationstatus>();
+              this.status = new Enumeration<Participationstatus>(new ParticipationstatusEnumFactory());
             this.status.setValue(value);
           return this;
         }
@@ -801,7 +801,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new IntegerType();
+          this.priority = new IntegerType(); // bb
       return this.priority;
     }
 
@@ -850,7 +850,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<Appointmentstatus>();
+          this.status = new Enumeration<Appointmentstatus>(new AppointmentstatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -882,7 +882,7 @@ public class Appointment extends DomainResource {
      */
     public Appointment setStatus(Appointmentstatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<Appointmentstatus>();
+          this.status = new Enumeration<Appointmentstatus>(new AppointmentstatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -895,7 +895,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -919,7 +919,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept();
+          this.reason = new CodeableConcept(); // cc
       return this.reason;
     }
 
@@ -943,7 +943,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -992,7 +992,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.start");
         else if (Configuration.doAutoCreate())
-          this.start = new InstantType();
+          this.start = new InstantType(); // bb
       return this.start;
     }
 
@@ -1015,14 +1015,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Date/Time that the appointment is to take place.
      */
-    public DateAndTime getStart() { 
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to take place.
      */
-    public Appointment setStart(DateAndTime value) { 
+    public Appointment setStart(Date value) { 
         if (this.start == null)
           this.start = new InstantType();
         this.start.setValue(value);
@@ -1037,7 +1037,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.end");
         else if (Configuration.doAutoCreate())
-          this.end = new InstantType();
+          this.end = new InstantType(); // bb
       return this.end;
     }
 
@@ -1060,14 +1060,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Date/Time that the appointment is to conclude.
      */
-    public DateAndTime getEnd() { 
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to conclude.
      */
-    public Appointment setEnd(DateAndTime value) { 
+    public Appointment setEnd(Date value) { 
         if (this.end == null)
           this.end = new InstantType();
         this.end.setValue(value);
@@ -1133,7 +1133,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.location");
         else if (Configuration.doAutoCreate())
-          this.location = new Reference();
+          this.location = new Reference(); // cc
       return this.location;
     }
 
@@ -1157,7 +1157,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.location");
         else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location();
+          this.locationTarget = new Location(); // aa
       return this.locationTarget;
     }
 
@@ -1177,7 +1177,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType();
+          this.comment = new StringType(); // bb
       return this.comment;
     }
 
@@ -1226,7 +1226,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.order");
         else if (Configuration.doAutoCreate())
-          this.order = new Reference();
+          this.order = new Reference(); // cc
       return this.order;
     }
 
@@ -1250,7 +1250,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.order");
         else if (Configuration.doAutoCreate())
-          this.orderTarget = new Order();
+          this.orderTarget = new Order(); // aa
       return this.orderTarget;
     }
 
@@ -1300,7 +1300,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.lastModifiedBy");
         else if (Configuration.doAutoCreate())
-          this.lastModifiedBy = new Reference();
+          this.lastModifiedBy = new Reference(); // cc
       return this.lastModifiedBy;
     }
 
@@ -1339,7 +1339,7 @@ public class Appointment extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.lastModified");
         else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType();
+          this.lastModified = new DateTimeType(); // bb
       return this.lastModified;
     }
 
@@ -1362,14 +1362,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Date when the appointment was recorded.
      */
-    public DateAndTime getLastModified() { 
+    public Date getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value Date when the appointment was recorded.
      */
-    public Appointment setLastModified(DateAndTime value) { 
+    public Appointment setLastModified(Date value) { 
       if (value == null)
         this.lastModified = null;
       else {
@@ -1454,7 +1454,7 @@ public class Appointment extends DomainResource {
   public static final String SP_PARTSTATUS = "partstatus";
   @SearchParamDefinition(name="patient", path="Appointment.participant.actor", description="One of the individuals of the appointment is this patient", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="status", path="Appointment.status", description="The overall status of the appointment", type="string" )
+  @SearchParamDefinition(name="status", path="Appointment.status", description="The overall status of the appointment", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="actor", path="Appointment.participant.actor", description="Any one of the individuals participating in the appointment", type="reference" )
   public static final String SP_ACTOR = "actor";

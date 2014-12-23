@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -115,8 +115,8 @@ public class Identifier extends Type {
         }
     }
 
-  public static class IdentifierUseEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class IdentifierUseEnumFactory implements EnumFactory<IdentifierUse> {
+    public IdentifierUse fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -128,9 +128,9 @@ public class Identifier extends Type {
           return IdentifierUse.TEMP;
         if ("secondary".equals(codeString))
           return IdentifierUse.SECONDARY;
-        throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown IdentifierUse code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(IdentifierUse code) {
       if (code == IdentifierUse.USUAL)
         return "usual";
       if (code == IdentifierUse.OFFICIAL)
@@ -204,7 +204,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<IdentifierUse>();
+          this.use = new Enumeration<IdentifierUse>(new IdentifierUseEnumFactory()); // bb
       return this.use;
     }
 
@@ -239,7 +239,7 @@ public class Identifier extends Type {
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<IdentifierUse>();
+          this.use = new Enumeration<IdentifierUse>(new IdentifierUseEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -253,7 +253,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.label");
         else if (Configuration.doAutoCreate())
-          this.label = new StringType();
+          this.label = new StringType(); // bb
       return this.label;
     }
 
@@ -302,7 +302,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.system");
         else if (Configuration.doAutoCreate())
-          this.system = new UriType();
+          this.system = new UriType(); // bb
       return this.system;
     }
 
@@ -351,7 +351,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.value");
         else if (Configuration.doAutoCreate())
-          this.value = new StringType();
+          this.value = new StringType(); // bb
       return this.value;
     }
 
@@ -400,7 +400,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -424,7 +424,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.assigner");
         else if (Configuration.doAutoCreate())
-          this.assigner = new Reference();
+          this.assigner = new Reference(); // cc
       return this.assigner;
     }
 
@@ -448,7 +448,7 @@ public class Identifier extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.assigner");
         else if (Configuration.doAutoCreate())
-          this.assignerTarget = new Organization();
+          this.assignerTarget = new Organization(); // aa
       return this.assignerTarget;
     }
 

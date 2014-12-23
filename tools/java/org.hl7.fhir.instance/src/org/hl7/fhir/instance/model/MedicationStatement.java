@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -118,7 +118,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.schedule");
             else if (Configuration.doAutoCreate())
-              this.schedule = new Timing();
+              this.schedule = new Timing(); // cc
           return this.schedule;
         }
 
@@ -179,7 +179,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.site");
             else if (Configuration.doAutoCreate())
-              this.site = new CodeableConcept();
+              this.site = new CodeableConcept(); // cc
           return this.site;
         }
 
@@ -203,7 +203,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.route");
             else if (Configuration.doAutoCreate())
-              this.route = new CodeableConcept();
+              this.route = new CodeableConcept(); // cc
           return this.route;
         }
 
@@ -229,7 +229,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.method");
             else if (Configuration.doAutoCreate())
-              this.method = new CodeableConcept();
+              this.method = new CodeableConcept(); // cc
           return this.method;
         }
 
@@ -255,7 +255,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -279,7 +279,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.rate");
             else if (Configuration.doAutoCreate())
-              this.rate = new Ratio();
+              this.rate = new Ratio(); // cc
           return this.rate;
         }
 
@@ -303,7 +303,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationStatementDosageComponent.maxDosePerPeriod");
             else if (Configuration.doAutoCreate())
-              this.maxDosePerPeriod = new Ratio();
+              this.maxDosePerPeriod = new Ratio(); // cc
           return this.maxDosePerPeriod;
         }
 
@@ -469,7 +469,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -493,7 +493,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -513,7 +513,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.wasNotGiven");
         else if (Configuration.doAutoCreate())
-          this.wasNotGiven = new BooleanType();
+          this.wasNotGiven = new BooleanType(); // bb
       return this.wasNotGiven;
     }
 
@@ -592,7 +592,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.whenGiven");
         else if (Configuration.doAutoCreate())
-          this.whenGiven = new Period();
+          this.whenGiven = new Period(); // cc
       return this.whenGiven;
     }
 
@@ -616,7 +616,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.medication");
         else if (Configuration.doAutoCreate())
-          this.medication = new Reference();
+          this.medication = new Reference(); // cc
       return this.medication;
     }
 
@@ -640,7 +640,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.medication");
         else if (Configuration.doAutoCreate())
-          this.medicationTarget = new Medication();
+          this.medicationTarget = new Medication(); // aa
       return this.medicationTarget;
     }
 

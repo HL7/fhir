@@ -28,61 +28,129 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.apache.commons.lang3.StringUtils;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
+
 /**
  * Primitive type "uri" in FHIR: any valid URI. Sometimes constrained to be only an absolute URI, and sometimes constrained to be a literal reference
  */
-public class UriType extends PrimitiveType {
-	
-  private static final long serialVersionUID = -4774715915772053479L;
-	/**
-	 * any valid URI
-	 */
-	protected String value;
+@DatatypeDef(name = "uri")
+public class UriType extends PrimitiveType<String> {
 
-  public UriType() {
-  }
-
-  public UriType(String uri) {
-    this.value = uri;
-  }
+	private static final long serialVersionUID = 3L;
 
 	/**
-	 * @return - the URI value
+	 * Constructor
 	 */
-	public String getValue() {
-		return value;
+	public UriType() {
+		// nothing
 	}
 
 	/**
-	 * @param value any valid URI
+	 * Constructor
 	 */
-	public void setValue(String value) {
-		this.value = value;
+	public UriType(String theValue) {
+		setValueAsString(theValue);
 	}
-	
+
+	/**
+	 * Constructor
+	 */
+	public UriType(URI theValue) {
+		setValue(theValue.toString());
+	}
+
 	@Override
-  public UriType copy() {
-		UriType dst = new UriType();
-		dst.value = value;
-		return dst;
+	public UriType copy() {
+		return new UriType(getValue());
 	}
-	
+
 	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected String encode(String theValue) {
+		return theValue;
 	}
 
-  @Override
-  public String asStringValue() {
-    return value;
-  }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
+		UriType other = (UriType) obj;
+		if (getValue() == null && other.getValue() == null) {
+			return true;
+		}
+		if (getValue() == null || other.getValue() == null) {
+			return false;
+		}
+
+		String normalize = normalize(getValue());
+		String normalize2 = normalize(other.getValue());
+		return normalize.equals(normalize2);
 	}
 
-	public boolean hasValue() {
-		return value != null;
+	/**
+	 * Compares the given string to the string representation of this URI. In many cases it is preferable to use this
+	 * instead of the standard {@link #equals(Object)} method, since that method returns <code>false</code> unless it is
+	 * passed an instance of {@link UriType}
+	 */
+	public boolean equals(String theString) {
+		return StringUtils.equals(getValueAsString(), theString);
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+
+		String normalize = normalize(getValue());
+		result = prime * result + ((normalize == null) ? 0 : normalize.hashCode());
+
+		return result;
+	}
+
+	private String normalize(String theValue) {
+		if (theValue == null) {
+			return null;
+		}
+		try {
+			URI retVal = new URI(getValue()).normalize();
+			String urlString = retVal.toString();
+			if (urlString.endsWith("/") && urlString.length() > 1) {
+				retVal = new URI(urlString.substring(0, urlString.length() - 1));
+			}
+			return retVal.toASCIIString();
+		} catch (URISyntaxException e) {
+			// ourLog.debug("Failed to normalize URL '{}', message was: {}", urlString, e.toString());
+			return theValue;
+		}
+	}
+
+	@Override
+	protected String parse(String theValue) {
+		return theValue;
+	}
+
+	/**
+	 * Creates a new OidType instance which uses the given OID as the content (and prepends "urn:oid:" to the OID string
+	 * in the value of the newly created OidType, per the FHIR specification).
+	 * 
+	 * @param theOid
+	 *            The OID to use (<code>null</code> is acceptable and will result in a UriDt instance with a
+	 *            <code>null</code> value)
+	 * @return A new UriDt instance
+	 */
+	public static OidType fromOid(String theOid) {
+		if (theOid == null) {
+			return new OidType();
+		}
+		return new OidType("urn:oid:" + theOid);
+	}
+
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -171,7 +171,7 @@ public class Schedule extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Schedule.actor");
         else if (Configuration.doAutoCreate())
-          this.actor = new Reference();
+          this.actor = new Reference(); // cc
       return this.actor;
     }
 
@@ -210,7 +210,7 @@ public class Schedule extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Schedule.planningHorizon");
         else if (Configuration.doAutoCreate())
-          this.planningHorizon = new Period();
+          this.planningHorizon = new Period(); // cc
       return this.planningHorizon;
     }
 
@@ -234,7 +234,7 @@ public class Schedule extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Schedule.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType();
+          this.comment = new StringType(); // bb
       return this.comment;
     }
 
@@ -283,7 +283,7 @@ public class Schedule extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Schedule.lastModified");
         else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType();
+          this.lastModified = new DateTimeType(); // bb
       return this.lastModified;
     }
 
@@ -306,14 +306,14 @@ public class Schedule extends DomainResource {
     /**
      * @return When this Schedule was created, or last revised.
      */
-    public DateAndTime getLastModified() { 
+    public Date getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value When this Schedule was created, or last revised.
      */
-    public Schedule setLastModified(DateAndTime value) { 
+    public Schedule setLastModified(Date value) { 
       if (value == null)
         this.lastModified = null;
       else {

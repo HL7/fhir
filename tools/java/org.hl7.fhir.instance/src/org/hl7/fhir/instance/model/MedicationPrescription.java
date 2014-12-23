@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class MedicationPrescription extends DomainResource {
         }
     }
 
-  public static class MedicationPrescriptionStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MedicationPrescriptionStatusEnumFactory implements EnumFactory<MedicationPrescriptionStatus> {
+    public MedicationPrescriptionStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class MedicationPrescription extends DomainResource {
           return MedicationPrescriptionStatus.STOPPED;
         if ("superceded".equals(codeString))
           return MedicationPrescriptionStatus.SUPERCEDED;
-        throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MedicationPrescriptionStatus code) {
       if (code == MedicationPrescriptionStatus.ACTIVE)
         return "active";
       if (code == MedicationPrescriptionStatus.ONHOLD)
@@ -261,7 +261,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -310,7 +310,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.additionalInstructions");
             else if (Configuration.doAutoCreate())
-              this.additionalInstructions = new CodeableConcept();
+              this.additionalInstructions = new CodeableConcept(); // cc
           return this.additionalInstructions;
         }
 
@@ -417,7 +417,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.site");
             else if (Configuration.doAutoCreate())
-              this.site = new CodeableConcept();
+              this.site = new CodeableConcept(); // cc
           return this.site;
         }
 
@@ -441,7 +441,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.route");
             else if (Configuration.doAutoCreate())
-              this.route = new CodeableConcept();
+              this.route = new CodeableConcept(); // cc
           return this.route;
         }
 
@@ -467,7 +467,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.method");
             else if (Configuration.doAutoCreate())
-              this.method = new CodeableConcept();
+              this.method = new CodeableConcept(); // cc
           return this.method;
         }
 
@@ -493,7 +493,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.doseQuantity");
             else if (Configuration.doAutoCreate())
-              this.doseQuantity = new Quantity();
+              this.doseQuantity = new Quantity(); // cc
           return this.doseQuantity;
         }
 
@@ -517,7 +517,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.rate");
             else if (Configuration.doAutoCreate())
-              this.rate = new Ratio();
+              this.rate = new Ratio(); // cc
           return this.rate;
         }
 
@@ -541,7 +541,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDosageInstructionComponent.maxDosePerPeriod");
             else if (Configuration.doAutoCreate())
-              this.maxDosePerPeriod = new Ratio();
+              this.maxDosePerPeriod = new Ratio(); // cc
           return this.maxDosePerPeriod;
         }
 
@@ -657,7 +657,7 @@ In some situations, this attribute may be used instead of quantity to identify t
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.medication");
             else if (Configuration.doAutoCreate())
-              this.medication = new Reference();
+              this.medication = new Reference(); // cc
           return this.medication;
         }
 
@@ -681,7 +681,7 @@ In some situations, this attribute may be used instead of quantity to identify t
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.medication");
             else if (Configuration.doAutoCreate())
-              this.medicationTarget = new Medication();
+              this.medicationTarget = new Medication(); // aa
           return this.medicationTarget;
         }
 
@@ -703,7 +703,7 @@ Rationale: Indicates when the Prescription becomes valid, and when it ceases to 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.validityPeriod");
             else if (Configuration.doAutoCreate())
-              this.validityPeriod = new Period();
+              this.validityPeriod = new Period(); // cc
           return this.validityPeriod;
         }
 
@@ -730,7 +730,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.numberOfRepeatsAllowed");
             else if (Configuration.doAutoCreate())
-              this.numberOfRepeatsAllowed = new IntegerType();
+              this.numberOfRepeatsAllowed = new IntegerType(); // bb
           return this.numberOfRepeatsAllowed;
         }
 
@@ -782,7 +782,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -807,7 +807,7 @@ In some situations, this attribute may be used instead of quantity to identify t
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionDispenseComponent.expectedSupplyDuration");
             else if (Configuration.doAutoCreate())
-              this.expectedSupplyDuration = new Duration();
+              this.expectedSupplyDuration = new Duration(); // cc
           return this.expectedSupplyDuration;
         }
 
@@ -887,7 +887,7 @@ In some situations, this attribute may be used instead of quantity to identify t
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionSubstitutionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -911,7 +911,7 @@ In some situations, this attribute may be used instead of quantity to identify t
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPrescriptionSubstitutionComponent.reason");
             else if (Configuration.doAutoCreate())
-              this.reason = new CodeableConcept();
+              this.reason = new CodeableConcept(); // cc
           return this.reason;
         }
 
@@ -1089,7 +1089,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.dateWritten");
         else if (Configuration.doAutoCreate())
-          this.dateWritten = new DateTimeType();
+          this.dateWritten = new DateTimeType(); // bb
       return this.dateWritten;
     }
 
@@ -1112,14 +1112,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return The date (and perhaps time) when the prescription was written.
      */
-    public DateAndTime getDateWritten() { 
+    public Date getDateWritten() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
      * @param value The date (and perhaps time) when the prescription was written.
      */
-    public MedicationPrescription setDateWritten(DateAndTime value) { 
+    public MedicationPrescription setDateWritten(Date value) { 
       if (value == null)
         this.dateWritten = null;
       else {
@@ -1138,7 +1138,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationPrescriptionStatus>();
+          this.status = new Enumeration<MedicationPrescriptionStatus>(new MedicationPrescriptionStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1173,7 +1173,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<MedicationPrescriptionStatus>();
+          this.status = new Enumeration<MedicationPrescriptionStatus>(new MedicationPrescriptionStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -1187,7 +1187,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -1211,7 +1211,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -1231,7 +1231,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.prescriber");
         else if (Configuration.doAutoCreate())
-          this.prescriber = new Reference();
+          this.prescriber = new Reference(); // cc
       return this.prescriber;
     }
 
@@ -1255,7 +1255,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.prescriber");
         else if (Configuration.doAutoCreate())
-          this.prescriberTarget = new Practitioner();
+          this.prescriberTarget = new Practitioner(); // aa
       return this.prescriberTarget;
     }
 
@@ -1275,7 +1275,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1299,7 +1299,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -1356,7 +1356,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.medication");
         else if (Configuration.doAutoCreate())
-          this.medication = new Reference();
+          this.medication = new Reference(); // cc
       return this.medication;
     }
 
@@ -1380,7 +1380,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.medication");
         else if (Configuration.doAutoCreate())
-          this.medicationTarget = new Medication();
+          this.medicationTarget = new Medication(); // aa
       return this.medicationTarget;
     }
 
@@ -1430,7 +1430,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.dispense");
         else if (Configuration.doAutoCreate())
-          this.dispense = new MedicationPrescriptionDispenseComponent();
+          this.dispense = new MedicationPrescriptionDispenseComponent(); // cc
       return this.dispense;
     }
 
@@ -1454,7 +1454,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationPrescription.substitution");
         else if (Configuration.doAutoCreate())
-          this.substitution = new MedicationPrescriptionSubstitutionComponent();
+          this.substitution = new MedicationPrescriptionSubstitutionComponent(); // cc
       return this.substitution;
     }
 

@@ -35,6 +35,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -44,7 +45,6 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.client.utils.URIBuilder;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
@@ -129,7 +129,7 @@ public class ResourceAddress {
 		return appendHttpParameters(baseServiceUri.resolve("_history"), parameters);
 	}
 	
-	public URI resolveGetHistoryForAllResources(DateAndTime since, int count) {
+	public URI resolveGetHistoryForAllResources(Date since, int count) {
 		Map<String,String>  parameters = getHistoryParameters(since, count);
 		return appendHttpParameters(baseServiceUri.resolve("_history"), parameters);
 	}
@@ -149,7 +149,7 @@ public class ResourceAddress {
 		return resolveGetHistoryUriForResourceId(resourceClass, id, since, count);
 	}
 	
-	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id, DateAndTime since, int count) {
+	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id, Date since, int count) {
 		return resolveGetHistoryUriForResourceId(resourceClass, id, since, count);
 	}
 	
@@ -157,7 +157,7 @@ public class ResourceAddress {
 		return resolveGetHistoryForResourceType(resourceClass, getCalendarDateInIsoTimeFormat(since), count);
 	}
 	
-	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass, DateAndTime since, int count) {
+	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass, Date since, int count) {
 		return resolveGetHistoryForResourceType(resourceClass, since.toString(), count);
 	}
 	

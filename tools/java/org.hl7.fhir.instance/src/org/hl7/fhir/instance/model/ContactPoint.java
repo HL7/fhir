@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -115,8 +115,8 @@ public class ContactPoint extends Type {
         }
     }
 
-  public static class ContactPointSystemEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ContactPointSystemEnumFactory implements EnumFactory<ContactPointSystem> {
+    public ContactPointSystem fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -128,9 +128,9 @@ public class ContactPoint extends Type {
           return ContactPointSystem.EMAIL;
         if ("url".equals(codeString))
           return ContactPointSystem.URL;
-        throw new Exception("Unknown ContactPointSystem code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ContactPointSystem code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ContactPointSystem code) {
       if (code == ContactPointSystem.PHONE)
         return "phone";
       if (code == ContactPointSystem.FAX)
@@ -225,8 +225,8 @@ public class ContactPoint extends Type {
         }
     }
 
-  public static class ContactPointUseEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ContactPointUseEnumFactory implements EnumFactory<ContactPointUse> {
+    public ContactPointUse fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -240,9 +240,9 @@ public class ContactPoint extends Type {
           return ContactPointUse.OLD;
         if ("mobile".equals(codeString))
           return ContactPointUse.MOBILE;
-        throw new Exception("Unknown ContactPointUse code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ContactPointUse code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ContactPointUse code) {
       if (code == ContactPointUse.HOME)
         return "home";
       if (code == ContactPointUse.WORK)
@@ -299,7 +299,7 @@ public class ContactPoint extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.system");
         else if (Configuration.doAutoCreate())
-          this.system = new Enumeration<ContactPointSystem>();
+          this.system = new Enumeration<ContactPointSystem>(new ContactPointSystemEnumFactory()); // bb
       return this.system;
     }
 
@@ -334,7 +334,7 @@ public class ContactPoint extends Type {
         this.system = null;
       else {
         if (this.system == null)
-          this.system = new Enumeration<ContactPointSystem>();
+          this.system = new Enumeration<ContactPointSystem>(new ContactPointSystemEnumFactory());
         this.system.setValue(value);
       }
       return this;
@@ -348,7 +348,7 @@ public class ContactPoint extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.value");
         else if (Configuration.doAutoCreate())
-          this.value = new StringType();
+          this.value = new StringType(); // bb
       return this.value;
     }
 
@@ -397,7 +397,7 @@ public class ContactPoint extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<ContactPointUse>();
+          this.use = new Enumeration<ContactPointUse>(new ContactPointUseEnumFactory()); // bb
       return this.use;
     }
 
@@ -432,7 +432,7 @@ public class ContactPoint extends Type {
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<ContactPointUse>();
+          this.use = new Enumeration<ContactPointUse>(new ContactPointUseEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -446,7 +446,7 @@ public class ContactPoint extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class Alert extends DomainResource {
         }
     }
 
-  public static class AlertStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AlertStatusEnumFactory implements EnumFactory<AlertStatus> {
+    public AlertStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class Alert extends DomainResource {
           return AlertStatus.INACTIVE;
         if ("entered in error".equals(codeString))
           return AlertStatus.ENTEREDINERROR;
-        throw new Exception("Unknown AlertStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AlertStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AlertStatus code) {
       if (code == AlertStatus.ACTIVE)
         return "active";
       if (code == AlertStatus.INACTIVE)
@@ -234,7 +234,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -258,7 +258,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<AlertStatus>();
+          this.status = new Enumeration<AlertStatus>(new AlertStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -290,7 +290,7 @@ public class Alert extends DomainResource {
      */
     public Alert setStatus(AlertStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<AlertStatus>();
+          this.status = new Enumeration<AlertStatus>(new AlertStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -303,7 +303,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -327,7 +327,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -347,7 +347,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -386,7 +386,7 @@ public class Alert extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Alert.note");
         else if (Configuration.doAutoCreate())
-          this.note = new StringType();
+          this.note = new StringType(); // bb
       return this.note;
     }
 

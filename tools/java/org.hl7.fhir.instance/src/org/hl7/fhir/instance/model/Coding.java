@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -104,7 +104,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.system");
         else if (Configuration.doAutoCreate())
-          this.system = new UriType();
+          this.system = new UriType(); // bb
       return this.system;
     }
 
@@ -153,7 +153,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -202,7 +202,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeType();
+          this.code = new CodeType(); // bb
       return this.code;
     }
 
@@ -251,7 +251,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.display");
         else if (Configuration.doAutoCreate())
-          this.display = new StringType();
+          this.display = new StringType(); // bb
       return this.display;
     }
 
@@ -300,7 +300,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.primary");
         else if (Configuration.doAutoCreate())
-          this.primary = new BooleanType();
+          this.primary = new BooleanType(); // bb
       return this.primary;
     }
 
@@ -349,7 +349,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.valueSet");
         else if (Configuration.doAutoCreate())
-          this.valueSet = new Reference();
+          this.valueSet = new Reference(); // cc
       return this.valueSet;
     }
 
@@ -373,7 +373,7 @@ public class Coding extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coding.valueSet");
         else if (Configuration.doAutoCreate())
-          this.valueSetTarget = new ValueSet();
+          this.valueSetTarget = new ValueSet(); // aa
       return this.valueSetTarget;
     }
 

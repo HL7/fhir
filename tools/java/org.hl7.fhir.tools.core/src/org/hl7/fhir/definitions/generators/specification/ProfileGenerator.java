@@ -58,7 +58,6 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ConstraintSeverity;
@@ -73,15 +72,12 @@ import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionDefinitionMappin
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.ElementDefinition.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Factory;
-import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
-import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.SearchParameter;
-import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
@@ -125,7 +121,7 @@ public class ProfileGenerator {
     p.setPublisher("HL7 FHIR Standard");
     p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base Profile for "+type.getCode()+" Resource: "+type.getDefinition());
-    p.setDate(new DateAndTime(genDate));
+    p.setDate(genDate.getTime());
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
@@ -195,7 +191,7 @@ public class ProfileGenerator {
     p.setPublisher("HL7 FHIR Standard");
     p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base Profile for "+type.getCode()+" Resource: "+type.getDefinition());
-    p.setDate(new DateAndTime(genDate));
+    p.setDate(genDate.getTime());
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
@@ -271,7 +267,7 @@ public class ProfileGenerator {
     p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base Profile for "+t.getName()+" Resource");
     p.setRequirements(t.getRequirements());
-    p.setDate(new DateAndTime(genDate));
+    p.setDate(genDate.getTime());
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
@@ -306,7 +302,7 @@ public class ProfileGenerator {
     p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     p.setDescription("Base Profile for "+pt.getName()+" Resource");
     p.setDescription(pt.getDefinition());
-    p.setDate(new DateAndTime(genDate));
+    p.setDate(genDate.getTime());
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     // first, the differential
@@ -369,7 +365,7 @@ public class ProfileGenerator {
       p.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
     p.setDescription("Base Profile for "+r.getRoot().getName()+" Resource");
     p.setRequirements(r.getRequirements());
-    p.setDate(new DateAndTime(genDate));
+    p.setDate(genDate.getTime());
     p.setStatus(Profile.ResourceProfileStatus.fromCode("draft")); // DSTU
 
     Set<String> containedSlices = new HashSet<String>();
@@ -435,7 +431,7 @@ public class ProfileGenerator {
     if (pack.hasMetadata("date"))
       p.setDateElement(Factory.newDateTime(pack.metadata("date").substring(0, 10)));
     else
-      p.setDate(new DateAndTime(genDate));
+      p.setDate(genDate.getTime());
 
     if (pack.hasMetadata("status")) 
       p.setStatus(Profile.ResourceProfileStatus.fromCode(pack.metadata("status")));

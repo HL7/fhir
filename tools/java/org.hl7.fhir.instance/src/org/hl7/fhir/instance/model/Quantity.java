@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -116,8 +116,8 @@ public class Quantity extends Type {
         }
     }
 
-  public static class QuantityComparatorEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class QuantityComparatorEnumFactory implements EnumFactory<QuantityComparator> {
+    public QuantityComparator fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -129,9 +129,9 @@ public class Quantity extends Type {
           return QuantityComparator.GREATER_OR_EQUAL;
         if (">".equals(codeString))
           return QuantityComparator.GREATER_THAN;
-        throw new Exception("Unknown QuantityComparator code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown QuantityComparator code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(QuantityComparator code) {
       if (code == QuantityComparator.LESS_THAN)
         return "<";
       if (code == QuantityComparator.LESS_OR_EQUAL)
@@ -193,7 +193,7 @@ public class Quantity extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.value");
         else if (Configuration.doAutoCreate())
-          this.value = new DecimalType();
+          this.value = new DecimalType(); // bb
       return this.value;
     }
 
@@ -242,7 +242,7 @@ public class Quantity extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.comparator");
         else if (Configuration.doAutoCreate())
-          this.comparator = new Enumeration<QuantityComparator>();
+          this.comparator = new Enumeration<QuantityComparator>(new QuantityComparatorEnumFactory()); // bb
       return this.comparator;
     }
 
@@ -277,7 +277,7 @@ public class Quantity extends Type {
         this.comparator = null;
       else {
         if (this.comparator == null)
-          this.comparator = new Enumeration<QuantityComparator>();
+          this.comparator = new Enumeration<QuantityComparator>(new QuantityComparatorEnumFactory());
         this.comparator.setValue(value);
       }
       return this;
@@ -291,7 +291,7 @@ public class Quantity extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.units");
         else if (Configuration.doAutoCreate())
-          this.units = new StringType();
+          this.units = new StringType(); // bb
       return this.units;
     }
 
@@ -340,7 +340,7 @@ public class Quantity extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.system");
         else if (Configuration.doAutoCreate())
-          this.system = new UriType();
+          this.system = new UriType(); // bb
       return this.system;
     }
 
@@ -389,7 +389,7 @@ public class Quantity extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Quantity.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeType();
+          this.code = new CodeType(); // bb
       return this.code;
     }
 

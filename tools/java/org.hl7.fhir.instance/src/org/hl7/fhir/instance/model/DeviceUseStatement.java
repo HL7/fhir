@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -168,7 +168,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.whenUsed");
         else if (Configuration.doAutoCreate())
-          this.whenUsed = new Period();
+          this.whenUsed = new Period(); // cc
       return this.whenUsed;
     }
 
@@ -192,7 +192,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.device");
         else if (Configuration.doAutoCreate())
-          this.device = new Reference();
+          this.device = new Reference(); // cc
       return this.device;
     }
 
@@ -216,7 +216,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.device");
         else if (Configuration.doAutoCreate())
-          this.deviceTarget = new Device();
+          this.deviceTarget = new Device(); // aa
       return this.deviceTarget;
     }
 
@@ -350,7 +350,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.recordedOn");
         else if (Configuration.doAutoCreate())
-          this.recordedOn = new DateTimeType();
+          this.recordedOn = new DateTimeType(); // bb
       return this.recordedOn;
     }
 
@@ -373,14 +373,14 @@ public class DeviceUseStatement extends DomainResource {
     /**
      * @return The time at which the statement was made/recorded.
      */
-    public DateAndTime getRecordedOn() { 
+    public Date getRecordedOn() { 
       return this.recordedOn == null ? null : this.recordedOn.getValue();
     }
 
     /**
      * @param value The time at which the statement was made/recorded.
      */
-    public DeviceUseStatement setRecordedOn(DateAndTime value) { 
+    public DeviceUseStatement setRecordedOn(Date value) { 
       if (value == null)
         this.recordedOn = null;
       else {
@@ -399,7 +399,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -423,7 +423,7 @@ public class DeviceUseStatement extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseStatement.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -541,9 +541,9 @@ public class DeviceUseStatement extends DomainResource {
     return ResourceType.DeviceUseStatement;
    }
 
-  @SearchParamDefinition(name="patient", path="", description="Search by subject - a patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="DeviceUseStatement.subject", description="Search by subject - a patient", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="subject", path="", description="Search by subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="DeviceUseStatement.subject", description="Search by subject", type="reference" )
   public static final String SP_SUBJECT = "subject";
 
 }

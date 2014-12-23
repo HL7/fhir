@@ -663,10 +663,7 @@ public class SourceParser {
 		  if (!new File(srcDir + n).exists())
 		    errors.add("unable to find folder for resource "+n);
 		  else {
-		    if (new CSFile(srcDir + n + File.separatorChar + n	+ "-spreadsheet.xml").exists()) {
-		      checkFile("definition", srcDir + n+ File.separatorChar, n + "-spreadsheet.xml", errors, n);
-		    } else
-		      checkFile("definition", srcDir + n + File.separatorChar, n + "-def.xml", errors, n);
+        checkFile("spreadsheet definition", srcDir + n+ File.separatorChar, n + "-spreadsheet.xml", errors, n);
 		    checkFile("example xml", srcDir + n + File.separatorChar,	n + "-example.xml", errors, n);
 		    // now iterate all the files in the directory checking data
 

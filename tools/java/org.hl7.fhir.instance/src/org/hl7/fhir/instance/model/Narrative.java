@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -116,8 +116,8 @@ public class Narrative extends Element {
         }
     }
 
-  public static class NarrativeStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NarrativeStatusEnumFactory implements EnumFactory<NarrativeStatus> {
+    public NarrativeStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -129,9 +129,9 @@ public class Narrative extends Element {
           return NarrativeStatus.ADDITIONAL;
         if ("empty".equals(codeString))
           return NarrativeStatus.EMPTY;
-        throw new Exception("Unknown NarrativeStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NarrativeStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NarrativeStatus code) {
       if (code == NarrativeStatus.GENERATED)
         return "generated";
       if (code == NarrativeStatus.EXTENSIONS)
@@ -178,7 +178,7 @@ public class Narrative extends Element {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Narrative.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<NarrativeStatus>();
+          this.status = new Enumeration<NarrativeStatus>(new NarrativeStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -210,7 +210,7 @@ public class Narrative extends Element {
      */
     public Narrative setStatus(NarrativeStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<NarrativeStatus>();
+          this.status = new Enumeration<NarrativeStatus>(new NarrativeStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -223,7 +223,7 @@ public class Narrative extends Element {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Narrative.div");
         else if (Configuration.doAutoCreate())
-          this.div = new XhtmlNode();
+          this.div = new XhtmlNode(); // cc
       return this.div;
     }
 

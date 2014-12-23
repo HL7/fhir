@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class Questionnaire extends DomainResource {
         }
     }
 
-  public static class QuestionnaireStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class QuestionnaireStatusEnumFactory implements EnumFactory<QuestionnaireStatus> {
+    public QuestionnaireStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class Questionnaire extends DomainResource {
           return QuestionnaireStatus.PUBLISHED;
         if ("retired".equals(codeString))
           return QuestionnaireStatus.RETIRED;
-        throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(QuestionnaireStatus code) {
       if (code == QuestionnaireStatus.DRAFT)
         return "draft";
       if (code == QuestionnaireStatus.PUBLISHED)
@@ -303,8 +303,8 @@ public class Questionnaire extends DomainResource {
         }
     }
 
-  public static class AnswerFormatEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AnswerFormatEnumFactory implements EnumFactory<AnswerFormat> {
+    public AnswerFormat fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -336,9 +336,9 @@ public class Questionnaire extends DomainResource {
           return AnswerFormat.REFERENCE;
         if ("quantity".equals(codeString))
           return AnswerFormat.QUANTITY;
-        throw new Exception("Unknown AnswerFormat code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AnswerFormat code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AnswerFormat code) {
       if (code == AnswerFormat.BOOLEAN)
         return "boolean";
       if (code == AnswerFormat.DECIMAL)
@@ -374,10 +374,10 @@ public class Questionnaire extends DomainResource {
     @Block()
     public static class GroupComponent extends BackboneElement {
         /**
-         * A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         @Child(name="linkId", type={StringType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource." )
+        @Description(shortDefinition="To link questionnaire with questionnaire answers", formalDefinition="An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource." )
         protected StringType linkId;
 
         /**
@@ -436,14 +436,14 @@ public class Questionnaire extends DomainResource {
       }
 
         /**
-         * @return {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @return {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public StringType getLinkIdElement() { 
           if (this.linkId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.linkId");
             else if (Configuration.doAutoCreate())
-              this.linkId = new StringType();
+              this.linkId = new StringType(); // bb
           return this.linkId;
         }
 
@@ -456,7 +456,7 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @param value {@link #linkId} (A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
+         * @param value {@link #linkId} (An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.). This is the underlying object with id, value and extensions. The accessor "getLinkId" gives direct access to the value
          */
         public GroupComponent setLinkIdElement(StringType value) { 
           this.linkId = value;
@@ -464,14 +464,14 @@ public class Questionnaire extends DomainResource {
         }
 
         /**
-         * @return A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @return An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         public String getLinkId() { 
           return this.linkId == null ? null : this.linkId.getValue();
         }
 
         /**
-         * @param value A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
+         * @param value An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.
          */
         public GroupComponent setLinkId(String value) { 
           if (Utilities.noString(value))
@@ -492,7 +492,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.title");
             else if (Configuration.doAutoCreate())
-              this.title = new StringType();
+              this.title = new StringType(); // bb
           return this.title;
         }
 
@@ -571,7 +571,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -620,7 +620,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.required");
             else if (Configuration.doAutoCreate())
-              this.required = new BooleanType();
+              this.required = new BooleanType(); // bb
           return this.required;
         }
 
@@ -669,7 +669,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.repeats");
             else if (Configuration.doAutoCreate())
-              this.repeats = new BooleanType();
+              this.repeats = new BooleanType(); // bb
           return this.repeats;
         }
 
@@ -772,7 +772,7 @@ public class Questionnaire extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("linkId", "string", "A identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
+          childrenList.add(new Property("linkId", "string", "An identifier that is unique within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
           childrenList.add(new Property("title", "string", "The human-readable name for this section of the questionnaire.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("concept", "Coding", "Identifies a how this group of questions is known in a particular terminology such as LOINC.", 0, java.lang.Integer.MAX_VALUE, concept));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
@@ -894,7 +894,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.linkId");
             else if (Configuration.doAutoCreate())
-              this.linkId = new StringType();
+              this.linkId = new StringType(); // bb
           return this.linkId;
         }
 
@@ -973,7 +973,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -1022,7 +1022,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<AnswerFormat>();
+              this.type = new Enumeration<AnswerFormat>(new AnswerFormatEnumFactory()); // bb
           return this.type;
         }
 
@@ -1057,7 +1057,7 @@ public class Questionnaire extends DomainResource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<AnswerFormat>();
+              this.type = new Enumeration<AnswerFormat>(new AnswerFormatEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -1071,7 +1071,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.required");
             else if (Configuration.doAutoCreate())
-              this.required = new BooleanType();
+              this.required = new BooleanType(); // bb
           return this.required;
         }
 
@@ -1120,7 +1120,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.repeats");
             else if (Configuration.doAutoCreate())
-              this.repeats = new BooleanType();
+              this.repeats = new BooleanType(); // bb
           return this.repeats;
         }
 
@@ -1169,7 +1169,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.options");
             else if (Configuration.doAutoCreate())
-              this.options = new Reference();
+              this.options = new Reference(); // cc
           return this.options;
         }
 
@@ -1193,7 +1193,7 @@ public class Questionnaire extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.options");
             else if (Configuration.doAutoCreate())
-              this.optionsTarget = new ValueSet();
+              this.optionsTarget = new ValueSet(); // aa
           return this.optionsTarget;
         }
 
@@ -1370,7 +1370,7 @@ public class Questionnaire extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -1419,7 +1419,7 @@ public class Questionnaire extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<QuestionnaireStatus>();
+          this.status = new Enumeration<QuestionnaireStatus>(new QuestionnaireStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1451,7 +1451,7 @@ public class Questionnaire extends DomainResource {
      */
     public Questionnaire setStatus(QuestionnaireStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<QuestionnaireStatus>();
+          this.status = new Enumeration<QuestionnaireStatus>(new QuestionnaireStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1464,7 +1464,7 @@ public class Questionnaire extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1487,14 +1487,14 @@ public class Questionnaire extends DomainResource {
     /**
      * @return The date that this questionnaire was last changed.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this questionnaire was last changed.
      */
-    public Questionnaire setDate(DateAndTime value) { 
+    public Questionnaire setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1513,7 +1513,7 @@ public class Questionnaire extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -1562,7 +1562,7 @@ public class Questionnaire extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Questionnaire.group");
         else if (Configuration.doAutoCreate())
-          this.group = new GroupComponent();
+          this.group = new GroupComponent(); // cc
       return this.group;
     }
 

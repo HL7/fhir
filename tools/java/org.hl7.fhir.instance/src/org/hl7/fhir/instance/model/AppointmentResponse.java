@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class AppointmentResponse extends DomainResource {
         }
     }
 
-  public static class ParticipantstatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ParticipantstatusEnumFactory implements EnumFactory<Participantstatus> {
+    public Participantstatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class AppointmentResponse extends DomainResource {
           return Participantstatus.COMPLETED;
         if ("needs-action".equals(codeString))
           return Participantstatus.NEEDSACTION;
-        throw new Exception("Unknown Participantstatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Participantstatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Participantstatus code) {
       if (code == Participantstatus.ACCEPTED)
         return "accepted";
       if (code == Participantstatus.DECLINED)
@@ -308,7 +308,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.appointment");
         else if (Configuration.doAutoCreate())
-          this.appointment = new Reference();
+          this.appointment = new Reference(); // cc
       return this.appointment;
     }
 
@@ -332,7 +332,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.appointment");
         else if (Configuration.doAutoCreate())
-          this.appointmentTarget = new Appointment();
+          this.appointmentTarget = new Appointment(); // aa
       return this.appointmentTarget;
     }
 
@@ -421,7 +421,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.participantStatus");
         else if (Configuration.doAutoCreate())
-          this.participantStatus = new Enumeration<Participantstatus>();
+          this.participantStatus = new Enumeration<Participantstatus>(new ParticipantstatusEnumFactory()); // bb
       return this.participantStatus;
     }
 
@@ -453,7 +453,7 @@ public class AppointmentResponse extends DomainResource {
      */
     public AppointmentResponse setParticipantStatus(Participantstatus value) { 
         if (this.participantStatus == null)
-          this.participantStatus = new Enumeration<Participantstatus>();
+          this.participantStatus = new Enumeration<Participantstatus>(new ParticipantstatusEnumFactory());
         this.participantStatus.setValue(value);
       return this;
     }
@@ -466,7 +466,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType();
+          this.comment = new StringType(); // bb
       return this.comment;
     }
 
@@ -515,7 +515,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.start");
         else if (Configuration.doAutoCreate())
-          this.start = new InstantType();
+          this.start = new InstantType(); // bb
       return this.start;
     }
 
@@ -538,14 +538,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Date/Time that the appointment is to take place.
      */
-    public DateAndTime getStart() { 
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to take place.
      */
-    public AppointmentResponse setStart(DateAndTime value) { 
+    public AppointmentResponse setStart(Date value) { 
       if (value == null)
         this.start = null;
       else {
@@ -564,7 +564,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.end");
         else if (Configuration.doAutoCreate())
-          this.end = new InstantType();
+          this.end = new InstantType(); // bb
       return this.end;
     }
 
@@ -587,14 +587,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Date/Time that the appointment is to conclude.
      */
-    public DateAndTime getEnd() { 
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to conclude.
      */
-    public AppointmentResponse setEnd(DateAndTime value) { 
+    public AppointmentResponse setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {
@@ -613,7 +613,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.lastModifiedBy");
         else if (Configuration.doAutoCreate())
-          this.lastModifiedBy = new Reference();
+          this.lastModifiedBy = new Reference(); // cc
       return this.lastModifiedBy;
     }
 
@@ -652,7 +652,7 @@ public class AppointmentResponse extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.lastModified");
         else if (Configuration.doAutoCreate())
-          this.lastModified = new DateTimeType();
+          this.lastModified = new DateTimeType(); // bb
       return this.lastModified;
     }
 
@@ -675,14 +675,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Date when the response was recorded or last updated.
      */
-    public DateAndTime getLastModified() { 
+    public Date getLastModified() { 
       return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value Date when the response was recorded or last updated.
      */
-    public AppointmentResponse setLastModified(DateAndTime value) { 
+    public AppointmentResponse setLastModified(Date value) { 
       if (value == null)
         this.lastModified = null;
       else {

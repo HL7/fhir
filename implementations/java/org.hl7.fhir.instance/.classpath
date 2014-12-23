@@ -9,7 +9,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-logging-api-1.1.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/junit-4.11.jar"/>

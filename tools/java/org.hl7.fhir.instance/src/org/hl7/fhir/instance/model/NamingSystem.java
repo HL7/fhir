@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class NamingSystem extends DomainResource {
         }
     }
 
-  public static class NamingsystemTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NamingsystemTypeEnumFactory implements EnumFactory<NamingsystemType> {
+    public NamingsystemType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class NamingSystem extends DomainResource {
           return NamingsystemType.IDENTIFIER;
         if ("root".equals(codeString))
           return NamingsystemType.ROOT;
-        throw new Exception("Unknown NamingsystemType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NamingsystemType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NamingsystemType code) {
       if (code == NamingsystemType.CODESYSTEM)
         return "codesystem";
       if (code == NamingsystemType.IDENTIFIER)
@@ -193,8 +193,8 @@ public class NamingSystem extends DomainResource {
         }
     }
 
-  public static class NamingsystemStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NamingsystemStatusEnumFactory implements EnumFactory<NamingsystemStatus> {
+    public NamingsystemStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -204,9 +204,9 @@ public class NamingSystem extends DomainResource {
           return NamingsystemStatus.ACTIVE;
         if ("retired".equals(codeString))
           return NamingsystemStatus.RETIRED;
-        throw new Exception("Unknown NamingsystemStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NamingsystemStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NamingsystemStatus code) {
       if (code == NamingsystemStatus.PROPOSED)
         return "proposed";
       if (code == NamingsystemStatus.ACTIVE)
@@ -289,8 +289,8 @@ public class NamingSystem extends DomainResource {
         }
     }
 
-  public static class NamingsystemIdentifierTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NamingsystemIdentifierTypeEnumFactory implements EnumFactory<NamingsystemIdentifierType> {
+    public NamingsystemIdentifierType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -302,9 +302,9 @@ public class NamingSystem extends DomainResource {
           return NamingsystemIdentifierType.URI;
         if ("other".equals(codeString))
           return NamingsystemIdentifierType.OTHER;
-        throw new Exception("Unknown NamingsystemIdentifierType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NamingsystemIdentifierType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NamingsystemIdentifierType code) {
       if (code == NamingsystemIdentifierType.OID)
         return "oid";
       if (code == NamingsystemIdentifierType.UUID)
@@ -367,7 +367,7 @@ public class NamingSystem extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<NamingsystemIdentifierType>();
+              this.type = new Enumeration<NamingsystemIdentifierType>(new NamingsystemIdentifierTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -399,7 +399,7 @@ public class NamingSystem extends DomainResource {
          */
         public NamingSystemUniqueIdComponent setType(NamingsystemIdentifierType value) { 
             if (this.type == null)
-              this.type = new Enumeration<NamingsystemIdentifierType>();
+              this.type = new Enumeration<NamingsystemIdentifierType>(new NamingsystemIdentifierTypeEnumFactory());
             this.type.setValue(value);
           return this;
         }
@@ -412,7 +412,7 @@ public class NamingSystem extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new StringType();
+              this.value = new StringType(); // bb
           return this.value;
         }
 
@@ -457,7 +457,7 @@ public class NamingSystem extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.preferred");
             else if (Configuration.doAutoCreate())
-              this.preferred = new BooleanType();
+              this.preferred = new BooleanType(); // bb
           return this.preferred;
         }
 
@@ -506,7 +506,7 @@ public class NamingSystem extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -577,7 +577,7 @@ public class NamingSystem extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemContactComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new HumanName();
+              this.name = new HumanName(); // cc
           return this.name;
         }
 
@@ -751,7 +751,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<NamingsystemType>();
+          this.type = new Enumeration<NamingsystemType>(new NamingsystemTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -783,7 +783,7 @@ public class NamingSystem extends DomainResource {
      */
     public NamingSystem setType(NamingsystemType value) { 
         if (this.type == null)
-          this.type = new Enumeration<NamingsystemType>();
+          this.type = new Enumeration<NamingsystemType>(new NamingsystemTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -796,7 +796,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -841,7 +841,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<NamingsystemStatus>();
+          this.status = new Enumeration<NamingsystemStatus>(new NamingsystemStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -873,7 +873,7 @@ public class NamingSystem extends DomainResource {
      */
     public NamingSystem setStatus(NamingsystemStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<NamingsystemStatus>();
+          this.status = new Enumeration<NamingsystemStatus>(new NamingsystemStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -886,7 +886,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.country");
         else if (Configuration.doAutoCreate())
-          this.country = new CodeType();
+          this.country = new CodeType(); // bb
       return this.country;
     }
 
@@ -935,7 +935,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -959,7 +959,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.responsible");
         else if (Configuration.doAutoCreate())
-          this.responsible = new StringType();
+          this.responsible = new StringType(); // bb
       return this.responsible;
     }
 
@@ -1008,7 +1008,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -1057,7 +1057,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.usage");
         else if (Configuration.doAutoCreate())
-          this.usage = new StringType();
+          this.usage = new StringType(); // bb
       return this.usage;
     }
 
@@ -1136,7 +1136,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.contact");
         else if (Configuration.doAutoCreate())
-          this.contact = new NamingSystemContactComponent();
+          this.contact = new NamingSystemContactComponent(); // cc
       return this.contact;
     }
 
@@ -1160,7 +1160,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.replacedBy");
         else if (Configuration.doAutoCreate())
-          this.replacedBy = new Reference();
+          this.replacedBy = new Reference(); // cc
       return this.replacedBy;
     }
 
@@ -1184,7 +1184,7 @@ public class NamingSystem extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.replacedBy");
         else if (Configuration.doAutoCreate())
-          this.replacedByTarget = new NamingSystem();
+          this.replacedByTarget = new NamingSystem(); // aa
       return this.replacedByTarget;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class ConformanceStatementStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ConformanceStatementStatusEnumFactory implements EnumFactory<ConformanceStatementStatus> {
+    public ConformanceStatementStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class Conformance extends DomainResource {
           return ConformanceStatementStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ConformanceStatementStatus.RETIRED;
-        throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ConformanceStatementStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ConformanceStatementStatus code) {
       if (code == ConformanceStatementStatus.DRAFT)
         return "draft";
       if (code == ConformanceStatementStatus.ACTIVE)
@@ -183,8 +183,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class RestfulConformanceModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class RestfulConformanceModeEnumFactory implements EnumFactory<RestfulConformanceMode> {
+    public RestfulConformanceMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -192,9 +192,9 @@ public class Conformance extends DomainResource {
           return RestfulConformanceMode.CLIENT;
         if ("server".equals(codeString))
           return RestfulConformanceMode.SERVER;
-        throw new Exception("Unknown RestfulConformanceMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown RestfulConformanceMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(RestfulConformanceMode code) {
       if (code == RestfulConformanceMode.CLIENT)
         return "client";
       if (code == RestfulConformanceMode.SERVER)
@@ -325,8 +325,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class TypeRestfulInteractionEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class TypeRestfulInteractionEnumFactory implements EnumFactory<TypeRestfulInteraction> {
+    public TypeRestfulInteraction fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -348,9 +348,9 @@ public class Conformance extends DomainResource {
           return TypeRestfulInteraction.CREATE;
         if ("search-type".equals(codeString))
           return TypeRestfulInteraction.SEARCHTYPE;
-        throw new Exception("Unknown TypeRestfulInteraction code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown TypeRestfulInteraction code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(TypeRestfulInteraction code) {
       if (code == TypeRestfulInteraction.READ)
         return "read";
       if (code == TypeRestfulInteraction.VREAD)
@@ -435,8 +435,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class VersioningPolicyEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class VersioningPolicyEnumFactory implements EnumFactory<VersioningPolicy> {
+    public VersioningPolicy fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -446,9 +446,9 @@ public class Conformance extends DomainResource {
           return VersioningPolicy.VERSIONED;
         if ("versioned-update".equals(codeString))
           return VersioningPolicy.VERSIONEDUPDATE;
-        throw new Exception("Unknown VersioningPolicy code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown VersioningPolicy code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(VersioningPolicy code) {
       if (code == VersioningPolicy.NOVERSION)
         return "no-version";
       if (code == VersioningPolicy.VERSIONED)
@@ -561,8 +561,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class SearchParamTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SearchParamTypeEnumFactory implements EnumFactory<SearchParamType> {
+    public SearchParamType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -580,9 +580,9 @@ public class Conformance extends DomainResource {
           return SearchParamType.COMPOSITE;
         if ("quantity".equals(codeString))
           return SearchParamType.QUANTITY;
-        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SearchParamType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SearchParamType code) {
       if (code == SearchParamType.NUMBER)
         return "number";
       if (code == SearchParamType.DATE)
@@ -663,8 +663,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class SystemRestfulInteractionEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SystemRestfulInteractionEnumFactory implements EnumFactory<SystemRestfulInteraction> {
+    public SystemRestfulInteraction fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -674,9 +674,9 @@ public class Conformance extends DomainResource {
           return SystemRestfulInteraction.SEARCHSYSTEM;
         if ("history-system".equals(codeString))
           return SystemRestfulInteraction.HISTORYSYSTEM;
-        throw new Exception("Unknown SystemRestfulInteraction code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SystemRestfulInteraction code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SystemRestfulInteraction code) {
       if (code == SystemRestfulInteraction.TRANSACTION)
         return "transaction";
       if (code == SystemRestfulInteraction.SEARCHSYSTEM)
@@ -749,8 +749,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class MessageSignificanceCategoryEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MessageSignificanceCategoryEnumFactory implements EnumFactory<MessageSignificanceCategory> {
+    public MessageSignificanceCategory fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -760,9 +760,9 @@ public class Conformance extends DomainResource {
           return MessageSignificanceCategory.CURRENCY;
         if ("Notification".equals(codeString))
           return MessageSignificanceCategory.NOTIFICATION;
-        throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MessageSignificanceCategory code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MessageSignificanceCategory code) {
       if (code == MessageSignificanceCategory.CONSEQUENCE)
         return "Consequence";
       if (code == MessageSignificanceCategory.CURRENCY)
@@ -825,8 +825,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class MessageConformanceEventModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MessageConformanceEventModeEnumFactory implements EnumFactory<MessageConformanceEventMode> {
+    public MessageConformanceEventMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -834,9 +834,9 @@ public class Conformance extends DomainResource {
           return MessageConformanceEventMode.SENDER;
         if ("receiver".equals(codeString))
           return MessageConformanceEventMode.RECEIVER;
-        throw new Exception("Unknown MessageConformanceEventMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MessageConformanceEventMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MessageConformanceEventMode code) {
       if (code == MessageConformanceEventMode.SENDER)
         return "sender";
       if (code == MessageConformanceEventMode.RECEIVER)
@@ -897,8 +897,8 @@ public class Conformance extends DomainResource {
         }
     }
 
-  public static class DocumentModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DocumentModeEnumFactory implements EnumFactory<DocumentMode> {
+    public DocumentMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -906,9 +906,9 @@ public class Conformance extends DomainResource {
           return DocumentMode.PRODUCER;
         if ("consumer".equals(codeString))
           return DocumentMode.CONSUMER;
-        throw new Exception("Unknown DocumentMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DocumentMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DocumentMode code) {
       if (code == DocumentMode.PRODUCER)
         return "producer";
       if (code == DocumentMode.CONSUMER)
@@ -959,7 +959,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -1004,7 +1004,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.version");
             else if (Configuration.doAutoCreate())
-              this.version = new StringType();
+              this.version = new StringType(); // bb
           return this.version;
         }
 
@@ -1053,7 +1053,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceSoftwareComponent.releaseDate");
             else if (Configuration.doAutoCreate())
-              this.releaseDate = new DateTimeType();
+              this.releaseDate = new DateTimeType(); // bb
           return this.releaseDate;
         }
 
@@ -1076,14 +1076,14 @@ public class Conformance extends DomainResource {
         /**
          * @return Date this version of the software released.
          */
-        public DateAndTime getReleaseDate() { 
+        public Date getReleaseDate() { 
           return this.releaseDate == null ? null : this.releaseDate.getValue();
         }
 
         /**
          * @param value Date this version of the software released.
          */
-        public ConformanceSoftwareComponent setReleaseDate(DateAndTime value) { 
+        public ConformanceSoftwareComponent setReleaseDate(Date value) { 
           if (value == null)
             this.releaseDate = null;
           else {
@@ -1152,7 +1152,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceImplementationComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -1197,7 +1197,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceImplementationComponent.url");
             else if (Configuration.doAutoCreate())
-              this.url = new UriType();
+              this.url = new UriType(); // bb
           return this.url;
         }
 
@@ -1329,7 +1329,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.mode");
             else if (Configuration.doAutoCreate())
-              this.mode = new Enumeration<RestfulConformanceMode>();
+              this.mode = new Enumeration<RestfulConformanceMode>(new RestfulConformanceModeEnumFactory()); // bb
           return this.mode;
         }
 
@@ -1361,7 +1361,7 @@ public class Conformance extends DomainResource {
          */
         public ConformanceRestComponent setMode(RestfulConformanceMode value) { 
             if (this.mode == null)
-              this.mode = new Enumeration<RestfulConformanceMode>();
+              this.mode = new Enumeration<RestfulConformanceMode>(new RestfulConformanceModeEnumFactory());
             this.mode.setValue(value);
           return this;
         }
@@ -1374,7 +1374,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -1423,7 +1423,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestComponent.security");
             else if (Configuration.doAutoCreate())
-              this.security = new ConformanceRestSecurityComponent();
+              this.security = new ConformanceRestSecurityComponent(); // cc
           return this.security;
         }
 
@@ -1676,7 +1676,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.cors");
             else if (Configuration.doAutoCreate())
-              this.cors = new BooleanType();
+              this.cors = new BooleanType(); // bb
           return this.cors;
         }
 
@@ -1755,7 +1755,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -1890,7 +1890,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType();
+              this.type = new CodeType(); // bb
           return this.type;
         }
 
@@ -1939,7 +1939,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestSecurityCertificateComponent.blob");
             else if (Configuration.doAutoCreate())
-              this.blob = new Base64BinaryType();
+              this.blob = new Base64BinaryType(); // bb
           return this.blob;
         }
 
@@ -2083,7 +2083,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType();
+              this.type = new CodeType(); // bb
           return this.type;
         }
 
@@ -2128,7 +2128,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profile = new Reference();
+              this.profile = new Reference(); // cc
           return this.profile;
         }
 
@@ -2152,7 +2152,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile();
+              this.profileTarget = new Profile(); // aa
           return this.profileTarget;
         }
 
@@ -2202,7 +2202,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.versioning");
             else if (Configuration.doAutoCreate())
-              this.versioning = new Enumeration<VersioningPolicy>();
+              this.versioning = new Enumeration<VersioningPolicy>(new VersioningPolicyEnumFactory()); // bb
           return this.versioning;
         }
 
@@ -2237,7 +2237,7 @@ public class Conformance extends DomainResource {
             this.versioning = null;
           else {
             if (this.versioning == null)
-              this.versioning = new Enumeration<VersioningPolicy>();
+              this.versioning = new Enumeration<VersioningPolicy>(new VersioningPolicyEnumFactory());
             this.versioning.setValue(value);
           }
           return this;
@@ -2251,7 +2251,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.readHistory");
             else if (Configuration.doAutoCreate())
-              this.readHistory = new BooleanType();
+              this.readHistory = new BooleanType(); // bb
           return this.readHistory;
         }
 
@@ -2300,7 +2300,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceComponent.updateCreate");
             else if (Configuration.doAutoCreate())
-              this.updateCreate = new BooleanType();
+              this.updateCreate = new BooleanType(); // bb
           return this.updateCreate;
         }
 
@@ -2508,7 +2508,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceInteractionComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<TypeRestfulInteraction>();
+              this.code = new Enumeration<TypeRestfulInteraction>(new TypeRestfulInteractionEnumFactory()); // bb
           return this.code;
         }
 
@@ -2540,7 +2540,7 @@ public class Conformance extends DomainResource {
          */
         public ResourceInteractionComponent setCode(TypeRestfulInteraction value) { 
             if (this.code == null)
-              this.code = new Enumeration<TypeRestfulInteraction>();
+              this.code = new Enumeration<TypeRestfulInteraction>(new TypeRestfulInteractionEnumFactory());
             this.code.setValue(value);
           return this;
         }
@@ -2553,7 +2553,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceInteractionComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -2679,7 +2679,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -2724,7 +2724,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definition = new UriType();
+              this.definition = new UriType(); // bb
           return this.definition;
         }
 
@@ -2773,7 +2773,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<SearchParamType>();
+              this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -2805,7 +2805,7 @@ public class Conformance extends DomainResource {
          */
         public ConformanceRestResourceSearchParamComponent setType(SearchParamType value) { 
             if (this.type == null)
-              this.type = new Enumeration<SearchParamType>();
+              this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
             this.type.setValue(value);
           return this;
         }
@@ -2818,7 +2818,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestResourceSearchParamComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -3040,7 +3040,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SystemInteractionComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<SystemRestfulInteraction>();
+              this.code = new Enumeration<SystemRestfulInteraction>(new SystemRestfulInteractionEnumFactory()); // bb
           return this.code;
         }
 
@@ -3072,7 +3072,7 @@ public class Conformance extends DomainResource {
          */
         public SystemInteractionComponent setCode(SystemRestfulInteraction value) { 
             if (this.code == null)
-              this.code = new Enumeration<SystemRestfulInteraction>();
+              this.code = new Enumeration<SystemRestfulInteraction>(new SystemRestfulInteractionEnumFactory());
             this.code.setValue(value);
           return this;
         }
@@ -3085,7 +3085,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SystemInteractionComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -3188,7 +3188,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -3233,7 +3233,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definition = new Reference();
+              this.definition = new Reference(); // cc
           return this.definition;
         }
 
@@ -3257,7 +3257,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceRestOperationComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definitionTarget = new OperationDefinition();
+              this.definitionTarget = new OperationDefinition(); // aa
           return this.definitionTarget;
         }
 
@@ -3334,7 +3334,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.endpoint");
             else if (Configuration.doAutoCreate())
-              this.endpoint = new UriType();
+              this.endpoint = new UriType(); // bb
           return this.endpoint;
         }
 
@@ -3383,7 +3383,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.reliableCache");
             else if (Configuration.doAutoCreate())
-              this.reliableCache = new IntegerType();
+              this.reliableCache = new IntegerType(); // bb
           return this.reliableCache;
         }
 
@@ -3432,7 +3432,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -3624,7 +3624,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Coding();
+              this.code = new Coding(); // cc
           return this.code;
         }
 
@@ -3648,7 +3648,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.category");
             else if (Configuration.doAutoCreate())
-              this.category = new Enumeration<MessageSignificanceCategory>();
+              this.category = new Enumeration<MessageSignificanceCategory>(new MessageSignificanceCategoryEnumFactory()); // bb
           return this.category;
         }
 
@@ -3683,7 +3683,7 @@ public class Conformance extends DomainResource {
             this.category = null;
           else {
             if (this.category == null)
-              this.category = new Enumeration<MessageSignificanceCategory>();
+              this.category = new Enumeration<MessageSignificanceCategory>(new MessageSignificanceCategoryEnumFactory());
             this.category.setValue(value);
           }
           return this;
@@ -3697,7 +3697,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.mode");
             else if (Configuration.doAutoCreate())
-              this.mode = new Enumeration<MessageConformanceEventMode>();
+              this.mode = new Enumeration<MessageConformanceEventMode>(new MessageConformanceEventModeEnumFactory()); // bb
           return this.mode;
         }
 
@@ -3729,7 +3729,7 @@ public class Conformance extends DomainResource {
          */
         public ConformanceMessagingEventComponent setMode(MessageConformanceEventMode value) { 
             if (this.mode == null)
-              this.mode = new Enumeration<MessageConformanceEventMode>();
+              this.mode = new Enumeration<MessageConformanceEventMode>(new MessageConformanceEventModeEnumFactory());
             this.mode.setValue(value);
           return this;
         }
@@ -3772,7 +3772,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.focus");
             else if (Configuration.doAutoCreate())
-              this.focus = new CodeType();
+              this.focus = new CodeType(); // bb
           return this.focus;
         }
 
@@ -3817,7 +3817,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
             else if (Configuration.doAutoCreate())
-              this.request = new Reference();
+              this.request = new Reference(); // cc
           return this.request;
         }
 
@@ -3841,7 +3841,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.request");
             else if (Configuration.doAutoCreate())
-              this.requestTarget = new Profile();
+              this.requestTarget = new Profile(); // aa
           return this.requestTarget;
         }
 
@@ -3861,7 +3861,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
             else if (Configuration.doAutoCreate())
-              this.response = new Reference();
+              this.response = new Reference(); // cc
           return this.response;
         }
 
@@ -3885,7 +3885,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.response");
             else if (Configuration.doAutoCreate())
-              this.responseTarget = new Profile();
+              this.responseTarget = new Profile(); // aa
           return this.responseTarget;
         }
 
@@ -3905,7 +3905,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceMessagingEventComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -4033,7 +4033,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.mode");
             else if (Configuration.doAutoCreate())
-              this.mode = new Enumeration<DocumentMode>();
+              this.mode = new Enumeration<DocumentMode>(new DocumentModeEnumFactory()); // bb
           return this.mode;
         }
 
@@ -4065,7 +4065,7 @@ public class Conformance extends DomainResource {
          */
         public ConformanceDocumentComponent setMode(DocumentMode value) { 
             if (this.mode == null)
-              this.mode = new Enumeration<DocumentMode>();
+              this.mode = new Enumeration<DocumentMode>(new DocumentModeEnumFactory());
             this.mode.setValue(value);
           return this;
         }
@@ -4078,7 +4078,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -4127,7 +4127,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profile = new Reference();
+              this.profile = new Reference(); // cc
           return this.profile;
         }
 
@@ -4151,7 +4151,7 @@ public class Conformance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConformanceDocumentComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile();
+              this.profileTarget = new Profile(); // aa
           return this.profileTarget;
         }
 
@@ -4339,7 +4339,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new StringType();
+          this.identifier = new StringType(); // bb
       return this.identifier;
     }
 
@@ -4388,7 +4388,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -4437,7 +4437,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -4486,7 +4486,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -4561,7 +4561,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -4610,7 +4610,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConformanceStatementStatus>();
+          this.status = new Enumeration<ConformanceStatementStatus>(new ConformanceStatementStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -4645,7 +4645,7 @@ public class Conformance extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<ConformanceStatementStatus>();
+          this.status = new Enumeration<ConformanceStatementStatus>(new ConformanceStatementStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -4659,7 +4659,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -4708,7 +4708,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -4731,14 +4731,14 @@ public class Conformance extends DomainResource {
     /**
      * @return The date  (and optionally time) when the conformance statement was published.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date  (and optionally time) when the conformance statement was published.
      */
-    public Conformance setDate(DateAndTime value) { 
+    public Conformance setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -4753,7 +4753,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.software");
         else if (Configuration.doAutoCreate())
-          this.software = new ConformanceSoftwareComponent();
+          this.software = new ConformanceSoftwareComponent(); // cc
       return this.software;
     }
 
@@ -4777,7 +4777,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.implementation");
         else if (Configuration.doAutoCreate())
-          this.implementation = new ConformanceImplementationComponent();
+          this.implementation = new ConformanceImplementationComponent(); // cc
       return this.implementation;
     }
 
@@ -4801,7 +4801,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new IdType();
+          this.fhirVersion = new IdType(); // bb
       return this.fhirVersion;
     }
 
@@ -4846,7 +4846,7 @@ public class Conformance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Conformance.acceptUnknown");
         else if (Configuration.doAutoCreate())
-          this.acceptUnknown = new BooleanType();
+          this.acceptUnknown = new BooleanType(); // bb
       return this.acceptUnknown;
     }
 

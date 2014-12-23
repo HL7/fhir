@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class OperationDefinition extends DomainResource {
         }
     }
 
-  public static class ResourceProfileStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ResourceProfileStatusEnumFactory implements EnumFactory<ResourceProfileStatus> {
+    public ResourceProfileStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class OperationDefinition extends DomainResource {
           return ResourceProfileStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ResourceProfileStatus.RETIRED;
-        throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ResourceProfileStatus code) {
       if (code == ResourceProfileStatus.DRAFT)
         return "draft";
       if (code == ResourceProfileStatus.ACTIVE)
@@ -183,8 +183,8 @@ public class OperationDefinition extends DomainResource {
         }
     }
 
-  public static class OperationKindEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class OperationKindEnumFactory implements EnumFactory<OperationKind> {
+    public OperationKind fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -192,9 +192,9 @@ public class OperationDefinition extends DomainResource {
           return OperationKind.OPERATION;
         if ("query".equals(codeString))
           return OperationKind.QUERY;
-        throw new Exception("Unknown OperationKind code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown OperationKind code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(OperationKind code) {
       if (code == OperationKind.OPERATION)
         return "operation";
       if (code == OperationKind.QUERY)
@@ -255,8 +255,8 @@ public class OperationDefinition extends DomainResource {
         }
     }
 
-  public static class OperationParameterUseEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class OperationParameterUseEnumFactory implements EnumFactory<OperationParameterUse> {
+    public OperationParameterUse fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -264,9 +264,9 @@ public class OperationDefinition extends DomainResource {
           return OperationParameterUse.IN;
         if ("out".equals(codeString))
           return OperationParameterUse.OUT;
-        throw new Exception("Unknown OperationParameterUse code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown OperationParameterUse code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(OperationParameterUse code) {
       if (code == OperationParameterUse.IN)
         return "in";
       if (code == OperationParameterUse.OUT)
@@ -360,7 +360,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new CodeType();
+              this.name = new CodeType(); // bb
           return this.name;
         }
 
@@ -405,7 +405,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.use");
             else if (Configuration.doAutoCreate())
-              this.use = new Enumeration<OperationParameterUse>();
+              this.use = new Enumeration<OperationParameterUse>(new OperationParameterUseEnumFactory()); // bb
           return this.use;
         }
 
@@ -437,7 +437,7 @@ public class OperationDefinition extends DomainResource {
          */
         public OperationDefinitionParameterComponent setUse(OperationParameterUse value) { 
             if (this.use == null)
-              this.use = new Enumeration<OperationParameterUse>();
+              this.use = new Enumeration<OperationParameterUse>(new OperationParameterUseEnumFactory());
             this.use.setValue(value);
           return this;
         }
@@ -450,7 +450,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.min");
             else if (Configuration.doAutoCreate())
-              this.min = new IntegerType();
+              this.min = new IntegerType(); // bb
           return this.min;
         }
 
@@ -495,7 +495,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.max");
             else if (Configuration.doAutoCreate())
-              this.max = new StringType();
+              this.max = new StringType(); // bb
           return this.max;
         }
 
@@ -540,7 +540,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -589,7 +589,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType();
+              this.type = new CodeType(); // bb
           return this.type;
         }
 
@@ -638,7 +638,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profile = new Reference();
+              this.profile = new Reference(); // cc
           return this.profile;
         }
 
@@ -662,7 +662,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile();
+              this.profileTarget = new Profile(); // aa
           return this.profileTarget;
         }
 
@@ -814,7 +814,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new CodeType();
+              this.name = new CodeType(); // bb
           return this.name;
         }
 
@@ -859,7 +859,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.min");
             else if (Configuration.doAutoCreate())
-              this.min = new IntegerType();
+              this.min = new IntegerType(); // bb
           return this.min;
         }
 
@@ -904,7 +904,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.max");
             else if (Configuration.doAutoCreate())
-              this.max = new StringType();
+              this.max = new StringType(); // bb
           return this.max;
         }
 
@@ -949,7 +949,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType();
+              this.documentation = new StringType(); // bb
           return this.documentation;
         }
 
@@ -998,7 +998,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType();
+              this.type = new CodeType(); // bb
           return this.type;
         }
 
@@ -1043,7 +1043,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profile = new Reference();
+              this.profile = new Reference(); // cc
           return this.profile;
         }
 
@@ -1067,7 +1067,7 @@ public class OperationDefinition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterPartComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profileTarget = new Profile();
+              this.profileTarget = new Profile(); // aa
           return this.profileTarget;
         }
 
@@ -1264,7 +1264,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new UriType();
+          this.identifier = new UriType(); // bb
       return this.identifier;
     }
 
@@ -1313,7 +1313,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -1362,7 +1362,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.title");
         else if (Configuration.doAutoCreate())
-          this.title = new StringType();
+          this.title = new StringType(); // bb
       return this.title;
     }
 
@@ -1407,7 +1407,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -1486,7 +1486,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -1565,7 +1565,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1597,7 +1597,7 @@ public class OperationDefinition extends DomainResource {
      */
     public OperationDefinition setStatus(ResourceProfileStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ResourceProfileStatus>();
+          this.status = new Enumeration<ResourceProfileStatus>(new ResourceProfileStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1610,7 +1610,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -1659,7 +1659,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1682,14 +1682,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The date that this version of the profile was published.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that this version of the profile was published.
      */
-    public OperationDefinition setDate(DateAndTime value) { 
+    public OperationDefinition setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1708,7 +1708,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.kind");
         else if (Configuration.doAutoCreate())
-          this.kind = new Enumeration<OperationKind>();
+          this.kind = new Enumeration<OperationKind>(new OperationKindEnumFactory()); // bb
       return this.kind;
     }
 
@@ -1740,7 +1740,7 @@ public class OperationDefinition extends DomainResource {
      */
     public OperationDefinition setKind(OperationKind value) { 
         if (this.kind == null)
-          this.kind = new Enumeration<OperationKind>();
+          this.kind = new Enumeration<OperationKind>(new OperationKindEnumFactory());
         this.kind.setValue(value);
       return this;
     }
@@ -1753,7 +1753,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.name");
         else if (Configuration.doAutoCreate())
-          this.name = new CodeType();
+          this.name = new CodeType(); // bb
       return this.name;
     }
 
@@ -1798,7 +1798,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 
@@ -1847,7 +1847,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.base");
         else if (Configuration.doAutoCreate())
-          this.base = new Reference();
+          this.base = new Reference(); // cc
       return this.base;
     }
 
@@ -1871,7 +1871,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.base");
         else if (Configuration.doAutoCreate())
-          this.baseTarget = new OperationDefinition();
+          this.baseTarget = new OperationDefinition(); // aa
       return this.baseTarget;
     }
 
@@ -1891,7 +1891,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.system");
         else if (Configuration.doAutoCreate())
-          this.system = new BooleanType();
+          this.system = new BooleanType(); // bb
       return this.system;
     }
 
@@ -1990,7 +1990,7 @@ public class OperationDefinition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.instance");
         else if (Configuration.doAutoCreate())
-          this.instance = new BooleanType();
+          this.instance = new BooleanType(); // bb
       return this.instance;
     }
 

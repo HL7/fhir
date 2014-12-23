@@ -96,7 +96,6 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -4231,7 +4230,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+filename+s3;
       else if (com[0].equals("date")) {
         if (ed.hasDate())
-          src = s1+ed.getDate().toHumanDisplay()+s3;
+          src = s1+ed.getDateElement().toHumanDisplay()+s3;
         else
           src = s1+"[no date]"+s3;
       } else if (com[0].equals("version"))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -177,8 +177,8 @@ public class DeviceUseRequest extends DomainResource {
         }
     }
 
-  public static class DeviceUseRequestStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DeviceUseRequestStatusEnumFactory implements EnumFactory<DeviceUseRequestStatus> {
+    public DeviceUseRequestStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -202,9 +202,9 @@ public class DeviceUseRequest extends DomainResource {
           return DeviceUseRequestStatus.REJECTED;
         if ("aborted".equals(codeString))
           return DeviceUseRequestStatus.ABORTED;
-        throw new Exception("Unknown DeviceUseRequestStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DeviceUseRequestStatus code) {
       if (code == DeviceUseRequestStatus.PROPOSED)
         return "proposed";
       if (code == DeviceUseRequestStatus.PLANNED)
@@ -301,8 +301,8 @@ public class DeviceUseRequest extends DomainResource {
         }
     }
 
-  public static class DeviceUseRequestPriorityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DeviceUseRequestPriorityEnumFactory implements EnumFactory<DeviceUseRequestPriority> {
+    public DeviceUseRequestPriority fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -314,9 +314,9 @@ public class DeviceUseRequest extends DomainResource {
           return DeviceUseRequestPriority.STAT;
         if ("asap".equals(codeString))
           return DeviceUseRequestPriority.ASAP;
-        throw new Exception("Unknown DeviceUseRequestPriority code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DeviceUseRequestPriority code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DeviceUseRequestPriority code) {
       if (code == DeviceUseRequestPriority.ROUTINE)
         return "routine";
       if (code == DeviceUseRequestPriority.URGENT)
@@ -485,7 +485,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DeviceUseRequestStatus>();
+          this.status = new Enumeration<DeviceUseRequestStatus>(new DeviceUseRequestStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -520,7 +520,7 @@ public class DeviceUseRequest extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<DeviceUseRequestStatus>();
+          this.status = new Enumeration<DeviceUseRequestStatus>(new DeviceUseRequestStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -534,7 +534,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.device");
         else if (Configuration.doAutoCreate())
-          this.device = new Reference();
+          this.device = new Reference(); // cc
       return this.device;
     }
 
@@ -558,7 +558,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.device");
         else if (Configuration.doAutoCreate())
-          this.deviceTarget = new Device();
+          this.deviceTarget = new Device(); // aa
       return this.deviceTarget;
     }
 
@@ -578,7 +578,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -602,7 +602,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -766,7 +766,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.orderedOn");
         else if (Configuration.doAutoCreate())
-          this.orderedOn = new DateTimeType();
+          this.orderedOn = new DateTimeType(); // bb
       return this.orderedOn;
     }
 
@@ -789,14 +789,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public DateAndTime getOrderedOn() { 
+    public Date getOrderedOn() { 
       return this.orderedOn == null ? null : this.orderedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public DeviceUseRequest setOrderedOn(DateAndTime value) { 
+    public DeviceUseRequest setOrderedOn(Date value) { 
       if (value == null)
         this.orderedOn = null;
       else {
@@ -815,7 +815,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.recordedOn");
         else if (Configuration.doAutoCreate())
-          this.recordedOn = new DateTimeType();
+          this.recordedOn = new DateTimeType(); // bb
       return this.recordedOn;
     }
 
@@ -838,14 +838,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return The time at which the request was made/recorded.
      */
-    public DateAndTime getRecordedOn() { 
+    public Date getRecordedOn() { 
       return this.recordedOn == null ? null : this.recordedOn.getValue();
     }
 
     /**
      * @param value The time at which the request was made/recorded.
      */
-    public DeviceUseRequest setRecordedOn(DateAndTime value) { 
+    public DeviceUseRequest setRecordedOn(Date value) { 
       if (value == null)
         this.recordedOn = null;
       else {
@@ -864,7 +864,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -888,7 +888,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -954,7 +954,7 @@ public class DeviceUseRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Enumeration<DeviceUseRequestPriority>();
+          this.priority = new Enumeration<DeviceUseRequestPriority>(new DeviceUseRequestPriorityEnumFactory()); // bb
       return this.priority;
     }
 
@@ -989,7 +989,7 @@ public class DeviceUseRequest extends DomainResource {
         this.priority = null;
       else {
         if (this.priority == null)
-          this.priority = new Enumeration<DeviceUseRequestPriority>();
+          this.priority = new Enumeration<DeviceUseRequestPriority>(new DeviceUseRequestPriorityEnumFactory());
         this.priority.setValue(value);
       }
       return this;

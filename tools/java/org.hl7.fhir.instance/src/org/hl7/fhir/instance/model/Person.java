@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Person extends DomainResource {
         }
     }
 
-  public static class AdministrativeGenderEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class AdministrativeGenderEnumFactory implements EnumFactory<AdministrativeGender> {
+    public AdministrativeGender fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Person extends DomainResource {
           return AdministrativeGender.OTHER;
         if ("unknown".equals(codeString))
           return AdministrativeGender.UNKNOWN;
-        throw new Exception("Unknown AdministrativeGender code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown AdministrativeGender code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(AdministrativeGender code) {
       if (code == AdministrativeGender.MALE)
         return "male";
       if (code == AdministrativeGender.FEMALE)
@@ -217,8 +217,8 @@ public class Person extends DomainResource {
         }
     }
 
-  public static class IdentityAssuranceLevelEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class IdentityAssuranceLevelEnumFactory implements EnumFactory<IdentityAssuranceLevel> {
+    public IdentityAssuranceLevel fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -230,9 +230,9 @@ public class Person extends DomainResource {
           return IdentityAssuranceLevel.LEVEL3;
         if ("level4".equals(codeString))
           return IdentityAssuranceLevel.LEVEL4;
-        throw new Exception("Unknown IdentityAssuranceLevel code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown IdentityAssuranceLevel code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(IdentityAssuranceLevel code) {
       if (code == IdentityAssuranceLevel.LEVEL1)
         return "level1";
       if (code == IdentityAssuranceLevel.LEVEL2)
@@ -285,7 +285,7 @@ public class Person extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PersonLinkComponent.other");
             else if (Configuration.doAutoCreate())
-              this.other = new Reference();
+              this.other = new Reference(); // cc
           return this.other;
         }
 
@@ -324,7 +324,7 @@ public class Person extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PersonLinkComponent.assurance");
             else if (Configuration.doAutoCreate())
-              this.assurance = new Enumeration<IdentityAssuranceLevel>();
+              this.assurance = new Enumeration<IdentityAssuranceLevel>(new IdentityAssuranceLevelEnumFactory()); // bb
           return this.assurance;
         }
 
@@ -359,7 +359,7 @@ public class Person extends DomainResource {
             this.assurance = null;
           else {
             if (this.assurance == null)
-              this.assurance = new Enumeration<IdentityAssuranceLevel>();
+              this.assurance = new Enumeration<IdentityAssuranceLevel>(new IdentityAssuranceLevelEnumFactory());
             this.assurance.setValue(value);
           }
           return this;
@@ -565,7 +565,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.gender");
         else if (Configuration.doAutoCreate())
-          this.gender = new Enumeration<AdministrativeGender>();
+          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
       return this.gender;
     }
 
@@ -600,7 +600,7 @@ public class Person extends DomainResource {
         this.gender = null;
       else {
         if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>();
+          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
         this.gender.setValue(value);
       }
       return this;
@@ -614,7 +614,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.birthDate");
         else if (Configuration.doAutoCreate())
-          this.birthDate = new DateTimeType();
+          this.birthDate = new DateTimeType(); // bb
       return this.birthDate;
     }
 
@@ -637,14 +637,14 @@ public class Person extends DomainResource {
     /**
      * @return The birth date for the person.
      */
-    public DateAndTime getBirthDate() { 
+    public Date getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The birth date for the person.
      */
-    public Person setBirthDate(DateAndTime value) { 
+    public Person setBirthDate(Date value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -693,7 +693,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.photo");
         else if (Configuration.doAutoCreate())
-          this.photo = new Attachment();
+          this.photo = new Attachment(); // cc
       return this.photo;
     }
 
@@ -717,7 +717,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganization = new Reference();
+          this.managingOrganization = new Reference(); // cc
       return this.managingOrganization;
     }
 
@@ -741,7 +741,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.managingOrganization");
         else if (Configuration.doAutoCreate())
-          this.managingOrganizationTarget = new Organization();
+          this.managingOrganizationTarget = new Organization(); // aa
       return this.managingOrganizationTarget;
     }
 
@@ -761,7 +761,7 @@ public class Person extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.active");
         else if (Configuration.doAutoCreate())
-          this.active = new BooleanType();
+          this.active = new BooleanType(); // bb
       return this.active;
     }
 

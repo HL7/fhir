@@ -30,72 +30,60 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 /**
- * Primitive type "code" in FHIR, where the code is tied to an enumerated list of possible valuse
+ * Primitive type "code" in FHIR, where the code is tied to an enumerated list of possible values
  * 
  */
-public class Enumeration<T extends Enum<?>> extends PrimitiveType {
+public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> {
 
-  private static final long serialVersionUID = 5502756236610771914L;
-  
+	private static final long serialVersionUID = 1L;
+	private EnumFactory<T> myEnumFactory;
+
 	/**
-	 * the actual value of the enumeration
+	 * Constructor
 	 */
-  private T value;
-  
-  public Enumeration() {
-  }
-  
-  /**
-   * @param value the value of the enumeration
-   */
-  public Enumeration(T value) {
-  	this.value = value;
-  }
-  
-  /**
-   * @return the value of the enumeration
-   */
-  public T getValue() {
-    return value;
-  }
-  
-  /**
-   * @param value the value of the enumeration
-   */
-  public void setValue(T value) {
-    this.value = value;
-  }
-  
-	@Override
-  public Enumeration<T> copy() {
-		Enumeration<T> dst = new Enumeration<T>();
-		dst.value = value;
-		return dst;
+	public Enumeration(EnumFactory<T> theEnumFactory) {
+		if (theEnumFactory == null)
+			throw new IllegalArgumentException("An enumeration factory must be provided");
+		myEnumFactory = theEnumFactory;
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Enumeration(EnumFactory<T> theEnumFactory, T theValue) {
+		if (theEnumFactory == null)
+			throw new IllegalArgumentException("An enumeration factory must be provided");
+		myEnumFactory = theEnumFactory;
+		setValue(theValue);
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Enumeration(EnumFactory<T> theEnumFactory, String theValue) {
+		if (theEnumFactory == null)
+			throw new IllegalArgumentException("An enumeration factory must be provided");
+		myEnumFactory = theEnumFactory;
+		setValueAsString(theValue);
 	}
 
 	@Override
-  protected Type typedCopy() {
-	  return copy();
-  }
-
-  @Override
-  public String asStringValue() {
-    EnumFactory factory = ResourceEnumerations.getEnumFactory(value.getClass());
-    if (factory != null)
-      try {
-        return factory.toCode(value);
-      } catch (Exception e) {
-      }
-    return value.toString();
-  }
-  
-	public boolean isEmpty() {
-		return super.isEmpty() && (value == null || value.toString().equals("NULL"));
+	protected T parse(String theValue) {
+		if (myEnumFactory != null) {
+			return myEnumFactory.fromCode(theValue);
+		}
+		return null;
 	}
 
-	public boolean hasValue() {
-		return value != null & !value.toString().equals("NULL");
+	@Override
+	protected String encode(T theValue) {
+		return myEnumFactory.toCode(theValue);
 	}
-	
+
+	@Override
+	public Enumeration<T> copy() {
+		return new Enumeration<T>(myEnumFactory, getValue());
+	}
+
 
 }

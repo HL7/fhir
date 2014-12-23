@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -200,7 +200,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -224,7 +224,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.manufacturer");
         else if (Configuration.doAutoCreate())
-          this.manufacturer = new StringType();
+          this.manufacturer = new StringType(); // bb
       return this.manufacturer;
     }
 
@@ -273,7 +273,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.model");
         else if (Configuration.doAutoCreate())
-          this.model = new StringType();
+          this.model = new StringType(); // bb
       return this.model;
     }
 
@@ -322,7 +322,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -371,7 +371,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.expiry");
         else if (Configuration.doAutoCreate())
-          this.expiry = new DateType();
+          this.expiry = new DateType(); // bb
       return this.expiry;
     }
 
@@ -394,14 +394,14 @@ public class Device extends DomainResource {
     /**
      * @return Date of expiry of this device (if applicable).
      */
-    public DateAndTime getExpiry() { 
+    public Date getExpiry() { 
       return this.expiry == null ? null : this.expiry.getValue();
     }
 
     /**
      * @param value Date of expiry of this device (if applicable).
      */
-    public Device setExpiry(DateAndTime value) { 
+    public Device setExpiry(Date value) { 
       if (value == null)
         this.expiry = null;
       else {
@@ -420,7 +420,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.udi");
         else if (Configuration.doAutoCreate())
-          this.udi = new StringType();
+          this.udi = new StringType(); // bb
       return this.udi;
     }
 
@@ -469,7 +469,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.lotNumber");
         else if (Configuration.doAutoCreate())
-          this.lotNumber = new StringType();
+          this.lotNumber = new StringType(); // bb
       return this.lotNumber;
     }
 
@@ -518,7 +518,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.owner");
         else if (Configuration.doAutoCreate())
-          this.owner = new Reference();
+          this.owner = new Reference(); // cc
       return this.owner;
     }
 
@@ -542,7 +542,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.owner");
         else if (Configuration.doAutoCreate())
-          this.ownerTarget = new Organization();
+          this.ownerTarget = new Organization(); // aa
       return this.ownerTarget;
     }
 
@@ -562,7 +562,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.location");
         else if (Configuration.doAutoCreate())
-          this.location = new Reference();
+          this.location = new Reference(); // cc
       return this.location;
     }
 
@@ -586,7 +586,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.location");
         else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location();
+          this.locationTarget = new Location(); // aa
       return this.locationTarget;
     }
 
@@ -606,7 +606,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -630,7 +630,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -680,7 +680,7 @@ public class Device extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 

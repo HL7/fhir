@@ -343,13 +343,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else if (e instanceof Extension)
       x.addText("Extensions: Todo");
     else if (e instanceof InstantType)
-      x.addText(((InstantType) e).getValue().toHumanDisplay());
+      x.addText(((InstantType) e).toHumanDisplay());
     else if (e instanceof DateTimeType)
-      x.addText(((DateTimeType) e).getValue().toHumanDisplay());
+      x.addText(((DateTimeType) e).toHumanDisplay());
     else if (e instanceof Base64BinaryType)
       x.addText(new Base64().encodeAsString(((Base64BinaryType) e).getValue()));
     else if (e instanceof org.hl7.fhir.instance.model.DateType)
-      x.addText(((org.hl7.fhir.instance.model.DateType) e).getValue().toHumanDisplay());
+      x.addText(((org.hl7.fhir.instance.model.DateType) e).toHumanDisplay());
     else if (e instanceof Enumeration)
       x.addText(((Enumeration<?>) e).getValue().toString()); // todo: look up a display name if there is one
     else if (e instanceof BooleanType)
@@ -382,9 +382,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       renderQuantity(((Ratio) e).getDenominator(), x, showCodeDetails);
     } else if (e instanceof Period) {
       Period p = (Period) e;
-      x.addText(!p.hasStart() ? "??" : p.getStart().toHumanDisplay());
+      x.addText(!p.hasStart() ? "??" : p.getStartElement().toHumanDisplay());
       x.addText(" --> ");
-      x.addText(!p.hasEnd() ? "(ongoing)" : p.getEnd().toHumanDisplay());
+      x.addText(!p.hasEnd() ? "(ongoing)" : p.getEndElement().toHumanDisplay());
     } else if (e instanceof Reference) {
       Reference r = (Reference) e;
       XhtmlNode c = x;
@@ -439,16 +439,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.addText(name+": "+((IdType) e).getValue());
       return true;
     } else if (e instanceof DateTimeType) {
-      x.addText(name+": "+((DateTimeType) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((DateTimeType) e).toHumanDisplay());
       return true;
     } else if (e instanceof InstantType) {
-      x.addText(name+": "+((InstantType) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((InstantType) e).toHumanDisplay());
       return true;
     } else if (e instanceof Extension) {
       x.addText("Extensions: todo");
       return true;
     } else if (e instanceof org.hl7.fhir.instance.model.DateType) {
-      x.addText(name+": "+((org.hl7.fhir.instance.model.DateType) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((org.hl7.fhir.instance.model.DateType) e).toHumanDisplay());
       return true;
     } else if (e instanceof Enumeration) {
       x.addText(((Enumeration<?>) e).getValue().toString()); // todo: look up a display name if there is one
@@ -496,9 +496,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof Period) {
       Period p = (Period) e;
       x.addText(name+": ");
-      x.addText(!p.hasStart() ? "??" : p.getStart().toHumanDisplay());
+      x.addText(!p.hasStart() ? "??" : p.getStartElement().toHumanDisplay());
       x.addText(" --> ");
-      x.addText(!p.hasEnd() ? "(ongoing)" : p.getEnd().toHumanDisplay());
+      x.addText(!p.hasEnd() ? "(ongoing)" : p.getEndElement().toHumanDisplay());
       return true;
     } else if (e instanceof Reference) {
       Reference r = (Reference) e;
@@ -538,9 +538,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private String displayPeriod(Period p) {
-    String s = !p.hasStart() ? "??" : p.getStart().toHumanDisplay();
+    String s = !p.hasStart() ? "??" : p.getStartElement().toHumanDisplay();
     s = s + " --> ";
-    return s + (!p.hasEnd() ? "(ongoing)" : p.getEnd().toHumanDisplay());
+    return s + (!p.hasEnd() ? "(ongoing)" : p.getEndElement().toHumanDisplay());
   }
 
   private void generateResourceSummary(XhtmlNode x, Resource res, boolean textAlready, boolean showCodeDetails) throws Exception {
@@ -823,7 +823,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         if (rep.hasCountElement())
           b.append(" "+Integer.toString(rep.getCount())+" times");
         else if (rep.hasEnd()) 
-          b.append(" until "+rep.getEnd().toHumanDisplay());
+          b.append(" until "+rep.getEndElement().toHumanDisplay());
       }
       return b.toString();
     } else
@@ -987,7 +987,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       p.addText(Utilities.capitalize(cm.getStatus().toString())+" (not intended for production usage). ");
     else
       p.addText(Utilities.capitalize(cm.getStatus().toString())+". ");
-    p.addText("Published on "+cm.getDate().toHumanDisplay()+" by "+cm.getPublisher());
+    p.addText("Published on "+cm.getDateElement().toHumanDisplay()+" by "+cm.getPublisher());
     if (!cm.getTelecom().isEmpty()) {
       p.addText(" (");
       boolean first = true;

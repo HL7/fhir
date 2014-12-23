@@ -698,11 +698,11 @@ begin
     't' : ParseWord('true', ch, jltBoolean);
     'f' : ParseWord('false', ch, jltBoolean);
     'n' : ParseWord('null', ch, jltNull);
-    '0'..'9' :
+    '0'..'9', '-' :
       Begin
       FLexType := jltNumber;
       FValue := '';
-      while More and CharInSet(ch, ['0'..'9', '.']) do
+      while More and CharInSet(ch, ['0'..'9', '.', '-']) do
       Begin
         FValue := FValue + ch;
         ch := getNextChar;

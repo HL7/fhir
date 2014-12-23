@@ -36,7 +36,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
@@ -294,10 +293,6 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     return res;
   }
   
-  private DateAndTime parseDate(XmlPullParser xpp) throws Exception {
-    return new DateAndTime(parseString(xpp));    
-  }
-
   protected DomainResource parseDomainResourceContained(XmlPullParser xpp) throws Exception {
     next(xpp);
     int eventType = nextNoWhitespace(xpp);

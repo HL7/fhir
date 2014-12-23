@@ -198,7 +198,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void generateEnumParser() throws Exception {
     write("  @SuppressWarnings(\"unchecked\")\r\n");
     write("  protected <E extends Enum<E>> Enumeration<E> parseEnumeration(XmlPullParser xpp, E item, EnumFactory e) throws Exception {\r\n");
-    write("    Enumeration<E> res = new Enumeration<E>();\r\n");
+    write("    Enumeration<E> res = new Enumeration<E>(e);\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
     write("    res.setValue((E) e.fromCode(xpp.getAttributeValue(null, \"value\")));\r\n");
     write("    next(xpp);\r\n");
@@ -225,9 +225,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void generatePrimitive(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
     write("  protected "+tn+" parse"+upFirst(dc.getCode())+"(XmlPullParser xpp) throws Exception {\r\n");
-    write("    "+tn+" res = new "+tn+"();\r\n");
+    write("    "+tn+" res = new "+tn+"(xpp.getAttributeValue(null, \"value\"));\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
-    write("    res.setValue(parse"+upFirst(dc.getCode())+"Primitive(xpp.getAttributeValue(null, \"value\")));\r\n");
     write("    next(xpp);\r\n");
     write("    int eventType = nextNoWhitespace(xpp);\r\n");
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
@@ -811,9 +810,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     else
       write("    if (value != null && (!Utilities.noString(value.getId()) || ExtensionHelper.hasExtensions(value) || !Utilities.noString(value.getValue()))) {\r\n");
     write("      composeElementAttributes(value);\r\n");
-    if (!dc.getCode().equals("integer") && !dc.getCode().equals("boolean"))
-      write("      if (value.getValue() != null) \r\n");
-    write("        xml.attribute(\"value\", toString(value.getValue()));\r\n");
+    write("      if (value.asStringValue() != null) \r\n");
+    write("        xml.attribute(\"value\", value.asStringValue());\r\n");
     write("        \r\n");
     write("      xml.open(FHIR_NS, name);\r\n");
     write("      composeElementElements(value);\r\n");

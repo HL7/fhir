@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class ConceptMap extends DomainResource {
         }
     }
 
-  public static class ValuesetStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ValuesetStatusEnumFactory implements EnumFactory<ValuesetStatus> {
+    public ValuesetStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class ConceptMap extends DomainResource {
           return ValuesetStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ValuesetStatus.RETIRED;
-        throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ValuesetStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ValuesetStatus code) {
       if (code == ValuesetStatus.DRAFT)
         return "draft";
       if (code == ValuesetStatus.ACTIVE)
@@ -253,8 +253,8 @@ public class ConceptMap extends DomainResource {
         }
     }
 
-  public static class ConceptEquivalenceEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ConceptEquivalenceEnumFactory implements EnumFactory<ConceptEquivalence> {
+    public ConceptEquivalence fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -276,9 +276,9 @@ public class ConceptMap extends DomainResource {
           return ConceptEquivalence.UNMATCHED;
         if ("disjoint".equals(codeString))
           return ConceptEquivalence.DISJOINT;
-        throw new Exception("Unknown ConceptEquivalence code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ConceptEquivalence code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ConceptEquivalence code) {
       if (code == ConceptEquivalence.EQUIVALENT)
         return "equivalent";
       if (code == ConceptEquivalence.EQUAL)
@@ -345,7 +345,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementComponent.codeSystem");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType();
+              this.codeSystem = new UriType(); // bb
           return this.codeSystem;
         }
 
@@ -394,7 +394,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType();
+              this.code = new CodeType(); // bb
           return this.code;
         }
 
@@ -572,7 +572,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.element");
             else if (Configuration.doAutoCreate())
-              this.element = new UriType();
+              this.element = new UriType(); // bb
           return this.element;
         }
 
@@ -617,7 +617,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.codeSystem");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType();
+              this.codeSystem = new UriType(); // bb
           return this.codeSystem;
         }
 
@@ -662,7 +662,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new StringType();
+              this.code = new StringType(); // bb
           return this.code;
         }
 
@@ -778,7 +778,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementMapComponent.codeSystem");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType();
+              this.codeSystem = new UriType(); // bb
           return this.codeSystem;
         }
 
@@ -827,7 +827,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementMapComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType();
+              this.code = new CodeType(); // bb
           return this.code;
         }
 
@@ -876,7 +876,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementMapComponent.equivalence");
             else if (Configuration.doAutoCreate())
-              this.equivalence = new Enumeration<ConceptEquivalence>();
+              this.equivalence = new Enumeration<ConceptEquivalence>(new ConceptEquivalenceEnumFactory()); // bb
           return this.equivalence;
         }
 
@@ -908,7 +908,7 @@ public class ConceptMap extends DomainResource {
          */
         public ConceptMapElementMapComponent setEquivalence(ConceptEquivalence value) { 
             if (this.equivalence == null)
-              this.equivalence = new Enumeration<ConceptEquivalence>();
+              this.equivalence = new Enumeration<ConceptEquivalence>(new ConceptEquivalenceEnumFactory());
             this.equivalence.setValue(value);
           return this;
         }
@@ -921,7 +921,7 @@ public class ConceptMap extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapElementMapComponent.comments");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType();
+              this.comments = new StringType(); // bb
           return this.comments;
         }
 
@@ -1136,7 +1136,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new StringType();
+          this.identifier = new StringType(); // bb
       return this.identifier;
     }
 
@@ -1185,7 +1185,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -1234,7 +1234,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -1283,7 +1283,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -1362,7 +1362,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -1411,7 +1411,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.copyright");
         else if (Configuration.doAutoCreate())
-          this.copyright = new StringType();
+          this.copyright = new StringType(); // bb
       return this.copyright;
     }
 
@@ -1460,7 +1460,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ValuesetStatus>();
+          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1492,7 +1492,7 @@ public class ConceptMap extends DomainResource {
      */
     public ConceptMap setStatus(ValuesetStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ValuesetStatus>();
+          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1505,7 +1505,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -1554,7 +1554,7 @@ public class ConceptMap extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1577,14 +1577,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The date that the concept map status was last changed.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the concept map status was last changed.
      */
-    public ConceptMap setDate(DateAndTime value) { 
+    public ConceptMap setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {

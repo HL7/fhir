@@ -229,6 +229,7 @@ Type
     FCompartmentId: String;
     FForm: TIdSoapMimeMessage;
     FOperationName: String;
+    FIfMatch : String;
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
@@ -359,6 +360,7 @@ Type
     }
     Property Lang : String read FLang write FLang;
 
+    Property IfMatch : String read FIfMatch write FIfMatch;
   End;
 
   {@Class TFHIRResponse

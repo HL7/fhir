@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class Composition extends DomainResource {
         }
     }
 
-  public static class CompositionStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CompositionStatusEnumFactory implements EnumFactory<CompositionStatus> {
+    public CompositionStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class Composition extends DomainResource {
           return CompositionStatus.AMENDED;
         if ("entered in error".equals(codeString))
           return CompositionStatus.ENTEREDINERROR;
-        throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CompositionStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CompositionStatus code) {
       if (code == CompositionStatus.PRELIMINARY)
         return "preliminary";
       if (code == CompositionStatus.FINAL)
@@ -231,8 +231,8 @@ public class Composition extends DomainResource {
         }
     }
 
-  public static class CompositionAttestationModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CompositionAttestationModeEnumFactory implements EnumFactory<CompositionAttestationMode> {
+    public CompositionAttestationMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -244,9 +244,9 @@ public class Composition extends DomainResource {
           return CompositionAttestationMode.LEGAL;
         if ("official".equals(codeString))
           return CompositionAttestationMode.OFFICIAL;
-        throw new Exception("Unknown CompositionAttestationMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CompositionAttestationMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CompositionAttestationMode code) {
       if (code == CompositionAttestationMode.PERSONAL)
         return "personal";
       if (code == CompositionAttestationMode.PROFESSIONAL)
@@ -316,7 +316,7 @@ public class Composition extends DomainResource {
          */
     // syntactic sugar
         public Enumeration<CompositionAttestationMode> addModeElement() {//2 
-          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
+          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>(new CompositionAttestationModeEnumFactory());
           if (this.mode == null)
             this.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
           this.mode.add(t);
@@ -327,7 +327,7 @@ public class Composition extends DomainResource {
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
         public CompositionAttesterComponent addMode(CompositionAttestationMode value) { //1
-          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
+          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>(new CompositionAttestationModeEnumFactory());
           t.setValue(value);
           if (this.mode == null)
             this.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
@@ -355,7 +355,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionAttesterComponent.time");
             else if (Configuration.doAutoCreate())
-              this.time = new DateTimeType();
+              this.time = new DateTimeType(); // bb
           return this.time;
         }
 
@@ -378,14 +378,14 @@ public class Composition extends DomainResource {
         /**
          * @return When composition was attested by the party.
          */
-        public DateAndTime getTime() { 
+        public Date getTime() { 
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value When composition was attested by the party.
          */
-        public CompositionAttesterComponent setTime(DateAndTime value) { 
+        public CompositionAttesterComponent setTime(Date value) { 
           if (value == null)
             this.time = null;
           else {
@@ -404,7 +404,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionAttesterComponent.party");
             else if (Configuration.doAutoCreate())
-              this.party = new Reference();
+              this.party = new Reference(); // cc
           return this.party;
         }
 
@@ -534,7 +534,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CompositionEventComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -669,7 +669,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.title");
             else if (Configuration.doAutoCreate())
-              this.title = new StringType();
+              this.title = new StringType(); // bb
           return this.title;
         }
 
@@ -718,7 +718,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -772,7 +772,7 @@ public class Composition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SectionComponent.content");
             else if (Configuration.doAutoCreate())
-              this.content = new Reference();
+              this.content = new Reference(); // cc
           return this.content;
         }
 
@@ -973,7 +973,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -997,7 +997,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -1020,14 +1020,14 @@ public class Composition extends DomainResource {
     /**
      * @return The composition editing time, when the composition was last logically changed by the author.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The composition editing time, when the composition was last logically changed by the author.
      */
-    public Composition setDate(DateAndTime value) { 
+    public Composition setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -1042,7 +1042,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -1066,7 +1066,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.class_");
         else if (Configuration.doAutoCreate())
-          this.class_ = new CodeableConcept();
+          this.class_ = new CodeableConcept(); // cc
       return this.class_;
     }
 
@@ -1090,7 +1090,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.title");
         else if (Configuration.doAutoCreate())
-          this.title = new StringType();
+          this.title = new StringType(); // bb
       return this.title;
     }
 
@@ -1139,7 +1139,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CompositionStatus>();
+          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1171,7 +1171,7 @@ public class Composition extends DomainResource {
      */
     public Composition setStatus(CompositionStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<CompositionStatus>();
+          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1184,7 +1184,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.confidentiality");
         else if (Configuration.doAutoCreate())
-          this.confidentiality = new Coding();
+          this.confidentiality = new Coding(); // cc
       return this.confidentiality;
     }
 
@@ -1208,7 +1208,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1316,7 +1316,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.custodian");
         else if (Configuration.doAutoCreate())
-          this.custodian = new Reference();
+          this.custodian = new Reference(); // cc
       return this.custodian;
     }
 
@@ -1340,7 +1340,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.custodian");
         else if (Configuration.doAutoCreate())
-          this.custodianTarget = new Organization();
+          this.custodianTarget = new Organization(); // aa
       return this.custodianTarget;
     }
 
@@ -1390,7 +1390,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1414,7 +1414,7 @@ public class Composition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Composition.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 

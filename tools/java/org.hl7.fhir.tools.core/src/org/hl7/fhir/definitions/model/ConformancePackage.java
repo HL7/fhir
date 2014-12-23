@@ -105,7 +105,7 @@ public class ConformancePackage {
   }
   public void loadFromComposition(Composition c, String source) throws Exception {
     putMetadata("id", c.getId());
-    putMetadata("date", c.getDate().toString());
+    putMetadata("date", c.getDateElement().asStringValue());
     putMetadata("title", c.getTitle());
     putMetadata("status", c.getStatus().toCode());
     putMetadata("description", new XhtmlComposer().compose(c.getText().getDiv()));

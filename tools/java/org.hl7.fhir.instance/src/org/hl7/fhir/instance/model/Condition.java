@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Condition extends DomainResource {
         }
     }
 
-  public static class ConditionStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ConditionStatusEnumFactory implements EnumFactory<ConditionStatus> {
+    public ConditionStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Condition extends DomainResource {
           return ConditionStatus.CONFIRMED;
         if ("refuted".equals(codeString))
           return ConditionStatus.REFUTED;
-        throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ConditionStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ConditionStatus code) {
       if (code == ConditionStatus.PROVISIONAL)
         return "provisional";
       if (code == ConditionStatus.WORKING)
@@ -180,7 +180,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionStageComponent.summary");
             else if (Configuration.doAutoCreate())
-              this.summary = new CodeableConcept();
+              this.summary = new CodeableConcept(); // cc
           return this.summary;
         }
 
@@ -295,7 +295,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionEvidenceComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -405,7 +405,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionLocationComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -429,7 +429,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionLocationComponent.detail");
             else if (Configuration.doAutoCreate())
-              this.detail = new StringType();
+              this.detail = new StringType(); // bb
           return this.detail;
         }
 
@@ -526,7 +526,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionDueToComponent.codeableConcept");
             else if (Configuration.doAutoCreate())
-              this.codeableConcept = new CodeableConcept();
+              this.codeableConcept = new CodeableConcept(); // cc
           return this.codeableConcept;
         }
 
@@ -550,7 +550,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionDueToComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -637,7 +637,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.codeableConcept");
             else if (Configuration.doAutoCreate())
-              this.codeableConcept = new CodeableConcept();
+              this.codeableConcept = new CodeableConcept(); // cc
           return this.codeableConcept;
         }
 
@@ -661,7 +661,7 @@ public class Condition extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConditionOccurredFollowingComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -905,7 +905,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -929,7 +929,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -949,7 +949,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -973,7 +973,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -993,7 +993,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.asserter");
         else if (Configuration.doAutoCreate())
-          this.asserter = new Reference();
+          this.asserter = new Reference(); // cc
       return this.asserter;
     }
 
@@ -1032,7 +1032,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.dateAsserted");
         else if (Configuration.doAutoCreate())
-          this.dateAsserted = new DateType();
+          this.dateAsserted = new DateType(); // bb
       return this.dateAsserted;
     }
 
@@ -1055,14 +1055,14 @@ public class Condition extends DomainResource {
     /**
      * @return Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public DateAndTime getDateAsserted() { 
+    public Date getDateAsserted() { 
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
     /**
      * @param value Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public Condition setDateAsserted(DateAndTime value) { 
+    public Condition setDateAsserted(Date value) { 
       if (value == null)
         this.dateAsserted = null;
       else {
@@ -1081,7 +1081,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept();
+          this.code = new CodeableConcept(); // cc
       return this.code;
     }
 
@@ -1105,7 +1105,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -1129,7 +1129,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ConditionStatus>();
+          this.status = new Enumeration<ConditionStatus>(new ConditionStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1161,7 +1161,7 @@ public class Condition extends DomainResource {
      */
     public Condition setStatus(ConditionStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ConditionStatus>();
+          this.status = new Enumeration<ConditionStatus>(new ConditionStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1174,7 +1174,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.certainty");
         else if (Configuration.doAutoCreate())
-          this.certainty = new CodeableConcept();
+          this.certainty = new CodeableConcept(); // cc
       return this.certainty;
     }
 
@@ -1198,7 +1198,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.severity");
         else if (Configuration.doAutoCreate())
-          this.severity = new CodeableConcept();
+          this.severity = new CodeableConcept(); // cc
       return this.severity;
     }
 
@@ -1305,7 +1305,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.stage");
         else if (Configuration.doAutoCreate())
-          this.stage = new ConditionStageComponent();
+          this.stage = new ConditionStageComponent(); // cc
       return this.stage;
     }
 
@@ -1449,7 +1449,7 @@ public class Condition extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 

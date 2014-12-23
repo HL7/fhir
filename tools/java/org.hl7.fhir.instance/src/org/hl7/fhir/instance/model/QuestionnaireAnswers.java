@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class QuestionnaireAnswers extends DomainResource {
         }
     }
 
-  public static class QuestionnaireAnswersStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class QuestionnaireAnswersStatusEnumFactory implements EnumFactory<QuestionnaireAnswersStatus> {
+    public QuestionnaireAnswersStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class QuestionnaireAnswers extends DomainResource {
           return QuestionnaireAnswersStatus.COMPLETED;
         if ("amended".equals(codeString))
           return QuestionnaireAnswersStatus.AMENDED;
-        throw new Exception("Unknown QuestionnaireAnswersStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown QuestionnaireAnswersStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(QuestionnaireAnswersStatus code) {
       if (code == QuestionnaireAnswersStatus.INPROGRESS)
         return "in progress";
       if (code == QuestionnaireAnswersStatus.COMPLETED)
@@ -194,7 +194,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.linkId");
             else if (Configuration.doAutoCreate())
-              this.linkId = new StringType();
+              this.linkId = new StringType(); // bb
           return this.linkId;
         }
 
@@ -243,7 +243,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.title");
             else if (Configuration.doAutoCreate())
-              this.title = new StringType();
+              this.title = new StringType(); // bb
           return this.title;
         }
 
@@ -292,7 +292,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -341,7 +341,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create GroupComponent.subject");
             else if (Configuration.doAutoCreate())
-              this.subject = new Reference();
+              this.subject = new Reference(); // cc
           return this.subject;
         }
 
@@ -514,7 +514,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.linkId");
             else if (Configuration.doAutoCreate())
-              this.linkId = new StringType();
+              this.linkId = new StringType(); // bb
           return this.linkId;
         }
 
@@ -563,7 +563,7 @@ public class QuestionnaireAnswers extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create QuestionComponent.text");
             else if (Configuration.doAutoCreate())
-              this.text = new StringType();
+              this.text = new StringType(); // bb
           return this.text;
         }
 
@@ -965,7 +965,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -989,7 +989,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.questionnaire");
         else if (Configuration.doAutoCreate())
-          this.questionnaire = new Reference();
+          this.questionnaire = new Reference(); // cc
       return this.questionnaire;
     }
 
@@ -1013,7 +1013,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.questionnaire");
         else if (Configuration.doAutoCreate())
-          this.questionnaireTarget = new Questionnaire();
+          this.questionnaireTarget = new Questionnaire(); // aa
       return this.questionnaireTarget;
     }
 
@@ -1033,7 +1033,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<QuestionnaireAnswersStatus>();
+          this.status = new Enumeration<QuestionnaireAnswersStatus>(new QuestionnaireAnswersStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1065,7 +1065,7 @@ public class QuestionnaireAnswers extends DomainResource {
      */
     public QuestionnaireAnswers setStatus(QuestionnaireAnswersStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<QuestionnaireAnswersStatus>();
+          this.status = new Enumeration<QuestionnaireAnswersStatus>(new QuestionnaireAnswersStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1078,7 +1078,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -1117,7 +1117,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -1156,7 +1156,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.authored");
         else if (Configuration.doAutoCreate())
-          this.authored = new DateTimeType();
+          this.authored = new DateTimeType(); // bb
       return this.authored;
     }
 
@@ -1179,14 +1179,14 @@ public class QuestionnaireAnswers extends DomainResource {
     /**
      * @return The date and/or time that this version of the questionnaire answers was authored.
      */
-    public DateAndTime getAuthored() { 
+    public Date getAuthored() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the questionnaire answers was authored.
      */
-    public QuestionnaireAnswers setAuthored(DateAndTime value) { 
+    public QuestionnaireAnswers setAuthored(Date value) { 
         if (this.authored == null)
           this.authored = new DateTimeType();
         this.authored.setValue(value);
@@ -1201,7 +1201,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.source");
         else if (Configuration.doAutoCreate())
-          this.source = new Reference();
+          this.source = new Reference(); // cc
       return this.source;
     }
 
@@ -1240,7 +1240,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1264,7 +1264,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -1284,7 +1284,7 @@ public class QuestionnaireAnswers extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create QuestionnaireAnswers.group");
         else if (Configuration.doAutoCreate())
-          this.group = new GroupComponent();
+          this.group = new GroupComponent(); // cc
       return this.group;
     }
 

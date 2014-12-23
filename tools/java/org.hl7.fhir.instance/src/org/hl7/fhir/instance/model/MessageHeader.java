@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class MessageHeader extends DomainResource {
         }
     }
 
-  public static class ResponseCodeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ResponseCodeEnumFactory implements EnumFactory<ResponseCode> {
+    public ResponseCode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class MessageHeader extends DomainResource {
           return ResponseCode.TRANSIENTERROR;
         if ("fatal-error".equals(codeString))
           return ResponseCode.FATALERROR;
-        throw new Exception("Unknown ResponseCode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ResponseCode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ResponseCode code) {
       if (code == ResponseCode.OK)
         return "ok";
       if (code == ResponseCode.TRANSIENTERROR)
@@ -179,7 +179,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new IdType();
+              this.identifier = new IdType(); // bb
           return this.identifier;
         }
 
@@ -224,7 +224,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<ResponseCode>();
+              this.code = new Enumeration<ResponseCode>(new ResponseCodeEnumFactory()); // bb
           return this.code;
         }
 
@@ -256,7 +256,7 @@ public class MessageHeader extends DomainResource {
          */
         public MessageHeaderResponseComponent setCode(ResponseCode value) { 
             if (this.code == null)
-              this.code = new Enumeration<ResponseCode>();
+              this.code = new Enumeration<ResponseCode>(new ResponseCodeEnumFactory());
             this.code.setValue(value);
           return this;
         }
@@ -269,7 +269,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.details");
             else if (Configuration.doAutoCreate())
-              this.details = new Reference();
+              this.details = new Reference(); // cc
           return this.details;
         }
 
@@ -293,7 +293,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageHeaderResponseComponent.details");
             else if (Configuration.doAutoCreate())
-              this.detailsTarget = new OperationOutcome();
+              this.detailsTarget = new OperationOutcome(); // aa
           return this.detailsTarget;
         }
 
@@ -384,7 +384,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -433,7 +433,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.software");
             else if (Configuration.doAutoCreate())
-              this.software = new StringType();
+              this.software = new StringType(); // bb
           return this.software;
         }
 
@@ -482,7 +482,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.version");
             else if (Configuration.doAutoCreate())
-              this.version = new StringType();
+              this.version = new StringType(); // bb
           return this.version;
         }
 
@@ -531,7 +531,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.contact");
             else if (Configuration.doAutoCreate())
-              this.contact = new ContactPoint();
+              this.contact = new ContactPoint(); // cc
           return this.contact;
         }
 
@@ -555,7 +555,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageSourceComponent.endpoint");
             else if (Configuration.doAutoCreate())
-              this.endpoint = new UriType();
+              this.endpoint = new UriType(); // bb
           return this.endpoint;
         }
 
@@ -667,7 +667,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -716,7 +716,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.target");
             else if (Configuration.doAutoCreate())
-              this.target = new Reference();
+              this.target = new Reference(); // cc
           return this.target;
         }
 
@@ -740,7 +740,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.target");
             else if (Configuration.doAutoCreate())
-              this.targetTarget = new Device();
+              this.targetTarget = new Device(); // aa
           return this.targetTarget;
         }
 
@@ -760,7 +760,7 @@ public class MessageHeader extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MessageDestinationComponent.endpoint");
             else if (Configuration.doAutoCreate())
-              this.endpoint = new UriType();
+              this.endpoint = new UriType(); // bb
           return this.endpoint;
         }
 
@@ -951,7 +951,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new IdType();
+          this.identifier = new IdType(); // bb
       return this.identifier;
     }
 
@@ -996,7 +996,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.timestamp");
         else if (Configuration.doAutoCreate())
-          this.timestamp = new InstantType();
+          this.timestamp = new InstantType(); // bb
       return this.timestamp;
     }
 
@@ -1019,14 +1019,14 @@ public class MessageHeader extends DomainResource {
     /**
      * @return The time that the message was sent.
      */
-    public DateAndTime getTimestamp() { 
+    public Date getTimestamp() { 
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
     /**
      * @param value The time that the message was sent.
      */
-    public MessageHeader setTimestamp(DateAndTime value) { 
+    public MessageHeader setTimestamp(Date value) { 
         if (this.timestamp == null)
           this.timestamp = new InstantType();
         this.timestamp.setValue(value);
@@ -1041,7 +1041,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.event");
         else if (Configuration.doAutoCreate())
-          this.event = new Coding();
+          this.event = new Coding(); // cc
       return this.event;
     }
 
@@ -1065,7 +1065,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.response");
         else if (Configuration.doAutoCreate())
-          this.response = new MessageHeaderResponseComponent();
+          this.response = new MessageHeaderResponseComponent(); // cc
       return this.response;
     }
 
@@ -1089,7 +1089,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.source");
         else if (Configuration.doAutoCreate())
-          this.source = new MessageSourceComponent();
+          this.source = new MessageSourceComponent(); // cc
       return this.source;
     }
 
@@ -1143,7 +1143,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.enterer");
         else if (Configuration.doAutoCreate())
-          this.enterer = new Reference();
+          this.enterer = new Reference(); // cc
       return this.enterer;
     }
 
@@ -1167,7 +1167,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.enterer");
         else if (Configuration.doAutoCreate())
-          this.entererTarget = new Practitioner();
+          this.entererTarget = new Practitioner(); // aa
       return this.entererTarget;
     }
 
@@ -1187,7 +1187,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -1211,7 +1211,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.author");
         else if (Configuration.doAutoCreate())
-          this.authorTarget = new Practitioner();
+          this.authorTarget = new Practitioner(); // aa
       return this.authorTarget;
     }
 
@@ -1231,7 +1231,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.receiver");
         else if (Configuration.doAutoCreate())
-          this.receiver = new Reference();
+          this.receiver = new Reference(); // cc
       return this.receiver;
     }
 
@@ -1270,7 +1270,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.responsible");
         else if (Configuration.doAutoCreate())
-          this.responsible = new Reference();
+          this.responsible = new Reference(); // cc
       return this.responsible;
     }
 
@@ -1309,7 +1309,7 @@ public class MessageHeader extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MessageHeader.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept();
+          this.reason = new CodeableConcept(); // cc
       return this.reason;
     }
 

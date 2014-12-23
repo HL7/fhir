@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -167,8 +167,8 @@ public class DiagnosticOrder extends DomainResource {
         }
     }
 
-  public static class DiagnosticOrderStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DiagnosticOrderStatusEnumFactory implements EnumFactory<DiagnosticOrderStatus> {
+    public DiagnosticOrderStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -190,9 +190,9 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderStatus.REJECTED;
         if ("failed".equals(codeString))
           return DiagnosticOrderStatus.FAILED;
-        throw new Exception("Unknown DiagnosticOrderStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DiagnosticOrderStatus code) {
       if (code == DiagnosticOrderStatus.REQUESTED)
         return "requested";
       if (code == DiagnosticOrderStatus.RECEIVED)
@@ -287,8 +287,8 @@ public class DiagnosticOrder extends DomainResource {
         }
     }
 
-  public static class DiagnosticOrderPriorityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DiagnosticOrderPriorityEnumFactory implements EnumFactory<DiagnosticOrderPriority> {
+    public DiagnosticOrderPriority fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -300,9 +300,9 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderPriority.STAT;
         if ("asap".equals(codeString))
           return DiagnosticOrderPriority.ASAP;
-        throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DiagnosticOrderPriority code) {
       if (code == DiagnosticOrderPriority.ROUTINE)
         return "routine";
       if (code == DiagnosticOrderPriority.URGENT)
@@ -370,7 +370,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<DiagnosticOrderStatus>();
+              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -402,7 +402,7 @@ public class DiagnosticOrder extends DomainResource {
          */
         public DiagnosticOrderEventComponent setStatus(DiagnosticOrderStatus value) { 
             if (this.status == null)
-              this.status = new Enumeration<DiagnosticOrderStatus>();
+              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
             this.status.setValue(value);
           return this;
         }
@@ -415,7 +415,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new CodeableConcept();
+              this.description = new CodeableConcept(); // cc
           return this.description;
         }
 
@@ -439,7 +439,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.dateTime");
             else if (Configuration.doAutoCreate())
-              this.dateTime = new DateTimeType();
+              this.dateTime = new DateTimeType(); // bb
           return this.dateTime;
         }
 
@@ -462,14 +462,14 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return The date/time at which the event occurred.
          */
-        public DateAndTime getDateTime() { 
+        public Date getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The date/time at which the event occurred.
          */
-        public DiagnosticOrderEventComponent setDateTime(DateAndTime value) { 
+        public DiagnosticOrderEventComponent setDateTime(Date value) { 
             if (this.dateTime == null)
               this.dateTime = new DateTimeType();
             this.dateTime.setValue(value);
@@ -484,7 +484,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.actor");
             else if (Configuration.doAutoCreate())
-              this.actor = new Reference();
+              this.actor = new Reference(); // cc
           return this.actor;
         }
 
@@ -601,7 +601,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -676,7 +676,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.bodySite");
             else if (Configuration.doAutoCreate())
-              this.bodySite = new CodeableConcept();
+              this.bodySite = new CodeableConcept(); // cc
           return this.bodySite;
         }
 
@@ -700,7 +700,7 @@ public class DiagnosticOrder extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<DiagnosticOrderStatus>();
+              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -735,7 +735,7 @@ public class DiagnosticOrder extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<DiagnosticOrderStatus>();
+              this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -928,7 +928,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -967,7 +967,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.orderer");
         else if (Configuration.doAutoCreate())
-          this.orderer = new Reference();
+          this.orderer = new Reference(); // cc
       return this.orderer;
     }
 
@@ -991,7 +991,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.orderer");
         else if (Configuration.doAutoCreate())
-          this.ordererTarget = new Practitioner();
+          this.ordererTarget = new Practitioner(); // aa
       return this.ordererTarget;
     }
 
@@ -1041,7 +1041,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -1065,7 +1065,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -1085,7 +1085,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.clinicalNotes");
         else if (Configuration.doAutoCreate())
-          this.clinicalNotes = new StringType();
+          this.clinicalNotes = new StringType(); // bb
       return this.clinicalNotes;
     }
 
@@ -1224,7 +1224,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DiagnosticOrderStatus>();
+          this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1259,7 +1259,7 @@ public class DiagnosticOrder extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<DiagnosticOrderStatus>();
+          this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -1273,7 +1273,7 @@ public class DiagnosticOrder extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Enumeration<DiagnosticOrderPriority>();
+          this.priority = new Enumeration<DiagnosticOrderPriority>(new DiagnosticOrderPriorityEnumFactory()); // bb
       return this.priority;
     }
 
@@ -1308,7 +1308,7 @@ public class DiagnosticOrder extends DomainResource {
         this.priority = null;
       else {
         if (this.priority == null)
-          this.priority = new Enumeration<DiagnosticOrderPriority>();
+          this.priority = new Enumeration<DiagnosticOrderPriority>(new DiagnosticOrderPriorityEnumFactory());
         this.priority.setValue(value);
       }
       return this;

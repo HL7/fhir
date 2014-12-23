@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class ValueSet extends DomainResource {
         }
     }
 
-  public static class ValuesetStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ValuesetStatusEnumFactory implements EnumFactory<ValuesetStatus> {
+    public ValuesetStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class ValueSet extends DomainResource {
           return ValuesetStatus.ACTIVE;
         if ("retired".equals(codeString))
           return ValuesetStatus.RETIRED;
-        throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ValuesetStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ValuesetStatus code) {
       if (code == ValuesetStatus.DRAFT)
         return "draft";
       if (code == ValuesetStatus.ACTIVE)
@@ -223,8 +223,8 @@ public class ValueSet extends DomainResource {
         }
     }
 
-  public static class FilterOperatorEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class FilterOperatorEnumFactory implements EnumFactory<FilterOperator> {
+    public FilterOperator fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -240,9 +240,9 @@ public class ValueSet extends DomainResource {
           return FilterOperator.IN;
         if ("not in".equals(codeString))
           return FilterOperator.NOTIN;
-        throw new Exception("Unknown FilterOperator code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(FilterOperator code) {
       if (code == FilterOperator.EQUAL)
         return "=";
       if (code == FilterOperator.ISA)
@@ -308,7 +308,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetDefineComponent.system");
             else if (Configuration.doAutoCreate())
-              this.system = new UriType();
+              this.system = new UriType(); // bb
           return this.system;
         }
 
@@ -353,7 +353,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetDefineComponent.version");
             else if (Configuration.doAutoCreate())
-              this.version = new StringType();
+              this.version = new StringType(); // bb
           return this.version;
         }
 
@@ -402,7 +402,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetDefineComponent.caseSensitive");
             else if (Configuration.doAutoCreate())
-              this.caseSensitive = new BooleanType();
+              this.caseSensitive = new BooleanType(); // bb
           return this.caseSensitive;
         }
 
@@ -566,7 +566,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType();
+              this.code = new CodeType(); // bb
           return this.code;
         }
 
@@ -611,7 +611,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionComponent.abstract_");
             else if (Configuration.doAutoCreate())
-              this.abstract_ = new BooleanType();
+              this.abstract_ = new BooleanType(); // bb
           return this.abstract_;
         }
 
@@ -660,7 +660,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionComponent.display");
             else if (Configuration.doAutoCreate())
-              this.display = new StringType();
+              this.display = new StringType(); // bb
           return this.display;
         }
 
@@ -709,7 +709,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definition = new StringType();
+              this.definition = new StringType(); // bb
           return this.definition;
         }
 
@@ -891,7 +891,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionDesignationComponent.language");
             else if (Configuration.doAutoCreate())
-              this.language = new CodeType();
+              this.language = new CodeType(); // bb
           return this.language;
         }
 
@@ -940,7 +940,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionDesignationComponent.use");
             else if (Configuration.doAutoCreate())
-              this.use = new Coding();
+              this.use = new Coding(); // cc
           return this.use;
         }
 
@@ -964,7 +964,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptDefinitionDesignationComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new StringType();
+              this.value = new StringType(); // bb
           return this.value;
         }
 
@@ -1251,7 +1251,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetComponent.system");
             else if (Configuration.doAutoCreate())
-              this.system = new UriType();
+              this.system = new UriType(); // bb
           return this.system;
         }
 
@@ -1296,7 +1296,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetComponent.version");
             else if (Configuration.doAutoCreate())
-              this.version = new StringType();
+              this.version = new StringType(); // bb
           return this.version;
         }
 
@@ -1472,7 +1472,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptReferenceComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType();
+              this.code = new CodeType(); // bb
           return this.code;
         }
 
@@ -1517,7 +1517,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptReferenceComponent.display");
             else if (Configuration.doAutoCreate())
-              this.display = new StringType();
+              this.display = new StringType(); // bb
           return this.display;
         }
 
@@ -1659,7 +1659,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetFilterComponent.property");
             else if (Configuration.doAutoCreate())
-              this.property = new CodeType();
+              this.property = new CodeType(); // bb
           return this.property;
         }
 
@@ -1704,7 +1704,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetFilterComponent.op");
             else if (Configuration.doAutoCreate())
-              this.op = new Enumeration<FilterOperator>();
+              this.op = new Enumeration<FilterOperator>(new FilterOperatorEnumFactory()); // bb
           return this.op;
         }
 
@@ -1736,7 +1736,7 @@ public class ValueSet extends DomainResource {
          */
         public ConceptSetFilterComponent setOp(FilterOperator value) { 
             if (this.op == null)
-              this.op = new Enumeration<FilterOperator>();
+              this.op = new Enumeration<FilterOperator>(new FilterOperatorEnumFactory());
             this.op.setValue(value);
           return this;
         }
@@ -1749,7 +1749,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetFilterComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new CodeType();
+              this.value = new CodeType(); // bb
           return this.value;
         }
 
@@ -1851,7 +1851,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -1875,7 +1875,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionComponent.timestamp");
             else if (Configuration.doAutoCreate())
-              this.timestamp = new DateTimeType();
+              this.timestamp = new DateTimeType(); // bb
           return this.timestamp;
         }
 
@@ -1898,14 +1898,14 @@ public class ValueSet extends DomainResource {
         /**
          * @return The time at which the expansion was produced by the expanding system.
          */
-        public DateAndTime getTimestamp() { 
+        public Date getTimestamp() { 
           return this.timestamp == null ? null : this.timestamp.getValue();
         }
 
         /**
          * @param value The time at which the expansion was produced by the expanding system.
          */
-        public ValueSetExpansionComponent setTimestamp(DateAndTime value) { 
+        public ValueSetExpansionComponent setTimestamp(Date value) { 
             if (this.timestamp == null)
               this.timestamp = new DateTimeType();
             this.timestamp.setValue(value);
@@ -2027,7 +2027,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.system");
             else if (Configuration.doAutoCreate())
-              this.system = new UriType();
+              this.system = new UriType(); // bb
           return this.system;
         }
 
@@ -2076,7 +2076,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.abstract_");
             else if (Configuration.doAutoCreate())
-              this.abstract_ = new BooleanType();
+              this.abstract_ = new BooleanType(); // bb
           return this.abstract_;
         }
 
@@ -2125,7 +2125,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.version");
             else if (Configuration.doAutoCreate())
-              this.version = new StringType();
+              this.version = new StringType(); // bb
           return this.version;
         }
 
@@ -2174,7 +2174,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeType();
+              this.code = new CodeType(); // bb
           return this.code;
         }
 
@@ -2223,7 +2223,7 @@ public class ValueSet extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValueSetExpansionContainsComponent.display");
             else if (Configuration.doAutoCreate())
-              this.display = new StringType();
+              this.display = new StringType(); // bb
           return this.display;
         }
 
@@ -2466,7 +2466,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new UriType();
+          this.identifier = new UriType(); // bb
       return this.identifier;
     }
 
@@ -2515,7 +2515,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.version");
         else if (Configuration.doAutoCreate())
-          this.version = new StringType();
+          this.version = new StringType(); // bb
       return this.version;
     }
 
@@ -2564,7 +2564,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -2613,7 +2613,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.purpose");
         else if (Configuration.doAutoCreate())
-          this.purpose = new StringType();
+          this.purpose = new StringType(); // bb
       return this.purpose;
     }
 
@@ -2662,7 +2662,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.immutable");
         else if (Configuration.doAutoCreate())
-          this.immutable = new BooleanType();
+          this.immutable = new BooleanType(); // bb
       return this.immutable;
     }
 
@@ -2711,7 +2711,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.publisher");
         else if (Configuration.doAutoCreate())
-          this.publisher = new StringType();
+          this.publisher = new StringType(); // bb
       return this.publisher;
     }
 
@@ -2790,7 +2790,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -2839,7 +2839,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.copyright");
         else if (Configuration.doAutoCreate())
-          this.copyright = new StringType();
+          this.copyright = new StringType(); // bb
       return this.copyright;
     }
 
@@ -2888,7 +2888,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ValuesetStatus>();
+          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -2920,7 +2920,7 @@ public class ValueSet extends DomainResource {
      */
     public ValueSet setStatus(ValuesetStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ValuesetStatus>();
+          this.status = new Enumeration<ValuesetStatus>(new ValuesetStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -2933,7 +2933,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.experimental");
         else if (Configuration.doAutoCreate())
-          this.experimental = new BooleanType();
+          this.experimental = new BooleanType(); // bb
       return this.experimental;
     }
 
@@ -2982,7 +2982,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.extensible");
         else if (Configuration.doAutoCreate())
-          this.extensible = new BooleanType();
+          this.extensible = new BooleanType(); // bb
       return this.extensible;
     }
 
@@ -3031,7 +3031,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -3054,14 +3054,14 @@ public class ValueSet extends DomainResource {
     /**
      * @return The date that the value set status was last changed.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the value set status was last changed.
      */
-    public ValueSet setDate(DateAndTime value) { 
+    public ValueSet setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -3080,7 +3080,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.stableDate");
         else if (Configuration.doAutoCreate())
-          this.stableDate = new DateType();
+          this.stableDate = new DateType(); // bb
       return this.stableDate;
     }
 
@@ -3103,14 +3103,14 @@ public class ValueSet extends DomainResource {
     /**
      * @return If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
      */
-    public DateAndTime getStableDate() { 
+    public Date getStableDate() { 
       return this.stableDate == null ? null : this.stableDate.getValue();
     }
 
     /**
      * @param value If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
      */
-    public ValueSet setStableDate(DateAndTime value) { 
+    public ValueSet setStableDate(Date value) { 
       if (value == null)
         this.stableDate = null;
       else {
@@ -3129,7 +3129,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.define");
         else if (Configuration.doAutoCreate())
-          this.define = new ValueSetDefineComponent();
+          this.define = new ValueSetDefineComponent(); // cc
       return this.define;
     }
 
@@ -3153,7 +3153,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.compose");
         else if (Configuration.doAutoCreate())
-          this.compose = new ValueSetComposeComponent();
+          this.compose = new ValueSetComposeComponent(); // cc
       return this.compose;
     }
 
@@ -3177,7 +3177,7 @@ public class ValueSet extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ValueSet.expansion");
         else if (Configuration.doAutoCreate())
-          this.expansion = new ValueSetExpansionComponent();
+          this.expansion = new ValueSetExpansionComponent(); // cc
       return this.expansion;
     }
 

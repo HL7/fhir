@@ -32,7 +32,7 @@ interface
 
 uses
   SysUtils, Classes,
-  StringSupport, GuidSupport, DateSupport,
+  StringSupport, GuidSupport, DateSupport, BytesSupport,
   AdvObjects,
 
   IdSoapMime, TextUtilities, ZLib,
@@ -61,6 +61,8 @@ Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirDomainResource) : String;
 function IsId(s : String) : boolean;
+function fullResourceUri(base: String; aType : TFhirResourceType; id : String) : String;
+
 procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
 Function FhirHtmlToText(html : TFhirXHtmlNode):String;
@@ -350,7 +352,7 @@ function IsId(s : String) : boolean;
 var
   i : integer;
 begin
-  result := length(s) in [1..36];
+  result := length(s) in [1..ID_LENGTH];
   if result then
     for i := 1 to length(s) do
       result := result and CharInset(s[i], ['0'..'9', 'a'..'z', 'A'..'Z', '-', '.']);
@@ -371,7 +373,7 @@ begin
           if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
             list.add(iter.Current.list[i].Link)
       end
-      else if iter.Current.Type_ = 'Resource' then
+      else if (iter.Current.list <> nil) and (iter.Current.Type_ = 'Resource') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
           iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
@@ -1619,29 +1621,47 @@ end;
 
 function TFHIRCodingListHelper.json: TBytes;
 begin
-  raise Exception.Create('todo');
+  SetLength(result, 0);
 end;
 
 { TFhirBundleLinkListHelper }
 
 procedure TFhirBundleLinkListHelper.AddValue(rel, ref: String);
+var
+  link : TFhirBundleLink;
 begin
-  raise Exception.Create('todo');
+  link := Append;
+  link.relation := rel;
+  link.url := ref;
 end;
 
 function TFhirBundleLinkListHelper.AsHeader: String;
 begin
-  raise Exception.Create('todo');
+  result := ''; // todo
 end;
 
 function TFhirBundleLinkListHelper.getMatch(rel: String): string;
+var
+  i : integer;
 begin
-  raise Exception.Create('todo');
+  result := '';
+  for i := 0 to count - 1 do
+    if Item(i).relation = rel then
+      result := Item(i).url;
+
 end;
 
 procedure TFhirBundleLinkListHelper.SetMatch(rel: String; const Value: string);
 begin
   raise Exception.Create('todo');
+end;
+
+function fullResourceUri(base: String; aType : TFhirResourceType; id : String) : String;
+begin
+  if (base = 'urn:uuid:') or ( base = 'urn:oid:') then
+    result := base+id
+  else
+    result := AppendForwardSlash(base) + CODES_TFhirResourceType[atype]+'/'+id;
 end;
 
 end.

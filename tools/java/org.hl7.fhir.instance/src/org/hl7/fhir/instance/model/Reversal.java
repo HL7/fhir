@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -104,7 +104,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -128,7 +128,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.provider = new Reference();
+              this.provider = new Reference(); // cc
           return this.provider;
         }
 
@@ -152,7 +152,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.providerTarget = new Practitioner();
+              this.providerTarget = new Practitioner(); // aa
           return this.providerTarget;
         }
 
@@ -172,7 +172,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organization = new Reference();
+              this.organization = new Reference(); // cc
           return this.organization;
         }
 
@@ -196,7 +196,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organizationTarget = new Organization();
+              this.organizationTarget = new Organization(); // aa
           return this.organizationTarget;
         }
 
@@ -216,7 +216,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.person = new Reference();
+              this.person = new Reference(); // cc
           return this.person;
         }
 
@@ -240,7 +240,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.personTarget = new Patient();
+              this.personTarget = new Patient(); // aa
           return this.personTarget;
         }
 
@@ -342,7 +342,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -387,7 +387,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.focal");
             else if (Configuration.doAutoCreate())
-              this.focal = new BooleanType();
+              this.focal = new BooleanType(); // bb
           return this.focal;
         }
 
@@ -432,7 +432,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverage = new Reference();
+              this.coverage = new Reference(); // cc
           return this.coverage;
         }
 
@@ -456,7 +456,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverageTarget = new Coverage();
+              this.coverageTarget = new Coverage(); // aa
           return this.coverageTarget;
         }
 
@@ -476,7 +476,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.businessArrangement");
             else if (Configuration.doAutoCreate())
-              this.businessArrangement = new StringType();
+              this.businessArrangement = new StringType(); // bb
           return this.businessArrangement;
         }
 
@@ -525,7 +525,7 @@ public class Reversal extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ReversalCoverageComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new Coding();
+              this.relationship = new Coding(); // cc
           return this.relationship;
         }
 
@@ -728,7 +728,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -752,7 +752,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -776,7 +776,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -799,14 +799,14 @@ public class Reversal extends DomainResource {
     /**
      * @return The date when this resource was created.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when this resource was created.
      */
-    public Reversal setCreated(DateAndTime value) { 
+    public Reversal setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -825,7 +825,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.target");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference();
+          this.target = new Reference(); // cc
       return this.target;
     }
 
@@ -849,7 +849,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.target");
         else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization();
+          this.targetTarget = new Organization(); // aa
       return this.targetTarget;
     }
 
@@ -869,7 +869,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.provider");
         else if (Configuration.doAutoCreate())
-          this.provider = new Reference();
+          this.provider = new Reference(); // cc
       return this.provider;
     }
 
@@ -893,7 +893,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.provider");
         else if (Configuration.doAutoCreate())
-          this.providerTarget = new Practitioner();
+          this.providerTarget = new Practitioner(); // aa
       return this.providerTarget;
     }
 
@@ -913,7 +913,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -937,7 +937,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -957,7 +957,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.request");
         else if (Configuration.doAutoCreate())
-          this.request = new Reference();
+          this.request = new Reference(); // cc
       return this.request;
     }
 
@@ -996,7 +996,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.response");
         else if (Configuration.doAutoCreate())
-          this.response = new Reference();
+          this.response = new Reference(); // cc
       return this.response;
     }
 
@@ -1035,7 +1035,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.payee");
         else if (Configuration.doAutoCreate())
-          this.payee = new PayeeComponent();
+          this.payee = new PayeeComponent(); // cc
       return this.payee;
     }
 
@@ -1059,7 +1059,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.coverage");
         else if (Configuration.doAutoCreate())
-          this.coverage = new ReversalCoverageComponent();
+          this.coverage = new ReversalCoverageComponent(); // cc
       return this.coverage;
     }
 
@@ -1083,7 +1083,7 @@ public class Reversal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reversal.nullify");
         else if (Configuration.doAutoCreate())
-          this.nullify = new BooleanType();
+          this.nullify = new BooleanType(); // bb
       return this.nullify;
     }
 

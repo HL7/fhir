@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -157,8 +157,8 @@ public class Goal extends DomainResource {
         }
     }
 
-  public static class GoalStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class GoalStatusEnumFactory implements EnumFactory<GoalStatus> {
+    public GoalStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -178,9 +178,9 @@ public class Goal extends DomainResource {
           return GoalStatus.ACCEPTED;
         if ("rejected".equals(codeString))
           return GoalStatus.REJECTED;
-        throw new Exception("Unknown GoalStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown GoalStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(GoalStatus code) {
       if (code == GoalStatus.PROPOSED)
         return "proposed";
       if (code == GoalStatus.PLANNED)
@@ -302,7 +302,7 @@ public class Goal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -326,7 +326,7 @@ public class Goal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -346,7 +346,7 @@ public class Goal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -391,7 +391,7 @@ public class Goal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<GoalStatus>();
+          this.status = new Enumeration<GoalStatus>(new GoalStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -426,7 +426,7 @@ public class Goal extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<GoalStatus>();
+          this.status = new Enumeration<GoalStatus>(new GoalStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -440,7 +440,7 @@ public class Goal extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 

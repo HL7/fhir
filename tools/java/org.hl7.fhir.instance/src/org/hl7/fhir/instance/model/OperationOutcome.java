@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class OperationOutcome extends DomainResource {
         }
     }
 
-  public static class IssueSeverityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class IssueSeverityEnumFactory implements EnumFactory<IssueSeverity> {
+    public IssueSeverity fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class OperationOutcome extends DomainResource {
           return IssueSeverity.WARNING;
         if ("information".equals(codeString))
           return IssueSeverity.INFORMATION;
-        throw new Exception("Unknown IssueSeverity code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown IssueSeverity code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(IssueSeverity code) {
       if (code == IssueSeverity.FATAL)
         return "fatal";
       if (code == IssueSeverity.ERROR)
@@ -194,7 +194,7 @@ public class OperationOutcome extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.severity");
             else if (Configuration.doAutoCreate())
-              this.severity = new Enumeration<IssueSeverity>();
+              this.severity = new Enumeration<IssueSeverity>(new IssueSeverityEnumFactory()); // bb
           return this.severity;
         }
 
@@ -226,7 +226,7 @@ public class OperationOutcome extends DomainResource {
          */
         public OperationOutcomeIssueComponent setSeverity(IssueSeverity value) { 
             if (this.severity == null)
-              this.severity = new Enumeration<IssueSeverity>();
+              this.severity = new Enumeration<IssueSeverity>(new IssueSeverityEnumFactory());
             this.severity.setValue(value);
           return this;
         }
@@ -239,7 +239,7 @@ public class OperationOutcome extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -263,7 +263,7 @@ public class OperationOutcome extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationOutcomeIssueComponent.details");
             else if (Configuration.doAutoCreate())
-              this.details = new StringType();
+              this.details = new StringType(); // bb
           return this.details;
         }
 

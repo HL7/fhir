@@ -25,64 +25,46 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.instance.model;
+
+import static org.apache.commons.lang3.StringUtils.defaultString;
 
 /**
  * Primitive type "code" in FHIR, when not bound to an enumerated list of codes
  */
-public class CodeType extends PrimitiveType {
+public class CodeType extends PrimitiveType<String> implements Comparable<CodeType>  {
 
-  private static final long serialVersionUID = 5312948828142916756L;
-	/**
-	 * The value of the code
-	 */
-	private String value;
+	private static final long serialVersionUID = 3L;
 
-	public CodeType(String value) {
-    this.value = value;  
-  }
-
-  public CodeType() {
-  }
-
-	/**
-	 * @return The value of the code
-	 */
-	public String getValue() {
-		return value;
+	public CodeType() {
+		super();
 	}
 
-	/**
-	 * @param value The value of the code
-	 */
-	public CodeType setValue(String value) {
-		this.value = value;
-		return this;
+	public CodeType(String theCode) {
+		setValue(theCode);
 	}
-	
+
+	public int compareTo(CodeType theCode) {
+		if (theCode == null) {
+			return 1;
+		}
+		return defaultString(getValue()).compareTo(defaultString(theCode.getValue()));
+	}	
+
 	@Override
-  public CodeType copy() {
-		CodeType dst = new CodeType();
-		dst.value = value;
-		return dst;
+	protected String parse(String theValue) {
+		return theValue.trim();
 	}
-	
+
 	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected String encode(String theValue) {
+		return theValue;
 	}
 
-  @Override
-  public String asStringValue() {
-    return value;
-  }
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
+	@Override
+	public CodeType copy() {
+		return new CodeType(getValue());
 	}
 
-	public boolean hasValue() {
-		return value != null;
-	}
-	
 }

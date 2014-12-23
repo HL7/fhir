@@ -14,8 +14,10 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
-import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.utilities.Utilities;
@@ -71,7 +73,7 @@ public class LoincToDEConvertor {
 
 	private Document xml;
 	private Bundle bundle;
-	private DateAndTime now;
+	private DateTimeType now;
 
   public Bundle process(String sourceFile) throws Exception {
     this.definitions = sourceFile;
@@ -79,12 +81,12 @@ public class LoincToDEConvertor {
     loadLoinc();
     log("LOINC loaded");
 
-    now = DateAndTime.today();
+    now = DateTimeType.now();
 
     bundle = new Bundle();
     bundle.setType(BundleType.COLLECTION);
     bundle.setId("http://hl7.org/fhir/commondataelement/loinc");
-    bundle.setMeta(new ResourceMetaComponent().setLastUpdated(now));
+    bundle.setMeta(new ResourceMetaComponent().setLastUpdatedElement(InstantType.now()));
 
     processLoincCodes();
     return bundle;
@@ -95,11 +97,11 @@ public class LoincToDEConvertor {
 		loadLoinc();
 		log("LOINC loaded");
 
-		now = DateAndTime.today();
+		now = DateTimeType.now();
 
 		bundle = new Bundle();
 		bundle.setId("http://hl7.org/fhir/commondataelement/loinc");
-    bundle.setMeta(new ResourceMetaComponent().setLastUpdated(now));
+    bundle.setMeta(new ResourceMetaComponent().setLastUpdatedElement(InstantType.now()));
 
 		processLoincCodes();
 		if (dest != null) {
@@ -150,7 +152,7 @@ public class LoincToDEConvertor {
 				String comp = col(row, "COMPONENT");
 				DataElement de = new DataElement();
 				de.setId("loinc-"+code);
-		    de.setMeta(new ResourceMetaComponent().setLastUpdated(now));
+		    de.setMeta(new ResourceMetaComponent().setLastUpdatedElement(InstantType.now()));
 				bundle.getEntry().add(new BundleEntryComponent().setResource(de));
 				Identifier id = new Identifier();
 				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
@@ -163,7 +165,7 @@ public class LoincToDEConvertor {
 	 				de.setStatus(ResourceObservationDefStatus.DRAFT); // till we get good at this
 				else
 					de.setStatus(ResourceObservationDefStatus.RETIRED);
-				de.setDate(now);
+				de.setDateElement(DateTimeType.now());
 				de.setName(comp);
 
 				// PROPERTY	ignore
@@ -177,7 +179,7 @@ public class LoincToDEConvertor {
 				// CHNG_TYPE	
 				de.setComments(col(row , "COMMENTS"));
 				if (hasCol(row, "CONSUMER_NAME"))
-					de.getSynonym().add(new StringType().setValue(col(row, "CONSUMER_NAME")));	
+					de.addSynonym(col(row, "CONSUMER_NAME"));	
 				// MOLAR_MASS	
 				// CLASSTYPE	
 				// FORMULA	
@@ -193,10 +195,10 @@ public class LoincToDEConvertor {
 	        String n = col(row, "RELATEDNAMES2");
 	        for (String s : n.split("\\;")) {
 						if (!Utilities.noString(s))
-							de.getSynonym().add(new StringType().setValue(s));	
+							de.addSynonym(s);	
 					}
         }
-				de.getSynonym().add(new StringType().setValue(col(row, "SHORTNAME")));	
+				de.addSynonym(col(row, "SHORTNAME"));	
 				// ORDER_OBS	
 				// CDISC Code	
 				// HL7_FIELD_SUBFIELD_ID	

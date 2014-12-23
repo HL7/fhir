@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -137,8 +137,8 @@ public class Encounter extends DomainResource {
         }
     }
 
-  public static class EncounterStateEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EncounterStateEnumFactory implements EnumFactory<EncounterState> {
+    public EncounterState fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -154,9 +154,9 @@ public class Encounter extends DomainResource {
           return EncounterState.FINISHED;
         if ("cancelled".equals(codeString))
           return EncounterState.CANCELLED;
-        throw new Exception("Unknown EncounterState code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EncounterState code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EncounterState code) {
       if (code == EncounterState.PLANNED)
         return "planned";
       if (code == EncounterState.ARRIVED)
@@ -295,8 +295,8 @@ public class Encounter extends DomainResource {
         }
     }
 
-  public static class EncounterClassEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EncounterClassEnumFactory implements EnumFactory<EncounterClass> {
+    public EncounterClass fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -318,9 +318,9 @@ public class Encounter extends DomainResource {
           return EncounterClass.VIRTUAL;
         if ("other".equals(codeString))
           return EncounterClass.OTHER;
-        throw new Exception("Unknown EncounterClass code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EncounterClass code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EncounterClass code) {
       if (code == EncounterClass.INPATIENT)
         return "inpatient";
       if (code == EncounterClass.OUTPATIENT)
@@ -405,8 +405,8 @@ public class Encounter extends DomainResource {
         }
     }
 
-  public static class EncounterLocationStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EncounterLocationStatusEnumFactory implements EnumFactory<EncounterLocationStatus> {
+    public EncounterLocationStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -416,9 +416,9 @@ public class Encounter extends DomainResource {
           return EncounterLocationStatus.PRESENT;
         if ("reserved".equals(codeString))
           return EncounterLocationStatus.RESERVED;
-        throw new Exception("Unknown EncounterLocationStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EncounterLocationStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EncounterLocationStatus code) {
       if (code == EncounterLocationStatus.PLANNED)
         return "planned";
       if (code == EncounterLocationStatus.PRESENT)
@@ -465,7 +465,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterStatusHistoryComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<EncounterState>();
+              this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory()); // bb
           return this.status;
         }
 
@@ -497,7 +497,7 @@ public class Encounter extends DomainResource {
          */
         public EncounterStatusHistoryComponent setStatus(EncounterState value) { 
             if (this.status == null)
-              this.status = new Enumeration<EncounterState>();
+              this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
             this.status.setValue(value);
           return this;
         }
@@ -510,7 +510,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterStatusHistoryComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -619,7 +619,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterParticipantComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -643,7 +643,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterParticipantComponent.individual");
             else if (Configuration.doAutoCreate())
-              this.individual = new Reference();
+              this.individual = new Reference(); // cc
           return this.individual;
         }
 
@@ -802,7 +802,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.preAdmissionIdentifier");
             else if (Configuration.doAutoCreate())
-              this.preAdmissionIdentifier = new Identifier();
+              this.preAdmissionIdentifier = new Identifier(); // cc
           return this.preAdmissionIdentifier;
         }
 
@@ -826,7 +826,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
             else if (Configuration.doAutoCreate())
-              this.origin = new Reference();
+              this.origin = new Reference(); // cc
           return this.origin;
         }
 
@@ -850,7 +850,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
             else if (Configuration.doAutoCreate())
-              this.originTarget = new Location();
+              this.originTarget = new Location(); // aa
           return this.originTarget;
         }
 
@@ -870,7 +870,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.admitSource");
             else if (Configuration.doAutoCreate())
-              this.admitSource = new CodeableConcept();
+              this.admitSource = new CodeableConcept(); // cc
           return this.admitSource;
         }
 
@@ -894,7 +894,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.diet");
             else if (Configuration.doAutoCreate())
-              this.diet = new CodeableConcept();
+              this.diet = new CodeableConcept(); // cc
           return this.diet;
         }
 
@@ -978,7 +978,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destination = new Reference();
+              this.destination = new Reference(); // cc
           return this.destination;
         }
 
@@ -1002,7 +1002,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
             else if (Configuration.doAutoCreate())
-              this.destinationTarget = new Location();
+              this.destinationTarget = new Location(); // aa
           return this.destinationTarget;
         }
 
@@ -1022,7 +1022,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dischargeDisposition");
             else if (Configuration.doAutoCreate())
-              this.dischargeDisposition = new CodeableConcept();
+              this.dischargeDisposition = new CodeableConcept(); // cc
           return this.dischargeDisposition;
         }
 
@@ -1046,7 +1046,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dischargeDiagnosis");
             else if (Configuration.doAutoCreate())
-              this.dischargeDiagnosis = new Reference();
+              this.dischargeDiagnosis = new Reference(); // cc
           return this.dischargeDiagnosis;
         }
 
@@ -1085,7 +1085,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.reAdmission");
             else if (Configuration.doAutoCreate())
-              this.reAdmission = new BooleanType();
+              this.reAdmission = new BooleanType(); // bb
           return this.reAdmission;
         }
 
@@ -1222,7 +1222,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.location");
             else if (Configuration.doAutoCreate())
-              this.location = new Reference();
+              this.location = new Reference(); // cc
           return this.location;
         }
 
@@ -1246,7 +1246,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.location");
             else if (Configuration.doAutoCreate())
-              this.locationTarget = new Location();
+              this.locationTarget = new Location(); // aa
           return this.locationTarget;
         }
 
@@ -1266,7 +1266,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<EncounterLocationStatus>();
+              this.status = new Enumeration<EncounterLocationStatus>(new EncounterLocationStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -1301,7 +1301,7 @@ public class Encounter extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<EncounterLocationStatus>();
+              this.status = new Enumeration<EncounterLocationStatus>(new EncounterLocationStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -1315,7 +1315,7 @@ public class Encounter extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.period");
             else if (Configuration.doAutoCreate())
-              this.period = new Period();
+              this.period = new Period(); // cc
           return this.period;
         }
 
@@ -1560,7 +1560,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<EncounterState>();
+          this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory()); // bb
       return this.status;
     }
 
@@ -1592,7 +1592,7 @@ public class Encounter extends DomainResource {
      */
     public Encounter setStatus(EncounterState value) { 
         if (this.status == null)
-          this.status = new Enumeration<EncounterState>();
+          this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1635,7 +1635,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.class_");
         else if (Configuration.doAutoCreate())
-          this.class_ = new Enumeration<EncounterClass>();
+          this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory()); // bb
       return this.class_;
     }
 
@@ -1667,7 +1667,7 @@ public class Encounter extends DomainResource {
      */
     public Encounter setClass_(EncounterClass value) { 
         if (this.class_ == null)
-          this.class_ = new Enumeration<EncounterClass>();
+          this.class_ = new Enumeration<EncounterClass>(new EncounterClassEnumFactory());
         this.class_.setValue(value);
       return this;
     }
@@ -1710,7 +1710,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -1734,7 +1734,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -1754,7 +1754,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.episodeOfCare");
         else if (Configuration.doAutoCreate())
-          this.episodeOfCare = new Reference();
+          this.episodeOfCare = new Reference(); // cc
       return this.episodeOfCare;
     }
 
@@ -1778,7 +1778,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.episodeOfCare");
         else if (Configuration.doAutoCreate())
-          this.episodeOfCareTarget = new EpisodeOfCare();
+          this.episodeOfCareTarget = new EpisodeOfCare(); // aa
       return this.episodeOfCareTarget;
     }
 
@@ -1828,7 +1828,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.fulfills");
         else if (Configuration.doAutoCreate())
-          this.fulfills = new Reference();
+          this.fulfills = new Reference(); // cc
       return this.fulfills;
     }
 
@@ -1852,7 +1852,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.fulfills");
         else if (Configuration.doAutoCreate())
-          this.fulfillsTarget = new Appointment();
+          this.fulfillsTarget = new Appointment(); // aa
       return this.fulfillsTarget;
     }
 
@@ -1872,7 +1872,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -1896,7 +1896,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.length");
         else if (Configuration.doAutoCreate())
-          this.length = new Duration();
+          this.length = new Duration(); // cc
       return this.length;
     }
 
@@ -1920,7 +1920,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept();
+          this.reason = new CodeableConcept(); // cc
       return this.reason;
     }
 
@@ -1983,7 +1983,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new CodeableConcept();
+          this.priority = new CodeableConcept(); // cc
       return this.priority;
     }
 
@@ -2007,7 +2007,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.hospitalization");
         else if (Configuration.doAutoCreate())
-          this.hospitalization = new EncounterHospitalizationComponent();
+          this.hospitalization = new EncounterHospitalizationComponent(); // cc
       return this.hospitalization;
     }
 
@@ -2061,7 +2061,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.serviceProvider");
         else if (Configuration.doAutoCreate())
-          this.serviceProvider = new Reference();
+          this.serviceProvider = new Reference(); // cc
       return this.serviceProvider;
     }
 
@@ -2085,7 +2085,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.serviceProvider");
         else if (Configuration.doAutoCreate())
-          this.serviceProviderTarget = new Organization();
+          this.serviceProviderTarget = new Organization(); // aa
       return this.serviceProviderTarget;
     }
 
@@ -2105,7 +2105,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOf = new Reference();
+          this.partOf = new Reference(); // cc
       return this.partOf;
     }
 
@@ -2129,7 +2129,7 @@ public class Encounter extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.partOf");
         else if (Configuration.doAutoCreate())
-          this.partOfTarget = new Encounter();
+          this.partOfTarget = new Encounter(); // aa
       return this.partOfTarget;
     }
 

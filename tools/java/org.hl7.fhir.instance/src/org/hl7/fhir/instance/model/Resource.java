@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -96,7 +96,7 @@ public abstract class Resource extends Base {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceMetaComponent.versionId");
             else if (Configuration.doAutoCreate())
-              this.versionId = new IdType();
+              this.versionId = new IdType(); // bb
           return this.versionId;
         }
 
@@ -145,7 +145,7 @@ public abstract class Resource extends Base {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceMetaComponent.lastUpdated");
             else if (Configuration.doAutoCreate())
-              this.lastUpdated = new InstantType();
+              this.lastUpdated = new InstantType(); // bb
           return this.lastUpdated;
         }
 
@@ -168,14 +168,14 @@ public abstract class Resource extends Base {
         /**
          * @return When the resource last changed - e.g. when the version changed.
          */
-        public DateAndTime getLastUpdated() { 
+        public Date getLastUpdated() { 
           return this.lastUpdated == null ? null : this.lastUpdated.getValue();
         }
 
         /**
          * @param value When the resource last changed - e.g. when the version changed.
          */
-        public ResourceMetaComponent setLastUpdated(DateAndTime value) { 
+        public ResourceMetaComponent setLastUpdated(Date value) { 
           if (value == null)
             this.lastUpdated = null;
           else {
@@ -382,7 +382,7 @@ public abstract class Resource extends Base {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Resource.id");
         else if (Configuration.doAutoCreate())
-          this.id = new IdType();
+          this.id = new IdType(); // bb
       return this.id;
     }
 
@@ -431,7 +431,7 @@ public abstract class Resource extends Base {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Resource.meta");
         else if (Configuration.doAutoCreate())
-          this.meta = new ResourceMetaComponent();
+          this.meta = new ResourceMetaComponent(); // cc
       return this.meta;
     }
 
@@ -455,7 +455,7 @@ public abstract class Resource extends Base {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Resource.implicitRules");
         else if (Configuration.doAutoCreate())
-          this.implicitRules = new UriType();
+          this.implicitRules = new UriType(); // bb
       return this.implicitRules;
     }
 
@@ -504,7 +504,7 @@ public abstract class Resource extends Base {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Resource.language");
         else if (Configuration.doAutoCreate())
-          this.language = new CodeType();
+          this.language = new CodeType(); // bb
       return this.language;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -158,7 +158,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.issuer");
         else if (Configuration.doAutoCreate())
-          this.issuer = new Reference();
+          this.issuer = new Reference(); // cc
       return this.issuer;
     }
 
@@ -182,7 +182,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.issuer");
         else if (Configuration.doAutoCreate())
-          this.issuerTarget = new Organization();
+          this.issuerTarget = new Organization(); // aa
       return this.issuerTarget;
     }
 
@@ -202,7 +202,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -226,7 +226,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Coding();
+          this.type = new Coding(); // cc
       return this.type;
     }
 
@@ -280,7 +280,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.group");
         else if (Configuration.doAutoCreate())
-          this.group = new StringType();
+          this.group = new StringType(); // bb
       return this.group;
     }
 
@@ -329,7 +329,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.plan");
         else if (Configuration.doAutoCreate())
-          this.plan = new StringType();
+          this.plan = new StringType(); // bb
       return this.plan;
     }
 
@@ -378,7 +378,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subplan");
         else if (Configuration.doAutoCreate())
-          this.subplan = new StringType();
+          this.subplan = new StringType(); // bb
       return this.subplan;
     }
 
@@ -427,7 +427,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.dependent");
         else if (Configuration.doAutoCreate())
-          this.dependent = new IntegerType();
+          this.dependent = new IntegerType(); // bb
       return this.dependent;
     }
 
@@ -476,7 +476,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.sequence");
         else if (Configuration.doAutoCreate())
-          this.sequence = new IntegerType();
+          this.sequence = new IntegerType(); // bb
       return this.sequence;
     }
 
@@ -525,7 +525,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subscriber");
         else if (Configuration.doAutoCreate())
-          this.subscriber = new Reference();
+          this.subscriber = new Reference(); // cc
       return this.subscriber;
     }
 
@@ -549,7 +549,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.subscriber");
         else if (Configuration.doAutoCreate())
-          this.subscriberTarget = new Patient();
+          this.subscriberTarget = new Patient(); // aa
       return this.subscriberTarget;
     }
 
@@ -569,7 +569,7 @@ public class Coverage extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Coverage.network");
         else if (Configuration.doAutoCreate())
-          this.network = new Identifier();
+          this.network = new Identifier(); // cc
       return this.network;
     }
 

@@ -124,6 +124,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.CodeType;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
@@ -141,8 +142,8 @@ import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
@@ -733,7 +734,7 @@ public class Publisher implements URIResolver {
     } else {
       // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
       if (!profile.getResource().hasDate())
-        profile.getResource().setDate(new DateAndTime(page.getGenDate()));
+        profile.getResource().setDate(page.getGenDate().getTime());
         if (profile.getResource().hasBase() && !profile.getResource().hasSnapshot()) {
           // cause it probably doesn't, coming from the profile directly
           Profile base = getSnapShotForProfile(profile.getResource().getBase());
@@ -784,7 +785,7 @@ public class Publisher implements URIResolver {
 
   private void processProfile(Profile ae) throws Exception {
     if (ae.getDate() == null)
-      ae.setDate(new DateAndTime(page.getGenDate()));
+      ae.setDate(page.getGenDate().getTime());
     if (ae.hasBase() && ae.hasSnapshot()) {
       // cause it probably doesn't, coming from the profile directly
       Profile base = getIgProfile(ae.getBase());
@@ -897,38 +898,38 @@ public class Publisher implements URIResolver {
     profileFeed = new Bundle();
     profileFeed.setId("resources");
     profileFeed.setType(BundleType.COLLECTION);
-    profileFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    profileFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     profileFeed.setBase("http://hl7.org/fhir");
 
     typeFeed = new Bundle();
     typeFeed.setId("types");
     typeFeed.setType(BundleType.COLLECTION);
-    typeFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    typeFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     typeFeed.setBase("http://hl7.org/fhir");
 
     valueSetsFeed = new Bundle();
     valueSetsFeed.setId("valuesets");
     valueSetsFeed.setType(BundleType.COLLECTION);
-    valueSetsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    valueSetsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     valueSetsFeed.setBase("http://hl7.org/fhir");
 
     conceptMapsFeed = new Bundle();
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
-    conceptMapsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    conceptMapsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     conceptMapsFeed.setBase("http://hl7.org/fhir");
 
     v2Valuesets = new Bundle();
     v2Valuesets.setType(BundleType.COLLECTION);
     v2Valuesets.setId("v2-valuesets");
-    v2Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    v2Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     v2Valuesets.setBase("http://hl7.org/fhir");
     page.setV2Valuesets(v2Valuesets);
     
     v3Valuesets = new Bundle();
     v3Valuesets.setType(BundleType.COLLECTION);
     v3Valuesets.setId("v3-valuesets");
-    v3Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+    v3Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
     v3Valuesets.setBase("http://hl7.org/fhir");
     page.setv3Valuesets(v3Valuesets);
   }
@@ -942,7 +943,7 @@ public class Publisher implements URIResolver {
     conf.setPublisher("FHIR Project Team");
     conf.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     conf.setStatus(ConformanceStatementStatus.DRAFT);
-    conf.setDate(new DateAndTime(page.getGenDate().getTime()));
+    conf.setDate(page.getGenDate().getTime());
     conf.setFhirVersion(page.getVersion());
     conf.setAcceptUnknown(false);
     conf.getFormat().add(Factory.newCode("xml"));
@@ -2076,7 +2077,7 @@ public class Publisher implements URIResolver {
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
-      vs.setDate(new DateAndTime(r.getAttribute("releaseDate")));
+      vs.setDateElement(new DateTimeType(r.getAttribute("releaseDate")));
     }
     if (csOid != null)
       s.append("<p>OID for code system: " + csOid + "</p>\r\n");
@@ -2187,9 +2188,9 @@ public class Publisher implements URIResolver {
             vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+e.getAttribute("codeSystemId"));
             if (vs.hasDate())
-              vs.setMeta(new ResourceMetaComponent().setLastUpdated(vs.getDate().expandTime()));
+              vs.setMeta(new ResourceMetaComponent().setLastUpdatedElement(new InstantType(vs.getDate())));
             else
-              vs.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+              vs.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
             page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
             page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
             page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
@@ -2220,9 +2221,9 @@ public class Publisher implements URIResolver {
           vs.setUserData("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
-            vs.setMeta(new ResourceMetaComponent().setLastUpdated(vs.getDate().expandTime()));
+            vs.setMeta(new ResourceMetaComponent().setLastUpdatedElement(new InstantType(vs.getDate())));
           else
-            vs.setMeta(new ResourceMetaComponent().setLastUpdated(DateAndTime.now()));
+            vs.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
           page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
           page.getValueSets().put(vs.getIdentifier(), vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
@@ -2801,7 +2802,7 @@ public class Publisher implements URIResolver {
     opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
     opd.setDescription(op.getDoco());
     opd.setStatus(ResourceProfileStatus.DRAFT);
-    opd.setDate(new DateAndTime(page.getGenDate()));
+    opd.setDate(page.getGenDate().getTime());
     if (op.getKind().toLowerCase().equals("operation"))
       opd.setKind(OperationKind.OPERATION);
     else if (op.getKind().toLowerCase().equals("query"))
@@ -2813,7 +2814,7 @@ public class Publisher implements URIResolver {
     opd.setNotes(op.getFooter());
     opd.setSystem(op.isSystem());
     if (op.isType())
-      opd.getType().add(new CodeType().setValue(r.getName()));
+      opd.addType(r.getName());
     opd.setInstance(op.isInstance());
     for (OperationParameter p : op.getParameters()) {
       OperationDefinitionParameterComponent pp = new OperationDefinitionParameterComponent();
@@ -3220,7 +3221,7 @@ public class Publisher implements URIResolver {
       dest.getEntry().remove(byId);
     deletefromFeed(resource.getResourceType(), resource.getId(), dest);
 
-    ResourceUtilities.meta(resource).setLastUpdated(new DateAndTime(page.getGenDate()));
+    ResourceUtilities.meta(resource).setLastUpdated(page.getGenDate().getTime());
     if (resource.getText() == null || resource.getText().getDiv() == null)
       throw new Exception("Example Resource " + resource.getId() + " does not have any narrative");
     dest.getEntry().add(new BundleEntryComponent().setResource(resource));
@@ -3234,7 +3235,7 @@ public class Publisher implements URIResolver {
     if (vs.getText() == null || vs.getText().getDiv() == null)
       throw new Exception("Example Value Set " + vs.getId() + " does not have any narrative");
 
-    ResourceUtilities.meta(vs).setLastUpdated(new DateAndTime(page.getGenDate()));
+    ResourceUtilities.meta(vs).setLastUpdated(page.getGenDate().getTime());
     dest.getEntry().add(new BundleEntryComponent().setResource(vs));
   }
 
@@ -3246,7 +3247,7 @@ public class Publisher implements URIResolver {
     if (cm.getText() == null || cm.getText().getDiv() == null)
       throw new Exception("Example Concept Map " + cm.getId() + " does not have any narrative");
 
-    ResourceUtilities.meta(cm).setLastUpdated(new DateAndTime(page.getGenDate()));
+    ResourceUtilities.meta(cm).setLastUpdated(page.getGenDate().getTime());
     dest.getEntry().add(new BundleEntryComponent().setResource(cm));
   }
 
@@ -3258,7 +3259,7 @@ public class Publisher implements URIResolver {
     if (conf.getText() == null || conf.getText().getDiv() == null)
       throw new Exception("Example Conformance " + conf.getId() + " does not have any narrative");
 
-    ResourceUtilities.meta(conf).setLastUpdated(new DateAndTime(page.getGenDate()));
+    ResourceUtilities.meta(conf).setLastUpdated(page.getGenDate().getTime());
     dest.getEntry().add(new BundleEntryComponent().setResource(conf));
   }
 
@@ -4177,7 +4178,7 @@ public class Publisher implements URIResolver {
       vs.setCopyright(cd.getCopyright());
 
     vs.setStatus(cd.getStatus() != null ? cd.getStatus() : ValuesetStatus.DRAFT); // until we publish DSTU, then .review
-    vs.setDateElement(Factory.nowDateTime());
+    vs.setDate(page.getGenDate().getTime());
 
     for (String n : cd.getVSSources()) {
       if (Utilities.noString(n)) {
@@ -4242,7 +4243,7 @@ public class Publisher implements URIResolver {
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
     // DSTU, then .review
-    cm.setDateElement(Factory.nowDateTime());
+    cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(cd.getV2Map()));
     for (DefinedCode c : cd.getCodes()) {
@@ -4327,7 +4328,7 @@ public class Publisher implements URIResolver {
     Set<String> tbls = new HashSet<String>();
     cm.setStatus(ConceptMap.ValuesetStatus.DRAFT); // until we publish
     // DSTU, then .review
-    cm.setDateElement(Factory.nowDateTime());
+    cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference("http://hl7.org/fhir/v3/vs/"+cd.getV3Map()));
     for (DefinedCode c : cd.getCodes()) {

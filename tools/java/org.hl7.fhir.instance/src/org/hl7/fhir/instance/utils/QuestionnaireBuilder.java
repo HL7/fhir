@@ -8,7 +8,6 @@ import java.util.Map;
 import org.hl7.fhir.instance.model.Base;
 import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
@@ -399,7 +398,7 @@ public class QuestionnaireBuilder {
     vs.setDescription(vs.getName());
 	  vs.setStatus(ValuesetStatus.ACTIVE);
     vs.setExpansion(new ValueSetExpansionComponent());
-    vs.getExpansion().setTimestamp(DateAndTime.now());
+    vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
       ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
 	    if (t.getCode().equals("Reference") && (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/Profile/"))) { 

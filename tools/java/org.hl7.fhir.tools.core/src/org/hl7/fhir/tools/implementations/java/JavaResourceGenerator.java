@@ -415,8 +415,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		write("\r\n");
 
 		
-		write("  public static class "+tns+"EnumFactory implements EnumFactory {\r\n");
-		write("    public Enum<?> fromCode(String codeString) throws Exception {\r\n");
+		write("  public static class "+tns+"EnumFactory implements EnumFactory<"+tns+"> {\r\n");
+		write("    public "+tns+" fromCode(String codeString) throws IllegalArgumentException {\r\n");
 		
 		write("      if (codeString == null || \"\".equals(codeString))\r\n");
     write("            if (codeString == null || \"\".equals(codeString))\r\n");
@@ -427,9 +427,9 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("        if (\""+c.getCode()+"\".equals(codeString))\r\n");
       write("          return "+tns+"."+cc+";\r\n");
     }   
-    write("        throw new Exception(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
+    write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
-    write("    public String toCode(Enum<?> code) throws Exception {\r\n");
+    write("    public String toCode("+tns+" code) {\r\n");
     for (DefinedCode c : cd.getCodes()) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
@@ -777,15 +777,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (n.equals("DecimalType"))
       return "BigDecimal";
     if (n.equals("DateTimeType"))
-      return "DateAndTime";
+      return "Date";
     if (n.equals("DateType"))
-      return "DateAndTime";
+      return "Date";
     if (n.equals("IdType"))
       return "String";
     if (n.equals("InstantType"))
-      return "DateAndTime";
+      return "Date";
     if (n.equals("TimeType"))
-      return "DateAndTime";
+      return "Date";
     
     String tns = null;
     if (n.indexOf("<") > 0) {
@@ -828,7 +828,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.typeCode().equals("xml:lang"))) {
         write("    // syntactic sugar\r\n");
         write(indent+"public "+tn+" add"+getTitle(getElementName(e.getName(), false))+"Element() {//2 \r\n");
-        write(indent+"  "+tn+" t = new "+tn+"();\r\n");
+        write(indent+"  "+tn+" t = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
         write(indent+"    this."+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
         write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
@@ -837,7 +837,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
         write(indent+"public "+className+" add"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { //1\r\n");
-        write(indent+"  "+tn+" t = new "+tn+"();\r\n");
+        write(indent+"  "+tn+" t = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"  t.setValue(value);\r\n");
         write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
         write(indent+"    this."+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
@@ -907,7 +907,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
         write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
         write(indent+"    else if (Configuration.doAutoCreate())\r\n");
-        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"();\r\n");
+        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+"); // bb\r\n");
 	      write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
@@ -945,7 +945,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	        write(indent+"  else {\r\n");
 	      }
 	      write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
-        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"();\r\n");
+        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");
         if (e.getMinCardinality() == 0) {
           write(indent+"  }\r\n");
@@ -962,7 +962,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	        write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
 	        write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
 	        write(indent+"    else if (Configuration.doAutoCreate())\r\n");
-	        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"();\r\n");
+	        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"(); // cc\r\n");
 			  }
 			  write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
 			  write(indent+"}\r\n");
@@ -1001,7 +1001,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		        write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
 		        write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
 		        write(indent+"    else if (Configuration.doAutoCreate())\r\n");
-		        write(indent+"      this."+getElementName(e.getName(), true)+"Target = new "+rn+"();\r\n");
+		        write(indent+"      this."+getElementName(e.getName(), true)+"Target = new "+rn+"(); // aa\r\n");
 			    }
 			    write(indent+"  return this."+getElementName(e.getName(), true)+"Target;\r\n");
 			    write(indent+"}\r\n");

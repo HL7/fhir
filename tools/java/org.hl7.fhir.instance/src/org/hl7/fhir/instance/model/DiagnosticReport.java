@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -157,8 +157,8 @@ public class DiagnosticReport extends DomainResource {
         }
     }
 
-  public static class DiagnosticReportStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class DiagnosticReportStatusEnumFactory implements EnumFactory<DiagnosticReportStatus> {
+    public DiagnosticReportStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -178,9 +178,9 @@ public class DiagnosticReport extends DomainResource {
           return DiagnosticReportStatus.CANCELLED;
         if ("entered in error".equals(codeString))
           return DiagnosticReportStatus.ENTEREDINERROR;
-        throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(DiagnosticReportStatus code) {
       if (code == DiagnosticReportStatus.REGISTERED)
         return "registered";
       if (code == DiagnosticReportStatus.PARTIAL)
@@ -241,7 +241,7 @@ public class DiagnosticReport extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.comment");
             else if (Configuration.doAutoCreate())
-              this.comment = new StringType();
+              this.comment = new StringType(); // bb
           return this.comment;
         }
 
@@ -290,7 +290,7 @@ public class DiagnosticReport extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
             else if (Configuration.doAutoCreate())
-              this.link = new Reference();
+              this.link = new Reference(); // cc
           return this.link;
         }
 
@@ -314,7 +314,7 @@ public class DiagnosticReport extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
             else if (Configuration.doAutoCreate())
-              this.linkTarget = new Media();
+              this.linkTarget = new Media(); // aa
           return this.linkTarget;
         }
 
@@ -513,7 +513,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.name");
         else if (Configuration.doAutoCreate())
-          this.name = new CodeableConcept();
+          this.name = new CodeableConcept(); // cc
       return this.name;
     }
 
@@ -537,7 +537,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DiagnosticReportStatus>();
+          this.status = new Enumeration<DiagnosticReportStatus>(new DiagnosticReportStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -569,7 +569,7 @@ public class DiagnosticReport extends DomainResource {
      */
     public DiagnosticReport setStatus(DiagnosticReportStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<DiagnosticReportStatus>();
+          this.status = new Enumeration<DiagnosticReportStatus>(new DiagnosticReportStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -582,7 +582,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.issued");
         else if (Configuration.doAutoCreate())
-          this.issued = new DateTimeType();
+          this.issued = new DateTimeType(); // bb
       return this.issued;
     }
 
@@ -605,14 +605,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public DateAndTime getIssued() { 
+    public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public DiagnosticReport setIssued(DateAndTime value) { 
+    public DiagnosticReport setIssued(Date value) { 
         if (this.issued == null)
           this.issued = new DateTimeType();
         this.issued.setValue(value);
@@ -627,7 +627,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -666,7 +666,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.performer");
         else if (Configuration.doAutoCreate())
-          this.performer = new Reference();
+          this.performer = new Reference(); // cc
       return this.performer;
     }
 
@@ -705,7 +705,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -780,7 +780,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.serviceCategory");
         else if (Configuration.doAutoCreate())
-          this.serviceCategory = new CodeableConcept();
+          this.serviceCategory = new CodeableConcept(); // cc
       return this.serviceCategory;
     }
 
@@ -1024,7 +1024,7 @@ public class DiagnosticReport extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticReport.conclusion");
         else if (Configuration.doAutoCreate())
-          this.conclusion = new StringType();
+          this.conclusion = new StringType(); // bb
       return this.conclusion;
     }
 

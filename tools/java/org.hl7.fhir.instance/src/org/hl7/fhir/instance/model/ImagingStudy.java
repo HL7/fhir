@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -437,8 +437,8 @@ public class ImagingStudy extends DomainResource {
         }
     }
 
-  public static class ImagingModalityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ImagingModalityEnumFactory implements EnumFactory<ImagingModality> {
+    public ImagingModality fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -514,9 +514,9 @@ public class ImagingStudy extends DomainResource {
           return ImagingModality.VA;
         if ("XA".equals(codeString))
           return ImagingModality.XA;
-        throw new Exception("Unknown ImagingModality code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ImagingModality code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ImagingModality code) {
       if (code == ImagingModality.AR)
         return "AR";
       if (code == ImagingModality.BMD)
@@ -665,8 +665,8 @@ public class ImagingStudy extends DomainResource {
         }
     }
 
-  public static class InstanceAvailabilityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class InstanceAvailabilityEnumFactory implements EnumFactory<InstanceAvailability> {
+    public InstanceAvailability fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -678,9 +678,9 @@ public class ImagingStudy extends DomainResource {
           return InstanceAvailability.NEARLINE;
         if ("UNAVAILABLE".equals(codeString))
           return InstanceAvailability.UNAVAILABLE;
-        throw new Exception("Unknown InstanceAvailability code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown InstanceAvailability code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(InstanceAvailability code) {
       if (code == InstanceAvailability.ONLINE)
         return "ONLINE";
       if (code == InstanceAvailability.OFFLINE)
@@ -1255,8 +1255,8 @@ public class ImagingStudy extends DomainResource {
         }
     }
 
-  public static class ModalityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ModalityEnumFactory implements EnumFactory<Modality> {
+    public Modality fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -1366,9 +1366,9 @@ public class ImagingStudy extends DomainResource {
           return Modality.XA;
         if ("XC".equals(codeString))
           return Modality.XC;
-        throw new Exception("Unknown Modality code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown Modality code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(Modality code) {
       if (code == Modality.AR)
         return "AR";
       if (code == Modality.AU)
@@ -1572,7 +1572,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType();
+              this.number = new IntegerType(); // bb
           return this.number;
         }
 
@@ -1621,7 +1621,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.modality");
             else if (Configuration.doAutoCreate())
-              this.modality = new Enumeration<Modality>();
+              this.modality = new Enumeration<Modality>(new ModalityEnumFactory()); // bb
           return this.modality;
         }
 
@@ -1653,7 +1653,7 @@ public class ImagingStudy extends DomainResource {
          */
         public ImagingStudySeriesComponent setModality(Modality value) { 
             if (this.modality == null)
-              this.modality = new Enumeration<Modality>();
+              this.modality = new Enumeration<Modality>(new ModalityEnumFactory());
             this.modality.setValue(value);
           return this;
         }
@@ -1666,7 +1666,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.uid");
             else if (Configuration.doAutoCreate())
-              this.uid = new OidType();
+              this.uid = new OidType(); // bb
           return this.uid;
         }
 
@@ -1711,7 +1711,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -1760,7 +1760,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.numberOfInstances");
             else if (Configuration.doAutoCreate())
-              this.numberOfInstances = new IntegerType();
+              this.numberOfInstances = new IntegerType(); // bb
           return this.numberOfInstances;
         }
 
@@ -1805,7 +1805,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.availability");
             else if (Configuration.doAutoCreate())
-              this.availability = new Enumeration<InstanceAvailability>();
+              this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory()); // bb
           return this.availability;
         }
 
@@ -1840,7 +1840,7 @@ public class ImagingStudy extends DomainResource {
             this.availability = null;
           else {
             if (this.availability == null)
-              this.availability = new Enumeration<InstanceAvailability>();
+              this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
             this.availability.setValue(value);
           }
           return this;
@@ -1854,7 +1854,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.url");
             else if (Configuration.doAutoCreate())
-              this.url = new UriType();
+              this.url = new UriType(); // bb
           return this.url;
         }
 
@@ -1903,7 +1903,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.bodySite");
             else if (Configuration.doAutoCreate())
-              this.bodySite = new Coding();
+              this.bodySite = new Coding(); // cc
           return this.bodySite;
         }
 
@@ -1927,7 +1927,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesComponent.dateTime");
             else if (Configuration.doAutoCreate())
-              this.dateTime = new DateTimeType();
+              this.dateTime = new DateTimeType(); // bb
           return this.dateTime;
         }
 
@@ -1950,14 +1950,14 @@ public class ImagingStudy extends DomainResource {
         /**
          * @return The date when the series was started.
          */
-        public DateAndTime getDateTime() { 
+        public Date getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The date when the series was started.
          */
-        public ImagingStudySeriesComponent setDateTime(DateAndTime value) { 
+        public ImagingStudySeriesComponent setDateTime(Date value) { 
           if (value == null)
             this.dateTime = null;
           else {
@@ -2117,7 +2117,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.number");
             else if (Configuration.doAutoCreate())
-              this.number = new IntegerType();
+              this.number = new IntegerType(); // bb
           return this.number;
         }
 
@@ -2166,7 +2166,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.uid");
             else if (Configuration.doAutoCreate())
-              this.uid = new OidType();
+              this.uid = new OidType(); // bb
           return this.uid;
         }
 
@@ -2211,7 +2211,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.sopclass");
             else if (Configuration.doAutoCreate())
-              this.sopclass = new OidType();
+              this.sopclass = new OidType(); // bb
           return this.sopclass;
         }
 
@@ -2256,7 +2256,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new StringType();
+              this.type = new StringType(); // bb
           return this.type;
         }
 
@@ -2305,7 +2305,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.title");
             else if (Configuration.doAutoCreate())
-              this.title = new StringType();
+              this.title = new StringType(); // bb
           return this.title;
         }
 
@@ -2354,7 +2354,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.url");
             else if (Configuration.doAutoCreate())
-              this.url = new UriType();
+              this.url = new UriType(); // bb
           return this.url;
         }
 
@@ -2403,7 +2403,7 @@ public class ImagingStudy extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImagingStudySeriesInstanceComponent.attachment");
             else if (Configuration.doAutoCreate())
-              this.attachment = new Reference();
+              this.attachment = new Reference(); // cc
           return this.attachment;
         }
 
@@ -2627,7 +2627,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.started");
         else if (Configuration.doAutoCreate())
-          this.started = new DateTimeType();
+          this.started = new DateTimeType(); // bb
       return this.started;
     }
 
@@ -2650,14 +2650,14 @@ public class ImagingStudy extends DomainResource {
     /**
      * @return Date and Time the study started.
      */
-    public DateAndTime getStarted() { 
+    public Date getStarted() { 
       return this.started == null ? null : this.started.getValue();
     }
 
     /**
      * @param value Date and Time the study started.
      */
-    public ImagingStudy setStarted(DateAndTime value) { 
+    public ImagingStudy setStarted(Date value) { 
       if (value == null)
         this.started = null;
       else {
@@ -2676,7 +2676,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -2700,7 +2700,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -2720,7 +2720,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.uid");
         else if (Configuration.doAutoCreate())
-          this.uid = new OidType();
+          this.uid = new OidType(); // bb
       return this.uid;
     }
 
@@ -2765,7 +2765,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.accession");
         else if (Configuration.doAutoCreate())
-          this.accession = new Identifier();
+          this.accession = new Identifier(); // cc
       return this.accession;
     }
 
@@ -2885,7 +2885,7 @@ public class ImagingStudy extends DomainResource {
      */
     // syntactic sugar
     public Enumeration<ImagingModality> addModalityListElement() {//2 
-      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
+      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>(new ImagingModalityEnumFactory());
       if (this.modalityList == null)
         this.modalityList = new ArrayList<Enumeration<ImagingModality>>();
       this.modalityList.add(t);
@@ -2896,7 +2896,7 @@ public class ImagingStudy extends DomainResource {
      * @param value {@link #modalityList} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
      */
     public ImagingStudy addModalityList(ImagingModality value) { //1
-      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>();
+      Enumeration<ImagingModality> t = new Enumeration<ImagingModality>(new ImagingModalityEnumFactory());
       t.setValue(value);
       if (this.modalityList == null)
         this.modalityList = new ArrayList<Enumeration<ImagingModality>>();
@@ -2924,7 +2924,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.referrer");
         else if (Configuration.doAutoCreate())
-          this.referrer = new Reference();
+          this.referrer = new Reference(); // cc
       return this.referrer;
     }
 
@@ -2948,7 +2948,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.referrer");
         else if (Configuration.doAutoCreate())
-          this.referrerTarget = new Practitioner();
+          this.referrerTarget = new Practitioner(); // aa
       return this.referrerTarget;
     }
 
@@ -2968,7 +2968,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.availability");
         else if (Configuration.doAutoCreate())
-          this.availability = new Enumeration<InstanceAvailability>();
+          this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory()); // bb
       return this.availability;
     }
 
@@ -3003,7 +3003,7 @@ public class ImagingStudy extends DomainResource {
         this.availability = null;
       else {
         if (this.availability == null)
-          this.availability = new Enumeration<InstanceAvailability>();
+          this.availability = new Enumeration<InstanceAvailability>(new InstanceAvailabilityEnumFactory());
         this.availability.setValue(value);
       }
       return this;
@@ -3017,7 +3017,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.url");
         else if (Configuration.doAutoCreate())
-          this.url = new UriType();
+          this.url = new UriType(); // bb
       return this.url;
     }
 
@@ -3066,7 +3066,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfSeries");
         else if (Configuration.doAutoCreate())
-          this.numberOfSeries = new IntegerType();
+          this.numberOfSeries = new IntegerType(); // bb
       return this.numberOfSeries;
     }
 
@@ -3111,7 +3111,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.numberOfInstances");
         else if (Configuration.doAutoCreate())
-          this.numberOfInstances = new IntegerType();
+          this.numberOfInstances = new IntegerType(); // bb
       return this.numberOfInstances;
     }
 
@@ -3156,7 +3156,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.clinicalInformation");
         else if (Configuration.doAutoCreate())
-          this.clinicalInformation = new StringType();
+          this.clinicalInformation = new StringType(); // bb
       return this.clinicalInformation;
     }
 
@@ -3235,7 +3235,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.interpreter");
         else if (Configuration.doAutoCreate())
-          this.interpreter = new Reference();
+          this.interpreter = new Reference(); // cc
       return this.interpreter;
     }
 
@@ -3259,7 +3259,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.interpreter");
         else if (Configuration.doAutoCreate())
-          this.interpreterTarget = new Practitioner();
+          this.interpreterTarget = new Practitioner(); // aa
       return this.interpreterTarget;
     }
 
@@ -3279,7 +3279,7 @@ public class ImagingStudy extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingStudy.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 

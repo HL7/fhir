@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -118,8 +118,8 @@ public class VisionClaim extends DomainResource {
         }
     }
 
-  public static class UseLinkEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class UseLinkEnumFactory implements EnumFactory<UseLink> {
+    public UseLink fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -131,9 +131,9 @@ public class VisionClaim extends DomainResource {
           return UseLink.EXPLORATORY;
         if ("other".equals(codeString))
           return UseLink.OTHER;
-        throw new Exception("Unknown UseLink code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown UseLink code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(UseLink code) {
       if (code == UseLink.COMPLETE)
         return "complete";
       if (code == UseLink.PROPOSED)
@@ -205,7 +205,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -229,7 +229,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.provider = new Reference();
+              this.provider = new Reference(); // cc
           return this.provider;
         }
 
@@ -253,7 +253,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.providerTarget = new Practitioner();
+              this.providerTarget = new Practitioner(); // aa
           return this.providerTarget;
         }
 
@@ -273,7 +273,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organization = new Reference();
+              this.organization = new Reference(); // cc
           return this.organization;
         }
 
@@ -297,7 +297,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organizationTarget = new Organization();
+              this.organizationTarget = new Organization(); // aa
           return this.organizationTarget;
         }
 
@@ -317,7 +317,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.person = new Reference();
+              this.person = new Reference(); // cc
           return this.person;
         }
 
@@ -341,7 +341,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.personTarget = new Patient();
+              this.personTarget = new Patient(); // aa
           return this.personTarget;
         }
 
@@ -415,7 +415,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -460,7 +460,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
             else if (Configuration.doAutoCreate())
-              this.diagnosis = new Coding();
+              this.diagnosis = new Coding(); // cc
           return this.diagnosis;
         }
 
@@ -587,7 +587,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -632,7 +632,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.focal");
             else if (Configuration.doAutoCreate())
-              this.focal = new BooleanType();
+              this.focal = new BooleanType(); // bb
           return this.focal;
         }
 
@@ -677,7 +677,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverage = new Reference();
+              this.coverage = new Reference(); // cc
           return this.coverage;
         }
 
@@ -701,7 +701,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverageTarget = new Coverage();
+              this.coverageTarget = new Coverage(); // aa
           return this.coverageTarget;
         }
 
@@ -721,7 +721,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
             else if (Configuration.doAutoCreate())
-              this.businessArrangement = new StringType();
+              this.businessArrangement = new StringType(); // bb
           return this.businessArrangement;
         }
 
@@ -770,7 +770,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new Coding();
+              this.relationship = new Coding(); // cc
           return this.relationship;
         }
 
@@ -848,7 +848,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
             else if (Configuration.doAutoCreate())
-              this.claimResponse = new Reference();
+              this.claimResponse = new Reference(); // cc
           return this.claimResponse;
         }
 
@@ -872,7 +872,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
             else if (Configuration.doAutoCreate())
-              this.claimResponseTarget = new ClaimResponse();
+              this.claimResponseTarget = new ClaimResponse(); // aa
           return this.claimResponseTarget;
         }
 
@@ -892,7 +892,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
             else if (Configuration.doAutoCreate())
-              this.originalRuleset = new Coding();
+              this.originalRuleset = new Coding(); // cc
           return this.originalRuleset;
         }
 
@@ -1088,7 +1088,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -1133,7 +1133,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -1157,7 +1157,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.provider = new Reference();
+              this.provider = new Reference(); // cc
           return this.provider;
         }
 
@@ -1181,7 +1181,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.providerTarget = new Practitioner();
+              this.providerTarget = new Practitioner(); // aa
           return this.providerTarget;
         }
 
@@ -1255,7 +1255,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -1279,7 +1279,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.serviceDate");
             else if (Configuration.doAutoCreate())
-              this.serviceDate = new DateType();
+              this.serviceDate = new DateType(); // bb
           return this.serviceDate;
         }
 
@@ -1302,14 +1302,14 @@ public class VisionClaim extends DomainResource {
         /**
          * @return The date when the enclosed suite of services were performed or completed.
          */
-        public DateAndTime getServiceDate() { 
+        public Date getServiceDate() { 
           return this.serviceDate == null ? null : this.serviceDate.getValue();
         }
 
         /**
          * @param value The date when the enclosed suite of services were performed or completed.
          */
-        public ItemsComponent setServiceDate(DateAndTime value) { 
+        public ItemsComponent setServiceDate(Date value) { 
           if (value == null)
             this.serviceDate = null;
           else {
@@ -1328,7 +1328,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1352,7 +1352,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -1376,7 +1376,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -1425,7 +1425,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -1474,7 +1474,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -1498,7 +1498,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -1522,7 +1522,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.bodySite");
             else if (Configuration.doAutoCreate())
-              this.bodySite = new Coding();
+              this.bodySite = new Coding(); // cc
           return this.bodySite;
         }
 
@@ -1791,7 +1791,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -1836,7 +1836,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -1860,7 +1860,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -1884,7 +1884,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1908,7 +1908,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -1932,7 +1932,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -1981,7 +1981,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -2030,7 +2030,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -2054,7 +2054,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -2229,7 +2229,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -2274,7 +2274,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -2298,7 +2298,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -2322,7 +2322,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2346,7 +2346,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -2370,7 +2370,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -2419,7 +2419,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -2468,7 +2468,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -2492,7 +2492,7 @@ public class VisionClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -2816,7 +2816,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -2840,7 +2840,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -2864,7 +2864,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -2887,14 +2887,14 @@ public class VisionClaim extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public VisionClaim setCreated(DateAndTime value) { 
+    public VisionClaim setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -2913,7 +2913,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.target");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference();
+          this.target = new Reference(); // cc
       return this.target;
     }
 
@@ -2937,7 +2937,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.target");
         else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization();
+          this.targetTarget = new Organization(); // aa
       return this.targetTarget;
     }
 
@@ -2957,7 +2957,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.provider");
         else if (Configuration.doAutoCreate())
-          this.provider = new Reference();
+          this.provider = new Reference(); // cc
       return this.provider;
     }
 
@@ -2981,7 +2981,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.provider");
         else if (Configuration.doAutoCreate())
-          this.providerTarget = new Practitioner();
+          this.providerTarget = new Practitioner(); // aa
       return this.providerTarget;
     }
 
@@ -3001,7 +3001,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -3025,7 +3025,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -3045,7 +3045,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<UseLink>();
+          this.use = new Enumeration<UseLink>(new UseLinkEnumFactory()); // bb
       return this.use;
     }
 
@@ -3080,7 +3080,7 @@ public class VisionClaim extends DomainResource {
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<UseLink>();
+          this.use = new Enumeration<UseLink>(new UseLinkEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -3094,7 +3094,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Coding();
+          this.priority = new Coding(); // cc
       return this.priority;
     }
 
@@ -3118,7 +3118,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.fundsReserve");
         else if (Configuration.doAutoCreate())
-          this.fundsReserve = new Coding();
+          this.fundsReserve = new Coding(); // cc
       return this.fundsReserve;
     }
 
@@ -3142,7 +3142,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.enterer");
         else if (Configuration.doAutoCreate())
-          this.enterer = new Reference();
+          this.enterer = new Reference(); // cc
       return this.enterer;
     }
 
@@ -3166,7 +3166,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.enterer");
         else if (Configuration.doAutoCreate())
-          this.entererTarget = new Practitioner();
+          this.entererTarget = new Practitioner(); // aa
       return this.entererTarget;
     }
 
@@ -3186,7 +3186,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.facility");
         else if (Configuration.doAutoCreate())
-          this.facility = new Reference();
+          this.facility = new Reference(); // cc
       return this.facility;
     }
 
@@ -3210,7 +3210,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.facility");
         else if (Configuration.doAutoCreate())
-          this.facilityTarget = new Location();
+          this.facilityTarget = new Location(); // aa
       return this.facilityTarget;
     }
 
@@ -3230,7 +3230,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.prescription");
         else if (Configuration.doAutoCreate())
-          this.prescription = new Reference();
+          this.prescription = new Reference(); // cc
       return this.prescription;
     }
 
@@ -3254,7 +3254,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.prescription");
         else if (Configuration.doAutoCreate())
-          this.prescriptionTarget = new VisionPrescription();
+          this.prescriptionTarget = new VisionPrescription(); // aa
       return this.prescriptionTarget;
     }
 
@@ -3274,7 +3274,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.payee");
         else if (Configuration.doAutoCreate())
-          this.payee = new PayeeComponent();
+          this.payee = new PayeeComponent(); // cc
       return this.payee;
     }
 
@@ -3298,7 +3298,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.referral");
         else if (Configuration.doAutoCreate())
-          this.referral = new Reference();
+          this.referral = new Reference(); // cc
       return this.referral;
     }
 
@@ -3322,7 +3322,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.referral");
         else if (Configuration.doAutoCreate())
-          this.referralTarget = new ReferralRequest();
+          this.referralTarget = new ReferralRequest(); // aa
       return this.referralTarget;
     }
 
@@ -3402,7 +3402,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -3426,7 +3426,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -3506,7 +3506,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.school");
         else if (Configuration.doAutoCreate())
-          this.school = new StringType();
+          this.school = new StringType(); // bb
       return this.school;
     }
 
@@ -3555,7 +3555,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.accident");
         else if (Configuration.doAutoCreate())
-          this.accident = new DateType();
+          this.accident = new DateType(); // bb
       return this.accident;
     }
 
@@ -3578,14 +3578,14 @@ public class VisionClaim extends DomainResource {
     /**
      * @return Date of an accident which these services are addressing.
      */
-    public DateAndTime getAccident() { 
+    public Date getAccident() { 
       return this.accident == null ? null : this.accident.getValue();
     }
 
     /**
      * @param value Date of an accident which these services are addressing.
      */
-    public VisionClaim setAccident(DateAndTime value) { 
+    public VisionClaim setAccident(Date value) { 
       if (value == null)
         this.accident = null;
       else {
@@ -3604,7 +3604,7 @@ public class VisionClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create VisionClaim.accidentType");
         else if (Configuration.doAutoCreate())
-          this.accidentType = new Coding();
+          this.accidentType = new Coding(); // cc
       return this.accidentType;
     }
 

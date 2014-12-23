@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class CarePlan extends DomainResource {
         }
     }
 
-  public static class CarePlanStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CarePlanStatusEnumFactory implements EnumFactory<CarePlanStatus> {
+    public CarePlanStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class CarePlan extends DomainResource {
           return CarePlanStatus.ACTIVE;
         if ("completed".equals(codeString))
           return CarePlanStatus.COMPLETED;
-        throw new Exception("Unknown CarePlanStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CarePlanStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CarePlanStatus code) {
       if (code == CarePlanStatus.PLANNED)
         return "planned";
       if (code == CarePlanStatus.ACTIVE)
@@ -203,8 +203,8 @@ public class CarePlan extends DomainResource {
         }
     }
 
-  public static class CarePlanGoalStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CarePlanGoalStatusEnumFactory implements EnumFactory<CarePlanGoalStatus> {
+    public CarePlanGoalStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -216,9 +216,9 @@ public class CarePlan extends DomainResource {
           return CarePlanGoalStatus.SUSTAINING;
         if ("cancelled".equals(codeString))
           return CarePlanGoalStatus.CANCELLED;
-        throw new Exception("Unknown CarePlanGoalStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CarePlanGoalStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CarePlanGoalStatus code) {
       if (code == CarePlanGoalStatus.INPROGRESS)
         return "in progress";
       if (code == CarePlanGoalStatus.ACHIEVED)
@@ -323,8 +323,8 @@ public class CarePlan extends DomainResource {
         }
     }
 
-  public static class CarePlanActivityStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CarePlanActivityStatusEnumFactory implements EnumFactory<CarePlanActivityStatus> {
+    public CarePlanActivityStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -340,9 +340,9 @@ public class CarePlan extends DomainResource {
           return CarePlanActivityStatus.COMPLETED;
         if ("cancelled".equals(codeString))
           return CarePlanActivityStatus.CANCELLED;
-        throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CarePlanActivityStatus code) {
       if (code == CarePlanActivityStatus.NOTSTARTED)
         return "not started";
       if (code == CarePlanActivityStatus.SCHEDULED)
@@ -461,8 +461,8 @@ public class CarePlan extends DomainResource {
         }
     }
 
-  public static class CarePlanActivityCategoryEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class CarePlanActivityCategoryEnumFactory implements EnumFactory<CarePlanActivityCategory> {
+    public CarePlanActivityCategory fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -480,9 +480,9 @@ public class CarePlan extends DomainResource {
           return CarePlanActivityCategory.SUPPLY;
         if ("other".equals(codeString))
           return CarePlanActivityCategory.OTHER;
-        throw new Exception("Unknown CarePlanActivityCategory code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown CarePlanActivityCategory code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(CarePlanActivityCategory code) {
       if (code == CarePlanActivityCategory.DIET)
         return "diet";
       if (code == CarePlanActivityCategory.DRUG)
@@ -541,7 +541,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanParticipantComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept();
+              this.role = new CodeableConcept(); // cc
           return this.role;
         }
 
@@ -565,7 +565,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanParticipantComponent.member");
             else if (Configuration.doAutoCreate())
-              this.member = new Reference();
+              this.member = new Reference(); // cc
           return this.member;
         }
 
@@ -671,7 +671,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanGoalComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -716,7 +716,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanGoalComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<CarePlanGoalStatus>();
+              this.status = new Enumeration<CarePlanGoalStatus>(new CarePlanGoalStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -751,7 +751,7 @@ public class CarePlan extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<CarePlanGoalStatus>();
+              this.status = new Enumeration<CarePlanGoalStatus>(new CarePlanGoalStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -765,7 +765,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanGoalComponent.notes");
             else if (Configuration.doAutoCreate())
-              this.notes = new StringType();
+              this.notes = new StringType(); // bb
           return this.notes;
         }
 
@@ -1020,7 +1020,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<CarePlanActivityStatus>();
+              this.status = new Enumeration<CarePlanActivityStatus>(new CarePlanActivityStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -1055,7 +1055,7 @@ public class CarePlan extends DomainResource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<CarePlanActivityStatus>();
+              this.status = new Enumeration<CarePlanActivityStatus>(new CarePlanActivityStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -1069,7 +1069,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityComponent.prohibited");
             else if (Configuration.doAutoCreate())
-              this.prohibited = new BooleanType();
+              this.prohibited = new BooleanType(); // bb
           return this.prohibited;
         }
 
@@ -1153,7 +1153,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityComponent.notes");
             else if (Configuration.doAutoCreate())
-              this.notes = new StringType();
+              this.notes = new StringType(); // bb
           return this.notes;
         }
 
@@ -1202,7 +1202,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityComponent.detail");
             else if (Configuration.doAutoCreate())
-              this.detail = new Reference();
+              this.detail = new Reference(); // cc
           return this.detail;
         }
 
@@ -1241,7 +1241,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityComponent.simple");
             else if (Configuration.doAutoCreate())
-              this.simple = new CarePlanActivitySimpleComponent();
+              this.simple = new CarePlanActivitySimpleComponent(); // cc
           return this.simple;
         }
 
@@ -1397,7 +1397,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.category");
             else if (Configuration.doAutoCreate())
-              this.category = new Enumeration<CarePlanActivityCategory>();
+              this.category = new Enumeration<CarePlanActivityCategory>(new CarePlanActivityCategoryEnumFactory()); // bb
           return this.category;
         }
 
@@ -1429,7 +1429,7 @@ public class CarePlan extends DomainResource {
          */
         public CarePlanActivitySimpleComponent setCategory(CarePlanActivityCategory value) { 
             if (this.category == null)
-              this.category = new Enumeration<CarePlanActivityCategory>();
+              this.category = new Enumeration<CarePlanActivityCategory>(new CarePlanActivityCategoryEnumFactory());
             this.category.setValue(value);
           return this;
         }
@@ -1442,7 +1442,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept();
+              this.code = new CodeableConcept(); // cc
           return this.code;
         }
 
@@ -1512,7 +1512,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.location");
             else if (Configuration.doAutoCreate())
-              this.location = new Reference();
+              this.location = new Reference(); // cc
           return this.location;
         }
 
@@ -1536,7 +1536,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.location");
             else if (Configuration.doAutoCreate())
-              this.locationTarget = new Location();
+              this.locationTarget = new Location(); // aa
           return this.locationTarget;
         }
 
@@ -1595,7 +1595,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.product");
             else if (Configuration.doAutoCreate())
-              this.product = new Reference();
+              this.product = new Reference(); // cc
           return this.product;
         }
 
@@ -1634,7 +1634,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.dailyAmount");
             else if (Configuration.doAutoCreate())
-              this.dailyAmount = new Quantity();
+              this.dailyAmount = new Quantity(); // cc
           return this.dailyAmount;
         }
 
@@ -1658,7 +1658,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1682,7 +1682,7 @@ public class CarePlan extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivitySimpleComponent.details");
             else if (Configuration.doAutoCreate())
-              this.details = new StringType();
+              this.details = new StringType(); // bb
           return this.details;
         }
 
@@ -1893,7 +1893,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -1917,7 +1917,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -1937,7 +1937,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CarePlanStatus>();
+          this.status = new Enumeration<CarePlanStatus>(new CarePlanStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1969,7 +1969,7 @@ public class CarePlan extends DomainResource {
      */
     public CarePlan setStatus(CarePlanStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<CarePlanStatus>();
+          this.status = new Enumeration<CarePlanStatus>(new CarePlanStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1982,7 +1982,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.period");
         else if (Configuration.doAutoCreate())
-          this.period = new Period();
+          this.period = new Period(); // cc
       return this.period;
     }
 
@@ -2006,7 +2006,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.modified");
         else if (Configuration.doAutoCreate())
-          this.modified = new DateTimeType();
+          this.modified = new DateTimeType(); // bb
       return this.modified;
     }
 
@@ -2029,14 +2029,14 @@ public class CarePlan extends DomainResource {
     /**
      * @return Identifies the most recent date on which the plan has been revised.
      */
-    public DateAndTime getModified() { 
+    public Date getModified() { 
       return this.modified == null ? null : this.modified.getValue();
     }
 
     /**
      * @param value Identifies the most recent date on which the plan has been revised.
      */
-    public CarePlan setModified(DateAndTime value) { 
+    public CarePlan setModified(Date value) { 
       if (value == null)
         this.modified = null;
       else {
@@ -2196,7 +2196,7 @@ public class CarePlan extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CarePlan.notes");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType();
+          this.notes = new StringType(); // bb
       return this.notes;
     }
 

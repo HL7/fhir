@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -115,7 +115,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.origin");
         else if (Configuration.doAutoCreate())
-          this.origin = new Quantity();
+          this.origin = new Quantity(); // cc
       return this.origin;
     }
 
@@ -139,7 +139,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.period");
         else if (Configuration.doAutoCreate())
-          this.period = new DecimalType();
+          this.period = new DecimalType(); // bb
       return this.period;
     }
 
@@ -184,7 +184,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.factor");
         else if (Configuration.doAutoCreate())
-          this.factor = new DecimalType();
+          this.factor = new DecimalType(); // bb
       return this.factor;
     }
 
@@ -233,7 +233,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.lowerLimit");
         else if (Configuration.doAutoCreate())
-          this.lowerLimit = new DecimalType();
+          this.lowerLimit = new DecimalType(); // bb
       return this.lowerLimit;
     }
 
@@ -282,7 +282,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.upperLimit");
         else if (Configuration.doAutoCreate())
-          this.upperLimit = new DecimalType();
+          this.upperLimit = new DecimalType(); // bb
       return this.upperLimit;
     }
 
@@ -331,7 +331,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.dimensions");
         else if (Configuration.doAutoCreate())
-          this.dimensions = new IntegerType();
+          this.dimensions = new IntegerType(); // bb
       return this.dimensions;
     }
 
@@ -376,7 +376,7 @@ public class SampledData extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SampledData.data");
         else if (Configuration.doAutoCreate())
-          this.data = new StringType();
+          this.data = new StringType(); // bb
       return this.data;
     }
 

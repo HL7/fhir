@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -92,7 +92,7 @@ public class Contraindication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContraindicationMitigationComponent.action");
             else if (Configuration.doAutoCreate())
-              this.action = new CodeableConcept();
+              this.action = new CodeableConcept(); // cc
           return this.action;
         }
 
@@ -116,7 +116,7 @@ public class Contraindication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContraindicationMitigationComponent.date");
             else if (Configuration.doAutoCreate())
-              this.date = new DateTimeType();
+              this.date = new DateTimeType(); // bb
           return this.date;
         }
 
@@ -139,14 +139,14 @@ public class Contraindication extends DomainResource {
         /**
          * @return Indicates when the mitigating action was documented.
          */
-        public DateAndTime getDate() { 
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Indicates when the mitigating action was documented.
          */
-        public ContraindicationMitigationComponent setDate(DateAndTime value) { 
+        public ContraindicationMitigationComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -165,7 +165,7 @@ public class Contraindication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContraindicationMitigationComponent.author");
             else if (Configuration.doAutoCreate())
-              this.author = new Reference();
+              this.author = new Reference(); // cc
           return this.author;
         }
 
@@ -189,7 +189,7 @@ public class Contraindication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ContraindicationMitigationComponent.author");
             else if (Configuration.doAutoCreate())
-              this.authorTarget = new Practitioner();
+              this.authorTarget = new Practitioner(); // aa
           return this.authorTarget;
         }
 
@@ -323,7 +323,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -347,7 +347,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -367,7 +367,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.category");
         else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept();
+          this.category = new CodeableConcept(); // cc
       return this.category;
     }
 
@@ -391,7 +391,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.severity");
         else if (Configuration.doAutoCreate())
-          this.severity = new CodeType();
+          this.severity = new CodeType(); // bb
       return this.severity;
     }
 
@@ -479,7 +479,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.detail");
         else if (Configuration.doAutoCreate())
-          this.detail = new StringType();
+          this.detail = new StringType(); // bb
       return this.detail;
     }
 
@@ -528,7 +528,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -551,14 +551,14 @@ public class Contraindication extends DomainResource {
     /**
      * @return The date or date-time when the contraindication was initially identified.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date or date-time when the contraindication was initially identified.
      */
-    public Contraindication setDate(DateAndTime value) { 
+    public Contraindication setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -577,7 +577,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -616,7 +616,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -640,7 +640,7 @@ public class Contraindication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contraindication.reference");
         else if (Configuration.doAutoCreate())
-          this.reference = new UriType();
+          this.reference = new UriType(); // bb
       return this.reference;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -95,7 +95,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.uid");
             else if (Configuration.doAutoCreate())
-              this.uid = new OidType();
+              this.uid = new OidType(); // bb
           return this.uid;
         }
 
@@ -141,7 +141,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.retrieveAETitle");
             else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType();
+              this.retrieveAETitle = new IdType(); // bb
           return this.retrieveAETitle;
         }
 
@@ -193,7 +193,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.retrieveUrl");
             else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType();
+              this.retrieveUrl = new UriType(); // bb
           return this.retrieveUrl;
         }
 
@@ -344,7 +344,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SeriesComponent.uid");
             else if (Configuration.doAutoCreate())
-              this.uid = new OidType();
+              this.uid = new OidType(); // bb
           return this.uid;
         }
 
@@ -390,7 +390,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SeriesComponent.retrieveAETitle");
             else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType();
+              this.retrieveAETitle = new IdType(); // bb
           return this.retrieveAETitle;
         }
 
@@ -442,7 +442,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SeriesComponent.retrieveUrl");
             else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType();
+              this.retrieveUrl = new UriType(); // bb
           return this.retrieveUrl;
         }
 
@@ -593,7 +593,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.sopClass");
             else if (Configuration.doAutoCreate())
-              this.sopClass = new OidType();
+              this.sopClass = new OidType(); // bb
           return this.sopClass;
         }
 
@@ -638,7 +638,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.uid");
             else if (Configuration.doAutoCreate())
-              this.uid = new OidType();
+              this.uid = new OidType(); // bb
           return this.uid;
         }
 
@@ -683,7 +683,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.retrieveAETitle");
             else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType();
+              this.retrieveAETitle = new IdType(); // bb
           return this.retrieveAETitle;
         }
 
@@ -732,7 +732,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.retrieveUrl");
             else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType();
+              this.retrieveUrl = new UriType(); // bb
           return this.retrieveUrl;
         }
 
@@ -879,7 +879,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.uid");
         else if (Configuration.doAutoCreate())
-          this.uid = new OidType();
+          this.uid = new OidType(); // bb
       return this.uid;
     }
 
@@ -924,7 +924,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -948,7 +948,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -968,7 +968,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.title");
         else if (Configuration.doAutoCreate())
-          this.title = new CodeableConcept();
+          this.title = new CodeableConcept(); // cc
       return this.title;
     }
 
@@ -992,7 +992,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -1041,7 +1041,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.author");
         else if (Configuration.doAutoCreate())
-          this.author = new Reference();
+          this.author = new Reference(); // cc
       return this.author;
     }
 
@@ -1080,7 +1080,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.authoringTime");
         else if (Configuration.doAutoCreate())
-          this.authoringTime = new DateTimeType();
+          this.authoringTime = new DateTimeType(); // bb
       return this.authoringTime;
     }
 
@@ -1103,14 +1103,14 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
     /**
      * @return Date and time when the key object selection was authored. Note that this is the date and time the DICOM SOP instances in the selection were selected (selection decision making). It is different from the creation date and time of the selection resource.
      */
-    public DateAndTime getAuthoringTime() { 
+    public Date getAuthoringTime() { 
       return this.authoringTime == null ? null : this.authoringTime.getValue();
     }
 
     /**
      * @param value Date and time when the key object selection was authored. Note that this is the date and time the DICOM SOP instances in the selection were selected (selection decision making). It is different from the creation date and time of the selection resource.
      */
-    public ImagingObjectSelection setAuthoringTime(DateAndTime value) { 
+    public ImagingObjectSelection setAuthoringTime(Date value) { 
       if (value == null)
         this.authoringTime = null;
       else {
@@ -1199,7 +1199,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
   public static final String SP_SELECTEDSTUDY = "selected-study";
   @SearchParamDefinition(name="author", path="ImagingObjectSelection.author", description="Author of key DICOM object selection", type="reference" )
   public static final String SP_AUTHOR = "author";
-  @SearchParamDefinition(name="title", path="ImagingObjectSelection.title", description="Title of key DICOM object selection", type="string" )
+  @SearchParamDefinition(name="title", path="ImagingObjectSelection.title", description="Title of key DICOM object selection", type="token" )
   public static final String SP_TITLE = "title";
   @SearchParamDefinition(name="patient", path="ImagingObjectSelection.patient", description="Subject of key DICOM object selection", type="reference" )
   public static final String SP_PATIENT = "patient";

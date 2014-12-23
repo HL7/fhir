@@ -70,7 +70,6 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
 import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
@@ -1122,13 +1121,13 @@ public class SpreadsheetParser {
       if (type.equals("base64Binary"))
         return new Base64BinaryType(Base64.decode(source.toCharArray()));  
       if (type.equals("instant"))
-        return new InstantType(new DateAndTime(source)); 
+        return new InstantType(source); 
       if (type.equals("uri"))
         return new UriType(source); 
       if (type.equals("date"))
-        return new DateType(new DateAndTime(source)); 
+        return new DateType(source); 
       if (type.equals("dateTime"))
-        return new DateTimeType(new DateAndTime(source)); 
+        return new DateTimeType(source); 
       if (type.equals("time"))
         return new TimeType(source); 
       if (type.equals("code"))
@@ -1197,7 +1196,7 @@ public class SpreadsheetParser {
     if (ap.hasMetadata("date"))
       ex.setDateElement(Factory.newDateTime(ap.metadata("date").substring(0, 10)));
     else
-      ex.setDate(new DateAndTime(genDate));
+      ex.setDate(genDate.getTime());
 
     if (ap.hasMetadata("status")) 
       ex.setStatus(ExtensionDefinition.ResourceProfileStatus.fromCode(ap.metadata("status")));

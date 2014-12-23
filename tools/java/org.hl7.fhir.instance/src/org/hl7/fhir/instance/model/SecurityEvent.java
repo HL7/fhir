@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -127,8 +127,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class SecurityEventActionEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SecurityEventActionEnumFactory implements EnumFactory<SecurityEventAction> {
+    public SecurityEventAction fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -142,9 +142,9 @@ public class SecurityEvent extends DomainResource {
           return SecurityEventAction.D;
         if ("E".equals(codeString))
           return SecurityEventAction.E;
-        throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SecurityEventAction code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SecurityEventAction code) {
       if (code == SecurityEventAction.C)
         return "C";
       if (code == SecurityEventAction.R)
@@ -231,8 +231,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class SecurityEventOutcomeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SecurityEventOutcomeEnumFactory implements EnumFactory<SecurityEventOutcome> {
+    public SecurityEventOutcome fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -244,9 +244,9 @@ public class SecurityEvent extends DomainResource {
           return SecurityEventOutcome._8;
         if ("12".equals(codeString))
           return SecurityEventOutcome._12;
-        throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SecurityEventOutcome code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SecurityEventOutcome code) {
       if (code == SecurityEventOutcome._0)
         return "0";
       if (code == SecurityEventOutcome._4)
@@ -341,8 +341,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class NetworkTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class NetworkTypeEnumFactory implements EnumFactory<NetworkType> {
+    public NetworkType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -356,9 +356,9 @@ public class SecurityEvent extends DomainResource {
           return NetworkType._4;
         if ("5".equals(codeString))
           return NetworkType._5;
-        throw new Exception("Unknown NetworkType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown NetworkType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(NetworkType code) {
       if (code == NetworkType._1)
         return "1";
       if (code == NetworkType._2)
@@ -445,8 +445,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class ObjectTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObjectTypeEnumFactory implements EnumFactory<ObjectType> {
+    public ObjectType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -458,9 +458,9 @@ public class SecurityEvent extends DomainResource {
           return ObjectType._3;
         if ("4".equals(codeString))
           return ObjectType._4;
-        throw new Exception("Unknown ObjectType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObjectType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObjectType code) {
       if (code == ObjectType._1)
         return "1";
       if (code == ObjectType._2)
@@ -745,8 +745,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class ObjectRoleEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObjectRoleEnumFactory implements EnumFactory<ObjectRole> {
+    public ObjectRole fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -798,9 +798,9 @@ public class SecurityEvent extends DomainResource {
           return ObjectRole._23;
         if ("24".equals(codeString))
           return ObjectRole._24;
-        throw new Exception("Unknown ObjectRole code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObjectRole code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObjectRole code) {
       if (code == ObjectRole._1)
         return "1";
       if (code == ObjectRole._2)
@@ -1035,8 +1035,8 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class ObjectLifecycleEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ObjectLifecycleEnumFactory implements EnumFactory<ObjectLifecycle> {
+    public ObjectLifecycle fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -1070,9 +1070,9 @@ public class SecurityEvent extends DomainResource {
           return ObjectLifecycle._14;
         if ("15".equals(codeString))
           return ObjectLifecycle._15;
-        throw new Exception("Unknown ObjectLifecycle code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ObjectLifecycle code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ObjectLifecycle code) {
       if (code == ObjectLifecycle._1)
         return "1";
       if (code == ObjectLifecycle._2)
@@ -1171,7 +1171,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventEventComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept();
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -1225,7 +1225,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventEventComponent.action");
             else if (Configuration.doAutoCreate())
-              this.action = new Enumeration<SecurityEventAction>();
+              this.action = new Enumeration<SecurityEventAction>(new SecurityEventActionEnumFactory()); // bb
           return this.action;
         }
 
@@ -1260,7 +1260,7 @@ public class SecurityEvent extends DomainResource {
             this.action = null;
           else {
             if (this.action == null)
-              this.action = new Enumeration<SecurityEventAction>();
+              this.action = new Enumeration<SecurityEventAction>(new SecurityEventActionEnumFactory());
             this.action.setValue(value);
           }
           return this;
@@ -1274,7 +1274,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventEventComponent.dateTime");
             else if (Configuration.doAutoCreate())
-              this.dateTime = new InstantType();
+              this.dateTime = new InstantType(); // bb
           return this.dateTime;
         }
 
@@ -1297,14 +1297,14 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return The time when the event occurred on the source.
          */
-        public DateAndTime getDateTime() { 
+        public Date getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The time when the event occurred on the source.
          */
-        public SecurityEventEventComponent setDateTime(DateAndTime value) { 
+        public SecurityEventEventComponent setDateTime(Date value) { 
             if (this.dateTime == null)
               this.dateTime = new InstantType();
             this.dateTime.setValue(value);
@@ -1319,7 +1319,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventEventComponent.outcome");
             else if (Configuration.doAutoCreate())
-              this.outcome = new Enumeration<SecurityEventOutcome>();
+              this.outcome = new Enumeration<SecurityEventOutcome>(new SecurityEventOutcomeEnumFactory()); // bb
           return this.outcome;
         }
 
@@ -1354,7 +1354,7 @@ public class SecurityEvent extends DomainResource {
             this.outcome = null;
           else {
             if (this.outcome == null)
-              this.outcome = new Enumeration<SecurityEventOutcome>();
+              this.outcome = new Enumeration<SecurityEventOutcome>(new SecurityEventOutcomeEnumFactory());
             this.outcome.setValue(value);
           }
           return this;
@@ -1368,7 +1368,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventEventComponent.outcomeDesc");
             else if (Configuration.doAutoCreate())
-              this.outcomeDesc = new StringType();
+              this.outcomeDesc = new StringType(); // bb
           return this.outcomeDesc;
         }
 
@@ -1555,7 +1555,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.reference");
             else if (Configuration.doAutoCreate())
-              this.reference = new Reference();
+              this.reference = new Reference(); // cc
           return this.reference;
         }
 
@@ -1594,7 +1594,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.userId");
             else if (Configuration.doAutoCreate())
-              this.userId = new StringType();
+              this.userId = new StringType(); // bb
           return this.userId;
         }
 
@@ -1643,7 +1643,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.altId");
             else if (Configuration.doAutoCreate())
-              this.altId = new StringType();
+              this.altId = new StringType(); // bb
           return this.altId;
         }
 
@@ -1692,7 +1692,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -1741,7 +1741,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.requestor");
             else if (Configuration.doAutoCreate())
-              this.requestor = new BooleanType();
+              this.requestor = new BooleanType(); // bb
           return this.requestor;
         }
 
@@ -1786,7 +1786,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.media");
             else if (Configuration.doAutoCreate())
-              this.media = new Coding();
+              this.media = new Coding(); // cc
           return this.media;
         }
 
@@ -1810,7 +1810,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantComponent.network");
             else if (Configuration.doAutoCreate())
-              this.network = new SecurityEventParticipantNetworkComponent();
+              this.network = new SecurityEventParticipantNetworkComponent(); // cc
           return this.network;
         }
 
@@ -1895,7 +1895,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantNetworkComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new StringType();
+              this.identifier = new StringType(); // bb
           return this.identifier;
         }
 
@@ -1944,7 +1944,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventParticipantNetworkComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<NetworkType>();
+              this.type = new Enumeration<NetworkType>(new NetworkTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -1979,7 +1979,7 @@ public class SecurityEvent extends DomainResource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<NetworkType>();
+              this.type = new Enumeration<NetworkType>(new NetworkTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -2048,7 +2048,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventSourceComponent.site");
             else if (Configuration.doAutoCreate())
-              this.site = new StringType();
+              this.site = new StringType(); // bb
           return this.site;
         }
 
@@ -2097,7 +2097,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventSourceComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new StringType();
+              this.identifier = new StringType(); // bb
           return this.identifier;
         }
 
@@ -2282,7 +2282,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -2306,7 +2306,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.reference");
             else if (Configuration.doAutoCreate())
-              this.reference = new Reference();
+              this.reference = new Reference(); // cc
           return this.reference;
         }
 
@@ -2345,7 +2345,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ObjectType>();
+              this.type = new Enumeration<ObjectType>(new ObjectTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -2380,7 +2380,7 @@ public class SecurityEvent extends DomainResource {
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<ObjectType>();
+              this.type = new Enumeration<ObjectType>(new ObjectTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -2394,7 +2394,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.role");
             else if (Configuration.doAutoCreate())
-              this.role = new Enumeration<ObjectRole>();
+              this.role = new Enumeration<ObjectRole>(new ObjectRoleEnumFactory()); // bb
           return this.role;
         }
 
@@ -2429,7 +2429,7 @@ public class SecurityEvent extends DomainResource {
             this.role = null;
           else {
             if (this.role == null)
-              this.role = new Enumeration<ObjectRole>();
+              this.role = new Enumeration<ObjectRole>(new ObjectRoleEnumFactory());
             this.role.setValue(value);
           }
           return this;
@@ -2443,7 +2443,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.lifecycle");
             else if (Configuration.doAutoCreate())
-              this.lifecycle = new Enumeration<ObjectLifecycle>();
+              this.lifecycle = new Enumeration<ObjectLifecycle>(new ObjectLifecycleEnumFactory()); // bb
           return this.lifecycle;
         }
 
@@ -2478,7 +2478,7 @@ public class SecurityEvent extends DomainResource {
             this.lifecycle = null;
           else {
             if (this.lifecycle == null)
-              this.lifecycle = new Enumeration<ObjectLifecycle>();
+              this.lifecycle = new Enumeration<ObjectLifecycle>(new ObjectLifecycleEnumFactory());
             this.lifecycle.setValue(value);
           }
           return this;
@@ -2492,7 +2492,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.sensitivity");
             else if (Configuration.doAutoCreate())
-              this.sensitivity = new CodeableConcept();
+              this.sensitivity = new CodeableConcept(); // cc
           return this.sensitivity;
         }
 
@@ -2516,7 +2516,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType();
+              this.name = new StringType(); // bb
           return this.name;
         }
 
@@ -2565,7 +2565,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -2614,7 +2614,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectComponent.query");
             else if (Configuration.doAutoCreate())
-              this.query = new Base64BinaryType();
+              this.query = new Base64BinaryType(); // bb
           return this.query;
         }
 
@@ -2764,7 +2764,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectDetailComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new StringType();
+              this.type = new StringType(); // bb
           return this.type;
         }
 
@@ -2809,7 +2809,7 @@ public class SecurityEvent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SecurityEventObjectDetailComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new Base64BinaryType();
+              this.value = new Base64BinaryType(); // bb
           return this.value;
         }
 
@@ -2915,7 +2915,7 @@ public class SecurityEvent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SecurityEvent.event");
         else if (Configuration.doAutoCreate())
-          this.event = new SecurityEventEventComponent();
+          this.event = new SecurityEventEventComponent(); // cc
       return this.event;
     }
 
@@ -2969,7 +2969,7 @@ public class SecurityEvent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SecurityEvent.source");
         else if (Configuration.doAutoCreate())
-          this.source = new SecurityEventSourceComponent();
+          this.source = new SecurityEventSourceComponent(); // cc
       return this.source;
     }
 

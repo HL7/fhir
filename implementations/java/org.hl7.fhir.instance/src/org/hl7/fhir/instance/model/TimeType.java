@@ -30,60 +30,40 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 /**
- * Primitive type "time" in FHIR: a time of the day, with no fixed day
+ * Represents a Time datatype, per the FHIR specification. A time is a specification of hours and minutes (and optionally milliseconds), with NO date and NO timezone information attached. It is
+ * expressed as a string in the form <code>HH:mm:ss[.SSSS]</code>
  */
-public class TimeType extends PrimitiveType {
+public class TimeType extends PrimitiveType<String> {
 
-  private static final long serialVersionUID = 7376728289385943383L;
-  
-	/**
-	 * The value of the dateTime
-	 */
-	private String value;
-
-	public TimeType(String value) {
-    this.value = value;  
-  }
-
-  public TimeType() {
-  }
+	private static final long serialVersionUID = 3L;
 
 	/**
-	 * @return The value of the dateTime
+	 * Constructor
 	 */
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * @param value The value of the dateTime
-	 */
-	public void setValue(String value) {
-		this.value = value;
+	public TimeType() {
+		// nothing
 	}
 	
+	/**
+	 * Constructor
+	 */
+	public TimeType(String theValue) {
+		setValue(theValue);
+	}
+
 	@Override
-  public TimeType copy() {
-		TimeType dst = new TimeType();
-		dst.value = value;
-		return dst;
+	protected String parse(String theValue) {
+		return theValue;
 	}
-	
+
 	@Override
-  protected Type typedCopy() {
-		return copy();
+	protected String encode(String theValue) {
+		return theValue;
 	}
 
-  @Override
-  public String asStringValue() {
-    return value;  
-  }
-	public boolean isEmpty() {
-		return super.isEmpty() && value == null;
+	@Override
+	public TimeType copy() {
+		return new TimeType(getValue());
 	}
 
-	public boolean hasValue() {
-		return value != null;
-	}
-	
 }

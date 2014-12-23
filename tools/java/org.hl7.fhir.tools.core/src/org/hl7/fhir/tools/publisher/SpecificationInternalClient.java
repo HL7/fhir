@@ -3,6 +3,7 @@ package org.hl7.fhir.tools.publisher;
 import java.io.FileInputStream;
 import java.net.URISyntaxException;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,6 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Conformance;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -154,17 +154,17 @@ public class SpecificationInternalClient implements IFHIRClient {
   }
 
   @Override
-  public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
+  public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass, String id) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> Bundle history(DateAndTime lastUpdate, Class<T> resourceClass) {
+  public <T extends Resource> Bundle history(Date lastUpdate, Class<T> resourceClass) {
     throw new Error("history not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> Bundle history(DateAndTime lastUpdate) {
+  public <T extends Resource> Bundle history(Date lastUpdate) {
     throw new Error("history not supported by the internal specification client");
   }
 

@@ -344,10 +344,8 @@ if provided, the value of the ETag SHALL match the value of the version id for t
 are allowed to generate the version id in whatever fashion that they wish, so long 
 as they are valid according to the <a href="datatypes.html#id">id</a> data type,
 and are unique within the address space of all versions of the same resource.
-When resources are returned as part of a bundle (e.g. see <a href="#search">search</a> below), the server 
-should return the ETag value as an attribute named "etag" in the FHIR namespace 
-("http://hl7.org/fhir") on the feed.entry element (or, for JSON, a property "etag" on the 
-feed.entry object).
+When resources are returned as part of a bundle, there is no ETag, and the 
+versionId of the resources is used directly.
 </p>
 <p>
 If the client wishes to request a version aware update, it submits the request with an

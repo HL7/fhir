@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.instance.client.IFHIRClient;
@@ -15,7 +16,6 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
@@ -145,7 +145,7 @@ public class SentinelWorker {
 
   private Bundle downloadUpdates(IFHIRClient client) throws Exception {
   	Bundle master = new Bundle();
-	  String lasttime = ini.getStringProperty(server, "lasttime");
+	  long lasttime = ini.getLongProperty(server, "lasttime");
 
 	  String next = null;
 	  int i = 1;
@@ -154,8 +154,8 @@ public class SentinelWorker {
 	      Bundle feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
-	      else if (!Utilities.noString(lasttime)) {
-	      	DateAndTime dd = new DateAndTime(lasttime);
+	      else if (lasttime != 0) {
+	      	Date dd = new Date(lasttime);
 	      	feed = client.history(dd); 
 	      } else
 	        feed = client.history();
@@ -167,7 +167,7 @@ public class SentinelWorker {
 	      }
         master.getEntry().addAll(feed.getEntry());
         if (next == null)
-	          lasttime = feed.getMeta().getLastUpdated().toString();
+	          lasttime = feed.getMeta().getLastUpdated().getTime();
         next = ResourceUtilities.getLink(feed, "next");
 	      i++;
 	  } while (!stop && next != null);
@@ -175,8 +175,8 @@ public class SentinelWorker {
     if (master.getBase() == null)
     	master.setBase(server);
 	  
-    ini.setStringProperty(server, "qtime", DateAndTime.now().toString(), null);
-    ini.setStringProperty(server, "lasttime", lasttime, null);
+    ini.setLongProperty(server, "qtime", new Date().getTime(), null);
+    ini.setLongProperty(server, "lasttime", lasttime, null);
     ini.save();
     System.out.println(master.getEntry().size() == 1 ? "1 update found" : Integer.toString(master.getEntry().size())+" updates found");
 
@@ -220,13 +220,14 @@ public class SentinelWorker {
 	// -- Utility routines --------------------------------
 	
 
+	static final long ONE_MINUTE_IN_MILLIS=60000;//millisecs
+	
 	private boolean timeToQuery() throws Exception {
-		String s = ini.getStringProperty(server, "qtime");
-		if (Utilities.noString(s))
+		Long s = ini.getLongProperty(server, "qtime");
+		if (s == 0)
 			return true;
-	  DateAndTime d = new DateAndTime(s);
-    d.add(Calendar.MINUTE, 5); 
-    return d.before(DateAndTime.now());
+		long d = new Date().getTime() -  (5 * ONE_MINUTE_IN_MILLIS);
+		return d > s;
   }
 
 }

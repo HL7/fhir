@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -177,8 +177,8 @@ public class ProcedureRequest extends DomainResource {
         }
     }
 
-  public static class ProcedureRequestStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ProcedureRequestStatusEnumFactory implements EnumFactory<ProcedureRequestStatus> {
+    public ProcedureRequestStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -202,9 +202,9 @@ public class ProcedureRequest extends DomainResource {
           return ProcedureRequestStatus.REJECTED;
         if ("aborted".equals(codeString))
           return ProcedureRequestStatus.ABORTED;
-        throw new Exception("Unknown ProcedureRequestStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ProcedureRequestStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ProcedureRequestStatus code) {
       if (code == ProcedureRequestStatus.PROPOSED)
         return "proposed";
       if (code == ProcedureRequestStatus.PLANNED)
@@ -301,8 +301,8 @@ public class ProcedureRequest extends DomainResource {
         }
     }
 
-  public static class ProcedureRequestPriorityEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ProcedureRequestPriorityEnumFactory implements EnumFactory<ProcedureRequestPriority> {
+    public ProcedureRequestPriority fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -314,9 +314,9 @@ public class ProcedureRequest extends DomainResource {
           return ProcedureRequestPriority.STAT;
         if ("asap".equals(codeString))
           return ProcedureRequestPriority.ASAP;
-        throw new Exception("Unknown ProcedureRequestPriority code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ProcedureRequestPriority code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ProcedureRequestPriority code) {
       if (code == ProcedureRequestPriority.ROUTINE)
         return "routine";
       if (code == ProcedureRequestPriority.URGENT)
@@ -497,7 +497,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -521,7 +521,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient();
+          this.subjectTarget = new Patient(); // aa
       return this.subjectTarget;
     }
 
@@ -541,7 +541,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -671,7 +671,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference();
+          this.encounter = new Reference(); // cc
       return this.encounter;
     }
 
@@ -695,7 +695,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.encounter");
         else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter();
+          this.encounterTarget = new Encounter(); // aa
       return this.encounterTarget;
     }
 
@@ -715,7 +715,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.performer");
         else if (Configuration.doAutoCreate())
-          this.performer = new Reference();
+          this.performer = new Reference(); // cc
       return this.performer;
     }
 
@@ -754,7 +754,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ProcedureRequestStatus>();
+          this.status = new Enumeration<ProcedureRequestStatus>(new ProcedureRequestStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -789,7 +789,7 @@ public class ProcedureRequest extends DomainResource {
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<ProcedureRequestStatus>();
+          this.status = new Enumeration<ProcedureRequestStatus>(new ProcedureRequestStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -894,7 +894,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.orderedOn");
         else if (Configuration.doAutoCreate())
-          this.orderedOn = new DateTimeType();
+          this.orderedOn = new DateTimeType(); // bb
       return this.orderedOn;
     }
 
@@ -917,14 +917,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public DateAndTime getOrderedOn() { 
+    public Date getOrderedOn() { 
       return this.orderedOn == null ? null : this.orderedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public ProcedureRequest setOrderedOn(DateAndTime value) { 
+    public ProcedureRequest setOrderedOn(Date value) { 
       if (value == null)
         this.orderedOn = null;
       else {
@@ -943,7 +943,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.orderer");
         else if (Configuration.doAutoCreate())
-          this.orderer = new Reference();
+          this.orderer = new Reference(); // cc
       return this.orderer;
     }
 
@@ -982,7 +982,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProcedureRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Enumeration<ProcedureRequestPriority>();
+          this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory()); // bb
       return this.priority;
     }
 
@@ -1017,7 +1017,7 @@ public class ProcedureRequest extends DomainResource {
         this.priority = null;
       else {
         if (this.priority == null)
-          this.priority = new Enumeration<ProcedureRequestPriority>();
+          this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory());
         this.priority.setValue(value);
       }
       return this;
@@ -1095,9 +1095,9 @@ public class ProcedureRequest extends DomainResource {
     return ResourceType.ProcedureRequest;
    }
 
-  @SearchParamDefinition(name="patient", path="", description="Search by subject - a patient", type="reference" )
+  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="subject", path="", description="Search by subject", type="reference" )
+  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference" )
   public static final String SP_SUBJECT = "subject";
 
 }

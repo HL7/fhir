@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.identifier = new Identifier();
+              this.identifier = new Identifier(); // cc
           return this.identifier;
         }
 
@@ -106,7 +106,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.expiry");
             else if (Configuration.doAutoCreate())
-              this.expiry = new DateTimeType();
+              this.expiry = new DateTimeType(); // bb
           return this.expiry;
         }
 
@@ -129,14 +129,14 @@ public class Substance extends DomainResource {
         /**
          * @return When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public DateAndTime getExpiry() { 
+        public Date getExpiry() { 
           return this.expiry == null ? null : this.expiry.getValue();
         }
 
         /**
          * @param value When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public SubstanceInstanceComponent setExpiry(DateAndTime value) { 
+        public SubstanceInstanceComponent setExpiry(Date value) { 
           if (value == null)
             this.expiry = null;
           else {
@@ -155,7 +155,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -234,7 +234,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Ratio();
+              this.quantity = new Ratio(); // cc
           return this.quantity;
         }
 
@@ -258,7 +258,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
             else if (Configuration.doAutoCreate())
-              this.substance = new Reference();
+              this.substance = new Reference(); // cc
           return this.substance;
         }
 
@@ -282,7 +282,7 @@ public class Substance extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
             else if (Configuration.doAutoCreate())
-              this.substanceTarget = new Substance();
+              this.substanceTarget = new Substance(); // aa
           return this.substanceTarget;
         }
 
@@ -362,7 +362,7 @@ public class Substance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Substance.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -386,7 +386,7 @@ public class Substance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Substance.description");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType();
+          this.description = new StringType(); // bb
       return this.description;
     }
 
@@ -435,7 +435,7 @@ public class Substance extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Substance.instance");
         else if (Configuration.doAutoCreate())
-          this.instance = new SubstanceInstanceComponent();
+          this.instance = new SubstanceInstanceComponent(); // cc
       return this.instance;
     }
 

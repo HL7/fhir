@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -187,8 +187,8 @@ public class DeviceComponent extends DomainResource {
         }
     }
 
-  public static class MeasurementPrincipleEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MeasurementPrincipleEnumFactory implements EnumFactory<MeasurementPrinciple> {
+    public MeasurementPrinciple fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -214,9 +214,9 @@ public class DeviceComponent extends DomainResource {
           return MeasurementPrinciple.ACOUSTICAL;
         if ("manual".equals(codeString))
           return MeasurementPrinciple.MANUAL;
-        throw new Exception("Unknown MeasurementPrinciple code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MeasurementPrinciple code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MeasurementPrinciple code) {
       if (code == MeasurementPrinciple.OTHER)
         return "other";
       if (code == MeasurementPrinciple.CHEMICAL)
@@ -280,7 +280,7 @@ public class DeviceComponent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.specType");
             else if (Configuration.doAutoCreate())
-              this.specType = new CodeableConcept();
+              this.specType = new CodeableConcept(); // cc
           return this.specType;
         }
 
@@ -304,7 +304,7 @@ public class DeviceComponent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.componentId");
             else if (Configuration.doAutoCreate())
-              this.componentId = new Identifier();
+              this.componentId = new Identifier(); // cc
           return this.componentId;
         }
 
@@ -328,7 +328,7 @@ public class DeviceComponent extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.productionSpec");
             else if (Configuration.doAutoCreate())
-              this.productionSpec = new StringType();
+              this.productionSpec = new StringType(); // bb
           return this.productionSpec;
         }
 
@@ -493,7 +493,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept();
+          this.type = new CodeableConcept(); // cc
       return this.type;
     }
 
@@ -517,7 +517,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier();
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
@@ -541,7 +541,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.lastSystemChange");
         else if (Configuration.doAutoCreate())
-          this.lastSystemChange = new InstantType();
+          this.lastSystemChange = new InstantType(); // bb
       return this.lastSystemChange;
     }
 
@@ -564,14 +564,14 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return Describes the timestamp for the most recent system change which includes device configuration or setting change.
      */
-    public DateAndTime getLastSystemChange() { 
+    public Date getLastSystemChange() { 
       return this.lastSystemChange == null ? null : this.lastSystemChange.getValue();
     }
 
     /**
      * @param value Describes the timestamp for the most recent system change which includes device configuration or setting change.
      */
-    public DeviceComponent setLastSystemChange(DateAndTime value) { 
+    public DeviceComponent setLastSystemChange(Date value) { 
         if (this.lastSystemChange == null)
           this.lastSystemChange = new InstantType();
         this.lastSystemChange.setValue(value);
@@ -586,7 +586,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.source");
         else if (Configuration.doAutoCreate())
-          this.source = new Reference();
+          this.source = new Reference(); // cc
       return this.source;
     }
 
@@ -610,7 +610,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.source");
         else if (Configuration.doAutoCreate())
-          this.sourceTarget = new Device();
+          this.sourceTarget = new Device(); // aa
       return this.sourceTarget;
     }
 
@@ -630,7 +630,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parent");
         else if (Configuration.doAutoCreate())
-          this.parent = new Reference();
+          this.parent = new Reference(); // cc
       return this.parent;
     }
 
@@ -654,7 +654,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parent");
         else if (Configuration.doAutoCreate())
-          this.parentTarget = new DeviceComponent();
+          this.parentTarget = new DeviceComponent(); // aa
       return this.parentTarget;
     }
 
@@ -704,7 +704,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parameterGroup");
         else if (Configuration.doAutoCreate())
-          this.parameterGroup = new CodeableConcept();
+          this.parameterGroup = new CodeableConcept(); // cc
       return this.parameterGroup;
     }
 
@@ -728,7 +728,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.measurementPrinciple");
         else if (Configuration.doAutoCreate())
-          this.measurementPrinciple = new Enumeration<MeasurementPrinciple>();
+          this.measurementPrinciple = new Enumeration<MeasurementPrinciple>(new MeasurementPrincipleEnumFactory()); // bb
       return this.measurementPrinciple;
     }
 
@@ -763,7 +763,7 @@ public class DeviceComponent extends DomainResource {
         this.measurementPrinciple = null;
       else {
         if (this.measurementPrinciple == null)
-          this.measurementPrinciple = new Enumeration<MeasurementPrinciple>();
+          this.measurementPrinciple = new Enumeration<MeasurementPrinciple>(new MeasurementPrincipleEnumFactory());
         this.measurementPrinciple.setValue(value);
       }
       return this;
@@ -807,7 +807,7 @@ public class DeviceComponent extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.languageCode");
         else if (Configuration.doAutoCreate())
-          this.languageCode = new CodeableConcept();
+          this.languageCode = new CodeableConcept(); // cc
       return this.languageCode;
     }
 

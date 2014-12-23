@@ -40,7 +40,6 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ContactPoint;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointUse;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Factory;
@@ -138,8 +137,7 @@ public class Convert {
 	}
 
 	public InstantType makeInstantFromTS(Element child) throws Exception {
-	  InstantType i = new InstantType();
-	  i.setValue(DateAndTime.parseV3(child.getAttribute("value")));
+	  InstantType i = InstantType.parseV3(child.getAttribute("value"));
 	  return i;
   }
 
@@ -335,8 +333,7 @@ public class Convert {
 			return null;
 		
     String v = ts.getAttribute("value");
-    DateTimeType d = new DateTimeType();
-	  d.setValue(DateAndTime.parseV3(v));
+    DateTimeType d = DateTimeType.parseV3(v);
     return d;
   }
 
@@ -345,8 +342,7 @@ public class Convert {
 			return null;
 		
     String v = ts.getAttribute("value");
-    DateType d = new DateType();
-	  d.setValue(DateAndTime.parseV3(v));
+    DateType d = DateType.parseV3(v);
     return d;
   }
 

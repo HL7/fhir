@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -117,8 +117,8 @@ public class Subscription extends DomainResource {
         }
     }
 
-  public static class SubscriptionStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SubscriptionStatusEnumFactory implements EnumFactory<SubscriptionStatus> {
+    public SubscriptionStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -130,9 +130,9 @@ public class Subscription extends DomainResource {
           return SubscriptionStatus.ERROR;
         if ("off".equals(codeString))
           return SubscriptionStatus.OFF;
-        throw new Exception("Unknown SubscriptionStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SubscriptionStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SubscriptionStatus code) {
       if (code == SubscriptionStatus.REQUESTED)
         return "requested";
       if (code == SubscriptionStatus.ACTIVE)
@@ -227,8 +227,8 @@ public class Subscription extends DomainResource {
         }
     }
 
-  public static class SubscriptionChannelTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class SubscriptionChannelTypeEnumFactory implements EnumFactory<SubscriptionChannelType> {
+    public SubscriptionChannelType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -242,9 +242,9 @@ public class Subscription extends DomainResource {
           return SubscriptionChannelType.SMS;
         if ("message".equals(codeString))
           return SubscriptionChannelType.MESSAGE;
-        throw new Exception("Unknown SubscriptionChannelType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(SubscriptionChannelType code) {
       if (code == SubscriptionChannelType.RESTHOOK)
         return "rest-hook";
       if (code == SubscriptionChannelType.WEBSOCKET)
@@ -309,7 +309,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<SubscriptionChannelType>();
+              this.type = new Enumeration<SubscriptionChannelType>(new SubscriptionChannelTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -341,7 +341,7 @@ public class Subscription extends DomainResource {
          */
         public SubscriptionChannelComponent setType(SubscriptionChannelType value) { 
             if (this.type == null)
-              this.type = new Enumeration<SubscriptionChannelType>();
+              this.type = new Enumeration<SubscriptionChannelType>(new SubscriptionChannelTypeEnumFactory());
             this.type.setValue(value);
           return this;
         }
@@ -354,7 +354,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.url");
             else if (Configuration.doAutoCreate())
-              this.url = new UriType();
+              this.url = new UriType(); // bb
           return this.url;
         }
 
@@ -403,7 +403,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.payload");
             else if (Configuration.doAutoCreate())
-              this.payload = new StringType();
+              this.payload = new StringType(); // bb
           return this.payload;
         }
 
@@ -448,7 +448,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.header");
             else if (Configuration.doAutoCreate())
-              this.header = new StringType();
+              this.header = new StringType(); // bb
           return this.header;
         }
 
@@ -557,7 +557,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionTagComponent.term");
             else if (Configuration.doAutoCreate())
-              this.term = new UriType();
+              this.term = new UriType(); // bb
           return this.term;
         }
 
@@ -602,7 +602,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionTagComponent.scheme");
             else if (Configuration.doAutoCreate())
-              this.scheme = new UriType();
+              this.scheme = new UriType(); // bb
           return this.scheme;
         }
 
@@ -647,7 +647,7 @@ public class Subscription extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionTagComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType();
+              this.description = new StringType(); // bb
           return this.description;
         }
 
@@ -789,7 +789,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.criteria");
         else if (Configuration.doAutoCreate())
-          this.criteria = new StringType();
+          this.criteria = new StringType(); // bb
       return this.criteria;
     }
 
@@ -864,7 +864,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.reason");
         else if (Configuration.doAutoCreate())
-          this.reason = new StringType();
+          this.reason = new StringType(); // bb
       return this.reason;
     }
 
@@ -909,7 +909,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<SubscriptionStatus>();
+          this.status = new Enumeration<SubscriptionStatus>(new SubscriptionStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -941,7 +941,7 @@ public class Subscription extends DomainResource {
      */
     public Subscription setStatus(SubscriptionStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<SubscriptionStatus>();
+          this.status = new Enumeration<SubscriptionStatus>(new SubscriptionStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -954,7 +954,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.error");
         else if (Configuration.doAutoCreate())
-          this.error = new StringType();
+          this.error = new StringType(); // bb
       return this.error;
     }
 
@@ -1003,7 +1003,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.channel");
         else if (Configuration.doAutoCreate())
-          this.channel = new SubscriptionChannelComponent();
+          this.channel = new SubscriptionChannelComponent(); // cc
       return this.channel;
     }
 
@@ -1027,7 +1027,7 @@ public class Subscription extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.end");
         else if (Configuration.doAutoCreate())
-          this.end = new InstantType();
+          this.end = new InstantType(); // bb
       return this.end;
     }
 
@@ -1050,14 +1050,14 @@ public class Subscription extends DomainResource {
     /**
      * @return Todo.
      */
-    public DateAndTime getEnd() { 
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Todo.
      */
-    public Subscription setEnd(DateAndTime value) { 
+    public Subscription setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {

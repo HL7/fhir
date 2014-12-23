@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -118,8 +118,8 @@ public class OralHealthClaim extends DomainResource {
         }
     }
 
-  public static class UseLinkEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class UseLinkEnumFactory implements EnumFactory<UseLink> {
+    public UseLink fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -131,9 +131,9 @@ public class OralHealthClaim extends DomainResource {
           return UseLink.EXPLORATORY;
         if ("other".equals(codeString))
           return UseLink.OTHER;
-        throw new Exception("Unknown UseLink code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown UseLink code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(UseLink code) {
       if (code == UseLink.COMPLETE)
         return "complete";
       if (code == UseLink.PROPOSED)
@@ -205,7 +205,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -229,7 +229,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.provider = new Reference();
+              this.provider = new Reference(); // cc
           return this.provider;
         }
 
@@ -253,7 +253,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.providerTarget = new Practitioner();
+              this.providerTarget = new Practitioner(); // aa
           return this.providerTarget;
         }
 
@@ -273,7 +273,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organization = new Reference();
+              this.organization = new Reference(); // cc
           return this.organization;
         }
 
@@ -297,7 +297,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
             else if (Configuration.doAutoCreate())
-              this.organizationTarget = new Organization();
+              this.organizationTarget = new Organization(); // aa
           return this.organizationTarget;
         }
 
@@ -317,7 +317,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.person = new Reference();
+              this.person = new Reference(); // cc
           return this.person;
         }
 
@@ -341,7 +341,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
             else if (Configuration.doAutoCreate())
-              this.personTarget = new Patient();
+              this.personTarget = new Patient(); // aa
           return this.personTarget;
         }
 
@@ -415,7 +415,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -460,7 +460,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
             else if (Configuration.doAutoCreate())
-              this.diagnosis = new Coding();
+              this.diagnosis = new Coding(); // cc
           return this.diagnosis;
         }
 
@@ -587,7 +587,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -632,7 +632,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.focal");
             else if (Configuration.doAutoCreate())
-              this.focal = new BooleanType();
+              this.focal = new BooleanType(); // bb
           return this.focal;
         }
 
@@ -677,7 +677,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverage = new Reference();
+              this.coverage = new Reference(); // cc
           return this.coverage;
         }
 
@@ -701,7 +701,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
             else if (Configuration.doAutoCreate())
-              this.coverageTarget = new Coverage();
+              this.coverageTarget = new Coverage(); // aa
           return this.coverageTarget;
         }
 
@@ -721,7 +721,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
             else if (Configuration.doAutoCreate())
-              this.businessArrangement = new StringType();
+              this.businessArrangement = new StringType(); // bb
           return this.businessArrangement;
         }
 
@@ -770,7 +770,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new Coding();
+              this.relationship = new Coding(); // cc
           return this.relationship;
         }
 
@@ -848,7 +848,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
             else if (Configuration.doAutoCreate())
-              this.claimResponse = new Reference();
+              this.claimResponse = new Reference(); // cc
           return this.claimResponse;
         }
 
@@ -872,7 +872,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
             else if (Configuration.doAutoCreate())
-              this.claimResponseTarget = new ClaimResponse();
+              this.claimResponseTarget = new ClaimResponse(); // aa
           return this.claimResponseTarget;
         }
 
@@ -892,7 +892,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
             else if (Configuration.doAutoCreate())
-              this.originalRuleset = new Coding();
+              this.originalRuleset = new Coding(); // cc
           return this.originalRuleset;
         }
 
@@ -990,7 +990,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.tooth");
             else if (Configuration.doAutoCreate())
-              this.tooth = new Coding();
+              this.tooth = new Coding(); // cc
           return this.tooth;
         }
 
@@ -1014,7 +1014,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.reason");
             else if (Configuration.doAutoCreate())
-              this.reason = new Coding();
+              this.reason = new Coding(); // cc
           return this.reason;
         }
 
@@ -1038,7 +1038,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.extractiondate");
             else if (Configuration.doAutoCreate())
-              this.extractiondate = new DateType();
+              this.extractiondate = new DateType(); // bb
           return this.extractiondate;
         }
 
@@ -1061,14 +1061,14 @@ public class OralHealthClaim extends DomainResource {
         /**
          * @return The date of the extraction either known from records or patient reported estimate.
          */
-        public DateAndTime getExtractiondate() { 
+        public Date getExtractiondate() { 
           return this.extractiondate == null ? null : this.extractiondate.getValue();
         }
 
         /**
          * @param value The date of the extraction either known from records or patient reported estimate.
          */
-        public MissingTeethComponent setExtractiondate(DateAndTime value) { 
+        public MissingTeethComponent setExtractiondate(Date value) { 
           if (value == null)
             this.extractiondate = null;
           else {
@@ -1167,7 +1167,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.start");
             else if (Configuration.doAutoCreate())
-              this.start = new DateType();
+              this.start = new DateType(); // bb
           return this.start;
         }
 
@@ -1190,14 +1190,14 @@ public class OralHealthClaim extends DomainResource {
         /**
          * @return The intended start date for service.
          */
-        public DateAndTime getStart() { 
+        public Date getStart() { 
           return this.start == null ? null : this.start.getValue();
         }
 
         /**
          * @param value The intended start date for service.
          */
-        public OrthodonticPlanComponent setStart(DateAndTime value) { 
+        public OrthodonticPlanComponent setStart(Date value) { 
           if (value == null)
             this.start = null;
           else {
@@ -1216,7 +1216,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.examFee");
             else if (Configuration.doAutoCreate())
-              this.examFee = new Money();
+              this.examFee = new Money(); // cc
           return this.examFee;
         }
 
@@ -1240,7 +1240,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.diagnosticFee");
             else if (Configuration.doAutoCreate())
-              this.diagnosticFee = new Money();
+              this.diagnosticFee = new Money(); // cc
           return this.diagnosticFee;
         }
 
@@ -1264,7 +1264,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.initialPayment");
             else if (Configuration.doAutoCreate())
-              this.initialPayment = new Money();
+              this.initialPayment = new Money(); // cc
           return this.initialPayment;
         }
 
@@ -1288,7 +1288,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.durationMonths");
             else if (Configuration.doAutoCreate())
-              this.durationMonths = new IntegerType();
+              this.durationMonths = new IntegerType(); // bb
           return this.durationMonths;
         }
 
@@ -1337,7 +1337,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.paymentCount");
             else if (Configuration.doAutoCreate())
-              this.paymentCount = new IntegerType();
+              this.paymentCount = new IntegerType(); // bb
           return this.paymentCount;
         }
 
@@ -1386,7 +1386,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrthodonticPlanComponent.periodicPayment");
             else if (Configuration.doAutoCreate())
-              this.periodicPayment = new Money();
+              this.periodicPayment = new Money(); // cc
           return this.periodicPayment;
         }
 
@@ -1582,7 +1582,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -1627,7 +1627,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -1651,7 +1651,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.provider = new Reference();
+              this.provider = new Reference(); // cc
           return this.provider;
         }
 
@@ -1675,7 +1675,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
             else if (Configuration.doAutoCreate())
-              this.providerTarget = new Practitioner();
+              this.providerTarget = new Practitioner(); // aa
           return this.providerTarget;
         }
 
@@ -1749,7 +1749,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -1773,7 +1773,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.serviceDate");
             else if (Configuration.doAutoCreate())
-              this.serviceDate = new DateType();
+              this.serviceDate = new DateType(); // bb
           return this.serviceDate;
         }
 
@@ -1796,14 +1796,14 @@ public class OralHealthClaim extends DomainResource {
         /**
          * @return The date when the enclosed suite of services were performed or completed.
          */
-        public DateAndTime getServiceDate() { 
+        public Date getServiceDate() { 
           return this.serviceDate == null ? null : this.serviceDate.getValue();
         }
 
         /**
          * @param value The date when the enclosed suite of services were performed or completed.
          */
-        public ItemsComponent setServiceDate(DateAndTime value) { 
+        public ItemsComponent setServiceDate(Date value) { 
           if (value == null)
             this.serviceDate = null;
           else {
@@ -1822,7 +1822,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1846,7 +1846,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -1870,7 +1870,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -1919,7 +1919,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -1968,7 +1968,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -1992,7 +1992,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -2016,7 +2016,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.bodySite");
             else if (Configuration.doAutoCreate())
-              this.bodySite = new Coding();
+              this.bodySite = new Coding(); // cc
           return this.bodySite;
         }
 
@@ -2130,7 +2130,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.prosthesis");
             else if (Configuration.doAutoCreate())
-              this.prosthesis = new ProsthesisComponent();
+              this.prosthesis = new ProsthesisComponent(); // cc
           return this.prosthesis;
         }
 
@@ -2312,7 +2312,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -2357,7 +2357,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -2381,7 +2381,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -2405,7 +2405,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2429,7 +2429,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -2453,7 +2453,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -2502,7 +2502,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -2551,7 +2551,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -2575,7 +2575,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -2750,7 +2750,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequence");
             else if (Configuration.doAutoCreate())
-              this.sequence = new IntegerType();
+              this.sequence = new IntegerType(); // bb
           return this.sequence;
         }
 
@@ -2795,7 +2795,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding();
+              this.type = new Coding(); // cc
           return this.type;
         }
 
@@ -2819,7 +2819,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.service");
             else if (Configuration.doAutoCreate())
-              this.service = new Coding();
+              this.service = new Coding(); // cc
           return this.service;
         }
 
@@ -2843,7 +2843,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new Quantity();
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2867,7 +2867,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.unitPrice");
             else if (Configuration.doAutoCreate())
-              this.unitPrice = new Money();
+              this.unitPrice = new Money(); // cc
           return this.unitPrice;
         }
 
@@ -2891,7 +2891,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.factor");
             else if (Configuration.doAutoCreate())
-              this.factor = new DecimalType();
+              this.factor = new DecimalType(); // bb
           return this.factor;
         }
 
@@ -2940,7 +2940,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.points");
             else if (Configuration.doAutoCreate())
-              this.points = new DecimalType();
+              this.points = new DecimalType(); // bb
           return this.points;
         }
 
@@ -2989,7 +2989,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.net");
             else if (Configuration.doAutoCreate())
-              this.net = new Money();
+              this.net = new Money(); // cc
           return this.net;
         }
 
@@ -3013,7 +3013,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.udi");
             else if (Configuration.doAutoCreate())
-              this.udi = new Coding();
+              this.udi = new Coding(); // cc
           return this.udi;
         }
 
@@ -3103,7 +3103,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.initial");
             else if (Configuration.doAutoCreate())
-              this.initial = new BooleanType();
+              this.initial = new BooleanType(); // bb
           return this.initial;
         }
 
@@ -3152,7 +3152,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.priorDate");
             else if (Configuration.doAutoCreate())
-              this.priorDate = new DateType();
+              this.priorDate = new DateType(); // bb
           return this.priorDate;
         }
 
@@ -3175,14 +3175,14 @@ public class OralHealthClaim extends DomainResource {
         /**
          * @return Date of the initial placement.
          */
-        public DateAndTime getPriorDate() { 
+        public Date getPriorDate() { 
           return this.priorDate == null ? null : this.priorDate.getValue();
         }
 
         /**
          * @param value Date of the initial placement.
          */
-        public ProsthesisComponent setPriorDate(DateAndTime value) { 
+        public ProsthesisComponent setPriorDate(Date value) { 
           if (value == null)
             this.priorDate = null;
           else {
@@ -3201,7 +3201,7 @@ public class OralHealthClaim extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.priorMaterial");
             else if (Configuration.doAutoCreate())
-              this.priorMaterial = new Coding();
+              this.priorMaterial = new Coding(); // cc
           return this.priorMaterial;
         }
 
@@ -3513,7 +3513,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.ruleset");
         else if (Configuration.doAutoCreate())
-          this.ruleset = new Coding();
+          this.ruleset = new Coding(); // cc
       return this.ruleset;
     }
 
@@ -3537,7 +3537,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.originalRuleset");
         else if (Configuration.doAutoCreate())
-          this.originalRuleset = new Coding();
+          this.originalRuleset = new Coding(); // cc
       return this.originalRuleset;
     }
 
@@ -3561,7 +3561,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.created");
         else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType();
+          this.created = new DateTimeType(); // bb
       return this.created;
     }
 
@@ -3584,14 +3584,14 @@ public class OralHealthClaim extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public DateAndTime getCreated() { 
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public OralHealthClaim setCreated(DateAndTime value) { 
+    public OralHealthClaim setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -3610,7 +3610,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.target");
         else if (Configuration.doAutoCreate())
-          this.target = new Reference();
+          this.target = new Reference(); // cc
       return this.target;
     }
 
@@ -3634,7 +3634,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.target");
         else if (Configuration.doAutoCreate())
-          this.targetTarget = new Organization();
+          this.targetTarget = new Organization(); // aa
       return this.targetTarget;
     }
 
@@ -3654,7 +3654,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.provider");
         else if (Configuration.doAutoCreate())
-          this.provider = new Reference();
+          this.provider = new Reference(); // cc
       return this.provider;
     }
 
@@ -3678,7 +3678,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.provider");
         else if (Configuration.doAutoCreate())
-          this.providerTarget = new Practitioner();
+          this.providerTarget = new Practitioner(); // aa
       return this.providerTarget;
     }
 
@@ -3698,7 +3698,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.organization");
         else if (Configuration.doAutoCreate())
-          this.organization = new Reference();
+          this.organization = new Reference(); // cc
       return this.organization;
     }
 
@@ -3722,7 +3722,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.organization");
         else if (Configuration.doAutoCreate())
-          this.organizationTarget = new Organization();
+          this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
     }
 
@@ -3742,7 +3742,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.use");
         else if (Configuration.doAutoCreate())
-          this.use = new Enumeration<UseLink>();
+          this.use = new Enumeration<UseLink>(new UseLinkEnumFactory()); // bb
       return this.use;
     }
 
@@ -3777,7 +3777,7 @@ public class OralHealthClaim extends DomainResource {
         this.use = null;
       else {
         if (this.use == null)
-          this.use = new Enumeration<UseLink>();
+          this.use = new Enumeration<UseLink>(new UseLinkEnumFactory());
         this.use.setValue(value);
       }
       return this;
@@ -3791,7 +3791,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Coding();
+          this.priority = new Coding(); // cc
       return this.priority;
     }
 
@@ -3815,7 +3815,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.fundsReserve");
         else if (Configuration.doAutoCreate())
-          this.fundsReserve = new Coding();
+          this.fundsReserve = new Coding(); // cc
       return this.fundsReserve;
     }
 
@@ -3839,7 +3839,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.enterer");
         else if (Configuration.doAutoCreate())
-          this.enterer = new Reference();
+          this.enterer = new Reference(); // cc
       return this.enterer;
     }
 
@@ -3863,7 +3863,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.enterer");
         else if (Configuration.doAutoCreate())
-          this.entererTarget = new Practitioner();
+          this.entererTarget = new Practitioner(); // aa
       return this.entererTarget;
     }
 
@@ -3883,7 +3883,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.facility");
         else if (Configuration.doAutoCreate())
-          this.facility = new Reference();
+          this.facility = new Reference(); // cc
       return this.facility;
     }
 
@@ -3907,7 +3907,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.facility");
         else if (Configuration.doAutoCreate())
-          this.facilityTarget = new Location();
+          this.facilityTarget = new Location(); // aa
       return this.facilityTarget;
     }
 
@@ -3927,7 +3927,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.payee");
         else if (Configuration.doAutoCreate())
-          this.payee = new PayeeComponent();
+          this.payee = new PayeeComponent(); // cc
       return this.payee;
     }
 
@@ -3951,7 +3951,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.referral");
         else if (Configuration.doAutoCreate())
-          this.referral = new Reference();
+          this.referral = new Reference(); // cc
       return this.referral;
     }
 
@@ -3975,7 +3975,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.referral");
         else if (Configuration.doAutoCreate())
-          this.referralTarget = new ReferralRequest();
+          this.referralTarget = new ReferralRequest(); // aa
       return this.referralTarget;
     }
 
@@ -4055,7 +4055,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.patient");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference();
+          this.patient = new Reference(); // cc
       return this.patient;
     }
 
@@ -4079,7 +4079,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.patient");
         else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient();
+          this.patientTarget = new Patient(); // aa
       return this.patientTarget;
     }
 
@@ -4159,7 +4159,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.school");
         else if (Configuration.doAutoCreate())
-          this.school = new StringType();
+          this.school = new StringType(); // bb
       return this.school;
     }
 
@@ -4208,7 +4208,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.accident");
         else if (Configuration.doAutoCreate())
-          this.accident = new DateType();
+          this.accident = new DateType(); // bb
       return this.accident;
     }
 
@@ -4231,14 +4231,14 @@ public class OralHealthClaim extends DomainResource {
     /**
      * @return Date of an accident which these services are addressing.
      */
-    public DateAndTime getAccident() { 
+    public Date getAccident() { 
       return this.accident == null ? null : this.accident.getValue();
     }
 
     /**
      * @param value Date of an accident which these services are addressing.
      */
-    public OralHealthClaim setAccident(DateAndTime value) { 
+    public OralHealthClaim setAccident(Date value) { 
       if (value == null)
         this.accident = null;
       else {
@@ -4257,7 +4257,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.accidentType");
         else if (Configuration.doAutoCreate())
-          this.accidentType = new Coding();
+          this.accidentType = new Coding(); // cc
       return this.accidentType;
     }
 
@@ -4341,7 +4341,7 @@ public class OralHealthClaim extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OralHealthClaim.orthoPlan");
         else if (Configuration.doAutoCreate())
-          this.orthoPlan = new OrthodonticPlanComponent();
+          this.orthoPlan = new OrthodonticPlanComponent(); // cc
       return this.orthoPlan;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,8 +97,8 @@ public class Medication extends DomainResource {
         }
     }
 
-  public static class MedicationKindEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class MedicationKindEnumFactory implements EnumFactory<MedicationKind> {
+    public MedicationKind fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -106,9 +106,9 @@ public class Medication extends DomainResource {
           return MedicationKind.PRODUCT;
         if ("package".equals(codeString))
           return MedicationKind.PACKAGE;
-        throw new Exception("Unknown MedicationKind code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown MedicationKind code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(MedicationKind code) {
       if (code == MedicationKind.PRODUCT)
         return "product";
       if (code == MedicationKind.PACKAGE)
@@ -147,7 +147,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductComponent.form");
             else if (Configuration.doAutoCreate())
-              this.form = new CodeableConcept();
+              this.form = new CodeableConcept(); // cc
           return this.form;
         }
 
@@ -258,7 +258,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductIngredientComponent.item");
             else if (Configuration.doAutoCreate())
-              this.item = new Reference();
+              this.item = new Reference(); // cc
           return this.item;
         }
 
@@ -297,7 +297,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationProductIngredientComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Ratio();
+              this.amount = new Ratio(); // cc
           return this.amount;
         }
 
@@ -364,7 +364,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageComponent.container");
             else if (Configuration.doAutoCreate())
-              this.container = new CodeableConcept();
+              this.container = new CodeableConcept(); // cc
           return this.container;
         }
 
@@ -475,7 +475,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.item");
             else if (Configuration.doAutoCreate())
-              this.item = new Reference();
+              this.item = new Reference(); // cc
           return this.item;
         }
 
@@ -499,7 +499,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.item");
             else if (Configuration.doAutoCreate())
-              this.itemTarget = new Medication();
+              this.itemTarget = new Medication(); // aa
           return this.itemTarget;
         }
 
@@ -519,7 +519,7 @@ public class Medication extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationPackageContentComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new Quantity();
+              this.amount = new Quantity(); // cc
           return this.amount;
         }
 
@@ -624,7 +624,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.name");
         else if (Configuration.doAutoCreate())
-          this.name = new StringType();
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -673,7 +673,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept();
+          this.code = new CodeableConcept(); // cc
       return this.code;
     }
 
@@ -697,7 +697,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.isBrand");
         else if (Configuration.doAutoCreate())
-          this.isBrand = new BooleanType();
+          this.isBrand = new BooleanType(); // bb
       return this.isBrand;
     }
 
@@ -746,7 +746,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.manufacturer");
         else if (Configuration.doAutoCreate())
-          this.manufacturer = new Reference();
+          this.manufacturer = new Reference(); // cc
       return this.manufacturer;
     }
 
@@ -770,7 +770,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.manufacturer");
         else if (Configuration.doAutoCreate())
-          this.manufacturerTarget = new Organization();
+          this.manufacturerTarget = new Organization(); // aa
       return this.manufacturerTarget;
     }
 
@@ -790,7 +790,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.kind");
         else if (Configuration.doAutoCreate())
-          this.kind = new Enumeration<MedicationKind>();
+          this.kind = new Enumeration<MedicationKind>(new MedicationKindEnumFactory()); // bb
       return this.kind;
     }
 
@@ -825,7 +825,7 @@ public class Medication extends DomainResource {
         this.kind = null;
       else {
         if (this.kind == null)
-          this.kind = new Enumeration<MedicationKind>();
+          this.kind = new Enumeration<MedicationKind>(new MedicationKindEnumFactory());
         this.kind.setValue(value);
       }
       return this;
@@ -839,7 +839,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.product");
         else if (Configuration.doAutoCreate())
-          this.product = new MedicationProductComponent();
+          this.product = new MedicationProductComponent(); // cc
       return this.product;
     }
 
@@ -863,7 +863,7 @@ public class Medication extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.package_");
         else if (Configuration.doAutoCreate())
-          this.package_ = new MedicationPackageComponent();
+          this.package_ = new MedicationPackageComponent(); // cc
       return this.package_;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -107,8 +107,8 @@ public class List_ extends DomainResource {
         }
     }
 
-  public static class ListModeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class ListModeEnumFactory implements EnumFactory<ListMode> {
+    public ListMode fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -118,9 +118,9 @@ public class List_ extends DomainResource {
           return ListMode.SNAPSHOT;
         if ("changes".equals(codeString))
           return ListMode.CHANGES;
-        throw new Exception("Unknown ListMode code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown ListMode code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(ListMode code) {
       if (code == ListMode.WORKING)
         return "working";
       if (code == ListMode.SNAPSHOT)
@@ -215,7 +215,7 @@ public class List_ extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.deleted");
             else if (Configuration.doAutoCreate())
-              this.deleted = new BooleanType();
+              this.deleted = new BooleanType(); // bb
           return this.deleted;
         }
 
@@ -264,7 +264,7 @@ public class List_ extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.date");
             else if (Configuration.doAutoCreate())
-              this.date = new DateTimeType();
+              this.date = new DateTimeType(); // bb
           return this.date;
         }
 
@@ -287,14 +287,14 @@ public class List_ extends DomainResource {
         /**
          * @return When this item was added to the list.
          */
-        public DateAndTime getDate() { 
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value When this item was added to the list.
          */
-        public ListEntryComponent setDate(DateAndTime value) { 
+        public ListEntryComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -313,7 +313,7 @@ public class List_ extends DomainResource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ListEntryComponent.item");
             else if (Configuration.doAutoCreate())
-              this.item = new Reference();
+              this.item = new Reference(); // cc
           return this.item;
         }
 
@@ -495,7 +495,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.code");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept();
+          this.code = new CodeableConcept(); // cc
       return this.code;
     }
 
@@ -519,7 +519,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.subject");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference();
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
@@ -558,7 +558,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.source");
         else if (Configuration.doAutoCreate())
-          this.source = new Reference();
+          this.source = new Reference(); // cc
       return this.source;
     }
 
@@ -597,7 +597,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.date");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType();
+          this.date = new DateTimeType(); // bb
       return this.date;
     }
 
@@ -620,14 +620,14 @@ public class List_ extends DomainResource {
     /**
      * @return The date that the list was prepared.
      */
-    public DateAndTime getDate() { 
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the list was prepared.
      */
-    public List_ setDate(DateAndTime value) { 
+    public List_ setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -646,7 +646,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.ordered");
         else if (Configuration.doAutoCreate())
-          this.ordered = new BooleanType();
+          this.ordered = new BooleanType(); // bb
       return this.ordered;
     }
 
@@ -695,7 +695,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.mode");
         else if (Configuration.doAutoCreate())
-          this.mode = new Enumeration<ListMode>();
+          this.mode = new Enumeration<ListMode>(new ListModeEnumFactory()); // bb
       return this.mode;
     }
 
@@ -727,7 +727,7 @@ public class List_ extends DomainResource {
      */
     public List_ setMode(ListMode value) { 
         if (this.mode == null)
-          this.mode = new Enumeration<ListMode>();
+          this.mode = new Enumeration<ListMode>(new ListModeEnumFactory());
         this.mode.setValue(value);
       return this;
     }
@@ -770,7 +770,7 @@ public class List_ extends DomainResource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create List_.emptyReason");
         else if (Configuration.doAutoCreate())
-          this.emptyReason = new CodeableConcept();
+          this.emptyReason = new CodeableConcept(); // cc
       return this.emptyReason;
     }
 

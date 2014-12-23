@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -148,8 +148,8 @@ public class Bundle extends Resource {
         }
     }
 
-  public static class BundleTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class BundleTypeEnumFactory implements EnumFactory<BundleType> {
+    public BundleType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -167,9 +167,9 @@ public class Bundle extends Resource {
           return BundleType.SEARCHSET;
         if ("collection".equals(codeString))
           return BundleType.COLLECTION;
-        throw new Exception("Unknown BundleType code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown BundleType code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(BundleType code) {
       if (code == BundleType.DOCUMENT)
         return "document";
       if (code == BundleType.MESSAGE)
@@ -260,8 +260,8 @@ public class Bundle extends Resource {
         }
     }
 
-  public static class BundleEntryStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class BundleEntryStatusEnumFactory implements EnumFactory<BundleEntryStatus> {
+    public BundleEntryStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -273,9 +273,9 @@ public class Bundle extends Resource {
           return BundleEntryStatus.MATCH;
         if ("include".equals(codeString))
           return BundleEntryStatus.INCLUDE;
-        throw new Exception("Unknown BundleEntryStatus code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown BundleEntryStatus code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(BundleEntryStatus code) {
       if (code == BundleEntryStatus.CREATE)
         return "create";
       if (code == BundleEntryStatus.UPDATE)
@@ -324,7 +324,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleLinkComponent.relation");
             else if (Configuration.doAutoCreate())
-              this.relation = new StringType();
+              this.relation = new StringType(); // bb
           return this.relation;
         }
 
@@ -369,7 +369,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleLinkComponent.url");
             else if (Configuration.doAutoCreate())
-              this.url = new UriType();
+              this.url = new UriType(); // bb
           return this.url;
         }
 
@@ -485,7 +485,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryComponent.base");
             else if (Configuration.doAutoCreate())
-              this.base = new UriType();
+              this.base = new UriType(); // bb
           return this.base;
         }
 
@@ -534,7 +534,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryComponent.status");
             else if (Configuration.doAutoCreate())
-              this.status = new Enumeration<BundleEntryStatus>();
+              this.status = new Enumeration<BundleEntryStatus>(new BundleEntryStatusEnumFactory()); // bb
           return this.status;
         }
 
@@ -569,7 +569,7 @@ public class Bundle extends Resource {
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Enumeration<BundleEntryStatus>();
+              this.status = new Enumeration<BundleEntryStatus>(new BundleEntryStatusEnumFactory());
             this.status.setValue(value);
           }
           return this;
@@ -583,7 +583,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryComponent.search");
             else if (Configuration.doAutoCreate())
-              this.search = new UriType();
+              this.search = new UriType(); // bb
           return this.search;
         }
 
@@ -632,7 +632,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryComponent.score");
             else if (Configuration.doAutoCreate())
-              this.score = new DecimalType();
+              this.score = new DecimalType(); // bb
           return this.score;
         }
 
@@ -681,7 +681,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryComponent.deleted");
             else if (Configuration.doAutoCreate())
-              this.deleted = new BundleEntryDeletedComponent();
+              this.deleted = new BundleEntryDeletedComponent(); // cc
           return this.deleted;
         }
 
@@ -798,7 +798,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryDeletedComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType();
+              this.type = new CodeType(); // bb
           return this.type;
         }
 
@@ -843,7 +843,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryDeletedComponent.resourceId");
             else if (Configuration.doAutoCreate())
-              this.resourceId = new IdType();
+              this.resourceId = new IdType(); // bb
           return this.resourceId;
         }
 
@@ -888,7 +888,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryDeletedComponent.versionId");
             else if (Configuration.doAutoCreate())
-              this.versionId = new IdType();
+              this.versionId = new IdType(); // bb
           return this.versionId;
         }
 
@@ -933,7 +933,7 @@ public class Bundle extends Resource {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create BundleEntryDeletedComponent.instant");
             else if (Configuration.doAutoCreate())
-              this.instant = new InstantType();
+              this.instant = new InstantType(); // bb
           return this.instant;
         }
 
@@ -956,14 +956,14 @@ public class Bundle extends Resource {
         /**
          * @return The date/time that the resource was deleted.
          */
-        public DateAndTime getInstant() { 
+        public Date getInstant() { 
           return this.instant == null ? null : this.instant.getValue();
         }
 
         /**
          * @param value The date/time that the resource was deleted.
          */
-        public BundleEntryDeletedComponent setInstant(DateAndTime value) { 
+        public BundleEntryDeletedComponent setInstant(Date value) { 
             if (this.instant == null)
               this.instant = new InstantType();
             this.instant.setValue(value);
@@ -1056,7 +1056,7 @@ public class Bundle extends Resource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.type");
         else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<BundleType>();
+          this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory()); // bb
       return this.type;
     }
 
@@ -1088,7 +1088,7 @@ public class Bundle extends Resource {
      */
     public Bundle setType(BundleType value) { 
         if (this.type == null)
-          this.type = new Enumeration<BundleType>();
+          this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
         this.type.setValue(value);
       return this;
     }
@@ -1101,7 +1101,7 @@ public class Bundle extends Resource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.base");
         else if (Configuration.doAutoCreate())
-          this.base = new UriType();
+          this.base = new UriType(); // bb
       return this.base;
     }
 
@@ -1150,7 +1150,7 @@ public class Bundle extends Resource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.total");
         else if (Configuration.doAutoCreate())
-          this.total = new IntegerType();
+          this.total = new IntegerType(); // bb
       return this.total;
     }
 
@@ -1259,7 +1259,7 @@ public class Bundle extends Resource {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Bundle.signature");
         else if (Configuration.doAutoCreate())
-          this.signature = new Base64BinaryType();
+          this.signature = new Base64BinaryType(); // bb
       return this.signature;
     }
 

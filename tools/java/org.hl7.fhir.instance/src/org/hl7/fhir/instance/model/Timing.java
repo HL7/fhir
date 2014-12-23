@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Dec 10, 2014 21:16+1100 for FHIR v0.4.0
+// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -176,8 +176,8 @@ public class Timing extends Type {
         }
     }
 
-  public static class EventTimingEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class EventTimingEnumFactory implements EnumFactory<EventTiming> {
+    public EventTiming fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -201,9 +201,9 @@ public class Timing extends Type {
           return EventTiming.PCD;
         if ("PCV".equals(codeString))
           return EventTiming.PCV;
-        throw new Exception("Unknown EventTiming code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown EventTiming code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(EventTiming code) {
       if (code == EventTiming.HS)
         return "HS";
       if (code == EventTiming.WAKE)
@@ -330,8 +330,8 @@ public class Timing extends Type {
         }
     }
 
-  public static class UnitsOfTimeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
+  public static class UnitsOfTimeEnumFactory implements EnumFactory<UnitsOfTime> {
+    public UnitsOfTime fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
@@ -349,9 +349,9 @@ public class Timing extends Type {
           return UnitsOfTime.MO;
         if ("a".equals(codeString))
           return UnitsOfTime.A;
-        throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
+        throw new IllegalArgumentException("Unknown UnitsOfTime code '"+codeString+"'");
         }
-    public String toCode(Enum<?> code) throws Exception {
+    public String toCode(UnitsOfTime code) {
       if (code == UnitsOfTime.S)
         return "s";
       if (code == UnitsOfTime.MIN)
@@ -433,7 +433,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.frequency");
             else if (Configuration.doAutoCreate())
-              this.frequency = new IntegerType();
+              this.frequency = new IntegerType(); // bb
           return this.frequency;
         }
 
@@ -482,7 +482,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.when");
             else if (Configuration.doAutoCreate())
-              this.when = new Enumeration<EventTiming>();
+              this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory()); // bb
           return this.when;
         }
 
@@ -517,7 +517,7 @@ public class Timing extends Type {
             this.when = null;
           else {
             if (this.when == null)
-              this.when = new Enumeration<EventTiming>();
+              this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory());
             this.when.setValue(value);
           }
           return this;
@@ -531,7 +531,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.duration");
             else if (Configuration.doAutoCreate())
-              this.duration = new DecimalType();
+              this.duration = new DecimalType(); // bb
           return this.duration;
         }
 
@@ -576,7 +576,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.units");
             else if (Configuration.doAutoCreate())
-              this.units = new Enumeration<UnitsOfTime>();
+              this.units = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory()); // bb
           return this.units;
         }
 
@@ -608,7 +608,7 @@ public class Timing extends Type {
          */
         public TimingRepeatComponent setUnits(UnitsOfTime value) { 
             if (this.units == null)
-              this.units = new Enumeration<UnitsOfTime>();
+              this.units = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
             this.units.setValue(value);
           return this;
         }
@@ -621,7 +621,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.count");
             else if (Configuration.doAutoCreate())
-              this.count = new IntegerType();
+              this.count = new IntegerType(); // bb
           return this.count;
         }
 
@@ -670,7 +670,7 @@ public class Timing extends Type {
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.end");
             else if (Configuration.doAutoCreate())
-              this.end = new DateTimeType();
+              this.end = new DateTimeType(); // bb
           return this.end;
         }
 
@@ -693,14 +693,14 @@ public class Timing extends Type {
         /**
          * @return When to stop repeating the timing schedule.
          */
-        public DateAndTime getEnd() { 
+        public Date getEnd() { 
           return this.end == null ? null : this.end.getValue();
         }
 
         /**
          * @param value When to stop repeating the timing schedule.
          */
-        public TimingRepeatComponent setEnd(DateAndTime value) { 
+        public TimingRepeatComponent setEnd(Date value) { 
           if (value == null)
             this.end = null;
           else {
@@ -799,7 +799,7 @@ public class Timing extends Type {
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Timing.repeat");
         else if (Configuration.doAutoCreate())
-          this.repeat = new TimingRepeatComponent();
+          this.repeat = new TimingRepeatComponent(); // cc
       return this.repeat;
     }
 

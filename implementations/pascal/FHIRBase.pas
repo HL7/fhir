@@ -42,6 +42,7 @@ Interface
 Uses
   Classes,
   DateAndTime,
+  Generics.Collections,
   SysUtils,
   AdvExceptions,
   AdvObjects,
@@ -53,6 +54,9 @@ Uses
   EncodeSupport,
   {$IFDEF UNICODE} EncdDecd, {$ENDIF}
   DecimalSupport;
+
+Const
+  ID_LENGTH = 64;
 
 Type
   {@Enum TFHIRCommandType
@@ -187,9 +191,11 @@ type
   {$M+}
   TFHIRObject = class (TAdvObject)
   private
+    FTags : TDictionary<String,String>;
     FTag : TAdvObject;
-    FTagValue : String;
     procedure SetTag(const Value: TAdvObject);
+    procedure SetTags(name: String; const Value: String);
+    function getTags(name: String): String;
   protected
     Procedure GetChildrenByName(name : string; list : TFHIRObjectList); virtual;
     Procedure ListProperties(oList : TFHIRPropertyList; bInheritedProperties : Boolean); Virtual;
@@ -199,8 +205,8 @@ type
     procedure ListChildrenByName(name : string; list : TFHIRObjectList);
     procedure setProperty(propName : string; propValue : TFHIRObject); virtual;
     Function PerformQuery(path : String):TFHIRObjectList;
+    Property Tags[name : String] : String read getTags write SetTags;
     property Tag : TAdvObject read FTag write SetTag;
-    property TagValue : String read FTagValue write FTagValue;
   end;
 
   TFHIRObjectListEnumerator = class (TAdvObject)
@@ -217,14 +223,19 @@ type
 
   TFHIRObjectList = class (TAdvObjectList)
   private
+    FTags : TDictionary<String,String>;
     Function GetItemN(index : Integer) : TFHIRObject;
+    procedure SetTags(name: String; const Value: String);
+    function getTags(name: String): String;
   protected
     function ItemClass : TAdvObjectClass; override;
   public
+    Destructor Destroy; override;
     function Link : TFHIRObjectList; Overload;
     function Clone : TFHIRObjectList; Overload;
     function GetEnumerator : TFHIRObjectListEnumerator;
     Property ObjByIndex[index : Integer] : TFHIRObject read GetItemN; default;
+    Property Tags[name : String] : String read getTags write SetTags;
   end;
 
   TFHIRObjectText = class (TFHIRObject)
@@ -982,6 +993,7 @@ end;
 
 destructor TFHIRObject.destroy;
 begin
+  FTags.Free;
   FTag.Free;
   inherited;
 end;
@@ -989,6 +1001,16 @@ end;
 procedure TFHIRObject.GetChildrenByName(name: string; list: TFHIRObjectList);
 begin
   // nothing to add here
+end;
+
+function TFHIRObject.getTags(name: String): String;
+begin
+  if FTags = nil then
+    FTags := TDictionary<String, String>.create;
+  if FTags.ContainsKey(name) then
+    result := FTags[name]
+  else
+    result := '';
 end;
 
 procedure TFHIRObject.ListChildrenByName(name: string; list: TFHIRObjectList);
@@ -1026,6 +1048,13 @@ procedure TFHIRObject.SetTag(const Value: TAdvObject);
 begin
   FTag.Free;
   FTag := Value;
+end;
+
+procedure TFHIRObject.SetTags(name: String; const Value: String);
+begin
+  if FTags = nil then
+    FTags := TDictionary<String,String>.create;
+  FTags.AddOrSetValue(name, value);
 end;
 
 { TFHIRObjectText }
@@ -1132,6 +1161,12 @@ begin
   result := TFHIRObjectList(Inherited Clone);
 end;
 
+destructor TFHIRObjectList.Destroy;
+begin
+  FTags.Free;
+  inherited;
+end;
+
 function TFHIRObjectList.GetEnumerator: TFHIRObjectListEnumerator;
 begin
   result := TFHIRObjectListEnumerator.Create(self.link);
@@ -1140,6 +1175,16 @@ end;
 function TFHIRObjectList.GetItemN(index: Integer): TFHIRObject;
 begin
   result := TFHIRObject(ObjectByIndex[index]);
+end;
+
+function TFHIRObjectList.getTags(name: String): String;
+begin
+  if FTags = nil then
+    FTags := TDictionary<String, String>.create;
+  if FTags.ContainsKey(name) then
+    result := FTags[name]
+  else
+    result := '';
 end;
 
 function TFHIRObjectList.ItemClass: TAdvObjectClass;
@@ -1151,6 +1196,13 @@ function TFHIRObjectList.Link: TFHIRObjectList;
 begin
   result := TFHIRObjectList(Inherited Link);
 end;
+procedure TFHIRObjectList.SetTags(name: String; const Value: String);
+begin
+  if FTags = nil then
+    FTags := TDictionary<String,String>.create;
+  FTags.AddOrSetValue(name, value);
+end;
+
 (*
 
 { TFHIRSid }
