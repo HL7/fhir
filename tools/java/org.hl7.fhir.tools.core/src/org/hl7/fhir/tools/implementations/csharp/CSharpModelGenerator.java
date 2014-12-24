@@ -390,7 +390,7 @@ public class CSharpModelGenerator extends GenBlock
 	
 	private void generateMemberProperty(CompositeTypeDefn context, ElementDefn member, int order)
 			throws Exception {
-
+  
     // Determine the most appropriate FHIR type to use for this
     // (possibly polymorphic) element.
     TypeRef tref = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
@@ -523,8 +523,14 @@ public class CSharpModelGenerator extends GenBlock
 		
 		ln("set { _"+memberName+" = value; OnPropertyChanged(\""+memberName+"\"); }");
 		es("}");
-		ln( "private " + memberCsType + " _" + memberName + ";" );
 		ln();
+		
+		if(!member.isPrimitiveValueElement())
+		{
+		  // Primitives have this value as a protected member in their base, Primitive<T>
+  		ln( "private " + memberCsType + " _" + memberName + ";" );
+  		ln();
+		}
 		
 		if(hasBothPrimitiveAndElementProperty)
 	    // If this element is of a type that is a FHIR primitive, generate extra helper
@@ -663,9 +669,14 @@ public class CSharpModelGenerator extends GenBlock
 			
 			String baseName = composite.getBaseType().getFullName();
 			
-			if(Character.isLowerCase(composite.getName().charAt(0)))
-			  baseName = "Primitive";
-			
+	    boolean isFhirPrimitive = Character.isLowerCase(composite.getName().charAt(0));
+	    
+	    if(isFhirPrimitive)
+	    {
+	      String memberCsType = GeneratorUtils.mapPrimitiveToCSharpType(composite.getName());	
+			  baseName = "Primitive<" + memberCsType + ">";
+	    }
+	    
 		  nl(GeneratorUtils.buildFullyScopedTypeName(baseName));
 			nl(", System.ComponentModel.INotifyPropertyChanged");
 		}
