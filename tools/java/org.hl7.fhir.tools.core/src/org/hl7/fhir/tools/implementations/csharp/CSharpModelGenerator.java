@@ -265,15 +265,18 @@ public class CSharpModelGenerator extends GenBlock
 
 
   private void generateMembers(CompositeTypeDefn composite) throws Exception {
-    // Start ordering the elements at 10 (increase by 10)
-    // If there's a base class, start numbering after base class elements
-    int order = 10;
-    if(composite.getBaseType() != null)
+    int numChildren = 0;
+    CompositeTypeDefn baseScan = composite;
+    while(baseScan.getBaseType() != null)
     {
-      CompositeTypeDefn base = (CompositeTypeDefnImpl)composite.resolve(composite.getBaseType());
-      order = (base.getElement().size()+1)*10;
+      baseScan = (CompositeTypeDefnImpl)composite.resolve(baseScan.getBaseType());
+      numChildren += baseScan.getElement().size();
     }
-   
+
+    // Start ordering the elements at 10 (increase by 10), but start after the
+    // numbers used in our baseclasses 
+    int order = numChildren*10 + 10;
+    
     // Make sure elements that need to be serialized as attributes in Xml
     // are sorted and generated first, since the streaming Xml writer api
     // will need to have them before the elements come in.
