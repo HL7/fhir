@@ -322,7 +322,11 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       // element contains xhtml
       write("\"(Escaped XHTML)\"");
     } else if (definitions.getPrimitives().containsKey(type.getName())) {
-      write("\"&lt;<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(type.getName(), false)+ ".html#" + type.getName()).replace("[", "_").replace("]", "_") + "\">" + type.getName()+ "</a></span>>\"");
+      if (!(type.getName().equals("integer") || type.getName().equals("boolean") || type.getName().equals("decimal")))
+        write("\"");
+      write("&lt;<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(type.getName(), false)+ ".html#" + type.getName()).replace("[", "_").replace("]", "_") + "\">" + type.getName()+ "</a></span>&gt;");
+      if (!(type.getName().equals("integer") || type.getName().equals("boolean") || type.getName().equals("decimal")))
+        write("\"");
     } else {
       write("{");
       width = writeTypeLinks(elem, indent, type);
