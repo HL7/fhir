@@ -98,7 +98,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   private void generateInner(ExtensionDefinition ed) throws IOException, Exception {
     ElementDefinition root = ed.getElement().get(0);
     write("&lt;!-- "+Utilities.escapeXml(ed.getName())+" -->");
-    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
     String rn = ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
 
     write("\r\n&lt;");
@@ -170,7 +170,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		  }
 		}
 		if (resource) {
-		    write("&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+		    write("&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 		} else 
 		  write("&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
@@ -210,7 +210,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   }
 
 //  public void generate(ProfileDefn profile, String root) throws Exception {
-//		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+//		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"xml.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 //
 //		ResourceDefn r = profile.getResource();
 //		write("<span style=\"color: Gray\">&lt;!--<a name=\"" + r.getRoot().getProfileName() + "\"> </a><span style=\"color: Darkviolet\">"+Utilities.escapeXml(r.getRoot().getProfileName())+"</span> --&gt;</span>\r\n");

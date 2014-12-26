@@ -52,6 +52,7 @@ import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.GeneratorUtils;
+import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
@@ -261,6 +262,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 	  return val; 
   }
 
+  private String jsonForDt(String dt, String pn) throws Exception {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    JsonSpecGenerator gen = new JsonSpecGenerator(b, pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
+    TypeParser tp = new TypeParser();
+    TypeRef t = tp.parse(dt, false, null).get(0);
+    ElementDefn e = definitions.getElementDefn(t.getName());
+    if (e == null) {
+      gen.close();
+      throw new Exception("unable to find definition for "+ dt);
+    } 
+    else {
+      gen.generate(e, false, false);
+      gen.close();
+    }
+    String val = new String(b.toByteArray())+"\r\n";
+    return val; 
+  }
+
  
   private String generateSideBar(String prefix) throws Exception {
     if (prevSidebars.containsKey(prefix))
@@ -363,7 +382,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
-        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]))+s3;
+        src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file))+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -673,7 +692,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return " at <a href=\""+vs.getTelecom().get(0).getValue()+"\">"+vs.getTelecom().get(0).getValue()+"</a>";
   }
 
-  private String orgDT(String name, String xml, String tree, String ref, String ts) {
+  private String orgDT(String name, String xml, String tree, String ref, String ts, String json) {
     StringBuilder b = new StringBuilder();
     b.append("<div id=\"tabs-"+name+"\">\r\n");
     b.append(" <ul>\r\n");
@@ -713,8 +732,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(" <div id=\"tabs-"+name+"-json\">\r\n");
     b.append("  <div id=\"json\">\r\n");
     b.append("   <p><b>JSON Template</b></p>\r\b");
-    b.append("   <div id=\"xml-inner\">\r\n");
-    b.append("    <p>todo</p>\r\n");
+    b.append("   <div id=\"json-inner\">\r\n");
+    b.append("    "+json+"\r\n");
     b.append("   </div>\r\n");
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
@@ -747,8 +766,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("  <div id=\"jsona\">\r\n");
     b.append("   <a name=\"json\"> </a>\r\n");
     b.append("   <p><b>JSON Template</b></p>\r\n");
-    b.append("   <div id=\"xml-inner\">\r\n");
-    b.append("    <p>to do</p>\r\n");
+    b.append("   <div id=\"json-inner\">\r\n");
+    b.append("     "+json+"\r\n");
     b.append("   </div>\r\n");
     b.append("  </div>\r\n");
     b.append(" </div>\r\n");
@@ -3178,7 +3197,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
     
     while (src.contains("<%") || src.contains("[%"))
@@ -3262,6 +3281,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resource.getRoot().getDefinition()+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
+      else if (com[0].equals("json"))
+        src = s1+json+s3;
       else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
@@ -3890,7 +3911,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  public String processProfileIncludes(String filename, String fileid, ConformancePackage pack, ProfileDefn profile, String xml, String tx, String src, String master, String path) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, ConformancePackage pack, ProfileDefn profile, String xml, String json, String tx, String src, String master, String path) throws Exception {
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -3964,6 +3985,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(pack.metadata("author.name"))+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
+      else if (com[0].equals("json"))
+        src = s1+json+s3;
       else if (com[0].equals("profiledesc")) {
         src = s1+". "+Utilities.escapeXml(profile.getResource().getDescription())+s3;
       } else if (com[0].equals("tx"))
@@ -4175,7 +4198,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
   }
 
-  public String processExtensionIncludes(String filename, ExtensionDefinition ed, String xml, String tx, String src, String pagePath) throws Exception {
+  public String processExtensionIncludes(String filename, ExtensionDefinition ed, String xml, String json, String tx, String src, String pagePath) throws Exception {
     String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
@@ -4245,6 +4268,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+Utilities.escapeXml(ed.getPublisher())+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
+      else if (com[0].equals("json"))
+        src = s1+json+s3;
       else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))

@@ -170,6 +170,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         if (!done.contains(n.getName())) {
           if (Utilities.noString(n.getRoot().typeCode()) || done.contains(n.getRoot().typeCode())) { 
             generate(n.getRoot(), Utilities.noString(n.getRoot().typeCode()) ? "TFHIRBase" : "TFhir"+n.getRoot().typeCode(), true, n.isAbstract() ? ClassCategory.AbstractResource : ClassCategory.Resource, n.isAbstract());
+            if (!n.isAbstract()) {
+              prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
+              srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
+              prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
+              srlsRegJ.append("    frt"+n.getName()+": Compose"+n.getName()+"(json, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
+            }
             done.add(n.getName());
           } else
             alldone = false;
@@ -326,6 +332,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     defCodeType.uses.add("AdvBuffers");
     if (generics)
       defCodeType.uses.add("AdvGenerics");
+    defCodeType.uses.add("EncdDecd");
     defCodeType.uses.add("DateAndTime");
     defCodeType.uses.add("FHIRBase");
 
@@ -2328,6 +2335,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       def.append("  protected\r\n");
       def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
       def.append("    Procedure ListProperties(oList : "+listForm("TFHIRProperty")+"; bInheritedProperties : Boolean); Override;\r\n");
+      def.append("    function AsStringValue : String; Override;\r\n");
     }
     def.append("  Public\r\n");
     def.append("    Constructor Create(value : "+pn+"); overload;\r\n");
@@ -2399,6 +2407,18 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         impl2.append("  FValue := TFhir"+tn+"(oSource).Value.Link;\r\n");
       else 
         impl2.append("  FValue := TFhir"+tn+"(oSource).Value;\r\n");
+      impl2.append("end;\r\n\r\n");
+
+      impl2.append("function TFhir"+tn+".AsStringValue : string;\r\n");
+      impl2.append("begin\r\n");
+      if (pn.equals("Boolean"))
+        impl2.append("  result := LCBooleanToString(FValue);\r\n");
+      else if (pn.equals("TBytes"))
+        impl2.append("  if (length(FValue) = 0) then result := '' else result := EncodeBase64(@FValue[0], length(FValue));\r\n");
+      else if (!pn.equals("String"))
+        impl2.append("  result := FValue.toString;\r\n");
+      else 
+        impl2.append("  result := FValue;\r\n");
       impl2.append("end;\r\n\r\n");
     }
 
@@ -2704,11 +2724,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("  {!.Net HL7Connect.Fhir.Type}\r\n");
     def.append("  TFHIRPrimitiveType = class (TFhirType)\r\n");
     types.add("TFHIRPrimitiveType");
+    def.append("  Private\r\n");
+    def.append("    Function GetStringValue : String;\r\n");
+    def.append("    Function AsStringValue : String; Virtual;\r\n");
     def.append("  Public\r\n");
     def.append("    {!script hide}\r\n");
     def.append("    Function Link : TFHIRPrimitiveType; Overload;\r\n");
     def.append("    Function Clone : TFHIRPrimitiveType; Overload;\r\n");
-    def.append("    Function AsStringValue : String; Overload;\r\n");
+    def.append("    Property StringValue : String read GetStringValue;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  End;\r\n");   
     def.append("  TFHIRPrimitiveTypeClass = class of TFHIRPrimitiveType;\r\n");
@@ -2884,6 +2907,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     impl2.append("function TFHIRPrimitiveType.Clone : TFHIRPrimitiveType;\r\n");
     impl2.append("begin\r\n");
     impl2.append("  result := TFHIRPrimitiveType(inherited Clone);\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function TFHIRPrimitiveType.GetStringValue : string;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  if self = nil then\r\n");
+    impl2.append("    result := ''\r\n");
+    impl2.append("  else\r\n");
+    impl2.append("    result := AsStringValue;\r\n");
     impl2.append("end;\r\n\r\n");
     impl2.append("function TFHIRPrimitiveType.AsStringValue : string;\r\n");
     impl2.append("begin\r\n");
