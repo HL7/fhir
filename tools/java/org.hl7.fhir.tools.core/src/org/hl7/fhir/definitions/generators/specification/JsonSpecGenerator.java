@@ -97,38 +97,32 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   private void generateInner(ExtensionDefinition ed) throws IOException, Exception {
     ElementDefinition root = ed.getElement().get(0);
-    write("// "+Utilities.escapeXml(ed.getName()));
-    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"json.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
     String rn = ed.getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
-
-    write("\r\n{\r\n");
-    if (defPage == null)
-      write("  \"resourceType\" : <span title=\"" + Utilities.escapeXml(root.getFormal())
-          + "\"<b>");
-    else
-      write("  \"resourceType\" : <a href=\"" + (defPage + "#" + root.getName()).replace("[", "_").replace("]", "_") + "\" title=\""
-          + Utilities.escapeXml(root.getFormal())
-          + "\" class=\"dict\"><b>");
-    write(rn);
-    if ((defPage == null))
-      write("</b></span>");
-    else
-      write("</b></a>");
-
-    generateExtensionAttribute(ed);
-    write(" \",\r\n");
-
+    write("// extension added to existing object<span style=\"float: right\"><a title=\"Documentation for this format\" href=\"json.html#"+rn+"\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+    write("\r\n");
+    write("  \"<span title=\"" + Utilities.escapeXml(ed.getDescription()) + "\">"+ed.getUrl()+"</span>\" : { // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(ed.getName()) + "</span>\r\n");
+    
     if (ed.getElement().size() == 1) {
-      generateCoreElem(ed.getElement(), ed.getElement().get(0), 1, "Extension", true);
+      if (root.getType().size() == 1)
+        generateCoreElem(ed.getElement(), ed.getElement().get(0), 2, "Extension", true, root.getType().get(0), true);
+      else {
+        write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(root.getShort()) + "</span>. One of these "+Integer.toString(root.getType().size())+":</span>\r\n");
+        for (TypeRefComponent t : root.getType())
+          generateCoreElem(ed.getElement(), root, 2, "Extension", true, t, true);
+      }
     } else {
       List<ElementDefinition> children = getChildren(ed.getElement(), ed.getElement().get(0));
+      int c = 0;
       for (ElementDefinition child : children)
-        generateCoreElem(ed.getElement(), child, 1, rn, false);
+        if (child.getType().size() == 1)
+           generateCoreElem(ed.getElement(), child, 2, rn, false, child.getType().get(0), ++c == children.size());
+         else {
+           write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+           for (TypeRefComponent t : child.getType())
+             generateCoreElem(ed.getElement(), child, 2, rn, false, t, ++c == children.size());
+         }
     }
-
-    write("&lt;/");
-    write(rn);
-    write("&gt;\r\n");
+    write("  }\r\n");
   }
 
   private void generateInner(ElementDefn root, boolean resource, boolean isAbstract) throws IOException, Exception {
@@ -406,198 +400,95 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     write("\r\n");
   }
 
-  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue) throws Exception {
-    // if (elem.getConformance() == ElementDefn.Conformance.Prohibited)
-    // return;
-
-    boolean listed = false;
-    boolean doneType = false;
-    int width = 0;
-    List<ElementDefinition> children = getChildren(elements, elem);
-    boolean isExtension = elem.getPath().equals("Extension") || elem.getPath().startsWith("Extension.");
-    String name = isExtension ? "extension" : tail(elem.getPath());
-
+  private void generateCoreElem(List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last) throws Exception {
     String indentS = "";
     for (int i = 0; i < indent; i++) {
-      indentS += " ";
+      indentS += "  ";
     }
-    write(indentS+"// from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
-
     write(indentS);
 
+    List<ElementDefinition> children = getChildren(elements, elem);
+    String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
+    if (en.contains("[x]"))
+      en = en.replace("[x]", upFirst(type.getCode()));
 
-    if (en.contains("[x]") && elem.getType().size() == 1)
-      en = en.replace("[x]", upFirst(elem.getType().get(0).getCode()));
+    // 1. name
+    write("\"<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+        + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
+    
+    // 2. value
+    boolean delayedCloseArray = false;
+    write("[");
 
-    String closeOut;
-    if (asValue) {
-      closeOut = "";
-    } else if (elem.getIsModifier() || elem.getMustSupport()) { 
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
-          + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
-      closeOut = "</b></span></a>";
+    if (type == null) {
+      // inline definition
+      assert(children.size() > 0);
+      write("{");
+      delayedCloseArray = true;
+    } else if (definitions.getPrimitives().containsKey(type.getCode())) {
+      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        write("\"");
+      write("&lt;<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(type.getCode(), false)+ ".html#" + type.getCode()).replace("[", "_").replace("]", "_") + "\">" + type.getCode()+ "</a></span>&gt;");
+      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        write("\"");
     } else {
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_") + "\" title=\"" + Utilities.escapeXml(elem.getFormal()) + "\" class=\"dict\">");
-      closeOut = "</b></a>";
-    }
-    if (isExtension) {
-      if (!asValue) {
-        write("<b>extension"+closeOut+" url=\"<span style=\"color: navy; opacity: 0.8\">"+tail(elem.getPath())+"</span>\"");
-        write("&gt; <span style=\"color: Gray\">&lt;!--</span>");
-        writeCardinality(elem);
-        write(" ");
-
-        if (elem.hasBinding() && elem.getBinding().hasReference()) {
-          ValueSet vs = resolveValueSet(elem.getBinding().getReference());
-          if (vs != null)
-            write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+      write("{ ");
+      write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(type.getCode(), false)+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      if (!Utilities.noString(type.getProfile())) {
+        if (type.getProfile().startsWith("http://hl7.org/fhir/Profile/")) {
+          String t = type.getProfile().substring(28);
+          if (definitions.hasType(t))
+            write("(<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+          else if (definitions.hasResource(t))
+            write("(<span style=\"color: darkgreen\"><a href=\"" + dtRoot + t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
           else
-            write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getReference()+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+            write("("+t+")");
         } else
-          write("<span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
-        write(" <span style=\"color: Gray\">--!&gt; </span>\r\n");
-        indentS += " ";
-      } else 
-        indentS = ""; // already written
-
-      if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
-        write(indentS+"&lt;value");
-        doneType = true;
-        write(Utilities.capitalize(elem.getType().get(0).getCode())+" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/&gt;");
-      } else if (elem.getType().size() > 1) {
-        write(indentS+"&lt;value[x]> ");
-        write("<span style=\"color: Gray\">&lt;!--</span> ");
-        boolean first = true;
-        for (TypeRefComponent t : elem.getType()) {
-          if (first)
-            first = false;
-          else
-            write(" | ");
-          write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getCode(), false)+ ".html#" + t) + "\">" + t+ "</a></span>");
-        }
-        write("<span style=\"color: Gray\"> --!&gt; </span>");
-        write("/&lt;value[x]> ");
-      } else if (elem.getType().size() == 1) {
-        write(indentS+"&lt;value");
-        write(Utilities.capitalize(elem.getType().get(0).getCode())+"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span><span style=\"color: Gray\"> --!&gt; </span>");
-        write("/&lt;value"+Utilities.capitalize(elem.getType().get(0).getCode())+"&gt; ");
-      } else {
-        for (ElementDefinition child : children) {
-          generateCoreElem(elements, child, indent + 1, pathName + "." + name, false);
-        }
+          write("("+type.getProfile()+")");
       }
-      if (!asValue) 
-        write("\r\n" + indentS.substring(0, indentS.length()-1)+"&lt;/extension&gt;");
+      write(" }");
+    } 
 
-    } else {
-      write(closeOut+" ");
-      if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
-        doneType = true;
-        write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/");
-      }
-      write("&gt;");
-
-      // For simple elements without nested content, render the
-      // optionality etc. within a comment
-      if (children.isEmpty())
-        write("<span style=\"color: Gray\">&lt;!--</span>");
-
-      //    if (usesCompositeType(elem)) {
-      //      // Contents of element are defined elsewhere in the same
-      //      // resource
-      //      writeCardinality(elem);
-      //
-      //      write(" <span style=\"color: darkgreen\">");
-      //      write("Content as for " + typeCode(elem).substring(1) + "</span>");
-      //      listed = true;
-      //    } else 
-      if (!elem.getType().isEmpty()) {
-        writeCardinality(elem);
-        listed = true;
-        if (!doneType) {
-          width = writeTypeLinks(elem, indent);
-        }
-      } else if (tail(elem.getPath()).equals("extension")) {
-        write(" <a href=\"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">See Extensions</span></a> ");
-      } else {
-        write(" <a href=\"none.html\"><span style=\"color: navy; opacity: 0.8\">No Types?</span></a> ");
-      }
-
-      write(" ");
-      if (children.isEmpty()) {
-        if (name.equals("extension") || name.equals("modifierExtension")) {
-          write(" <a href=\"extensibility.html\"><span style=\"color: navy; opacity: 0.8\">"
-              + Utilities.escapeXml(elem.getShort())
-              + "</span></a> ");
-        } else {
-          if (elem.hasMax() && elem.getMax().equals("0")) 
-            write("<span style=\"text-decoration: line-through\">");
-          if (elem.hasBinding() && elem.getBinding().hasReference()) {
-            ValueSet vs = resolveValueSet(elem.getBinding().getReference());
-            if (vs != null)
-              write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
-            else
-              write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
-          } else
-            write("<span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
-          if (elem.hasMax() && elem.getMax().equals("0")) 
-            write("</span>");
-        }
-      } else {
-        if ("*".equals(elem.getMax()) && !listed) { // isNolist()) {
-          if (elem.hasShort()) {
-            write(" <span style=\"color: Gray\">&lt;!--");
-            writeCardinality(elem);
-            if (elem.hasMax() && elem.getMax().equals("0")) 
-              write("<span style=\"text-decoration: line-through\">");
-            write(" " + Utilities.escapeXml(elem.getShort()));
-            if (elem.hasMax() && elem.getMax().equals("0")) 
-              write("</span>");
-            write(" --&gt;</span>");
-          } else {
-            write(" <span style=\"color: Gray\">&lt;!--");
-            writeCardinality(elem);
-            write(" --&gt;</span>");
-          }
-        } else if (elem.hasShort()) {
-          write(" <span style=\"color: Gray\">&lt;!--");
-          writeCardinality(elem);
-          if (elem.hasMax()  && elem.getMax().equals("0")) 
-            write("<span style=\"text-decoration: line-through\">");
-          write(" "+Utilities.escapeXml(elem.getShort()));
-          if (elem.hasMax() && elem.getMax().equals("0")) 
-            write("</span>");
-          write(" --&gt;</span>");
-        }
-        write("\r\n");
-
-        if (elem.getMax() == null || !elem.getMax().equals("0")) {
-          // if we want extension/modifierExtension shown explicitly
-          //          if (backbone) {
-          //            for (int i = 0; i < indent; i++)
-          //              write(" ");
-          //            write(" &lt;!-- <a href=\"extensibility.html\">extension</a>, <a href=\"extensibility.html#modifierExtension\">modifierExtension</a> -->\r\n");
-          //          }
-          for (ElementDefinition child : children) {
-            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false);
-          }
-        }
-      }
-
-      for (int i = 0; i < indent; i++) {
-        write(" ");
-      }
-
-      if (children.isEmpty())
-        write("<span style=\"color: Gray\"> --&gt;</span>");
-      if (!doneType) {
-        write("&lt;/");
-        write(en);
-        write("&gt;");
-      }
+    if (!delayedCloseArray) {
+      write("]");
+      if (!last)
+        write(",");
     }
+    
+    write(" <span style=\"color: Gray\">//</span>");
+
+    // 3. optionality
+    writeCardinality(elem);
+
+    // 4. doco
+    if (elem.hasBinding() && elem.getBinding().hasReference()) {
+      ValueSet vs = resolveValueSet(elem.getBinding().getReference());
+      if (vs != null)
+        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+      else
+        write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+    } else
+      write("<span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
+
+
     write("\r\n");
+
+    if (delayedCloseArray) {
+      int c = 0;
+      for (ElementDefinition child : children) {
+        if (child.getType().size() == 1)
+          generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == children.size());
+        else {
+          write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : child.getType())
+            generateCoreElem(elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size());
+        }
+      }
+      write("}]");
+      if (!last)
+        write(",");
+    }
   }
 
   private ValueSet resolveValueSet(Type reference) {
@@ -776,15 +667,9 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   private void writeCardinality(ElementDefinition elem) throws IOException {
     if (elem.getConstraint().size() > 0)
       write(" <span style=\"color: brown\" title=\""
-          + Utilities.escapeXml(getInvariants(elem)) + "\"><b><img alt=\"??\" src=\"lock.png\"/> "
-          + describeCardinality(elem) + "</b></span>");
-    else
-      write(" <span style=\"color: brown\"><b>"
-          + describeCardinality(elem) + "</b></span>");
-  }
-
-  private String describeCardinality(ElementDefinition elem) {
-    return (elem.getMinElement() == null ? "" : Integer.toString(elem.getMin())) + ".."+(elem.getMax() == null ? "" : elem.getMax());
+          + Utilities.escapeXml(getInvariants(elem)) + "\"><b>C?</b></span>");
+    if (elem.getMin() > 0)
+      write(" <span style=\"color: brown\" title=\"This element is required\"><b>R!</b></span>");
   }
 
   private String getInvariants(ElementDefn elem) {
