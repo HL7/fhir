@@ -1679,6 +1679,7 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "extension-definitions.json"), extensionsFeed);
       cloneToXhtml("extension-definitions", "Core Extension Definitions", false, "summary-instance");
       jsonToXhtml("extension-definitions", "Core Extension Definitions", resource2Json(extensionsFeed), "summary-instance");
+      Utilities.copyFile(page.getFolders().dstDir + "extension-definitions.xml", page.getFolders().dstDir + "examples" + File.separator + "extension-definitions.xml");
 
       Bundle searchParamsFeed = new Bundle();
       searchParamsFeed.setId("extensions");
@@ -1696,6 +1697,7 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "search-parameters.json"), searchParamsFeed);
       cloneToXhtml("search-parameters", "Search Parameters Defined in FHIR", false, "summary-instance");
       jsonToXhtml("search-parameters", "Search Parameters Defined in FHIR", resource2Json(searchParamsFeed), "summary-instance");
+      Utilities.copyFile(page.getFolders().dstDir + "search-parameters.xml", page.getFolders().dstDir + "examples" + File.separator + "search-parameters.xml");
 
       Bundle profileOthersFeed = new Bundle();
       profileOthersFeed.setId("profiles-others");
@@ -1711,8 +1713,8 @@ public class Publisher implements URIResolver {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(page.getFolders().dstDir + "profiles-others.json"), profileOthersFeed);
       cloneToXhtml("profiles-others", "Other Profiles defined as part of FHIR", false, "summary-instance");
       jsonToXhtml("profiles-others", "Other Profiles defined as part of FHIR", resource2Json(profileOthersFeed), "summary-instance");
-
-      // todo-bundle - should this be checked?
+      Utilities.copyFile(page.getFolders().dstDir + "profiles-others.xml", page.getFolders().dstDir + "examples" + File.separator + "profiles-others.xml");
+            // todo-bundle - should this be checked?
 //      int ec = 0;
 //      for (Resource e : valueSetsFeed.getItem()) {
 //        ValueSet vs = (ValueSet) e;
