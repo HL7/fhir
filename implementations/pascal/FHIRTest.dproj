@@ -218,6 +218,7 @@
         <DCCReference Include="FHIRSupport.pas"/>
         <DCCReference Include="FHIRUtilities.pas"/>
         <DCCReference Include="FHIRDigitalSignatures.pas"/>
+        <DCCReference Include="support\AdvNames.pas"/>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

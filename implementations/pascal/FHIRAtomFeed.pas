@@ -33,13 +33,38 @@ POSSIBILITY OF SUCH DAMAGE.
 interface
 
 uses
-  FHIRTypes, FHIRResources;
+  Sysutils,
+  AdvNames,
+  FHIRTypes, FHIRResources, FHIRBase;
 
 type
   TFHIRAtomCategory = TFHIRCoding;
-  TFHIRAtomCategoryList = TFHIRCodingList;
   TFHIRAtomFeed = TFHIRBundle;
   TFHIRAtomEntry = TFhirBundleEntry;
+
+  TFhirTagList = class (TAdvNameList)
+  private
+    function GetTagItem(index: integer): TFHIRTag;
+    function makeTagFromUri(kind : TFhirTagKind; uri : String) : TFhirTag;
+    function makeTagFromCoding(kind : TFhirTagKind; coding : TFhirCoding) : TFhirTag;
+    function asCoding(tag : TFhirTag) : TFhirCoding;
+  protected
+    function itemClass : TAdvObjectClass; Override;
+  public
+    Property TagItem[index : integer] : TFHIRTag read GetTagItem; default;
+
+    procedure CopyTags(meta : TFhirResourceMeta);
+    procedure EraseTags(meta : TFhirResourceMeta);
+    procedure WriteTags(meta : TFhirResourceMeta);
+    function json : TBytes;
+    function HasTag(kind : TFHIRTagKind; uri, code : string) : Boolean;
+    function GetTag(kind : TFHIRTagKind; uri, code : string) : TFhirTag;
+    function AddValue(kind : TFHIRTagKind; uri, code, display : string) : TFhirTag;
+    procedure delete(kind : TFHIRTagKind; uri, code : String); overload;
+  end;
+  TFHIRAtomCategoryList = TFHIRTagList;
+
+
 (*
 type
   {@Class TFHIRAtomLink
@@ -1211,5 +1236,146 @@ begin
 end;
 
 *)
+
+{ TFhirTagList }
+
+function TFhirTagList.AddValue(kind: TFHIRTagKind; uri, code, display: string): TFhirTag;
+begin
+  result := TFhirTag.Create;
+  result.kind := kind;
+  result.Uri := uri;
+  result.Code := code;
+  result.Display := display;
+  add(result.Link);
+end;
+
+function TFhirTagList.asCoding(tag: TFhirTag): TFhirCoding;
+begin
+  result := TFhirCoding.Create;
+  result.system := tag.Uri;
+  result.code := tag.code;
+  result.display := tag.display;
+end;
+
+procedure TFhirTagList.CopyTags(meta: TFhirResourceMeta);
+var
+  i : integer;
+begin
+  if (meta <> nil) then
+  begin
+  for i := 0 to meta.profileList.Count - 1 do
+    add(makeTagFromUri(tkProfile, meta.profileList[i].value));
+  for i := 0 to meta.tagList.Count - 1 do
+    add(makeTagFromCoding(tkTag, meta.tagList[i]));
+  for i := 0 to meta.securityList.Count - 1 do
+    add(makeTagFromCoding(tkSecurity, meta.securityList[i]));
+  end;
+end;
+
+procedure TFhirTagList.delete(kind: TFHIRTagKind; uri, code: String);
+var
+  i : integer;
+  t : TFhirTag;
+begin
+  for i := Count - 1 downto 0 do
+  begin
+    t := TagItem[i];
+    if (t.Kind = kind) and (t.Uri = uri) and (t.Code = code) then
+      DeleteByIndex(i);
+  end;
+end;
+
+procedure TFhirTagList.EraseTags(meta: TFhirResourceMeta);
+var
+  i : integer;
+begin
+  if (meta <> nil) then
+  begin
+    for i := 0 to meta.profileList.Count - 1 do
+      delete(tkProfile, 'urn:ietf:rfc:3986', meta.profileList[i].value);
+    for i := 0 to meta.tagList.Count - 1 do
+      delete(tkTag, meta.tagList[i].system, meta.tagList[i].code);
+    for i := 0 to meta.securityList.Count - 1 do
+      delete(tkSecurity, meta.securityList[i].system, meta.securityList[i].code);
+  end;
+end;
+
+function TFhirTagList.GetTag(kind: TFHIRTagKind; uri, code: string): TFhirTag;
+var
+  i : integer;
+begin
+  result := nil;
+  for i := 0 to Count - 1 do
+    if (tagItem[i].Kind = kind) and (tagItem[i].uri = uri) and  (tagItem[i].code = code) then
+    begin
+      result := tagItem[i];
+      break;
+    end;
+end;
+
+function TFhirTagList.GetTagItem(index: integer): TFHIRTag;
+begin
+  result := TFHIRTag(ObjectByIndex[index]);
+end;
+
+function TFhirTagList.HasTag(kind: TFHIRTagKind; uri, code: string): Boolean;
+var
+  i : integer;
+begin
+  result := false;
+  for i := 0 to Count - 1 do
+    if (tagItem[i].Kind = kind) and (tagItem[i].uri = uri) and  (tagItem[i].code = code) then
+    begin
+      result := true;
+      break;
+    end;
+end;
+
+function TFhirTagList.itemClass: TAdvObjectClass;
+begin
+  result := TFHIRTag;
+end;
+
+
+function TFhirTagList.json: TBytes;
+begin
+  SetLength(result, 0);
+end;
+
+function TFhirTagList.makeTagFromCoding(kind: TFhirTagKind; coding: TFhirCoding): TFhirTag;
+begin
+  result := TFhirTag.Create;
+  result.kind := kind;
+  result.Uri := coding.system;
+  result.Code := coding.code;
+  result.Display := coding.display;
+end;
+
+function TFhirTagList.makeTagFromUri(kind: TFhirTagKind; uri: String): TFhirTag;
+begin
+  result := TFhirTag.Create;
+  result.kind := kind;
+  result.Uri := 'urn:ietf:rfc:3986';
+  result.Code := uri;
+end;
+
+procedure TFhirTagList.WriteTags(meta: TFhirResourceMeta);
+var
+  i : integer;
+  tag : TFhirTag;
+begin
+  meta.tagList.Clear;
+  meta.profileList.Clear;
+  meta.securityList.Clear;
+  for i := 0 to count - 1 do
+  begin
+    tag := TagItem[i];
+    case tag.Kind of
+      tkProfile: meta.profileList.Append.value := tag.Code;
+      tkTag: meta.tagList.Add(asCoding(tag));
+      tkSecurity: meta.securityList.Add(asCoding(tag));
+    end;
+  end;
+end;
 
 end.

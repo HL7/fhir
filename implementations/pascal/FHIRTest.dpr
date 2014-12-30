@@ -94,9 +94,7 @@ uses
   XMLSupport in 'support\XMLSupport.pas',
   InternetFetcher in 'support\InternetFetcher.pas',
   SCIMObjects in 'SCIMObjects.pas',
-
   IdSSLOpenSSLHeaders,
-
   FHIRLang in 'FHIRLang.pas',
   FHIRBase in 'FHIRBase.pas',
   FHIRParserBase in 'FHIRParserBase.pas',
@@ -107,7 +105,8 @@ uses
   FHIRParser in 'FHIRParser.pas',
   FHIRSupport in 'FHIRSupport.pas',
   FHIRUtilities in 'FHIRUtilities.pas',
-  FHIRDigitalSignatures in 'FHIRDigitalSignatures.pas';
+  FHIRDigitalSignatures in 'FHIRDigitalSignatures.pas',
+  AdvNames in 'support\AdvNames.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var

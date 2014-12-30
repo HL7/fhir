@@ -44,6 +44,8 @@ function UTF8StreamToString(value : TStream) : String;
 
 function FileToString(filename : String; {$IFDEF UNICODE}encoding : TEncoding; {$ENDIF}AShareMode : Word = fmOpenRead + fmShareDenyWrite) : String;
 
+procedure BytesToFile(bytes : TBytes; filename : String);
+
 implementation
 
 uses
@@ -392,5 +394,17 @@ begin
   result := TEncoding.UTF8.GetString(b);
 end;
 
+procedure BytesToFile(bytes : TBytes; filename : String);
+var
+  f : TFileStream;
+begin
+  f := TFileStream.Create(filename, fmCreate);
+  try
+    if length(bytes) > 0 then
+      f.Write(bytes[0], length(bytes));
+  finally
+    f.Free;
+  end;
+end;
 
 end.

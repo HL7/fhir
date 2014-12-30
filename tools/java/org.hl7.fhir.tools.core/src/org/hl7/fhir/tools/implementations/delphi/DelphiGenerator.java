@@ -405,7 +405,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload;\r\n");
-    srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");"+(tn.equals("TFhirExtension") ? " override;" : "")+"\r\n");
+    srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+"; noObj : boolean = false);"+(tn.equals("TFhirExtension") ? " override;" : "")+"\r\n");
     prsrFragJ.append("  else if (type_ = '"+tn+"') then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
     prsrFragX.append("  else if SameText(element.NodeName, '"+tn+"') then\r\n    result := parse"+root.getName()+"(element, element.nodeName)\r\n");
     if (category == ClassCategory.Type && !isAbstract) {
@@ -730,7 +730,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload; {b|}\r\n");
-    srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
+    srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+"; noObj : boolean = false);\r\n");
     workingParserX = new StringBuilder();
     workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
@@ -1063,7 +1063,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
     srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b\\}\r\n");
-    srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+")"+(tn.equals("TFhirExtension") ? " override;" : "")+";\r\n");
+    srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+"; noObj : boolean = false)"+(tn.equals("TFhirExtension") ? " override;" : "")+";\r\n");
     workingParserX = new StringBuilder();
     workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
@@ -1324,7 +1324,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
     s = workingComposerJ.toString();
     prsrImpl.append(
-        "procedure TFHIRJsonComposer.Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
+        "procedure TFHIRJsonComposer.Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+"; noObj : boolean = false);\r\n");
     var = false;
     if (s.contains("for i := ")) { // || category == ClassCategory.Resource) {
       prsrImpl.append("var\r\n  i : integer;\r\n");
@@ -1344,7 +1344,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       prsrImpl.append(
           "begin\r\n"+
               "  if (elem = nil) then\r\n    exit;\r\n"+
-          "  json.valueObject(name);\r\n");
+          "  if not noObj then json.valueObject(name);\r\n");
     if (isElement)
       if (category == ClassCategory.Resource)
         prsrImpl.append("  Compose"+parent+"Properties(json, elem);\r\n");
@@ -1358,7 +1358,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
           "end;\r\n\r\n");
     else
       prsrImpl.append(
-          "  json.finishObject;\r\n"+
+          "  if not noObj then json.finishObject;\r\n"+
           "end;\r\n\r\n");
 
   }
@@ -2171,7 +2171,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
                 "begin\r\n"+
                 "  result := "+tn+".create;\r\n"+
                 "  try\r\n"+
-                "    inherited insert(index, result);\r\n"+
+                "    inherited insert(index, result.Link);\r\n"+
                 "  finally\r\n"+
                 "    result.free;\r\n"+
                 "  end;\r\n"+
@@ -2292,12 +2292,12 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrdefX.append("    function Parse"+c.getName()+"(element : IXmlDomElement; path : string) : TFhir"+c.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+c.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+c.getName()+"(jsn : TJsonObject) : TFhir"+c.getName()+"; overload;\r\n");
-    srlsdefJ.append("    procedure Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+");\r\n");
+    srlsdefJ.append("    procedure Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+"; noObj : boolean = false);\r\n");
     defCodeType.classDefs.add("  TFhir"+c.getName()+" = TFhir"+c.getBaseType()+";\r\n");
     prsrImpl.append("function TFHIRXmlParser.Parse"+c.getName()+"(element : IXmlDomElement; path : string) : TFhir"+c.getName()+";\r\nbegin\r\n  result := Parse"+c.getBaseType()+"(element, path);\r\nend;\r\n\r\n");
     prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getName()+");\r\nbegin\r\n  Compose"+c.getBaseType()+"(xml, name, elem);\r\nend;\r\n\r\n");
     prsrImpl.append("function TFHIRJsonParser.Parse"+c.getName()+"(jsn : TJsonObject) : TFhir"+c.getName()+";\r\nbegin\r\n  result := Parse"+c.getBaseType()+"(jsn);\r\nend;\r\n\r\n");
-    prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+");\r\nbegin\r\n  Compose"+c.getBaseType()+"(json, name, elem);\r\nend;\r\n\r\n");
+    prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+"; noObj : boolean = false);\r\nbegin\r\n  Compose"+c.getBaseType()+"(json, name, elem, noObj);\r\nend;\r\n\r\n");
   }
 
 
@@ -3188,6 +3188,15 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
+        "procedure TFHIRXmlComposer.ComposeResourceMetaElement(xml: TXmlBuilder; meta: TFhirResourceMeta);\r\n"+
+            "begin\r\n"+
+            "  if (meta = nil) Then\r\n"+
+            "    Raise Exception.Create('error - meta is nil');\r\n"+
+            "  ComposeResourceMeta(xml, 'meta', meta);\r\n"+
+            "end;\r\n\r\n"
+        );
+
+    prsrImpl.append(
         "function TFHIRJsonParser.ParseResource(jsn : TJsonObject) : TFhirResource;\r\n"+
             "var\r\n" +
             "  s : String;\r\n" +
@@ -3251,6 +3260,14 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "end;\r\n\r\n"
         );
 
+    prsrImpl.append(
+        "procedure TFHIRJsonComposer.ComposeResourceMetaElement(json: TJSONWriter; meta: TFhirResourceMeta);\r\n"+
+            "begin\r\n"+
+            "  json.value('resourceType', 'meta');\r\n"+
+            "  ComposeResourceMeta(json, '', meta, true);\r\n"+
+            "end;\r\n\r\n"
+        );
+
     return
         "  TFHIRXmlParser = class (TFHIRXmlParserBase)\r\n"+
         "  protected\r\n"+
@@ -3264,6 +3281,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         srlsdefX.toString()+
         "    procedure ComposeResource(xml : TXmlBuilder; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
+        "    procedure ComposeResourceMetaElement(xml : TXmlBuilder; meta : TFhirResourceMeta); override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+
@@ -3277,6 +3295,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         srlsdefJ.toString()+
         "    procedure ComposeResource(json : TJSONWriter; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
+        "    procedure ComposeResourceMetaElement(json : TJSONWriter; meta : TFhirResourceMeta); override;\r\n"+
         "  end;\r\n\r\n";
   }
 
