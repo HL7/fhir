@@ -48,7 +48,7 @@
 		</table>
 	  </div>
 	</text>
-  <identifier value="http://hl7.org/fhir/vs/medication-admin-status"/>
+  <identifier value="http://hl7.org/fhir/vs/cqf-medication-admin-status"/>
   <name value="CQFMedicationAdministrationStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>
