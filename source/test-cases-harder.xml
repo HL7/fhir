@@ -2,11 +2,14 @@
 <!--
 This XML file includes a set of resources that test out difficult cases 
 for servers to handle as part of a batch post
- --><Bundle xmlns="http://hl7.org/fhir" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
-  <link rel="self" href="http://hl7.org/fhir/batchtest"/>
-  <lastUpdated2012-11-12T18:10:00Z</updated>
-
+ -->
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/bundle.xsd">
+  <id value="4b838e19-81eb-4e4e-9473-c5108d6e9856"/>
+  <meta>
+    <lastUpdated value="2012-11-12T18:10:00Z"/>
+  </meta>
+  <type value="transaction"/>
+  <base value="http://hl7.org/fhir/transaction/test-case"/>
   <!-- 
 	  the first entry is a simple person resource that is "local" to the server, followed by 
 	  three versions of another person that comes from a domain that is considered "external". 
@@ -19,12 +22,10 @@ for servers to handle as part of a batch post
 	  to persons use id+version and some only version. The server should update the references in provenance, 
 	  filling out the version specific identifiers only on references that already had a version-specific reference. 
 	-->
-  <item>
-    <id>http://hl7.org/fhir/Patient/30</id>
-    <lastUpdated2012-11-12T18:00:00Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
-      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <entry>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <id value="30"/>
         <text>
           <status value="generated"/>
           <xhtml:div>
@@ -35,25 +36,16 @@ for servers to handle as part of a batch post
           <family value="Levin"/>
           <given value="Henry"/>
         </name>
-        <gender>
-          <system value="urn:oid:2.16.840.1.113883.5.1"/>
-          <code value="M"/>
-        </gender>
+        <gender value="male"/>
         <birthDate value="1932-09-24"/>
-      </Person>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-
-  <item>
-    <id>http://www.someexternalsite/fhir/Patient/1</id>
-    <link rel="self" href="http://www.someexternalsite/fhir/Patient/1/_history/1"/>
-    <lastUpdated2012-11-12T18:05:00Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
-      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <base value="http://www.someexternalsite/fhir"/>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <id value="1"/>
         <text>
           <status value="generated"/>
           <xhtml:div>
@@ -64,51 +56,19 @@ for servers to handle as part of a batch post
           <family value="Levin"/>
           <given value="Henry"/>
         </name>
-        <gender>
-          <system value="urn:oid:2.16.840.1.113883.5.1"/>
-          <code value="M"/>
-        </gender>
+        <gender value="male"/>
         <birthDate value="1932-09-24"/>
-      </Person>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-  <item>
-    <id>http://www.someexternalsite/fhir/Patient/1</id>
-    <lastUpdated2012-11-12T18:10:00Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
-      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-        <text>
-          <status value="generated"/>
-          <xhtml:div>
-            <xhtml:p>Henry Levins</xhtml:p>
-          </xhtml:div>
-        </text>
-        <name>
-          <family value="Levins"/>
-          <given value="Henry"/>
-        </name>
-        <gender>
-          <system value="urn:oid:2.16.840.1.113883.5.1"/>
-          <code value="M"/>
-        </gender>
-        <birthDate value="1932-09-24"/>
-      </Person>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-  <item>
-    <id>urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe</id>
-    <link rel="self" href="urn:uuid:9f13879b-9f5c-5ed4-b1f5-cc8d8a0efe"/>
-    <lastUpdated2012-11-12T18:20:00Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
-      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <base value="http://www.someexternalsite/fhir"/>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <id value="2"/>
+        <meta>
+          <versionId value="2"/>
+        </meta>
         <text>
           <status value="generated"/>
           <xhtml:div>
@@ -119,92 +79,80 @@ for servers to handle as part of a batch post
           <family value="Levin"/>
           <given value="Henry"/>
         </name>
-        <gender>
-          <system value="urn:oid:2.16.840.1.113883.5.1"/>
-          <code value="M"/>
-        </gender>
+        <gender value="male"/>
         <birthDate value="1932-09-24"/>
-      </Person>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-  <item>
-    <id>http://hl7.org/fhir/Provenance/101</id>
-    <link rel="self" href="http://hl7.org/fhir/Provenance/101/_history/1"/>
-    <lastUpdated2012-11-12T18:05:01Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <base value="urn:uuid:"/>
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <id value="5531795b-2048-4012-83f0-ad4375c3d405"/>
+        <text>
+          <status value="generated"/>
+          <xhtml:div>
+            <xhtml:p>Henry Levin</xhtml:p>
+          </xhtml:div>
+        </text>
+        <name>
+          <family value="Levin"/>
+          <given value="Henry"/>
+        </name>
+        <gender value="male"/>
+        <birthDate value="1932-09-24"/>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
       <Provenance xmlns="http://hl7.org/fhir">
+        <id value="101"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <value value="http://www.someexternalsite/fhir/Patient/1"/>
-          <version value="http://www.someexternalsite/fhir/Patient/1/_history/1"/>
+          <reference value="http://www.someexternalsite/fhir/Patient/2/_history/2"/>
         </target>
-        <!-- nominal activity: editing the standard -->
-        <activity>
-          <recorded value="2012-11-12T18:16:00Z"/>
-        </activity>
+        <recorded value="2012-11-12T18:16:00Z"/>
       </Provenance>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-  <item>
-    <id>http://hl7.org/fhir/Provenance/103</id>
-    <link rel="self" href="http://hl7.org/fhir/Provenance/103/_history/1"/>
-    <lastUpdated2012-11-12T18:15:01Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
+    </resource>
+  </entry>
+  <entry>
+    <resource>
       <Provenance xmlns="http://hl7.org/fhir">
+        <id value="102"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <version value="http://www.someexternalsite/fhir/Patient/1/_history/5"/>
+          <reference value="http://www.someexternalsite/fhir/Patient/1"/>
         </target>
         <!-- nominal activity: editing the standard -->
-        <activity>
-          <recorded value="2012-11-12T18:16:00Z"/>
-        </activity>
+        <recorded value="2012-11-12T18:16:00Z"/>
       </Provenance>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
-  <item>
-    <link rel="self" href="http://hl7.org/fhir/Provenance/104/_history/1"/>
-    <id>http://hl7.org/fhir/Provenance/104</id>
-    <lastUpdated2012-11-12T18:20:01Z</updated>
-    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
-    
+    </resource>
+  </entry>
+  <entry>
+    <resource>
       <Provenance xmlns="http://hl7.org/fhir">
+        <id value="104"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
         </text>
         <target>
-          <value value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
+          <reference value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
         </target>
         <!-- nominal activity: editing the standard -->
-        <activity>
-          <recorded value="2012-11-12T18:16:00Z"/>
-        </activity>
+        <recorded value="2012-11-12T18:16:00Z"/>
       </Provenance>
-    
-    <summary type="xhtml">
-      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
-    </summary>
-  </item>
- <!-- <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
+    </resource>
+  </entry>
+  <!-- <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
 		ref="http://www.someexternalsite/fhir/Patient/1" when="2012-11-12T18:15:00Z">
     <link rel="self" href="http://www.someexternalsite/fhir/Patient/1/_history/5"/>
-  </at:deleted-item> -->
+  </at:deleted-entry> -->
 </Bundle>
