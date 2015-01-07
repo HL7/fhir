@@ -71,8 +71,8 @@ Authored by: Eric M Haas  Health eData Inc.
 			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
 -->
 
-		<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
-			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
+		<extension url="http://example.org/us-core-county">
+				<extension url="http://example.org//iso21090-SC-coding">
 
 				<valueCoding>
 					<system value="https://www.census.gov/geo/reference"/>
