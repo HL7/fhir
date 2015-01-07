@@ -8,33 +8,13 @@
 Published by HL7 Orders and Observation Work Group
 Authored by: Eric M Haas  Health eData Inc.
 
-  Narrative: A male child of age 3 is taken by his aunt, who is his legal guardian, to be seen by a physician. The child has his blood tested for blood lead. A blood sample is taken from his left finger, using a capillary collection method on a filter paper card. The specimen collection date is 6/15/2012; date of result is 6/17/2012. Both his medical record ID and SSN are included in the patient information along with name, DOB, race/ethnicity, current and home address, and his aunt's business, home and mobile phone number and email address. The lab result is a blood lead level by electrothermal atomic absorption spectrophotometry (AAS) of 9.2 ug/dL and the jurisdiction threshold is 5.0 (reference range of 0.0-5.0). This results in an abnormal flag of “High”. University Hospital has an on-site lab and results blood level tests under the performing lab name of “University Hospital Chem Lab”. These results are sent to the local public health agency.  
+  Narrative: A male child of age 3 is taken by his aunt, who is his legal guardian, to be seen by a physician. The child has his blood tested for blood lead.. The specimen collection date is 6/15/2012; date of result is 6/17/2012. Both his medical record ID and SSN are included in the patient information along with name, DOB, race/ethnicity, current and home address, and his aunt's business, home and mobile phone number and email address. The lab result is a blood lead level by electrothermal atomic absorption spectrophotometry (AAS) of 9.2 ug/dL and the jurisdiction threshold is 5.0 (reference range of 0.0-5.0). This results in an abnormal flag of “High”. University Hospital has an on-site lab and results blood level tests under the performing lab name of “acme labs. These results are sent to the local public health agency.  
 -->
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
 	<id value="uslab-example2"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<!--table>
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td>Peter James <b>Chalmers</b> ("Jim")</td>
-          </tr>
-          <tr>
-            <td>Address</td>
-            <td>534 Erewhon, Pleasantville, Vic, 3999</td>
-          </tr>
-          <tr>
-            <td>Contacts</td>
-            <td>Home: unknown. Work: (03) 5555 6473</td>
-          </tr>
-          <tr>
-            <td>Id</td>
-            <td>MRN: 12345 (Acme Healthcare)</td>
-          </tr>
-        </tbody>
-      </table-->
 			<ul>
 				<li>file: patient-uslab-example2.xml</li>
 				<li> id: uslab-example2</li>
@@ -85,24 +65,15 @@ Authored by: Eric M Haas  Health eData Inc.
 	<gender value="male"/>
 	<birthDate value="2012-06-07"/>
 	<deceasedBoolean value="false"/>
-	<!--EH  replace with temporary extension to pass build
 	<address>
+	
+<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-ADXP-county">
+			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
+
+			<!-- EH replace with example.org temporarily to pass validation
 		<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
 			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
-				<valueCoding>
-					<system value="https://www.census.gov/geo/reference"/>
-					<code value="42043"/>
-				</valueCoding>
-			</extension>
-		</extension>
 -->
-	<address>
-		<!-- EH replace with example.org temporarily to pass validation
-<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
-			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
--->
-		<extension url="http://example.org/us-core-county">
-			<extension url="http://example.org//iso21090-SC-coding">
 				<valueCoding>
 					<system value="https://www.census.gov/geo/reference"/>
 					<code value="42043"/>
@@ -134,11 +105,12 @@ Authored by: Eric M Haas  Health eData Inc.
 		</telecom>
 		<address>
 			<!-- EH replace with example.org temporarily to pass validation
-<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
-			<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
--->
+
 			<extension url="http://example.org/us-core-county">
 				<extension url="http://example.org//iso21090-SC-coding">
+-->
+			<extension url="http://hl7.org/fhir/ExtensionDefinition/us-core-county">
+				<extension url="http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding">
 					<valueCoding>
 						<system value="https://www.census.gov/geo/reference"/>
 						<code value="42043"/>

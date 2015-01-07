@@ -44,7 +44,7 @@ see narrative
 	<!-- EH: Showing dateTime to ss with TZO although only needed to Day -->
 	<issued value="2014-12-06T15:42:15-08:00"/>
 	<subject>
-		<reference value="uslab-example1"/>
+		<reference value="Patient/uslab-example1"/>
 		<display value="Todd Lerr"/>
 	</subject>
 	<performer>

@@ -89,15 +89,15 @@ see narrative
 		<value value="1234"/>
 	</identifier>
 	<subject>
-		<reference value="uslab-example1"/>
+		<reference value="Patient/uslab-example1"/>
 		<display value="Todd Lerr"/>
 	</subject>
 	<specimen>
-		<reference value="uslab-example1"/>
+		<reference value="Specimen/uslab-example1"/>
 		<display value="Blood sample"/>
 	</specimen>
 	<performer>
-		<reference value="uslab-example1"/>
+		<reference value="Practitioner/uslab-example1"/>
 		<display value="Dr Leonard T Bloodraw Jr"/>
 	</performer>
 	<referenceRange>
