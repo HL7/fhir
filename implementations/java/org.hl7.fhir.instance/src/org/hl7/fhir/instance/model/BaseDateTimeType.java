@@ -420,14 +420,26 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 		updateStringValue();
 	}
 
+	/**
+	 * Sets the value of this date/time using the default level of precision
+	 * for this datatype
+	 * using the system local time zone
+	 * 
+	 * @param theValue
+	 *            The date value
+	 */
 	@Override
 	public BaseDateTimeType setValue(Date theValue) {
-		clearTimeZone();
-		return (BaseDateTimeType) super.setValue(theValue);
+		if (myTimeZoneZulu == false && myTimeZone == null) {
+			myTimeZone = TimeZone.getDefault();
+		}
+		BaseDateTimeType retVal = (BaseDateTimeType) super.setValue(theValue);
+		return retVal;
 	}
 
 	/**
 	 * Sets the value of this date/time using the specified level of precision
+	 * using the system local time zone
 	 * 
 	 * @param theValue
 	 *            The date value
@@ -436,9 +448,11 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	 * @throws IllegalArgumentException
 	 */
 	public void setValue(Date theValue, TemporalPrecisionEnum thePrecision) throws IllegalArgumentException {
-		clearTimeZone();
-		super.setValue(theValue);
 		myPrecision = thePrecision;
+		if (myTimeZoneZulu == false && myTimeZone == null) {
+			myTimeZone = TimeZone.getDefault();
+		}
+		super.setValue(theValue);
 	}
 
 	@Override
