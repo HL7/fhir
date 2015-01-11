@@ -37,8 +37,10 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
@@ -201,6 +203,8 @@ public class SourceParser {
 		loadGlobalConceptDomains();
 		eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
 
+		loadTLAs();
+		
 		loadPrimitives();
 		eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions.getPrimitives().values()));
 		
@@ -282,6 +286,22 @@ public class SourceParser {
 		    loadConformancePackage(p);
 		}
 	}
+
+
+  private void loadTLAs() throws Exception {
+      Set<String> tlas = new HashSet<String>();
+      
+      if (ini.getPropertyNames("tla") != null) {
+        for (String n : ini.getPropertyNames("tla")) {
+          String tla = ini.getStringProperty("tla", n);
+          if (tlas.contains(tla))
+            throw new Exception("Duplicate TLA "+tla+" for "+n);
+          tlas.add(tla);
+          definitions.getTLAs().put(n.toLowerCase(), tla);        
+        }
+      }
+    
+  }
 
 
   private void loadWorkGroups() {

@@ -9,17 +9,19 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SchematronGenerator  extends TextStreamWriter {
 			
-	private Logger logger;
+	private PageProcessor page;
+	private String tla;
 
-  public SchematronGenerator(OutputStream out, Logger logger) throws UnsupportedEncodingException {
+  public SchematronGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
     super(out);
-    this.logger = logger;
+    this.page = page;
   }
 
 	public void generate(Definitions definitions) throws Exception {
@@ -32,6 +34,8 @@ public class SchematronGenerator  extends TextStreamWriter {
     for (ResourceDefn root : definitions.getResources().values()) {
       ln_i("<sch:pattern>");
       ln("<sch:title>"+root.getName()+"</sch:title>");
+      tla = page.getAbbreviationFor(root.getName());
+
 
       ArrayList<String> l = new ArrayList<String>();
       generateResourceInvariants("/a:feed/a:entry/a:content", definitions);
@@ -157,7 +161,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
 	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
 	          throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
-	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">Inv-"+inv.getId()+": "+Utilities.escapeXml(inv.getEnglish())+"</sch:assert>");
+	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">"+tla+"-"+inv.getId()+": "+Utilities.escapeXml(inv.getEnglish())+"</sch:assert>");
 	      }
 	    }
       ln_o("</sch:rule>");

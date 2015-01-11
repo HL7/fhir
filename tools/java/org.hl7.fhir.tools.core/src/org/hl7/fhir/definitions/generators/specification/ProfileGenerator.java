@@ -318,8 +318,11 @@ public class ProfileGenerator {
     e.setMax("1");
     e.setIsModifier(false);
     
+    String s = definitions.getTLAs().get(pt.getName().toLowerCase());
+    if (s == null)
+      throw new Exception("There is no TLA for '"+pt.getName()+"' in fhir.ini");
     ElementDefinitionConstraintComponent inv = new ElementDefinitionConstraintComponent();
-    inv.setKey("1");
+    inv.setKey(s+"-1");
     inv.setName(pt.getInvariant().getName());
     inv.setSeverity(ConstraintSeverity.ERROR);
     inv.setHuman(pt.getInvariant().getEnglish());
@@ -745,10 +748,14 @@ public class ProfileGenerator {
     }
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
+    String s = definitions.getTLAs().get(p.getId().toLowerCase());
+     if (!e.getInvariants().keySet().isEmpty() && s == null)
+      throw new Exception("There is no TLA for '"+p.getId()+"' in fhir.ini");
+    
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = e.getInvariants().get(in);
-      con.setKey(inv.getId());
+      con.setKey(s+"-"+inv.getId());
       con.setName(inv.getName());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);

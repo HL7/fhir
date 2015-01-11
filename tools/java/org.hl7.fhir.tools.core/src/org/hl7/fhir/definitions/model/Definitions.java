@@ -94,6 +94,7 @@ public class Definitions {
   private Map<String, MappingSpace> mapTypes = new HashMap<String, MappingSpace>();
   private List<Compartment> compartments = new ArrayList<Compartment>();
   private List<String> pastVersions = new ArrayList<String>();
+  private Map<String, String> TLAs = new HashMap<String, String>();
 
 
   
@@ -350,6 +351,10 @@ public class Definitions {
 
   public Map<String, WorkGroup> getWorkgroups() {
     return workgroups;
+  }
+
+  public Map<String, String> getTLAs() {
+    return TLAs;
   }
 
 //  public Profile getProfileByURL(String url) {

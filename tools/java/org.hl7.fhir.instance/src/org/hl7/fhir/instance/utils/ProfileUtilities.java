@@ -68,6 +68,7 @@ public class ProfileUtilities {
     String getLinkFor(String typeSimple) throws Exception;
     String resolveBinding(ElementDefinitionBindingComponent binding);
     String getLinkForProfile(Profile profile, String url) throws Exception;
+    String getAbbreviationFor(Resource profile);
   }
 
 
@@ -596,7 +597,7 @@ public class ProfileUtilities {
         for (TypeRefComponent t : src.getType())
           dst.getType().add(t.copy());
       }      
-      // todo: mappings are cumulative - or does one replace another?
+      // todo: mappings are not cumulative - one replaces another
       if (src.hasMapping()) {
       	for (ElementDefinitionMappingComponent s : src.getMapping()) {
       		boolean found = false;
@@ -608,15 +609,10 @@ public class ProfileUtilities {
       	}
       }
       
-      // todo: constraints are cumulative - or does one replace another?
+      // todo: constraints are cumulative. there is no replacing
       if (src.hasConstraint()) {
       	for (ElementDefinitionConstraintComponent s : src.getConstraint()) {
-      		boolean found = false;
-      		for (ElementDefinitionConstraintComponent d : dst.getConstraint()) {
-      			found = found || (d.getKey().equals(s.getKey()));
-      		}
-      		if (!found)
-      			dst.getConstraint().add(s);
+      	  dst.getConstraint().add(s);
       	}
       }
     }
@@ -945,7 +941,7 @@ public class ProfileUtilities {
         }
         for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(gen.new Piece(null, "Inv-"+inv.getKey()+": ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, pkp.getAbbreviationFor(profile)+"-"+inv.getKey()+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, inv.getHuman(), null));
         }
         if (definition.hasFixed()) {        
