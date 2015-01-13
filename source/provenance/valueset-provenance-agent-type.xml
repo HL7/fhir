@@ -13,7 +13,7 @@
   </telecom>
   <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
   <status value="draft"/>
-  <date value="2023-05-12T00:10:00"/>
+  <date value="2023-05-12"/>
   <define>
     <system value="http://hl7.org/fhir/provenance-participant-type"/>
     <caseSensitive value="true"/>

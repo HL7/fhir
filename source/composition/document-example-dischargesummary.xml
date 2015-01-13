@@ -18,7 +18,7 @@
         <meta>
           <lastUpdated value="2013-05-28T22:12:21Z"/>
         </meta>
-        <date value="2013-02-01T12:30:02"/>
+        <date value="2013-02-01T12:30:02Z"/>
         <type>
           <coding>
             <system value="www.loinc.org"/>
@@ -158,8 +158,8 @@
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
         </patient>
         <period>
-          <start value="2013-01-20T12:30:02"/>
-          <end value="2013-02-01T12:30:02"/>
+          <start value="2013-01-20T12:30:02Z"/>
+          <end value="2013-02-01T12:30:02Z"/>
         </period>
         <hospitalization>
           <dischargeDisposition>

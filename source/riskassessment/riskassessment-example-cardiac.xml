@@ -72,7 +72,7 @@
       </table>
     </div>
   </text>
-  <date value="2014-07-19T16:04:00"/>
+  <date value="2014-07-19T16:04:00Z"/>
   <performer>
     <display value="http://cvdrisk.nhlbi.nih.gov/#cholesterol"/>
   </performer>

@@ -102,8 +102,8 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       </coding>
     </event>
     <period>
-      <start value="2004-12-23T08:00:00"/>
-      <end value="2004-12-23T08:01:00"/>
+      <start value="2004-12-23T08:00:00+11:00"/>
+      <end value="2004-12-23T08:01:00+11:00"/>
     </period>
     <facilityType>
       <coding>

@@ -20,7 +20,7 @@
   <author>
     <reference value="http://www.hl7.org/fhir/Practitioner/1"/>
   </author>
-  <authored value="2013-02-19T14:15:00"/>
+  <authored value="2013-02-19T14:15:00+10:00"/>
   <group>
     <title value="NSW Government My Personal Health Record, january 2013"/>
     <!-- Many groups left out of this example -->

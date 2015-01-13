@@ -13,8 +13,8 @@
     <reference value="Patient/example"/>
   </patient>
   <whenGiven>
-    <start value="2012-06-01T14:30:00"/>
-    <end value="2012-06-01T14:30:00"/>
+    <start value="2012-06-01T14:30:00+14:00"/>
+    <end value="2012-06-01T14:30:00+14:00"/>
   </whenGiven>
   <medication>
     <reference value="Medication/example"/> 

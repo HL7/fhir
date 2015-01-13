@@ -74,7 +74,7 @@
   <author>
     <reference value="#questauth"/>
   </author>
-  <authored value="2013-02-19T14:15:00"/>
+  <authored value="2013-02-19T14:15:00-05:00"/>
   <group>
     <title value="Cancer Quality Forum Questionnaire 2012"/>
     <group>

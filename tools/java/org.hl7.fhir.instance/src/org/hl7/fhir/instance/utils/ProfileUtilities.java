@@ -432,7 +432,7 @@ public class ProfileUtilities {
       return false;
     for (TypeRefComponent type : types) {
       String t = type.getCode();
-      if (!isDataType(t) && !t.equals("Reference") && !t.equals("Extension") && !isPrimitive(t))
+      if (!isDataType(t) && !t.equals("Reference") && !t.equals("Narrative") && !t.equals("Extension") && !isPrimitive(t))
         return false;
     }
     return true;
@@ -592,11 +592,10 @@ public class ProfileUtilities {
         dst.setMeaningWhenMissingElement(src.getMeaningWhenMissingElement().copy());
       
       // todo: is this actually right? 
-      if (!src.hasType()) {
-        dst.getType().clear();
+      if (src.hasType() && !dst.hasType()) {
         for (TypeRefComponent t : src.getType())
           dst.getType().add(t.copy());
-      }      
+      }
       // todo: mappings are not cumulative - one replaces another
       if (src.hasMapping()) {
       	for (ElementDefinitionMappingComponent s : src.getMapping()) {

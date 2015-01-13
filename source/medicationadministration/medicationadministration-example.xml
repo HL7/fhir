@@ -21,8 +21,8 @@
     <reference value="MedicationPrescription/example"/>
   </prescription>
   <effectiveTimePeriod>
-  <start value="2012-06-01T14:30:00"/>
-  <end value="2012-06-01T14:30:00"/>
+  <start value="2012-06-01T14:30:00+01:00"/>
+  <end value="2012-06-01T14:30:00+01:00"/>
 </effectiveTimePeriod>
   <medication>
     <reference value="Medication/example"/> 

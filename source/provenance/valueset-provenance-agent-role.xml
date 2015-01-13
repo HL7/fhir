@@ -13,7 +13,7 @@
   </telecom>
   <description value="The role that a provenance participant played"/>
   <status value="draft"/>
-  <date value="2023-05-12T00:10:00"/>
+  <date value="2023-05-12"/>
   <define>
     <system value="http://hl7.org/fhir/provenance-participant-role"/>
     <caseSensitive value="true"/>

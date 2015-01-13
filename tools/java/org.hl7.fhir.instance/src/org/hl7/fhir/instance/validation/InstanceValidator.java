@@ -257,7 +257,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String sfx = "";
       WrapperElement n = child.getNextSibling();
       if (n != null && n.getName().equals(child.getName())) { 
-        sfx = "["+Integer.toString(lastCount)+"]";
+        sfx = "["+Integer.toString(lastCount+1)+"]";
       }
       return basePath+"/f:"+name()+sfx;
     }
@@ -302,17 +302,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     if (ok) {
       rule(errors, "invalid", path + "/f:"+element.getName(), (element.getNamedChild("id") != null) || (!(contained || requiresResourceId)), "Resource has no id");
-      start(errors, element, profile);
+      start(errors, path, element, profile);
     }
   }
   
   // we assume that the following things are true: 
   // the instance at root is valid against the schema and schematron
   // the instance validator had no issues against the base resource profile
-  private void start(List<ValidationMessage> errors, WrapperElement element, Profile profile) throws Exception {
+  private void start(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile) throws Exception {
     // profile is valid, and matches the resource name 
     if (rule(errors, "structure", element.getName(), profile.hasSnapshot(), "Profile has no snapshort - validation is against the snapshot, so it must be provided")) {
-      validateElement(errors, profile, null, "/f:"+element.getName(), profile.getSnapshot().getElement().get(0), null, null, element, element.getName());
+      validateElement(errors, profile, null, path+"/f:"+element.getName(), profile.getSnapshot().getElement().get(0), null, null, element, element.getName());
       
       // specific known special validations 
 //      if (element.getName().equals("Query"))

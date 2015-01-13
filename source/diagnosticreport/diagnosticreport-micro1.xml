@@ -778,7 +778,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     <text value="Culture, MRSA"/>
   </name>
   <status value="final"/>
-  <issued value="2009-08-10T08:25:44"/>
+  <issued value="2009-08-10T08:25:44+10:00"/>
   <subject>
     <reference value="Patient/example"/> <!-- patient chosen at random -->
   </subject>
@@ -798,7 +798,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <code value="MB"/>
     </coding>
   </serviceCategory>
-  <diagnosticDateTime value="2009-08-07T19:00:00"/>
+  <diagnosticDateTime value="2009-08-07T19:00:00+10:00"/>
   <result>
     <reference value="#org1"/>
   </result>
