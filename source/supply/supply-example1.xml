@@ -1,78 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Supply xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd">
- <id value="102"/>
-  <kind>
-    <coding>
-      <system value="http://hl7.org/fhir/supply-type"/>
-      <code value="central" />
-      <display value="Central Supply" />
-      <primary value="true" />
-      <valueSet>
-        <reference value="http://hl7.org/fhir/vs/supply-type" />
-        <display value="supply-type" />
-      </valueSet>
-    </coding>
-  </kind>
-  <identifier>
-    <system value="OR-Supply-Application" />
-    <value value="23455" />
-    <assigner>
-      <reference value="Organization/2.16.840.1.113883.19.5" />
-      <display value="Good Health Clinic" />
-    </assigner>
-  </identifier>
-  <status value="received" />
-  <orderedItem>
-    <reference value="Device/f001" />
-    <display value="Feeding tube" />
-  </orderedItem>
-  <dispense>
-    <identifier>
-      <use value="usual" />
-      <system value="MM-Supply-Application" />
-      <value value="12345" />
-      <assigner>
-        <reference value="Organization/2.16.840.1.113883.19.5" />
-        <display value="Good Health Clinic" />
-      </assigner>
-    </identifier>
-    <status value="dispensed" />
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/supply-item-type"/>
-        <code value="device" />
-        <display value="Device" />
-        <primary value="true" />
-        <valueSet>
-          <reference value="http://hl7.org/fhir/vs/supply-item" />
-          <display value="supply-item" />
-        </valueSet>
-      </coding>
-    </type>
-    <quantity>
-      <value value="1" />
-      <units value="EA" />
-      <system value="http://unitsofmeasure.org/trac/" />
-      <code value="{each}" />
-    </quantity>
-    <suppliedItem>
-      <reference value="Device/f001" />
-      <display value="Feeding tube" />
-    </suppliedItem>
-    <supplier>
-      <reference value="Practitioner/f006" />
-      <display value="Rob van den Berk " />
-    </supplier>
-    <whenHandedOver>
-      <start value="2014-07-24T01:23:55-07:00" />
-    </whenHandedOver>
-    <destination>
-      <reference value="Location/2" />
-      <display value="Neuro Radiology Operation Room " />
-    </destination>
-    <receiver>
-      <reference value="Practitioner/f204" />
-      <display value="Carla Espinosa" />
-    </receiver>
-  </dispense>
+	<id value="102"/>
+	<kind>
+		<coding>
+			<system value="http://hl7.org/fhir/supply-type"/>
+			<code value="central"/>
+			<display value="Central Supply"/>
+			<primary value="true"/>
+			<valueSet>
+				<reference value="http://hl7.org/fhir/vs/supply-type"/>
+				<display value="supply-type"/>
+			</valueSet>
+		</coding>
+	</kind>
+	<identifier>
+		<system value="OR-Supply-Application"/>
+		<value value="23455"/>
+		<assigner>
+			<reference value="Organization/2.16.840.1.113883.19.5"/>
+			<display value="Good Health Clinic"/>
+		</assigner>
+	</identifier>
+	<status value="received"/>
+	<orderedItem>
+		<reference value="Device/f001"/>
+		<display value="Feeding tube"/>
+	</orderedItem>
+	<dispense>
+		<identifier>
+			<use value="usual"/>
+			<system value="MM-Supply-Application"/>
+			<value value="12345"/>
+			<assigner>
+				<reference value="Organization/2.16.840.1.113883.19.5"/>
+				<display value="Good Health Clinic"/>
+			</assigner>
+		</identifier>
+		<status value="dispensed"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/supply-item-type"/>
+				<code value="device"/>
+				<display value="Device"/>
+				<primary value="true"/>
+				<valueSet>
+					<reference value="http://hl7.org/fhir/vs/supply-item"/>
+					<display value="supply-item"/>
+				</valueSet>
+			</coding>
+		</type>
+		<quantity>
+			<value value="1"/>
+			<units value="EA"/>
+			<system value="http://unitsofmeasure.org/trac/"/>
+			<code value="{each}"/>
+		</quantity>
+		<suppliedItem>
+			<reference value="Device/f001"/>
+			<display value="Feeding tube"/>
+		</suppliedItem>
+		<supplier>
+			<reference value="Practitioner/f006"/>
+			<display value="Rob van den Berk "/>
+		</supplier>
+		<whenHandedOver value="2014-12-06T15:42:15-08:00"/>
+		<destination>
+			<reference value="Location/2"/>
+			<display value="Neuro Radiology Operation Room "/>
+		</destination>
+		<receiver>
+			<reference value="Practitioner/f204"/>
+			<display value="Carla Espinosa"/>
+		</receiver>
+	</dispense>
 </Supply>
