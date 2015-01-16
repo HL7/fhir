@@ -479,6 +479,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
+      } else if (com[0].equals("w5")) {
+          src = s1+genW5("true".equals(com[1]))+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("pageheader"))
@@ -525,8 +527,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name)+s3;
       else if (com[0].equals("ver"))
         src = s1+(name.contains("|") ? name.substring(name.indexOf("|")+1) : "??")+s3;
-      else if (com[0].equals("w5"))
-        src = s1+genW5()+s3;
       else if (com[0].equals("v2Table"))
         src = s1+genV2Table(name)+s3;
       else if (com[0].equals("v2TableVer"))
@@ -2656,6 +2656,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+resDesc(com[1])+s3;
       } else if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("w5"))
+        src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else  if (com[0].equals("conceptmaplistvs")) {
@@ -2706,8 +2708,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+s3;
-      else if (com[0].equals("w5"))
-        src = s1+genW5()+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -2970,6 +2970,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("dtusage")) 
         src = s1 + genDataTypeUsage(com[1]) + s3;
+      else if (com[0].equals("w5"))
+        src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
@@ -3044,8 +3046,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+s3;
-      else if (com[0].equals("w5"))
-        src = s1+genW5()+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -5129,7 +5129,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "inv";
   }
 
-  private String genW5() throws Exception {
+  private String genW5(boolean types) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table border=\"1\">\r\n<tr>\r\n");
     List<String> names = new ArrayList<String>();
@@ -5144,29 +5144,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       
     }
     b.append("</tr>\r\n");
-    processW5(b, names, "clinical");
-    processW5(b, names, "administration");
-    processW5(b, names, "infrastructure");
+    processW5(b, names, "clinical", types);
+    processW5(b, names, "administration", types);
+    processW5(b, names, "infrastructure", types);
     
     b.append("</table>\r\n");
     
     return b.toString();
   }
 
-  private void processW5(StringBuilder b, List<String> names, String cat) throws Exception {
+  private void processW5(StringBuilder b, List<String> names, String cat, boolean types) throws Exception {
+    b.append("<tr><td colspan=\""+Integer.toString(names.size()+1)+"\"><b>"+Utilities.escapeXml(definitions.getW5s().get(cat).getDescription())+"</b></td></tr>\r\n");
     for (String rn : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(rn);
       if (cat.equals(r.getRoot().getW5())) {
         b.append("<tr>\r\n <td>"+rn+"</td>\r\n");
         for (String n : names) {
           b.append(" <td>");
-          boolean first = true;
-          for (ElementDefn ed : r.getRoot().getElements()) {
-            if (n.equals(ed.getW5())) {
-              if (first) first = false; else b.append("<br/>");
-              describeField(b, ed);
-            }
-          }
+          addMatchingFields(b, r.getRoot().getElements(), r.getRoot().getName(), n, true, types);
           b.append("</td>\r\n");
         }
         b.append("</tr>\r\n");
@@ -5174,7 +5169,31 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private void describeField(StringBuilder b, ElementDefn ed) {
+  private boolean addMatchingFields(StringBuilder b, List<ElementDefn> elements, String path, String name, boolean first, boolean types) {
+    for (ElementDefn ed : elements) {
+      if (name.equals(ed.getW5())) {
+        if (first) first = false; else b.append("<br/>");
+        describeField(b, ed, types);
+      }
+      first = addMatchingFields(b, ed.getElements(), path+"."+ed.getName(), name, first, types);
+    }
+    return first;
+  }
+
+  private void describeField(StringBuilder b, ElementDefn ed, boolean types) {
     b.append(ed.getName());
+    if (ed.unbounded())
+      b.append("*");
+    if (types) {
+      b.append(" : ");
+      b.append(patch(ed.typeCode()));
+    }
+  }
+
+  private String patch(String typeCode) {
+    if (typeCode.startsWith("Reference("))
+      return typeCode.substring(0, typeCode.length()-1).substring(10);
+    else
+      return typeCode;
   }
 }
