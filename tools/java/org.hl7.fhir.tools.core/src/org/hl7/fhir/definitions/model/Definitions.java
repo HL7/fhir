@@ -96,7 +96,7 @@ public class Definitions {
   private List<String> pastVersions = new ArrayList<String>();
   private Map<String, String> TLAs = new HashMap<String, String>();
 
-
+  private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -357,6 +357,10 @@ public class Definitions {
     return TLAs;
   }
 
+  public Map<String, W5Entry> getW5s() {
+    return w5s;
+  }
+
 //  public Profile getProfileByURL(String url) {
 //    if (url.contains("#"))
 //      url = url.substring(0, url.indexOf('#'));
@@ -386,4 +390,5 @@ public class Definitions {
 //    return p;
 //  }
 //
+  
 }

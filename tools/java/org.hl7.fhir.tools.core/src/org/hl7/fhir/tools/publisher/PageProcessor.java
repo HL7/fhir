@@ -525,6 +525,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name)+s3;
       else if (com[0].equals("ver"))
         src = s1+(name.contains("|") ? name.substring(name.indexOf("|")+1) : "??")+s3;
+      else if (com[0].equals("w5"))
+        src = s1+genW5()+s3;
       else if (com[0].equals("v2Table"))
         src = s1+genV2Table(name)+s3;
       else if (com[0].equals("v2TableVer"))
@@ -2704,6 +2706,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+s3;
+      else if (com[0].equals("w5"))
+        src = s1+genW5()+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -3040,6 +3044,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("/maindiv"))
         src = s1+s3;
+      else if (com[0].equals("w5"))
+        src = s1+genW5()+s3;
       else if (com[0].equals("events"))
         src = s1 + getEventsTable()+ s3;
       else if (com[0].equals("resourcecodes"))
@@ -5123,5 +5129,52 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "inv";
   }
 
-  
+  private String genW5() throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table border=\"1\">\r\n<tr>\r\n");
+    List<String> names = new ArrayList<String>();
+    for (String n : definitions.getW5s().keySet()) 
+      if (definitions.getW5s().get(n).isDisplay())
+        names.add(n);
+    Collections.sort(names);
+    
+    b.append("<td>Resource</td>");
+    for (String n : names) {
+      b.append("<td><span title=\""+Utilities.escapeXml(definitions.getW5s().get(n).getDescription())+"\">"+n+"</span></td>");
+      
+    }
+    b.append("</tr>\r\n");
+    processW5(b, names, "clinical");
+    processW5(b, names, "administration");
+    processW5(b, names, "infrastructure");
+    
+    b.append("</table>\r\n");
+    
+    return b.toString();
+  }
+
+  private void processW5(StringBuilder b, List<String> names, String cat) throws Exception {
+    for (String rn : definitions.sortedResourceNames()) {
+      ResourceDefn r = definitions.getResourceByName(rn);
+      if (cat.equals(r.getRoot().getW5())) {
+        b.append("<tr>\r\n <td>"+rn+"</td>\r\n");
+        for (String n : names) {
+          b.append(" <td>");
+          boolean first = true;
+          for (ElementDefn ed : r.getRoot().getElements()) {
+            if (n.equals(ed.getW5())) {
+              if (first) first = false; else b.append("<br/>");
+              describeField(b, ed);
+            }
+          }
+          b.append("</td>\r\n");
+        }
+        b.append("</tr>\r\n");
+      }
+    }
+  }
+
+  private void describeField(StringBuilder b, ElementDefn ed) {
+    b.append(ed.getName());
+  }
 }

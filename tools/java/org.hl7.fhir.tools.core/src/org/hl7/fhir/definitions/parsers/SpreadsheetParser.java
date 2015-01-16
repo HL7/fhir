@@ -1093,10 +1093,20 @@ public class SpreadsheetParser {
       e.setDefaultValue(processValue(sheet, row, "Default Value", e));
       e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
 		}
+		e.setW5(checkW5(sheet.getColumn(row, "w5"), path));
 		return e;
 	}
 
-	private Type processValue(Sheet sheet, int row, String column, ElementDefn e) throws Exception {
+	private String checkW5(String value, String path) throws Exception {
+    if (Utilities.noString(value))
+      return null;
+    if (!definitions.getW5s().containsKey(value))
+      throw new Exception("Unknown w5 value "+value+" at "+path);
+    return value;
+  }
+
+
+  private Type processValue(Sheet sheet, int row, String column, ElementDefn e) throws Exception {
     String source = sheet.getColumn(row, column);
     if (Utilities.noString(source))
       return null;  

@@ -71,6 +71,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
 import org.hl7.fhir.definitions.parsers.converters.CompositeTypeConverter;
@@ -199,6 +200,7 @@ public class SourceParser {
 
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
 		loadWorkGroups();
+		loadW5s();
 		loadMappingSpaces();
 		loadGlobalConceptDomains();
 		eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
@@ -286,6 +288,16 @@ public class SourceParser {
 		    loadConformancePackage(p);
 		}
 	}
+
+
+  private void loadW5s() {
+    if (new File(Utilities.path(srcDir, "w5.ini")).exists()) {
+      IniFile w5 = new IniFile(Utilities.path(srcDir, "w5.ini"));
+      for (String n : w5.getPropertyNames("names")) { 
+        definitions.getW5s().put(n, new W5Entry(w5.getStringProperty("names", n), w5.getBooleanProperty("display", n)));
+      }
+    }
+  }
 
 
   private void loadTLAs() throws Exception {

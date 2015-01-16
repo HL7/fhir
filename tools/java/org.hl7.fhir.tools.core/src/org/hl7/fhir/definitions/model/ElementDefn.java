@@ -87,7 +87,7 @@ public class ElementDefn {
   private String statedType; // explicitly stated type (=xxxx)
 	private boolean isCoveredByExample; // true if an example has hit this
 	private String displayHint; // hits for generated narrative
-	
+	private String w5;
 	public ElementDefn() {
 		super();
 	  svgLeft = MAX_NEG;
@@ -107,6 +107,7 @@ public class ElementDefn {
 		modifier = pattern.modifier;
 		mustSupport = pattern.mustSupport;
 
+		
 		bindingName = pattern.bindingName;
 		name = pattern.name;
 		shortDefn = pattern.shortDefn;
@@ -796,6 +797,14 @@ public class ElementDefn {
 
   public void setMeaningWhenMissing(String meaningWhenMissing) {
     this.meaningWhenMissing = meaningWhenMissing;
+  }
+
+  public String getW5() {
+    return w5;
+  }
+
+  public void setW5(String w5) {
+    this.w5 = w5;
   }	
   
 }
