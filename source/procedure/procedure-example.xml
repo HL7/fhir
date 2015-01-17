@@ -3,7 +3,7 @@
   <id value="example"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Routine appendicectomy</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Routine Appendectomy</div>
   </text>
   <patient>
     <reference value="Patient/example"/>
@@ -14,7 +14,7 @@
       <code value="80146002"/>
       <display value="Appendectomy (Procedure)"/>
     </coding>
-    <text value="Appendicectomy"/>
+    <text value="Appendectomy"/>
   </type>
   <indication>
     <text value="Generalized abdominal pain 24 hours. Localized in RIF with rebound and guarding"/>
@@ -22,12 +22,12 @@
   <performer>
     <person>
       <reference value="Practitioner/example"/>
-      <display value="Dr Cyril Surgeon"/>
+      <display value="Dr Cecil Surgeon"/>
     </person>
   </performer>
   <date>
     <start value="2013-04-05"/>
   </date>
   <followUp value="ROS 5 days  - 2013-04-10"/>
-  <notes value="Routine Appendicectomy. Appendix was inflamed and in retro-caecal position"/>
+  <notes value="Routine Appendectomy. Appendix was inflamed and in retro-caecal position"/>
 </Procedure>
