@@ -14,6 +14,7 @@
     </div>
   </text>  
   
+  <status value="completed" />  
   <patient>
     <reference value="Patient/example"/>
   </patient>
@@ -23,20 +24,17 @@
   <authorizingPrescription>
     <reference value="MedicationPrescription/example" />
   </authorizingPrescription>
-  <dispense>
-    <status value="completed" />  
-    <quantity>
-      <value value="10"/>
-      <units value="ml"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="ml"/>
-    </quantity>
-    <medication>
-      <reference value="Medication/example"/>
-    </medication>
-    <whenPrepared value="2012-05-30T16:20:00+00:00"/>
-    <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
-  </dispense>
+  <quantity>
+    <value value="10"/>
+    <units value="ml"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="ml"/>
+  </quantity>
+  <medication>
+    <reference value="Medication/example"/>
+  </medication>
+  <whenPrepared value="2012-05-30T16:20:00+00:00"/>
+  <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
   <substitution>
     <type>
       <coding>

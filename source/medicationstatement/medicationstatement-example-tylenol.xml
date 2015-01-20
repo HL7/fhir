@@ -56,9 +56,8 @@
   <patient>
     <reference value="Patient/example"/>
   </patient>
-  <whenGiven>
-    <start value="2010"/>
-  </whenGiven>
+  <status value="completed"/>
+  <effectiveDateTime value="2010"/>
   <medication>
     <reference value="#2"/> 
   </medication>
