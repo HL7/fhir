@@ -33,7 +33,7 @@ HL7 extension definition registries.
  <tr><th>Registry</th><th>Search</th><th>Submit</th></tr>
  <tr><td>HL7 Approved</td><td>[TBD]</td><td>[TBD]</td></tr>
  <tr><td>Community</td><td>[TBD]</td><td>[TBD]</td></tr>
- <tr><td>Interim</td><td><a href="http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/search">http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/search</a></td>
+ <tr><td>Interim</td><td><a href="http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/_search">http://fhir-dev.healthintersections.com.au/open/ExtensionDefinition/_search</a></td>
  <td><a href="http://fhir.healthintersections.com.au/open/ExtensionDefinition/upload">http://fhir.healthintersections.com.au/open/ExtensionDefinition/upload</a></td></tr>
 </table>
 <p>
