@@ -7,6 +7,7 @@
 	<date value="2014"/>
 	<define>
 		<system value="http://loinc.org/vs/LL2654-3"/>
+    <caseSensitive value="true"/>    
 		<concept>
 			<code value="LA20271-5"/>
 			<display value="Medications"/>

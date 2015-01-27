@@ -15,6 +15,7 @@
   <status value="draft"/>
   <define>
     <system value="urn:USCLS"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="1101"/>
     </concept>

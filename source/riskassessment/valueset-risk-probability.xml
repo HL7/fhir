@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/risk-probability"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="negligible"/>
       <display value="negligible likelihood"/>

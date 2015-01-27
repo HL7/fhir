@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="emergency"/>
       <display value="Emergency"/>

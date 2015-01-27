@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/substance-status"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="active"/>
       <display value="Active"/>

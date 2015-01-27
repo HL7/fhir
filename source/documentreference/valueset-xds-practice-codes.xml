@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="Anesthesia"/>
       <display value="Anesthesia"/>

@@ -18,6 +18,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://www.hl7.org/fhir/contracttypecodes"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="payment"/>
     </concept>

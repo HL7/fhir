@@ -17,6 +17,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="lens"/>
     </concept>

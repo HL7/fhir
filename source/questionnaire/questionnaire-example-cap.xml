@@ -21,6 +21,7 @@
         <!-- This looks like it should be SNOMED, but not sure what the codes are -->
         <!-- Not sure what the trailing text of {C:1} {Str} {Ch:4000}, etc. for various codes means -->
         <system value="http://cap.org/example/fhir/margin-status"/>
+    <caseSensitive value="true"/>  
         <concept>
           <code value="M1"/>
           <display value="Margins univolved by tumor"/>

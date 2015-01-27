@@ -3750,6 +3750,9 @@ public class Publisher implements URIResolver {
       page.log(" ...validate " + "valuesets", LogMessageType.Process);
       validateXmlFile(schema, "valuesets", validator, null);
 
+      page.log(" ...validate " + "conceptmaps", LogMessageType.Process);
+      validateXmlFile(schema, "conceptmaps", validator, null);
+
       page.log(" ...validate " + "v2-tables", LogMessageType.Process);
       validateXmlFile(schema, "v2-tables", validator, null);
       page.log(" ...validate " + "v3-codesystems", LogMessageType.Process);

@@ -14,6 +14,7 @@
   -->
   <define>
     <system value="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1"/>
+    <caseSensitive value="true"/>      
 
     <concept>
       <code value="Home"/>

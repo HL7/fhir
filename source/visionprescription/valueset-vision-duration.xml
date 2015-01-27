@@ -17,6 +17,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/ex-visioncontactduration"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="daytime"/>
     </concept>

@@ -18,6 +18,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://hl7.org/fhir/icd-10"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="123456"/>
     </concept>

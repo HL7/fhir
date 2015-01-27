@@ -16,6 +16,7 @@
   <date value="2010-08-26"/>
   <define>
     <system value="http://nema.org/dicom/dcid/401"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="110100"/>
       <definition value="Application Activity"/>

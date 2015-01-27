@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="urn:uuid:be777aae-4817-479f-bf48-b5c81eae6dd6"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="TRID1001"/>
       <display value="XRAY CHEST Orderable"/>

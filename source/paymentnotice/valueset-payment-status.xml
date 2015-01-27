@@ -17,6 +17,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/paymentstatus"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="paid"/> <!-- Payment has been sent via cheque, EFT, other -->
     </concept>

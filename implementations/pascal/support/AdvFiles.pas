@@ -235,6 +235,7 @@ Begin
 End;
 
 
+{$R-}
 Function TAdvFile.TryOpen : Boolean;
 Const
   FILE_MODE : Array[TAdvFileMode] Of Cardinal =

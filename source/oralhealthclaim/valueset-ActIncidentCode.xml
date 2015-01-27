@@ -18,6 +18,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://hl7.org/fhir/actincidentcode"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="code1"/>
     </concept>

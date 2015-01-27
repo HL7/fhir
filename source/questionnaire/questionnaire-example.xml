@@ -29,6 +29,7 @@
       <status value="active"/>
       <define>
         <system value="http://example.org/system/code/yesno"/>
+        <caseSensitive value="true"/>          
         <concept>
           <code value="1"/>
           <display value="Yes"/>

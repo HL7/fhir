@@ -16,6 +16,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/substance-quantity-mode"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="abs"/>
       <display value="Absolute"/>

@@ -24,6 +24,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE270-cs"/>
+              <caseSensitive value="true"/>              
               <concept>
                 <code value="A1197"/>
                 <display value="Medications"/>
@@ -77,6 +78,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE273-cs"/>
+              <caseSensitive value="true"/>              
               <concept>
                 <code value="A1218"/>
                 <display value="Prescription or over-the- counter (including herbal supplements)"/>
@@ -104,6 +106,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE279-cs"/>
+              <caseSensitive value="true"/>              
               <concept>
                 <code value="A1233"/>
                 <display value="Vaccines"/>
@@ -123,6 +126,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE285-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1242"/>
                 <display value="Dietary supplements (other than vitamins or minerals)"/>
@@ -154,6 +158,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE288-cs"/>
+              <caseSensitive value="true"/>              
               <concept>
                 <code value="A1257"/>
                 <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)"/>
@@ -181,6 +186,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE291-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A585"/>
                 <display value="Incorrect patient"/>
@@ -252,6 +258,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE294-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1314"/>
                 <display value="Overdose"/>
@@ -283,6 +290,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE297-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1329"/>
                 <display value="Too early"/>
@@ -306,6 +314,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE300-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1338"/>
                 <display value="Too quickly"/>
@@ -329,6 +338,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE303-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1347"/>
                 <display value="Too high"/>
@@ -352,6 +362,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE309-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A15"/>
                 <display value="Yes"/>
@@ -375,6 +386,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE312-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1368"/>
                 <display value="Drug-drug"/>
@@ -402,6 +414,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE315-cs"/>
+              <caseSensitive value="true"/>  
               <concept>
                 <code value="A1380"/>
                 <display value="Purchasing"/>
@@ -453,6 +466,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE333-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A15"/>
                 <display value="Yes"/>
@@ -472,6 +486,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE336-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A15"/>
                 <display value="Yes"/>
@@ -491,6 +506,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE348-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A1440"/>
                 <display value="Cutaneous, topical application, including ointment, spray, patch"/>
@@ -566,6 +582,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#Medication/DE351-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A1440"/>
                 <display value="Cutaneous, topical application, including ointment, spray, patch"/>
@@ -1108,6 +1125,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A3"/>
                 <display value="Incident"/>
@@ -1134,6 +1152,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/DE21-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A42"/>
                 <display value="Blood or Blood Product"/>
@@ -1185,6 +1204,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/DE42-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="M"/>
                 <display value="Male"/>
@@ -1208,6 +1228,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/Hidden-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A15"/>
                 <display value="Yes"/>
@@ -1227,6 +1248,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/DE43-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="M"/>
                 <display value="Male"/>
@@ -1250,6 +1272,7 @@
             <status value="active"/>
             <define>
               <system value="http://AHRQ.org/form/question_identifier#HERF/DE33-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="A15"/>
                 <display value="Yes"/>
@@ -1546,6 +1569,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921060v1.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Primary"/>
                 <display value="Primary Diagnosis"/>
@@ -1618,6 +1642,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921071v1.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Initial same as Current"/>
                 <display value="Initial diagnosis same as current"/>
@@ -1702,6 +1727,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921081v1.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Cytologic"/>
                 <display value="Cytological Procedure"/>
@@ -1762,6 +1788,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3921052v1.0/question_identifier#3921085v1.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="G1"/>
                 <display value="Well Differentiated"/>
@@ -2045,6 +2072,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702892v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Female"/>
                 <display value="Female Gender"/>
@@ -2117,6 +2145,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702904v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="American Indian or Alaska Native"/>
                 <display value="American Indian or Alaska Native"/>
@@ -2225,6 +2254,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702898v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Hispanic or Latino"/>
                 <display value="Hispanic or Latino"/>
@@ -2297,6 +2327,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702916v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Managed Care/Medicare"/>
                 <display value="Managed Care/Medicare"/>
@@ -2489,6 +2520,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702942v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Bachelor's Degree"/>
                 <display value="Bachelor's Degree"/>
@@ -2621,6 +2653,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702952v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Other country"/>
                 <display value="Other country"/>
@@ -2693,6 +2726,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702957v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="10th Grade"/>
                 <display value="10th Grade"/>
@@ -3029,6 +3063,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/2674812v4.0/question_identifier#3702985v4.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Divorced"/>
                 <display value="Divorced: C51776"/>
@@ -3407,6 +3442,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556214v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Abdominal distension"/>
                 <display value="Abdominal distension"/>
@@ -12911,6 +12947,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557008v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="1"/>
                 <display value="Mild Adverse Event"/>
@@ -12995,6 +13032,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557021v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -13043,6 +13081,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557032v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Biological Therapy"/>
                 <display value="Biological Therapy"/>
@@ -13211,6 +13250,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557869v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Blood and lymphatic system disorders"/>
                 <display value="Hematopoietic and Lymphoid System Disorder"/>
@@ -13547,6 +13587,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557050v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="10000060"/>
                 <display value="Abdominal distension"/>
@@ -23051,6 +23092,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557842v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Definite"/>
                 <display value="DEFINITE"/>
@@ -23135,6 +23177,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557851v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23195,6 +23238,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557856v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23243,6 +23287,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557859v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23291,6 +23336,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557913v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23339,6 +23385,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557028v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23387,6 +23434,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557896v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Fatal"/>
                 <display value="Death"/>
@@ -23483,6 +23531,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557906v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="1"/>
                 <display value="single episode"/>
@@ -23543,6 +23592,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3557917v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="Yes"/>
                 <display value="Yes"/>
@@ -23603,6 +23653,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556199v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="1"/>
                 <display value="Results in Death"/>
@@ -23723,6 +23774,7 @@
             <status value="active"/>
             <define>
               <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier/3265657v2.0/question_identifier#3556209v2.0-cs"/>
+              <caseSensitive value="true"/>                  
               <concept>
                 <code value="N"/>
                 <display value="No"/>

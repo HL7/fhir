@@ -111,9 +111,15 @@ public class FHIRSimpleClient implements IFHIRClient {
 	public void initialize(String baseServiceUrl, int maxResultSetSize)  throws URISyntaxException {
 		resourceAddress = new ResourceAddress(baseServiceUrl);
 		this.maxResultSetSize = maxResultSetSize;
+		checkConformance();
 	}
 	
-	@Override
+	private void checkConformance() {
+    Conformance conf = getConformanceStatement();
+    
+  }
+
+  @Override
 	public void setPreferredResourceFormat(ResourceFormat resourceFormat) {
 		preferredResourceFormat = resourceFormat;
 	}

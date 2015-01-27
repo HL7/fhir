@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/message-reasons-encounter"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="admit"/>
       <display value="Admit"/>

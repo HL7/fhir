@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/supply-kind"/>
+    <caseSensitive value="true"/>    
     <concept>
       <code value="central"/>
       <display value="Central Supply"/>

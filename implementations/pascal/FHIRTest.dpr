@@ -106,7 +106,8 @@ uses
   FHIRSupport in 'FHIRSupport.pas',
   FHIRUtilities in 'FHIRUtilities.pas',
   FHIRDigitalSignatures in 'FHIRDigitalSignatures.pas',
-  AdvNames in 'support\AdvNames.pas';
+  AdvNames in 'support\AdvNames.pas',
+  OIDSupport in 'support\OIDSupport.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var

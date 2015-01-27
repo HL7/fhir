@@ -668,14 +668,14 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="ru">Не удалось разобрать данные (корневой элемент = "%s")</translation>
     </item>
     <item id="MSG_CONTENT_MESSAGE">
-        <translation lang="en">Content can be a resource, an atom feed, or a zip file collection of resources and atom feeds (xml or json)</translation>
-        <translation lang="it">Il contenuto pu� essere una risorsa, un feed atom o un file zip contenente una collezione di risorse e feed atom (xml o json)</translation>
+        <translation lang="en">Content can be a resource or a zip file collection of resources and atom feeds (xml or json)</translation>
+<!--         <translation lang="it">Il contenuto pu� essere una risorsa, un feed atom o un file zip contenente una collezione di risorse e feed atom (xml o json)</translation>
         <translation lang="nl">Content kan een resource zijn, een atomfeed of een zipbestand met een collectie resources en atomfeeds (xml of json)</translation>
         <translation lang="zh">内容可以是一个资源、一个原子feed、或一个包含资源和原子feed的压缩文件 (xml 或 json)</translation>
         <translation lang="pl">Zawartością może być zasób, treść w formacie atom (atom feed) lub plik zip zasobów i treści w formacie atom (xml lub json)</translation>
         <translation lang="es">El contenido puede ser un recurso, una fuente web (feed) o una colección de recursos y feeds (xml o json)</translation>
         <translation lang="fr">Le contenu peut être une ressource, un flux atom, ou une archive zip d'un ensemble de ressources et de flux atom (xml ou json)</translation>
-        <translation lang="ru">Контент может быть ресурсом, веб-каналом Atom или zip архивом ресурсов или атомов (xml или json)</translation>
+        <translation lang="ru">Контент может быть ресурсом, веб-каналом Atom или zip архивом ресурсов или атомов (xml или json)</translation> -->
     </item>
     <item id="MSG_CONTENT_PASTE">
         <translation lang="en">or just paste your xml or json here</translation>
@@ -1004,6 +1004,9 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="MSG_RESOURCE_ID_MISMATCH">
         <translation lang="en">Resource Id Mismatch</translation>
     </item>
+    <item id="MSG_RESOURCE_ID_MISSING">
+        <translation lang="en">Resource Id Missing</translation>
+    </item>
     <item id="MSG_RESOURCE_TYPE_MISMATCH">
         <translation lang="en">Resource Type Mismatch</translation>
         <translation lang="it">Tipo Risorsa non corrispondente</translation>
@@ -1154,14 +1157,14 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="ru">URL для указанной версии не распознан</translation>
     </item>
     <item id="MSG_WRONG_NS">
-        <translation lang="en">This does not appear to be a FHIR element, resource or atom feed (wrong namespace "%s")</translation>
-        <translation lang="it">Questa non sembra essere una risorsa FHIR o un atom feed (namespace errato: "%s")</translation>
+        <translation lang="en">This does not appear to be a FHIR element or resource (wrong namespace "%s")</translation>
+<!--        <translation lang="it">Questa non sembra essere una risorsa FHIR o un atom feed (namespace errato: "%s")</translation>
         <translation lang="nl">Dit lijkt geen FHIR resource of een atomfeed te zijn (verkeerde namespace "%s")</translation>
         <translation lang="zh">这貌似不是一个FHIR元素、资源、或原子feed(错误的命名空间: "%s")</translation>
         <translation lang="pl">Prawdopodobnie nie jest to element FHIR, zasób, ani treść w formacie atom (niepoprawna przestrzeń nazw "%s")</translation>
         <translation lang="es">Esto no parece ser un elemento FHIR, recurso o atom feed (namespace incorrecto "%s")</translation>
         <translation lang="fr">Cet élement ne semble pas être ni un élément FHIR, ni une ressource ni un flux atom (espace de noms "%s" incorrect)</translation>
-        <translation lang="ru">Вероятно не является элементом FHIR, ресурсом или веб-каналом Atom (неверное пространство имён "%s")</translation>
+        <translation lang="ru">Вероятно не является элементом FHIR, ресурсом или веб-каналом Atom (неверное пространство имён "%s")</translation> -->
     </item>
     <item id="NAME_BINARY">
         <translation lang="en">Binary Content</translation>

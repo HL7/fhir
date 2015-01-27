@@ -111,6 +111,7 @@ var
   e : TIdSoapXmlElement;
   l : string;
 begin
+  result := '';
   if GMessages = nil then
     LoadMessages;
   i := GMessages.indexof(id);

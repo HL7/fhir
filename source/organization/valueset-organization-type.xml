@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/organization-type"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="prov"/>
       <display value="Healthcare Provider"/>

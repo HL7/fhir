@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.Utilities;
@@ -27,6 +28,22 @@ public class ValueSetValidator {
         if (!s.startsWith("http://hl7.org"))
           System.out.println( "Value set "+nameForErrors+" ("+vs.getName()+"): A copyright statement should be present for any value set that includes non-HL7 sourced codes");
       }
+    }
+    if (vs.hasDefine()) {
+      Set<String> codes = new HashSet<String>();
+      if (!vs.getDefine().hasCaseSensitiveElement() || !vs.getDefine().getCaseSensitive())
+        throw new Exception("Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive");
+      checkCodeCaseDuplicates(nameForErrors, vs, codes, vs.getDefine().getConcept());
+    }
+  }
+
+  private void checkCodeCaseDuplicates(String nameForErrors, ValueSet vs, Set<String> codes, List<ConceptDefinitionComponent> concepts) throws Exception {
+    for (ConceptDefinitionComponent c : concepts) {
+      String cc = c.getCode().toLowerCase();
+      if (codes.contains(cc))
+        throw new Exception("Value set "+nameForErrors+" ("+vs.getName()+"): Code '"+cc+"' is defined twice, different by case - this is not allowed in a FHIR definition");
+      if (c.hasConcept())
+        checkCodeCaseDuplicates(nameForErrors, vs, codes, c.getConcept());
     }
   }
 

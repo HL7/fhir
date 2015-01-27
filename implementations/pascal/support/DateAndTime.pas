@@ -309,7 +309,7 @@ begin
       err := 'Second is not valid'
     else if (precision >= dtpNanoSeconds) and (FractionPrecision > 999999999) then
       err := 'Fraction is not valid'
-    else if (TimezoneType = dttzSpecified) and ((TzHour < -13) or (TzHour > 13)) then
+    else if (TimezoneType = dttzSpecified) and ((TzHour < -13) or (TzHour > 14)) then
       err := 'Timezone hours is not valid'
     else if (TimezoneType = dttzSpecified) and not ((TzMinute = 0) or (TzMinute = 15) or (TzMinute = 30) or (TzMinute = 45)) then
       err := 'Timezone minutes is not valid'
@@ -679,7 +679,7 @@ begin
     StringSplitRight(value, ['-', '+'], value, s);
     if length(s) <> 5 then
       raise Exception.create('Unable to parse date/time "'+value+'": timezone is illegal length - must be 5');
-    TzHour := vs(s, 1, 2, 0, 13, 'timezone hours');
+    TzHour := vs(s, 1, 2, 0, 14, 'timezone hours');
     TzMinute := vs(s, 4, 2, 0, 59, 'timezone minutes');
     TimezoneType := dttzSpecified;
     if neg then

@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+    <caseSensitive value="true"/>      
     <concept>
      <code value="due"/>
      <display value="due" />

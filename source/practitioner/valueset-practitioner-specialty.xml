@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/practitioner-specialty"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="cardio"/>
       <display value="Cardiologist"/>

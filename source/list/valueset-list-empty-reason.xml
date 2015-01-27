@@ -10,6 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/list-empty-reason"/>
+    <caseSensitive value="true"/>      
     <concept>
       <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-comments">
         <valueString value="Other language is sometimes used for this concept, such as 'no significant [x] known'.&#13;&#10;SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>

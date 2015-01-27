@@ -11,6 +11,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/vaccination-protocol-dose-target"/>
+    <caseSensitive value="true"/>      
     <concept>
       <code value="crs"/>
       <display value="Congenital Rubella Syndrome" />

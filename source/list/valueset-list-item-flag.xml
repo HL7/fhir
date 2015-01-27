@@ -24,6 +24,7 @@ and suitable for the circumstances of its use."/>
   <status value="draft"/>
   <define>
     <system value="urn:oid:1.2.36.1.2001.1001.101.104.16592"/>
+    <caseSensitive value="true"/>      
     
     <concept>
       <code value="01"/>

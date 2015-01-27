@@ -32,7 +32,7 @@ interface
 
 uses
   SysUtils, Classes,
-  StringSupport, GuidSupport, DateSupport, BytesSupport,
+  StringSupport, GuidSupport, DateSupport, BytesSupport, OidSupport,
   AdvObjects,
 
   IdSoapMime, TextUtilities, ZLib,
@@ -50,6 +50,7 @@ const
 
 function HumanNameAsText(name : TFhirHumanName):String;
 function GetEmailAddress(contacts : TFhirContactPointList):String;
+function ResourceTypeByName(name : String) : TFhirResourceType;
 
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhirResourceType): boolean;
@@ -61,7 +62,10 @@ Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirDomainResource) : String;
 function IsId(s : String) : boolean;
-function fullResourceUri(base: String; aType : TFhirResourceType; id : String) : String;
+function fullResourceUri(base: String; aType : TFhirResourceType; id : String) : String; overload;
+function fullResourceUri(base: String; ref : TFhirReference) : String; overload;
+function isHistoryURL(url : String) : boolean;
+procedure splitHistoryUrl(var url : String; var history : String);
 
 procedure listReferences(resource : TFhirResource; list : TFhirReferenceList);
 procedure listAttachments(resource : TFhirResource; list : TFhirAttachmentList);
@@ -225,7 +229,7 @@ type
     function getMatch(rel: String): string;
     procedure SetMatch(rel: String; const Value: string);
   public
-    procedure AddValue(rel, ref : String);
+    procedure AddRelRef(rel, ref : String);
     function AsHeader : String;
     property Matches[rel : String] : string read getMatch write SetMatch;
   end;
@@ -309,6 +313,16 @@ begin
 end;
 
 
+function ResourceTypeByName(name : String) : TFhirResourceType;
+var
+  index : Integer;
+begin
+  index := StringArrayIndexOfSensitive(CODES_TFhirResourceType, name);
+  if index < 1 then
+    raise Exception.Create('Unknown resource name "'+name+'"');
+  result := TFhirResourceType(index);
+end;
+
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 var
   iIndex : Integer;
@@ -381,20 +395,23 @@ begin
   try
     while iter.More do
     begin
+      if (iter.Current.list <> nil)  then
+      begin
       if StringStartsWith(iter.Current.Type_, 'Reference(') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
           if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
             list.add(iter.Current.list[i].Link)
       end
-      else if (iter.Current.list <> nil) and (iter.Current.Type_ = 'Resource') then
+        else if (iter.Current.Type_ = 'Resource') then
       begin
         for i := 0 to iter.Current.List.count - 1 do
           iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
       end
-      else if (iter.Current.list <> nil) and not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value')) then
+        else if not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value')) then
         for i := 0 to iter.Current.list.Count - 1 Do
           iterateReferences(path+'/'+iter.Current.Name, iter.Current.list[i], list);
+      end;
       iter.Next;
     end;
   finally
@@ -1649,7 +1666,7 @@ end;
 
 { TFhirBundleLinkListHelper }
 
-procedure TFhirBundleLinkListHelper.AddValue(rel, ref: String);
+procedure TFhirBundleLinkListHelper.AddRelRef(rel, ref: String);
 var
   link : TFhirBundleLink;
 begin
@@ -1681,12 +1698,51 @@ end;
 
 function fullResourceUri(base: String; aType : TFhirResourceType; id : String) : String;
 begin
-  if (base = 'urn:uuid:') or ( base = 'urn:oid:') then
+  if (base = 'urn:oid:') then
+  begin
+    if isOid(id) then
+      result := base+id
+    else
+      raise Exception.Create('The resource id "'+'" has a base of "urn:oid:" but is not a valid OID');
+  end
+  else if (base = 'urn:uuid:') then
+  begin
+    if isGuid(id) then
     result := base+id
   else
-    result := AppendForwardSlash(base) + CODES_TFhirResourceType[atype]+'/'+id;
+      raise Exception.Create('The resource id "'+id+'" has a base of "urn:uuid:" but is not a valid UUID');
+  end
+  else if not base.StartsWith('http://') and not base.StartsWith('https://')  then
+    raise Exception.Create('The resource base of "'+base+'" is not understood')
+  else
+    result := AppendForwardSlash(base)+CODES_TFhirResourceType[aType]+'/'+id;
 end;
 
+function fullResourceUri(base: String; ref : TFhirReference) : String; overload;
+var
+  url : String;
+begin
+  url := ref.reference;
+  if url = '' then
+    result := ''
+  else if url.StartsWith('urn:oid:') or url.StartsWith('urn:uuid:') or url.StartsWith('http://') or url.StartsWith('https://') then
+    result := url
+  else if not base.StartsWith('http://') and not base.StartsWith('https://')  then
+    raise Exception.Create('The resource base of "'+base+'" is not understood')
+  else
+    result := AppendForwardSlash(base)+url;
+end;
+
+function isHistoryURL(url : String) : boolean;
+begin
+  result := url.Contains('/_history/') and IsId(url.Substring(url.IndexOf('/_history/')+10));
+end;
+
+procedure splitHistoryUrl(var url : String; var history : String);
+begin
+  history := url.Substring(url.IndexOf('/_history/')+10);
+  url := url.Substring(0, url.IndexOf('/_history/'));
+end;
 { TFhirParametersHelper }
 
 function TFhirParametersHelper.GetNamedParameter(name: String): TFhirBase;

@@ -15,7 +15,8 @@
   <description value="This value set includes a smattering of FDI tooth surface codes."/>
   <status value="draft"/>
     <define>
-	<system value="urn:FDI:surface"/>
+	  <system value="urn:FDI:surface"/>
+    <caseSensitive value="true"/>  
 	<concept>
     <code value="M"/>
   </concept>  

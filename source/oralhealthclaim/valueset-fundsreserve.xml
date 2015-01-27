@@ -18,6 +18,7 @@
   <status value="draft"/>
     <define>
 	<system value="http://hl7.org/fhir/fundsreserve"/>
+    <caseSensitive value="true"/>    
 	<concept>
       <code value="patient"/>
     </concept>
