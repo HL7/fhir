@@ -10,7 +10,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/actcode"/>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
       <filter>
         <property value="concept" />
         <op value="is-a"/>
