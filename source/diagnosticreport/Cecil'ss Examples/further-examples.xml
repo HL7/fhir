@@ -3,7 +3,7 @@
   <entry>
     <title/>
     <id>27</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#27"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#27"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -165,7 +165,7 @@ Is a result with multiple organisms and sensitivities without separate OBX�s  
   <entry>
     <title/>
     <id>28</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#28"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#28"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -260,7 +260,7 @@ OBX5- SNOMED result
   <entry>
     <title/>
     <id>29</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#29"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#29"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -344,7 +344,7 @@ OBX3- test to be LOINC�d
   <entry>
     <title/>
     <id>30</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#30"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#30"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -505,7 +505,7 @@ OBX3 does not have the antibiotic to be LOINC�d but OBX5 has antibiotic and se
   <entry>
     <title/>
     <id>31</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#31"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#31"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -582,7 +582,7 @@ Comments-   OBR 24 populated
   <entry>
     <title/>
     <id>32</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#32"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#32"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -657,7 +657,7 @@ OBX|16|ST|TOB^TOBRAMYCIN^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3
   <entry>
     <title/>
     <id>33</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#33"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#33"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -739,7 +739,7 @@ OBX|8|ST|TOB^TOBRAMYCIN^^|3|2|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605
   <entry>
     <title/>
     <id>34</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#34"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#34"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -794,7 +794,7 @@ NTE|2|L|Giardia antigen detected.
   <entry>
     <title/>
     <id>35</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#35"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#35"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -853,7 +853,7 @@ NTE|7|L|is suspected.
   <entry>
     <title/>
     <id>36</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#36"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#36"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -909,7 +909,7 @@ NTE|3|L|**Verified by repeat analysis**
   <entry>
     <title/>
     <id>37</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#37"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#37"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -969,7 +969,7 @@ OBX|2|NM|21612-7^REPORTED PATIENT AGE^2.16.840.1.113883.6.1||20|d^Days^2.16.840.
   <entry>
     <title/>
     <id>38</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#38"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#38"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1022,7 +1022,7 @@ NTE|1|L|POSITIVE
   <entry>
     <title/>
     <id>39</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#39"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#39"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1075,7 +1075,7 @@ NTE|1|L|POSITIVE
   <entry>
     <title/>
     <id>40</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#40"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#40"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1129,7 +1129,7 @@ NTE|1|L|POSITIVE
   <entry>
     <title/>
     <id>41</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#41"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#41"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1189,7 +1189,7 @@ NTE|4|L|      endocervical specimens only.
   <entry>
     <title/>
     <id>42</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#42"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#42"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1244,7 +1244,7 @@ OBX|2|SN|11084-1^REAGIN AB^2.16.840.1.113883.6.1^006464^RPR, Quant.^L|1|^1^:^80|
   <entry>
     <title/>
     <id>43</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#43"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#43"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1303,7 +1303,7 @@ NTE|1|L|Negative
   <entry>
     <title/>
     <id>44</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#44"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#44"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1359,7 +1359,7 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
   <entry>
     <title/>
     <id>45</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#45"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#45"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1413,7 +1413,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
   <entry>
     <title/>
     <id>1</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#1"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#1"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1468,7 +1468,7 @@ NTE|2|L|Giardia antigen detected.
   <entry>
     <title/>
     <id>46</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#46"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#46"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1529,7 +1529,7 @@ NTE|4|L|                endocervical specimens only.
   <entry>
     <title/>
     <id>47</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#47"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#47"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1589,7 +1589,7 @@ NTE|1|L|POSITIVE
   <entry>
     <title/>
     <id>48</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#48"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#48"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1649,7 +1649,7 @@ NTE|1|L|Negative
   <entry>
     <title/>
     <id>49</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#49"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#49"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1705,7 +1705,7 @@ NTE|3|L|THIS IS A CORRECTED RESULT.
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1759,7 +1759,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1813,7 +1813,7 @@ NTE|1|L|NEGATIVE UPON RETEST:
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1868,7 +1868,7 @@ NTE|2|L|Giardia antigen detected.
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1929,7 +1929,7 @@ NTE|4|L|                endocervical specimens only.
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -1989,7 +1989,7 @@ NTE|1|L|POSITIVE
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2049,7 +2049,7 @@ NTE|1|L|Negative
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2107,7 +2107,7 @@ NTE|1|L|NEISSERIA MENINGITIDIS
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2163,7 +2163,7 @@ NTE|3|L|                                           Positive          >11
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2219,7 +2219,7 @@ NTE|3|L|    .
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>
@@ -2276,7 +2276,7 @@ FTS|1
   <entry>
     <title/>
     <id>50</id>
-    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <link rel="self" href="http://hl7.org/fhir/patient-examples.xml#50"/>
     <updated>2012-04-14T10:35:23</updated>
     <author>
       <name>FHIR Project Team</name>

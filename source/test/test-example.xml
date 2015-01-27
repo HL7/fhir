@@ -26,7 +26,7 @@
   <instantCorr value="2012-12-31T12:01:24Z"/> 
   <instantCorr value="2012-12-31T12:01:24-01:30"/>
   <uriCorr value="www.hl7.org/fhir"/>
-  <uriCorr value="http://www.hl7.org/fhir#somewhere"/>
+  <uriCorr value="http://hl7.org/fhir#somewhere"/>
   <uriCorr value="https://www.hl7.org/fhir:81"/>
   <uriCorr value="https://www.hl7.org/fhir:81?param=25"/>
   <uriCorr value="http://myUrl/%2E%2E/%2E%2E"/>

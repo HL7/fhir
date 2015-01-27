@@ -31,7 +31,7 @@
  
   <detail>
 	<type>
-	   <system value="http://www.hl7.org/fhir/paymenttype"/>
+	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
 	</type>
 	<request>
@@ -47,7 +47,7 @@
  
   <detail>
 	<type>
-	   <system value="http://www.hl7.org/fhir/paymenttype"/>
+	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="payment"/>
 	</type>
 	<request>
@@ -63,7 +63,7 @@
  
   <detail>
 	<type>
-	   <system value="http://www.hl7.org/fhir/paymenttype"/>
+	   <system value="http://hl7.org/fhir/paymenttype"/>
 	   <code value="advance"/>
 	</type>
 	<date value="2014-08-16"/>

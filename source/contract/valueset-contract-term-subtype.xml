@@ -17,7 +17,7 @@
   <description value="This value set includes sample Contract Term SubType codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://www.hl7.org/fhir/contracttermsubtypecodes"/>
+	<system value="http://hl7.org/fhir/contracttermsubtypecodes"/>
     <caseSensitive value="true"/>    
 	<concept>
       <code value="OralHealth-Basic"/>

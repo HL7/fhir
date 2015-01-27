@@ -54,7 +54,7 @@
   <uriErr value=".org.nl"/>
   <uriErr value="/what\is/this?"/>
   <uriCorr value="www.hl7.org/fhir"/>
-  <uriCorr value="http://www.hl7.org/fhir#somewhere"/>
+  <uriCorr value="http://hl7.org/fhir#somewhere"/>
   <uriCorr value="https://www.hl7.org/fhir:81"/>
   <uriCorr value="https://www.hl7.org/fhir:81?param=25"/>
   <uriCorr value="http://myUrl/%2E%2E/%2E%2E"/>

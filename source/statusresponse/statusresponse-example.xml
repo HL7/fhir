@@ -16,7 +16,7 @@
   </request>
   
   <outcome>
-    <system value="http://www.hl7.org/fhir/processoutcomecodes"/>
+    <system value="http://hl7.org/fhir/processoutcomecodes"/>
     <code value="complete"/>
   </outcome>
   

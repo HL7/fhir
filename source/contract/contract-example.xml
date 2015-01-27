@@ -13,14 +13,14 @@
 
    <type>
      <coding>
-	   <system value="http://www.hl7.org/fhir/contracttypecodes"/>
+	   <system value="http://hl7.org/fhir/contracttypecodes"/>
 	   <code value="disclosure"/>
 	 </coding>
   </type>
 
    <subtype>
      <coding>
-	   <system value="http://www.hl7.org/fhir/contractsubtypecodes"/>
+	   <system value="http://hl7.org/fhir/contractsubtypecodes"/>
 	   <code value="disclosure-US"/>
 	 </coding>
   </subtype>

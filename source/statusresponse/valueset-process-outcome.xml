@@ -17,7 +17,7 @@
   <description value="This value set includes sample Process Outcome codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://www.hl7.org/fhir/processoutcomecodes"/>
+	<system value="http://hl7.org/fhir/processoutcomecodes"/>
     <caseSensitive value="true"/>  
 	<concept>
       <code value="complete"/>

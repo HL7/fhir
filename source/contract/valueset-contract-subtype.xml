@@ -17,7 +17,7 @@
   <description value="This value set includes sample Contract Subtype codes."/>
   <status value="draft"/>
     <define>
-	<system value="http://www.hl7.org/fhir/contractsubtypecodes"/>
+	<system value="http://hl7.org/fhir/contractsubtypecodes"/>
     <caseSensitive value="true"/>    
 	<concept>
       <code value="disclosure-CA"/>

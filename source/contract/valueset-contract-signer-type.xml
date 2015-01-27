@@ -34,7 +34,7 @@ This value set is from ASTM E1762-05
     
 <define>
 	
-<system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+<system value="http://hl7.org/fhir/contractsignertypecodes"/>
     <caseSensitive value="true"/>  
 	
 <concept>
