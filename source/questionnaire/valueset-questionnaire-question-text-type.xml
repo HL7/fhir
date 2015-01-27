@@ -10,7 +10,7 @@
   <status value="draft"/>
   <define>
     <system value="http://hl7.org/fhir/questionnaire-question-text-type"/>
-    <caseSensitive value="false"/>
+    <caseSensitive value="true"/>
     <concept>
       <code value="units"/>
       <display value="units"/>
