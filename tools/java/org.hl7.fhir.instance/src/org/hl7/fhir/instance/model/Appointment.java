@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -825,7 +825,7 @@ public class Appointment extends DomainResource {
      * @return The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).
      */
     public int getPriority() { 
-      return this.priority == null ? null : this.priority.getValue();
+      return this.priority == null ? 0 : this.priority.getValue();
     }
 
     /**

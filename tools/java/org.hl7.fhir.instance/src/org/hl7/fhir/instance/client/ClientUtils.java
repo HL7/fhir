@@ -122,7 +122,7 @@ public class ClientUtils {
 		HttpGet httpget = new HttpGet(resourceUri);
 		configureFhirRequest(httpget, feedFormat);
 		HttpResponse response = sendRequest(httpget, proxy);
-		return unmarshalFeed(response, feedFormat);
+		return unmarshalReference(response, feedFormat);
 	}
 	
 	public static Bundle postBatchRequest(URI resourceUri, byte[] payload, String feedFormat, HttpHost proxy) {
@@ -137,7 +137,7 @@ public class ClientUtils {
 		HttpResponse response = sendRequest(deleteRequest, proxy);
 		int responseStatusCode = response.getStatusLine().getStatusCode();
 		boolean deletionSuccessful = false;
-		if(responseStatusCode == HttpStatus.SC_NO_CONTENT) {
+		if(responseStatusCode == 204) {
 			deletionSuccessful = true;
 		}
 		return deletionSuccessful;
@@ -176,8 +176,7 @@ public class ClientUtils {
 			response = sendRequest(request, proxy);
 		}
 		T resource = unmarshalReference(response, resourceFormat);
-		T atomEntry = buildAtomEntry(response, resource);
-		return new ResourceRequest<T>(atomEntry, response.getStatusLine().getStatusCode());
+		return new ResourceRequest<T>(resource, response.getStatusLine().getStatusCode(), ClientUtils.getLocationHeader(response));
 	}
 	
 	
@@ -303,7 +302,6 @@ public class ClientUtils {
 		try {
 			if (entity != null) {
 			    instream = entity.getContent();
-//			    String myString = IOUtils.toString(instream, "UTF-8");
 			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader()) || contentType.contains("text/xml+fhir")) {
 			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parse(instream);
 			    } else {
@@ -336,15 +334,14 @@ public class ClientUtils {
 	  return false;
   }
 
-	protected static <T extends Resource> T buildAtomEntry(HttpResponse response, T resource) {
+	protected static String getLocationHeader(HttpResponse response) {
 		String location = null;
 		if(response.getHeaders("location").length > 0) {//TODO Distinguish between both cases if necessary
     		location = response.getHeaders("location")[0].getValue();
     	} else if(response.getHeaders("content-location").length > 0) {
     		location = response.getHeaders("content-location")[0].getValue();
     	}
-		//entry.setCategory(resource.getClass().getSimpleName());
-		return resource;
+		return location;
 	}
 	
 	

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -191,7 +191,7 @@ public class ClaimResponse extends DomainResource {
          * @return A service line number.
          */
         public int getSequenceLinkId() { 
-          return this.sequenceLinkId == null ? null : this.sequenceLinkId.getValue();
+          return this.sequenceLinkId == null ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
@@ -576,7 +576,7 @@ public class ClaimResponse extends DomainResource {
          * @return A service line number.
          */
         public int getSequenceLinkId() { 
-          return this.sequenceLinkId == null ? null : this.sequenceLinkId.getValue();
+          return this.sequenceLinkId == null ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
@@ -893,7 +893,7 @@ public class ClaimResponse extends DomainResource {
          * @return A service line number.
          */
         public int getSequenceLinkId() { 
-          return this.sequenceLinkId == null ? null : this.sequenceLinkId.getValue();
+          return this.sequenceLinkId == null ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
@@ -1953,7 +1953,7 @@ public class ClaimResponse extends DomainResource {
          * @return The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.
          */
         public int getSequenceLinkId() { 
-          return this.sequenceLinkId == null ? null : this.sequenceLinkId.getValue();
+          return this.sequenceLinkId == null ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**
@@ -2002,7 +2002,7 @@ public class ClaimResponse extends DomainResource {
          * @return The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
         public int getDetailSequenceLinkId() { 
-          return this.detailSequenceLinkId == null ? null : this.detailSequenceLinkId.getValue();
+          return this.detailSequenceLinkId == null ? 0 : this.detailSequenceLinkId.getValue();
         }
 
         /**
@@ -2051,7 +2051,7 @@ public class ClaimResponse extends DomainResource {
          * @return The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
         public int getSubdetailSequenceLinkId() { 
-          return this.subdetailSequenceLinkId == null ? null : this.subdetailSequenceLinkId.getValue();
+          return this.subdetailSequenceLinkId == null ? 0 : this.subdetailSequenceLinkId.getValue();
         }
 
         /**
@@ -2179,7 +2179,7 @@ public class ClaimResponse extends DomainResource {
          * @return An integer associated with each note which may be referred to from each service line item.
          */
         public int getNumber() { 
-          return this.number == null ? null : this.number.getValue();
+          return this.number == null ? 0 : this.number.getValue();
         }
 
         /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -10280,7 +10280,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("whenPrepared"))
       res.setWhenPrepared(parsePeriod(json.getAsJsonObject("whenPrepared")));
     if (json.has("whenHandedOver"))
-      res.setWhenHandedOver(parsePeriod(json.getAsJsonObject("whenHandedOver")));
+      res.setWhenHandedOverElement(parseDateTime(json.get("whenHandedOver").getAsString()));
+    if (json.has("_whenHandedOver"))
+      parseElementProperties(json.getAsJsonObject("_whenHandedOver"), res.getWhenHandedOverElement());
     if (json.has("destination"))
       res.setDestination(parseReference(json.getAsJsonObject("destination")));
     if (json.has("receiver")) {
@@ -24614,8 +24616,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasWhenPrepared()) {
         composePeriod("whenPrepared", element.getWhenPrepared());
       }
-      if (element.hasWhenHandedOver()) {
-        composePeriod("whenHandedOver", element.getWhenHandedOver());
+      if (element.hasWhenHandedOverElement()) {
+        composeDateTimeCore("whenHandedOver", element.getWhenHandedOverElement(), false);
+        composeDateTimeExtras("whenHandedOver", element.getWhenHandedOverElement(), false);
       }
       if (element.hasDestination()) {
         composeReference("destination", element.getDestination());

@@ -448,10 +448,10 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 	 * @throws IllegalArgumentException
 	 */
 	public void setValue(Date theValue, TemporalPrecisionEnum thePrecision) throws IllegalArgumentException {
-		myPrecision = thePrecision;
 		if (myTimeZoneZulu == false && myTimeZone == null) {
 			myTimeZone = TimeZone.getDefault();
 		}
+		myPrecision = thePrecision;
 		super.setValue(theValue);
 	}
 

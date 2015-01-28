@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -9009,7 +9009,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("whenPrepared")) {
         res.setWhenPrepared(parsePeriod(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("whenHandedOver")) {
-        res.setWhenHandedOver(parsePeriod(xpp));
+        res.setWhenHandedOverElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("destination")) {
         res.setDestination(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("receiver")) {
@@ -20303,8 +20303,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasWhenPrepared()) {
         composePeriod("whenPrepared", element.getWhenPrepared());
       }
-      if (element.hasWhenHandedOver()) {
-        composePeriod("whenHandedOver", element.getWhenHandedOver());
+      if (element.hasWhenHandedOverElement()) {
+        composeDateTime("whenHandedOver", element.getWhenHandedOverElement());
       }
       if (element.hasDestination()) {
         composeReference("destination", element.getDestination());

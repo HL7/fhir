@@ -39,8 +39,8 @@ package org.hl7.fhir.instance.client;
  */
 public enum ResourceFormat {
 	
-    RESOURCE_XML("application/fhir+xml"),
-    RESOURCE_JSON("application/fhir+json");
+  RESOURCE_XML("application/xml+fhir"),
+  RESOURCE_JSON("application/json+fhir");
 
 	
 	private String header;

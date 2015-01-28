@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -457,7 +457,7 @@ public class Timing extends Type {
          * @return Indicates how often the event should occur.
          */
         public int getFrequency() { 
-          return this.frequency == null ? null : this.frequency.getValue();
+          return this.frequency == null ? 0 : this.frequency.getValue();
         }
 
         /**
@@ -645,7 +645,7 @@ public class Timing extends Type {
          * @return A total count of the desired number of repetitions.
          */
         public int getCount() { 
-          return this.count == null ? null : this.count.getValue();
+          return this.count == null ? 0 : this.count.getValue();
         }
 
         /**

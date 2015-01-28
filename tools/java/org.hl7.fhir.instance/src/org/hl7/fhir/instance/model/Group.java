@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -648,7 +648,7 @@ public class Group extends DomainResource {
      * @return A count of the number of resource instances that are part of the group.
      */
     public int getQuantity() { 
-      return this.quantity == null ? null : this.quantity.getValue();
+      return this.quantity == null ? 0 : this.quantity.getValue();
     }
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -309,9 +309,9 @@ public class Supply extends DomainResource {
         /**
          * The time the dispensed item was sent or handed to the patient (or agent).
          */
-        @Child(name="whenHandedOver", type={Period.class}, order=8, min=0, max=1)
+        @Child(name="whenHandedOver", type={DateTimeType.class}, order=8, min=0, max=1)
         @Description(shortDefinition="Handover time", formalDefinition="The time the dispensed item was sent or handed to the patient (or agent)." )
-        protected Period whenHandedOver;
+        protected DateTimeType whenHandedOver;
 
         /**
          * Identification of the facility/location where the Supply was shipped to, as part of the dispense event.
@@ -337,7 +337,7 @@ public class Supply extends DomainResource {
         protected List<Practitioner> receiverTarget;
 
 
-        private static final long serialVersionUID = 1089359939L;
+        private static final long serialVersionUID = -1941592649L;
 
       public SupplyDispenseComponent() {
         super();
@@ -572,15 +572,19 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @return {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).)
+         * @return {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public Period getWhenHandedOver() { 
+        public DateTimeType getWhenHandedOverElement() { 
           if (this.whenHandedOver == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyDispenseComponent.whenHandedOver");
             else if (Configuration.doAutoCreate())
-              this.whenHandedOver = new Period(); // cc
+              this.whenHandedOver = new DateTimeType(); // bb
           return this.whenHandedOver;
+        }
+
+        public boolean hasWhenHandedOverElement() { 
+          return this.whenHandedOver != null && !this.whenHandedOver.isEmpty();
         }
 
         public boolean hasWhenHandedOver() { 
@@ -588,10 +592,31 @@ public class Supply extends DomainResource {
         }
 
         /**
-         * @param value {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).)
+         * @param value {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
          */
-        public SupplyDispenseComponent setWhenHandedOver(Period value) { 
+        public SupplyDispenseComponent setWhenHandedOverElement(DateTimeType value) { 
           this.whenHandedOver = value;
+          return this;
+        }
+
+        /**
+         * @return The time the dispensed item was sent or handed to the patient (or agent).
+         */
+        public Date getWhenHandedOver() { 
+          return this.whenHandedOver == null ? null : this.whenHandedOver.getValue();
+        }
+
+        /**
+         * @param value The time the dispensed item was sent or handed to the patient (or agent).
+         */
+        public SupplyDispenseComponent setWhenHandedOver(Date value) { 
+          if (value == null)
+            this.whenHandedOver = null;
+          else {
+            if (this.whenHandedOver == null)
+              this.whenHandedOver = new DateTimeType();
+            this.whenHandedOver.setValue(value);
+          }
           return this;
         }
 
@@ -699,7 +724,7 @@ public class Supply extends DomainResource {
           childrenList.add(new Property("suppliedItem", "Reference(Medication|Substance|Device)", "Identifies the medication or substance or device being dispensed. This is either a link to a resource representing the details of the item or a simple attribute carrying a code that identifies the item from a known list.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
           childrenList.add(new Property("supplier", "Reference(Practitioner)", "The individual responsible for dispensing the medication, supplier or device.", 0, java.lang.Integer.MAX_VALUE, supplier));
           childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
-          childrenList.add(new Property("whenHandedOver", "Period", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
+          childrenList.add(new Property("whenHandedOver", "dateTime", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
           childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
         }

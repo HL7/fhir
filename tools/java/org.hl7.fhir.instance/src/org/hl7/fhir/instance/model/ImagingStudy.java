@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1596,7 +1596,7 @@ public class ImagingStudy extends DomainResource {
          * @return The Numeric identifier of this series in the study.
          */
         public int getNumber() { 
-          return this.number == null ? null : this.number.getValue();
+          return this.number == null ? 0 : this.number.getValue();
         }
 
         /**
@@ -1784,7 +1784,7 @@ public class ImagingStudy extends DomainResource {
          * @return Sequence that contains attributes from the.
          */
         public int getNumberOfInstances() { 
-          return this.numberOfInstances == null ? null : this.numberOfInstances.getValue();
+          return this.numberOfInstances == null ? 0 : this.numberOfInstances.getValue();
         }
 
         /**
@@ -2141,7 +2141,7 @@ public class ImagingStudy extends DomainResource {
          * @return The number of this image in the series.
          */
         public int getNumber() { 
-          return this.number == null ? null : this.number.getValue();
+          return this.number == null ? 0 : this.number.getValue();
         }
 
         /**
@@ -3090,7 +3090,7 @@ public class ImagingStudy extends DomainResource {
      * @return Number of Series in Study.
      */
     public int getNumberOfSeries() { 
-      return this.numberOfSeries == null ? null : this.numberOfSeries.getValue();
+      return this.numberOfSeries == null ? 0 : this.numberOfSeries.getValue();
     }
 
     /**
@@ -3135,7 +3135,7 @@ public class ImagingStudy extends DomainResource {
      * @return Number of SOP Instances in Study.
      */
     public int getNumberOfInstances() { 
-      return this.numberOfInstances == null ? null : this.numberOfInstances.getValue();
+      return this.numberOfInstances == null ? 0 : this.numberOfInstances.getValue();
     }
 
     /**

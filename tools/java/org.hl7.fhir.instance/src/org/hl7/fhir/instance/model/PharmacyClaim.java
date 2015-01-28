@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -439,7 +439,7 @@ public class PharmacyClaim extends DomainResource {
          * @return Sequence of diagnosis.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -611,7 +611,7 @@ public class PharmacyClaim extends DomainResource {
          * @return A service line item.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -1112,7 +1112,7 @@ public class PharmacyClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -1815,7 +1815,7 @@ public class PharmacyClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -2253,7 +2253,7 @@ public class PharmacyClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**

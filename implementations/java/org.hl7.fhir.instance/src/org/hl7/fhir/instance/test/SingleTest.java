@@ -30,8 +30,6 @@ package org.hl7.fhir.instance.test;
 
 import java.io.File;
 
-import org.hl7.fhir.instance.model.DateTimeType;
-
 public class SingleTest {
 
   /**
@@ -39,8 +37,6 @@ public class SingleTest {
    */
   public static void main(String[] args) {
     try {
-    	DateTimeType dt = new DateTimeType("2013-10-10T12:23+10:00");
-    	
       ResourceTest r = new ResourceTest();
 //      r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\document-example-dischargesummary.xml"));
       r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\source\\immunizationrecommendation\\immunizationrecommendation-example.xml"));

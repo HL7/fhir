@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -227,7 +227,7 @@ public class ImmunizationRecommendation extends DomainResource {
          * @return This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         public int getDoseNumber() { 
-          return this.doseNumber == null ? null : this.doseNumber.getValue();
+          return this.doseNumber == null ? 0 : this.doseNumber.getValue();
         }
 
         /**
@@ -651,7 +651,7 @@ public class ImmunizationRecommendation extends DomainResource {
          * @return Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         public int getDoseSequence() { 
-          return this.doseSequence == null ? null : this.doseSequence.getValue();
+          return this.doseSequence == null ? 0 : this.doseSequence.getValue();
         }
 
         /**

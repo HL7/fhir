@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -451,7 +451,7 @@ public class Coverage extends DomainResource {
      * @return A unique identifier for a dependent under the coverage.
      */
     public int getDependent() { 
-      return this.dependent == null ? null : this.dependent.getValue();
+      return this.dependent == null ? 0 : this.dependent.getValue();
     }
 
     /**
@@ -500,7 +500,7 @@ public class Coverage extends DomainResource {
      * @return An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
     public int getSequence() { 
-      return this.sequence == null ? null : this.sequence.getValue();
+      return this.sequence == null ? 0 : this.sequence.getValue();
     }
 
     /**

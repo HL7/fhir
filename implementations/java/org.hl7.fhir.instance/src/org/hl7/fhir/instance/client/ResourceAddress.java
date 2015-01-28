@@ -57,7 +57,7 @@ import org.hl7.fhir.instance.model.ResourceType;
  */
 public class ResourceAddress {
 	
-	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/)([a-zA-Z]*)(/)(\\d+)(/_history/)(\\d+)$";
+	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/)([a-zA-Z0-9]*)(/)(\\d+)(/_history/)(\\d+)$";
 	
 	private URI baseServiceUri;
 	

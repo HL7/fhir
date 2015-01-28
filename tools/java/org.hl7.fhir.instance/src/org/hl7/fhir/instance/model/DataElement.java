@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1889,7 +1889,7 @@ public class DataElement extends DomainResource {
      * @return Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
     public int getMaxLength() { 
-      return this.maxLength == null ? null : this.maxLength.getValue();
+      return this.maxLength == null ? 0 : this.maxLength.getValue();
     }
 
     /**

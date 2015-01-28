@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class Readjudicate extends DomainResource {
          * @return A service line number.
          */
         public int getSequenceLinkId() { 
-          return this.sequenceLinkId == null ? null : this.sequenceLinkId.getValue();
+          return this.sequenceLinkId == null ? 0 : this.sequenceLinkId.getValue();
         }
 
         /**

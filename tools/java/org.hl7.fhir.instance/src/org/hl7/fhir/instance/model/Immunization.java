@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -463,7 +463,7 @@ public class Immunization extends DomainResource {
          * @return Nominal position in a series.
          */
         public int getDoseSequence() { 
-          return this.doseSequence == null ? null : this.doseSequence.getValue();
+          return this.doseSequence == null ? 0 : this.doseSequence.getValue();
         }
 
         /**
@@ -650,7 +650,7 @@ public class Immunization extends DomainResource {
          * @return The recommended number of doses to achieve immunity.
          */
         public int getSeriesDoses() { 
-          return this.seriesDoses == null ? null : this.seriesDoses.getValue();
+          return this.seriesDoses == null ? 0 : this.seriesDoses.getValue();
         }
 
         /**

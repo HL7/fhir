@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -580,7 +580,7 @@ public class Media extends DomainResource {
      * @return Height of the image in pixels(photo/video).
      */
     public int getHeight() { 
-      return this.height == null ? null : this.height.getValue();
+      return this.height == null ? 0 : this.height.getValue();
     }
 
     /**
@@ -629,7 +629,7 @@ public class Media extends DomainResource {
      * @return Width of the image in pixels (photo/video).
      */
     public int getWidth() { 
-      return this.width == null ? null : this.width.getValue();
+      return this.width == null ? 0 : this.width.getValue();
     }
 
     /**
@@ -678,7 +678,7 @@ public class Media extends DomainResource {
      * @return The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
     public int getFrames() { 
-      return this.frames == null ? null : this.frames.getValue();
+      return this.frames == null ? 0 : this.frames.getValue();
     }
 
     /**
@@ -727,7 +727,7 @@ public class Media extends DomainResource {
      * @return The duration of the recording in seconds - for audio and video.
      */
     public int getDuration() { 
-      return this.duration == null ? null : this.duration.getValue();
+      return this.duration == null ? 0 : this.duration.getValue();
     }
 
     /**

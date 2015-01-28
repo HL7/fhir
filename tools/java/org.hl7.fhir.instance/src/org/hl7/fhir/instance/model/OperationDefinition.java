@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -474,7 +474,7 @@ public class OperationDefinition extends DomainResource {
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
         public int getMin() { 
-          return this.min == null ? null : this.min.getValue();
+          return this.min == null ? 0 : this.min.getValue();
         }
 
         /**
@@ -883,7 +883,7 @@ public class OperationDefinition extends DomainResource {
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
         public int getMin() { 
-          return this.min == null ? null : this.min.getValue();
+          return this.min == null ? 0 : this.min.getValue();
         }
 
         /**

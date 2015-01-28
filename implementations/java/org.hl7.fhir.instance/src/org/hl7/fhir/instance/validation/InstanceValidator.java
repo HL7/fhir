@@ -258,7 +258,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String sfx = "";
       WrapperElement n = child.getNextSibling();
       if (n != null && n.getName().equals(child.getName())) { 
-        sfx = "["+Integer.toString(lastCount)+"]";
+        sfx = "["+Integer.toString(lastCount+1)+"]";
       }
       return basePath+"/f:"+name()+sfx;
     }
@@ -303,17 +303,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  }
     if (ok) {
       rule(errors, "invalid", path + "/f:"+element.getName(), (element.getNamedChild("id") != null) || (!(contained || requiresResourceId)), "Resource has no id");
-      start(errors, element, profile);
+      start(errors, path, element, profile);
   }
   }
 
   // we assume that the following things are true: 
   // the instance at root is valid against the schema and schematron
   // the instance validator had no issues against the base resource profile
-  private void start(List<ValidationMessage> errors, WrapperElement element, Profile profile) throws Exception {
+  private void start(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile) throws Exception {
     // profile is valid, and matches the resource name 
     if (rule(errors, "structure", element.getName(), profile.hasSnapshot(), "Profile has no snapshort - validation is against the snapshot, so it must be provided")) {
-      validateElement(errors, profile, null, "/f:"+element.getName(), profile.getSnapshot().getElement().get(0), null, null, element, element.getName());
+      validateElement(errors, profile, null, path+"/f:"+element.getName(), profile.getSnapshot().getElement().get(0), null, null, element, element.getName());
       
       // specific known special validations 
 //      if (element.getName().equals("Query"))
@@ -656,10 +656,27 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         warning(errors, "invalid", path, e.getAttribute("value").trim().equals(e.getAttribute("value")), "value should not start or finish with whitespace");
       }
     }
+    if (type.equals("dateTime")) {
+      rule(errors, "invalid", path, e.getAttribute("value").matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"), "Not a valid date time");
+      rule(errors, "invalid", path, !hasTime(e.getAttribute("value")) || hasTimeZone(e.getAttribute("value")), "if a date has a time, it must have a timezone");
+      
+    }
+    if (type.equals("instant")) {
+      rule(errors, "invalid", path, e.getAttribute("value").matches("-?[0-9]{4}-(0[1-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))"), "The instant '"+e.getAttribute("value")+"' is not valid (by regex)");
+      
+    }
 
     // for nothing to check    
   }
 
+  private boolean hasTimeZone(String fmt) {
+    return fmt.length() > 10 && (fmt.substring(10).contains("-") || fmt.substring(10).contains("-") || fmt.substring(10).contains("+") || fmt.substring(10).contains("Z"));
+  }
+  
+  private boolean hasTime(String fmt) {
+    return fmt.contains("T");
+  }
+  
   private void checkIdentifier(String path, WrapperElement element, ElementDefinition context) {
 
   }

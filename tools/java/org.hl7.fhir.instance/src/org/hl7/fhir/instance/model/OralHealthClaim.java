@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -439,7 +439,7 @@ public class OralHealthClaim extends DomainResource {
          * @return Sequence of diagnosis.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -611,7 +611,7 @@ public class OralHealthClaim extends DomainResource {
          * @return A service line item.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -1312,7 +1312,7 @@ public class OralHealthClaim extends DomainResource {
          * @return The estimated treatment duration in months.
          */
         public int getDurationMonths() { 
-          return this.durationMonths == null ? null : this.durationMonths.getValue();
+          return this.durationMonths == null ? 0 : this.durationMonths.getValue();
         }
 
         /**
@@ -1361,7 +1361,7 @@ public class OralHealthClaim extends DomainResource {
          * @return The anticipated number of payments.
          */
         public int getPaymentCount() { 
-          return this.paymentCount == null ? null : this.paymentCount.getValue();
+          return this.paymentCount == null ? 0 : this.paymentCount.getValue();
         }
 
         /**
@@ -1606,7 +1606,7 @@ public class OralHealthClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -2336,7 +2336,7 @@ public class OralHealthClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**
@@ -2774,7 +2774,7 @@ public class OralHealthClaim extends DomainResource {
          * @return A service line number.
          */
         public int getSequence() { 
-          return this.sequence == null ? null : this.sequence.getValue();
+          return this.sequence == null ? 0 : this.sequence.getValue();
         }
 
         /**

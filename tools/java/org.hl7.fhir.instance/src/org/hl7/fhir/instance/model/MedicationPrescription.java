@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -756,7 +756,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
 UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
          */
         public int getNumberOfRepeatsAllowed() { 
-          return this.numberOfRepeatsAllowed == null ? null : this.numberOfRepeatsAllowed.getValue();
+          return this.numberOfRepeatsAllowed == null ? 0 : this.numberOfRepeatsAllowed.getValue();
         }
 
         /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -539,7 +539,7 @@ public class VisionPrescription extends DomainResource {
          * @return Adjustment for astigmatism measured in integer degrees.
          */
         public int getAxis() { 
-          return this.axis == null ? null : this.axis.getValue();
+          return this.axis == null ? 0 : this.axis.getValue();
         }
 
         /**

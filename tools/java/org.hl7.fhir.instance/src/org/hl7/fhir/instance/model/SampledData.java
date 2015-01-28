@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 23, 2014 16:09+1100 for FHIR v0.4.0
+// Generated on Wed, Jan 28, 2015 09:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -355,7 +355,7 @@ public class SampledData extends Type {
      * @return The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
     public int getDimensions() { 
-      return this.dimensions == null ? null : this.dimensions.getValue();
+      return this.dimensions == null ? 0 : this.dimensions.getValue();
     }
 
     /**
