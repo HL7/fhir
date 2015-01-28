@@ -298,7 +298,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     int eventType = nextNoWhitespace(xpp);
     if (eventType == XmlPullParser.START_TAG) { 
       DomainResource dr = (DomainResource) parseResource(xpp);
-      next(xpp);
+      nextNoWhitespace(xpp);
       next(xpp);
       return dr;
     } else {
@@ -311,7 +311,7 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
     int eventType = nextNoWhitespace(xpp);
     if (eventType == XmlPullParser.START_TAG) { 
       Resource r = (Resource) parseResource(xpp);
-      next(xpp);
+      nextNoWhitespace(xpp);
       next(xpp);
       return r;
     } else {

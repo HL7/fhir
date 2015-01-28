@@ -38,8 +38,8 @@ public class SingleTest {
   public static void main(String[] args) {
     try {
       ResourceTest r = new ResourceTest();
-//      r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\publish\\document-example-dischargesummary.xml"));
-      r.setSource(new File("C:\\work\\org.hl7.fhir\\build\\source\\immunizationrecommendation\\immunizationrecommendation-example.xml"));
+      r.setSource(new File("C:\\temp\\bundle-pretty.xml"));
+      r.setSource(new File("C:\\temp\\bundle-ugly.xml"));
       r.test();
       System.out.println("Completed OK");
     } catch (Exception e) {
