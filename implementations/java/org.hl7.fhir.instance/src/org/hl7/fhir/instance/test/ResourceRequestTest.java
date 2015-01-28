@@ -13,7 +13,7 @@ public class ResourceRequestTest {
 
 	@Test
 	public void testGetHttpStatus() {
-		ResourceRequest resourceRequest = new ResourceRequest(null, 201, 201);
+		ResourceRequest resourceRequest = new ResourceRequest(null, 201, 201, null);
 		assertTrue(resourceRequest.isSuccessfulRequest());
 		assertFalse(resourceRequest.isUnsuccessfulRequest());
 		
@@ -28,9 +28,9 @@ public class ResourceRequestTest {
 		List<Integer> successfulStatuses = new ArrayList<Integer>();
 		successfulStatuses.add(200);
 		successfulStatuses.add(201);
-		ResourceRequest resourceRequest1 = new ResourceRequest(null, 201, successfulStatuses, errorStatuses);
-		ResourceRequest resourceRequest2 = new ResourceRequest(null, 500, successfulStatuses, errorStatuses);
-		ResourceRequest resourceRequest3 = new ResourceRequest(null, 503, successfulStatuses, errorStatuses);
+		ResourceRequest resourceRequest1 = new ResourceRequest(null, 201, successfulStatuses, errorStatuses, null);
+		ResourceRequest resourceRequest2 = new ResourceRequest(null, 500, successfulStatuses, errorStatuses, null);
+		ResourceRequest resourceRequest3 = new ResourceRequest(null, 503, successfulStatuses, errorStatuses, null);
 		assertTrue(resourceRequest1.isSuccessfulRequest());
 		assertFalse(resourceRequest1.isUnsuccessfulRequest());
 		assertFalse(resourceRequest2.isSuccessfulRequest());
