@@ -4372,17 +4372,22 @@ public class Publisher implements URIResolver {
           n = n[0].split("\\.");
           if (n.length != 2)
             throw new Exception("Error processing v3 map value for "+cd.getName()+"."+c.getCode()+" '"+m+"' - format should be CodeSystem.code (comment) - the comment bit is optional");
-          tbls.add(n[0].substring(1));
-          map.setCodeSystem("http://hl7.org/fhir/v3/" + n[0].substring(1));
-          map.setCode(n[1]);
+          String codesystem = n[0].substring(1);
           if (n[0].charAt(0) == '=')
             map.setEquivalence(ConceptEquivalence.EQUAL);
-          if (n[0].charAt(0) == '~')
+          else if (n[0].charAt(0) == '~')
             map.setEquivalence(ConceptEquivalence.EQUIVALENT);
-          if (n[0].charAt(0) == '>')
+          else if (n[0].charAt(0) == '>')
             map.setEquivalence(ConceptEquivalence.NARROWER);
-          if (n[0].charAt(0) == '<')
+          else if (n[0].charAt(0) == '<')
             map.setEquivalence(ConceptEquivalence.WIDER);
+          else {
+            map.setEquivalence(ConceptEquivalence.EQUAL);
+            codesystem = n[0];
+          }
+          tbls.add(codesystem);
+          map.setCodeSystem("http://hl7.org/fhir/v3/" + codesystem);
+          map.setCode(n[1]);
         }
       }
     }
