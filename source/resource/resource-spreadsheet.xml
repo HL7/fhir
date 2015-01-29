@@ -1127,7 +1127,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">It is up to the server and/or other infrastruture of policy to determine whether/how these claims are verified and/or updated over tiem</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over tiem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
