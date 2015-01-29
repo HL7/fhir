@@ -25,36 +25,34 @@ todo: compartments
 			</page>
 			<page title="Coming Challenges" filename="change.html"/>
 			<page title="EHR FM map" filename="ehr-fm.html"/>
-			<page type="resource" resource="Encounter">
-				<!--    <page title="Resource Definitions" filename="resource.html"> -->
-				<page title="Definitions" filename="resource-definitions.html"/>
-				<page title="Element Definition" filename="elementdefinition.html">
-					<page title="Element Definition Examples" filename="elementdefinition-examples.html"/>
-					<page title="Element Definition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
-					<page title="Element Definition Mappings" filename="elementdefinition-mappings.html"/>
-				</page>
-				<page title="Conformance" filename="conformance-rules.html"/>
-				<page title="Tags, Bundles, Compartments" filename="extras.html">
-					<page title="Examples" filename="extras-examples.html"/>
-					<page title="Definitions" filename="extras-definitions.html"/>
-					<page title="Patient Compartment" filename="compartment-patient.html"/>
-				</page>
-				<page title="References" filename="references.html">
-					<page title="Definitions" filename="references-definitions.html"/>
-				</page>
-				<page title="Narrative" filename="narrative.html">
-					<page title="Narrative Example" filename="narrative-example.html"/>
-					<page title="Definitions" filename="narrative-definitions.html"/>
-				</page>
-				<page title="Formats" filename="formats.html">
-					<page title="XML" filename="xml.html"/>
-					<page title="JSON" filename="json.html"/>
-				</page>
-				<page title="Extensibility" filename="extensibility.html">
-					<page title="Examples" filename="extensibility-examples.html"/>
-					<page title="Definitions" filename="extensibility-definitions.html"/>
-				</page>
-			</page>
+      <page title="Resource Definitions" filename="resource.html"/> 
+      <page title="Definitions" filename="resource-definitions.html"/>
+      <page title="Element Definition" filename="elementdefinition.html">
+        <page title="Element Definition Examples" filename="elementdefinition-examples.html"/>
+        <page title="Element Definition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
+        <page title="Element Definition Mappings" filename="elementdefinition-mappings.html"/>
+      </page>
+      <page title="Conformance" filename="conformance-rules.html"/>
+      <page title="Tags, Bundles, Compartments" filename="extras.html">
+        <page title="Examples" filename="extras-examples.html"/>
+        <page title="Definitions" filename="extras-definitions.html"/>
+        <page title="Patient Compartment" filename="compartment-patient.html"/>
+      </page>
+      <page title="References" filename="references.html">
+        <page title="Definitions" filename="references-definitions.html"/>
+      </page>
+      <page title="Narrative" filename="narrative.html">
+        <page title="Narrative Example" filename="narrative-example.html"/>
+        <page title="Definitions" filename="narrative-definitions.html"/>
+      </page>
+      <page title="Formats" filename="formats.html">
+        <page title="XML" filename="xml.html"/>
+        <page title="JSON" filename="json.html"/>
+      </page>
+      <page title="Extensibility" filename="extensibility.html">
+        <page title="Examples" filename="extensibility-examples.html"/>
+        <page title="Definitions" filename="extensibility-definitions.html"/>
+      </page>
 			<page title="Data Types" filename="datatypes.html">
 				<page title="Examples" filename="datatypes-examples.html"/>
 				<page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
