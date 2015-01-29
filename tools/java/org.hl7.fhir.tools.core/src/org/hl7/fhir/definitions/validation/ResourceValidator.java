@@ -109,9 +109,20 @@ public class ResourceValidator extends BaseValidator {
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
     rule(errors, "structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
-    checkElement(errors, structure.getName(), structure, null, null, true);
+    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure));
     
   }
+  
+  private boolean hasSummary(ElementDefn structure) {
+    if (structure.isSummaryItem())
+      return true;
+    for (ElementDefn e : structure.getElements()) {
+      if (hasSummary(e))
+        return true;
+    }
+    return false;
+  }
+
   public List<ValidationMessage> checkStucture(String name, ElementDefn structure) {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     checkStucture(errors, name, structure);
@@ -134,7 +145,7 @@ public class ResourceValidator extends BaseValidator {
     String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
-    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"));
+    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(parent.getRoot()));
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = parent.getRoot().getElementByName("identifier");
@@ -226,7 +237,7 @@ public class ResourceValidator extends BaseValidator {
   
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping) {
+	private void checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary) {
 //	  for (TypeRef t : e.getTypes()) {
 //  	  if (!typeCounter.containsKey(t.getName()))
 //	      typeCounter.put(t.getName(), 1);
@@ -236,6 +247,11 @@ public class ResourceValidator extends BaseValidator {
 	  
 	  rule(errors, "structure", path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, "structure", path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
+		if (hasSummary && e.getMinCardinality() == 0) {
+      rule(errors, "structure", path, optionalParent || e.isSummaryItem(),  "An element with a minimum cardinality = 1 must be in the summary");
+      optionalParent = false;
+		}
+		hasSummary = hasSummary && e.isSummaryItem();
 		hint(errors, "structure", path, !nameOverlaps(e.getName(), parentName), "Name of child ("+e.getName()+") overlaps with name of parent ("+parentName+")");
     checkDefinitions(errors, path, e);
     warning(errors, "structure", path, !Utilities.isPlural(e.getName()) || !e.unbounded(), "Element names should be singular");
@@ -330,7 +346,7 @@ public class ResourceValidator extends BaseValidator {
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     
 		for (ElementDefn c : e.getElements()) {
-			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping);
+			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary);
 		}
 
 	}
