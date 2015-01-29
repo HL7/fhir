@@ -179,7 +179,7 @@ expanding a value set:
  <li>for each <i>compose.import</i>, find the referenced value set, expand that, and add it to the result set</li>
  <li>for each <i>compose.include</i>, identify the correct version of the code system, and then:
   <ul>
-   <li>if there is no codes or filters, add every code in the code system to the result set</li>
+   <li>if there are no codes or filters, add every code in the code system to the result set</li>
    <li>if codes are listed, add them to the result set</li>
    <li>if any filters are present, process them in order (as explained above), and add the intersection of their results to the result set</li>
   </ul>
