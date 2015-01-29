@@ -2345,7 +2345,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (vs.getDescription().contains("Connectathon")) n = "IHE";
       if (vs.getDescription().contains("IHE")) n = "IHE";
       if (vs.getDefine().getSystem().startsWith("http://") && !(vs.getDefine().getSystem().startsWith("http://hl7.org"))) n = "External";
-      if (vs.getDefine().getSystem().equals("http://nema.org/dicom/dcid")) n = "DICOM";
+      if (vs.getDefine().getSystem().equals("http://nema.org/dicom/dicm")) n = "DICOM";
       
       b.append(", "+n);
     }
@@ -2356,7 +2356,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         if (uri != null) {
           if ("http://snomed.info/sct".equals(uri)) n = "SNOMED CT"; 
           if ("http://loinc.org".equals(uri)) n = "LOINC";
-          if ("http://nema.org/dicom/dcid".equals(uri)) n = "DICOM";
+          if ("http://nema.org/dicom/dicm".equals(uri)) n = "DICOM";
           if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";
           if ("http://hl7.org/fhir/restful-interaction".equals(uri)) n = "FHIR";
           if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";

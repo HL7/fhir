@@ -11,7 +11,7 @@
   </patient>
   <title>
     <coding>
-	  <system value="http://nema.org/dicom/dcid"/>
+	  <system value="http://nema.org/dicom/dicm"/>
 	  <code value="113030"/>
 	  <display value="Manifest"/>
 	</coding>

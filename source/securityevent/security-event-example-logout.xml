@@ -4,14 +4,14 @@
   <event>
     <type>
       <coding>
-        <system value="http://nema.org/dicom/dcid"/>
+        <system value="http://nema.org/dicom/dicm"/>
         <code value="110114"/>
         <display value="User Authentication"/>
       </coding>
     </type>
     <subtype>
       <coding>
-        <system value="http://nema.org/dicom/dcid"/>
+        <system value="http://nema.org/dicom/dicm"/>
         <code value="110123"/>
         <display value="Logout"/>
       </coding>

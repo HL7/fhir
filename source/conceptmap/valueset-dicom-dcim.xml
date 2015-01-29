@@ -8370,7 +8370,7 @@
     </table>    
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/vs/dcid"/>
+  <identifier value="http://nema.org/dicom/vs/dicm"/>
   <version value="01"/>
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>
@@ -8379,7 +8379,7 @@
   <status value="active"/>
   <date value="2010-08-26"/>
   <define>
-    <system value="http://nema.org/dicom/dcid"/>
+    <system value="http://nema.org/dicom/dicm"/>
     <caseSensitive value="true"/>
 
     <concept>

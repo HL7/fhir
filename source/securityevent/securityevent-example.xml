@@ -8,14 +8,14 @@
   <event>
     <type>
       <coding>
-        <system value="http://nema.org/dicom/dcid"/>
+        <system value="http://nema.org/dicom/dicm"/>
         <code value="110100"/>
         <display value="Application Activity"/>
       </coding>
     </type>
     <subtype>
       <coding>
-        <system value="http://nema.org/dicom/dcid"/>
+        <system value="http://nema.org/dicom/dicm"/>
         <code value="110120"/>
         <display value="Application Start"/>
       </coding>

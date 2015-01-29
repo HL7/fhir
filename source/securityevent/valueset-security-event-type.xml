@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
-  <identifier value="http://nema.org/dicom/dcid/400"/>
+  <identifier value="http://nema.org/dicom/dicm/400"/>
   <version value="20100826"/>
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>
@@ -20,7 +20,7 @@
   </define>
   <compose>
     <include>
-      <system value="http://nema.org/dicom/dcid"/>
+      <system value="http://nema.org/dicom/dicm"/>
       <concept>
         <code value="110100"/>
       </concept>

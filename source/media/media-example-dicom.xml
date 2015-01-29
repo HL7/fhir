@@ -22,7 +22,7 @@
 
   <subtype>
     <coding>
-      <system value="http://nema.org/dicom/dcid"/>
+      <system value="http://nema.org/dicom/dicm"/>
       <code value="US"/>
     </coding>
   </subtype>

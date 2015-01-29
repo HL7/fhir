@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dcid/405"/>
+  <identifier value="http://nema.org/dicom/dicm/405"/>
   <version value="20100826"/>
   <name value="Media Type Code"/>
   <publisher value="NEMA/DICOM"/>
@@ -17,7 +17,7 @@
   <date value="2010-08-26"/>
   <compose>
     <include>
-      <system value="http://nema.org/dicom/dcid"/>
+      <system value="http://nema.org/dicom/dicm"/>
       <concept>
         <code value="110030"/>
       </concept>
