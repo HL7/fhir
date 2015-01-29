@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-The Extension Definition resource provides a forml definition of an extension used 
+The Extension Definition resource provides a formal definition of an extension used 
 in a FHIR resource, that can used as the basis for validation, and code, report and UI generation. 
 </p>
 </div> 
