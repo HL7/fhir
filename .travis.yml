@@ -4,6 +4,7 @@ langauge: java
 jdk:
   - oraclejdk7
 script: ./build.sh
+sudo: false
 notifications:
   email:
     - fhir-svn-travis@dilute.net
