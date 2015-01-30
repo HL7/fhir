@@ -91,6 +91,7 @@ import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -130,14 +131,16 @@ public class SourceParser {
 	private WorkerContext context; 
 	private Calendar genDate;
   private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
+  private ProfileKnowledgeProvider pkp;
 
-	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, ExtensionDefinition> extensionDefinitions) {
+	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, WorkerContext context, Calendar genDate, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp) {
 		this.logger = logger;
 		this.registry = new BindingNameRegistry(root, forPublication);
 		this.definitions = definitions;
 		this.version = version;
 		this.context = context;
 		this.genDate = genDate;
+		this.pkp = pkp;
 
 		char sl = File.separatorChar;
 		srcDir = root + sl + "source" + sl;
@@ -358,8 +361,7 @@ public class SourceParser {
       ArrayList<String> codes = new ArrayList<String>();
       for (int i = 1; i <= 80; i++) {
         String s = sheet.getColumn(row, "c"+Integer.toString(i));
-        if (!Utilities.noString(s))
-          codes.add(s);
+        codes.add(s);
       }
       definitions.getStatusCodes().put(path, codes); 
     }    
@@ -418,7 +420,7 @@ public class SourceParser {
 	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
+	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
 	    try {
 	      ConformancePackage pack = new ConformancePackage();
 	      pack.setTitle(n);
@@ -465,7 +467,7 @@ public class SourceParser {
 
   private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
+      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
@@ -568,7 +570,7 @@ public class SourceParser {
 		  TypeRef t = ts.get(0);
 		  File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
 		  if (csv.exists()) {
-		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions);
+		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
 		    org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
 		    map.put(t.getName(), el);
 		    el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -613,7 +615,7 @@ public class SourceParser {
 		File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
 		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(
-				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions);
+				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, pkp);
 		ResourceDefn root;
 		try {
 		  root = sparser.parseResource();

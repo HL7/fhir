@@ -3188,15 +3188,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
-        "procedure TFHIRXmlComposer.ComposeResourceMetaElement(xml: TXmlBuilder; meta: TFhirResourceMeta);\r\n"+
-            "begin\r\n"+
-            "  if (meta = nil) Then\r\n"+
-            "    Raise Exception.Create('error - meta is nil');\r\n"+
-            "  ComposeResourceMeta(xml, 'meta', meta);\r\n"+
-            "end;\r\n\r\n"
-        );
-
-    prsrImpl.append(
         "function TFHIRJsonParser.ParseResource(jsn : TJsonObject) : TFhirResource;\r\n"+
             "var\r\n" +
             "  s : String;\r\n" +
@@ -3260,14 +3251,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "end;\r\n\r\n"
         );
 
-    prsrImpl.append(
-        "procedure TFHIRJsonComposer.ComposeResourceMetaElement(json: TJSONWriter; meta: TFhirResourceMeta);\r\n"+
-            "begin\r\n"+
-            "  json.value('resourceType', 'meta');\r\n"+
-            "  ComposeResourceMeta(json, '', meta, true);\r\n"+
-            "end;\r\n\r\n"
-        );
-
     return
         "  TFHIRXmlParser = class (TFHIRXmlParserBase)\r\n"+
         "  protected\r\n"+
@@ -3281,7 +3264,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         srlsdefX.toString()+
         "    procedure ComposeResource(xml : TXmlBuilder; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
-        "    procedure ComposeResourceMetaElement(xml : TXmlBuilder; meta : TFhirResourceMeta); override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+
@@ -3295,7 +3277,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         srlsdefJ.toString()+
         "    procedure ComposeResource(json : TJSONWriter; resource : TFhirResource; links : TFhirBundleLinkList); override;\r\n"+
-        "    procedure ComposeResourceMetaElement(json : TJSONWriter; meta : TFhirResourceMeta); override;\r\n"+
         "  end;\r\n\r\n";
   }
 

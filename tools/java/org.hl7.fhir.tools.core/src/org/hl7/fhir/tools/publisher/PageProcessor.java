@@ -677,6 +677,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else if (others != null && others.containsKey(com[0]))  
         src = s1 + others.get(com[0]) + s3; 
+      else if (com[0].equals("status-codes"))
+        src = s1 + genStatusCodes() + s3;        
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -1722,13 +1724,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String genProfileConstraints(Profile res) throws Exception {
     StringBuilder b = new StringBuilder();
-    String tla = getAbbreviationFor(res);
     for (ElementDefinition e : res.getSnapshot().getElement()) {      
       for (ElementDefinitionConstraintComponent inv : e.getConstraint()) {
         if (!e.getPath().contains("."))
-          b.append("<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getKey())+inv.getKey()+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+          b.append("<li><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
         else
-          b.append("<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getKey())+inv.getKey()+"</b>: On "+e.getPath()+": "+Utilities.escapeXml(inv.getHuman())+" (xpath on "+presentPath(e.getPath())+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+          b.append("<li><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b>: On "+e.getPath()+": "+Utilities.escapeXml(inv.getHuman())+" (xpath on "+presentPath(e.getPath())+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
       }
     }    
     if (b.length() > 0)
@@ -1737,22 +1738,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
   }
   
-  private String tlaPrefix(String tla, String key) {
-    if (Utilities.IsInteger(key))
-      return tla+"-";
-    else
-      return "";
-  }
-
   private String genExtensionConstraints(ExtensionDefinition ed) throws Exception {
     StringBuilder b = new StringBuilder();
-    String tla = getAbbreviationFor(ed);
     for (ElementDefinition e : ed.getElement()) {      
       for (ElementDefinitionConstraintComponent inv : e.getConstraint()) {
         if (!e.getPath().contains("."))
-          b.append("<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getKey())+inv.getKey()+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+          b.append("<li><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
         else
-          b.append("<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getKey())+inv.getKey()+"</b>: On "+e.getPath()+": "+Utilities.escapeXml(inv.getHuman())+" (xpath on "+presentPath(e.getPath())+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+          b.append("<li><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b>: On "+e.getPath()+": "+Utilities.escapeXml(inv.getHuman())+" (xpath on "+presentPath(e.getPath())+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
       }
     }    
     if (b.length() > 0)
@@ -1769,17 +1762,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   
   private String genResourceConstraints(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
-    String tla = getAbbreviationFor(res.getName());
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(res.getName(), e, invs, true, tla);
-    List<Integer> ids = new ArrayList<Integer>();
+    generateConstraints(res.getName(), e, invs, true);
+    List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
-      ids.add(Integer.parseInt(n));
+      ids.add(n);
     }
     Collections.sort(ids);
     StringBuilder b = new StringBuilder();
-    for (Integer n : ids) {
-      b.append(invs.get(n.toString()));
+    for (String n : ids) {
+      b.append(invs.get(n));
     }
     if (b.length() > 0)
       return "<h3>Constraints</h3><ul>"+b+"</ul>";
@@ -1803,18 +1795,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String genConstraints(String name) throws Exception {
-    String tla = getAbbreviationFor(name);
     ElementDefn e = definitions.getElementDefn(name);
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(name, e, invs, true, tla);
-    List<Integer> ids = new ArrayList<Integer>();
+    generateConstraints(name, e, invs, true);
+    List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
-      ids.add(Integer.parseInt(n));
+      ids.add(n);
     }
     Collections.sort(ids);
     StringBuilder b = new StringBuilder();
-    for (Integer n : ids) {
-      b.append(invs.get(n.toString()));
+    for (String n : ids) {
+      b.append(invs.get(n));
     }
     if (b.length() > 0)
       return "<ul>"+b+"</ul>";
@@ -1822,15 +1813,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "";
   }
 
-  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base, String tla) {  
+  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base) {  
     for (Invariant inv : e.getInvariants().values()) {
       if (base)
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getId())+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
       else
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+tlaPrefix(tla, inv.getId())+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
+        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (xpath on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getXpath())+"</span>)</li>");
     }
     for (ElementDefn c : e.getElements()) {
-      generateConstraints(path+"."+c.getName(), c, invs, false, tla);
+      generateConstraints(path+"."+c.getName(), c, invs, false);
     }    
   }
 
@@ -3180,6 +3171,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + allParamlist() + s3;      
       else if (com[0].equals("resourcecount"))
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
+      else if (com[0].equals("status-codes"))
+        src = s1 + genStatusCodes() + s3;        
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -4403,7 +4396,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (txlist.isEmpty())
       return "";
     else {
-      String tla = getAbbreviationFor(profile);
       StringBuilder b = new StringBuilder();
       b.append("<h2>Constraints</h2>\r\n");       
       b.append("<table class=\"list\">\r\n");
@@ -4411,7 +4403,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (String path : txlist)  {
         List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
         for (ElementDefinitionConstraintComponent inv : invs) {
-          b.append("<tr><td>"+tlaPrefix(tla, inv.getId())+inv.getKey()+"</td><td>"+path+"</td><td>"+Utilities.escapeXml(inv.getName())+"</td><td>"+Utilities.escapeXml(inv.getHuman())+"<br/>XPath: "+Utilities.escapeXml(inv.getXpath())+"</td></tr>\r\n");
+          b.append("<tr><td>"+inv.getKey()+"</td><td>"+path+"</td><td>"+Utilities.escapeXml(inv.getName())+"</td><td>"+Utilities.escapeXml(inv.getHuman())+"<br/>XPath: "+Utilities.escapeXml(inv.getXpath())+"</td></tr>\r\n");
         }
       }
       b.append("</table>\r\n");
@@ -4789,6 +4781,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   @Override
+  public boolean isResource(String type) {
+    return definitions.hasResource(type);
+  }
+
+  @Override
   public boolean hasLinkFor(String type) {
     return isDatatype(type) || definitions.hasResource(type) || definitions.getBaseResources().containsKey(type);
   }
@@ -5116,19 +5113,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  @Override
-  public String getAbbreviationFor(Resource resource) {
-    return getAbbreviationFor(resource.getId());
-  }
-
-  public String getAbbreviationFor(String id) {
-    id = id.toLowerCase();
-    if (definitions.getTLAs().containsKey(id))
-      return definitions.getTLAs().get(id);
-    else
-      return "inv";
-  }
-
   private String genW5(boolean types) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table border=\"1\">\r\n<tr>\r\n");
@@ -5195,5 +5179,39 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return typeCode.substring(0, typeCode.length()-1).substring(10);
     else
       return typeCode;
+  }
+  
+  private String genStatusCodes() {
+    StringBuilder b = new StringBuilder();
+    b.append("<table border=\"1\">\r\n");
+    int colcount = 0;
+    for (ArrayList<String> row: definitions.getStatusCodes().values()) {
+      if (row.size() > colcount)
+        colcount = row.size();
+    }
+    b.append("<tr>");
+    b.append("<td>Path</td>");
+    for (int i = 0; i < colcount; i++) 
+      b.append("<td>c"+Integer.toString(i+1)+"</td>");
+    b.append("</tr>\r\n");
+
+    List<String> names = new ArrayList<String>();
+    for (String n : definitions.getStatusCodes().keySet()) 
+       names.add(n);
+    Collections.sort(names);
+    
+    for (String n : names) {
+      b.append("<tr>");
+      b.append("<td>"+n+"</td>");
+      ArrayList<String> row = definitions.getStatusCodes().get(n);
+      for (int i = 0; i < colcount; i++) 
+        b.append("<td>"+(i < row.size() ? row.get(i) : "")+"</td>");
+      b.append("</tr>\r\n");
+      
+    }
+    
+    b.append("</table>\r\n");
+    
+    return b.toString();
   }
 }

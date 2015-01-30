@@ -71,7 +71,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	private Definitions definitions;
 	private ProfileUtilities utilities;
 	private PageProcessor page;
-	private String tla;
 	
 	public DictHTMLGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
 	  super(out, "UTF-8");
@@ -83,7 +82,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	public void generate(Profile profile) throws Exception {
 	  int i = 1;
 	  write("<table class=\"dict\">\r\n");
-	  tla = page.getAbbreviationFor(profile);
 
 	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
 	    if (isProfiledExtension(ec)) {
@@ -114,7 +112,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   public void generate(ExtensionDefinition ed) throws Exception {
-    tla = page.getAbbreviationFor(ed);
     int i = 1;
     write("<p><a name=\"i"+Integer.toString(i)+"\"><b>"+ed.getName()+"</b></a></p>\r\n");
     write("<table class=\"dict\">\r\n");
@@ -287,7 +284,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
           s.append("<br/>");
         else
           b = true;
-        s.append("<b title=\"Formal Invariant Identifier\">"+tla+"-"+id+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+        s.append("<b title=\"Formal Invariant Identifier\">"+id+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
       }
     }
     
@@ -335,7 +332,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     else {
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (IdType t : conditions)
-        b.append(tla+"-"+t.getValue());
+        b.append(t.getValue());
       return " This element is affected by the following invariants: "+b.toString();
     }
   }
@@ -351,7 +348,6 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   public void generate(ElementDefn root) throws Exception
 	{
-    tla = page.getAbbreviationFor(root.getName());
 		write("<table class=\"dict\">\r\n");
 		writeEntry(root.getName(), "1..1", "", "", root);
 		for (ElementDefn e : root.getElements()) {
@@ -443,16 +439,16 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  StringBuilder s = new StringBuilder();
 	  if (invariants.size() > 0) {
 	    s.append("<b>Defined on this element</b><br/>\r\n");
-	    List<Integer> ids = new ArrayList<Integer>();
+	    List<String> ids = new ArrayList<String>();
 	    for (String id : invariants.keySet())
-	      ids.add(Integer.parseInt(id));
+	      ids.add(id);
 	    Collections.sort(ids);
 	    boolean b = false;
-	    for (Integer i : ids) {
-	      Invariant inv = invariants.get(i.toString());
+	    for (String i : ids) {
+	      Invariant inv = invariants.get(i);
 	      if (b)
 	        s.append("<br/>");
-	      s.append("<b title=\"Formal Invariant Identifier\">"+tla+"-"+i.toString()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	      s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
 	      b = true;
 	    }
 	  }
@@ -464,7 +460,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       for (Invariant id : stated) {
         if (b)
           s.append("<br/>");
-        s.append("<b>"+tla+"-"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
+        s.append("<b>"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
         b = true;
       }
     }

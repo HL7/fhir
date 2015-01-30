@@ -8,9 +8,11 @@
   <type value="transaction"/>
   <base value="cid:123@healthintersections.com.au"/>
   <entry>
+    <transaction>
+      <operation value="create"/>
+    </transaction>
     <!-- although the resource has an id - which it might need so it can referred to 
       from within the transaction, the server is to treat it as a new resource -->
-    <status value="create"/>
     <resource>
       <DocumentReference>
         <id value="a1"/>
@@ -73,8 +75,10 @@
   <entry>
     <!-- if the server can find a matching resource, use that, else create a new 
       resource with these details -->
-    <status value="match"/>
-    <search value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
+    <transaction>
+      <operation value="create"/>
+      <match value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
+    </transaction> 
     <resource>  
       <Patient>
         <id value="a2"/>
@@ -102,7 +106,9 @@
     </resource>
   </entry>
   <entry>
-    <status value="create"/>
+    <transaction>
+      <operation value="create"/>
+    </transaction>
     <resource>  
       <Practitioner>
         <id value="a3"/>
@@ -145,7 +151,9 @@
     </resource>
   </entry>
   <entry>
-    <status value="create"/>
+    <transaction>
+      <operation value="create"/>
+    </transaction>
     <resource>  
       <Practitioner>
         <id value="a4"/>
@@ -189,7 +197,9 @@
     </resource>
   </entry>
   <entry>
-    <status value="update"/>
+    <transaction>
+      <operation value="create"/>
+    </transaction>
     <resource>  
       <Binary>
         <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>

@@ -1,4 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ import org.hl7.fhir.utilities.Utilities;
 public class SchematronGenerator  extends TextStreamWriter {
 			
 	private PageProcessor page;
-	private String tla;
 
   public SchematronGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
     super(out);
@@ -29,42 +29,56 @@ public class SchematronGenerator  extends TextStreamWriter {
     ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
 //    ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\">");
     ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
-    ln("<sch:ns prefix=\"a\" uri=\"http://www.w3.org/2005/Atom\"/>");
     ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
+    insertGlobalRules();
     for (ResourceDefn root : definitions.getResources().values()) {
       ln_i("<sch:pattern>");
       ln("<sch:title>"+root.getName()+"</sch:title>");
-      tla = page.getAbbreviationFor(root.getName());
 
-
-      ArrayList<String> l = new ArrayList<String>();
-      generateResourceInvariants("/a:feed/a:entry/a:content", definitions);
-      generateInvariants("/a:feed/a:entry/a:content", root.getRoot(), definitions, l);
+      ArrayList<String> parents = new ArrayList<String>();
+      generateInvariants(null, root.getRoot(), definitions, parents, root.getName());
       ln_o("  </sch:pattern>");
     }
     ln_o("</sch:schema>");
     flush();
     close();
-
 	}
 
-	public void generate(ElementDefn root, Definitions definitions) throws Exception	{
-		ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-		ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
-		ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
-    ln("<sch:ns prefix=\"a\" uri=\"http://www.w3.org/2005/Atom\"/>");
+	private void insertGlobalRules() throws IOException {
+	  ln("  <sch:pattern>");
+	  ln("    <sch:title>Global</sch:title>");
+	  ln("    <sch:rule context=\"f:*\">");
+	  ln("      <sch:assert test=\"@value|f:*|h:div\">global-1: All FHIR elements must have a @value or children</sch:assert>");
+	  ln("    </sch:rule>");
+	  ln("  </sch:pattern>");
+	}
+
+  public void generate(ResourceDefn root, Definitions definitions) throws Exception {
+    ln("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\" queryBinding=\"xslt2\">");
+//    ln_i("<sch:schema xmlns:sch=\"http://purl.oclc.org/dsdl/schematron\">");
+    ln("<sch:ns prefix=\"f\" uri=\"http://hl7.org/fhir\"/>");
     ln("<sch:ns prefix=\"h\" uri=\"http://www.w3.org/1999/xhtml\"/>");
-		ln_i("<sch:pattern>");
-		ln("<sch:title>"+root.getName()+"</sch:title>");
+    ln("<!-- ");
+    ln("  This file contains just the constraints for the resource "+root.getName());
+    ln("  It is provided for documentation purposes. When actually validating,");
+    ln("  always use fhir-invariants.sch (because of the way containment works)");
+    ln("  Alternatively you can use this file to build a smaller version of");
+    ln("  fhir-invariants.sch (the contents are identical; only include those ");
+    ln("  resources relevant to your implementation).");
+    ln("-->");
+    insertGlobalRules();
+    ln_i("<sch:pattern>");
+    ln("<sch:title>"+root.getName()+"</sch:title>");
 
-		ArrayList<String> parents = new ArrayList<String>();
-    generateResourceInvariants("", definitions);
-    generateInvariants("", root, definitions, parents);
-		ln_o("</sch:pattern>");
-		ln_o("</sch:schema>");
-		flush();
-		close();
-	}
+    ArrayList<String> parents = new ArrayList<String>();
+    generateInvariants(null, root.getRoot(), definitions, parents, root.getName());
+    ln_o("  </sch:pattern>");
+    ln_o("</sch:schema>");
+    flush();
+    close();
+
+  }
 
 	private ElementDefn getType(TypeRef tr, Definitions definitions) throws Exception {
     String tn = tr.getName();
@@ -86,46 +100,22 @@ public class SchematronGenerator  extends TextStreamWriter {
 	      if (!Utilities.noString(cd.typeCode()) && l.contains(cd.typeCode())) {
 	        // well, we've recursed. What's going to happen now is that we're going to write this as // because we're going to keep recursing.
 	        // the next call will write this rule, and then terminate
-	        generateInvariants(path+"/", cd, definitions, l);
+	        generateInvariants(path+"/", cd, definitions, l, cd.getName());
 	      } else
-	        generateInvariants(path, cd, definitions, l);
+	        generateInvariants(path, cd, definitions, l, cd.getName());
 	    }
 	  }
 	}
 	
-  private void generateResourceInvariants(String path, Definitions definitions) throws Exception {
-    ElementDefn ed = definitions.getBaseResources().get("DomainResource").getRoot();
-    //logger.log("generate: "+path+" ("+parents.toString()+")");
-    String name = ed.getName();
-    if (name.contains("("))
-      name = name.substring(0, name.indexOf("("));
-    if (ed.getElements().size() > 0) {
-      path = path + "/f:"+name;
-      genInvs(path, ed);
-      genChildren(path, null, ed, definitions, new ArrayList<String>());
-    } else {
-      for (TypeRef tr : ed.typeCode().equals("*") ? allTypes() : ed.getTypes()) {
-        String en = name.replace("[x]", Utilities.capitalize(tr.summary()));
-        if (en.contains("("))
-          en = en.substring(0, en.indexOf("("));
-        String sPath = path + "/f:"+en;
-        genInvs(sPath, ed);
-        ElementDefn td = getType(tr, definitions);
-        if (td != null) {
-          genInvs(sPath, td);
-          genChildren(sPath, tr.summary(), td, definitions, new ArrayList<String>());
-        }
-      }
-    }
-  }
-
-	private void generateInvariants(String path, ElementDefn ed, Definitions definitions, List<String> parents) throws Exception {
+	private void generateInvariants(String path, ElementDefn ed, Definitions definitions, List<String> parents, String name) throws Exception {
+    if (definitions.getBaseResources().containsKey(ed.typeCode()))
+      generateInvariants(path, definitions.getBaseResources().get(ed.typeCode()).getRoot(), definitions, parents, name);
+        
 	  //logger.log("generate: "+path+" ("+parents.toString()+")");
-	  String name = ed.getName();
 	  if (name.contains("("))
 	    name = name.substring(0, name.indexOf("("));
     if (ed.getElements().size() > 0) {
-	    path = path + "/f:"+name;
+	    path = path == null ? "f:"+name : path + "/f:"+name;
 	    genInvs(path, ed);
 	    genChildren(path, null, ed, definitions, parents);
 	  } else {
@@ -133,7 +123,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	      String en = name.replace("[x]", Utilities.capitalize(tr.summary()));
 	      if (en.contains("("))
 	        en = en.substring(0, en.indexOf("("));
-	      String sPath = path + "/f:"+en;
+	      String sPath = path == null ? "f:"+en : path + "/f:"+en;
 	      genInvs(sPath, ed);
 	      ElementDefn td = getType(tr, definitions);
 	      if (td != null) {
@@ -161,7 +151,7 @@ public class SchematronGenerator  extends TextStreamWriter {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
 	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
 	          throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
-	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">"+tla+"-"+inv.getId()+": "+Utilities.escapeXml(inv.getEnglish())+"</sch:assert>");
+	        ln("<sch:assert test=\""+Utilities.escapeXml(inv.getXpath().replace("\"", "'"))+"\">"+inv.getId()+": "+Utilities.escapeXml(inv.getEnglish())+"</sch:assert>");
 	      }
 	    }
       ln_o("</sch:rule>");

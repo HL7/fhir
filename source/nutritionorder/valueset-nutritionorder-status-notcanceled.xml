@@ -63,11 +63,12 @@
 	<status value="draft"/>
 	<date value="2014-12-10T16:17:24.861-05:00"/>
 	<compose>
+    <import value="http://hl7.org/fhir/vs/nutrition-order-status"/>
 	  <exclude>	  
-	  <system value="http://hl7.org/fhir/nutrition-order-status"/>	  
-	  <concept>
-		<code value="cancelled"/>
-	  </concept>
-   </exclude>
+  	  <system value="http://hl7.org/fhir/nutrition-order-status"/>	  
+	    <concept>
+  		  <code value="cancelled"/>
+	    </concept>
+    </exclude>
   </compose>
 </ValueSet>

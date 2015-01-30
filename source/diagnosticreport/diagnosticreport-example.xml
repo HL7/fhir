@@ -46,10 +46,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>
     <Observation>
       <id value="r1"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -85,10 +81,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r2"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -124,10 +116,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r3"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -163,10 +151,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r4"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -208,10 +192,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r5"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -253,10 +233,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r6"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -292,10 +268,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r7"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -331,10 +303,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r8"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -356,10 +324,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r9"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -401,10 +365,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r10"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -426,10 +386,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
   <Observation>
     <id value="r11"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -471,10 +427,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r12"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -496,10 +448,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r13"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -535,10 +483,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r14"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -560,10 +504,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r15"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -605,10 +545,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r16"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>
@@ -630,10 +566,6 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <contained>  
     <Observation>
       <id value="r17"/>
-      <text>
-        <status value="empty"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Missing</div>
-      </text>
       <name>
         <coding>
           <system value="http://loinc.org"/>

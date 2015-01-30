@@ -116,7 +116,7 @@ public class ToolsHelper {
     	Profile base = utils.getProfile(profile, profile.getBase());
 			if (base == null)
 				throw new Exception("Unable to resolve profile "+profile.getBase());
-			utils.generateSnapshot(base, profile, address, profile.getName());
+			utils.generateSnapshot(base, profile, address, profile.getName(), null);
 			client.update(Profile.class, profile, parts[1]);
     } else {
     	throw new Exception("not done yet (address = "+address+")");

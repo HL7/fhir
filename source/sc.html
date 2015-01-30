@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle QA Report%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<div class="col-9">
+
+<h1>FHIR Status Codes Grid</h1>
+
+<p>
+This is an internal QA page. The intent of this table is to help 
+reviewers compare the usage of status codes across resources: 
+where the status code means the same thing, it should have the 
+same code. The columns have no formal definition; their intent 
+is to be inferred from the codes listed in the column.
+</p>
+
+<p>
+Note: this page is not proscriptive; it's descriptive and comparative,
+to help with review. The FHIR methodology says that if two domains
+use different terms for the same concept (e.g. 'withdrawn' and 'cancelled') 
+then the domain concept name should be used. On other hand, where there 
+is no explicit reason for the codes to differ based on domain usage, 
+they should not.
+</p>
+
+<%status-codes%>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+
+</html>

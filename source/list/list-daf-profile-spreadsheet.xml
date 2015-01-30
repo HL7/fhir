@@ -1110,7 +1110,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=DAFList!R1C1:R93C25"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="94" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="94" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s86" ss:Width="67.5"/>
@@ -1308,7 +1308,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-daf-dafpatient}|Reference(AllergyIntolerance){http://hl7.org/fhir/Profile/allergyintolerance-daf-dafallergyintolerance}|Reference(Condition){http://hl7.org/fhir/Profile/condition-daf-dafcondition}|Reference(Encounter){http://hl7.org/fhir/Profile/encounter-daf-dafencounter}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-vitalsigns-dafvitalsigns}|Reference(Procedure){http://hl7.org/fhir/Profile/procedure-daf-dafprocedure}|Reference(MedicationStatement){http://hl7.org/fhir/Profile/medicationstatement-daf-dafmedicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/Profile/medicationadministration-daf-dafmedicationadministration}|Reference(Immunization){http://hl7.org/fhir/Profile/immunization-daf-dafimmunization}|Reference(DiagnosticReport){http://hl7.org/fhir/Profile/diagnosticreport-daf-dafdiagnosticreport}|Reference(DiagnosticOrder){http://hl7.org/fhir/Profile/diagnosticorder-daf-dafdiagnosticorder}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-smokingstatus-dafsmokingstatus}</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Patient{http://hl7.org/fhir/Profile/patient-daf-dafpatient}|AllergyIntolerance{http://hl7.org/fhir/Profile/allergyintolerance-daf-dafallergyintolerance}|Condition{http://hl7.org/fhir/Profile/condition-daf-dafcondition}|Encounter{http://hl7.org/fhir/Profile/encounter-daf-dafencounter}|Observation{http://hl7.org/fhir/Profile/observation-daf-vitalsigns-dafvitalsigns}|Procedure{http://hl7.org/fhir/Profile/procedure-daf-dafprocedure}|MedicationStatement{http://hl7.org/fhir/Profile/medicationstatement-daf-dafmedicationstatement}|MedicationAdministration{http://hl7.org/fhir/Profile/medicationadministration-daf-dafmedicationadministration}|Immunization{http://hl7.org/fhir/Profile/immunization-daf-dafimmunization}|DiagnosticReport{http://hl7.org/fhir/Profile/diagnosticreport-daf-dafdiagnosticreport}|DiagnosticOrder{http://hl7.org/fhir/Profile/diagnosticorder-daf-dafdiagnosticorder}|Observation{http://hl7.org/fhir/Profile/observation-daf-smokingstatus-dafsmokingstatus}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1327,7 +1327,9 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">was what's to the left; can't be</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Reference(Patient){http://hl7.org/fhir/Profile/patient-daf-dafpatient}|Reference(AllergyIntolerance){http://hl7.org/fhir/Profile/allergyintolerance-daf-dafallergyintolerance}|Reference(Condition){http://hl7.org/fhir/Profile/condition-daf-dafcondition}|Reference(Encounter){http://hl7.org/fhir/Profile/encounter-daf-dafencounter}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-vitalsigns-dafvitalsigns}|Reference(Procedure){http://hl7.org/fhir/Profile/procedure-daf-dafprocedure}|Reference(MedicationStatement){http://hl7.org/fhir/Profile/medicationstatement-daf-dafmedicationstatement}|Reference(MedicationAdministration){http://hl7.org/fhir/Profile/medicationadministration-daf-dafmedicationadministration}|Reference(Immunization){http://hl7.org/fhir/Profile/immunization-daf-dafimmunization}|Reference(DiagnosticReport){http://hl7.org/fhir/Profile/diagnosticreport-daf-dafdiagnosticreport}|Reference(DiagnosticOrder){http://hl7.org/fhir/Profile/diagnosticorder-daf-dafdiagnosticorder}|Reference(Observation){http://hl7.org/fhir/Profile/observation-daf-smokingstatus-dafsmokingstatus}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3796,7 +3798,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3811,7 +3813,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

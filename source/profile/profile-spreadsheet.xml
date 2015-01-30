@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2580</WindowHeight>
+  <WindowHeight>2520</WindowHeight>
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
-  <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3858,7 +3858,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4120,9 +4119,9 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Profile.snapshot</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If a structure is a snapshot, then each element definition must have a formal definition, cardinalities, and a isModifier flag</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If a structure is a snapshot, then each element definition must have a formal definition, and cardinalities</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">exists(f:base) or (count(f:element) = count(f:element[exists(f:definition/f:formal) and exists(f:definition/f:min) and exists(f:definition/f:max) and exists(f:definition/f:isModifier)]))</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">exists(f:base) or (count(f:element) = count(f:element[exists(f:formal) and exists(f:min) and exists(f:max)]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4543,6 +4542,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4562,7 +4562,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

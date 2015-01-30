@@ -16,8 +16,8 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.MetaInformation;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.sentinel.taggers.profile.ProfileTagger;
 import org.hl7.fhir.utilities.IniFile;
@@ -205,8 +205,8 @@ public class SentinelWorker {
   }
 
 	private void process(Bundle feed, BundleEntryComponent e, Resource ae, IFHIRClient client) throws Exception {
-		ResourceMetaComponent added = new ResourceMetaComponent();
-		ResourceMetaComponent deleted = new ResourceMetaComponent();
+		MetaInformation added = new MetaInformation();
+		MetaInformation deleted = new MetaInformation();
 		for (Tagger t : taggers) 
 			t.process(e.hasBase() ? e.getBase() : feed.getBase(), ae, ae.getMeta(), added, deleted);
 		// todo-bundle

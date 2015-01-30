@@ -191,10 +191,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -227,10 +223,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -263,10 +255,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -299,10 +287,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -335,10 +319,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -371,10 +351,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -407,10 +383,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -443,10 +415,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -479,10 +447,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -521,10 +485,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -557,10 +517,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -593,10 +549,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -629,10 +581,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -665,10 +613,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -707,10 +651,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -743,10 +683,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -779,10 +715,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -815,10 +747,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -851,10 +779,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -887,10 +811,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -923,10 +843,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -959,10 +875,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -995,10 +907,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1037,10 +945,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1073,10 +977,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1109,10 +1009,6 @@
         <contained>
           <Observation>
             <id value="o26"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1260,10 +1156,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1296,10 +1188,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1332,10 +1220,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1368,10 +1252,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1404,10 +1284,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1440,10 +1316,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1476,10 +1348,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1518,10 +1386,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1554,10 +1418,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1596,10 +1456,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1632,10 +1488,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1668,10 +1520,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1710,10 +1558,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1752,10 +1596,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1794,10 +1634,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1836,10 +1672,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1872,10 +1704,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1908,10 +1736,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1944,10 +1768,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -1980,10 +1800,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2016,10 +1832,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2052,10 +1864,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2088,10 +1896,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2130,10 +1934,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2166,10 +1966,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2310,10 +2106,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2346,10 +2138,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2382,10 +2170,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2418,10 +2202,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2454,10 +2234,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2490,10 +2266,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2526,10 +2298,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2562,10 +2330,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2598,10 +2362,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2640,10 +2400,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2676,10 +2432,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2712,10 +2464,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2754,10 +2502,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2796,10 +2540,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2838,10 +2578,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2874,10 +2610,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2910,10 +2642,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2946,10 +2674,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -2982,10 +2706,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3018,10 +2738,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3054,10 +2770,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3090,10 +2802,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3126,10 +2834,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3168,10 +2872,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3204,10 +2904,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3349,10 +3045,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3385,10 +3077,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3421,10 +3109,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3457,10 +3141,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3493,10 +3173,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3529,10 +3205,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3565,10 +3237,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3601,10 +3269,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3637,10 +3301,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3679,10 +3339,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3715,10 +3371,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3751,10 +3403,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3793,10 +3441,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3835,10 +3479,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3871,10 +3511,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3907,10 +3543,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3943,10 +3575,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -3979,10 +3607,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4015,10 +3639,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4051,10 +3671,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4087,10 +3703,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4123,10 +3735,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4159,10 +3767,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4201,10 +3805,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4237,10 +3837,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4382,10 +3978,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4418,10 +4010,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4454,10 +4042,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4490,10 +4074,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4526,10 +4106,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4562,10 +4138,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4598,10 +4170,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4634,10 +4202,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4670,10 +4234,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4706,10 +4266,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4748,10 +4304,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4790,10 +4342,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4832,10 +4380,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4874,10 +4418,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4916,10 +4456,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4958,10 +4494,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -4994,10 +4526,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5030,10 +4558,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5066,10 +4590,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5102,10 +4622,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5138,10 +4654,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5174,10 +4686,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5210,10 +4718,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5252,10 +4756,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5393,10 +4893,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5429,10 +4925,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5465,10 +4957,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5501,10 +4989,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5537,10 +5021,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5573,10 +5053,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5609,10 +5085,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5645,10 +5117,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5681,10 +5149,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5723,10 +5187,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5765,10 +5225,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5807,10 +5263,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5849,10 +5301,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5891,10 +5339,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5933,10 +5377,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -5975,10 +5415,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6011,10 +5447,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6047,10 +5479,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6083,10 +5511,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6119,10 +5543,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6155,10 +5575,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6191,10 +5607,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6227,10 +5639,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6269,10 +5677,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6410,10 +5814,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6446,10 +5846,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6482,10 +5878,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6518,10 +5910,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6554,10 +5942,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6590,10 +5974,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6626,10 +6006,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6662,10 +6038,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6698,10 +6070,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6740,10 +6108,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6782,10 +6146,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6824,10 +6184,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6866,10 +6222,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6908,10 +6260,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6950,10 +6298,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -6986,10 +6330,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7022,10 +6362,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7058,10 +6394,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7094,10 +6426,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7130,10 +6458,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7166,10 +6490,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7202,10 +6522,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7244,10 +6560,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7286,10 +6598,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7427,10 +6735,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7463,10 +6767,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7499,10 +6799,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7535,10 +6831,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7571,10 +6863,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7607,10 +6895,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7643,10 +6927,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7679,10 +6959,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7715,10 +6991,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7757,10 +7029,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7793,10 +7061,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7829,10 +7093,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7865,10 +7125,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7901,10 +7157,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7943,10 +7195,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -7979,10 +7227,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8015,10 +7259,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8051,10 +7291,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8087,10 +7323,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8123,10 +7355,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8159,10 +7387,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8195,10 +7419,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8231,10 +7451,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8272,10 +7488,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8308,10 +7520,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8452,10 +7660,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8488,10 +7692,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8524,10 +7724,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8560,10 +7756,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8596,10 +7788,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8632,10 +7820,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8668,10 +7852,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8710,10 +7890,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8746,10 +7922,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8788,10 +7960,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8824,10 +7992,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8860,10 +8024,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8902,10 +8062,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8944,10 +8100,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -8986,10 +8138,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9028,10 +8176,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9064,10 +8208,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9100,10 +8240,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9136,10 +8272,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9172,10 +8304,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9208,10 +8336,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9244,10 +8368,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9280,10 +8400,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9322,10 +8438,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9358,10 +8470,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9502,10 +8610,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9538,10 +8642,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9574,10 +8674,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9610,10 +8706,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9646,10 +8738,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9682,10 +8770,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9718,10 +8802,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9754,10 +8834,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9790,10 +8866,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9832,10 +8904,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9868,10 +8936,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9904,10 +8968,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9946,10 +9006,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -9988,10 +9044,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10030,10 +9082,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10066,10 +9114,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10102,10 +9146,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10138,10 +9178,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10174,10 +9210,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10210,10 +9242,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10246,10 +9274,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10282,10 +9306,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10318,10 +9338,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10360,10 +9376,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10396,10 +9408,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10541,10 +9549,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10577,10 +9581,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10613,10 +9613,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10649,10 +9645,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10685,10 +9677,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10721,10 +9709,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10757,10 +9741,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10793,10 +9773,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10829,10 +9805,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10871,10 +9843,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10907,10 +9875,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10943,10 +9907,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -10985,10 +9945,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11027,10 +9983,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11063,10 +10015,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11099,10 +10047,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11135,10 +10079,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11171,10 +10111,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11207,10 +10143,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11243,10 +10175,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11279,10 +10207,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11315,10 +10239,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11351,10 +10271,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11393,10 +10309,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11429,10 +10341,6 @@
         <contained>
           <Observation>
             <id value="o25"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11574,10 +10482,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11610,10 +10514,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11646,10 +10546,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11682,10 +10578,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11718,10 +10610,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11754,10 +10642,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11790,10 +10674,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11826,10 +10706,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11862,10 +10738,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11898,10 +10770,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11940,10 +10808,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -11982,10 +10846,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12024,10 +10884,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12066,10 +10922,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12108,10 +10960,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12150,10 +10998,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12186,10 +11030,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12222,10 +11062,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12258,10 +11094,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12294,10 +11126,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12330,10 +11158,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12366,10 +11190,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12402,10 +11222,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12444,10 +11260,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12585,10 +11397,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12621,10 +11429,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12657,10 +11461,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12693,10 +11493,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12729,10 +11525,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12765,10 +11557,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12801,10 +11589,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12837,10 +11621,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12873,10 +11653,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12915,10 +11691,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12957,10 +11729,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -12999,10 +11767,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13041,10 +11805,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13083,10 +11843,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13125,10 +11881,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13167,10 +11919,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13203,10 +11951,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13239,10 +11983,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13275,10 +12015,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13311,10 +12047,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13347,10 +12079,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13383,10 +12111,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13419,10 +12143,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13461,10 +12181,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13602,10 +12318,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13638,10 +12350,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13674,10 +12382,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13710,10 +12414,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13746,10 +12446,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13782,10 +12478,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13818,10 +12510,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13854,10 +12542,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13890,10 +12574,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13932,10 +12612,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -13974,10 +12650,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14016,10 +12688,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14058,10 +12726,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14100,10 +12764,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14142,10 +12802,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14178,10 +12834,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14214,10 +12866,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14250,10 +12898,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14286,10 +12930,6 @@
         <contained>
           <Observation>
             <id value="o19"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14322,10 +12962,6 @@
         <contained>
           <Observation>
             <id value="o20"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14358,10 +12994,6 @@
         <contained>
           <Observation>
             <id value="o21"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14394,10 +13026,6 @@
         <contained>
           <Observation>
             <id value="o22"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14436,10 +13064,6 @@
         <contained>
           <Observation>
             <id value="o23"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14478,10 +13102,6 @@
         <contained>
           <Observation>
             <id value="o24"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14619,10 +13239,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14640,10 +13256,6 @@
         <contained>
           <Observation>
             <id value="o2"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -14662,10 +13274,6 @@
         <contained>
           <Observation>
             <id value="o3"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14690,10 +13298,6 @@
         <contained>
           <Observation>
             <id value="o4"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14718,10 +13322,6 @@
         <contained>
           <Observation>
             <id value="o5"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14747,10 +13347,6 @@
         <contained>
           <Observation>
             <id value="o6"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14776,10 +13372,6 @@
         <contained>
           <Observation>
             <id value="o7"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14805,10 +13397,6 @@
         <contained>
           <Observation>
             <id value="o8"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14834,10 +13422,6 @@
         <contained>
           <Observation>
             <id value="o9"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14863,10 +13447,6 @@
         <contained>
           <Observation>
             <id value="o10"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14892,10 +13472,6 @@
         <contained>
           <Observation>
             <id value="o11"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14921,10 +13497,6 @@
         <contained>
           <Observation>
             <id value="o12"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14950,10 +13522,6 @@
         <contained>
           <Observation>
             <id value="o13"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -14979,10 +13547,6 @@
         <contained>
           <Observation>
             <id value="o14"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -15008,10 +13572,6 @@
         <contained>
           <Observation>
             <id value="o15"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -15036,10 +13596,6 @@
         <contained>
           <Observation>
             <id value="o16"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -15065,10 +13621,6 @@
         <contained>
           <Observation>
             <id value="o17"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -15094,10 +13646,6 @@
         <contained>
           <Observation>
             <id value="o18"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="local"/>
@@ -15217,10 +13765,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>
@@ -15285,10 +13829,6 @@
         <contained>
           <Observation>
             <id value="o1"/>
-            <text>
-              <status value="empty"/>
-              <div xmlns="http://www.w3.org/1999/xhtml">To be removed</div>
-            </text>
             <name>
               <coding>
                 <system value="http://loinc.org"/>

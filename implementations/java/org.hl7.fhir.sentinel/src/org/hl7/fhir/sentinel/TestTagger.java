@@ -6,8 +6,8 @@ import java.util.Random;
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.MetaInformation;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 
 public class TestTagger implements Tagger {
 
@@ -18,7 +18,7 @@ public class TestTagger implements Tagger {
 	}
 
 	@Override
-	public void process(String base, Resource entry, ResourceMetaComponent current, ResourceMetaComponent added, ResourceMetaComponent deleted) throws Exception {
+	public void process(String base, Resource entry, MetaInformation current, MetaInformation added, MetaInformation deleted) throws Exception {
 		if (current.getTag().isEmpty()) {
 			Coding cat = new Coding(); // todo-bundle "http://hl7.org/fhir/tag", "http://hl7.org/fhir/tools/tag/test", "Test Tag");
 			added.getTag().add(cat);

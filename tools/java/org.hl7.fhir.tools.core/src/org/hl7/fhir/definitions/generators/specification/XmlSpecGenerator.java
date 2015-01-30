@@ -65,7 +65,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	private String dtRoot;
 	private Definitions definitions;
   private PageProcessor page;
-  private String tla;
 
 	public XmlSpecGenerator(OutputStream out, String defPage, String dtRoot, PageProcessor page) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
@@ -77,7 +76,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
 	public void generate(ElementDefn root, boolean isAbstract) throws Exception {
 		write("<pre class=\"spec\">\r\n");
-		tla = page.getAbbreviationFor(root.getName());
 
 		generateInner(root, true, isAbstract);
 
@@ -88,7 +86,6 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   public void generate(ExtensionDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
-    tla = page.getAbbreviationFor(ed);
 
     generateInner(ed);
 
@@ -988,7 +985,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			if (!first)
 				b.append("; ");
 			first = false;
-			b.append(tla+"-"+i.getId()+": "+i.getEnglish());
+			b.append(i.getId()+": "+i.getEnglish());
 		}
 
 		return b.toString();
@@ -1001,7 +998,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       if (!first)
         b.append("; ");
       first = false;
-      b.append(tla+"-"+i.getKey()+": "+i.getHuman());
+      b.append(i.getKey()+": "+i.getHuman());
     }
 
     return b.toString();

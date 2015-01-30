@@ -837,7 +837,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-              <code value="Contact"/>
+              <code value="ContactPoint"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -851,7 +851,7 @@
             <min value="0"/>
             <max value="1"/>
             <type>
-              <code value="CodeableConcept"/>
+              <code value="code"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -865,7 +865,7 @@
             <min value="0"/>
             <max value="1"/>
             <type>
-              <code value="dateTime"/>
+              <code value="date"/>
             </type>
             <isModifier value="false"/>
             <mapping>
@@ -986,7 +986,7 @@
             <min value="0"/>
             <max value="*"/>
             <type>
-              <code value="Contact"/>
+              <code value="ContactPoint"/>
             </type>
             <isModifier value="false"/>
             <mapping>

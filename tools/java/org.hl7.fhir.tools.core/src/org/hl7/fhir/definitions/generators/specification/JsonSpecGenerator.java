@@ -65,7 +65,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   private String dtRoot;
   private Definitions definitions;
   private PageProcessor page;
-  private String tla;
 
   public JsonSpecGenerator(OutputStream out, String defPage, String dtRoot,
       PageProcessor page) throws UnsupportedEncodingException {
@@ -78,7 +77,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   public void generate(ElementDefn root, boolean resource, boolean isAbstract) throws Exception {
     write("<pre class=\"spec\">\r\n");
-    tla = page.getAbbreviationFor(root.getName());
 
     generateInner(root, resource, isAbstract);
 
@@ -89,7 +87,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   public void generate(ExtensionDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
-    tla = page.getAbbreviationFor(ed);
 
     generateInner(ed);
 
@@ -682,7 +679,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (!first)
         b.append("; ");
       first = false;
-      b.append(tla+"-"+i.getId()+": "+i.getEnglish());
+      b.append(i.getId()+": "+i.getEnglish());
     }
 
     return b.toString();
@@ -695,7 +692,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (!first)
         b.append("; ");
       first = false;
-      b.append(tla+"-"+i.getKey()+": "+i.getHuman());
+      b.append(i.getKey()+": "+i.getHuman());
     }
 
     return b.toString();

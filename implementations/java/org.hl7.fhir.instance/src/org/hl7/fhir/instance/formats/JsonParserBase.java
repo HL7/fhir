@@ -41,7 +41,6 @@ import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -75,8 +74,6 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   abstract protected boolean hasTypeName(JsonObject json, String prefix);
   abstract protected void composeResource(Resource resource) throws Exception;
   abstract protected void composeTypeInner(Type type) throws Exception;
-  abstract protected Resource.ResourceMetaComponent parseResourceResourceMetaComponent(JsonObject json, Resource owner) throws Exception;
-  abstract protected void composeResourceResourceMetaComponentInner(Resource.ResourceMetaComponent element) throws Exception;
 
   /* -- entry points --------------------------------------------------- */
 
@@ -94,12 +91,6 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
    */
   public Resource parse(JsonObject json) throws Exception {
     return parseResource(json);
-  }
-
-  @Override
-  public ResourceMetaComponent parseMeta(InputStream input) throws Exception {
-    JsonObject json = loadJson(input);
-    return parseResourceResourceMetaComponent(json, null);
   }
 
   @Override
@@ -134,21 +125,6 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
     composeResource(resource);
   }
   
-  @Override
-  public void compose(OutputStream stream, ResourceMetaComponent meta) throws Exception {
-    OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
-    if (style == OutputStyle.CANONICAL)
-      json = new JsonCreatorCanonical(osw);
-    else
-      json = new JsonCreatorGson(osw);
-    json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
-    json.beginObject();
-    composeResourceResourceMetaComponentInner(meta);
-    json.endObject();
-    json.finish();
-    osw.flush();
-  }
-
   @Override
   public void compose(OutputStream stream, Type type, String rootName) throws Exception {
     OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");

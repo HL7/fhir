@@ -80,8 +80,10 @@ import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -102,15 +104,17 @@ public class ProfileGenerator {
   // note that once we start slicing, the slices keep their own maps, but all share the master pathname list
   private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   private List<String> pathNames = new ArrayList<String>();
+  private ProfileKnowledgeProvider pkp;
   private class SliceHandle {
     private String name;
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
 
-  public ProfileGenerator(Definitions definitions, WorkerContext context) {
+  public ProfileGenerator(Definitions definitions, WorkerContext context, ProfileKnowledgeProvider pkp) {
     super();
     this.definitions = definitions;
     this.context = context;
+    this.pkp = pkp;
   }
 
   public Profile generate(PrimitiveType type, Calendar genDate) throws Exception {
@@ -145,6 +149,7 @@ public class ProfileGenerator {
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setShort("Primitive value for " +type.getCode());
+    ec.setFormal("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
     ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
@@ -168,6 +173,7 @@ public class ProfileGenerator {
     p.getSnapshot().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
+    ec.setFormal("The actual value");
     ec.setMin(0);
     ec.setMax("1");
     ec.setShort("Primitive value for " +type.getCode());
@@ -217,6 +223,7 @@ public class ProfileGenerator {
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
     ec.setShort("Primitive value for " +type.getCode());
+    ec.setFormal("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
     ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
@@ -243,6 +250,7 @@ public class ProfileGenerator {
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
+    ec.setFormal("Primitive value for " +type.getCode());
     ec.setShort("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
@@ -335,7 +343,7 @@ public class ProfileGenerator {
     
     // now, the snapshot
     Profile base = getTypeSnapshot(pt.getBaseType());
-    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+pt.getBaseType(), p.getName());
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+pt.getBaseType(), p.getName(), pkp);
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addTag("h2").addText("Data type "+pt.getName());
@@ -458,7 +466,7 @@ public class ProfileGenerator {
     reset();
     // ok, c is the differential. now we make the snapshot
     Profile base = definitions.getSnapShotForType(p.getType());
-    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+p.getType(), p.getName());
+    new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+p.getType(), p.getName(), pkp);
     reset();
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
@@ -748,14 +756,10 @@ public class ProfileGenerator {
     }
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
-    String s = definitions.getTLAs().get(p.getId().toLowerCase());
-     if (!e.getInvariants().keySet().isEmpty() && s == null)
-      throw new Exception("There is no TLA for '"+p.getId()+"' in fhir.ini");
-    
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = new ElementDefinitionConstraintComponent();
       Invariant inv = e.getInvariants().get(in);
-      con.setKey(s+"-"+inv.getId());
+      con.setKey(inv.getId());
       con.setName(inv.getName());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);

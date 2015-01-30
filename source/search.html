@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Search (RESTful API) %]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -580,6 +579,7 @@ The _filter parameter is described in detail on the <a href="search_filter.html"
 <a name="return"> </a>
 <h3>Managing Returned Resources</h3>
 
+<a name="score"> </a>
 <h4>Relevance</h4>
 <p>
 Where a search specifies a non-deterministic sort, the search algorithm
@@ -596,7 +596,7 @@ score in <a href="bundle-definitions.html#Bundle.entry.score">entry.score</a>:
   &lt;/entry&gt;
 </pre>
 <p>
-The score is a decimal number with a value between (and including) 0 and 1. 
+The score is a decimal number with a value between (and including) 0 and 1, where 1 is best match, and 0 is least match. 
 </p>
 
 <a name="sort" />

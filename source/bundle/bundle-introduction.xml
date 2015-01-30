@@ -6,14 +6,14 @@
 
 <p>
 One common operation performed with resources is to gather a collection of resources into a single instance
-with containing context. In FHIR this is referred to as "bundling" the resources together. The resource bundle 
-mostly includes the whole content of a resource. These resource bundles are useful for a variety of different reasons, including:
+with containing context. In FHIR this is referred to as "bundling" the resources together. These resource bundles are useful for a variety of different reasons, including:
 </p>
 <ul>
   <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.html#search">RESTful Search</a>)</li>
   <li>Returning a set of versions of resources as part of the history operation on a server  (see <a href="http.html#history">History</a>)</li>
-  <li>Exchanging a set of resources as part of a message transaction (see <a href="messaging.html">Messaging</a>)</li>
-  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - a clinical document (see <a href="documents.html">Documents</a>)</li>
+  <li>Sending a set of resources as part of a message exchange (see <a href="messaging.html">Messaging</a>)</li>
+  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - e.g. a clinical document (see <a href="documents.html">Documents</a>)</li>
+  <li>Creating/updating/deleting a set of resources as a single atomic transaction on a server (see <a href="http.html#transaction">Transactions</a>)</li>
   <li>Storing a collection of resources</li>
 </ul>
 

@@ -605,7 +605,7 @@ public class Publisher implements URIResolver {
     page.log(" ...process profiles (resources)", LogMessageType.Process);
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(r.getConformancePack(), r, page.getGenDate()));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -682,14 +682,14 @@ public class Publisher implements URIResolver {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(pt, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(pt, page.getGenDate());
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
     // todo: what to do in the narrative?
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrl(), profile);
     t.setProfile(profile);
 
@@ -701,7 +701,7 @@ public class Publisher implements URIResolver {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
     page.getProfiles().put(profile.getUrl(), profile);
     t.setProfile(profile);
     //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
@@ -714,7 +714,7 @@ public class Publisher implements URIResolver {
   private void genTypeProfile(TypeDefn t) throws Exception {
     Profile profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(t, page.getGenDate());
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
       page.getProfiles().put(profile.getUrl(), profile);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -730,7 +730,7 @@ public class Publisher implements URIResolver {
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate());
+      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate());
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
     } else {
@@ -740,7 +740,7 @@ public class Publisher implements URIResolver {
         if (profile.getResource().hasBase() && !profile.getResource().hasSnapshot()) {
           // cause it probably doesn't, coming from the profile directly
           Profile base = getSnapShotForProfile(profile.getResource().getBase());
-          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName());
+          new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, profile.getResource(), profile.getResource().getBase().split("#")[0], profile.getResource().getName(), page);
         }
         page.getProfiles().put(profile.getResource().getUrl(), profile.getResource());
       }
@@ -793,7 +793,7 @@ public class Publisher implements URIResolver {
       Profile base = getIgProfile(ae.getBase());
       if (base == null)
         base = new ProfileUtilities(page.getWorkerContext()).getProfile(null, ae.getBase());
-      new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName());
+      new ProfileUtilities(page.getWorkerContext()).generateSnapshot(base, ae, ae.getBase().split("#")[0], ae.getName(), page);
       page.getProfiles().put(ae.getUrl(), ae);
     }
   }
@@ -1164,7 +1164,7 @@ public class Publisher implements URIResolver {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page.getWorkerContext().getExtensionDefinitions());
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page.getWorkerContext().getExtensionDefinitions(), page);
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
 
@@ -1476,11 +1476,11 @@ public class Publisher implements URIResolver {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       String n = r.getName().toLowerCase();
       SchematronGenerator sch = new SchematronGenerator(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), page);
-      sch.generate(r.getRoot(), page.getDefinitions());
+      sch.generate(r, page.getDefinitions());
       sch.close();
     }
 
-    SchematronGenerator sg = new SchematronGenerator(new FileOutputStream(page.getFolders().dstDir + "fhir-atom.sch"), page);
+    SchematronGenerator sg = new SchematronGenerator(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page);
     sg.generate(page.getDefinitions());
     sg.close();
 
@@ -1839,7 +1839,7 @@ public class Publisher implements URIResolver {
         p.setPublisher("HL7 FHIR Project");
         p.setName(rd.getName());
         p.addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext()).makeSearchParam(p, rd.getName(), spd);
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).makeSearchParam(p, rd.getName(), spd);
         bundle.addEntry().setResource(sp);
       }
     } else
@@ -3831,12 +3831,10 @@ public class Publisher implements URIResolver {
 
     File tmpTransform = Utilities.createTempFile("tmp", ".xslt");
     File tmpOutput = Utilities.createTempFile("tmp", ".xml");
-    String sch = doc.getDocumentElement().getNodeName().toLowerCase();
-    if (sch.equals("feed"))
-      sch = "fhir-atom";
+    String sch = "fhir-invariants.sch";
 
     try {
-      Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + sch + ".sch", page.getFolders().rootDir
+      Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + sch, page.getFolders().rootDir
           + "tools" + sc + "schematron" + sc + "iso_svrl_for_xslt2.xsl", tmpTransform.getAbsolutePath(), null);
       Utilities.saxonTransform(page.getFolders().rootDir + "tools" + sc + "schematron" + sc, page.getFolders().dstDir + n + ".xml",
           tmpTransform.getAbsolutePath(), tmpOutput.getAbsolutePath(), null);
@@ -4294,8 +4292,11 @@ public class Publisher implements URIResolver {
             map.setEquivalence(ConceptEquivalence.EQUIVALENT);
           if (n[0].charAt(0) == '>')
             map.setEquivalence(ConceptEquivalence.WIDER);
-          if (n[0].charAt(0) == '<')
+          if (n[0].charAt(0) == '<') {
             map.setEquivalence(ConceptEquivalence.NARROWER);
+            if (!map.hasComments()) 
+              throw new Exception("Missing comments for narrower match on "+cd.getName()+"/"+c.getCode());
+          }
         }
       }
     }
@@ -4377,9 +4378,12 @@ public class Publisher implements URIResolver {
             map.setEquivalence(ConceptEquivalence.EQUAL);
           else if (n[0].charAt(0) == '~')
             map.setEquivalence(ConceptEquivalence.EQUIVALENT);
-          else if (n[0].charAt(0) == '>')
+          else if (n[0].charAt(0) == '>') {
             map.setEquivalence(ConceptEquivalence.NARROWER);
-          else if (n[0].charAt(0) == '<')
+            if (!map.hasComments()) 
+              throw new Exception("Missing comments for narrower match on "+cd.getName()+"/"+c.getCode());
+
+          } else if (n[0].charAt(0) == '<')
             map.setEquivalence(ConceptEquivalence.WIDER);
           else {
             map.setEquivalence(ConceptEquivalence.EQUAL);

@@ -91,6 +91,7 @@ import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.CSFile;
@@ -123,8 +124,9 @@ public class SpreadsheetParser {
   private boolean isAbstract;
   private Map<String, BindingSpecification> bindings; // when parsing profiles
   private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
+  private ProfileKnowledgeProvider pkp;
   
-	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions) throws Exception {
+	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp) throws Exception {
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
@@ -144,6 +146,7 @@ public class SpreadsheetParser {
 		this.genDate = genDate;
 		this.isAbstract = isAbstract;
 		this.extensionDefinitions = extensionDefinitions;
+		this.pkp = pkp;
 	}
 
 
@@ -157,6 +160,14 @@ public class SpreadsheetParser {
 	  return xls.getSheets().get(name);
 	}
 
+	public String getAbbreviationFor(String id) {
+    id = id.toLowerCase();
+    if (definitions.getTLAs().containsKey(id))
+      return definitions.getTLAs().get(id);
+    else
+      return "inv";
+  }
+	
 	private ResourceDefn parseCommonTypeColumns() throws Exception {
 		ResourceDefn resource = new ResourceDefn();
 		
@@ -168,7 +179,7 @@ public class SpreadsheetParser {
 		sheet = loadSheet("Invariants");
 		Map<String,Invariant> invariants = null;
 		if (sheet != null)
-			invariants = readInvariants(sheet);
+			invariants = readInvariants(sheet, title);
 		
 		sheet = loadSheet("Data Elements");
 		if (sheet == null)
@@ -421,8 +432,7 @@ public class SpreadsheetParser {
   }
 
 
-  private Map<String,Invariant> readInvariants(Sheet sheet)
-			throws Exception {
+  private Map<String,Invariant> readInvariants(Sheet sheet, String id) throws Exception {
 		Map<String,Invariant> result = new HashMap<String,Invariant>();
 		
 		for (int row = 0; row < sheet.rows.size(); row++) {
@@ -430,7 +440,7 @@ public class SpreadsheetParser {
 
 			String s = sheet.getColumn(row, "Id");
 			if (!s.startsWith("!")) {
-			  inv.setId(s);
+			  inv.setId(s.contains("-") ? s : getAbbreviationFor(id)+"-"+s);
 			  inv.setName(sheet.getColumn(row, "Name"));
 			  inv.setContext(sheet.getColumn(row, "Context"));
 			  inv.setEnglish(sheet.getColumn(row, "English"));
@@ -780,7 +790,7 @@ public class SpreadsheetParser {
 		sheet = loadSheet(n+"-Inv");
 	  Map<String,Invariant> invariants = null;
     if (sheet != null) {
-	    invariants = readInvariants(sheet);
+	    invariants = readInvariants(sheet, n);
 	  } else {
 	  	invariants = new HashMap<String,Invariant>();
 		}
@@ -1267,7 +1277,7 @@ public class SpreadsheetParser {
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
-    new ProfileGenerator(definitions, null).convertElements(exe, ex, null);
+    new ProfileGenerator(definitions, null, pkp).convertElements(exe, ex, null);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

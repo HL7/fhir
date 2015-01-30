@@ -6,6 +6,142 @@
 <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
 </ul>
 
+<a name="using"> </a>
+
+<h3>Using Bundles</h3>
+
+<p>
+The content and rules for using a Bundle depend on the <a href="bundle-definitions.html#Bundle.type">type</a> of the bundle. 
+Note that all bundle types use Bundle.base and Bundle.entry.base for 
+identity resolution as described below.
+</p>
+
+<a name="document"> </a>
+<h4>Document</h4>
+
+<p>
+A document bundle (type = "document") consists of a series of 
+entries, the first of which is a <a href="composition.html">Composition</a>. 
+Each entry element SHALL contain a resource. See <a href="documents.html">Documents</a>
+for further information.
+</p>
+
+<p><a href="document-example-dischargesummary.html">Example</a></p>
+
+<a name="message"> </a>
+<h4>Message</h4>
+
+<p>
+A message bundle (type = "message") consists of a series of 
+entries, the first of which is a <a href="messageheader.html">MessageHeader</a>. 
+Each entry element SHALL contain a resource. See <a href="messaging.html">Messaging</a>
+for further information.
+</p>
+
+<p><a href="query-example-request.html">Example</a></p>
+
+<a name="searchset"> </a>
+<h4>Search Results</h4>
+
+<p>
+A set of search results (type = "searchset") consists of a series of 
+0 or more entries. Each entry element SHALL contain a resource. See <a href="http.html#search">Search</a>
+for further information.
+</p>
+<p>
+In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
+used to return the total number of resources that match the search, and that may be 
+returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
+</p>
+<p>
+For each entry, a search set can also contain two specific pieces of search related
+information:
+</p>
+<ul>
+ <li><a href="bundle-definitions.html#Bundle.entry.search.mode">search.mode</a>: An indication of whether the resource is in the search set because it matched the search criteria, or whether it is included because another resource refers to it (e.g. by the <a href="search.html#include">_include</a> parameter)</li>
+ <li><a href="bundle-definitions.html#Bundle.entry.search.score">search.score</a>: The server's search ranking score for the entry. Servers are not required to return a ranking score, but if they do, 1 is most relevant, and 0 is least relevant. Note: often, search results are sorted by score, but the client may specify a different sort order (see <a href="search.html#score">Search Relevance</a></li>
+</ul>
+
+<p><a href="bundle-example.html">Example</a></p>
+
+<a name="history"> </a>
+<h4>History</h4>
+
+<p>
+An update history (type = "history") consists of a series of 
+0 or more entries. Each entry element SHALL contain a transaction element, and either a resource or an information element, but not both
+The transaction operation indicates the kind of operation that changed the resource - create, update or delete.
+If the transaction operation is a 'create' or 'update', then the 
+entry SHALL contain the resource state at the conclusion of the operation. 
+If the transaction operation is 'delete', then the entry SHALL contain 
+an information element which is used to convey the identity of the deleted
+resource. It may also include a meta element to provide additional information
+about the state of the deleted resource (if a meta is provided, then meta.deleted must be true). 
+See <a href="http.html#history">History</a> for further information.
+</p>
+<p>
+In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
+used to return the total number of resources that are included in the update history, 
+and that may be returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
+</p>
+
+<p>Example to do</p>
+
+<a name="transaction"> </a>
+<h4>Transaction</h4>
+
+<p>
+A transaction (type = "transaction") consists of a series of 0 or more entries. Each entry element 
+MAY contain a transaction element, and SHALL contain either a resource or an information element, but not both. 
+See <a href="http.html#transaction">Transactions</a> for further information.
+</p>
+<p>
+Each entry in a transaction has an operation that informs the system processing the 
+transaction what to do with the entry. 
+If the transaction operation is a 'create' or 'update', then the 
+entry SHALL contain the resource to create or update. 
+If the transaction operation is 'delete', then the entry SHALL contain 
+an information element which conveys the identity of the resource to delete (e.g. delete Patient/345), and 
+which may also include a meta element to provide additional information
+about the state of the deleted resource (if a meta is provided, then meta.deleted must be true). 
+If there is no operation, then there SHALL be a resource (not information) and the server must 
+infer whether this is a create or an update from from the resource identity supplied.
+</p>
+<p>
+Clients can specify how resources are matched to existing resources during a transaction using 
+the transaction.match element. 
+</p>
+
+<p><a href="xds-example.html">Example</a></p>
+
+<a name="transaction-response"> </a>
+<h4>Transaction Response</h4>
+
+<p>
+A transaction response (type = "transaction-response") consists of a series of 
+0 or more entries, 1 for each entry in the transaction it is in response to. 
+Each entry element SHALL contain a transaction element which indicates 
+the operation that the server performed for the entry. This SHALL match the 
+operation requested unless the value is "noop" indicating the server did not
+process the operation. See <a href="http.html#transaction">Transactions</a> for the 
+circumstances under which this would be appropriate.
+</p>
+
+<p>Example to be done</p>
+
+<a name="collection"> </a>
+<h4>Collection</h4>
+
+<p>
+A collection (type = "collection") consists of a series of 
+0 or more entries. No particular use with respect to the FHIR specification is associated with this bundle.
+Each entry element SHALL contain a resource.
+</p>
+
+<p><a href="diagnosticreport-examples.html">Example</a></p>
+
+
+<a name="resolving"> </a>
 <h3>Resolving references in Bundles</h3>
 
 <p>
