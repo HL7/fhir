@@ -88,7 +88,7 @@ public class TableGenerator extends BaseGenerator {
             row.setIcon("icon_extension_simple.png", HeirarchicalTableGenerator.TEXT_ICON_EXTENSION);
           else
             row.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
-          c = gen.new Cell(null, GeneratorUtils.getSrcFile(t, false)+".html#"+t.replace("*", "open"), t, null, null);
+          c = gen.new Cell(null, definitions.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null);
         }
         row.getCells().add(c);
       } else {
@@ -160,7 +160,7 @@ public class TableGenerator extends BaseGenerator {
           choicerow.getCells().add(gen.new Cell());
           choicerow.getCells().add(gen.new Cell(null, null, e.describeCardinality(), null, null));
           choicerow.setIcon("icon_datatype.gif", HeirarchicalTableGenerator.TEXT_ICON_DATATYPE);
-          choicerow.getCells().add(gen.new Cell(null, GeneratorUtils.getSrcFile(t, false)+".html#"+t.replace("*", "open"), t, null, null));
+          choicerow.getCells().add(gen.new Cell(null, definitions.getSrcFile(t)+".html#"+t.replace("*", "open"), t, null, null));
         }
       
         choicerow.getCells().add(gen.new Cell());

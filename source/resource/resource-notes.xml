@@ -33,12 +33,17 @@ upper and lowercase ASCII letters, numerals, "-" and ".".
 
 <a name="metadata"> </a>
 <a name="meta"> </a>
+<a name="Meta"></a>
 
-<h3>Resource Metadata</h3>
+<h3 style="margin-bottom: 1px">
+Resource Metadata
+</h3>
+
 <p>
-Each resource contains a set of meta data that provide technical and workflow 
-context to the resource. The metadata items are all optional, though some of all
-of them may be required in particular implementations.
+Each resource contains an element "meta", of type "Meta", which is a set of 
+metadata that provides technical and workflow context to the resource. The 
+metadata items are all optional, though some of all of them may be required 
+in particular implementations or contexts of use.
 </p>
 
 <table class="grid">
@@ -87,11 +92,12 @@ of them may be required in particular implementations.
   </tr>
 		
 </table>
+  
+[%dt Meta%]
 
 <p>
-The profile, security, and tag elements can be changed by <a href="http.html#meta">a meta interaction</a> without changing the resource version.
+Meta is used in the following places: [%dtusage Meta%]
 </p>
-  
   
 <a name="implicitRules"> </a>
   
@@ -214,4 +220,32 @@ about the information in the resource. For further information, see
   <li><a href="compatibility.html">Inter-version Compatibility</a></li>
 </ul>
 
+  <script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-Meta' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+    
+     
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+  if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
+    alert(exception);
+  }
+  $( '#tabs-Meta' ).tabs('option', 'active', currentTab);
+}     
+</script>
+
 </div>
+
+

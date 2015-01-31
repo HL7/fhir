@@ -51,7 +51,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
-import org.hl7.fhir.definitions.generators.specification.GeneratorUtils;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
@@ -358,11 +357,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
 
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource) throws Exception {
-    return processPageIncludes(file, src, type, others, file, resource);
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, Resource resource, List<String> tabs) throws Exception {
+    return processPageIncludes(file, src, type, others, file, resource, tabs);
   }
   
-  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath, Resource resource, List<String> tabs) throws Exception {
     String workingTitle = null;
     int level = 0;
     boolean even = false;
@@ -381,14 +380,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.lastIndexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt")) 
+      if (com.length == 2 && com[0].equals("dt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
         src = s1+orgDT(com[1], xmlForDt(com[1], file), treeForDt(com[1]), profileRef(com[1]), tsForDt(com[1]), jsonForDt(com[1], file))+s3;
-      else if (com.length == 2 && com[0].equals("dt.constraints")) 
+      } else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
+      else if (com[0].equals("othertabs"))
+        src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("dtheader"))
         src = s1+dtHeader(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("edheader"))
@@ -1170,7 +1173,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
     String html = TextFile.fileToString(folders.srcDir + "template-example-xml.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", b.toString());
-    html = processPageIncludes(n+".xml.html", html, pageType, null, null);
+    html = processPageIncludes(n+".xml.html", html, pageType, null, null, null);
     TextFile.stringToFile(html, dst);
     
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
@@ -1181,7 +1184,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
-    html = processPageIncludes(dst, html, pageType, null, null);
+    html = processPageIncludes(dst, html, pageType, null, null, null);
     TextFile.stringToFile(html, getFolders().dstDir + dst);
 //    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
     epub.registerExternal(dst);
@@ -2603,6 +2606,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   String processPageIncludesForPrinting(String file, String src, Resource resource) throws Exception {
     boolean even = false;
+    List<String> tabs = new ArrayList<String>();
 
     while (src.contains("<%") || src.contains("[%"))
 	  {
@@ -2619,9 +2623,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.indexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt"))
+      if (com.length == 2 && com[0].equals("dt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
-      else if (com.length == 2 && com[0].equals("dt.constraints")) 
+      } else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
@@ -2667,6 +2673,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("dtusage")) 
         src = s1 + genDataTypeUsage(com[1]) + s3;
+      else if (com[0].equals("othertabs"))
+        src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("header"))
@@ -2770,6 +2778,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     return src;
   } 
+
+  private String genOtherTabs(String mode, List<String> tabs) {
+    StringBuilder b = new StringBuilder();
+    if (tabs != null) {
+      if (mode.equals("setup")) {
+        for (String s : tabs) 
+          b.append("$( '#"+s+"' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });\r\n");
+      }
+      if (mode.equals("store")) {
+        for (String s : tabs) 
+          b.append("  $( '#"+s+"' ).tabs('option', 'active', currentTab);\r\n");      
+      }
+    }
+    return b.toString();
+  }
 
   private String generateOID(String fileTitle, boolean vs) throws Exception {
     BindingSpecification cd = definitions.getBindingByReference("#"+fileTitle);
@@ -2925,6 +2948,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String workingTitle = null;
     int level = 0;
     boolean even = false;
+    List<String> tabs = new ArrayList<String>();
 
     while (src.contains("<%") || src.contains("[%"))
 	  {
@@ -2941,9 +2965,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       String name = file.substring(0,file.indexOf(".")); 
 
       String[] com = s2.split(" ");
-      if (com.length == 2 && com[0].equals("dt"))
+      if (com.length == 2 && com[0].equals("dt")) {
+        if (tabs != null) 
+          tabs.add("tabs-"+com[1]);
         src = s1+xmlForDt(com[1], null)+tsForDt(com[1])+s3;
-      else if (com.length == 2 && com[0].equals("dt.constraints")) 
+      } else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
         src = s1+genRestrictions(com[1])+s3;
@@ -2957,6 +2983,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+s3;
       else if (com[0].equals("aresheader"))
         src = s1+s3;
+      else if (com[0].equals("othertabs"))
+        src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("dtusage")) 
@@ -3220,6 +3248,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
+    List<String> tabs = new ArrayList<String>();
     
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -3246,6 +3275,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }
+      else if (com[0].equals("othertabs"))
+        src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("pageheader"))
@@ -3275,9 +3306,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("status"))
         src = s1+resource.getStatus()+s3;
       else if (com[0].equals("introduction")) 
-        src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition(), resource)+s3;
+        src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition(), resource, tabs)+s3;
       else if (com[0].equals("notes")) 
-        src = s1+loadXmlNotes(name, "notes", false, null, resource)+s3;
+        src = s1+loadXmlNotes(name, "notes", false, null, resource, tabs)+s3;
       else if (com[0].equals("examples")) 
         src = s1+produceExamples(resource)+s3;
       else if (com[0].equals("profiles")) 
@@ -3337,7 +3368,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("example-header"))
-        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"), false, null, resource)+s3;
+        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"), false, null, resource, tabs)+s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resref"))
@@ -3428,7 +3459,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
           } else if (definitions.hasElementDefn(t)) {
             b.append("<a href=\"");
-            b.append(GeneratorUtils.getSrcFile(t, false));
+            b.append(definitions.getSrcFile(t));
             b.append(".html#");
             b.append(t);
             b.append("\">");
@@ -3490,7 +3521,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
               } else if (definitions.hasElementDefn(t)) {
                 b.append("<a href=\"");
-                b.append(GeneratorUtils.getSrcFile(t, false));
+                b.append(definitions.getSrcFile(t));
                 b.append(".html#");
                 b.append(t);
                 b.append("\">");
@@ -3812,7 +3843,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private static final String HTML_SUFFIX = "</div>\r\n";
   private ValueSetExpansionCache expandedVSCache;
   
-  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r) throws Exception {
+  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r, List<String> tabs) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX1+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
@@ -3822,7 +3853,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String cnt = TextFile.fileToString(filename);
     Map<String, String> others = new HashMap<String, String>();
     others.put("definition", definition);
-    cnt = processPageIncludes(filename, cnt, "notes", others, null).trim()+"\r\n";
+    cnt = processPageIncludes(filename, cnt, "notes", others, null, tabs).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
         throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length())+" - should be '"+HTML_PREFIX1+"' or '"+HTML_PREFIX2+"'");
@@ -3923,13 +3954,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return true;
   }
 
-  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource) throws Exception {
+  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource, List<String> tabs) throws Exception {
     String filename;
     if (new CSFile(folders.sndBoxDir + name).exists())
       filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
     else
       filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
+    return loadXmlNotesFromFile(filename, checkHeaders, definition, resource, tabs);
   }
 
   public String processProfileIncludes(String filename, String fileid, ConformancePackage pack, ProfileDefn profile, String xml, String json, String tx, String src, String master, String path) throws Exception {
@@ -4493,7 +4524,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (definitions.hasResource(name))
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
-        return "<a href=\""+GeneratorUtils.getSrcFile(name, false)+"#"+name+".html\">"+name+"</a>";  
+        return "<a href=\""+definitions.getSrcFile(name)+"#"+name+".html\">"+name+"</a>";  
       else
         return "??"+name;
     } else {
@@ -4795,7 +4826,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (definitions.hasResource(type) || definitions.getBaseResources().containsKey(type)) 
       return type.toLowerCase()+".html";
     else 
-      return GeneratorUtils.getSrcFile(type, false)+".html#"+type;
+      return definitions.getSrcFile(type)+".html#"+type;
   }
 
   public Translations getTranslations() {
@@ -4831,7 +4862,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         } else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
-          url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
+          url = definitions.getSrcFile(linkText)+".html#"+linkText;
         } else if (definitions.hasPrimitiveType(linkText)) {
           url = "datatypes.html#"+linkText;
         } else {

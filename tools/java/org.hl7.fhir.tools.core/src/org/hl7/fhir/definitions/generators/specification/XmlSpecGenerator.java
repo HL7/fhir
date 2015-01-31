@@ -133,10 +133,14 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   
 	private void generateInner(ElementDefn root, boolean resource, boolean isAbstract) throws IOException, Exception {
 		String rn;
-		if (root.getTypes().size() > 0 && (root.getTypes().get(0).getName().equals("Type")
-				|| (root.getTypes().get(0).getName().equals("Structure")) && !root.getName().equals("Extension")) || isAbstract)
+		if (root.getName().equals("Extension")) 
+		  rn = "extension|modifierExtension";
+		else if (root.getName().equals("Meta")) 
+      rn = "meta";
+		else if (root.getTypes().size() > 0 && (root.getTypes().get(0).getName().equals("Type")
+				|| (root.getTypes().get(0).getName().equals("Structure"))) || isAbstract)
 			rn = "[name]";
-		else
+		else 
 			rn = root.getName();
 
 		write("&lt;");
@@ -205,7 +209,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     else
       write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+"</span>");
     String t = elem.typeCode();
-    write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t, false)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
+    write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
   }
 
 //  public void generate(ProfileDefn profile, String root) throws Exception {
@@ -430,7 +434,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			if (elem.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(elem.typeCode()))) {
 			  doneType = true;
 			  TypeRef t = elem.getTypes().get(0);
-  			write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
+  			write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())+ ".html#" + t.getName()).replace("[", "_").replace("]", "_") + "\">" + t.getName()+ "</a></span>]\"/");
 			}
 			write("&gt;");
 
@@ -652,7 +656,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
         write(indentS+"&lt;value");
         doneType = true;
-        write(Utilities.capitalize(elem.getType().get(0).getCode())+" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/&gt;");
+        write(Utilities.capitalize(elem.getType().get(0).getCode())+" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(elem.getType().get(0).getCode())+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/&gt;");
       } else if (elem.getType().size() > 1) {
         write(indentS+"&lt;value[x]> ");
         write("<span style=\"color: Gray\">&lt;!--</span> ");
@@ -662,13 +666,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             first = false;
           else
             write(" | ");
-          write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getCode(), false)+ ".html#" + t) + "\">" + t+ "</a></span>");
+          write("<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(t.getCode())+ ".html#" + t) + "\">" + t+ "</a></span>");
         }
         write("<span style=\"color: Gray\"> --!&gt; </span>");
         write("/&lt;value[x]> ");
       } else if (elem.getType().size() == 1) {
         write(indentS+"&lt;value");
-        write(Utilities.capitalize(elem.getType().get(0).getCode())+"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span><span style=\"color: Gray\"> --!&gt; </span>");
+        write(Utilities.capitalize(elem.getType().get(0).getCode())+"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(elem.getType().get(0).getCode())+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span><span style=\"color: Gray\"> --!&gt; </span>");
         write("/&lt;value"+Utilities.capitalize(elem.getType().get(0).getCode())+"&gt; ");
       } else {
         for (ElementDefinition child : children) {
@@ -682,7 +686,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       write(closeOut+" ");
       if (elem.getType().size() == 1 && (definitions.getPrimitives().containsKey(elem.getType().get(0).getCode()))) {
         doneType = true;
-        write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(elem.getType().get(0).getCode(), false)+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/");
+        write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + definitions.getSrcFile(elem.getType().get(0).getCode())+ ".html#" + elem.getType().get(0).getCode()) + "\">" + elem.getType().get(0).getCode()+ "</a></span>]\"/");
       }
       write("&gt;");
 
@@ -881,7 +885,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(t.getProfile()))
         write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
       else
-        write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName(), false)
+        write("<a href=\"" + (dtRoot + definitions.getSrcFile(t.getName())
             + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
             + "</a>");
       if (t.hasParams()) {
@@ -909,7 +913,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           else if (t.getName().equals("Reference") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
             write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
           else
-            write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p, false)
+            write("<a href=\"" + (dtRoot + definitions.getSrcFile(p)
                 + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");
 
           firstp = false;
@@ -945,7 +949,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       else if (t.getCode().equals("Extension") && !Utilities.noString(t.getProfile()))
         write("<a href=\""+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
       else
-        write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getCode(), false)
+        write("<a href=\"" + (dtRoot + definitions.getSrcFile(t.getCode())
             + ".html#" + t.getCode() + "\">" + t.getCode())
             + "</a>");
       i++;

@@ -5,7 +5,7 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleLinkComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Extension;
-import org.hl7.fhir.instance.model.MetaInformation;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -79,9 +79,9 @@ public class ResourceUtilities {
     }
     return null;  }
 
-  public static MetaInformation meta(Resource resource) {
+  public static Meta meta(Resource resource) {
     if (!resource.hasMeta())
-      resource.setMeta(new MetaInformation());
+      resource.setMeta(new Meta());
     return resource.getMeta();
   }
 

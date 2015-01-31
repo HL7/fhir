@@ -66,10 +66,10 @@ Type
     Fresource: TFhirResource;
     FSource: TStream;
     FLang: String;
-    FMeta: TFhirMetaInformation;
+    FMeta: TFhirMeta;
     FParserPolicy : TFHIRXhtmlParserPolicy;
     procedure SetResource(const Value: TFhirResource);
-    procedure SetMeta(const Value: TFhirMetaInformation);
+    procedure SetMeta(const Value: TFhirMeta);
   protected
     procedure checkDateFormat(s : string);
     Function toTDateAndTime(s : String) : TDateAndTime;
@@ -82,7 +82,7 @@ Type
     procedure Parse; Virtual; abstract;
     function ParseDT(rootName : String; type_ : TFHIRTypeClass) : TFHIRType; Virtual; abstract;
     property resource : TFhirResource read Fresource write SetResource;
-    Property Meta : TFhirMetaInformation read FMeta write SetMeta;
+    Property Meta : TFhirMeta read FMeta write SetMeta;
 
     Property AllowUnknownContent : Boolean read FAllowUnknownContent write FAllowUnknownContent;
     Property Lang : String read FLang write FLang;
@@ -120,7 +120,7 @@ Type
     Function ParseDomainResource(element: IXmlDomElement; path : String) : TFhirResource;
     Function ParseInnerResource(element : IXmlDomElement; path : String) : TFhirResource; Virtual;
     Function ParseResource(element : IXmlDomElement; path : String) : TFhirResource; Virtual;
-    function parseResourceMetaElement(element : IXmlDomElement; path : String) : TFhirMetaInformation; Virtual;
+    function parseResourceMetaElement(element : IXmlDomElement; path : String) : TFhirMeta; Virtual;
 //    function parseBinary(element : IXmlDomElement; path : String) : TFhirBinary;
     Procedure checkOtherAttributes(value : IXmlDomElement; path : String);
     function ParseDataType(element : IXmlDomElement; name : String; type_ : TFHIRTypeClass) : TFHIRType; virtual;
@@ -146,7 +146,7 @@ Type
     Function ParseXHtmlNode(path, value : String) : TFhirXHtmlNode;
 
     Function ParseResource(jsn : TJsonObject) : TFhirResource; Virtual;
-    Function ParseResourceMetaElement(jsn : TJsonObject) : TFhirMetaInformation; Virtual;
+    Function ParseResourceMetaElement(jsn : TJsonObject) : TFhirMeta; Virtual;
     procedure ParseComments(base : TFHIRBase; jsn : TJsonObject);
     function ParseDataType(jsn : TJsonObject; name : String; type_ : TFHIRTypeClass) : TFHIRType; virtual;
 
@@ -171,7 +171,7 @@ Type
     FSummaryOnly: Boolean;
   protected
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList = nil); overload; virtual;
-    Procedure ComposeResourceMetaElement(xml : TXmlBuilder; oResource : TFhirMetaInformation); overload; virtual;
+    Procedure ComposeResourceMetaElement(xml : TXmlBuilder; oResource : TFhirMeta); overload; virtual;
 //    Procedure ComposeBinary(xml : TXmlBuilder; binary : TFhirBinary);
     procedure ComposeXHtmlNode(xml : TXmlBuilder; node: TFhirXHtmlNode; ignoreRoot : boolean); overload;
     procedure ComposeXHtmlNode(s : TAdvStringBuilder; node: TFhirXHtmlNode; indent, relativeReferenceAdjustment : integer); overload;
@@ -182,7 +182,7 @@ Type
   public
     Constructor Create(lang : String); Virtual;
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Overload; Virtual;
-    Procedure Compose(stream : TStream; oMeta : TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Overload; Virtual;
+    Procedure Compose(stream : TStream; oMeta : TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Overload; Virtual;
 //    Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; statedType, id, ver : String; oTags : TFHIRCodingList; isPretty : Boolean); Overload; Virtual; Abstract;
 
     function Compose(oResource : TFhirResource; isPretty : Boolean = true; links : TFhirBundleLinkList = nil) : String; Overload;
@@ -206,7 +206,7 @@ Type
     Procedure ComposeInnerResource(xml : TXmlBuilder; name : String; value : TFhirResource); overload;
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
-    Procedure Compose(stream : TStream; oMeta : TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
+    Procedure Compose(stream : TStream; oMeta : TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(node : IXmlDomNode; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Overload;
 //    Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; oTags : TFHIRCodingList; isPretty : Boolean); Override;
     Procedure ComposeXHtmlNode(xml : TXmlBuilder; name : String; value : TFhirXHtmlNode); overload;
@@ -230,13 +230,13 @@ Type
     procedure ComposeDomainResource(json : TJSONWriter; name : String; oResource : TFhirDomainResource); overload; virtual;
     procedure ComposeInnerResource(json : TJSONWriter; name : String; oResource : TFhirResource); overload; virtual;
     Procedure ComposeResource(json : TJSONWriter; oResource : TFhirResource; links : TFhirBundleLinkList); overload; virtual;
-    Procedure ComposeResourceMetaElement(json : TJSONWriter; oMeta : TFhirMetaInformation); overload; virtual;
+    Procedure ComposeResourceMetaElement(json : TJSONWriter; oMeta : TFhirMeta); overload; virtual;
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList); overload; override;
     Procedure ComposeExtension(json : TJSONWriter; name : String; extension : TFhirExtension; noObj : boolean = false); virtual;
 //    Procedure ComposeBinary(json : TJSONWriter; binary : TFhirBinary);
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
-    Procedure Compose(stream : TStream; oMeta : TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
+    Procedure Compose(stream : TStream; oMeta : TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(json: TJSONWriter; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Overload;
 //    Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; statedType, id, ver : String; oTags : TFHIRCodingList; isPretty : Boolean); Override;
     Function MimeType : String; Override;
@@ -254,7 +254,7 @@ Type
     FOnGetLink: TFHIRXhtmlComposerGetLink;
     procedure SetSession(const Value: TFhirSession);
     function PresentTags(aType : TFhirResourceType; target : String; tags : TFHIRCodingList; c : integer):String; overload;
-    function PresentTags(aType : TFhirResourceType; target : String; meta: TFhirMetaInformation; c : integer):String; overload;
+    function PresentTags(aType : TFhirResourceType; target : String; meta: TFhirMeta; c : integer):String; overload;
     procedure SetTags(const Value: TFHIRCodingList);
     function PatchToWeb(url: String): String;
 //    xml : TXmlBuilder;
@@ -271,7 +271,7 @@ Type
     property Tags : TFHIRCodingList read FTags write SetTags;
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList = nil); Override;
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
-    Procedure Compose(stream : TStream; oMeta : TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
+    Procedure Compose(stream : TStream; oMeta : TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
     Function MimeType : String; Override;
 
     Property relativeReferenceAdjustment : integer read FrelativeReferenceAdjustment write FrelativeReferenceAdjustment;
@@ -348,7 +348,7 @@ begin
   raise exception.create('don''t use TFHIRXmlParserBase directly - use TFHIRXmlParser');
 end;
 
-function TFHIRXmlParserBase.parseResourceMetaElement(element: IXmlDomElement; path: String): TFhirMetaInformation;
+function TFHIRXmlParserBase.parseResourceMetaElement(element: IXmlDomElement; path: String): TFhirMeta;
 begin
   raise exception.create('don''t use TFHIRXmlParserBase directly - use TFHIRXmlParser');
 end;
@@ -379,7 +379,7 @@ begin
   raise exception.create('don''t use TFHIRJsonParserBase directly - use TFHIRJsonParser');
 end;
 
-function TFHIRJsonParserBase.ParseResourceMetaElement(jsn: TJsonObject): TFhirMetaInformation;
+function TFHIRJsonParserBase.ParseResourceMetaElement(jsn: TJsonObject): TFhirMeta;
 begin
   raise exception.create('don''t use TFHIRJsonParserBase directly - use TFHIRJsonParser');
 end;
@@ -644,7 +644,7 @@ begin
   end;
 end;
 
-procedure TFHIRXmlComposerBase.Compose(stream: TStream; oMeta: TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
+procedure TFHIRXmlComposerBase.Compose(stream: TStream; oMeta: TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
 var
   xml : TXmlBuilder;
 begin
@@ -808,7 +808,7 @@ begin
   end;
 end;
 
-procedure TFHIRJsonComposerBase.ComposeResourceMetaElement(json: TJSONWriter; oMeta: TFhirMetaInformation);
+procedure TFHIRJsonComposerBase.ComposeResourceMetaElement(json: TJSONWriter; oMeta: TFhirMeta);
 begin
   raise exception.create('don''t use TFHIRJsonComposerBase directly - use TFHIRJsonComposer');
 end;
@@ -921,7 +921,7 @@ end;
 //  Prop(json, 'content', StringReplace(string(EncodeBase64(binary.Content.Data, binary.Content.Size)), #13#10, ''));
 //end;
 
-procedure TFHIRJsonComposerBase.Compose(stream: TStream; oMeta: TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
+procedure TFHIRJsonComposerBase.Compose(stream: TStream; oMeta: TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
 var
   oStream : TAdvVCLStream;
   json : TJSONWriter;
@@ -1093,7 +1093,7 @@ begin
 
 end;
 
-procedure TFHIRParser.SetMeta(const Value: TFhirMetaInformation);
+procedure TFHIRParser.SetMeta(const Value: TFhirMeta);
 begin
   FMeta.Free;
   FMeta := value;
@@ -1173,9 +1173,9 @@ begin
   raise Exception.Create('Error: call to TFHIRComposer.Compose(stream: TStream; oResource: TFhirResource; isPretty: Boolean; links: TFhirBundleLinkList)');
 end;
 
-procedure TFHIRComposer.Compose(stream: TStream; oMeta: TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
+procedure TFHIRComposer.Compose(stream: TStream; oMeta: TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
 begin
-  raise Exception.Create('Error: call to TFHIRComposer.Compose(stream: TStream; oMeta: TFhirMetaInformation; isPretty: Boolean; links: TFhirBundleLinkList)');
+  raise Exception.Create('Error: call to TFHIRComposer.Compose(stream: TStream; oMeta: TFhirMeta; isPretty: Boolean; links: TFhirBundleLinkList)');
 end;
 
 procedure TFHIRComposer.ComposeResource(xml : TXmlBuilder; oResource: TFhirResource; links : TFhirBundleLinkList);
@@ -1183,7 +1183,7 @@ begin
   raise exception.create('don''t use TFHIRXmlComposerBase directly - use TFHIRXmlComposer');
 end;
 
-procedure TFHIRComposer.ComposeResourceMetaElement(xml: TXmlBuilder; oResource: TFhirMetaInformation);
+procedure TFHIRComposer.ComposeResourceMetaElement(xml: TXmlBuilder; oResource: TFhirMeta);
 begin
   raise exception.create('don''t use TFHIRXmlComposerBase directly - use TFHIRXmlComposer');
 end;
@@ -1527,7 +1527,7 @@ end;
 const
   TYPE_TITLE : Array[TFhirBundleType] of String = ('', 'Document', 'Message', 'Transaction', 'Trnsaction Response', 'History Record', 'Search Results', 'Resource Collection');
 
-procedure TFHIRXhtmlComposer.Compose(stream: TStream; oMeta: TFhirMetaInformation; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
+procedure TFHIRXhtmlComposer.Compose(stream: TStream; oMeta: TFhirMeta; ResourceType : TFhirResourceType; id, ver : String; isPretty: Boolean; links: TFhirBundleLinkList);
 var
   s : TAdvStringBuilder;
   i : integer;
@@ -1966,7 +1966,7 @@ result :=
 '  <link rel="shortcut icon" href="/assets/ico/favicon.png"/>'+#13#10;
 end;
 
-function TFHIRXhtmlComposer.PresentTags(aType : TFhirResourceType; target : String; meta: TFhirMetaInformation; c : integer): String;
+function TFHIRXhtmlComposer.PresentTags(aType : TFhirResourceType; target : String; meta: TFhirMeta; c : integer): String;
 var
   i : integer;
   lbl : string;

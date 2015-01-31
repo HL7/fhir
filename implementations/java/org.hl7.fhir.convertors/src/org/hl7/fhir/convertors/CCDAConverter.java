@@ -64,7 +64,7 @@ import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.Location;
-import org.hl7.fhir.instance.model.MetaInformation;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.Observation;
@@ -207,7 +207,7 @@ public class CCDAConverter {
 
 		// check it's a CDA/CCD
 		feed = new Bundle();
-		feed.setMeta(new MetaInformation().setLastUpdatedElement(InstantType.now()));
+		feed.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 		feed.setId(makeUUIDReference());
 		feed.getMeta().getTag().add(new Coding()); // todo-bundle  ("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tag/document", "Document"));
 		
@@ -240,7 +240,7 @@ public class CCDAConverter {
 			r.getText().setStatus(NarrativeStatus.GENERATED);
 			new NarrativeGenerator("", context).generate(r);
 		}
-		r.setMeta(new MetaInformation().setLastUpdatedElement(InstantType.now()));
+		r.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 		r.setId(id);
 		feed.getEntry().add(new BundleEntryComponent().setResource(r));
 		return id;

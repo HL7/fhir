@@ -8,7 +8,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class DataTypeTableGenerator extends TableGenerator {
   public DataTypeTableGenerator(String dest, PageProcessor page, String pageName, boolean inlineGraphics) throws Exception {    
-    super(dest, page, GeneratorUtils.getSrcFile(pageName, true)+"-definitions.html", inlineGraphics);
+    super(dest, page, page.getDefinitions().getSrcFile(pageName)+"-definitions.html", inlineGraphics);
   }
 
   public XhtmlNode generate(ElementDefn e) throws Exception {

@@ -209,6 +209,7 @@ public class SourceParser {
 		eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
 
 		loadTLAs();
+		loadTypePages();
 		
 		loadPrimitives();
 		eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions.getPrimitives().values()));
@@ -291,6 +292,16 @@ public class SourceParser {
 		    loadConformancePackage(p);
 		}
 	}
+
+
+  private void loadTypePages() {
+    String[] tps = ini.getPropertyNames("type-pages");
+    for (String tp : tps) {
+     String s = ini.getStringProperty("type-pages", tp);
+     definitions.getTypePages().put(tp, s);
+    }    
+    
+  }
 
 
   private void loadW5s() {

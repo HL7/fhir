@@ -97,6 +97,7 @@ public class Definitions {
   private Map<String, String> TLAs = new HashMap<String, String>();
 
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
+  private Map<String, String> typePages = new HashMap<String, String>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -361,34 +362,20 @@ public class Definitions {
     return w5s;
   }
 
-//  public Profile getProfileByURL(String url) {
-//    if (url.contains("#"))
-//      url = url.substring(0, url.indexOf('#'));
-//    for (ProfileDefn p : profiles.values())
-//      if (p.getSource() != null && p.getSource().getUrl().equals(url))
-//        return p.getSource();
-//    for (ResourceDefn rd : resources.values()) {
-//      for (RegisteredProfile p : rd.getProfiles()) {
-//        if (p.getProfile().getSource().getUrl().equals(url)) {
-//          return p.getProfile().getSource();
-//        }
-//      }
-//    }
-//    return null;
-//  }
-//
-//  public Profile getSnapShotForProfile(String base) throws Exception {
-//    String[] parts = base.split("#");
-//    if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
-//      String name = base.substring(28);
-//      if (hasType(name) || hasResource(name)) 
-//        return getSnapShotForType(name);
-//    }
-//    Profile p = getProfileByURL(parts[0]);
-//    if (p == null)
-//      throw new Exception("unable to find base definition for "+base);
-//    return p;
-//  }
-//
-  
+  public String getSrcFile(String name) throws Exception {
+    if (name == null)
+      throw new Exception("unknown null type");
+    String lname = name.toLowerCase();
+    if (typePages.containsKey(lname))
+      return typePages.get(lname);
+    if (hasType(name))
+      return "datatypes";
+    return lname;
+  }
+
+  public Map<String, String> getTypePages() {
+    return typePages;
+  }
+
+
 }

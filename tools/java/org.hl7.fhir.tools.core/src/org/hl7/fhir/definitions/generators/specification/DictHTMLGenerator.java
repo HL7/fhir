@@ -243,7 +243,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private void describeType(StringBuilder b, TypeRefComponent t) throws Exception {
     b.append("<a href=\"");
-    b.append(GeneratorUtils.getSrcFile(t.getCode(), false));
+    b.append(definitions.getSrcFile(t.getCode()));
     b.append(".html#");
     String type = t.getCode();
     if (type.equals("*"))
@@ -513,7 +513,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         } else if (definitions.hasResource(linkText)) {
           url = linkText.toLowerCase()+".html#";
         } else if (definitions.hasElementDefn(linkText)) {
-          url = GeneratorUtils.getSrcFile(linkText, false)+".html#"+linkText;
+          url = definitions.getSrcFile(linkText)+".html#"+linkText;
         } else if (definitions.hasPrimitiveType(linkText)) {
           url = "datatypes.html#"+linkText;
         } else {
@@ -575,7 +575,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
   private String typeLink(String name) throws Exception {
-    String srcFile = GeneratorUtils.getSrcFile(name, false);
+    String srcFile = definitions.getSrcFile(name);
     if (srcFile.equalsIgnoreCase(name))
       return srcFile+ ".html";
     else

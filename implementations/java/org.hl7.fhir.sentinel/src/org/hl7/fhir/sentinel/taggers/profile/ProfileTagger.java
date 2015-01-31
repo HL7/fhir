@@ -17,7 +17,7 @@ import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
-import org.hl7.fhir.instance.model.MetaInformation;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
@@ -95,7 +95,7 @@ public class ProfileTagger implements Tagger {
   }
 
 	@Override
-	public void process(String base, Resource entry, MetaInformation tags, MetaInformation added, MetaInformation deleted) throws Exception  {
+	public void process(String base, Resource entry, Meta tags, Meta added, Meta deleted) throws Exception  {
 		if (entry instanceof Profile)
 			seeProfile(base, (Profile) entry);
 		if (entry instanceof ValueSet)

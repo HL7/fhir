@@ -18,7 +18,7 @@ import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.InstantType;
-import org.hl7.fhir.instance.model.MetaInformation;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -86,7 +86,7 @@ public class LoincToDEConvertor {
     bundle = new Bundle();
     bundle.setType(BundleType.COLLECTION);
     bundle.setId("http://hl7.org/fhir/commondataelement/loinc");
-    bundle.setMeta(new MetaInformation().setLastUpdatedElement(InstantType.now()));
+    bundle.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 
     processLoincCodes();
     return bundle;
@@ -101,7 +101,7 @@ public class LoincToDEConvertor {
 
 		bundle = new Bundle();
 		bundle.setId("http://hl7.org/fhir/commondataelement/loinc");
-    bundle.setMeta(new MetaInformation().setLastUpdatedElement(InstantType.now()));
+    bundle.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 
 		processLoincCodes();
 		if (dest != null) {
@@ -152,7 +152,7 @@ public class LoincToDEConvertor {
 				String comp = col(row, "COMPONENT");
 				DataElement de = new DataElement();
 				de.setId("loinc-"+code);
-		    de.setMeta(new MetaInformation().setLastUpdatedElement(InstantType.now()));
+		    de.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
 				bundle.getEntry().add(new BundleEntryComponent().setResource(de));
 				Identifier id = new Identifier();
 				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
