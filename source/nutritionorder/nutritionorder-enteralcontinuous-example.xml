@@ -8,12 +8,12 @@ editor Eric Haas Health eData Inc-->
 		<div xmlns="http://www.w3.org/1999/xhtml"> Description = Nutrition Order Infant Enteral Feeding Canonical Example</div>
 	</text>
 	<subject>
-		<reference value="Practitioner/example"/>
-		<display value="Dr Adam Careful"/>
-	</subject>
-	<orderer>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
+	</subject>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
 	</orderer>
 	<identifier>
 		<system value="http://www.acme.org/nutritionorders"/>
