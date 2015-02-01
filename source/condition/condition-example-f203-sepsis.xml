@@ -65,7 +65,7 @@
  </location>
  <!-- todo - this is an illegal reference (Grahame, 2/2/2015)
  
- <dueTo><!--Bacterial sepsis is due to Staphylococcus Aureus-!>
+ <dueTo><!- -Bacterial sepsis is due to Staphylococcus Aureus-!>
   
   <target>
      <reference value="Substance/f202"/>
