@@ -463,9 +463,17 @@ public class ProfileGenerator {
     for (String pn : names) {
       pack.getSearchParameters().add(makeSearchParam(p, resource.getName(), resource.getSearchParams().get(pn)));
     }
+    Profile base = definitions.getSnapShotForType(p.getType());
+    
+    List<String> errors = new ArrayList<String>();
+    new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
+    if (!errors.isEmpty()) {
+      for (String s : errors) 
+        System.out.println(s);
+//      throw new Exception("Unable to continue due to serious errors in profiles");
+    }
     reset();
     // ok, c is the differential. now we make the snapshot
-    Profile base = definitions.getSnapShotForType(p.getType());
     new ProfileUtilities(context).generateSnapshot(base, p, "http://hl7.org/fhir/Profile/"+p.getType(), p.getName(), pkp);
     reset();
 

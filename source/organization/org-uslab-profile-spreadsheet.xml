@@ -1745,7 +1745,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Lloyd to check regex</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.zip</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.postalCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4569,7 +4569,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Lloyd to check regex</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.zip</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.postalCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7856,7 +7856,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Lloyd to check regex</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.zip</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Organization.address.postalCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -13104,7 +13104,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Regex for Zip</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.zip</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
@@ -13645,7 +13645,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Regex for Zip</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.zip</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
@@ -14185,7 +14185,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Regex for Zip</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.zip</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Organization.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>

@@ -2029,7 +2029,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLOINCCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2063,7 +2063,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2096,7 +2096,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2128,7 +2128,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2161,7 +2161,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLocalCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Local</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2193,7 +2193,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2226,7 +2226,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2257,7 +2257,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticOrder.item.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3986,7 +3986,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4000,11 +4000,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

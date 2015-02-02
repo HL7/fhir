@@ -21,7 +21,7 @@
   <WindowTopX>480</WindowTopX>
   <WindowTopY>75</WindowTopY>
   <TabRatio>913</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1745,7 +1745,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1945,7 +1945,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Lloyd to check regex</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!Practitioner.address.zip</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!Practitioner.address.postalCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4441,11 +4441,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>51</TabColorIndex>
+   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>25</ActiveRow>
+     <ActiveRow>19</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
@@ -5130,7 +5131,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{http://hl7.org/fhir/ExtensionDefinition/iso21090-SC-coding}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5330,7 +5331,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Lloyd to check regex</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Zip or Postal Code SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Practitioner.address.zip</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Practitioner.address.postalCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7384,7 +7385,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <TabColorIndex>50</TabColorIndex>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7406,7 +7406,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
+     <ActiveRow>18</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
@@ -7526,7 +7526,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">!2</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Regex for Zip</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Practitioner.address.zip</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">Practitioner.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>
@@ -8066,7 +8066,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Regex for Zip</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Practitioner.address.zip</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Practitioner.address.postalCode</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(Zip or Postal Code) SHALL be formatted as 99999[-9999] for US Zip or ZIP +4 codes or as A9A9A9 for Canadian postal codes. &#10;</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">f:matches(issued,[0-9]{5}(-[0-9]{4}){0,1} )</Data></Cell>

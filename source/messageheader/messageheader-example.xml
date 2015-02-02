@@ -33,7 +33,7 @@
     <!-- this is to indicate to the Acme Message Gateway that this particular message 
        is intended for Practitioner "xcda" -->
     <target>
-      <reference value="Practitioner/xcda-author"/>
+      <reference value="Device/example"/>
     </target>
     <endpoint value="llp:10.11.12.14:5432"/>
   </destination>
