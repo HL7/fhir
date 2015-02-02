@@ -1,437 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
-  <id value="sdc-formdesigner"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>SDC Form Designer</h2>
-      <p>(Requirements Definition)</p>
-      <p>Published: 2014-07-06 (draft)</p>
-      <p>Published by: <b>
-          <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
-        </b>
-      </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
-      <h2>General</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th>FHIR Version:</th>
-            <td>0.2</td>
-          </tr>
-          <tr>
-            <th>Supported formats:</th>
-            <td>xml, json</td>
-          </tr>
-        </tbody>
-      </table>
-      <h2>REST  behavior</h2>
-      <p>The <a href="questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="questionnaire.html">Questionnaire</a>.)</p>
-      <p>
-        <b>Security:</b>
-      </p>
-      <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
-      <h3>Summary</h3>
-      <table class="grid">
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Search</th>
-            <th>Read</th>
-            <th>Read Version</th>
-            <th>Instance History</th>
-            <th>Resource History</th>
-            <th>Validate</th>
-            <th>Create</th>
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Questionnaire</th>
-            <td>
-              <a title="Allows discovery of existing questionnaires for editing" href="#Questionnaire-search-type">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows retrieval of a specific questionnaire by id" href="#Questionnaire-read">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows retrieval of a historical version of a questionnaire" href="#Questionnaire-vread">SHOULD</a>
-            </td>
-            <td>
-              <a title="Allows review of changes to questionnaire over time" href="#Questionnaire-history-instance">SHOULD</a>
-            </td>
-            <td/>
-            <td>
-              <a title="Allows verification that form is valid prior to submission - useful for some workflows." href="#Questionnaire-validate">MAY</a>
-            </td>
-            <td>
-              <a title="Allows submission of a new form design" href="#Questionnaire-create">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one." href="#Questionnaire-update">SHALL</a>
-            </td>
-            <td>
-              <a title="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner." href="#Questionnaire-delete">MAY</a>
-            </td>
-          </tr>
-          <tr>
-            <th>ValueSet</th>
-            <td>
-              <a title="Allows discovery of existing value sets for use by questions in a form" href="#ValueSet-search-type">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows retrieval of a specific value set by id" href="#ValueSet-read">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows retrieval of a historical version of a value set" href="#ValueSet-vread">SHOULD</a>
-            </td>
-            <td>
-              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">SHOULD</a>
-            </td>
-            <td/>
-            <td>
-              <a title="Allows verification that a value set is valid prior to submission - useful for some workflows." href="#ValueSet-validate">MAY</a>
-            </td>
-            <td>
-              <a title="Allows definition of a new value set used by one or more questions" href="#ValueSet-create">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one." href="#ValueSet-update">SHALL</a>
-            </td>
-            <td>
-              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">MAY</a>
-            </td>
-          </tr>
-          <tr>
-            <th>DataElement</th>
-            <td>
-              <a title="Allows a user to search for existing data elements for re-use in a form design" href="#DataElement-search-type">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows retrieval of data elements referenced in an existing form design" href="#DataElement-read">SHALL</a>
-            </td>
-            <td>
-              <a title="Allows viewing of specific versions of a data element if the form references a specific version" href="#DataElement-vread">SHOULD</a>
-            </td>
-            <td>
-              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">SHOULD</a>
-            </td>
-            <td/>
-            <td>
-              <a title="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission" href="#DataElement-validate">MAY</a>
-            </td>
-            <td>
-              <a title="Allows defining new data elements for subsequent re-use while creating and editing forms" href="#DataElement-create">MAY</a>
-            </td>
-            <td>
-              <a title="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one." href="#DataElement-update">MAY</a>
-            </td>
-            <td>
-              <a title="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements." href="#DataElement-delete">MAY</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br/>
-      <br/>
-      <h3>
-        <a href="questionnaire.html">Questionnaire</a>
-      </h3>
-      <h4>Interactions</h4>
-      <table class="list">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Conformance</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              <a name="Questionnaire-search-type"> </a>
-              <span>search-type</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows discovery of existing questionnaires for editing</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-read"> </a>
-              <span>read</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows retrieval of a specific questionnaire by id</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-create"> </a>
-              <span>create</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows submission of a new form design</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-update"> </a>
-              <span>update</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-history-instance"> </a>
-              <span>history-instance</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows review of changes to questionnaire over time</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-vread"> </a>
-              <span>vread</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows retrieval of a historical version of a questionnaire</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-delete"> </a>
-              <span>delete</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="Questionnaire-validate"> </a>
-              <span>validate</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows verification that form is valid prior to submission - useful for some workflows.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br/>
-      <br/>
-      <h3>
-        <a href="valueset.html">ValueSet</a>
-      </h3>
-      <h4>Interactions</h4>
-      <table class="list">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Conformance</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              <a name="ValueSet-search-type"> </a>
-              <span>search-type</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows discovery of existing value sets for use by questions in a form</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-read"> </a>
-              <span>read</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows retrieval of a specific value set by id</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-create"> </a>
-              <span>create</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows definition of a new value set used by one or more questions</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-update"> </a>
-              <span>update</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-history-instance"> </a>
-              <span>history-instance</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows review of changes to a value set over time</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-vread"> </a>
-              <span>vread</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows retrieval of a historical version of a value set</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-delete"> </a>
-              <span>delete</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="ValueSet-validate"> </a>
-              <span>validate</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br/>
-      <br/>
-      <h3>
-        <a href="dataelement.html">DataElement</a>
-      </h3>
-      <h4>Interactions</h4>
-      <table class="list">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Conformance</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>
-              <a name="DataElement-search-type"> </a>
-              <span>search-type</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows a user to search for existing data elements for re-use in a form design</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-read"> </a>
-              <span>read</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows retrieval of data elements referenced in an existing form design</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-vread"> </a>
-              <span>vread</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows viewing of specific versions of a data element if the form references a specific version</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-history-instance"> </a>
-              <span>history-instance</span>
-            </th>
-            <td>SHOULD</td>
-            <td>
-              <p>Allows review of changes to a data element over time</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-create"> </a>
-              <span>create</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows defining new data elements for subsequent re-use while creating and editing forms</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-update"> </a>
-              <span>update</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-delete"> </a>
-              <span>delete</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <a name="DataElement-validate"> </a>
-              <span>validate</span>
-            </th>
-            <td>MAY</td>
-            <td>
-              <p>Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </text>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://hl7.org/fhir ..\..\publish\conformance.xsd">
+   <id value="sdc-formdesigner"/>
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <h2>SDC Form Designer</h2>
+         <p>(Requirements Definition)</p>
+         <p>Published: 2014-07-06 (draft)</p>
+         <p>Published by: <b>
+               <a href="http://wiki.siframework.org/Structured+Data+Capture+Initiative">U.S. Office of the National Coordinator (ONC)</a>
+            </b>
+         </p>
+         <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
+         <h2>General</h2>
+         <table>
+            <tbody>
+               <tr>
+                  <th>FHIR Version:</th>
+                  <td>0.2</td>
+               </tr>
+               <tr>
+                  <th>Supported formats:</th>
+                  <td>xml, json</td>
+               </tr>
+            </tbody>
+         </table>
+         <h2>REST  behavior</h2>
+         <p>The <a href="questionnaire.html">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href="dataelement.html">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href="dataelement.html">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href="valueset.html">ValueSet</a> resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href="questionnaire.html">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href="questionnaire.html">Questionnaire</a>.)</p>
+         <p>
+            <b>Security:</b>
+         </p>
+         <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
+         <h3>Summary</h3>
+         <table class="grid">
+            <thead>
+               <tr>
+                  <th>Resource</th>
+                  <th>Search</th>
+                  <th>Read</th>
+                  <th>Read Version</th>
+                  <th>Instance History</th>
+                  <th>Resource History</th>
+                  <th>Validate</th>
+                  <th>Create</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>Questionnaire</th>
+                  <td>
+                     <a title="Allows discovery of existing questionnaires for editing"
+                        href="#Questionnaire-search-type">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows retrieval of a specific questionnaire by id"
+                        href="#Questionnaire-read">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows retrieval of a historical version of a questionnaire"
+                        href="#Questionnaire-vread">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows review of changes to questionnaire over time"
+                        href="#Questionnaire-history-instance">Yes</a>
+                  </td>
+                  <td/>
+                  <td>
+                     <a title="Allows verification that form is valid prior to submission - useful for some workflows."
+                        href="#Questionnaire-validate">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows submission of a new form design" href="#Questionnaire-create">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."
+                        href="#Questionnaire-update">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."
+                        href="#Questionnaire-delete">Yes</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>ValueSet</th>
+                  <td>
+                     <a title="Allows discovery of existing value sets for use by questions in a form"
+                        href="#ValueSet-search-type">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows retrieval of a specific value set by id" href="#ValueSet-read">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows retrieval of a historical version of a value set"
+                        href="#ValueSet-vread">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows review of changes to a value set over time"
+                        href="#ValueSet-history-instance">Yes</a>
+                  </td>
+                  <td/>
+                  <td>
+                     <a title="Allows verification that a value set is valid prior to submission - useful for some workflows."
+                        href="#ValueSet-validate">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows definition of a new value set used by one or more questions"
+                        href="#ValueSet-create">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."
+                        href="#ValueSet-update">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
+                        href="#ValueSet-delete">Yes</a>
+                  </td>
+               </tr>
+               <tr>
+                  <th>DataElement</th>
+                  <td>
+                     <a title="Allows a user to search for existing data elements for re-use in a form design"
+                        href="#DataElement-search-type">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows retrieval of data elements referenced in an existing form design"
+                        href="#DataElement-read">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows viewing of specific versions of a data element if the form references a specific version"
+                        href="#DataElement-vread">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows review of changes to a data element over time"
+                        href="#DataElement-history-instance">Yes</a>
+                  </td>
+                  <td/>
+                  <td>
+                     <a title="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"
+                        href="#DataElement-validate">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows defining new data elements for subsequent re-use while creating and editing forms"
+                        href="#DataElement-create">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."
+                        href="#DataElement-update">Yes</a>
+                  </td>
+                  <td>
+                     <a title="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."
+                        href="#DataElement-delete">Yes</a>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <br/>
+         <br/>
+         <h3>
+            <a href="questionnaire.html">Questionnaire</a>
+         </h3>
+         <h4>Interactions</h4>
+         <table class="list">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-search-type"> </a>
+                     <span>search-type</span>
+                  </th>
+                  <td>
+                     <p>Allows discovery of existing questionnaires for editing</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-read"> </a>
+                     <span>read</span>
+                  </th>
+                  <td>
+                     <p>Allows retrieval of a specific questionnaire by id</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-create"> </a>
+                     <span>create</span>
+                  </th>
+                  <td>
+                     <p>Allows submission of a new form design</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-update"> </a>
+                     <span>update</span>
+                  </th>
+                  <td>
+                     <p>Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-history-instance"> </a>
+                     <span>history-instance</span>
+                  </th>
+                  <td>
+                     <p>Allows review of changes to questionnaire over time</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-vread"> </a>
+                     <span>vread</span>
+                  </th>
+                  <td>
+                     <p>Allows retrieval of a historical version of a questionnaire</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-delete"> </a>
+                     <span>delete</span>
+                  </th>
+                  <td>
+                     <p>Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="Questionnaire-validate"> </a>
+                     <span>validate</span>
+                  </th>
+                  <td>
+                     <p>Allows verification that form is valid prior to submission - useful for some workflows.</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <br/>
+         <br/>
+         <h3>
+            <a href="valueset.html">ValueSet</a>
+         </h3>
+         <h4>Interactions</h4>
+         <table class="list">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>
+                     <a name="ValueSet-search-type"> </a>
+                     <span>search-type</span>
+                  </th>
+                  <td>
+                     <p>Allows discovery of existing value sets for use by questions in a form</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-read"> </a>
+                     <span>read</span>
+                  </th>
+                  <td>
+                     <p>Allows retrieval of a specific value set by id</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-create"> </a>
+                     <span>create</span>
+                  </th>
+                  <td>
+                     <p>Allows definition of a new value set used by one or more questions</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-update"> </a>
+                     <span>update</span>
+                  </th>
+                  <td>
+                     <p>Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-history-instance"> </a>
+                     <span>history-instance</span>
+                  </th>
+                  <td>
+                     <p>Allows review of changes to a value set over time</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-vread"> </a>
+                     <span>vread</span>
+                  </th>
+                  <td>
+                     <p>Allows retrieval of a historical version of a value set</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-delete"> </a>
+                     <span>delete</span>
+                  </th>
+                  <td>
+                     <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="ValueSet-validate"> </a>
+                     <span>validate</span>
+                  </th>
+                  <td>
+                     <p>Allows verification that a value set is valid prior to submission - useful for some workflows.</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <br/>
+         <br/>
+         <h3>
+            <a href="dataelement.html">DataElement</a>
+         </h3>
+         <h4>Interactions</h4>
+         <table class="list">
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <th>
+                     <a name="DataElement-search-type"> </a>
+                     <span>search-type</span>
+                  </th>
+                  <td>
+                     <p>Allows a user to search for existing data elements for re-use in a form design</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-read"> </a>
+                     <span>read</span>
+                  </th>
+                  <td>
+                     <p>Allows retrieval of data elements referenced in an existing form design</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-vread"> </a>
+                     <span>vread</span>
+                  </th>
+                  <td>
+                     <p>Allows viewing of specific versions of a data element if the form references a specific version</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-history-instance"> </a>
+                     <span>history-instance</span>
+                  </th>
+                  <td>
+                     <p>Allows review of changes to a data element over time</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-create"> </a>
+                     <span>create</span>
+                  </th>
+                  <td>
+                     <p>Allows defining new data elements for subsequent re-use while creating and editing forms</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-update"> </a>
+                     <span>update</span>
+                  </th>
+                  <td>
+                     <p>Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-delete"> </a>
+                     <span>delete</span>
+                  </th>
+                  <td>
+                     <p>Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <th>
+                     <a name="DataElement-validate"> </a>
+                     <span>validate</span>
+                  </th>
+                  <td>
+                     <p>Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission</p>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </text>
+  
+  
   <name value="SDC Form Designer"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <telecom>
-    <system value="url"/>
-    <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
+      <system value="url"/>
+      <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
   <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
   <status value="draft"/>
@@ -441,202 +439,202 @@
   <format value="xml"/>
   <format value="json"/>
   <rest>
-    <mode value="client"/>
-    <documentation value="The [[Questionnaire]] resource is used to create and maintain SDC-compliant forms.  The [[DataElement]] resource is used to look-up existing data elements that can be referenced in forms.  Optionally, [[DataElement]]s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The [[ValueSet]] resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the [[Questionnaire]] and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)"/>
-    <security>
-      <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."/>
-    </security>
-    <resource>
-      <type value="Questionnaire"/>
-      <profile>
-        <reference value="http://hl7.org/fhir/ExtensionDefinition/questionnaire-sdc-"/>
-      </profile>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="search-type"/>
-        <documentation value="Allows discovery of existing questionnaires for editing"/>
+      <mode value="client"/>
+      <documentation value="The [[Questionnaire]] resource is used to create and maintain SDC-compliant forms.  The [[DataElement]] resource is used to look-up existing data elements that can be referenced in forms.  Optionally, [[DataElement]]s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The [[ValueSet]] resource is used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets will be handled as 'contained' resources, meaning the value set exists only in the context of the [[Questionnaire]] and cannot be referenced or maintained without also updating the form.  However, systems should support value set re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)"/>
+      <security>
+         <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."/>
+      </security>
+      <resource>
+         <type value="Questionnaire"/>
+         <profile>
+            <reference value="http://hl7.org/fhir/Profile/questionnaire-sdc-"/>
+         </profile>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="search-type"/>
+            <documentation value="Allows discovery of existing questionnaires for editing"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="read"/>
+            <documentation value="Allows retrieval of a specific questionnaire by id"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="create"/>
+            <documentation value="Allows submission of a new form design"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="update"/>
+            <documentation value="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="history-instance"/>
+            <documentation value="Allows review of changes to questionnaire over time"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="vread"/>
+            <documentation value="Allows retrieval of a historical version of a questionnaire"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="delete"/>
+            <documentation value="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
+            <!-- Should we include this in the conformance statement at all? -->
       </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="read"/>
-        <documentation value="Allows retrieval of a specific questionnaire by id"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="create"/>
-        <documentation value="Allows submission of a new form design"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="update"/>
-        <documentation value="Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="history-instance"/>
-        <documentation value="Allows review of changes to questionnaire over time"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a questionnaire"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="delete"/>
-        <documentation value="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
-        <!-- Should we include this in the conformance statement at all? -->
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="validate"/>
-        <documentation value="Allows verification that form is valid prior to submission - useful for some workflows."/>
-      </interaction>
-      <!-- Do we want to define what search criteria must be supported? -->
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="validate"/>
+            <documentation value="Allows verification that form is valid prior to submission - useful for some workflows."/>
+         </interaction>
+         <!-- Do we want to define what search criteria must be supported? -->
     </resource>
-    <resource>
-      <type value="ValueSet"/>
-      <profile>
-        <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
-      </profile>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="search-type"/>
-        <documentation value="Allows discovery of existing value sets for use by questions in a form"/>
+      <resource>
+         <type value="ValueSet"/>
+         <profile>
+            <reference value="http://hl7.org/fhir/Profile/valueset-sdc"/>
+         </profile>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="search-type"/>
+            <documentation value="Allows discovery of existing value sets for use by questions in a form"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="read"/>
+            <documentation value="Allows retrieval of a specific value set by id"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="create"/>
+            <documentation value="Allows definition of a new value set used by one or more questions"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="update"/>
+            <documentation value="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="history-instance"/>
+            <documentation value="Allows review of changes to a value set over time"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="vread"/>
+            <documentation value="Allows retrieval of a historical version of a value set"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="delete"/>
+            <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
+            <!-- Should we include this in the conformance statement at all? -->
       </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="read"/>
-        <documentation value="Allows retrieval of a specific value set by id"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="create"/>
-        <documentation value="Allows definition of a new value set used by one or more questions"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="update"/>
-        <documentation value="Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="history-instance"/>
-        <documentation value="Allows review of changes to a value set over time"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="vread"/>
-        <documentation value="Allows retrieval of a historical version of a value set"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="delete"/>
-        <documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
-        <!-- Should we include this in the conformance statement at all? -->
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="validate"/>
-        <documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
-      </interaction>
-      <!-- Do we want to define what search criteria must be supported? -->
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="validate"/>
+            <documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
+         </interaction>
+         <!-- Do we want to define what search criteria must be supported? -->
     </resource>
-    <resource>
-      <type value="DataElement"/>
-      <profile>
-        <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
-      </profile>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="search-type"/>
-        <documentation value="Allows a user to search for existing data elements for re-use in a form design"/>
+      <resource>
+         <type value="DataElement"/>
+         <profile>
+            <reference value="http://hl7.org/fhir/Profile/dataelement-sdc"/>
+         </profile>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="search-type"/>
+            <documentation value="Allows a user to search for existing data elements for re-use in a form design"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHALL"/>
+            </extension>
+            <code value="read"/>
+            <documentation value="Allows retrieval of data elements referenced in an existing form design"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="vread"/>
+            <documentation value="Allows viewing of specific versions of a data element if the form references a specific version"/>
+            <!-- Do we need this to be SHALL too? -->
       </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHALL"/>
-        </extension>
-        <code value="read"/>
-        <documentation value="Allows retrieval of data elements referenced in an existing form design"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="vread"/>
-        <documentation value="Allows viewing of specific versions of a data element if the form references a specific version"/>
-        <!-- Do we need this to be SHALL too? -->
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="SHOULD"/>
-        </extension>
-        <code value="history-instance"/>
-        <documentation value="Allows review of changes to a data element over time"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="create"/>
-        <documentation value="Allows defining new data elements for subsequent re-use while creating and editing forms"/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="update"/>
-        <documentation value="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="delete"/>
-        <documentation value="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
-      </interaction>
-      <interaction>
-        <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
-          <valueCode value="MAY"/>
-        </extension>
-        <code value="validate"/>
-        <documentation value="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"/>
-      </interaction>
-      <!-- Do we want to define what search criteria must be supported? -->
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="SHOULD"/>
+            </extension>
+            <code value="history-instance"/>
+            <documentation value="Allows review of changes to a data element over time"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="create"/>
+            <documentation value="Allows defining new data elements for subsequent re-use while creating and editing forms"/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="update"/>
+            <documentation value="Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="delete"/>
+            <documentation value="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
+         </interaction>
+         <interaction>
+            <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">
+               <valueCode value="MAY"/>
+            </extension>
+            <code value="validate"/>
+            <documentation value="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"/>
+         </interaction>
+         <!-- Do we want to define what search criteria must be supported? -->
     </resource>
   </rest>
 </Conformance>
