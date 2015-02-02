@@ -68,7 +68,7 @@
     <display value="Target weight is 80 kg."/>
   </goal>
   <activity>
-    <reference value="Procedure/12345"/>
+    <reference value="ProcedureRequest/example"/>
   </activity>
 </CarePlan2>
 
