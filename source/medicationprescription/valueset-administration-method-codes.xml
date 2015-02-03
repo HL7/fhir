@@ -16,7 +16,7 @@
       </p>
     </div>
   </text>
-  <name value="SNOMED CT Inroduction (procedure) for Administration Method Codes"/>
+  <name value="SNOMED CT Introduction (procedure) for Administration Method Codes"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>

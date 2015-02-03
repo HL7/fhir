@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:803CCC24-DB94-4014-A0E0-CCC5930A103E"/><meta><lastUpdated value="2015-02-03T22:20:54+11:00"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>contraindication-category</h2>
+      <p>Kinds of contraindications, such as &#39;drug-drug interaction&#39;, &#39;duplicate therapy&#39;, etc.</p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include codes from 
+          <a href="v3/ActCode/index.html">http://hl7.org/fhir/v3/ActCode</a> where concept  is-a  
+          <a href="v3/ActCode/index.html#_AdministrationDetectedIssueCode">_AdministrationDetectedIssueCode</a>Include codes from 
+          <a href="v3/ActCode/index.html">http://hl7.org/fhir/v3/ActCode</a> where concept  is-a  
+          <a href="v3/ActCode/index.html#_SupplyDetectedIssueCode">_SupplyDetectedIssueCode</a>
+        </li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.4.642.2.401"/></extension><identifier value="http://hl7.org/fhir/vs/contraindication-category"/><name value="contraindication-category"/><publisher value="FHIR Project team"/><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><description value="Kinds of contraindications, such as &#39;drug-drug interaction&#39;, &#39;duplicate therapy&#39;, etc."/><status value="draft"/><compose><include><system value="http://hl7.org/fhir/v3/ActCode"/><filter><property value="concept"/><op value="is-a"/><value value="_AdministrationDetectedIssueCode"/></filter><filter><property value="concept"/><op value="is-a"/><value value="_SupplyDetectedIssueCode"/></filter></include></compose><expansion><timestamp value="2015-02-03T11:23:37Z"/></expansion></ValueSet>

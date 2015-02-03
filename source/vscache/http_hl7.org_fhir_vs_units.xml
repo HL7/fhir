@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationOutcome xmlns="http://hl7.org/fhir">
-  <extension url="http://tools/cache">
-    <valueString value="http://hl7.org/fhir/vs/units"/>
-  </extension>
-  <text>
-    <status value="generated"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:A1E91553-7FA9-44BA-B8A9-D129C60A4CD5"/><meta><lastUpdated value="2015-02-03T22:20:54+11:00"/></meta><text><status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>to do</p>
-    </div>
-  </text>
-  <issue>
-    <severity value="error"/>
-    <details value="to do"/>
-  </issue>
-</OperationOutcome>
+      This value set includes all UCUM codes
+    
+      <hr/>
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>UCUM Codes</h2>
+      <p>This value set includes all UCUM codes</p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include all codes defined in http://unitsofmeasure.org</li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.4.642.2.383"/></extension><identifier value="http://hl7.org/fhir/vs/units"/><name value="UCUM Codes"/><publisher value="FHIR Project team"/><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><description value="This value set includes all UCUM codes"/><status value="draft"/><compose><include><system value="http://unitsofmeasure.org"/></include></compose><expansion><timestamp value="2015-02-03T11:25:45Z"/></expansion></ValueSet>

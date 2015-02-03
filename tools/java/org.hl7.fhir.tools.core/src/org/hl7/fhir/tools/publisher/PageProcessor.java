@@ -178,14 +178,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String oid; // technical identifier associated with the page being built
   private EPubManager epub;
   private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
+  private String tsServer; // terminology to use 
   private SpecificationTerminologyServices terminologyServices;
   private WorkerContext workerContext;
   
-  public PageProcessor() throws URISyntaxException {
+
+  
+  public PageProcessor(String tsServer) throws URISyntaxException {
     super();
-    workerContext  = new WorkerContext(null, new FHIRSimpleClient().initialize("http://local.healthintersections.com.au:960/open"), codeSystems, valueSets, conceptMaps, profiles);
+    this.tsServer = tsServer;
+    workerContext  = new WorkerContext(null, new FHIRSimpleClient().initialize(tsServer), codeSystems, valueSets, conceptMaps, profiles);
   }
 
+  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au";
+  public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960";
+  
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
           "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Continuous Integration Build</a> (will be incorrect/inconsistent at times).\r\n"+
@@ -2901,6 +2908,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       ValueSetExpansionOutcome result = expandedVSCache.getExpander().expand(vs);
       if (result.getError() != null)
         return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(result.getError())+"</div>";
+      
+      if (result.getValueset() == null)
+        return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling (no error returned)</div>";
       ValueSet exp = result.getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
@@ -2909,9 +2919,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       new NarrativeGenerator(prefix, workerContext).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
-      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e.getMessage())+" (2)</div>";
+      e.printStackTrace();
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+Utilities.escapeXml(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+" </div>";
+      
 //      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
     }
+  }
+
+  private String stack(Exception e) {
+    StringBuilder b = new StringBuilder();
+    for (StackTraceElement s : e.getStackTrace()) {
+      b.append("<br/>&nbsp;&nbsp;"+s.toString());
+    }
+    return b.toString();
   }
 
   private boolean hasDynamicContent(ValueSet vs) {
@@ -4616,7 +4636,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"));
+    terminologyServices = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"), tsServer);
     workerContext.setTerminologyServices(terminologyServices);
     epub = new EPubManager(this);
   }

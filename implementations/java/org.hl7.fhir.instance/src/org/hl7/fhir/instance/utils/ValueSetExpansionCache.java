@@ -61,9 +61,11 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	    new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), vso.getValueset(), true);
 	  	  } catch (EFhirClientException e) {
           try {
+            if (!e.getServerErrors().isEmpty()) {
             OperationOutcome oo = e.getServerErrors().get(0);
             ToolingExtensions.setStringExtension(oo, VS_ID_EXT, source.getIdentifier());
             new XmlParser().compose(new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getIdentifier()))), oo, true);
+            }
             vso = new ValueSetExpansionOutcome(vso.getService(), e.getMessage());
           } catch (Exception e1) {
           }
@@ -97,7 +99,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  String[] files = new File(cacheFolder).list();
     for (String f : files) {
       if (f.endsWith(".xml")) {
-        Resource r = (ValueSet) new XmlParser().parse(new FileInputStream(Utilities.path(cacheFolder, f)));
+        Resource r = new XmlParser().parse(new FileInputStream(Utilities.path(cacheFolder, f)));
         if (r instanceof OperationOutcome) {
           OperationOutcome oo = (OperationOutcome) r;
           expansions.put(ToolingExtensions.getExtension(oo,VS_ID_EXT).getValue().toString(), new ValueSetExpansionOutcome(new XhtmlComposer().setXmlOnly(true).composePlainText(oo.getText().getDiv())));

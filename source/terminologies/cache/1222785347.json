@@ -1,1 +1,0 @@
-{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div><p>The filter &quot;Concept is-a 404684003&quot; was not understood in the context of http://snomed.info/sct</p></div>"},"issue":[{"severity":"error","details":"The filter \"Concept is-a 404684003\" was not understood in the context of http://snomed.info/sct"}]}

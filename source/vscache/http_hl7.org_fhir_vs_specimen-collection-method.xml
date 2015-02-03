@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:F2E9DC0F-F757-4209-AA61-6737097455A8"/><meta><lastUpdated value="2015-02-03T22:20:54+11:00"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>SpecimenCollectionMethod</h2>
+      <p> This example value set defines a set of codes that can be used to indicate the method of collection of a specimen.      It includes values from HL7 v2 table 0048</p>
+      <p>
+        <b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement
+      </p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include these codes as defined in http://snomed.info/sct
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Display</b>
+              </td>
+            </tr>
+            <tr>
+              <td>119295008</td>
+              <td>Specimen obtained by aspiration</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>413651001</td>
+              <td>Bioptics</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>360020006</td>
+              <td>Extirpation - action</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>430823004</td>
+              <td>Examination of midstream urine specimen</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>16404004</td>
+              <td>Induced</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>67889009</td>
+              <td>Irrigation</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>29240004</td>
+              <td>Autopsy examination</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>45710003</td>
+              <td>Sputum</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>7800008</td>
+              <td>Punctate</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>258431006</td>
+              <td>Scrapings</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>20255002</td>
+              <td>Blushing</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>386147002</td>
+              <td>Smear procedure</td>
+              <td/>
+            </tr>
+            <tr>
+              <td>278450005</td>
+              <td>Finger stick</td>
+              <td/>
+            </tr>
+          </table>
+        </li>
+        <li>Include all codes defined in 
+          <a href="v2/0488/index.html">http://hl7.org/fhir/v2/0488</a>
+        </li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.4.642.2.256"/></extension><identifier value="http://hl7.org/fhir/vs/specimen-collection-method"/><name value="SpecimenCollectionMethod"/><publisher value="FHIR Project team"/><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><description value=" This example value set defines a set of codes that can be used to indicate the method of collection of a specimen.      It includes values from HL7 v2 table 0048"/><copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/><status value="draft"/><compose><include><system value="http://snomed.info/sct"/><concept><code value="119295008"/><display value="Specimen obtained by aspiration"/></concept><concept><code value="413651001"/><display value="Bioptics"/></concept><concept><code value="360020006"/><display value="Extirpation - action"/></concept><concept><code value="430823004"/><display value="Examination of midstream urine specimen"/></concept><concept><code value="16404004"/><display value="Induced"/></concept><concept><code value="67889009"/><display value="Irrigation"/></concept><concept><code value="29240004"/><display value="Autopsy examination"/></concept><concept><code value="45710003"/><display value="Sputum"/></concept><concept><code value="7800008"/><display value="Punctate"/></concept><concept><code value="258431006"/><display value="Scrapings"/></concept><concept><code value="20255002"/><display value="Blushing"/></concept><concept><code value="386147002"/><display value="Smear procedure"/></concept><concept><code value="278450005"/><display value="Finger stick"/></concept></include><include><system value="http://hl7.org/fhir/v2/0488"/></include></compose><expansion><timestamp value="2015-02-03T11:27:54Z"/><contains><system value="http://snomed.info/sct"/><code value="119295008"/><display value="Specimen obtained by aspiration (specimen)"/></contains><contains><system value="http://snomed.info/sct"/><code value="413651001"/><display value="Bioptics (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="360020006"/><display value="Extirpation - action (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="430823004"/><display value="Examination of midstream urine specimen (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="16404004"/><display value="Induced (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="67889009"/><display value="Irrigation (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="29240004"/><display value="Autopsy examination (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="45710003"/><display value="Sputum (substance)"/></contains><contains><system value="http://snomed.info/sct"/><code value="7800008"/><display value="Punctate (qualifier value)"/></contains><contains><system value="http://snomed.info/sct"/><code value="258431006"/><display value="Scrapings (specimen)"/></contains><contains><system value="http://snomed.info/sct"/><code value="20255002"/><display value="Blushing, function (observable entity)"/></contains><contains><system value="http://snomed.info/sct"/><code value="386147002"/><display value="Smear procedure (procedure)"/></contains><contains><system value="http://snomed.info/sct"/><code value="278450005"/><display value="Finger-prick sampling (procedure)"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="ANP"/><display value="Plates, Anaerobic"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="BAP"/><display value="Plates, Blood Agar"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="BCAE"/><display value="Blood Culture, Aerobic Bottle"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="BCAN"/><display value="Blood Culture, Anaerobic Bottle"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="BCPD"/><display value="Blood Culture, Pediatric Bottle"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="BIO"/><display value="Biopsy"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="CAP"/><display value="Capillary Specimen"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="CATH"/><display value="Catheterized"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="CVP"/><display value="Line, CVP"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="EPLA"/><display value="Environmental, Plate"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="ESWA"/><display value="Environmental, Swab"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="FNA"/><display value="Aspiration, Fine Needle"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="KOFFP"/><display value="Plate, Cough"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="LNA"/><display value="Line, Arterial"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="LNV"/><display value="Line, Venous"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="MARTL"/><display value="Martin-Lewis Agar"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="ML11"/><display value="Mod. Martin-Lewis Agar"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="MLP"/><display value="Plate, Martin-Lewis"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="NYP"/><display value="Plate, New York City"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="PACE"/><display value="Pace, Gen-Probe"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="PIN"/><display value="Pinworm Prep"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="PNA"/><display value="Arterial puncture"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="PRIME"/><display value="Pump Prime"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="PUMP"/><display value="Pump Specimen"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="QC5"/><display value="Quality Control For Micro"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="SCLP"/><display value="Scalp, Fetal Vein"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="SCRAPS"/><display value="Scrapings"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="SHA"/><display value="Shaving"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="SWA"/><display value="Swab"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="SWD"/><display value="Swab, Dacron tipped"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMAN"/><display value="Transport Media, Anaerobic"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMCH"/><display value="Transport Media, Chalamydia"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMM4"/><display value="Transport Media, M4"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMMY"/><display value="Transport Media, Mycoplasma"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMOT"/><display value="Transport Media,"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMP"/><display value="Plate, Thayer-Martin"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMPV"/><display value="Transport Media, PVA"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMSC"/><display value="Transport Media, Stool Culture"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMUP"/><display value="Transport Media, Ureaplasma"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="TMVI"/><display value="Transport Media, Viral"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="VENIP"/><display value="Venipuncture"/></contains><contains><system value="http://hl7.org/fhir/v2/0488"/><code value="WOOD"/><display value="Swab, Wooden Shaft"/></contains></expansion></ValueSet>

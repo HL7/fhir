@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir"><id value="urn:uuid:A01D90DC-DD02-4E2A-8108-9F018DA2D6C4"/><meta><lastUpdated value="2015-02-03T22:20:54+11:00"/></meta><text><status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set does not contain a fixed number of concepts</p>
+      <h2>Vaccine Administered Value Set</h2>
+      <p>This identifies the vaccine substance administered - CVX codes</p>
+      <p>This value set includes codes defined in other code systems, using the following rules:</p>
+      <ul>
+        <li>Include all codes defined in http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx</li>
+      </ul>
+    </div></text><extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid"><valueUri value="2.16.840.1.113883.3.88.12.80.22"/></extension><extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid"><valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/></extension><identifier value="http://hl7.org/fhir/vs/daf-cvx"/><name value="Vaccine Administered Value Set"/><publisher value="HL7 FHIR"/><telecom><system value="url"/><value value="http://hl7.org/fhir"/></telecom><description value="This identifies the vaccine substance administered - CVX codes"/><status value="active"/><compose><include><system value="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx"/></include></compose><expansion><timestamp value="2015-02-03T11:27:57Z"/></expansion></ValueSet>

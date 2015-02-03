@@ -76,10 +76,12 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
   private boolean triedServer = false;
   private boolean serverOk = false;
   private String cache;
+  private String tsServer;
   
-  public SpecificationTerminologyServices(String cache) {
+  public SpecificationTerminologyServices(String cache, String tsServer) {
     super();
     this.cache = cache;
+    this.tsServer = tsServer;
   }
 
   @Override
@@ -138,8 +140,8 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
       triedServer = true;
       serverOk = false;
       HttpClient httpclient = new DefaultHttpClient();
-      HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
-//      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+      // HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
+      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();
@@ -315,15 +317,15 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
         serverOk = false;
         // for this, we use the FHIR client
         IFHIRClient client = new FHIRSimpleClient();
-        client.initialize("http://fhir.healthintersections.com.au/open");
-        //client.initialize("http://localhost:960/open");
+        // client.initialize("http://fhir.healthintersections.com.au/open");
+        client.initialize(tsServer+"/open");
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "expand");
         params.put("limit", "500");
-        Bundle result = client.searchPost(ValueSet.class, vs, params);
+        ValueSet result = client.expandValueset(vs);
         serverOk = true;
         parser.compose(new FileOutputStream(fn), result);
-        return ((ValueSet) result.getEntry().get(0).getResource()).getExpansion().getContains();
+        return result.getExpansion().getContains();
       } catch (EFhirClientException e) {
         serverOk = true;
         parser.compose(new FileOutputStream(fn), e.getServerErrors().get(0));

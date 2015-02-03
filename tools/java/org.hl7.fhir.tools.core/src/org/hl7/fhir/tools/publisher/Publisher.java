@@ -325,7 +325,7 @@ public class Publisher implements URIResolver {
     //
 
     Publisher pub = new Publisher();
-    pub.page = new PageProcessor();
+    pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
@@ -3699,9 +3699,8 @@ public class Publisher implements URIResolver {
       produceCoverageWarnings();
     page.log("Validating XML", LogMessageType.Process);
     page.log(".. Loading schemas", LogMessageType.Process);
-    StreamSource[] sources = new StreamSource[2];
+    StreamSource[] sources = new StreamSource[1];
     sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
-    sources[1] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
     schemaFactory.setErrorHandler(new MyErrorHandler(false));
     schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));

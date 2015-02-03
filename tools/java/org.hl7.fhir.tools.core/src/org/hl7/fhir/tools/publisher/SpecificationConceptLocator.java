@@ -73,10 +73,12 @@ public class SpecificationConceptLocator  implements ConceptLocator {
   private boolean triedServer = false;
   private boolean serverOk = false;
   private String cache;
+  private String tsServer;
   
-  public SpecificationConceptLocator(String cache) {
+  public SpecificationConceptLocator(String cache, String server) {
     super();
     this.cache = cache;
+    this.tsServer = server;
   }
 
   @Override
@@ -133,8 +135,8 @@ public class SpecificationConceptLocator  implements ConceptLocator {
       triedServer = true;
       serverOk = false;
       HttpClient httpclient = new DefaultHttpClient();
-      HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
-//      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+      //HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
+      HttpGet httpget = new HttpGet(tsServer+"/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();
@@ -310,7 +312,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
         // for this, we use the FHIR client
         IFHIRClient client = new FHIRSimpleClient();
         //client.initialize("http://fhir.healthintersections.com.au/open");
-        client.initialize("http://localhost:960/open");
+        client.initialize(tsServer+"/open");
         Map<String, String> params = new HashMap<String, String>();
         params.put("_query", "expand");
         params.put("limit", "500");

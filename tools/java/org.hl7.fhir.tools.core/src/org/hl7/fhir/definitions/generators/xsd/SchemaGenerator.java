@@ -125,8 +125,7 @@ public class SchemaGenerator {
 		  xsd = processSchemaIncludes(definitions, n, xsd, false);
 		  TextFile.stringToFile(xsd, xsdDir + n);
 	  }
-    produceAtomSchema(definitions, xsdDir, dstDir, srcDir);
-	  produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
+    produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
 
 	  dir = new CSFile(xsdDir);
 	  for (File f : dir.listFiles()) {
