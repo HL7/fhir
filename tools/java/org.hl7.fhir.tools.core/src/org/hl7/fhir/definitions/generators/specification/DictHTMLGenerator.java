@@ -187,7 +187,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowMarkdown("Requirements", d.getRequirements());
-    tableRow("Aliases", null, describeAliases(d.getSynonym()));
+    tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getSynonym()));
     tableRowMarkdown("Comments", d.getComments());
     tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
@@ -380,7 +380,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
 
 		tableRowNE("Requirements", null, page.processMarkdown(e.getRequirements()));
-    tableRow("Aliases", null, toSeperatedString(e.getAliases()));
+		tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));
     tableRowNE("Comments", null, page.processMarkdown(e.getComments()));
@@ -525,16 +525,26 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     }
     write("  <tr><td>"+name+"</td><td>"+Processor.process(Utilities.escapeXml(text))+"</td></tr>\r\n");
   }
-	private void tableRow(String name, String defRef, String value) throws IOException {
-		if (value != null && !"".equals(value)) {
-		  if (defRef != null) 
-	      write("  <tr><td><a href=\""+defRef+"\">"+name+"</a></td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
-		  else
-		    write("  <tr><td>"+name+"</td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
-		}
-	}
+  private void tableRow(String name, String defRef, String value) throws IOException {
+    if (value != null && !"".equals(value)) {
+      if (defRef != null) 
+        write("  <tr><td><a href=\""+defRef+"\">"+name+"</a></td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+      else
+        write("  <tr><td>"+name+"</td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+    }
+  }
 
-	
+  
+  private void tableRowHint(String name, String hint, String defRef, String value) throws IOException {
+    if (value != null && !"".equals(value)) {
+      if (defRef != null) 
+        write("  <tr><td><a href=\""+defRef+"\" title=\""+Utilities.escapeXml(hint)+"\">"+name+"</a></td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+      else
+        write("  <tr><td title=\""+Utilities.escapeXml(hint)+"\">"+name+"</td><td>"+Utilities.escapeXml(value)+"</td></tr>\r\n");
+    }
+  }
+
+  
   private void tableRowNE(String name, String defRef, String value) throws IOException {
     if (value != null && !"".equals(value))
       if (defRef != null) 
