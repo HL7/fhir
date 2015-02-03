@@ -3439,143 +3439,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (op.isInstance())
         b.append("<p>URL: [base]/"+resource.getName()+"/[id]/$"+op.getName()+"</p>\r\n");
       if (!op.getParameters().isEmpty()) {
-        b.append("<p>Parameters:</p>\r\n");
         b.append("<table class=\"grid\">\r\n");
-        b.append("<tr><td>");
-        b.append("<b>Use</b>");
-        b.append("</td><td>");
-        b.append("<b>Name</b>");
-        b.append("</td><td>");
-        b.append("<b>Cardinality</b>");
-        b.append("</td><td>");
-        b.append("<b>Type</b>");
-        b.append("</td><td>");
-        b.append("<b>Profile</b>");
-        b.append("</td><td>");
-        b.append("<b>Documentation</b>");
-        b.append("</td></tr>");
-        for (OperationParameter p : op.getParameters()) {
-          b.append("<tr><td>");
-          b.append(p.getUse());
-          b.append("</td><td>");
-          b.append(p.getName());
-          b.append("</td><td>");
-          b.append(p.describeCardinality());
-          b.append("</td><td>");
-          String t = p.getType();
-          if (definitions.hasResource(t)) {
-            b.append("<a href=\"");
-            b.append(t.toLowerCase());
-            b.append(".html\">");
-            b.append(t);
-            b.append("</a>");
-
-          } else if (definitions.hasPrimitiveType(t)) {
-            b.append("<a href=\"datatypes.html#");
-            b.append(t);
-            b.append("\">");
-            b.append(t);
-            b.append("</a>");
-
-          } else if (definitions.hasElementDefn(t)) {
-            b.append("<a href=\"");
-            b.append(definitions.getSrcFile(t));
-            b.append(".html#");
-            b.append(t);
-            b.append("\">");
-            b.append(t);
-            b.append("</a>");
-
-          } else if (t.startsWith("Reference(")) {
-            b.append("<a href=\"references.html#Reference\">Reference</a>");
-            String pn = t.substring(0, t.length()-1).substring(10);
-            b.append("(");
-            boolean first = true;
-            for (String tn : pn.split("\\|")) {
-              if (first)
-                first = false;
-              else
-                b.append("|");
-              b.append("<a href=\"");
-              b.append(tn.toLowerCase());
-              b.append(".html\">");
-              b.append(tn);
-              b.append("</a>");
-            }
-            b.append(")");
-          } else if (!t.equals("Tuple")) {
-            b.append(t);
-          }
-          b.append("</td><td>");
-          if (p.getProfile() != null) {
-            b.append(p.getProfile());
-          }
-          b.append("</td><td>");
-          b.append(processMarkdown(p.getDoc()));
-          if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
-            b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
-          b.append("</td></tr>");
-          if (t.equals("Tuple"))
-            for (OperationTuplePart pp : p.getParts()) {
-              b.append("<tr><td>");
-              b.append("&nbsp;");
-              b.append("</td><td>");
-              b.append("&nbsp;&nbsp;"+pp.getName());
-              b.append("</td><td>");
-              b.append(pp.describeCardinality());
-              b.append("</td><td>");
-              t = pp.getType();
-              if (definitions.hasResource(t)) {
-                b.append("<a href=\"");
-                b.append(t.toLowerCase());
-                b.append(".html\">");
-                b.append(t);
-                b.append("</a>");
-
-              } else if (definitions.hasPrimitiveType(t)) {
-                b.append("<a href=\"datatypes.html#");
-                b.append(t);
-                b.append("\">");
-                b.append(t);
-                b.append("</a>");
-
-              } else if (definitions.hasElementDefn(t)) {
-                b.append("<a href=\"");
-                b.append(definitions.getSrcFile(t));
-                b.append(".html#");
-                b.append(t);
-                b.append("\">");
-                b.append(t);
-                b.append("</a>");
-
-              } else if (t.startsWith("Reference(")) {
-                b.append("<a href=\"references.html#Reference\">Reference</a>");
-                String pn = t.substring(0, t.length()-1).substring(10);
-                b.append("(");
-                boolean first = true;
-                for (String tn : pn.split("\\|")) {
-                  if (first)
-                    first = false;
-                  else
-                    b.append("|");
-                  b.append("<a href=\"");
-                  b.append(tn.toLowerCase());
-                  b.append(".html\">");
-                  b.append(tn);
-                  b.append("</a>");
-                }
-                b.append(")");
-              } else {
-                b.append(t);
-              }
-              b.append("</td><td>");
-              if (pp.getProfile() != null) {
-                b.append(pp.getProfile());
-              }
-              b.append("</td><td>");
-              b.append(processMarkdown(pp.getDoc()));
-              b.append("</td></tr>");
-            }
+        if (hasParameters(op.getParameters(), "In")) {
+          genParameterHeader(b, "In");
+          for (OperationParameter p : op.getParameters()) 
+            genOperationParameter("In", b, op, p);
+        }
+        if (hasParameters(op.getParameters(), "Out")) {
+          genParameterHeader(b, "Out");
+          for (OperationParameter p : op.getParameters()) 
+            genOperationParameter("Out", b, op, p);
         }
         b.append("</table>\r\n");
       }
@@ -3583,6 +3456,153 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("<p></p>");
     }
     return b.toString();
+  }
+
+  private boolean hasParameters(List<OperationParameter> parameters, String mode) {
+    for (OperationParameter p : parameters) {
+      if (mode.equalsIgnoreCase(p.getUse()))
+        return true; 
+    }
+    return false;
+  }
+
+  private void genParameterHeader(StringBuilder b, String mode) {
+    b.append("<tr><td colspan=\"5\"><b>"+mode+" Parameters:</b></td></tr>\r\n");
+    b.append("<tr><td>");
+    b.append("<b>Name</b>");
+    b.append("</td><td>");
+    b.append("<b>Cardinality</b>");
+    b.append("</td><td>");
+    b.append("<b>Type</b>");
+    b.append("</td><td>");
+    b.append("<b>Profile</b>");
+    b.append("</td><td>");
+    b.append("<b>Documentation</b>");
+    b.append("</td></tr>");
+  }
+
+  private void genOperationParameter(String mode, StringBuilder b, Operation op, OperationParameter p) throws Exception {
+    if (!mode.equalsIgnoreCase(p.getUse()))
+      return;
+    
+    b.append("<tr><td>");
+    b.append(p.getName());
+    b.append("</td><td>");
+    b.append(p.describeCardinality());
+    b.append("</td><td>");
+    String t = p.getType();
+    if (definitions.hasResource(t)) {
+      b.append("<a href=\"");
+      b.append(t.toLowerCase());
+      b.append(".html\">");
+      b.append(t);
+      b.append("</a>");
+    } else if (definitions.hasPrimitiveType(t)) {
+      b.append("<a href=\"datatypes.html#");
+      b.append(t);
+      b.append("\">");
+      b.append(t);
+      b.append("</a>");
+
+    } else if (definitions.hasElementDefn(t)) {
+      b.append("<a href=\"");
+      b.append(definitions.getSrcFile(t));
+      b.append(".html#");
+      b.append(t);
+      b.append("\">");
+      b.append(t);
+      b.append("</a>");
+
+    } else if (t.startsWith("Reference(")) {
+      b.append("<a href=\"references.html#Reference\">Reference</a>");
+      String pn = t.substring(0, t.length()-1).substring(10);
+      b.append("(");
+      boolean first = true;
+      for (String tn : pn.split("\\|")) {
+        if (first)
+          first = false;
+        else
+          b.append("|");
+        b.append("<a href=\"");
+        b.append(tn.toLowerCase());
+        b.append(".html\">");
+        b.append(tn);
+        b.append("</a>");
+      }
+      b.append(")");
+    } else if (!t.equals("Tuple")) {
+      b.append(t);
+    }
+    b.append("</td><td>");
+    if (p.getProfile() != null) {
+      b.append(p.getProfile());
+    }
+    b.append("</td><td>");
+    b.append(processMarkdown(p.getDoc()));
+    if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
+      b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
+    b.append("</td></tr>");
+    if (t.equals("Tuple"))
+      for (OperationTuplePart pp : p.getParts()) {
+        b.append("<tr><td>");
+        b.append("&nbsp;");
+        b.append("</td><td>");
+        b.append("&nbsp;&nbsp;"+pp.getName());
+        b.append("</td><td>");
+        b.append(pp.describeCardinality());
+        b.append("</td><td>");
+        t = pp.getType();
+        if (definitions.hasResource(t)) {
+          b.append("<a href=\"");
+          b.append(t.toLowerCase());
+          b.append(".html\">");
+          b.append(t);
+          b.append("</a>");
+
+        } else if (definitions.hasPrimitiveType(t)) {
+          b.append("<a href=\"datatypes.html#");
+          b.append(t);
+          b.append("\">");
+          b.append(t);
+          b.append("</a>");
+
+        } else if (definitions.hasElementDefn(t)) {
+          b.append("<a href=\"");
+          b.append(definitions.getSrcFile(t));
+          b.append(".html#");
+          b.append(t);
+          b.append("\">");
+          b.append(t);
+          b.append("</a>");
+
+        } else if (t.startsWith("Reference(")) {
+          b.append("<a href=\"references.html#Reference\">Reference</a>");
+          String pn = t.substring(0, t.length()-1).substring(10);
+          b.append("(");
+          boolean first = true;
+          for (String tn : pn.split("\\|")) {
+            if (first)
+              first = false;
+            else
+              b.append("|");
+            b.append("<a href=\"");
+            b.append(tn.toLowerCase());
+            b.append(".html\">");
+            b.append(tn);
+            b.append("</a>");
+          }
+          b.append(")");
+        } else {
+          b.append(t);
+        }
+        b.append("</td><td>");
+        if (pp.getProfile() != null) {
+          b.append(pp.getProfile());
+        }
+        b.append("</td><td>");
+        b.append(processMarkdown(pp.getDoc()));
+        b.append("</td></tr>");
+      }
   }
 
 
