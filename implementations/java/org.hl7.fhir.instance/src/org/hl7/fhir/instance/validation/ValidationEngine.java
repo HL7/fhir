@@ -100,10 +100,8 @@ public class ValidationEngine {
 
     if (!noSchematron) {
     	// 2. schematron validation
-    	String sch = doc.getDocumentElement().getNodeName().toLowerCase();
-    	if (sch.equals("feed"))
-    		sch = "fhir-atom";
-    	byte[] tmp = Utilities.saxonTransform(definitions, definitions.get(sch+".sch"), definitions.get("iso_svrl_for_xslt2.xsl"));
+    	String sch = "fhir-invariants.sch";
+    	byte[] tmp = Utilities.saxonTransform(definitions, definitions.get(sch), definitions.get("iso_svrl_for_xslt2.xsl"));
     	byte[] out = Utilities.saxonTransform(definitions, source, tmp);
     	processSchematronOutput(out);
     }

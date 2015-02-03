@@ -539,7 +539,10 @@ public class ResourceValidator extends BaseValidator {
         cd.setBindingStrength(BindingStrength.Preferred);
       }
     }
-    else {
+    else if (cd.getBinding() == Binding.CodeList) {
+      cd.setBindingStrength(BindingStrength.Required);
+      cd.setExtensibility(BindingExtensibility.Complete);      
+    } else {
       cd.setBindingStrength(BindingStrength.Unstated);
       cd.setExtensibility(BindingExtensibility.Extensible);      
     }

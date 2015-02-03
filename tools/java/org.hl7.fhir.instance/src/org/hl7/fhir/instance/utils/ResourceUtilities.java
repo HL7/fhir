@@ -5,11 +5,11 @@ import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleLinkComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -79,9 +79,9 @@ public class ResourceUtilities {
     }
     return null;  }
 
-  public static ResourceMetaComponent meta(Resource resource) {
+  public static Meta meta(Resource resource) {
     if (!resource.hasMeta())
-      resource.setMeta(new ResourceMetaComponent());
+      resource.setMeta(new Meta());
     return resource.getMeta();
   }
 

@@ -145,6 +145,7 @@ import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
+import org.hl7.fhir.instance.model.Meta;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationDefinition;
@@ -158,7 +159,6 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -900,38 +900,38 @@ public class Publisher implements URIResolver {
     profileFeed = new Bundle();
     profileFeed.setId("resources");
     profileFeed.setType(BundleType.COLLECTION);
-    profileFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    profileFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     profileFeed.setBase("http://hl7.org/fhir");
 
     typeFeed = new Bundle();
     typeFeed.setId("types");
     typeFeed.setType(BundleType.COLLECTION);
-    typeFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    typeFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     typeFeed.setBase("http://hl7.org/fhir");
 
     valueSetsFeed = new Bundle();
     valueSetsFeed.setId("valuesets");
     valueSetsFeed.setType(BundleType.COLLECTION);
-    valueSetsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    valueSetsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     valueSetsFeed.setBase("http://hl7.org/fhir");
 
     conceptMapsFeed = new Bundle();
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
-    conceptMapsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    conceptMapsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     conceptMapsFeed.setBase("http://hl7.org/fhir");
 
     v2Valuesets = new Bundle();
     v2Valuesets.setType(BundleType.COLLECTION);
     v2Valuesets.setId("v2-valuesets");
-    v2Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     v2Valuesets.setBase("http://hl7.org/fhir");
     page.setV2Valuesets(v2Valuesets);
     
     v3Valuesets = new Bundle();
     v3Valuesets.setType(BundleType.COLLECTION);
     v3Valuesets.setId("v3-valuesets");
-    v3Valuesets.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+    v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
     v3Valuesets.setBase("http://hl7.org/fhir");
     page.setv3Valuesets(v3Valuesets);
   }
@@ -1667,7 +1667,7 @@ public class Publisher implements URIResolver {
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
       extensionsFeed.setBase("http://hl7.org/fhir");
-      extensionsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      extensionsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       Set<String> urls = new HashSet<String>();
       for (ExtensionDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
         if (!urls.contains(ed.getUrl())) {
@@ -1685,7 +1685,7 @@ public class Publisher implements URIResolver {
       searchParamsFeed.setId("extensions");
       searchParamsFeed.setType(BundleType.COLLECTION);
       searchParamsFeed.setBase("http://hl7.org/fhir");
-      searchParamsFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      searchParamsFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getBaseResources().values())
         addSearchParams(searchParamsFeed, rd);
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
@@ -1703,7 +1703,7 @@ public class Publisher implements URIResolver {
       profileOthersFeed.setId("profiles-others");
       profileOthersFeed.setType(BundleType.COLLECTION);
       profileOthersFeed.setBase("http://hl7.org/fhir");
-      profileOthersFeed.setMeta(new ResourceMetaComponent().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
+      profileOthersFeed.setMeta(new Meta().setLastUpdated(profileFeed.getMeta().getLastUpdated()));
       for (ResourceDefn rd : page.getDefinitions().getResources().values())
         addOtherProfiles(profileOthersFeed, rd);
       for (ConformancePackage cp : page.getDefinitions().getConformancePackages().values()) {
@@ -2198,9 +2198,9 @@ public class Publisher implements URIResolver {
             vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+e.getAttribute("codeSystemId"));
             if (vs.hasDate())
-              vs.setMeta(new ResourceMetaComponent().setLastUpdatedElement(new InstantType(vs.getDate())));
+              vs.setMeta(new Meta().setLastUpdatedElement(new InstantType(vs.getDate())));
             else
-              vs.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+              vs.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
             page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
             page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
             page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
@@ -2231,9 +2231,9 @@ public class Publisher implements URIResolver {
           vs.setUserData("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
-            vs.setMeta(new ResourceMetaComponent().setLastUpdatedElement(new InstantType(vs.getDate())));
+            vs.setMeta(new Meta().setLastUpdatedElement(new InstantType(vs.getDate())));
           else
-            vs.setMeta(new ResourceMetaComponent().setLastUpdated(page.getGenDate().getTime()));
+            vs.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
           page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
           page.getValueSets().put(vs.getIdentifier(), vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);

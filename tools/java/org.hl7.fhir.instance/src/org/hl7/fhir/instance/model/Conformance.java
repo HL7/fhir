@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 29, 2015 00:04+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 3, 2015 08:38+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -3160,7 +3160,7 @@ public class Conformance extends DomainResource {
          * Where the formal definition can be found.
          */
         @Child(name="definition", type={OperationDefinition.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="The the operation/query is defined", formalDefinition="Where the formal definition can be found." )
+        @Description(shortDefinition="The defined operation/query", formalDefinition="Where the formal definition can be found." )
         protected Reference definition;
 
         /**

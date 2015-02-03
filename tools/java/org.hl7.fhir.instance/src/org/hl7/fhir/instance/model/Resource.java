@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 29, 2015 00:04+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 3, 2015 08:38+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -45,301 +45,6 @@ import org.hl7.fhir.instance.model.annotations.Description;
 @ResourceDef(name="Resource", profile="http://hl7.org/fhir/Profile/Resource")
 public abstract class Resource extends Base {
 
-    @Block()
-    public static class ResourceMetaComponent extends BackboneElement {
-        /**
-         * The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.
-         */
-        @Child(name="versionId", type={IdType.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Version specific identifier", formalDefinition="The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted." )
-        protected IdType versionId;
-
-        /**
-         * When the resource last changed - e.g. when the version changed.
-         */
-        @Child(name="lastUpdated", type={InstantType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="When the resource version last changed", formalDefinition="When the resource last changed - e.g. when the version changed." )
-        protected InstantType lastUpdated;
-
-        /**
-         * A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.
-         */
-        @Child(name="profile", type={UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url." )
-        protected List<UriType> profile;
-
-        /**
-         * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
-         */
-        @Child(name="security", type={Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Security Labels applied to this resource", formalDefinition="Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure." )
-        protected List<Coding> security;
-
-        /**
-         * Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
-         */
-        @Child(name="tag", type={Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Tags applied", formalDefinition="Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource." )
-        protected List<Coding> tag;
-
-        private static final long serialVersionUID = 650918851L;
-
-      public ResourceMetaComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #versionId} (The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
-         */
-        public IdType getVersionIdElement() { 
-          if (this.versionId == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ResourceMetaComponent.versionId");
-            else if (Configuration.doAutoCreate())
-              this.versionId = new IdType(); // bb
-          return this.versionId;
-        }
-
-        public boolean hasVersionIdElement() { 
-          return this.versionId != null && !this.versionId.isEmpty();
-        }
-
-        public boolean hasVersionId() { 
-          return this.versionId != null && !this.versionId.isEmpty();
-        }
-
-        /**
-         * @param value {@link #versionId} (The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
-         */
-        public ResourceMetaComponent setVersionIdElement(IdType value) { 
-          this.versionId = value;
-          return this;
-        }
-
-        /**
-         * @return The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.
-         */
-        public String getVersionId() { 
-          return this.versionId == null ? null : this.versionId.getValue();
-        }
-
-        /**
-         * @param value The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.
-         */
-        public ResourceMetaComponent setVersionId(String value) { 
-          if (Utilities.noString(value))
-            this.versionId = null;
-          else {
-            if (this.versionId == null)
-              this.versionId = new IdType();
-            this.versionId.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #lastUpdated} (When the resource last changed - e.g. when the version changed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
-         */
-        public InstantType getLastUpdatedElement() { 
-          if (this.lastUpdated == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ResourceMetaComponent.lastUpdated");
-            else if (Configuration.doAutoCreate())
-              this.lastUpdated = new InstantType(); // bb
-          return this.lastUpdated;
-        }
-
-        public boolean hasLastUpdatedElement() { 
-          return this.lastUpdated != null && !this.lastUpdated.isEmpty();
-        }
-
-        public boolean hasLastUpdated() { 
-          return this.lastUpdated != null && !this.lastUpdated.isEmpty();
-        }
-
-        /**
-         * @param value {@link #lastUpdated} (When the resource last changed - e.g. when the version changed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
-         */
-        public ResourceMetaComponent setLastUpdatedElement(InstantType value) { 
-          this.lastUpdated = value;
-          return this;
-        }
-
-        /**
-         * @return When the resource last changed - e.g. when the version changed.
-         */
-        public Date getLastUpdated() { 
-          return this.lastUpdated == null ? null : this.lastUpdated.getValue();
-        }
-
-        /**
-         * @param value When the resource last changed - e.g. when the version changed.
-         */
-        public ResourceMetaComponent setLastUpdated(Date value) { 
-          if (value == null)
-            this.lastUpdated = null;
-          else {
-            if (this.lastUpdated == null)
-              this.lastUpdated = new InstantType();
-            this.lastUpdated.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
-         */
-        public List<UriType> getProfile() { 
-          if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
-          return this.profile;
-        }
-
-        public boolean hasProfile() { 
-          if (this.profile == null)
-            return false;
-          for (UriType item : this.profile)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
-         */
-    // syntactic sugar
-        public UriType addProfileElement() {//2 
-          UriType t = new UriType();
-          if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
-          this.profile.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
-         */
-        public ResourceMetaComponent addProfile(String value) { //1
-          UriType t = new UriType();
-          t.setValue(value);
-          if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
-          this.profile.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #profile} (A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.)
-         */
-        public boolean hasProfile(String value) { 
-          if (this.profile == null)
-            return false;
-          for (UriType v : this.profile)
-            if (v.equals(value)) // uri
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #security} (Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.)
-         */
-        public List<Coding> getSecurity() { 
-          if (this.security == null)
-            this.security = new ArrayList<Coding>();
-          return this.security;
-        }
-
-        public boolean hasSecurity() { 
-          if (this.security == null)
-            return false;
-          for (Coding item : this.security)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #security} (Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.)
-         */
-    // syntactic sugar
-        public Coding addSecurity() { //3
-          Coding t = new Coding();
-          if (this.security == null)
-            this.security = new ArrayList<Coding>();
-          this.security.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #tag} (Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
-         */
-        public List<Coding> getTag() { 
-          if (this.tag == null)
-            this.tag = new ArrayList<Coding>();
-          return this.tag;
-        }
-
-        public boolean hasTag() { 
-          if (this.tag == null)
-            return false;
-          for (Coding item : this.tag)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #tag} (Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
-         */
-    // syntactic sugar
-        public Coding addTag() { //3
-          Coding t = new Coding();
-          if (this.tag == null)
-            this.tag = new ArrayList<Coding>();
-          this.tag.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the url. This values changes when the resource is created, updated, or deleted.", 0, java.lang.Integer.MAX_VALUE, versionId));
-          childrenList.add(new Property("lastUpdated", "instant", "When the resource last changed - e.g. when the version changed.", 0, java.lang.Integer.MAX_VALUE, lastUpdated));
-          childrenList.add(new Property("profile", "uri", "A list of profiles that this resource claims to conform to. The URL is a reference to Profile.url.", 0, java.lang.Integer.MAX_VALUE, profile));
-          childrenList.add(new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security));
-          childrenList.add(new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag));
-        }
-
-      public ResourceMetaComponent copy() {
-        ResourceMetaComponent dst = new ResourceMetaComponent();
-        copyValues(dst);
-        dst.versionId = versionId == null ? null : versionId.copy();
-        dst.lastUpdated = lastUpdated == null ? null : lastUpdated.copy();
-        if (profile != null) {
-          dst.profile = new ArrayList<UriType>();
-          for (UriType i : profile)
-            dst.profile.add(i.copy());
-        };
-        if (security != null) {
-          dst.security = new ArrayList<Coding>();
-          for (Coding i : security)
-            dst.security.add(i.copy());
-        };
-        if (tag != null) {
-          dst.tag = new ArrayList<Coding>();
-          for (Coding i : tag)
-            dst.tag.add(i.copy());
-        };
-        return dst;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (versionId == null || versionId.isEmpty()) && (lastUpdated == null || lastUpdated.isEmpty())
-           && (profile == null || profile.isEmpty()) && (security == null || security.isEmpty()) && (tag == null || tag.isEmpty())
-          ;
-      }
-
-  }
-
     /**
      * The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.
      */
@@ -350,9 +55,9 @@ public abstract class Resource extends Base {
     /**
      * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
      */
-    @Child(name="meta", type={}, order=0, min=0, max=1)
+    @Child(name="meta", type={Meta.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Metadata about the resource", formalDefinition="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource." )
-    protected ResourceMetaComponent meta;
+    protected Meta meta;
 
     /**
      * A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.
@@ -368,7 +73,7 @@ public abstract class Resource extends Base {
     @Description(shortDefinition="Language of the resource content", formalDefinition="The base language in which the resource is written." )
     protected CodeType language;
 
-    private static final long serialVersionUID = -519506254L;
+    private static final long serialVersionUID = -559462759L;
 
     public Resource() {
       super();
@@ -426,12 +131,12 @@ public abstract class Resource extends Base {
     /**
      * @return {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.)
      */
-    public ResourceMetaComponent getMeta() { 
+    public Meta getMeta() { 
       if (this.meta == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Resource.meta");
         else if (Configuration.doAutoCreate())
-          this.meta = new ResourceMetaComponent(); // cc
+          this.meta = new Meta(); // cc
       return this.meta;
     }
 
@@ -442,7 +147,7 @@ public abstract class Resource extends Base {
     /**
      * @param value {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.)
      */
-    public Resource setMeta(ResourceMetaComponent value) { 
+    public Resource setMeta(Meta value) { 
       this.meta = value;
       return this;
     }
@@ -547,7 +252,7 @@ public abstract class Resource extends Base {
 
       protected void listChildren(List<Property> childrenList) {
         childrenList.add(new Property("id", "id", "The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.", 0, java.lang.Integer.MAX_VALUE, id));
-        childrenList.add(new Property("meta", "", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.", 0, java.lang.Integer.MAX_VALUE, meta));
+        childrenList.add(new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.", 0, java.lang.Integer.MAX_VALUE, meta));
         childrenList.add(new Property("implicitRules", "uri", "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.", 0, java.lang.Integer.MAX_VALUE, implicitRules));
         childrenList.add(new Property("language", "code", "The base language in which the resource is written.", 0, java.lang.Integer.MAX_VALUE, language));
       }

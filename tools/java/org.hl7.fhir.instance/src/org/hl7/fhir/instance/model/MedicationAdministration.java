@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 29, 2015 00:04+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 3, 2015 08:38+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -40,9 +40,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.
-
-Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
+ * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
 @ResourceDef(name="MedicationAdministration", profile="http://hl7.org/fhir/Profile/MedicationAdministration")
 public class MedicationAdministration extends DomainResource {
@@ -164,140 +162,99 @@ public class MedicationAdministration extends DomainResource {
     @Block()
     public static class MedicationAdministrationDosageComponent extends BackboneElement {
         /**
-         * The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).
+         * Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        @Child(name="timing", type={DateTimeType.class, Period.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="When dose(s) were given", formalDefinition="The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period)." )
-        protected Type timing;
-
-        /**
-         * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
-         */
-        @Child(name="asNeeded", type={BooleanType.class, CodeableConcept.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Take 'as needed' f(or x)", formalDefinition="If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication." )
-        protected Type asNeeded;
+        @Child(name="text", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Dosage Instructions", formalDefinition="Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication." )
+        protected StringType text;
 
         /**
          * A coded specification of the anatomic site where the medication first entered the body.  E.g. "left arm".
          */
-        @Child(name="site", type={CodeableConcept.class}, order=3, min=0, max=1)
+        @Child(name="site", type={CodeableConcept.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Body site administered to", formalDefinition="A coded specification of the anatomic site where the medication first entered the body.  E.g. 'left arm'." )
         protected CodeableConcept site;
 
         /**
          * A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.
          */
-        @Child(name="route", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Child(name="route", type={CodeableConcept.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Path of substance into body", formalDefinition="A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc." )
         protected CodeableConcept route;
 
         /**
-         * A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
-
-Terminologies used often pre-coordinate this term with the route and or form of administration.
+         * A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.Terminologies used often pre-coordinate this term with the route and or form of administration.
          */
-        @Child(name="method", type={CodeableConcept.class}, order=5, min=0, max=1)
-        @Description(shortDefinition="How drug was administered", formalDefinition="A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration." )
+        @Child(name="method", type={CodeableConcept.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="How drug was administered", formalDefinition="A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\r\rTerminologies used often pre-coordinate this term with the route and or form of administration." )
         protected CodeableConcept method;
 
         /**
          * The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
          */
-        @Child(name="quantity", type={Quantity.class}, order=6, min=0, max=1)
+        @Child(name="quantity", type={Quantity.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Amount administered in one dose", formalDefinition="The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection." )
         protected Quantity quantity;
 
         /**
          * Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.
          */
-        @Child(name="rate", type={Ratio.class}, order=7, min=0, max=1)
+        @Child(name="rate", type={Ratio.class}, order=6, min=0, max=1)
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity." )
         protected Ratio rate;
 
-        /**
-         * The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.
-         */
-        @Child(name="maxDosePerPeriod", type={Ratio.class}, order=8, min=0, max=1)
-        @Description(shortDefinition="Total dose that was consumed per unit of time", formalDefinition="The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours." )
-        protected Ratio maxDosePerPeriod;
-
-        private static final long serialVersionUID = 1667442570L;
+        private static final long serialVersionUID = -358534919L;
 
       public MedicationAdministrationDosageComponent() {
         super();
       }
 
         /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
+         * @return {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public Type getTiming() { 
-          return this.timing;
+        public StringType getTextElement() { 
+          if (this.text == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.text");
+            else if (Configuration.doAutoCreate())
+              this.text = new StringType(); // bb
+          return this.text;
+        }
+
+        public boolean hasTextElement() { 
+          return this.text != null && !this.text.isEmpty();
+        }
+
+        public boolean hasText() { 
+          return this.text != null && !this.text.isEmpty();
         }
 
         /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
+         * @param value {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public DateTimeType getTimingDateTimeType() throws Exception { 
-          if (!(this.timing instanceof DateTimeType))
-            throw new Exception("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
-          return (DateTimeType) this.timing;
-        }
-
-        /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
-         */
-        public Period getTimingPeriod() throws Exception { 
-          if (!(this.timing instanceof Period))
-            throw new Exception("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
-          return (Period) this.timing;
-        }
-
-        public boolean hasTiming() { 
-          return this.timing != null && !this.timing.isEmpty();
-        }
-
-        /**
-         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
-         */
-        public MedicationAdministrationDosageComponent setTiming(Type value) { 
-          this.timing = value;
+        public MedicationAdministrationDosageComponent setTextElement(StringType value) { 
+          this.text = value;
           return this;
         }
 
         /**
-         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         * @return Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        public Type getAsNeeded() { 
-          return this.asNeeded;
+        public String getText() { 
+          return this.text == null ? null : this.text.getValue();
         }
 
         /**
-         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         * @param value Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        public BooleanType getAsNeededBooleanType() throws Exception { 
-          if (!(this.asNeeded instanceof BooleanType))
-            throw new Exception("Type mismatch: the type BooleanType was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
-          return (BooleanType) this.asNeeded;
-        }
-
-        /**
-         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
-         */
-        public CodeableConcept getAsNeededCodeableConcept() throws Exception { 
-          if (!(this.asNeeded instanceof CodeableConcept))
-            throw new Exception("Type mismatch: the type CodeableConcept was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.asNeeded;
-        }
-
-        public boolean hasAsNeeded() { 
-          return this.asNeeded != null && !this.asNeeded.isEmpty();
-        }
-
-        /**
-         * @param value {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
-         */
-        public MedicationAdministrationDosageComponent setAsNeeded(Type value) { 
-          this.asNeeded = value;
+        public MedicationAdministrationDosageComponent setText(String value) { 
+          if (Utilities.noString(value))
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new StringType();
+            this.text.setValue(value);
+          }
           return this;
         }
 
@@ -350,9 +307,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #method} (A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
-
-Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         * @return {@link #method} (A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.Terminologies used often pre-coordinate this term with the route and or form of administration.)
          */
         public CodeableConcept getMethod() { 
           if (this.method == null)
@@ -368,9 +323,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @param value {@link #method} (A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
-
-Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         * @param value {@link #method} (A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.Terminologies used often pre-coordinate this term with the route and or form of administration.)
          */
         public MedicationAdministrationDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
@@ -425,61 +378,32 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
-        /**
-         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.)
-         */
-        public Ratio getMaxDosePerPeriod() { 
-          if (this.maxDosePerPeriod == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.maxDosePerPeriod");
-            else if (Configuration.doAutoCreate())
-              this.maxDosePerPeriod = new Ratio(); // cc
-          return this.maxDosePerPeriod;
-        }
-
-        public boolean hasMaxDosePerPeriod() { 
-          return this.maxDosePerPeriod != null && !this.maxDosePerPeriod.isEmpty();
-        }
-
-        /**
-         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.)
-         */
-        public MedicationAdministrationDosageComponent setMaxDosePerPeriod(Ratio value) { 
-          this.maxDosePerPeriod = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("timing[x]", "dateTime|Period", "The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).", 0, java.lang.Integer.MAX_VALUE, timing));
-          childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
+          childrenList.add(new Property("text", "string", "Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first entered the body.  E.g. 'left arm'.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.", 0, java.lang.Integer.MAX_VALUE, route));
-          childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
+          childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\r\rTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("quantity", "Quantity", "The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the medication was introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.", 0, java.lang.Integer.MAX_VALUE, rate));
-          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationAdministrationDosageComponent copy() {
         MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
         copyValues(dst);
-        dst.timing = timing == null ? null : timing.copy();
-        dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
+        dst.text = text == null ? null : text.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.rate = rate == null ? null : rate.copy();
-        dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
         return dst;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (timing == null || timing.isEmpty()) && (asNeeded == null || asNeeded.isEmpty())
-           && (site == null || site.isEmpty()) && (route == null || route.isEmpty()) && (method == null || method.isEmpty())
-           && (quantity == null || quantity.isEmpty()) && (rate == null || rate.isEmpty()) && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty())
-          ;
+        return super.isEmpty() && (text == null || text.isEmpty()) && (site == null || site.isEmpty())
+           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (quantity == null || quantity.isEmpty())
+           && (rate == null || rate.isEmpty());
       }
 
   }
@@ -513,7 +437,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The individual who was responsible for giving the medication to the patient.
      */
-    @Child(name="practitioner", type={Practitioner.class}, order=2, min=1, max=1)
+    @Child(name="practitioner", type={Practitioner.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Who administered substance?", formalDefinition="The individual who was responsible for giving the medication to the patient." )
     protected Reference practitioner;
 
@@ -537,7 +461,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name="prescription", type={MedicationPrescription.class}, order=4, min=1, max=1)
+    @Child(name="prescription", type={MedicationPrescription.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Order administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
     protected Reference prescription;
 
@@ -561,16 +485,23 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected List<CodeableConcept> reasonNotGiven;
 
     /**
-     * An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.
+     * A code indicating why the medication was given.
      */
-    @Child(name="effectiveTime", type={DateTimeType.class, Period.class}, order=7, min=1, max=1)
-    @Description(shortDefinition="Start and end time of administration", formalDefinition="An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same." )
+    @Child(name="reasonGiven", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
+    protected List<CodeableConcept> reasonGiven;
+
+    /**
+     * An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
+     */
+    @Child(name="effectiveTime", type={DateTimeType.class, Period.class}, order=8, min=1, max=1)
+    @Description(shortDefinition="Start and end time of administration", formalDefinition="An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate." )
     protected Type effectiveTime;
 
     /**
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name="medication", type={Medication.class}, order=8, min=0, max=1)
+    @Child(name="medication", type={Medication.class}, order=9, min=0, max=1)
     @Description(shortDefinition="What was administered?", formalDefinition="Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     protected Reference medication;
 
@@ -582,7 +513,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     /**
      * The device used in administering the medication to the patient.  E.g. a particular infusion pump.
      */
-    @Child(name="device", type={Device.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="device", type={Device.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Device used to administer", formalDefinition="The device used in administering the medication to the patient.  E.g. a particular infusion pump." )
     protected List<Reference> device;
     /**
@@ -592,24 +523,22 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
 
     /**
-     * Provides details of how much of the medication was administered.
+     * Indicates how the medication is/was used by the patient.
      */
-    @Child(name="dosage", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Medicine administration instructions to the patient/carer", formalDefinition="Provides details of how much of the medication was administered." )
-    protected List<MedicationAdministrationDosageComponent> dosage;
+    @Child(name="dosage", type={}, order=11, min=0, max=1)
+    @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
+    protected MedicationAdministrationDosageComponent dosage;
 
-    private static final long serialVersionUID = -138666373L;
+    private static final long serialVersionUID = 711410311L;
 
     public MedicationAdministration() {
       super();
     }
 
-    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, Reference patient, Reference practitioner, Reference prescription, Type effectiveTime) {
+    public MedicationAdministration(Enumeration<MedicationAdminStatus> status, Reference patient, Type effectiveTime) {
       super();
       this.status = status;
       this.patient = patient;
-      this.practitioner = practitioner;
-      this.prescription = prescription;
       this.effectiveTime = effectiveTime;
     }
 
@@ -944,14 +873,44 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @return {@link #reasonGiven} (A code indicating why the medication was given.)
+     */
+    public List<CodeableConcept> getReasonGiven() { 
+      if (this.reasonGiven == null)
+        this.reasonGiven = new ArrayList<CodeableConcept>();
+      return this.reasonGiven;
+    }
+
+    public boolean hasReasonGiven() { 
+      if (this.reasonGiven == null)
+        return false;
+      for (CodeableConcept item : this.reasonGiven)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #reasonGiven} (A code indicating why the medication was given.)
+     */
+    // syntactic sugar
+    public CodeableConcept addReasonGiven() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reasonGiven == null)
+        this.reasonGiven = new ArrayList<CodeableConcept>();
+      this.reasonGiven.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #effectiveTime} (An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
     public Type getEffectiveTime() { 
       return this.effectiveTime;
     }
 
     /**
-     * @return {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @return {@link #effectiveTime} (An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
     public DateTimeType getEffectiveTimeDateTimeType() throws Exception { 
       if (!(this.effectiveTime instanceof DateTimeType))
@@ -960,7 +919,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @return {@link #effectiveTime} (An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
     public Period getEffectiveTimePeriod() throws Exception { 
       if (!(this.effectiveTime instanceof Period))
@@ -973,7 +932,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @param value {@link #effectiveTime} (An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @param value {@link #effectiveTime} (An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
     public MedicationAdministration setEffectiveTime(Type value) { 
       this.effectiveTime = value;
@@ -1076,33 +1035,27 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #dosage} (Provides details of how much of the medication was administered.)
+     * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
-    public List<MedicationAdministrationDosageComponent> getDosage() { 
+    public MedicationAdministrationDosageComponent getDosage() { 
       if (this.dosage == null)
-        this.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationAdministration.dosage");
+        else if (Configuration.doAutoCreate())
+          this.dosage = new MedicationAdministrationDosageComponent(); // cc
       return this.dosage;
     }
 
     public boolean hasDosage() { 
-      if (this.dosage == null)
-        return false;
-      for (MedicationAdministrationDosageComponent item : this.dosage)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.dosage != null && !this.dosage.isEmpty();
     }
 
     /**
-     * @return {@link #dosage} (Provides details of how much of the medication was administered.)
+     * @param value {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
-    // syntactic sugar
-    public MedicationAdministrationDosageComponent addDosage() { //3
-      MedicationAdministrationDosageComponent t = new MedicationAdministrationDosageComponent();
-      if (this.dosage == null)
-        this.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
-      this.dosage.add(t);
-      return t;
+    public MedicationAdministration setDosage(MedicationAdministrationDosageComponent value) { 
+      this.dosage = value;
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1115,10 +1068,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         childrenList.add(new Property("prescription", "Reference(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
-        childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
+        childrenList.add(new Property("reasonGiven", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonGiven));
+        childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
-        childrenList.add(new Property("dosage", "", "Provides details of how much of the medication was administered.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        childrenList.add(new Property("dosage", "", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
       public MedicationAdministration copy() {
@@ -1140,6 +1094,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           for (CodeableConcept i : reasonNotGiven)
             dst.reasonNotGiven.add(i.copy());
         };
+        if (reasonGiven != null) {
+          dst.reasonGiven = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonGiven)
+            dst.reasonGiven.add(i.copy());
+        };
         dst.effectiveTime = effectiveTime == null ? null : effectiveTime.copy();
         dst.medication = medication == null ? null : medication.copy();
         if (device != null) {
@@ -1147,11 +1106,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           for (Reference i : device)
             dst.device.add(i.copy());
         };
-        if (dosage != null) {
-          dst.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
-          for (MedicationAdministrationDosageComponent i : dosage)
-            dst.dosage.add(i.copy());
-        };
+        dst.dosage = dosage == null ? null : dosage.copy();
         return dst;
       }
 
@@ -1164,8 +1119,9 @@ Terminologies used often pre-coordinate this term with the route and or form of 
            && (patient == null || patient.isEmpty()) && (practitioner == null || practitioner.isEmpty())
            && (encounter == null || encounter.isEmpty()) && (prescription == null || prescription.isEmpty())
            && (wasNotGiven == null || wasNotGiven.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
-           && (effectiveTime == null || effectiveTime.isEmpty()) && (medication == null || medication.isEmpty())
-           && (device == null || device.isEmpty()) && (dosage == null || dosage.isEmpty());
+           && (reasonGiven == null || reasonGiven.isEmpty()) && (effectiveTime == null || effectiveTime.isEmpty())
+           && (medication == null || medication.isEmpty()) && (device == null || device.isEmpty()) && (dosage == null || dosage.isEmpty())
+          ;
       }
 
   @Override

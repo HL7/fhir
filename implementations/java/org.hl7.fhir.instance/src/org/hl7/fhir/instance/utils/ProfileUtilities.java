@@ -1,9 +1,13 @@
 package org.hl7.fhir.instance.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
@@ -26,6 +30,7 @@ import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.WorkerContext.ExtensionDefinitionResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -64,11 +69,11 @@ public class ProfileUtilities {
 
   public interface ProfileKnowledgeProvider {
     boolean isDatatype(String typeSimple);
+    boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String typeSimple) throws Exception;
     String resolveBinding(ElementDefinitionBindingComponent binding);
     String getLinkForProfile(Profile profile, String url) throws Exception;
-    String getAbbreviationFor(Resource profile);
   }
 
 
@@ -186,7 +191,7 @@ public class ProfileUtilities {
    * @return
    * @throws Exception 
    */
-  public void generateSnapshot(Profile base, Profile derived, String url, String profileName) throws Exception {
+  public void generateSnapshot(Profile base, Profile derived, String url, String profileName, ProfileKnowledgeProvider pkp) throws Exception {
     if (base == null)
       throw new Exception("no base profile provided");
     if (derived == null) 
@@ -206,21 +211,21 @@ public class ProfileUtilities {
     int diffCursor = 0; // we need a diff cursor because we can only look ahead, in the bound scoped by longer paths
     
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
-    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, profileName+"."+derived.getName(), null);
+    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1, url, derived.getId()+'.'+profileName+"."+derived.getName(), null, pkp);
   }
 
   /**
    * @throws Exception 
    */
   private void processPaths(ConstraintComponent result, ConstraintComponent base, ConstraintComponent differential, int baseCursor, int diffCursor, int baseLimit, 
-      int diffLimit, String url, String profileName, String contextPath) throws Exception {
+      int diffLimit, String url, String profileName, String contextPath, ProfileKnowledgeProvider pkp) throws Exception {
     
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor); 
       String cpath = fixedPath(contextPath, currentBase.getPath());
-      List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit); // get a list of matching elements in scope
+      List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName); // get a list of matching elements in scope
 
       // in the simple case, source is not sliced. 
       if (!currentBase.hasSlicing()) {
@@ -235,7 +240,7 @@ public class ProfileUtilities {
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           outcome.setName(diffMatches.get(0).getName());
           outcome.setSlicing(null);
-          updateFromDefinition(outcome, diffMatches.get(0));
+          updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp);
           if (outcome.getPath().endsWith("[x]") && outcome.getType().size() == 1 && !outcome.getType().get(0).getCode().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it 
             outcome.setPath(outcome.getPath().substring(0, outcome.getPath().length()-3)+Utilities.capitalize(outcome.getType().get(0).getCode()));
           result.getElement().add(outcome);
@@ -252,7 +257,7 @@ public class ProfileUtilities {
               while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) 
                 diffCursor++;
               processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1, 
-                  diffCursor - 1, url, profileName+"/"+dt.getName(), diffMatches.get(0).getPath()); 
+                  diffCursor - 1, url, profileName+"/"+dt.getName(), diffMatches.get(0).getPath(), pkp); 
             }
           }
         } else {
@@ -278,7 +283,7 @@ public class ProfileUtilities {
           // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
           if (!diffMatches.get(0).hasName()) {
-            updateFromDefinition(outcome, diffMatches.get(0));
+            updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp);
             start = 1;
           }
           
@@ -292,7 +297,7 @@ public class ProfileUtilities {
             ndc = differential.getElement().indexOf(diffMatches.get(i));
             ndl = findEndOfElement(differential, ndc);
             // now we process the base scope repeatedly for each instance of the item in the differential list
-            processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath);
+            processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp);
           }
           // ok, done with that - next in the base list
           baseCursor = nbl+1;
@@ -332,7 +337,7 @@ public class ProfileUtilities {
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           if (diffMatches.get(0).hasSlicing()) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
-            updateFromDefinition(outcome, diffMatches.get(0)); // if there's no slice, we don't want to update the unsliced description
+            updateFromDefinition(outcome, diffMatches.get(0), profileName, pkp); // if there's no slice, we don't want to update the unsliced description
           }
           
           // now, we have two lists, base and diff. we're going to work through base, looking for matches in diff.
@@ -345,13 +350,13 @@ public class ProfileUtilities {
             result.getElement().add(outcome);
             if (diffpos < diffMatches.size() && diffMatches.get(diffpos).getName().equals(outcome.getName())) {
               // if there's a diff, we update the outcome with diff 
-              updateFromDefinition(outcome, diffMatches.get(diffpos));
+              updateFromDefinition(outcome, diffMatches.get(diffpos), profileName, pkp);
               //then process any children
               int nbl = findEndOfElement(base, baseCursor);
               int ndc = differential.getElement().indexOf(diffMatches.get(diffpos));
               int ndl = findEndOfElement(differential, ndc);
               // now we process the base scope repeatedly for each instance of the item in the differential list
-              processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath);
+              processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName, contextPath, pkp);
               // ok, done with that - now set the cursors for if this is the end
               baseCursor = nbl+1;
               diffCursor = ndl+1;
@@ -377,7 +382,7 @@ public class ProfileUtilities {
             outcome.setPath(fixedPath(contextPath, outcome.getPath()));
             outcome.setSlicing(null);
             result.getElement().add(outcome);
-            updateFromDefinition(outcome, diffItem);
+            updateFromDefinition(outcome, diffItem, profileName, pkp);
             diffpos++;
           }
         }
@@ -516,12 +521,14 @@ public class ProfileUtilities {
     return currentBase.getPath().endsWith(".extension") || currentBase.getPath().endsWith(".modifierExtension");
   }
 
-  private List<ElementDefinition> getDiffMatches(ConstraintComponent context, String path, int start, int end) {
+  private List<ElementDefinition> getDiffMatches(ConstraintComponent context, String path, int start, int end, String profileName) {
     List<ElementDefinition> result = new ArrayList<ElementDefinition>();
     for (int i = start; i <= end; i++) {
       String statedPath = context.getElement().get(i).getPath();
       if (statedPath.equals(path) || (path.endsWith("[x]") && statedPath.length() > path.length() && statedPath.substring(0, path.length()-3).equals(path.substring(0, path.length()-3)) && !statedPath.substring(path.length()).contains("."))) {
         result.add(context.getElement().get(i));
+      } else if (result.isEmpty()) {
+        // System.out.println("ignoring "+statedPath+" in differential of "+profileName);
       }
     }
     return result;
@@ -546,7 +553,9 @@ public class ProfileUtilities {
     return true;
   }
 
-  private void updateFromDefinition(ElementDefinition dest, ElementDefinition source) {
+  private void updateFromDefinition(ElementDefinition dest, ElementDefinition source, String pn, ProfileKnowledgeProvider pkp) throws Exception {
+    // we start with a clone of the base profile ('dest') and we copy from the profile ('source') 
+    // over the top for anything the source has
     ElementDefinition dst = dest;
     ElementDefinition src = source;
     
@@ -591,8 +600,23 @@ public class ProfileUtilities {
       if (src.hasMeaningWhenMissingElement())
         dst.setMeaningWhenMissingElement(src.getMeaningWhenMissingElement().copy());
       
-      // todo: is this actually right? 
-      if (src.hasType() && !dst.hasType()) {
+      if (src.hasType()) {
+        if (dst.hasType()) {
+          for (TypeRefComponent ts : src.getType()) {
+            boolean ok = false;
+            CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+            for (TypeRefComponent td : dst.getType()) {
+              b.append(td.getCode());
+              if (td.getCode().equals(ts.getCode()) || 
+                  td.getCode().equals("Extension") || td.getCode().equals("*") || 
+                  (td.getCode().equals("Resource") && pkp.isResource(ts.getCode())))
+                ok = true;
+            }
+            if (!ok)
+              throw new Exception("Profile "+pn+" at "+src.getPath()+": illegal constrained type "+ts.getCode()+" from "+b.toString());
+          }
+        }
+        dst.getType().clear();
         for (TypeRefComponent t : src.getType())
           dst.getType().add(t.copy());
       }      
@@ -940,7 +964,7 @@ public class ProfileUtilities {
         }
         for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(gen.new Piece(null, pkp.getAbbreviationFor(profile)+"-"+inv.getKey()+": ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, inv.getHuman(), null));
         }
         if (definition.hasFixed()) {        
@@ -1097,6 +1121,157 @@ public class ProfileUtilities {
   	return null;	  
   }
 
+
+
+  public class ElementDefinitionHolder {
+    private ElementDefinition self;
+    private int baseIndex = 0;
+    private List<ElementDefinitionHolder> children;
+    
+    public ElementDefinitionHolder(ElementDefinition self) {
+      super();
+      this.self = self;
+      children = new ArrayList<ElementDefinitionHolder>();
+    }
+
+    public ElementDefinition getSelf() {
+      return self;
+    }
+
+    public List<ElementDefinitionHolder> getChildren() {
+      return children;
+    }
+
+    public int getBaseIndex() {
+      return baseIndex;
+    }
+
+    public void setBaseIndex(int baseIndex) {
+      this.baseIndex = baseIndex;
+    }
+    
+    
+  }
+
+  public class ElementDefinitionComparer implements Comparator<ElementDefinitionHolder> {
+
+    private boolean inExtension;
+    private List<ElementDefinition> snapshot; 
+    private int prefixLength;
+    private String base;
+    private String name;
+    private ProfileKnowledgeProvider pkp;
+    private Set<String> errors = new HashSet<String>();
+
+    public ElementDefinitionComparer(boolean inExtension, List<ElementDefinition> snapshot, String base, int prefixLength, String name, ProfileKnowledgeProvider pkp) {
+      this.inExtension = inExtension;
+      this.snapshot = snapshot;
+      this.prefixLength = prefixLength;
+      this.base = base;
+      this.name = name;
+      this.pkp = pkp;
+    }
+
+    @Override
+    public int compare(ElementDefinitionHolder o1, ElementDefinitionHolder o2) {
+      if (o1.getBaseIndex() == 0) 
+        o1.setBaseIndex(find(o1.getSelf().getPath()));
+      if (o2.getBaseIndex() == 0) 
+        o2.setBaseIndex(find(o2.getSelf().getPath()));
+      return o1.getBaseIndex() - o2.getBaseIndex();
+    }
+
+    private int find(String path) {
+      String actual = base+path.substring(prefixLength);
+      for (int i = 0; i < snapshot.size(); i++) {
+        String p = snapshot.get(i).getPath();
+        if (p.equals(actual))
+          return i;
+        if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !actual.substring(p.length()-3).contains("."))
+          return i;
+      }
+      if (prefixLength == 0)
+        errors.add("Differential contains path "+path+" which is not found in the base");
+      else
+        errors.add("Differential contains path "+path+" which is actually "+actual+", which is not found in the base");
+      return 0;
+    }
+
+    public void checkForErrors(List<String> errorList) {
+      if (errors.size() > 0) {
+//        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+//        for (String s : errors) 
+//          b.append("Profile "+name+": "+s);
+//        throw new Exception(b.toString());
+        for (String s : errors) 
+          errorList.add("Profile "+name+": "+s);
+      }
+    }
+  }
+
+  
+  public void sortDifferential(Profile base, Profile diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) {
+    // first, we move the differential elements into a tree
+    ElementDefinitionHolder edh = new ElementDefinitionHolder(diff.getDifferential().getElement().get(0));
+    int i = 1;
+    processElementsIntoTree(edh, i, diff.getDifferential().getElement());
+    
+    // now, we sort the siblings throughout the tree
+    ElementDefinitionComparer cmp = new ElementDefinitionComparer(true, base.getSnapshot().getElement(), "", 0, name, pkp);
+    sortElements(edh, cmp, errors);
+    
+    // now, we serialise them back to a list
+    diff.getDifferential().getElement().clear();
+    writeElements(edh, diff.getDifferential().getElement());
+  }
+
+  private int processElementsIntoTree(ElementDefinitionHolder edh, int i, List<ElementDefinition> list) {
+    String path = edh.getSelf().getPath();
+    while (i < list.size() && list.get(i).getPath().startsWith(path+".")) {
+      ElementDefinitionHolder child = new ElementDefinitionHolder(list.get(i));
+      edh.getChildren().add(child);
+      i++;
+      i = processElementsIntoTree(child, i, list);
+    }
+    return i;    
+  }
+
+  private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) {
+    Collections.sort(edh.getChildren(), cmp);
+    cmp.checkForErrors(errors);
+    
+    for (ElementDefinitionHolder child : edh.getChildren()) {
+      if (child.getChildren().size() > 1) {
+        // what we have to check for here is running off the base profile into a data type profile
+        ElementDefinition ed = cmp.snapshot.get(child.getBaseIndex());
+        ElementDefinitionComparer ccmp;
+        if (ed.getType().isEmpty()) { 
+          ccmp = new ElementDefinitionComparer(true, cmp.snapshot, "", 0, cmp.name, cmp.pkp);
+        } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
+          ccmp = new ElementDefinitionComparer(true, context.getExtensionDefinitions().get(child.getSelf().getType().get(0).getProfile()).getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+        } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
+          ccmp = new ElementDefinitionComparer(true, context.getProfiles().get("http://hl7.org/fhir/Profile/"+ed.getType().get(0).getCode()).getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+        } else if (child.getSelf().getType().size() == 1) { 
+          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/Profile/"+child.getSelf().getType().get(0).getCode()).getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+        } else if (ed.getPath().endsWith("[x]") && !child.getSelf().getPath().endsWith("[x]")) {
+          String p = child.getSelf().getPath().substring(ed.getPath().length()-3);
+          ccmp = new ElementDefinitionComparer(false, context.getProfiles().get("http://hl7.org/fhir/Profile/"+p).getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name, cmp.pkp);
+        } else {
+          throw new Error("Not handled yet");
+        }
+        sortElements(child, ccmp, errors);
+      }
+    }
+  }
+
+  private void writeElements(ElementDefinitionHolder edh, List<ElementDefinition> list) {
+    list.add(edh.getSelf());
+    for (ElementDefinitionHolder child : edh.getChildren()) {
+      writeElements(child, list);    
+    }
+  }
+
+  
 //  public ExtensionResult getExtensionDefn(Profile source, String url) {
 //    Profile profile;
 //    String code;

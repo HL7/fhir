@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 29, 2015 00:04+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 3, 2015 08:38+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -133,7 +133,14 @@ public class Medication extends DomainResource {
         @Description(shortDefinition="Active or inactive ingredient", formalDefinition="Identifies a particular constituent of interest in the product." )
         protected List<MedicationProductIngredientComponent> ingredient;
 
-        private static final long serialVersionUID = -506109200L;
+        /**
+         * Information about a group of medication produced or packaged from one production run.
+         */
+        @Child(name="batch", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="", formalDefinition="Information about a group of medication produced or packaged from one production run." )
+        protected List<MedicationProductBatchComponent> batch;
+
+        private static final long serialVersionUID = 1132853671L;
 
       public MedicationProductComponent() {
         super();
@@ -193,10 +200,41 @@ public class Medication extends DomainResource {
           return t;
         }
 
+        /**
+         * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
+         */
+        public List<MedicationProductBatchComponent> getBatch() { 
+          if (this.batch == null)
+            this.batch = new ArrayList<MedicationProductBatchComponent>();
+          return this.batch;
+        }
+
+        public boolean hasBatch() { 
+          if (this.batch == null)
+            return false;
+          for (MedicationProductBatchComponent item : this.batch)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
+         */
+    // syntactic sugar
+        public MedicationProductBatchComponent addBatch() { //3
+          MedicationProductBatchComponent t = new MedicationProductBatchComponent();
+          if (this.batch == null)
+            this.batch = new ArrayList<MedicationProductBatchComponent>();
+          this.batch.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tables; carton.", 0, java.lang.Integer.MAX_VALUE, form));
           childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
+          childrenList.add(new Property("batch", "", "Information about a group of medication produced or packaged from one production run.", 0, java.lang.Integer.MAX_VALUE, batch));
         }
 
       public MedicationProductComponent copy() {
@@ -208,12 +246,17 @@ public class Medication extends DomainResource {
           for (MedicationProductIngredientComponent i : ingredient)
             dst.ingredient.add(i.copy());
         };
+        if (batch != null) {
+          dst.batch = new ArrayList<MedicationProductBatchComponent>();
+          for (MedicationProductBatchComponent i : batch)
+            dst.batch.add(i.copy());
+        };
         return dst;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (form == null || form.isEmpty()) && (ingredient == null || ingredient.isEmpty())
-          ;
+           && (batch == null || batch.isEmpty());
       }
 
   }
@@ -329,6 +372,147 @@ public class Medication extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (item == null || item.isEmpty()) && (amount == null || amount.isEmpty())
+          ;
+      }
+
+  }
+
+    @Block()
+    public static class MedicationProductBatchComponent extends BackboneElement {
+        /**
+         * The assigned lot number of a batch of the specified product.
+         */
+        @Child(name="lotNumber", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="", formalDefinition="The assigned lot number of a batch of the specified product." )
+        protected StringType lotNumber;
+
+        /**
+         * When this specific batch of product will expire.
+         */
+        @Child(name="expirationDate", type={DateTimeType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="", formalDefinition="When this specific batch of product will expire." )
+        protected DateTimeType expirationDate;
+
+        private static final long serialVersionUID = 1982738755L;
+
+      public MedicationProductBatchComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #lotNumber} (The assigned lot number of a batch of the specified product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
+         */
+        public StringType getLotNumberElement() { 
+          if (this.lotNumber == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationProductBatchComponent.lotNumber");
+            else if (Configuration.doAutoCreate())
+              this.lotNumber = new StringType(); // bb
+          return this.lotNumber;
+        }
+
+        public boolean hasLotNumberElement() { 
+          return this.lotNumber != null && !this.lotNumber.isEmpty();
+        }
+
+        public boolean hasLotNumber() { 
+          return this.lotNumber != null && !this.lotNumber.isEmpty();
+        }
+
+        /**
+         * @param value {@link #lotNumber} (The assigned lot number of a batch of the specified product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
+         */
+        public MedicationProductBatchComponent setLotNumberElement(StringType value) { 
+          this.lotNumber = value;
+          return this;
+        }
+
+        /**
+         * @return The assigned lot number of a batch of the specified product.
+         */
+        public String getLotNumber() { 
+          return this.lotNumber == null ? null : this.lotNumber.getValue();
+        }
+
+        /**
+         * @param value The assigned lot number of a batch of the specified product.
+         */
+        public MedicationProductBatchComponent setLotNumber(String value) { 
+          if (Utilities.noString(value))
+            this.lotNumber = null;
+          else {
+            if (this.lotNumber == null)
+              this.lotNumber = new StringType();
+            this.lotNumber.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #expirationDate} (When this specific batch of product will expire.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
+         */
+        public DateTimeType getExpirationDateElement() { 
+          if (this.expirationDate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationProductBatchComponent.expirationDate");
+            else if (Configuration.doAutoCreate())
+              this.expirationDate = new DateTimeType(); // bb
+          return this.expirationDate;
+        }
+
+        public boolean hasExpirationDateElement() { 
+          return this.expirationDate != null && !this.expirationDate.isEmpty();
+        }
+
+        public boolean hasExpirationDate() { 
+          return this.expirationDate != null && !this.expirationDate.isEmpty();
+        }
+
+        /**
+         * @param value {@link #expirationDate} (When this specific batch of product will expire.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
+         */
+        public MedicationProductBatchComponent setExpirationDateElement(DateTimeType value) { 
+          this.expirationDate = value;
+          return this;
+        }
+
+        /**
+         * @return When this specific batch of product will expire.
+         */
+        public Date getExpirationDate() { 
+          return this.expirationDate == null ? null : this.expirationDate.getValue();
+        }
+
+        /**
+         * @param value When this specific batch of product will expire.
+         */
+        public MedicationProductBatchComponent setExpirationDate(Date value) { 
+          if (value == null)
+            this.expirationDate = null;
+          else {
+            if (this.expirationDate == null)
+              this.expirationDate = new DateTimeType();
+            this.expirationDate.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("lotNumber", "string", "The assigned lot number of a batch of the specified product.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
+          childrenList.add(new Property("expirationDate", "dateTime", "When this specific batch of product will expire.", 0, java.lang.Integer.MAX_VALUE, expirationDate));
+        }
+
+      public MedicationProductBatchComponent copy() {
+        MedicationProductBatchComponent dst = new MedicationProductBatchComponent();
+        copyValues(dst);
+        dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
+        dst.expirationDate = expirationDate == null ? null : expirationDate.copy();
+        return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
           ;
       }
 

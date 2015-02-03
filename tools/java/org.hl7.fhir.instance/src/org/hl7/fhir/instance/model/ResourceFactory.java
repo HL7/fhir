@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 29, 2015 00:04+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 3, 2015 08:38+1100 for FHIR v0.4.0
 
 public class ResourceFactory extends Factory {
 
@@ -273,6 +273,8 @@ public class ResourceFactory extends Factory {
             return new Duration();
         if ("Ratio".equals(name))
             return new Ratio();
+        if ("Meta".equals(name))
+            return new Meta();
         if ("SampledData".equals(name))
             return new SampledData();
         if ("Reference".equals(name))

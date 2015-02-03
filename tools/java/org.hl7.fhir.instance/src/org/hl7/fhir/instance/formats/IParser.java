@@ -35,7 +35,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.hl7.fhir.instance.model.Resource;
-import org.hl7.fhir.instance.model.Resource.ResourceMetaComponent;
 import org.hl7.fhir.instance.model.Type;
 
 
@@ -114,21 +113,6 @@ public interface IParser {
   public Resource parse(byte[] bytes) throws Exception;
 
   /**
-   * parse content that is known to be a meta (from one of the meta operations)  
-   */
-  public ResourceMetaComponent parseMeta(InputStream input) throws Exception;
-
-	/**
-   * parse content that is known to be a meta (from one of the meta operations)  
-   */
-  public ResourceMetaComponent parseMeta(String input) throws Exception;
-
-  /**
-   * parse content that is known to be a meta (from one of the meta operations)  
-   */
-  public ResourceMetaComponent parseMeta(byte[] bytes) throws Exception;
-
-  /**
    * This is used to parse a type - a fragment of a resource. 
    * There's no reason to use this in production - it's used 
    * in the build tools 
@@ -182,18 +166,6 @@ public interface IParser {
    */
 	public byte[] composeBytes(Resource resource) throws Exception;
 
-	/**
-	 * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
-	 */
-	public void compose(OutputStream stream, ResourceMetaComponent meta) throws Exception;
-  /**
-   * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
-   */
-	public String composeString(ResourceMetaComponent meta) throws Exception;
-  /**
-   * Compose a meta to a stream, possibly using pretty presentation for a human reader (for the meta operations))
-   */
-	public byte[] composeBytes(ResourceMetaComponent meta) throws Exception;
 
 	/**
 	 * Compose a type to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)

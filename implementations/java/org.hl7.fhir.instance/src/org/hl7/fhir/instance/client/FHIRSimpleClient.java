@@ -117,7 +117,7 @@ public class FHIRSimpleClient implements IFHIRClient {
 	}
 	
 	private void checkConformance() {
-    Conformance conf = getConformanceStatement();
+//    Conformance conf = getConformanceStatement();
     
 	}
 	
