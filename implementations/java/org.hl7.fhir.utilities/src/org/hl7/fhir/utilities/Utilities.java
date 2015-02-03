@@ -425,7 +425,7 @@ public class Utilities {
     boolean d = false;
     for(String arg: args) {
       if (!d)
-        d = true;
+        d = !noString(arg);
       else if (!s.toString().endsWith(File.separator))
         s.append(File.separator);
       s.append(arg);
