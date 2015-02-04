@@ -3,16 +3,13 @@
 	<id value="example"/>
 	<!-- id = example  file name = nutritionorder-example.xml  Name= Enteral Bolus  Description = General NutritionOrder Example 
 edited by Eric Haas Health eData Inc-->
-	<subject>
+	<patient>
 		<display value="Paula Patient Chalmers"/>
-	</subject>
+	</patient>
 	<dateTime value="2014-09-17"/>
-	<item>
-		<isInEffect value="true"/>
-		<oralDiet>
-			<type>
-				<text value="Low Calorie Diet"/>
-			</type>
-		</oralDiet>
-	</item>
+	<oralDiet>
+		<type>
+			<text value="Low Calorie Diet"/>
+		</type>
+	</oralDiet>
 </NutritionOrder>

@@ -7,10 +7,10 @@ edited by Eric Haas Health eData Inc-->
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml"> Description = Nutrition Order Infant Enteral Feeding Canonical Example</div>
 	</text>
-	<subject>
+	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</subject>
+	</patient>
 	<orderer>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
@@ -46,76 +46,76 @@ edited by Eric Haas Health eData Inc-->
 			<display value="Cashew Nut"/>
 		</coding>
 	</excludeFoodModifier>
-	<item>
-		<scheduledPeriod>
-			<start value="2014-09-17"/>
-		</scheduledPeriod>
-		<isInEffect value="true"/>
-		<enteralFormula>
-			<baseFormulaType>
-				<coding>
-					<system value="http://usextension/snomed.info/sct"/><!--EH  temporary system value for us extension -->
-					<code value="659311000124118"/>
-					<display value="Adult high protein formula"/>
-				</coding>
-			</baseFormulaType>
-			<baseFormulaName value="Acme High Protein Formula"/>
-			<additiveType>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="427298002"/>
-					<display value="Enteral dietary supplement"/>
-					<valueSet>
-						<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
-						<display value="EnteralFormulaAdditiveType"/>
-					</valueSet>
-				</coding>
-			</additiveType>
-			<additiveName value="Acme Additive"/>
-			<caloricDensity>
-				<value value="1.5"/>
-				<units value="calories per milliliter"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="cal/mL"/>
-			</caloricDensity>
-			<routeofAdministration>
-				<coding>
-					<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
-					<code value="GT"/>
-					<display value="Instillation, gastrostomy tube"/>
-					<valueSet>
-						<reference value="http://hl7.org/fhir/vs/enteral-route"/>
-						<display value="EnteralRouteOfAdministration"/>
-					</valueSet>
-				</coding>
-			</routeofAdministration>
-			<quantity>
+	<enteralFormula>
+		<baseFormulaType>
+			<coding>
+				<system value="http://usextension/snomed.info/sct"/>
+				<!--EH  temporary system value for us extension -->
+				<code value="659311000124118"/>
+				<display value="Adult high protein formula"/>
+			</coding>
+		</baseFormulaType>
+		<baseFormulaProductName value="Acme High Protein Formula"/>
+		<scheduled>
+			<event>
+				<start value="2014-09-17"/>
+			</event>
+		</scheduled>
+		<additiveType>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="427298002"/>
+				<display value="Enteral dietary supplement"/>
+				<valueSet>
+					<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
+					<display value="EnteralFormulaAdditiveType"/>
+				</valueSet>
+			</coding>
+		</additiveType>
+		<additiveProductName value="Acme Additive"/>
+		<caloricDensity>
+			<value value="1.5"/>
+			<units value="calories per milliliter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cal/mL"/>
+		</caloricDensity>
+		<routeofAdministration>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+				<code value="GT"/>
+				<display value="Instillation, gastrostomy tube"/>
+				<valueSet>
+					<reference value="http://hl7.org/fhir/vs/enteral-route"/>
+					<display value="EnteralRouteOfAdministration"/>
+				</valueSet>
+			</coding>
+		</routeofAdministration>
+		<quantity>
+			<value value="240"/>
+			<units value="milliliters"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mL"/>
+		</quantity>
+		<rate>
+			<numerator>
 				<value value="240"/>
 				<units value="milliliters"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL"/>
-			</quantity>
-			<rate>
-				<numerator>
-					<value value="240"/>
-					<units value="milliliters"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="mL"/>
-				</numerator>
-				<denominator>
-					<value value="4"/>
-					<units value="hr"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="h"/>
-				</denominator>
-			</rate>
-			<maxVolumeToDeliver>
-				<value value="1440"/>
-				<units value="milliliter"/>
+			</numerator>
+			<denominator>
+				<value value="4"/>
+				<units value="hr"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="mL"/>
-			</maxVolumeToDeliver>
-		</enteralFormula>
-	</item>
+				<code value="h"/>
+			</denominator>
+		</rate>
+		<maxVolumeToDeliver>
+			<value value="1440"/>
+			<units value="milliliter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mL"/>
+		</maxVolumeToDeliver>
+	</enteralFormula>
 	<status value="active"/>
 </NutritionOrder>
