@@ -346,7 +346,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">orderer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

@@ -1,38 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<h3>Notes</h3>
-<ul>
- <li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM. 
- Another source which will be appropriate for many devices is the FDA GUDID (see below) or equivalent. 
- Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.</li>
-</ul>
-
-<h3>Device Identifiers</h3>
-
-<p>
+	<h3>Notes</h3>
+	<ul>
+		<li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM. Another source which will be appropriate for many devices is the FDA GUDID -- the device identifier (DI) or GMDN code could be used for Device.type. A full UDI string (without a serial number) can also be stored in the Device.type element. (see below) or equivalent. Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.
+</li>
+	</ul>
+	<h3>Device Identifiers</h3>
+	<p>
 Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or RFIDs. 
-The identifiers can come from the manufacturer (often called the "serial number", various institution and registries. Any of 
+The identifiers can come from the manufacturer (often called the "serial number," "reference number," or "catalog number"),  various institution and registries. Any of 
 these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are 
 differentiated by their use, label, and system values.
 </p>
-<p>
-The most important of the identifiers is the 
-<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">Unique Device Identifier</a>
-(UDI), which most medical devices are required to carry and which can be used to access the 
-<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
-Unique Device Identification Database</a> (GUDID). The UDI has its own element (<i>udi</i>). The UDI may identify an instance of a device uniquely, or it may just identify the type of the device. 
-A portion of the UDI - the DI part - can be extracted from the UDI when required, and used 
-to look up information about the device through the GUDID.
-Where the device has an assigned UDI, the other details carried in the resource (e.g. lot, expiry date etc) SHALL be 
-consistent with the information encoded  in the UDI or registered in the GUDID.
+	<p>
+The most important of the identifiers is the
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">US Realm FDA Mandated Unique Device Identifier </a>(UDI)
+required by the FDA for every medical device to bear on its label (unless excepted). The UDI has 2 components -- the device identifier (DI), which is assigned at the version/model level of the device and the production identifier(s)(PI) which provide the means to track a device through its manufacture, distribution and use. The DI of the UDI is submitted in a device record to the <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
+Unique Device Identification Database</a> (GUDID) and is used as the primary key to access other device information. The UDI may identify an instance of a device uniquely (when the PI(s) include a serial number). In this case the Device,identifier element is used.  Or the UDI may just identify the type of the device and the Device.type is then used.   A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID. The UDI can be broken into its constituent parts (DI and PI(s)) by parsing rules developed by each Issuing Agency standard. Where the device has an assigned UDI, the other details carried in the resource (e.g. lot, expiry date etc) SHALL be consistent with the information encoded in the UDI string or registered in the GUDID.
+
+
 </p>
-<p>
-Note that a GTIN (sometimes also called an EAN number) is a code for the kind of device, not an identifier for the device.
-The GTIN may be part of the UDI, but it may also be known separately, in which case GTINs should be carried in the type element:
+	<p>
+Note that a Global Trade Item Number (GTIN)(sometimes also called an EAN number) is a code for the kind of device, not an identifier for the device. GTIN is the identifier developed by the General Specification of the GS1 Standard and can be used to represent the device identifier (DI) of the FDA UDI. The GTIN may be part of the UDI, but it may also be known separately.  For example, a GS1-formatted UDI will have a GTIN as the DI portion of the UDI; only the DI (or GTIN) will be submitted to the GUDID in a device record. In this case GTINs should be carried in the type element:
+
+
 </p>
-<div class="example">
-<p>GTIN example</p>
-<pre>
+	<div class="example">
+		<p>GTIN example</p>
+		<pre>
   &lt;type&gt;
     &lt;coding&gt;
       &lt;system value=&quot;urn:oid:1.3.160‎&quot;/&gt;
@@ -41,11 +35,5 @@ The GTIN may be part of the UDI, but it may also be known separately, in which c
     &lt;!-- other codes for type --&gt;
   &lt;/type&gt;
 </pre>
-
-</div>
-
-
-
-
-
+	</div>
 </div>
