@@ -23,7 +23,7 @@
   - limitations under the License.
   -->
   
-<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:fhir="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" version="1.0" exclude-result-prefixes="xhtml">
+<xsl:stylesheet xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fhir="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" version="1.0" exclude-result-prefixes="xhtml">
   <xsl:output indent="yes" encoding="ISO-8859-1"/>
   <!-- Fixed values are defined as parameters so they can be overridden to expose content in other languages, etc. -->
   <xsl:param name="untitled_doc" select="'Untitled Document'"/>
@@ -32,17 +32,17 @@
   <xsl:param name="untitled_section" select="'Untitled Section'"/>
   
   <xsl:template match="/">
-    <!-- Check that we're actually dealing with an atom feed, and if so, start processing with the Composition resource -->
-    <xsl:if test="not(atom:feed)">
-      <xsl:message terminate="yes">Source document must be an atom feed</xsl:message>
+    <!-- Check that we're actually dealing with a document, and if so, start processing with the Composition resource -->
+    <xsl:if test="not(fhir:Bundle)">
+      <xsl:message terminate="yes">Source document must be a bundle</xsl:message>
     </xsl:if>
-    <xsl:if test="not(atom:feed/atom:entry[1]/atom:content/fhir:Composition)">
-      <xsl:message terminate="yes">Atom feed must start with a Composition resource</xsl:message>
+    <xsl:if test="not(fhir:Bundle/fhir:entry[1]/fhir:resource/fhir:Composition)">
+      <xsl:message terminate="yes">Bundle must start with a Composition resource</xsl:message>
     </xsl:if>
-    <xsl:if test="not(atom:feed/atom:category[@scheme='http://hl7.org/fhir/tag' and @term='http://hl7.org/fhir/tag/document'])">
-      <xsl:message>Warning: Provided feed does not have the required tag designating it as a document.</xsl:message>
+    <xsl:if test="not(fhir:Bundle/fhir:type/@value='document')">
+      <xsl:message>Warning: Bundle type does not indicate it is a document.</xsl:message>
     </xsl:if>
-    <xsl:apply-templates select="atom:feed/atom:entry[1]/atom:content/fhir:Composition"/>
+    <xsl:apply-templates select="fhir:Bundle/fhir:entry[1]/fhir:resource/fhir:Composition"/>
   </xsl:template>
   
   <xsl:template match="fhir:Composition">
@@ -112,7 +112,7 @@
   
   <xsl:template match="fhir:reference">
     <!-- Resolves a reference to another resource as either a local 'contained' resource
-       - or as another resource within the feed -->
+       - or as another resource within the bundle -->
     <xsl:param name="nesting-depth">
       <!-- Identifies how deep in the rendering hierarchy a rendered resource is - for use in converting heading levels -->
     </xsl:param>
@@ -120,26 +120,115 @@
       <xsl:when test="starts-with(@value,'#')">
         <!-- It's a local reference, so look for a 'contained' resource -->
         <xsl:variable name="local-id" select="substring-after(@value,'#')"/>
-        <xsl:apply-templates select="ancestor::atom:content/fhir:*/fhir:contained[fhir:*/@id=$local-id]">
+        <xsl:apply-templates select="ancestor::fhir:Bundle/fhir:entry/fhir:resource/fhir:*/fhir:contained[fhir:*/fhir:id/@value=$local-id]">
           <xsl:with-param name="nesting-depth" select="$nesting-depth"/>
         </xsl:apply-templates>
-      </xsl:when>
-      <xsl:when test="not(/atom:feed/atom:entry[atom:id=current()/@value])">
-        <!-- We've got a reference to a resource that's not in the bundle, which isn't legal inside a document.  
-          - We *could* use document(@value) to try to retrieve the remote resource, but seeing as the
-          - document's obviously non-conformant, we'll raise an error instead. -->
-        <xsl:message terminate="yes">
-          <xsl:value-of select="concat('Error: The document composition includes a reference to a resource not contained inside the document bundle: ', @value)"/>
-        </xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="/atom:feed/atom:entry[atom:id=current()/@value]/atom:content">
-          <xsl:with-param name="nesting-depth" select="$nesting-depth"/>
-        </xsl:apply-templates>
+        <xsl:variable name="referenceURI">
+          <!-- Determine the full URL of the reference -->
+          <xsl:choose>
+            <xsl:when test="contains(@value, ':')">
+              <!-- id is a full URL, so ignore any 'base' -->
+              <xsl:value-of select="@value"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="expandBase"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="matchedResource">
+          <!-- Go through every resource and see if any of them is a match -->
+          <xsl:for-each select="/fhir:Bundle/fhir:entry/fhir:resource/*/fhir:id">
+            <xsl:variable name="resourceURI">
+              <xsl:call-template name="expandBase">
+                <xsl:with-param name="type" select="local-name(ancestor::fhir:resource/*)"/>
+              </xsl:call-template>
+            </xsl:variable>
+            <xsl:if test="$resourceURI = $referenceURI">Y</xsl:if>
+          </xsl:for-each>
+        </xsl:variable>
+        <xsl:choose>
+          <xsl:when test="normalize-space($matchedResource)=''">
+            <!-- We've got a reference to a resource that's not in the bundle, which isn't legal inside a document.  
+              - We *could* use document(@value) to try to retrieve the remote resource, but seeing as the
+              - document's obviously non-conformant, we'll raise an error instead. -->
+            <xsl:message terminate="yes">
+              <xsl:value-of select="concat('Error: The document composition includes a reference to a resource not contained inside the document bundle: ', @value)"/>
+            </xsl:message>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:for-each select="/fhir:Bundle/fhir:entry/fhir:resource/*/fhir:id">
+              <!-- Go through every resource again, find the one that's a match and render its narrative -->
+              <!-- Yes, this is inefficient, but given the lack of functions and ability to store elements as variables in pure XSLT 1, not a lot of choice. -->
+              <xsl:variable name="resourceURI">
+                <xsl:call-template name="expandBase">
+                  <xsl:with-param name="type" select="local-name(ancestor::fhir:resource/*)"/>
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:if test="$resourceURI = $referenceURI">
+                <xsl:apply-templates select="parent::*/parent::*">
+                  <xsl:with-param name="nesting-depth" select="$nesting-depth"/>
+                </xsl:apply-templates>
+              </xsl:if>
+            </xsl:for-each>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template name="expandBase">
+    <!-- Determines the proper URL of a reference or resource reference based on the declared base for the element or resource -->
+    <xsl:param name="type">
+      <!-- The name of the resource - only passed in if expanding a resource id - for a reference, should already be part of the @value if needed -->
+    </xsl:param>
+    <xsl:choose>
+      <xsl:when test="ancestor::fhir:entry/fhir:base">
+        <xsl:call-template name="createURI">
+          <xsl:with-param name="base" select="ancestor::fhir:entry/fhir:base/@value"/>
+          <xsl:with-param name="type" select="$type"/>
+          <xsl:with-param name="id" select="@value"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="/fhir:Bundle/fhir:base">
+        <xsl:call-template name="createURI">
+          <xsl:with-param name="base" select="/fhir:Bundle/fhir:base/@value"/>
+          <xsl:with-param name="type" select="$type"/>
+          <xsl:with-param name="id" select="@value"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="createURI">
+          <xsl:with-param name="base" select="''"/>
+          <xsl:with-param name="type" select="$type"/>
+          <xsl:with-param name="id" select="@value"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="createURI">
+    <!-- Creates a full resource URI from base, type and id, figuring out when and if to add intervening '/' characters -->
+    <xsl:param name="base"/>
+    <xsl:param name="type"/>
+    <xsl:param name="id"/>
+    <xsl:choose>
+      <xsl:when test="starts-with($base, 'urn') or (substring($base, string-length($base) - 1, 1)= '/' and $type ='')">
+        <xsl:value-of select="concat($base, $id)"/>
+      </xsl:when>
+      <xsl:when test="substring($base, string-length($base) - 1, 1)= '/'">
+        <xsl:value-of select="concat($base, $type, '/', $id)"/>
+      </xsl:when>
+      <xsl:when test="$type=''">
+        <xsl:value-of select="concat($base, '/', $id)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat($base, '/', $type, '/', $id)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="fhir:section">
     <!-- Handles the display of sections (and descendant sections), including their titles -->
     <xsl:param name="nesting-depth" select="2">
@@ -170,7 +259,7 @@
     </div>
   </xsl:template>
   
-  <xsl:template match="atom:content|fhir:contained">
+  <xsl:template match="fhir:resource|fhir:contained">
     <!-- Render the narrative content for a resource if there is one, otherwise display a place-holder -->
     <xsl:param name="nesting-depth">
       <!-- Identifies how deep in the rendering hierarchy a rendered resource is - for use in converting heading levels -->
@@ -199,9 +288,6 @@
     </xsl:variable>
     <xsl:variable name="heading-tag">
       <!-- New tag combines the nesting level with the tag level -->
-      <xsl:message>
-        <xsl:value-of select="concat($current-heading-level, '-', $nesting-depth)"/>
-      </xsl:message>
       <xsl:call-template name="get-heading-tag">
         <xsl:with-param name="level" select="$current-heading-level + $nesting-depth"/>
       </xsl:call-template>
