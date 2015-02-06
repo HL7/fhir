@@ -617,12 +617,14 @@ public class Publisher implements URIResolver {
     }
 
     if (page.hasIG()) {
+      ConformancePackage pack = makeConformancePackage();
+      page.getDefinitions().getConformancePackages().put(pack.getId(), pack);
+      
       page.log(" ...process profiles (ig)", LogMessageType.Process);
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof Profile) {
           ProfileDefn pd = new ProfileDefn((Profile) rd);
-          throw new Exception("not done yet - create pack structure");
-//          page.getDefinitions().getProfiles().put(pd.getSource().getUrl(), pd);
+          pack.getProfiles().add(pd);
         }
       }
     }
@@ -651,6 +653,12 @@ public class Publisher implements URIResolver {
           validateProfile((Profile) rd);
         }
       } 
+  }
+
+  private ConformancePackage makeConformancePackage() {
+    ConformancePackage result = new ConformancePackage();
+    result.setTitle(page.getIg().getName());
+    return result;
   }
 
   private ConformancePackage makeConformancePack(ResourceDefn r) {

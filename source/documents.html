@@ -33,7 +33,6 @@ persisted in document storage and management systems, including systems such as 
 XDS. 
 </p>
 <p>
-
 Applications claiming conformance to this framework claim to be conformant to 
 "FHIR documents". 
 </p>
@@ -49,7 +48,7 @@ documents (e.g. Consolidated CDA).
 <p>
 Note that FHIR defines both this document format and also a <a href="documentreference.html">document reference resource</a>. 
 FHIR documents are for documents that are authored and assembled in FHIR, while the document reference resource is for 
-general references to other documents. 
+general references to pre-existing documents. 
 </p>
 <ul>
  <li>Example Document: <a href="query-example-request.xml.html">XML</a> or <a href="query-example-request.json.html">JSON</a></li>
@@ -136,23 +135,23 @@ collated narrative portions of the following resources in order:
 <ol>
  <li>The Composition resource</li>
  <li>The Subject resource</li>
- <li>Resources referenced in the <i>section.content</i></li>
+ <li>Resources referenced directly in the <i>section.content</i></li>
 </ol>
 <p>
 The Composition resource narrative should summarize the important parts of the document header that are required 
 to establish clinical context for the document (other than the subject, which is displayed in its own 
 right). To actually build the combined narrative, simply append all the narrative &lt;div&gt; fragments
-together.
+together. <!-- todo: title -->
 </p>
 <p>
 The attested content of the document is the composition, the subject, and the resources
-referenced in the sections. Additional resources can be included in the bundle, but 
-these are not attested content. Specifically, the attester attests to the presented 
-form of the document.
+directly referenced in the sections, rendered in the order defined above. Additional 
+resources can be included in the bundle, but these are not attested content. Specifically, the 
+attester attests to the presented form of the document.
 </p>
 <p>
 The <a href="downloads.html#refimpl">XML Tools reference implementation</a> includes a 
-transform that converts a document into browser-ready XHTML.
+XSLT transform that converts a document into browser-ready XHTML.
 </p>
 
 
@@ -269,8 +268,7 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end point 
-   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles. The search parameters
-   exposed by this end-point are those of the bundle, and the composition resource from the document bundle. <i>todo - what happens to parameters from base resource?</i></td> </tr>
+   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles</td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document or after breaking a document up into 
@@ -311,34 +309,9 @@ it is not necessary to use them. Documents may be transferred between systems us
 <h3>Generating a Document</h3>
 <p>
 A client can ask a server to generate a fully bundled document from a composition resource.
-The server takes the composition resource, locates all the referenced resources and other
-additional resources as configured or requested and either returns a full document bundle,
-or returns an error. Note that since this is a search operation, the document bundle is 
-wrapped inside the search bundle.
+For details, see <a href="composition-operations.html">Generate Document Operation</a>.
 </p>
-<p>
-If some of the resources are located on other servers, it is at the discretion of the 
-server whether to retrieve them or return an error. If the correct version of the document 
-that would be generated already exists, then the server can return the existing one.
-</p>
-<p>
-The operation is initiated by a named query, using _query=generate on the /Document
-end point:
-</p>
-<pre>
-  GET [service-url]/Document/?_query=generate&amp;id=:url&amp;...
-</pre>
-<p>
-The "id" parameter is a relative or absolute reference to composition resource (e.g.
-Composition/1234). The format of the document is specified using the "accept:" header or 
-a <a href="http.html#mime-type">_format parameter</a>. Other parameters may be supplied:
-</p>
-<table class="grid">
-  <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
-  <tr> <td>persist</td> <td>Whether to store the document at the document end-point (/Document) or not once it is generated. Value = true or false (default is for the server to decide)</td> </tr>
-  <tr> <td>cert</td> <td>Certificate URL to use to sign the document with</td> </tr>
-  <tr> <td>pword</td> <td>Password if certificate requires one and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
-</table>
+
 
 
 </div>

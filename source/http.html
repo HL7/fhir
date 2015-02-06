@@ -304,64 +304,61 @@ explaining that history is not supported for the underlying resource type.
 <a name="update"> </a>
 <h3>update</h3>
 <p>
-The update interaction creates a new current version for an existing resource or 
-creates a new resource if no resource already exists for the given id. 
-The update interaction is performed by an HTTP PUT command as shown:
+The <code>update</code> interaction creates a new current version for an existing resource or 
+creates an initial version if no resource already exists for the given id. 
+The <code>update</code> interaction is performed by an HTTP PUT command as shown:
 </p>
 <pre>
   PUT [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <p>
-The submitted resource SHALL have an id element with a value that is the [id].
-If the client submits a <a href="resource.html#meta">meta</a>, the server SHALL
-ignore the existing versionId and lastUpdated values. 
-The server SHALL create/update the meta.versionId 
-and meta.lastUpdated with it's current correct values. The server is allowed to 
-review and alter the other metadata values, but should refrain from doing so
-(see <a href="resource.html#meta">metadata description</a> for further information). 
-</p>
-
-<p>
-If the interaction is successful, the server SHALL return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
-with a Last-Modified header, and an ETag header which contains the new versionId of the resource. A Content-Location header that refers to the specific version created by the 
-update interaction SHOULD also be returned. The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
+The request body SHALL be a <a href="resource.html">Resource</a> with an id element that has an identical value to the [id] in the URL.
+If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
+ignore the existing <code>versionId</code> and <code>lastUpdated</code> values. 
+The server SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
+with the new correct values.  
+Servers are allowed to review and alter the other metadata values, but SHOULD refrain 
+from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
 </p>
 <p>
 A server SHOULD accept the resource as submitted when accepts the update, and return the same
 content when it is subsequently read. However systems may not be able to do this; see 
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
 </p>
+<p>
+If the interaction is successful, the server SHALL return either a 200 OK HTTP status code if the resource was updated, or a 201 Created status code if the resource was created,
+with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. A <code>Content-Location</code> header 
+that refers to the specific version created by the update interaction SHOULD also be returned. The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> 
+resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
+</p>
 <h4>Conditional updates</h4>
 <p>
-A client can initiate an update to resource based on some identification criteria. In
-this mode the client does not provide an <i>id</i> in the element, or in the URL. Instead,
-it provides the following:
+The conditional update operation allows a client to update an existing resource based on some identification criteria, 
+rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a PUT as shown:
 </p>
 <pre>
   PUT [base]/[type]/?[search parameters]
 </pre>
 <p>
-When the server processes this update, it performs a search as specified using the standard 
-<a href="search.html">search facilities</a> for the resource type. The action it takes depends
+When the server processes this update, it performs a search using the it's standard 
+<a href="search.html">search facilities</a> for the resource type, with the goal of resolving a single logical id for this request. The action it takes depends
 on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b>: The server performs a <a href="#create">create</a> operation</li>
- <li><b>One Match</b>: The server fills out the id with the matching resource, and performs an update against it</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria was not selective enough</li>
+ <li><b>One Match</b>: The server performs the update against the matching resource</li>
+ <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
-This variant can be used to avoid the risk of two clients simultaneously creating 
-duplicate resources for the same record at the same time (e.g. they both search, don't 
-find one, so create it at the same time).
+This variant can be used to allow a stateless client (such as an interface engine) to submit 
+updated results to a server, without having to remember the logical ids that the server has assigned. 
+For example, a client updating the status of a lab result from "preliminary" to "final" 
+might submit the finalized result using "PUT /Observation?identifier=http://my-lab-system|123"
 </p>
 <h4>Rejecting Updates</h4>
 <p>
-Servers are permitted to reject update interactions because of integrity concerns or business 
-rules implemented on the server, and return HTTP status codes accordingly (usually 422). 
-A server SHOULD accept the resource as submitted when accepts the update, and return the same
-content when it is subsequently read. However systems may not be able to do this; see 
-the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
+Servers are permitted to reject update interactions because of integrity concerns or other business 
+returning HTTP status codes accordingly (usually a 422). 
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -428,26 +425,25 @@ status codes when no If-Match header is found.
 <a name="delete"> </a>
 <h3>delete</h3>
 <p>
-The delete interaction removes an existing resource. The interaction
+The <code>delete</code> interaction removes an existing resource. The interaction
 is performed by an HTTP DELETE command as shown:
 </p>
 <pre>
   DELETE [base]/[type]/[id] 
 </pre>
 <p>
-A delete interaction means that <a href="#read">non-version specific reads</a> of a resource 
-return a 410 error and that the resource is no longer found through search interactions. Upon successful
-deletion, or if the resource does not exist at all, the server should return 204 (No Content), or 
-202 Accepted, with an OperationOutcome resource containing hints and warnings about the deletion; 
-if one is sent it SHALL not include any errors.
+A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource 
+return a 410 HTTP status code and that the resource is no longer found through <a href="#search">search</a> 
+interactions. Upon successful deletion, or if the resource does not exist at all, the server should return 
+204 (No Content), or 202 Accepted status code, with an <a href="operationoutcome.html">OperationOutcome</a> 
+resource containing hints and warnings about the deletion; if one is sent it SHALL not include any errors.
 </p>
 <p>
-If the server refuses to delete resources of that type on principle, then it should return the status code 
-405 method not allowed. If the server refuses to delete a resource because of reasons specific 
-to that resource, such as referential integrity, it should return the status code 409 Conflict.
-Performing this interaction on a resource that is already deleted has no effect, and should return 204.
-Resources that have been deleted may subsequently be brought back to life by PUTting an update to them 
-subsequent to the deletion. 
+If the server refuses to delete resources of that type as a blanket policy, then it should return the 405 
+Method not allowed status code. If the server refuses to delete a resource because of reasons specific 
+to that resource, such as referential integrity, it should return the 409 Conflict status code.
+Performing this interaction on a resource that is already deleted has no effect, and the server should return a 204 No Response status code.
+Resources that have been deleted may be "brought back to life" by a subsequent <a href="#href">update</a> interaction using an HTTP <code>PUT</code>. 
 </p>
 <p>
 Many resources have a status element that overlaps with the idea of deletion. Each resource type
@@ -456,15 +452,15 @@ deletion interaction should be understood as deleting the record of the resource
 about the state of the real-world corresponding resource implied.
 </p>
 <p>
-DELETEing a resource does not delete it's version history. From a version history respect,
+The <code>delete</code> operation does not remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
 no content and is marked as deleted.
 </p>
 
 <h4>Conditional deletes</h4>
 <p>
-A client can delete a resource based on some identification criteria instead of providing an id directly. Instead,
-it provides the following:
+The conditional delete operation allows a client to update an existing resource based on some identification criteria, 
+rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP DELETE as shown:
 </p>
 <pre>
   DELETE [base]/[type]/?[search parameters]
@@ -476,55 +472,57 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b>: The server returns 404 (Not found)</li>
- <li><b>One Match</b>: The server deletes the resource following the rules above</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria was not selective enough</li>
+ <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
+ <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
-This variant can be used to avoid the risk of deleting a resource that another client
-is updating, and also if the client needs to distinguish between successful deletion, and 
-a resource that never existed in the first place.
+This variant can be used to allow a stateless client (such as an interface engine) to delete 
+a resource on a  server, without having to remember the logical ids that the server has assigned. 
+For example, a client deleting a lab atomic result might delete the resource using "DELETE /Observation?identifier=http://my-lab-system|123".
 </p>
-
 
 <a name="create"> </a>
 <h3>create</h3>
 <p>
-The create interaction creates a new resource in a server assigned location. If the client 
-wishes to have control over the id of a newly submitted resource, it should use the update 
-interaction instead. The create interaction is performed by an HTTP POST command as shown:
+The <code>create</code> interaction creates a new resource in a server-assigned location. If the client 
+wishes to have control over the id of a newly submitted resource, it should use the <a href="#update">update</a> 
+interaction instead. The <code>create</code> interaction is performed by an HTTP POST command as shown:
 </p>
 <pre>
   POST [base]/[type] {?_format=[mime-type]}
 </pre>
 <p>
-A resource submitted for a create operation SHALL not have an id element (this is the
+The request body SHALL be a FHIR Resource without an id element (this is the
 only case where a resource exists without an id element).
-If the client submits a <a href="resource.html#meta">meta</a>, the server SHALL
-ignore the existing versionId and lastUpdated values. 
-The server SHALL create/update the meta.versionId 
-and meta.lastUpdated with it's current correct values. The server is allowed to 
-review and alter the other metadata values, but should refrain from doing so
-(see <a href="resource.html#meta">metadata description</a> for further information). 
+If the request body includes a <a href="resource.html#meta">meta</a>, the server SHALL
+ignore the existing <code>versionId</code> and <code>lastUpdated</code> values. 
+The server SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
+with the new correct values.  
+Servers are allowed to review and alter the other metadata values, but SHOULD refrain 
+from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
 </p>
 <p>
-The server returns a 201 Created, and SHOULD also return a Location header which contains the new <a href="resources.html#metadata">Logical Id</a> and <a href="resources.html#metadata">Version Id</a> of the created resource:
+A server SHOULD accept the resource as submitted when it accepts the create, and return the same
+content when it is subsequently read. However some systems may not be able to do this; see 
+the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
+</p>
+<p>
+The server returns a 201 Created HTTP status code, and SHOULD also return a <code>Location</code> header which 
+contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of 
+the created resource version:
 </p>
 <pre>
   Location: [base]/[type]/[id]/_history/[vid]
 </pre>
 <p>
-Where [id] and [vid] are the newly created id and version id for the resource. 
-The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
+where [id] and [vid] are the newly created id and version id for the resource version.  
+The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> resource with hints and warnings about 
+the resource; if one is sent it SHALL not include any errors.
 </p>
 <p>
-When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a 400 Bad Request.
-When the server rejects the content of the resource because of business rules, the server returns a 422 Unprocessible Entity error. 
-In either case, the server SHOULD send an operation outcome with detailed error messages describing the reason for the error. 
-</p>
-<p>
-A server SHOULD accept the resource as submitted when accepts the create, and return the same
-content when it is subsequently read. However systems may not be able to do this; see 
-the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
+When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a 400 Bad Request HTTP status code.
+When the server rejects the content of the resource because of business rules, the server returns a 422 Unprocessible Entity error HTTP status code. 
+In either case, the server SHOULD include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> with detailed error messages describing the reason for the error. 
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -543,25 +541,26 @@ For additional information on how systems may behave when processing updates, re
 
 <h4>Conditional create</h4>
 <p>
-A client can make processing a create dependent on whether a resource does not already exist
-by adding a If-None-Exist header:
+The conditional create operation allows a client to create a new resource only if some equivalent resource 
+does not already exist on the server. The client defines what equivalence means in this case by supplying 
+a FHIR search query in an If-None-Exist header as shown::
 </p>
 <pre>
   If-None-Exist: base/[type]?[search parameters]
 </pre>
 <p>
-When the server processes this update, it performs a search as specified using the standard 
+When the server processes this update, it performs a search as specified using its standard 
 <a href="search.html">search facilities</a> for the resource type. The action it takes depends
 on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b>: The server processes the create as above</li>
  <li><b>One Match</b>: The server ignore the post and returns 200 OK</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria was not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to avoid the risk of two clients
-creating duplicate resources for the same record.
+creating duplicate resources for the same record. For example, a client posting a new lab result might specify "If-None-Exist: /Observation?identifier=http://my-lab-system|123" to ensure it is does not create a duplicate record.
 </p>
 
 
