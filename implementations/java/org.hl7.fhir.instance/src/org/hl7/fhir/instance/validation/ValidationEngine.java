@@ -152,9 +152,8 @@ public class ValidationEngine {
   }
 
   private Schema readSchema() throws SAXException {
-    StreamSource[] sources = new StreamSource[2];
+    StreamSource[] sources = new StreamSource[1];
     sources[0] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-all.xsd")));
-    sources[1] = new StreamSource(new ByteArrayInputStream(definitions.get("fhir-atom.xsd")));
 
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
     schemaFactory.setErrorHandler(new ValidationErrorHandler(outputs));

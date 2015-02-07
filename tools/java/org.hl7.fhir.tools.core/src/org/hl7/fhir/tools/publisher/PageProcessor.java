@@ -3241,6 +3241,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append(", <a href=\""+e.getName().toLowerCase()+".html\">"+e.getName()+"</a>");
       }
     }
+    for (ResourceDefn e : definitions.getBaseResources().values()) {
+      if (usesType(e.getRoot(), tn)) {
+        b.append(", <a href=\""+e.getName().toLowerCase()+".html\">"+e.getName()+"</a>");
+      }
+    }
+    if (b.toString().length() < 2)
+      throw new Error("??");
     String s = b.toString().substring(2);
     int i = s.lastIndexOf(", ");
     if ( i > 1)
