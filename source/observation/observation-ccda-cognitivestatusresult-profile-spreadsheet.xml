@@ -11830,7 +11830,7 @@
    </Row>
    <Row ss:Height="30">
     <Cell><Data ss:Type="String">13. MAY contain zero or one [0..1] targetSiteCode (CONF:14270). </Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.bodySite</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.bodySite[x]</Data></Cell>
    </Row>
    <Row ss:Height="30">
     <Cell><Data ss:Type="String">12. MAY contain zero or one [0..1] methodCode (CONF:14265). </Data></Cell>

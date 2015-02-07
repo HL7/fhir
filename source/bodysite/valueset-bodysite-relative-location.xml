@@ -14,31 +14,32 @@
 			<system value="http://snomed.info/sct"/>
 			<concept>
 				<code value="255561001"/>
+				<display value="Medial"/>
 			</concept>
 			<concept>
 				<code value="49370004"/>
+				<display value="Lateral"/>
 			</concept>
 			<concept>
 				<code value="264217000"/>
+				<display value="Superior"/>
 			</concept>
 			<concept>
 				<code value="261089000"/>
+				<display value="Inferior"/>
 			</concept>
 			<concept>
 				<code value="255551008"/>
+				<display value="Posterior"/>
 			</concept>
 			<concept>
 				<code value="351726001"/>
-			</concept>
-			<concept>
-				<code value="243924007"/>
+				<display value="Below"/>
 			</concept>
 			<concept>
 				<code value="352730000"/>
+				<display value="Above"/>
 			</concept>
-			<concept>
-				<code value="260515002"/>
-			</concept>
-			</include>
+		</include>
 	</compose>
 </ValueSet>

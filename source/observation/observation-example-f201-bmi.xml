@@ -74,13 +74,13 @@
   <issued value="2013-04-04T13:27:00+01:00"/><!--BMI was measured on this April fourth-->
   <status value="final"/><!--The observation is complete-->
   <reliability value="ok"/><!--No reliability concerns-->
-  <bodySite><!--BMI applies to whole body-->
+  <bodySiteCodeableConcept><!--BMI applies to whole body-->
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Entire body as a whole"/>   
     </coding>
-  </bodySite>
+  </bodySiteCodeableConcept>
   <method><!--BMI method is measurement as an action-->
     <coding>
         <system value="http://snomed.info/sct"/>

@@ -34,7 +34,7 @@ The observation resource has the following aspects:
  <li>identifier - Unique identifier for this particular observation so it can be recognized in all contexts where it is represented</li>
  <li>value - the actual value that was observed</li>
  <li>related observations - Other observations that are components of this observation, or provide supporting information, context or warnings about this observation</li>
- <li>subject, bodysite - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.name</li>
+ <li>subject,.bodySite[x] - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.name</li>
  <li>applies[x] - the time or period that this observation was made on the subject. Each observation has multiple times - prepared, made, reported etc - but the important time is when the data relates to the patient condition</li>
  <li>interpretation, comments, and reference range: information to help understand the observed value</li>
  <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.name</li>

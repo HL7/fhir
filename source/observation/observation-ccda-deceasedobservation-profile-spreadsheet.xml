@@ -1451,7 +1451,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.bodySite</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.bodySite[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..0</Data><NamedCell
@@ -1474,7 +1474,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.bodySite</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.bodySite[x]</Data></Cell>
    </Row>
    <Row ss:Height="45">
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -11445,7 +11445,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.bodySite</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.bodySite[x]</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s106"/>

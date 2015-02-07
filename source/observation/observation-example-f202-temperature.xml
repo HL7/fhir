@@ -29,13 +29,13 @@
  <issued value="2013-04-04T13:27:00+01:00"/><!--Oral temperature was measured on April fourth-->
  <status value="entered in error"/><!--In the meantime a new oral temperature is measured-->
  <reliability value="questionable"/><!--http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/-->
- <bodySite>
+ <bodySiteCodeableConcept>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Entire body as a whole"/>  
     </coding>
- </bodySite>
+ </bodySiteCodeableConcept>
  <method>
     <coding>
         <system value="http://snomed.info/sct"/>

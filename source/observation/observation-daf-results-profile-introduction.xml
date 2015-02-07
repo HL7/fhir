@@ -65,7 +65,7 @@ The DAFResults profile provides a mapping for the following Meaningful Use data 
 		  </tr>
 		  <tr>
 			<td>Body Site used to collect specimen</td>
-			<td>Observation.bodySite</td>
+			<td>Observation.bodySite[x]</td>
 		  </tr>
 		</tbody>
 	</table>

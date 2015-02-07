@@ -28,13 +28,13 @@
     <issued value="2013-04-03T15:30:10+01:00"/>
     <status value="final"/> <!--  urn:oid:2.16.840.1.113883.4.642.1.7  -->
     <reliability value="ok"/> <!--  2.16.840.1.113883.4.642.1.118  -->
-    <bodySite>
+    <bodySiteCodeableConcept>
         <coding>
             <system value="http://snomed.info/id"/>
             <code value="308046002"/>
             <display value="Superficial forearm vein"/>
         </coding>
-    </bodySite>
+    </bodySiteCodeableConcept>
     <method>
         <coding>
             <system value="http://snomed.info/id"/>

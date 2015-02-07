@@ -142,12 +142,12 @@ GE LUNAR PRODIGY DENSITOMETER
       </valueQuantity>
       <status value="final"/>
       <reliability value="ok"/>
-      <bodySite>
+      <bodySiteCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="71341001:272741003=7771000"/> <!-- femur, laterality = left -->
         </coding>
-      </bodySite>
+      </bodySiteCodeableConcept>
     </Observation>
   </contained> 
 

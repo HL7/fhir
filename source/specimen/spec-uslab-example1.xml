@@ -45,7 +45,7 @@ Authored by: Eric M Haas  Health eData Inc.
    represented here. For instance, here's some possible types:
      lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
      transfusion bag of blood (+ container.type) 
-     Peritoneal lavage        (+ collection.sourceSite)
+     Peritoneal lavage        (+ collection.bodySite)
    If the type includes other fields, it would be normal not to populate the other fields
 
    Note that this practice is so widespread that it's pointless to try and stop it  :( -->
@@ -81,7 +81,7 @@ Authored by: Eric M Haas  Health eData Inc.
 		<!-- the time of collection is required. Usually a point in time, but can be a period 
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
 		<collectedDateTime value="2014-12-05"/>
-		<sourceSite>
+		<bodySiteCodeableConcept>
 			<!--choice of SNOMED CT concept code...-->
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -96,6 +96,6 @@ Authored by: Eric M Haas  Health eData Inc.
 				<display value="Arm"/>
 			</coding>
 			<text value="Drawn from Arm"/>
-		</sourceSite>
+		</bodySiteCodeableConcept>
 	</collection>
 </Specimen>

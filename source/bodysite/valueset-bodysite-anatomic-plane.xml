@@ -14,33 +14,23 @@
 			<system value="http://snomed.info/sct"/>
 			<concept>
 				<code value="279239001"/>
+				<display value="Median plane"/>
 			</concept>
 			<concept>
 				<code value="279240004"/>
+				<display value="Parasagittal plane"/>
 			</concept>
 			<concept>
 				<code value="279238009"/>
+				<display value="Coronal plane"/>
 			</concept>
 			<concept>
 				<code value="416820004"/>
+				<display value="Frontal plane"/>
 			</concept>
 			<concept>
 				<code value="243899009"/>
-			</concept>
-			<concept>
-				<code value="243900004"/>
-			</concept>
-			<concept>
-				<code value="243924007"/>
-			</concept>
-			<concept>
-				<code value="260516001"/>
-			</concept>
-			<concept>
-				<code value="260515002"/>
-			</concept>
-			<concept>
-				<code value="279013009"/>
+				<display value="Transverse plane"/>
 			</concept>
 		</include>
 	</compose>
