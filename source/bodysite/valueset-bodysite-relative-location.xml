@@ -1,0 +1,44 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="RelativeLocation"/>
+	<publisher value="Order and Observation Workgroup"/>
+	<!-- author Eric Haas, Health eData Inc.-->
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+	<description value="RelativeLocation: SNOMED-CT concepts describing the relative locatiion in relation to an identified anatomical landmark"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="255561001"/>
+			</concept>
+			<concept>
+				<code value="49370004"/>
+			</concept>
+			<concept>
+				<code value="264217000"/>
+			</concept>
+			<concept>
+				<code value="261089000"/>
+			</concept>
+			<concept>
+				<code value="255551008"/>
+			</concept>
+			<concept>
+				<code value="351726001"/>
+			</concept>
+			<concept>
+				<code value="243924007"/>
+			</concept>
+			<concept>
+				<code value="352730000"/>
+			</concept>
+			<concept>
+				<code value="260515002"/>
+			</concept>
+			</include>
+	</compose>
+</ValueSet>

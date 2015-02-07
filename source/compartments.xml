@@ -135,6 +135,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Binary</Data></Cell>
    </Row>
+     <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BodySite</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Bundle</Data></Cell>
    </Row>

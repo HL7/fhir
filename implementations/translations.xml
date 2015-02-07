@@ -1,4 +1,4 @@
-﻿<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
     <!--
  This file is for the convenience of implementers, to enable sharing of language translations.
  There is no obligation for any implementer to use the messages contained in this file, but
@@ -71,6 +71,12 @@ NOTE: while translations on Resources are possible they should be used for rende
         <translation lang="zh">二进制</translation>
         <translation lang="es">Binario</translation>
         <translation lang="fr">Binaire</translation>
+    </item>
+     <item id="BodySite">
+        <translation lang="en">BodySite</translation>
+        <translation lang="zh">身体部位</translation>
+        <translation lang="es">SitioDelCuerpo</translation>
+        <translation lang="fr">SiteDeCorps</translation>
     </item>
     <item id="NewBundle">
       <translation lang="en">NewBundle</translation>

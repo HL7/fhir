@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+ Record details about the anatomical location of a specimen or body part, including precise localisation information.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
+</p>
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Todo
+</p>
+</div>
+
+
+
+<div>
+<h2>Background and Context</h2>
+<p>
+This resource is based upon the  <i>openEHR-EHR-CLUSTER.anatomical_location.v1 archetype</i>.  copyright <a href="http://www.openehr.org/">openEHR Foundation</a>. (openEHR Foundation is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Commons Attribution-ShareAlike 3.0 Unported License</a>. ) ( EH todo :need to make the attribution is correct )
+</p>
+</div>
+
+
+</div>
