@@ -6,12 +6,13 @@
 This resource summarizes a series of images or other instances generated as part of an 
 imaging study, and provides references to where the images are available
 using <a href="ftp://medical.nema.org/medical/dicom/supps/LB/sup161_lb.pdf">WADO-RS</a>. 
-This resource is used to make information concerning images etc. that are available 
-in other clinical contexts such as <a href="diagnosticreport.html">diagnostic reports</a>, 
+
+This resource is used to make information available concerning images etc. that are 
+referenced in other clinical contexts such as <a href="diagnosticreport.html">diagnostic reports</a>, 
 <a href="careplan.html">Care Plans</a>, etc. Also, see the use case description below.
 </p>
 <p>
-This resources has been specifically designed with use in DICOM contexts in mind. 
+This resource has been specifically designed with use in DICOM contexts in mind. 
 The content is closely based on the definitions of the equivalent DICOM 
 constructs, and informed by usage patterns already established through DICOM
 implementation practices, including XDS-I. It is not, however, necessary to 
