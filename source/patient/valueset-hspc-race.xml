@@ -1,0 +1,40 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="MU Race Value Set"/>
+  <publisher value="HSPC Project"/>
+  <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <telecom>
+      <system value="url"/>
+      <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
+  </telecom>
+ 
+  <description value="Meaningful use race code. The 5 base codes (see http://forum.sitenv.org/viewtopic.php?f=16&amp;t=23&amp;sid=8fb101254557843fa05ac94d8d83a095) from PHIN VADS https://phinvads.cdc.gov/vads/ViewValueSet.action?id=94E75E17-176B-DE11-9B52-0015173D1785 (oid: 2.16.840.1.113883.1.11.14914)"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Race"/>
+      <concept>
+        <code value="1002-5"/>
+        <display value="American Indian or Alaska Native"/>
+      </concept>
+      <concept>
+        <code value="2028-9"/>
+        <display value="Asian"/>
+      </concept>
+      <concept>
+        <code value="2054-5"/>
+        <display value="Black or African American"/>
+      </concept>
+      <concept>
+        <code value="2076-8"/>
+        <display value="Native Hawaiian or Other Pacific Islander"/>
+      </concept>
+      <concept>
+        <code value="2106-3"/>
+        <display value="White"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
