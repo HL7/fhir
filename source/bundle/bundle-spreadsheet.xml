@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-01-30T09:46:08Z</LastSaved>
+  <LastSaved>2015-02-06T22:00:32Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1589,11 +1589,11 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s86"><Data ss:Type="String">!Bundle.entry.deleted.versionId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">id</Data><NamedCell
@@ -1605,11 +1605,13 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Version id for delated resource</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Version id for deleted resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The version id of the resource that was deleted</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Expected to be present in a history or search response; Used for version safe deletes within a transaction</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1622,7 +1624,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">!Bundle.entry.deleted.instant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">instant</Data><NamedCell
@@ -1639,7 +1641,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The date/time that the resource was deleted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Expected to be present in a history or search response</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1680,7 +1683,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Bundle.entry.information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1710,7 +1713,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Bundle.entry.information.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1741,7 +1744,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Bundle.entry.information.resourceId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1771,7 +1774,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Bundle.entry.information.meta</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3850,9 +3853,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3860,6 +3863,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3867,8 +3871,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4722,7 +4726,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">message</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
@@ -4730,7 +4734,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search it's contents</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s117"><Data ss:Type="String">composition</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
@@ -5010,8 +5014,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10644,7 +10647,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R34C4:R50C5,R2C4:R30C5</Range>
+   <Range>R34C4:R50C5,R2C4:R30C5,R2C3:R4C3</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
@@ -10690,13 +10693,6 @@
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C3:R4C3</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
