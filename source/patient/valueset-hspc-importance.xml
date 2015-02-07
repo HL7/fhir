@@ -1,0 +1,71 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="urn:oid:0.00.000.0.000000.0.00.001"/>
+  </extension>
+  <!-- 
+    Board Member	PatientImportance:BM:19266	BM
+    Financial Donor	PatientImportance:FD:19268	FD
+    Foreign Dignitary	PatientImportance:FOR:19274	FOR
+    Government Dignitary	PatientImportance:GOVT:19270	GOVT
+    
+    Physician Family Member	PatientImportance:DFM:19269	DFM
+    Staff Family Member	PatientImportance:SFM:19271	SFM
+    Staff Member	PatientImportance:STF:19272	STF
+    Staff Physician	PatientImportance:DR:19267	DR
+    Very Important Person	PatientImportance:VIP:19273	VIP
+  -->
+  <name value="Importance"/>
+  <publisher value="CIMI"/>
+  <telecom>
+      <system value="url"/>
+      <value value="http://cimi.org/valueset/importance"/>
+  </telecom>
+  <telecom>
+      <system value="url"/>
+      <value value="http://www.cimi.org/"/>
+  </telecom>
+ 
+  <description value="Importance Value Set for Patient"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://cimi.org/vs/patient/importance"/>
+      <concept>
+        <code value="19266"/>
+        <display value="Board Member"/>
+      </concept>
+      <concept>
+        <code value="19268"/>
+        <display value="Financial Donor"/>
+      </concept>
+      <concept>
+        <code value="19274"/>
+        <display value="Foreign Dignitary"/>
+      </concept>
+      <concept>
+        <code value="19270"/>
+        <display value="Government Dignitary"/>
+      </concept>
+      <concept>
+        <code value="19269"/>
+        <display value="Physician Family Member"/>
+      </concept>
+      <concept>
+        <code value="19271"/>
+        <display value="Staff Family Member"/>
+      </concept>
+      <concept>
+        <code value="19272"/>
+        <display value="Staff Member"/>
+      </concept>
+      <concept>
+        <code value="19267"/>
+        <display value="Staff Physician"/>
+      </concept>
+      <concept>
+        <code value="19273"/>
+        <display value="Very Important Person"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
