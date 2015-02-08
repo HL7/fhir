@@ -1,0 +1,39 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
+    <valueUri value="urn:oid:0.00.000.0.000000.0.00.004"/>
+  </extension>
+  <!-- 
+    To be provided by CIMI. Placeholders for now
+  -->
+  <name value="Action Method"/>
+  <publisher value="CIMI"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://cimi.org/valueset/attribution/action-method"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.cimi.org/"/>
+  </telecom>
+  
+  <description value="Type codes for HSPC Attribution action method"/>
+  <status value="active"/>
+  <compose>
+    <include>
+      <system value="http://cimi.org/vs/attribution/action-method"/>
+      <!-- Made up codes. Need actual ones from: ACTIONMETHOD_VALUESET_CODE -->
+      <concept>
+        <code value="1"/>
+        <display value="Verbal"/>
+      </concept>
+      <concept>
+        <code value="2"/>
+        <display value="Written"/>
+      </concept>
+      <concept>
+        <code value="3"/>
+        <display value="Telephone"/>
+      </concept>
+    </include>
+  </compose>    
+</ValueSet>
