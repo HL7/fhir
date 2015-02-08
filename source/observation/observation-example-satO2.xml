@@ -11,11 +11,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Dec 04 2014: Oxygen saturation 95% (normal)</div>
   </text>
   
+  <!--
   <extension url="http://hl7.org/fhir/ExtensionDefinition/relatedDeviceMetric">
     <valueReference>
 		<reference value="DeviceMetric/example"/>
 	</valueReference>
   </extension>
+  -->
   
   <name>
     <coding>
@@ -55,9 +57,10 @@
     <reference value="Patient/example"/>
   </subject>
   
-  <performer>
-    <reference value="Device/ihe-pcd"/>
-  </performer>
+  <device>
+    <!--reference value="Device/ihe-pcd"/-->
+    <reference value="DeviceMetric/example"/>
+  </device>
   
   <referenceRange>
     <low>
