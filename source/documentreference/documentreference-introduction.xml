@@ -5,7 +5,7 @@
 <p> 
 A document reference resource is used to describe a document that is made available to a healthcare system. 
 A document is some sequence of bytes that is identifiable, establishes its own context (e.g. what subject, 
-author etc), can be displayed to the user, and has defined update management. The document resource can be 
+author etc), can be displayed to the user, and has defined update management. The DocumentReference resource can be 
 used with any document format that has a recognized mime type, and that conforms to this definition.
 </p>
 <p>
@@ -32,7 +32,7 @@ The document that is a target of the reference can be a reference to a FHIR docu
 the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be 
 stored on some other server system. The document reference is also able to address documents that are retrieved 
 by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or a v2 message query, though 
-the way each of these service calls works must be specified in some external stanard or other documentation.
+the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
 </div>
 

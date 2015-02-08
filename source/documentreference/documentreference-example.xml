@@ -2,7 +2,6 @@
 <!--
 source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegister.b_Transaction.
   <homeCommunity>1.2.36.1.1001.1.1.1.1</homeCommunity>
-  <comments>Annual physical</comments>
 -->
 <DocumentReference xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/documentreference.xsd">
   <id value="example"/>
@@ -63,13 +62,20 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
-	<type>
-	  <coding>
-		<system value="http://loinc.org"/>
-		<code value="34108-1"/>
-		<display value="Outpatient Note"/>
-	  </coding>
-	</type>
+  <type>
+    <coding>
+	<system value="http://loinc.org"/>
+	<code value="34108-1"/>
+	<display value="Outpatient Note"/>
+    </coding>
+  </type>
+  <class>
+      <coding>
+        <system value="http://ihe.net/xds/connectathon/classCodes"/>
+        <code value="History and Physical"/>
+        <display value="History and Physical"/>
+      </coding>
+  </class>
   <author>
     <reference value="#a1"/>
   </author>
@@ -88,11 +94,13 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       <display value="Clinical-Staff"/>
     </coding>
   </confidentiality>
-  <primaryLanguage value="en-US"/>
-  <mimeType value="application/hl7-v3+xml"/>
-  <size value="3654"/>
-  <hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
-  <location value="http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510"/>
+  <content>
+    <contentType value="application/hl7-v3+xml"/>
+    <language value="en-US"/>
+    <url value="http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510"/>  
+    <size value="3654"/>
+    <hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+  </content>
   <context>
     <event>
       <coding>
@@ -115,12 +123,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   </context>    
 
 <!--
-    <class>
-      <system value="http://ihe.net/xds/connectathon/classCodes"/>
-      <code value="History and Physical"/>
-      <display value="History and Physical"/>
-    </class>
-
     <practiceSetting>
       <coding>
         <system value="http://www.ihe.net/xds/connectathon/practiceSettingCodes"/>
