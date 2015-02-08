@@ -11,7 +11,7 @@ The NutritionOrder resource describes a request for oral diets (including genera
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the Order resource and its associated workflow with the Nutrition Order referenced from the Order.details, or by using the Nutrition Order resource in the context of a messaging or service workflow where the request is explicit or implicit. 
+The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the <a href="order.html">Order</a> resource and its associated workflow with the Nutrition Order referenced from the Order.details, or by using the Nutrition Order resource in the context of a messaging or service workflow where the request is explicit or implicit. 
 </p>
 </div>
 

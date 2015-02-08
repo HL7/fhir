@@ -31,7 +31,7 @@ The Diagnostic Report resource has the following aspects:
 <ul>
  <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
- <li>request details: a reference to 0 or more <a href="diagnosticorder.html">DiagnosticOrder resources</a> to allow the report to connected to clinical work flows</li>
+ <li>request details: a reference to 0 or more <a href="diagnosticorder.html">DiagnosticOrder resources</a> to allow the report to connect to clinical work flows</li>
  <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide
     a hierarchical tree of groups of results</li>
  <li>specimen details: a reference to 0 or more <a href="specimen.html">Specimen resources</a> on which the report is based</li>
