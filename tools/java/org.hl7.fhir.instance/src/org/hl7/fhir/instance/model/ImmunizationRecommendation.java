@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A patient's point-of-time immunization status and recommendation with optional supporting justification.
  */
@@ -236,13 +234,9 @@ public class ImmunizationRecommendation extends DomainResource {
          * @param value This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         public ImmunizationRecommendationRecommendationComponent setDoseNumber(int value) { 
-          if (value == -1)
-            this.doseNumber = null;
-          else {
             if (this.doseNumber == null)
               this.doseNumber = new IntegerType();
             this.doseNumber.setValue(value);
-          }
           return this;
         }
 
@@ -660,13 +654,9 @@ public class ImmunizationRecommendation extends DomainResource {
          * @param value Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequence(int value) { 
-          if (value == -1)
-            this.doseSequence = null;
-          else {
             if (this.doseSequence == null)
               this.doseSequence = new IntegerType();
             this.doseSequence.setValue(value);
-          }
           return this;
         }
 

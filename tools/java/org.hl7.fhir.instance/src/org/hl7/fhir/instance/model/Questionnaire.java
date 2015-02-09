@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
@@ -653,13 +651,9 @@ public class Questionnaire extends DomainResource {
          * @param value If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
         public GroupComponent setRequired(boolean value) { 
-          if (value == false)
-            this.required = null;
-          else {
             if (this.required == null)
               this.required = new BooleanType();
             this.required.setValue(value);
-          }
           return this;
         }
 
@@ -702,13 +696,9 @@ public class Questionnaire extends DomainResource {
          * @param value Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
         public GroupComponent setRepeats(boolean value) { 
-          if (value == false)
-            this.repeats = null;
-          else {
             if (this.repeats == null)
               this.repeats = new BooleanType();
             this.repeats.setValue(value);
-          }
           return this;
         }
 
@@ -1104,13 +1094,9 @@ public class Questionnaire extends DomainResource {
          * @param value If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.
          */
         public QuestionComponent setRequired(boolean value) { 
-          if (value == false)
-            this.required = null;
-          else {
             if (this.required == null)
               this.required = new BooleanType();
             this.required.setValue(value);
-          }
           return this;
         }
 
@@ -1153,13 +1139,9 @@ public class Questionnaire extends DomainResource {
          * @param value Whether the group may occur multiple times in the instance, containing multiple sets of answers.
          */
         public QuestionComponent setRepeats(boolean value) { 
-          if (value == false)
-            this.repeats = null;
-          else {
             if (this.repeats == null)
               this.repeats = new BooleanType();
             this.repeats.setValue(value);
-          }
           return this;
         }
 

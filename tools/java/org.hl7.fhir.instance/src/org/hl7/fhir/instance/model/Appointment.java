@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A scheduled healthcare event for a patient and/or practitioner(s) where a service may take place at a specific date/time.
  */
@@ -834,13 +832,9 @@ public class Appointment extends DomainResource {
      * @param value The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).
      */
     public Appointment setPriority(int value) { 
-      if (value == -1)
-        this.priority = null;
-      else {
         if (this.priority == null)
           this.priority = new IntegerType();
         this.priority.setValue(value);
-      }
       return this;
     }
 

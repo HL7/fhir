@@ -29,16 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
@@ -488,13 +488,9 @@ public class NamingSystem extends DomainResource {
          * @param value Indicates whether this identifier is the "preferred" identifier of this type.
          */
         public NamingSystemUniqueIdComponent setPreferred(boolean value) { 
-          if (value == false)
-            this.preferred = null;
-          else {
             if (this.preferred == null)
               this.preferred = new BooleanType();
             this.preferred.setValue(value);
-          }
           return this;
         }
 

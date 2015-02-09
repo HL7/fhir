@@ -29,17 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A slot of time on a schedule that may be available for booking appointments.
  */
@@ -500,13 +499,9 @@ public class Slot extends DomainResource {
      * @param value This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
     public Slot setOverbooked(boolean value) { 
-      if (value == false)
-        this.overbooked = null;
-      else {
         if (this.overbooked == null)
           this.overbooked = new BooleanType();
         this.overbooked.setValue(value);
-      }
       return this;
     }
 

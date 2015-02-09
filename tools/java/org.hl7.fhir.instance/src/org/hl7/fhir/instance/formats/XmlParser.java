@@ -29,11 +29,25 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
+import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.DateType;
+import org.hl7.fhir.instance.model.DecimalType;
+import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.model.IdType;
+import org.hl7.fhir.instance.model.Base64BinaryType;
+import org.hl7.fhir.instance.model.TimeType;
+import org.hl7.fhir.instance.model.OidType;
+import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.UuidType;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.*;
+import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.xmlpull.v1.XmlPullParser;
 
 public class XmlParser extends XmlParserBase {
 
@@ -2736,6 +2750,12 @@ public class XmlParser extends XmlParserBase {
         res.setReadHistoryElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("updateCreate")) {
         res.setUpdateCreateElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalCreate")) {
+        res.setConditionalCreateElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalUpdate")) {
+        res.setConditionalUpdateElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conditionalDelete")) {
+        res.setConditionalDeleteElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchInclude")) {
         res.getSearchInclude().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
@@ -13378,6 +13398,15 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasUpdateCreateElement()) {
         composeBoolean("updateCreate", element.getUpdateCreateElement());
+      }
+      if (element.hasConditionalCreateElement()) {
+        composeBoolean("conditionalCreate", element.getConditionalCreateElement());
+      }
+      if (element.hasConditionalUpdateElement()) {
+        composeBoolean("conditionalUpdate", element.getConditionalUpdateElement());
+      }
+      if (element.hasConditionalDeleteElement()) {
+        composeBoolean("conditionalDelete", element.getConditionalDeleteElement());
       }
       if (element.hasSearchInclude()) { 
         for (StringType e : element.getSearchInclude()) 

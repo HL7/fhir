@@ -29,15 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Captures constraints on each element within the resource, profile, or extension.
  */
@@ -614,13 +613,9 @@ public class ElementDefinition extends Type {
          * @param value If the matching elements have to occur in the same order as defined in the profile.
          */
         public ElementDefinitionSlicingComponent setOrdered(boolean value) { 
-          if (value == false)
-            this.ordered = null;
-          else {
             if (this.ordered == null)
               this.ordered = new BooleanType();
             this.ordered.setValue(value);
-          }
           return this;
         }
 
@@ -2306,13 +2301,9 @@ public class ElementDefinition extends Type {
      * @param value The minimum number of times this element SHALL appear in the instance.
      */
     public ElementDefinition setMin(int value) { 
-      if (value == -1)
-        this.min = null;
-      else {
         if (this.min == null)
           this.min = new IntegerType();
         this.min.setValue(value);
-      }
       return this;
     }
 
@@ -2608,13 +2599,9 @@ public class ElementDefinition extends Type {
      * @param value Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.
      */
     public ElementDefinition setMaxLength(int value) { 
-      if (value == -1)
-        this.maxLength = null;
-      else {
         if (this.maxLength == null)
           this.maxLength = new IntegerType();
         this.maxLength.setValue(value);
-      }
       return this;
     }
 
@@ -2741,13 +2728,9 @@ public class ElementDefinition extends Type {
      * @param value If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
      */
     public ElementDefinition setMustSupport(boolean value) { 
-      if (value == false)
-        this.mustSupport = null;
-      else {
         if (this.mustSupport == null)
           this.mustSupport = new BooleanType();
         this.mustSupport.setValue(value);
-      }
       return this;
     }
 
@@ -2790,13 +2773,9 @@ public class ElementDefinition extends Type {
      * @param value If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
      */
     public ElementDefinition setIsModifier(boolean value) { 
-      if (value == false)
-        this.isModifier = null;
-      else {
         if (this.isModifier == null)
           this.isModifier = new BooleanType();
         this.isModifier.setValue(value);
-      }
       return this;
     }
 
@@ -2839,13 +2818,9 @@ public class ElementDefinition extends Type {
      * @param value Whether the element should be included if a client requests a search with the parameter _summary=true.
      */
     public ElementDefinition setIsSummary(boolean value) { 
-      if (value == false)
-        this.isSummary = null;
-      else {
         if (this.isSummary == null)
           this.isSummary = new BooleanType();
         this.isSummary.setValue(value);
-      }
       return this;
     }
 

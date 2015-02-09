@@ -932,12 +932,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write("\r\n");
 	      jdoc(indent, "@param value "+e.getDefinition());
 	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
-	      if (e.getMinCardinality() == 0) {
-	        if (tn.equals("IntegerType"))
-	          write(indent+"  if (value == -1)\r\n");
-	        else if (tn.equals("BooleanType"))
-	          write(indent+"  if (value == false)\r\n");
-          else if (isString(tn))
+	      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("BooleanType")) {
+          if (isString(tn))
             write(indent+"  if (Utilities.noString(value))\r\n");
 	        else
 	          write(indent+"  if (value == null)\r\n");
@@ -947,7 +943,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
         write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");
-        if (e.getMinCardinality() == 0) {
+        if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("BooleanType")) {
           write(indent+"  }\r\n");
         }
         write(indent+"  return this;\r\n");

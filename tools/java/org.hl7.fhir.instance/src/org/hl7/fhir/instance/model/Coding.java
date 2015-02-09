@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
-import org.hl7.fhir.instance.model.annotations.Description;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * A reference to a code defined by a terminology system.
  */
@@ -331,13 +331,9 @@ public class Coding extends Type {
      * @param value Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
     public Coding setPrimary(boolean value) { 
-      if (value == false)
-        this.primary = null;
-      else {
         if (this.primary == null)
           this.primary = new BooleanType();
         this.primary.setValue(value);
-      }
       return this;
     }
 

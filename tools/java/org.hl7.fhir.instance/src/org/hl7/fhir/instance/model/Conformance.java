@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation.
  */
@@ -1709,13 +1707,9 @@ public class Conformance extends DomainResource {
          * @param value Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
         public ConformanceRestSecurityComponent setCors(boolean value) { 
-          if (value == false)
-            this.cors = null;
-          else {
             if (this.cors == null)
               this.cors = new BooleanType();
             this.cors.setValue(value);
-          }
           return this;
         }
 
@@ -2053,20 +2047,41 @@ public class Conformance extends DomainResource {
         protected BooleanType updateCreate;
 
         /**
+         * A flag that indicates that the server supports conditional create.
+         */
+        @Child(name="conditionalCreate", type={BooleanType.class}, order=7, min=0, max=1)
+        @Description(shortDefinition="If allows/uses conditional create", formalDefinition="A flag that indicates that the server supports conditional create." )
+        protected BooleanType conditionalCreate;
+
+        /**
+         * A flag that indicates that the server supports conditional update.
+         */
+        @Child(name="conditionalUpdate", type={BooleanType.class}, order=8, min=0, max=1)
+        @Description(shortDefinition="If allows/uses conditional update", formalDefinition="A flag that indicates that the server supports conditional update." )
+        protected BooleanType conditionalUpdate;
+
+        /**
+         * A flag that indicates that the server supports conditional delete.
+         */
+        @Child(name="conditionalDelete", type={BooleanType.class}, order=9, min=0, max=1)
+        @Description(shortDefinition="If allows/uses conditional delete", formalDefinition="A flag that indicates that the server supports conditional delete." )
+        protected BooleanType conditionalDelete;
+
+        /**
          * A list of _include values supported by the server.
          */
-        @Child(name="searchInclude", type={StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="searchInclude", type={StringType.class}, order=10, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="_include values supported by the server", formalDefinition="A list of _include values supported by the server." )
         protected List<StringType> searchInclude;
 
         /**
          * Additional search parameters for implementations to support and/or make use of.
          */
-        @Child(name="searchParam", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
+        @Child(name="searchParam", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Additional search params defined", formalDefinition="Additional search parameters for implementations to support and/or make use of." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = 120556320L;
+        private static final long serialVersionUID = -1665668054L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -2284,13 +2299,9 @@ public class Conformance extends DomainResource {
          * @param value A flag for whether the server is able to return past versions as part of the vRead operation.
          */
         public ConformanceRestResourceComponent setReadHistory(boolean value) { 
-          if (value == false)
-            this.readHistory = null;
-          else {
             if (this.readHistory == null)
               this.readHistory = new BooleanType();
             this.readHistory.setValue(value);
-          }
           return this;
         }
 
@@ -2333,13 +2344,144 @@ public class Conformance extends DomainResource {
          * @param value A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
          */
         public ConformanceRestResourceComponent setUpdateCreate(boolean value) { 
-          if (value == false)
-            this.updateCreate = null;
-          else {
             if (this.updateCreate == null)
               this.updateCreate = new BooleanType();
             this.updateCreate.setValue(value);
-          }
+          return this;
+        }
+
+        /**
+         * @return {@link #conditionalCreate} (A flag that indicates that the server supports conditional create.). This is the underlying object with id, value and extensions. The accessor "getConditionalCreate" gives direct access to the value
+         */
+        public BooleanType getConditionalCreateElement() { 
+          if (this.conditionalCreate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalCreate");
+            else if (Configuration.doAutoCreate())
+              this.conditionalCreate = new BooleanType(); // bb
+          return this.conditionalCreate;
+        }
+
+        public boolean hasConditionalCreateElement() { 
+          return this.conditionalCreate != null && !this.conditionalCreate.isEmpty();
+        }
+
+        public boolean hasConditionalCreate() { 
+          return this.conditionalCreate != null && !this.conditionalCreate.isEmpty();
+        }
+
+        /**
+         * @param value {@link #conditionalCreate} (A flag that indicates that the server supports conditional create.). This is the underlying object with id, value and extensions. The accessor "getConditionalCreate" gives direct access to the value
+         */
+        public ConformanceRestResourceComponent setConditionalCreateElement(BooleanType value) { 
+          this.conditionalCreate = value;
+          return this;
+        }
+
+        /**
+         * @return A flag that indicates that the server supports conditional create.
+         */
+        public boolean getConditionalCreate() { 
+          return this.conditionalCreate == null ? false : this.conditionalCreate.getValue();
+        }
+
+        /**
+         * @param value A flag that indicates that the server supports conditional create.
+         */
+        public ConformanceRestResourceComponent setConditionalCreate(boolean value) { 
+            if (this.conditionalCreate == null)
+              this.conditionalCreate = new BooleanType();
+            this.conditionalCreate.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #conditionalUpdate} (A flag that indicates that the server supports conditional update.). This is the underlying object with id, value and extensions. The accessor "getConditionalUpdate" gives direct access to the value
+         */
+        public BooleanType getConditionalUpdateElement() { 
+          if (this.conditionalUpdate == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalUpdate");
+            else if (Configuration.doAutoCreate())
+              this.conditionalUpdate = new BooleanType(); // bb
+          return this.conditionalUpdate;
+        }
+
+        public boolean hasConditionalUpdateElement() { 
+          return this.conditionalUpdate != null && !this.conditionalUpdate.isEmpty();
+        }
+
+        public boolean hasConditionalUpdate() { 
+          return this.conditionalUpdate != null && !this.conditionalUpdate.isEmpty();
+        }
+
+        /**
+         * @param value {@link #conditionalUpdate} (A flag that indicates that the server supports conditional update.). This is the underlying object with id, value and extensions. The accessor "getConditionalUpdate" gives direct access to the value
+         */
+        public ConformanceRestResourceComponent setConditionalUpdateElement(BooleanType value) { 
+          this.conditionalUpdate = value;
+          return this;
+        }
+
+        /**
+         * @return A flag that indicates that the server supports conditional update.
+         */
+        public boolean getConditionalUpdate() { 
+          return this.conditionalUpdate == null ? false : this.conditionalUpdate.getValue();
+        }
+
+        /**
+         * @param value A flag that indicates that the server supports conditional update.
+         */
+        public ConformanceRestResourceComponent setConditionalUpdate(boolean value) { 
+            if (this.conditionalUpdate == null)
+              this.conditionalUpdate = new BooleanType();
+            this.conditionalUpdate.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #conditionalDelete} (A flag that indicates that the server supports conditional delete.). This is the underlying object with id, value and extensions. The accessor "getConditionalDelete" gives direct access to the value
+         */
+        public BooleanType getConditionalDeleteElement() { 
+          if (this.conditionalDelete == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConformanceRestResourceComponent.conditionalDelete");
+            else if (Configuration.doAutoCreate())
+              this.conditionalDelete = new BooleanType(); // bb
+          return this.conditionalDelete;
+        }
+
+        public boolean hasConditionalDeleteElement() { 
+          return this.conditionalDelete != null && !this.conditionalDelete.isEmpty();
+        }
+
+        public boolean hasConditionalDelete() { 
+          return this.conditionalDelete != null && !this.conditionalDelete.isEmpty();
+        }
+
+        /**
+         * @param value {@link #conditionalDelete} (A flag that indicates that the server supports conditional delete.). This is the underlying object with id, value and extensions. The accessor "getConditionalDelete" gives direct access to the value
+         */
+        public ConformanceRestResourceComponent setConditionalDeleteElement(BooleanType value) { 
+          this.conditionalDelete = value;
+          return this;
+        }
+
+        /**
+         * @return A flag that indicates that the server supports conditional delete.
+         */
+        public boolean getConditionalDelete() { 
+          return this.conditionalDelete == null ? false : this.conditionalDelete.getValue();
+        }
+
+        /**
+         * @param value A flag that indicates that the server supports conditional delete.
+         */
+        public ConformanceRestResourceComponent setConditionalDelete(boolean value) { 
+            if (this.conditionalDelete == null)
+              this.conditionalDelete = new BooleanType();
+            this.conditionalDelete.setValue(value);
           return this;
         }
 
@@ -2435,6 +2577,9 @@ public class Conformance extends DomainResource {
           childrenList.add(new Property("versioning", "code", "Thi field is set to true to specify that the system does not support (server) or use (client) versioning for this resource type. If this is not set to true, the server must at least correctly track and populate the versionId meta-property on resources.", 0, java.lang.Integer.MAX_VALUE, versioning));
           childrenList.add(new Property("readHistory", "boolean", "A flag for whether the server is able to return past versions as part of the vRead operation.", 0, java.lang.Integer.MAX_VALUE, readHistory));
           childrenList.add(new Property("updateCreate", "boolean", "A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.", 0, java.lang.Integer.MAX_VALUE, updateCreate));
+          childrenList.add(new Property("conditionalCreate", "boolean", "A flag that indicates that the server supports conditional create.", 0, java.lang.Integer.MAX_VALUE, conditionalCreate));
+          childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
+          childrenList.add(new Property("conditionalDelete", "boolean", "A flag that indicates that the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
           childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
@@ -2452,6 +2597,9 @@ public class Conformance extends DomainResource {
         dst.versioning = versioning == null ? null : versioning.copy();
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
+        dst.conditionalCreate = conditionalCreate == null ? null : conditionalCreate.copy();
+        dst.conditionalUpdate = conditionalUpdate == null ? null : conditionalUpdate.copy();
+        dst.conditionalDelete = conditionalDelete == null ? null : conditionalDelete.copy();
         if (searchInclude != null) {
           dst.searchInclude = new ArrayList<StringType>();
           for (StringType i : searchInclude)
@@ -2469,8 +2617,9 @@ public class Conformance extends DomainResource {
         return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
            && (interaction == null || interaction.isEmpty()) && (versioning == null || versioning.isEmpty())
            && (readHistory == null || readHistory.isEmpty()) && (updateCreate == null || updateCreate.isEmpty())
-           && (searchInclude == null || searchInclude.isEmpty()) && (searchParam == null || searchParam.isEmpty())
-          ;
+           && (conditionalCreate == null || conditionalCreate.isEmpty()) && (conditionalUpdate == null || conditionalUpdate.isEmpty())
+           && (conditionalDelete == null || conditionalDelete.isEmpty()) && (searchInclude == null || searchInclude.isEmpty())
+           && (searchParam == null || searchParam.isEmpty());
       }
 
   }
@@ -3416,13 +3565,9 @@ public class Conformance extends DomainResource {
          * @param value Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         public ConformanceMessagingComponent setReliableCache(int value) { 
-          if (value == -1)
-            this.reliableCache = null;
-          else {
             if (this.reliableCache == null)
               this.reliableCache = new IntegerType();
             this.reliableCache.setValue(value);
-          }
           return this;
         }
 
@@ -4692,13 +4837,9 @@ public class Conformance extends DomainResource {
      * @param value A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public Conformance setExperimental(boolean value) { 
-      if (value == false)
-        this.experimental = null;
-      else {
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
-      }
       return this;
     }
 

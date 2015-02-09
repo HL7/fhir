@@ -33,10 +33,10 @@ package org.hl7.fhir.instance.model;
  * Primitive type "date" in FHIR: any day in a gregorian calendar
  */
 
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
-
 import java.util.Date;
 import java.util.TimeZone;
+
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 
 /**
  * Represents a FHIR date datatype. Valid precisions values for this type are:

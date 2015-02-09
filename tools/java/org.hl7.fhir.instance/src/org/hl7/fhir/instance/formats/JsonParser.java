@@ -29,13 +29,26 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
+import org.hl7.fhir.instance.model.IntegerType;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.DateType;
+import org.hl7.fhir.instance.model.DecimalType;
+import org.hl7.fhir.instance.model.UriType;
+import org.hl7.fhir.instance.model.IdType;
+import org.hl7.fhir.instance.model.Base64BinaryType;
+import org.hl7.fhir.instance.model.TimeType;
+import org.hl7.fhir.instance.model.OidType;
+import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.BooleanType;
+import org.hl7.fhir.instance.model.UuidType;
+import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 
 public class JsonParser extends JsonParserBase {
 
@@ -2990,6 +3003,18 @@ public class JsonParser extends JsonParserBase {
       res.setUpdateCreateElement(parseBoolean(json.get("updateCreate").getAsBoolean()));
     if (json.has("_updateCreate"))
       parseElementProperties(json.getAsJsonObject("_updateCreate"), res.getUpdateCreateElement());
+    if (json.has("conditionalCreate"))
+      res.setConditionalCreateElement(parseBoolean(json.get("conditionalCreate").getAsBoolean()));
+    if (json.has("_conditionalCreate"))
+      parseElementProperties(json.getAsJsonObject("_conditionalCreate"), res.getConditionalCreateElement());
+    if (json.has("conditionalUpdate"))
+      res.setConditionalUpdateElement(parseBoolean(json.get("conditionalUpdate").getAsBoolean()));
+    if (json.has("_conditionalUpdate"))
+      parseElementProperties(json.getAsJsonObject("_conditionalUpdate"), res.getConditionalUpdateElement());
+    if (json.has("conditionalDelete"))
+      res.setConditionalDeleteElement(parseBoolean(json.get("conditionalDelete").getAsBoolean()));
+    if (json.has("_conditionalDelete"))
+      parseElementProperties(json.getAsJsonObject("_conditionalDelete"), res.getConditionalDeleteElement());
     if (json.has("searchInclude")) {
       JsonArray array = json.getAsJsonArray("searchInclude");
       for (int i = 0; i < array.size(); i++) {
@@ -15623,6 +15648,18 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUpdateCreateElement()) {
         composeBooleanCore("updateCreate", element.getUpdateCreateElement(), false);
         composeBooleanExtras("updateCreate", element.getUpdateCreateElement(), false);
+      }
+      if (element.hasConditionalCreateElement()) {
+        composeBooleanCore("conditionalCreate", element.getConditionalCreateElement(), false);
+        composeBooleanExtras("conditionalCreate", element.getConditionalCreateElement(), false);
+      }
+      if (element.hasConditionalUpdateElement()) {
+        composeBooleanCore("conditionalUpdate", element.getConditionalUpdateElement(), false);
+        composeBooleanExtras("conditionalUpdate", element.getConditionalUpdateElement(), false);
+      }
+      if (element.hasConditionalDeleteElement()) {
+        composeBooleanCore("conditionalDelete", element.getConditionalDeleteElement(), false);
+        composeBooleanExtras("conditionalDelete", element.getConditionalDeleteElement(), false);
       }
       if (element.hasSearchInclude()) {
         openArray("searchInclude");

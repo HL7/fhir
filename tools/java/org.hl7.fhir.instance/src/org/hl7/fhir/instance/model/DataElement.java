@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * The formal description of a single piece of information that can be gathered and reported.
  */
@@ -742,13 +740,9 @@ public class DataElement extends DomainResource {
          * @param value If true, indicates that the official meaning of the data element is exactly equivalent to the mapped element.
          */
         public DataElementMappingComponent setDefinitional(boolean value) { 
-          if (value == false)
-            this.definitional = null;
-          else {
             if (this.definitional == null)
               this.definitional = new BooleanType();
             this.definitional.setValue(value);
-          }
           return this;
         }
 
@@ -1898,13 +1892,9 @@ public class DataElement extends DomainResource {
      * @param value Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
     public DataElement setMaxLength(int value) { 
-      if (value == -1)
-        this.maxLength = null;
-      else {
         if (this.maxLength == null)
           this.maxLength = new IntegerType();
         this.maxLength.setValue(value);
-      }
       return this;
     }
 

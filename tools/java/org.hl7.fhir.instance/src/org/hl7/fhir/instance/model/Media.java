@@ -29,17 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
@@ -588,13 +587,9 @@ public class Media extends DomainResource {
      * @param value Height of the image in pixels(photo/video).
      */
     public Media setHeight(int value) { 
-      if (value == -1)
-        this.height = null;
-      else {
         if (this.height == null)
           this.height = new IntegerType();
         this.height.setValue(value);
-      }
       return this;
     }
 
@@ -637,13 +632,9 @@ public class Media extends DomainResource {
      * @param value Width of the image in pixels (photo/video).
      */
     public Media setWidth(int value) { 
-      if (value == -1)
-        this.width = null;
-      else {
         if (this.width == null)
           this.width = new IntegerType();
         this.width.setValue(value);
-      }
       return this;
     }
 
@@ -686,13 +677,9 @@ public class Media extends DomainResource {
      * @param value The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
     public Media setFrames(int value) { 
-      if (value == -1)
-        this.frames = null;
-      else {
         if (this.frames == null)
           this.frames = new IntegerType();
         this.frames.setValue(value);
-      }
       return this;
     }
 
@@ -735,13 +722,9 @@ public class Media extends DomainResource {
      * @param value The duration of the recording in seconds - for audio and video.
      */
     public Media setDuration(int value) { 
-      if (value == -1)
-        this.duration = null;
-      else {
         if (this.duration == null)
           this.duration = new IntegerType();
         this.duration.setValue(value);
-      }
       return this;
     }
 

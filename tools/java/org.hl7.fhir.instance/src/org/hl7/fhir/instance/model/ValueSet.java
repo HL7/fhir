@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A value set specifies a set of codes drawn from one or more code systems.
  */
@@ -435,13 +433,9 @@ public class ValueSet extends DomainResource {
          * @param value If code comparison is case sensitive when codes within this system are compared to each other.
          */
         public ValueSetDefineComponent setCaseSensitive(boolean value) { 
-          if (value == false)
-            this.caseSensitive = null;
-          else {
             if (this.caseSensitive == null)
               this.caseSensitive = new BooleanType();
             this.caseSensitive.setValue(value);
-          }
           return this;
         }
 
@@ -644,13 +638,9 @@ public class ValueSet extends DomainResource {
          * @param value If this code is not for use as a real concept.
          */
         public ConceptDefinitionComponent setAbstract(boolean value) { 
-          if (value == false)
-            this.abstract_ = null;
-          else {
             if (this.abstract_ == null)
               this.abstract_ = new BooleanType();
             this.abstract_.setValue(value);
-          }
           return this;
         }
 
@@ -2109,13 +2099,9 @@ public class ValueSet extends DomainResource {
          * @param value If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.
          */
         public ValueSetExpansionContainsComponent setAbstract(boolean value) { 
-          if (value == false)
-            this.abstract_ = null;
-          else {
             if (this.abstract_ == null)
               this.abstract_ = new BooleanType();
             this.abstract_.setValue(value);
-          }
           return this;
         }
 
@@ -2639,13 +2625,9 @@ public class ValueSet extends DomainResource {
      * @param value If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
     public ValueSet setImmutable(boolean value) { 
-      if (value == false)
-        this.immutable = null;
-      else {
         if (this.immutable == null)
           this.immutable = new BooleanType();
         this.immutable.setValue(value);
-      }
       return this;
     }
 
@@ -2910,9 +2892,9 @@ public class ValueSet extends DomainResource {
      * @param value This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public ValueSet setExperimental(boolean value) { 
-      if (this.experimental == null)
-        this.experimental = new BooleanType();
-      this.experimental.setValue(value);
+        if (this.experimental == null)
+          this.experimental = new BooleanType();
+        this.experimental.setValue(value);
       return this;
     }
 
@@ -2955,13 +2937,9 @@ public class ValueSet extends DomainResource {
      * @param value Whether this is intended to be used with an extensible binding or not.
      */
     public ValueSet setExtensible(boolean value) { 
-      if (value == false)
-        this.extensible = null;
-      else {
         if (this.extensible == null)
           this.extensible = new BooleanType();
         this.extensible.setValue(value);
-      }
       return this;
     }
 

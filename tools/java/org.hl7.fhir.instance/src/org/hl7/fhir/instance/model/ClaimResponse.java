@@ -29,19 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
  */
@@ -1962,13 +1960,9 @@ public class ClaimResponse extends DomainResource {
          * @param value The sequence number of the line item submitted which contains the error. This value is ommitted when the error is elsewhere.
          */
         public ErrorsComponent setSequenceLinkId(int value) { 
-          if (value == -1)
-            this.sequenceLinkId = null;
-          else {
             if (this.sequenceLinkId == null)
               this.sequenceLinkId = new IntegerType();
             this.sequenceLinkId.setValue(value);
-          }
           return this;
         }
 
@@ -2011,13 +2005,9 @@ public class ClaimResponse extends DomainResource {
          * @param value The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
         public ErrorsComponent setDetailSequenceLinkId(int value) { 
-          if (value == -1)
-            this.detailSequenceLinkId = null;
-          else {
             if (this.detailSequenceLinkId == null)
               this.detailSequenceLinkId = new IntegerType();
             this.detailSequenceLinkId.setValue(value);
-          }
           return this;
         }
 
@@ -2060,13 +2050,9 @@ public class ClaimResponse extends DomainResource {
          * @param value The sequence number of the addition within the line item submitted which contains the error. This value is ommitted when the error is not related to an Addition.
          */
         public ErrorsComponent setSubdetailSequenceLinkId(int value) { 
-          if (value == -1)
-            this.subdetailSequenceLinkId = null;
-          else {
             if (this.subdetailSequenceLinkId == null)
               this.subdetailSequenceLinkId = new IntegerType();
             this.subdetailSequenceLinkId.setValue(value);
-          }
           return this;
         }
 
@@ -2188,13 +2174,9 @@ public class ClaimResponse extends DomainResource {
          * @param value An integer associated with each note which may be referred to from each service line item.
          */
         public NotesComponent setNumber(int value) { 
-          if (value == -1)
-            this.number = null;
-          else {
             if (this.number == null)
               this.number = new IntegerType();
             this.number.setValue(value);
-          }
           return this;
         }
 

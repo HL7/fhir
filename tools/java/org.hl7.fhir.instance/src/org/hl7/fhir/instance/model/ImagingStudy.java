@@ -29,18 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of Series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A Series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a Study may have multiple Series of different modalities.
  */
@@ -1605,13 +1603,9 @@ public class ImagingStudy extends DomainResource {
          * @param value The Numeric identifier of this series in the study.
          */
         public ImagingStudySeriesComponent setNumber(int value) { 
-          if (value == -1)
-            this.number = null;
-          else {
             if (this.number == null)
               this.number = new IntegerType();
             this.number.setValue(value);
-          }
           return this;
         }
 
@@ -2150,13 +2144,9 @@ public class ImagingStudy extends DomainResource {
          * @param value The number of this image in the series.
          */
         public ImagingStudySeriesInstanceComponent setNumber(int value) { 
-          if (value == -1)
-            this.number = null;
-          else {
             if (this.number == null)
               this.number = new IntegerType();
             this.number.setValue(value);
-          }
           return this;
         }
 

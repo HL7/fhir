@@ -29,17 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 /**
  * A set of information summarized from a list of other resources.
  */
@@ -247,13 +246,9 @@ public class List_ extends DomainResource {
          * @param value True if this item is marked as deleted in the list.
          */
         public ListEntryComponent setDeleted(boolean value) { 
-          if (value == false)
-            this.deleted = null;
-          else {
             if (this.deleted == null)
               this.deleted = new BooleanType();
             this.deleted.setValue(value);
-          }
           return this;
         }
 
@@ -678,13 +673,9 @@ public class List_ extends DomainResource {
      * @param value Whether items in the list have a meaningful order.
      */
     public List_ setOrdered(boolean value) { 
-      if (value == false)
-        this.ordered = null;
-      else {
         if (this.ordered == null)
           this.ordered = new BooleanType();
         this.ordered.setValue(value);
-      }
       return this;
     }
 

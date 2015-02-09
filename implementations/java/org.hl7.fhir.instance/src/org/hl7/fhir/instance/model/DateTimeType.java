@@ -32,6 +32,7 @@ package org.hl7.fhir.instance.model;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.zip.DataFormatException;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
@@ -187,4 +188,5 @@ public class DateTimeType extends BaseDateTimeType {
 		return (int) (getTimeZone().getRawOffset() / DateUtils.MILLIS_PER_MINUTE) % 60;
 	}
 
+	
 }

@@ -29,19 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
  */
@@ -1321,13 +1319,9 @@ public class OralHealthClaim extends DomainResource {
          * @param value The estimated treatment duration in months.
          */
         public OrthodonticPlanComponent setDurationMonths(int value) { 
-          if (value == -1)
-            this.durationMonths = null;
-          else {
             if (this.durationMonths == null)
               this.durationMonths = new IntegerType();
             this.durationMonths.setValue(value);
-          }
           return this;
         }
 
@@ -1370,13 +1364,9 @@ public class OralHealthClaim extends DomainResource {
          * @param value The anticipated number of payments.
          */
         public OrthodonticPlanComponent setPaymentCount(int value) { 
-          if (value == -1)
-            this.paymentCount = null;
-          else {
             if (this.paymentCount == null)
               this.paymentCount = new IntegerType();
             this.paymentCount.setValue(value);
-          }
           return this;
         }
 
@@ -3136,13 +3126,9 @@ public class OralHealthClaim extends DomainResource {
          * @param value Indicates whether this is the initial placement of a fixed prosthesis.
          */
         public ProsthesisComponent setInitial(boolean value) { 
-          if (value == false)
-            this.initial = null;
-          else {
             if (this.initial == null)
               this.initial = new BooleanType();
             this.initial.setValue(value);
-          }
           return this;
         }
 

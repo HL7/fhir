@@ -29,16 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+import java.math.*;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used for to record when things are expected or requested to occur.
  */
@@ -465,13 +464,9 @@ public class Timing extends Type {
          * @param value Indicates how often the event should occur.
          */
         public TimingRepeatComponent setFrequency(int value) { 
-          if (value == -1)
-            this.frequency = null;
-          else {
             if (this.frequency == null)
               this.frequency = new IntegerType();
             this.frequency.setValue(value);
-          }
           return this;
         }
 
@@ -653,13 +648,9 @@ public class Timing extends Type {
          * @param value A total count of the desired number of repetitions.
          */
         public TimingRepeatComponent setCount(int value) { 
-          if (value == -1)
-            this.count = null;
-          else {
             if (this.count == null)
               this.count = new IntegerType();
             this.count.setValue(value);
-          }
           return this;
         }
 

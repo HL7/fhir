@@ -1,9 +1,6 @@
 package org.hl7.fhir.instance.validation;
 
 
-import java.sql.Array;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -556,10 +553,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     		List<WrapperElement> list = new ArrayList<WrapperElement>();  
     		element.getNamedChildrenWithWildcard(tail(child.getPath()), list);
     		if (child.getMin() > 0) {
-    			rule(errors, "structure", child.getPath(), list.size() > 0, "Element "+child.getPath()+" is required");
+    			rule(errors, "structure", mergePath(path, child.getPath()), list.size() > 0, "Element "+child.getPath()+" is required");
     		}
     		if (child.hasMax() && !child.getMax().equals("*")) {
-    			rule(errors, "structure", child.getPath(), list.size() <= Integer.parseInt(child.getMax()), "Element "+child.getPath()+" can only occur "+child.getMax()+" time"+(child.getMax().equals("1") ? "" : "s"));
+    			rule(errors, "structure", mergePath(path, child.getPath()), list.size() <= Integer.parseInt(child.getMax()), "Element "+child.getPath()+" can only occur "+child.getMax()+" time"+(child.getMax().equals("1") ? "" : "s"));
     		}
     	}
     }
@@ -631,6 +628,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
+  private String mergePath(String path1, String path2) {
+    // path1 is xpath path
+    // path2 is dotted path 
+    String[] parts = path2.split("\\.");
+    StringBuilder b = new StringBuilder(path1);
+    for (int i = 1; i < parts.length -1; i++)
+      b.append("/f:"+parts[i]);
+    return b.toString();
+  }
   private boolean isBundleEntry(String path) {
     String[] parts = path.split("\\/");
     return parts.length > 2 && parts[parts.length-1].startsWith("f:resource") && parts[parts.length-2].startsWith("f:entry["); 

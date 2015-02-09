@@ -29,16 +29,16 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
+// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-import org.hl7.fhir.instance.model.annotations.Child;
-import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.instance.model.annotations.Block;
+import org.hl7.fhir.instance.model.annotations.Child;
+import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * Financial instrument which may be used to pay for or reimburse for health care products and services.
  */
@@ -458,13 +458,9 @@ public class Coverage extends DomainResource {
      * @param value A unique identifier for a dependent under the coverage.
      */
     public Coverage setDependent(int value) { 
-      if (value == -1)
-        this.dependent = null;
-      else {
         if (this.dependent == null)
           this.dependent = new IntegerType();
         this.dependent.setValue(value);
-      }
       return this;
     }
 
@@ -507,13 +503,9 @@ public class Coverage extends DomainResource {
      * @param value An optional counter for a particular instance of the identified coverage which increments upon each renewal.
      */
     public Coverage setSequence(int value) { 
-      if (value == -1)
-        this.sequence = null;
-      else {
         if (this.sequence == null)
           this.sequence = new IntegerType();
         this.sequence.setValue(value);
-      }
       return this;
     }
 
