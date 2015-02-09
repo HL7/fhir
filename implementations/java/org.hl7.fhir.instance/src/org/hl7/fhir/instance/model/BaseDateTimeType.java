@@ -29,7 +29,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.*;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.DAY;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.MONTH;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.YEAR;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -197,7 +199,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 					return ourYearMonthDayTimeMilliFormat.format(theValue);
 				}
 			}
-			throw new IllegalStateException("Invalid precision (this is a HAPI bug, shouldn't happen): " + myPrecision);
+			throw new IllegalStateException("Invalid precision (this is a bug, shouldn't happen): " + myPrecision);
 		}
 	}
 
@@ -442,6 +444,7 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 		if (myTimeZoneZulu == false && myTimeZone == null) {
 			myTimeZone = TimeZone.getDefault();
 		}
+		myPrecision = getDefaultPrecisionForDatatype();
 		BaseDateTimeType retVal = (BaseDateTimeType) super.setValue(theValue);
 		return retVal;
 	}
