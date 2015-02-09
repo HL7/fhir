@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,8 +14,8 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.client.ClientUtils;
 import org.hl7.fhir.instance.client.EFhirClientException;
-import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FHIRSimpleClient;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.model.Bundle;
@@ -27,7 +26,6 @@ import org.hl7.fhir.instance.model.Condition;
 import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateType;
-import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Observation;

@@ -132,6 +132,7 @@ public class XSDBaseGenerator {
         write("    <xs:choice>\r\n");
         for (String n : definitions.sortedResourceNames())
           write("      <xs:element ref=\""+n+"\"/>\r\n");
+        write("      <xs:element ref=\"Parameters\"/>\r\n");
         write("    </xs:choice>\r\n");
         write("  </xs:complexType>\r\n");
     

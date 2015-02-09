@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
-  <id value="example"/>
+  <id value="bundle-example"/>
   <!-- this example bundle is a search set -->
   <meta>
     <lastUpdated value="2014-08-18T01:43:30Z"/>
@@ -32,20 +32,7 @@
   
   <!-- now, the actual entries -->
   <entry>
-    <!-- optional search information -->
-    <search>
-      <!-- this resource included as a match to the search criteria.
-         Servers are not required to populate this, but should, because
-         there are a few cases where it might be ambiguous whether a 
-         resource is added because it's a match or an include         -->   
-      <mode value="match"/> 
-      <!-- score. For matches where the criteria are not determinate,
-        e.g. text search on narrative, the server can include a score to indicate
-        how well the resource matches the conditions. Since this search is by patient
-        identifier, there's nothing fuzzy about it, but for example purposes: -->
-      <score value="1"/>
-    </search>
-    <!-- and now the matching resource -->
+    <!-- the matching resource -->
     <resource>
       <MedicationPrescription>
         <id value="3123"/>
@@ -59,18 +46,31 @@
         <!-- snip -->
       </MedicationPrescription>
     </resource>
+    <!-- and now optional search information -->
+    <search>
+      <!-- this resource included as a match to the search criteria.
+         Servers are not required to populate this, but should, because
+         there are a few cases where it might be ambiguous whether a 
+         resource is added because it's a match or an include         -->   
+      <mode value="match"/> 
+      <!-- score. For matches where the criteria are not determinate,
+        e.g. text search on narrative, the server can include a score to indicate
+        how well the resource matches the conditions. Since this search is by patient
+        identifier, there's nothing fuzzy about it, but for example purposes: -->
+      <score value="1"/>
+    </search>
   </entry>
   <entry>
-    <search>
-      <!-- added because the client asked to include the medications -->   
-      <mode value="include"/> 
-    </search>
     <resource>
       <Medication xmlns="http://hl7.org/fhir">
         <id value="example"/>
         <!-- snip -->
       </Medication>
     </resource>
+    <search>
+      <!-- added because the client asked to include the medications -->   
+      <mode value="include"/> 
+    </search>
   </entry>
 </Bundle>
 

@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 3, 2015 22:31+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
@@ -523,13 +524,20 @@ public class MedicationAdministration extends DomainResource {
 
 
     /**
+     * Extra information about the medication administration that is not conveyed by the other attributes.
+     */
+    @Child(name="note", type={StringType.class}, order=11, min=0, max=1)
+    @Description(shortDefinition="Information about the administration", formalDefinition="Extra information about the medication administration that is not conveyed by the other attributes." )
+    protected StringType note;
+
+    /**
      * Indicates how the medication is/was used by the patient.
      */
-    @Child(name="dosage", type={}, order=11, min=0, max=1)
+    @Child(name="dosage", type={}, order=12, min=0, max=1)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected MedicationAdministrationDosageComponent dosage;
 
-    private static final long serialVersionUID = 711410311L;
+    private static final long serialVersionUID = 1898346148L;
 
     public MedicationAdministration() {
       super();
@@ -1035,6 +1043,55 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
+     * @return {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     */
+    public StringType getNoteElement() { 
+      if (this.note == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationAdministration.note");
+        else if (Configuration.doAutoCreate())
+          this.note = new StringType(); // bb
+      return this.note;
+    }
+
+    public boolean hasNoteElement() { 
+      return this.note != null && !this.note.isEmpty();
+    }
+
+    public boolean hasNote() { 
+      return this.note != null && !this.note.isEmpty();
+    }
+
+    /**
+     * @param value {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     */
+    public MedicationAdministration setNoteElement(StringType value) { 
+      this.note = value;
+      return this;
+    }
+
+    /**
+     * @return Extra information about the medication administration that is not conveyed by the other attributes.
+     */
+    public String getNote() { 
+      return this.note == null ? null : this.note.getValue();
+    }
+
+    /**
+     * @param value Extra information about the medication administration that is not conveyed by the other attributes.
+     */
+    public MedicationAdministration setNote(String value) { 
+      if (Utilities.noString(value))
+        this.note = null;
+      else {
+        if (this.note == null)
+          this.note = new StringType();
+        this.note.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
     public MedicationAdministrationDosageComponent getDosage() { 
@@ -1072,6 +1129,7 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "An interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true).  For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
+        childrenList.add(new Property("note", "string", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosage", "", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
@@ -1106,6 +1164,7 @@ public class MedicationAdministration extends DomainResource {
           for (Reference i : device)
             dst.device.add(i.copy());
         };
+        dst.note = note == null ? null : note.copy();
         dst.dosage = dosage == null ? null : dosage.copy();
         return dst;
       }
@@ -1120,8 +1179,8 @@ public class MedicationAdministration extends DomainResource {
            && (encounter == null || encounter.isEmpty()) && (prescription == null || prescription.isEmpty())
            && (wasNotGiven == null || wasNotGiven.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
            && (reasonGiven == null || reasonGiven.isEmpty()) && (effectiveTime == null || effectiveTime.isEmpty())
-           && (medication == null || medication.isEmpty()) && (device == null || device.isEmpty()) && (dosage == null || dosage.isEmpty())
-          ;
+           && (medication == null || medication.isEmpty()) && (device == null || device.isEmpty()) && (note == null || note.isEmpty())
+           && (dosage == null || dosage.isEmpty());
       }
 
   @Override

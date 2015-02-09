@@ -85,11 +85,10 @@ import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerat
 import org.hl7.fhir.definitions.generators.specification.XPathQueryGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.generators.xsd.SchemaGenerator;
-import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.Compartment;
+import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -103,7 +102,6 @@ import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
-import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -114,21 +112,14 @@ import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.FormatUtilities;
-import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.IParser;
-import org.hl7.fhir.instance.formats.ResourceOrFeed;
-import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.IParser.OutputStyle;
+import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.instance.model.CodeType;
-import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.DateTimeType;
-import org.hl7.fhir.instance.model.DomainResource;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
+import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
@@ -143,6 +134,9 @@ import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.instance.model.DateTimeType;
+import org.hl7.fhir.instance.model.DomainResource;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.Meta;
@@ -156,8 +150,8 @@ import org.hl7.fhir.instance.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.instance.model.OperationDefinition.ResourceProfileStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Questionnaire;
+import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.SearchParameter;
@@ -177,6 +171,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.utils.ValueSetUtilities;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -603,6 +598,18 @@ public class Publisher implements URIResolver {
       genTypeProfile(t);
 
     page.log(" ...process profiles (resources)", LogMessageType.Process);
+
+    for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
+      if (!r.isAbstract()) {
+        r.setConformancePack(makeConformancePack(r));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
+        page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
+        ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
+        r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+        r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
+      }
+    }
+
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setConformancePack(makeConformancePack(r));
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
@@ -1576,7 +1583,7 @@ public class Publisher implements URIResolver {
     
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
-      produceResource1(r, true);
+      produceResource1(r, r.isAbstract());
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
@@ -2080,6 +2087,7 @@ public class Publisher implements URIResolver {
   private ValueSet buildV3CodeSystem(String id, String date, Element e, String csOid, String vsOid) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
@@ -2089,6 +2097,7 @@ public class Publisher implements URIResolver {
     vs.setStatus(ValuesetStatus.ACTIVE);
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
+    vs.setExperimental(false);
     def.setCaseSensitive(true);
     def.setSystem("http://hl7.org/fhir/v3/" + id);
 
@@ -2096,6 +2105,7 @@ public class Publisher implements URIResolver {
     if (r != null) {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
       vs.setDateElement(new DateTimeType(r.getAttribute("releaseDate")));
+      vs.setVersion(r.getAttribute("releaseDate"));
     }
     if (csOid != null)
       s.append("<p>OID for code system: " + csOid + "</p>\r\n");
@@ -2206,9 +2216,9 @@ public class Publisher implements URIResolver {
             vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
             ToolingExtensions.setOID(vs.getDefine(), "urn:oid:"+e.getAttribute("codeSystemId"));
             if (vs.hasDate())
-              vs.setMeta(new Meta().setLastUpdatedElement(new InstantType(vs.getDate())));
+              vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
             else
-              vs.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+              vs.getMeta().setLastUpdated(page.getGenDate().getTime());
             page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
             page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
             page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
@@ -2239,9 +2249,9 @@ public class Publisher implements URIResolver {
           vs.setUserData("path", "v3" + HTTP_separator + "vs" + HTTP_separator + id + HTTP_separator + "index.html");
           ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
           if (vs.hasDate())
-            vs.setMeta(new Meta().setLastUpdatedElement(new InstantType(vs.getDate())));
+            vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
           else
-            vs.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+            vs.getMeta().setLastUpdated(page.getGenDate().getTime());
           page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs));
           page.getValueSets().put(vs.getIdentifier(), vs);
           page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
@@ -2269,6 +2279,7 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
@@ -2283,6 +2294,7 @@ public class Publisher implements URIResolver {
     vs.setPublisher("HL7 v3");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setExperimental(false);
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) 
@@ -2313,6 +2325,7 @@ public class Publisher implements URIResolver {
 
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", "vs", id, "index.html"));
     vs.setId("v3-vs-"+FormatUtilities.makeId(id));
     vs.setIdentifier("http://hl7.org/fhir/v3/vs/" + id);
@@ -2327,6 +2340,7 @@ public class Publisher implements URIResolver {
     vs.setPublisher("HL7 v3");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setExperimental(false);
 
     r = XMLUtil.getNamedChild(e, "version");
     if (r != null) {
@@ -4198,13 +4212,15 @@ public class Publisher implements URIResolver {
 
   private void generateCodeSystemPart1(String filename, BindingSpecification cd) throws Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", filename);
     vs.setId(FormatUtilities.makeId(Utilities.fileTitle(filename)));
     if (Utilities.noString(cd.getUri()))
       vs.setIdentifier("http://hl7.org/fhir/vs/" + Utilities.fileTitle(filename));
     else
       vs.setIdentifier(cd.getUri());
-    // no version?? vs.setVersion(...
+    vs.setVersion(page.getVersion());
+    vs.setExperimental(false);
     vs.setName(cd.getName());
     vs.setPublisher("HL7 (FHIR Project)");
     vs.getTelecom().add(

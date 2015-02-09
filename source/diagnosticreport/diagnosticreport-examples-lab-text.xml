@@ -5,6 +5,7 @@
     <lastUpdated value="2012-04-14T10:35:23Z"/>
   </meta>
   <type value="collection"/>
+  <base value="http://hl7.org/fhir"/>
 
   <entry>
     <resource>

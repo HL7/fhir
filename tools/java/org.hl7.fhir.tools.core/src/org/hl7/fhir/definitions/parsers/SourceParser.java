@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -52,12 +51,11 @@ import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl;
-import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
-import org.hl7.fhir.definitions.model.ConformancePackage;
-import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
+import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -68,7 +66,6 @@ import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
-import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -80,18 +77,17 @@ import org.hl7.fhir.definitions.parsers.converters.EventConverter;
 import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
 import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
-import org.hl7.fhir.instance.formats.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.instance.model.Bundle.BundleType;
 import org.hl7.fhir.instance.model.Composition;
-import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.instance.utils.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -517,11 +513,20 @@ public class SourceParser {
 		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".xml").exists()) {
 		      XmlParser p = new XmlParser();
 		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".xml");
-		      cd.setReferredValueSet((ValueSet) p.parse(input));
+		      cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+		      if (!cd.getReferredValueSet().hasExperimental())
+		        cd.getReferredValueSet().setExperimental(true);
+          if (!cd.getReferredValueSet().hasVersion())
+            cd.getReferredValueSet().setVersion(version);
 		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".json").exists()) {
 		      JsonParser p = new JsonParser();
 		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".json");
-		      cd.setReferredValueSet((ValueSet) p.parse(input));
+		      cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+          cd.getReferredValueSet().setExperimental(true);
+          if (!cd.getReferredValueSet().hasExperimental())
+            cd.getReferredValueSet().setExperimental(true);
+          if (!cd.getReferredValueSet().hasVersion())
+            cd.getReferredValueSet().setVersion(version);
 		    } else
 		      throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(termDir)+cd.getReference()+".xml/json)");
 		    if (cd.getReferredValueSet().getId() == null)

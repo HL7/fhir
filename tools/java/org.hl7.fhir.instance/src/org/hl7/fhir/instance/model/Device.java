@@ -29,16 +29,17 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 3, 2015 22:31+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.
  */
@@ -46,17 +47,17 @@ import org.hl7.fhir.instance.model.annotations.Description;
 public class Device extends DomainResource {
 
     /**
-     * Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.
+     * Unique instance identifiers assigned to a device by organizations like manufacturers, owners or regulatory agencies.   If the identifier identifies the type of device, Device.type should be used.   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies an instance of a device uniquely if the serial number is present, .  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
     @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Instance id from manufacturer, owner and others", formalDefinition="Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device." )
+    @Description(shortDefinition="Instance id from manufacturer, owner, regulatory agencies and others", formalDefinition="Unique instance identifiers assigned to a device by organizations like manufacturers, owners or regulatory agencies.   If the identifier identifies the type of device, Device.type should be used.   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies an instance of a device uniquely if the serial number is present, .  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
     protected List<Identifier> identifier;
 
     /**
-     * A kind of this device.
+     * Code or identifier to identify a kind of device   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies a type of a device when the serial number is absent, otherwise it uniquely identifies the device instance and Device.identifier should be used instead of Device.type.  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
      */
     @Child(name="type", type={CodeableConcept.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="What kind of device this is", formalDefinition="A kind of this device." )
+    @Description(shortDefinition="What kind of device this is", formalDefinition="Code or identifier to identify a kind of device   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies a type of a device when the serial number is absent, otherwise it uniquely identifies the device instance and Device.identifier should be used instead of Device.type.  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
     protected CodeableConcept type;
 
     /**
@@ -81,18 +82,18 @@ public class Device extends DomainResource {
     protected StringType version;
 
     /**
-     * Date of expiry of this device (if applicable).
+     * The Date and time when the device was manufactured.
      */
-    @Child(name="expiry", type={DateType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Date of expiry of this device (if applicable)", formalDefinition="Date of expiry of this device (if applicable)." )
-    protected DateType expiry;
+    @Child(name="manufactureDate", type={DateTimeType.class}, order=4, min=0, max=1)
+    @Description(shortDefinition="Manufacture date", formalDefinition="The Date and time when the device was manufactured." )
+    protected DateTimeType manufactureDate;
 
     /**
-     * FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+     * The date and time beyond which this device is no longer valid or should not be used (if applicable).
      */
-    @Child(name="udi", type={StringType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="FDA Mandated Unique Device Identifier", formalDefinition="FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
-    protected StringType udi;
+    @Child(name="expiry", type={DateTimeType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Date and time of expiry of this device (if applicable)", formalDefinition="The date and time beyond which this device is no longer valid or should not be used (if applicable)." )
+    protected DateTimeType expiry;
 
     /**
      * Lot number assigned by the manufacturer.
@@ -151,7 +152,7 @@ public class Device extends DomainResource {
     @Description(shortDefinition="Network address to contact device", formalDefinition="A network address on which the device may be contacted directly." )
     protected UriType url;
 
-    private static final long serialVersionUID = 1190320903L;
+    private static final long serialVersionUID = 398718675L;
 
     public Device() {
       super();
@@ -163,7 +164,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.)
+     * @return {@link #identifier} (Unique instance identifiers assigned to a device by organizations like manufacturers, owners or regulatory agencies.   If the identifier identifies the type of device, Device.type should be used.   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies an instance of a device uniquely if the serial number is present, .  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -181,7 +182,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.)
+     * @return {@link #identifier} (Unique instance identifiers assigned to a device by organizations like manufacturers, owners or regulatory agencies.   If the identifier identifies the type of device, Device.type should be used.   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies an instance of a device uniquely if the serial number is present, .  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -193,7 +194,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (A kind of this device.)
+     * @return {@link #type} (Code or identifier to identify a kind of device   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies a type of a device when the serial number is absent, otherwise it uniquely identifies the device instance and Device.identifier should be used instead of Device.type.  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -209,7 +210,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (A kind of this device.)
+     * @param value {@link #type} (Code or identifier to identify a kind of device   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies a type of a device when the serial number is absent, otherwise it uniquely identifies the device instance and Device.identifier should be used instead of Device.type.  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
      */
     public Device setType(CodeableConcept value) { 
       this.type = value;
@@ -364,14 +365,63 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #expiry} (Date of expiry of this device (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
+     * @return {@link #manufactureDate} (The Date and time when the device was manufactured.). This is the underlying object with id, value and extensions. The accessor "getManufactureDate" gives direct access to the value
      */
-    public DateType getExpiryElement() { 
+    public DateTimeType getManufactureDateElement() { 
+      if (this.manufactureDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Device.manufactureDate");
+        else if (Configuration.doAutoCreate())
+          this.manufactureDate = new DateTimeType(); // bb
+      return this.manufactureDate;
+    }
+
+    public boolean hasManufactureDateElement() { 
+      return this.manufactureDate != null && !this.manufactureDate.isEmpty();
+    }
+
+    public boolean hasManufactureDate() { 
+      return this.manufactureDate != null && !this.manufactureDate.isEmpty();
+    }
+
+    /**
+     * @param value {@link #manufactureDate} (The Date and time when the device was manufactured.). This is the underlying object with id, value and extensions. The accessor "getManufactureDate" gives direct access to the value
+     */
+    public Device setManufactureDateElement(DateTimeType value) { 
+      this.manufactureDate = value;
+      return this;
+    }
+
+    /**
+     * @return The Date and time when the device was manufactured.
+     */
+    public Date getManufactureDate() { 
+      return this.manufactureDate == null ? null : this.manufactureDate.getValue();
+    }
+
+    /**
+     * @param value The Date and time when the device was manufactured.
+     */
+    public Device setManufactureDate(Date value) { 
+      if (value == null)
+        this.manufactureDate = null;
+      else {
+        if (this.manufactureDate == null)
+          this.manufactureDate = new DateTimeType();
+        this.manufactureDate.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #expiry} (The date and time beyond which this device is no longer valid or should not be used (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
+     */
+    public DateTimeType getExpiryElement() { 
       if (this.expiry == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.expiry");
         else if (Configuration.doAutoCreate())
-          this.expiry = new DateType(); // bb
+          this.expiry = new DateTimeType(); // bb
       return this.expiry;
     }
 
@@ -384,79 +434,30 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @param value {@link #expiry} (Date of expiry of this device (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
+     * @param value {@link #expiry} (The date and time beyond which this device is no longer valid or should not be used (if applicable).). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
      */
-    public Device setExpiryElement(DateType value) { 
+    public Device setExpiryElement(DateTimeType value) { 
       this.expiry = value;
       return this;
     }
 
     /**
-     * @return Date of expiry of this device (if applicable).
+     * @return The date and time beyond which this device is no longer valid or should not be used (if applicable).
      */
     public Date getExpiry() { 
       return this.expiry == null ? null : this.expiry.getValue();
     }
 
     /**
-     * @param value Date of expiry of this device (if applicable).
+     * @param value The date and time beyond which this device is no longer valid or should not be used (if applicable).
      */
     public Device setExpiry(Date value) { 
       if (value == null)
         this.expiry = null;
       else {
         if (this.expiry == null)
-          this.expiry = new DateType();
+          this.expiry = new DateTimeType();
         this.expiry.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #udi} (FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.). This is the underlying object with id, value and extensions. The accessor "getUdi" gives direct access to the value
-     */
-    public StringType getUdiElement() { 
-      if (this.udi == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Device.udi");
-        else if (Configuration.doAutoCreate())
-          this.udi = new StringType(); // bb
-      return this.udi;
-    }
-
-    public boolean hasUdiElement() { 
-      return this.udi != null && !this.udi.isEmpty();
-    }
-
-    public boolean hasUdi() { 
-      return this.udi != null && !this.udi.isEmpty();
-    }
-
-    /**
-     * @param value {@link #udi} (FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.). This is the underlying object with id, value and extensions. The accessor "getUdi" gives direct access to the value
-     */
-    public Device setUdiElement(StringType value) { 
-      this.udi = value;
-      return this;
-    }
-
-    /**
-     * @return FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
-     */
-    public String getUdi() { 
-      return this.udi == null ? null : this.udi.getValue();
-    }
-
-    /**
-     * @param value FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
-     */
-    public Device setUdi(String value) { 
-      if (Utilities.noString(value))
-        this.udi = null;
-      else {
-        if (this.udi == null)
-          this.udi = new StringType();
-        this.udi.setValue(value);
       }
       return this;
     }
@@ -723,13 +724,13 @@ public class Device extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "CodeableConcept", "A kind of this device.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("identifier", "Identifier", "Unique instance identifiers assigned to a device by organizations like manufacturers, owners or regulatory agencies.   If the identifier identifies the type of device, Device.type should be used.   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies an instance of a device uniquely if the serial number is present, .  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "CodeableConcept", "Code or identifier to identify a kind of device   An example is the FDA Mandated Unique Device Identifier (UDI) which identifies a type of a device when the serial number is absent, otherwise it uniquely identifies the device instance and Device.identifier should be used instead of Device.type.  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("manufacturer", "string", "A name of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("model", "string", "The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.", 0, java.lang.Integer.MAX_VALUE, model));
         childrenList.add(new Property("version", "string", "The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("expiry", "date", "Date of expiry of this device (if applicable).", 0, java.lang.Integer.MAX_VALUE, expiry));
-        childrenList.add(new Property("udi", "string", "FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, udi));
+        childrenList.add(new Property("manufactureDate", "dateTime", "The Date and time when the device was manufactured.", 0, java.lang.Integer.MAX_VALUE, manufactureDate));
+        childrenList.add(new Property("expiry", "dateTime", "The date and time beyond which this device is no longer valid or should not be used (if applicable).", 0, java.lang.Integer.MAX_VALUE, expiry));
         childrenList.add(new Property("lotNumber", "string", "Lot number assigned by the manufacturer.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
         childrenList.add(new Property("owner", "Reference(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("location", "Reference(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -750,8 +751,8 @@ public class Device extends DomainResource {
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.model = model == null ? null : model.copy();
         dst.version = version == null ? null : version.copy();
+        dst.manufactureDate = manufactureDate == null ? null : manufactureDate.copy();
         dst.expiry = expiry == null ? null : expiry.copy();
-        dst.udi = udi == null ? null : udi.copy();
         dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
         dst.owner = owner == null ? null : owner.copy();
         dst.location = location == null ? null : location.copy();
@@ -772,10 +773,10 @@ public class Device extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
            && (manufacturer == null || manufacturer.isEmpty()) && (model == null || model.isEmpty())
-           && (version == null || version.isEmpty()) && (expiry == null || expiry.isEmpty()) && (udi == null || udi.isEmpty())
-           && (lotNumber == null || lotNumber.isEmpty()) && (owner == null || owner.isEmpty()) && (location == null || location.isEmpty())
-           && (patient == null || patient.isEmpty()) && (contact == null || contact.isEmpty()) && (url == null || url.isEmpty())
-          ;
+           && (version == null || version.isEmpty()) && (manufactureDate == null || manufactureDate.isEmpty())
+           && (expiry == null || expiry.isEmpty()) && (lotNumber == null || lotNumber.isEmpty()) && (owner == null || owner.isEmpty())
+           && (location == null || location.isEmpty()) && (patient == null || patient.isEmpty()) && (contact == null || contact.isEmpty())
+           && (url == null || url.isEmpty());
       }
 
   @Override
@@ -793,11 +794,9 @@ public class Device extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="manufacturer", path="Device.manufacturer", description="The manufacturer of the device", type="string" )
   public static final String SP_MANUFACTURER = "manufacturer";
-  @SearchParamDefinition(name="udi", path="Device.udi", description="FDA Mandated Unique Device Identifier", type="string" )
-  public static final String SP_UDI = "udi";
   @SearchParamDefinition(name="type", path="Device.type", description="The type of the device", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner and others", type="token" )
+  @SearchParamDefinition(name="identifier", path="Device.identifier", description="Instance id from manufacturer, owner, regulatory agencies and others", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

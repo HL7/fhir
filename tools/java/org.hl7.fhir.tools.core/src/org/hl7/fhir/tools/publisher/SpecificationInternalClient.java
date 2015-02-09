@@ -4,16 +4,14 @@ import java.io.FileInputStream;
 import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.FeedFormat;
+import org.hl7.fhir.instance.client.IFHIRClient;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.formats.XmlParser;
-import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Bundle;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.OperationOutcome;

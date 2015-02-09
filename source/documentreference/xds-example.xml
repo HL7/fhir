@@ -8,11 +8,8 @@
   <type value="transaction"/>
   <base value="cid:123@healthintersections.com.au"/>
   <entry>
-    <transaction>
-      <operation value="create"/>
-    </transaction>
     <!-- although the resource has an id - which it might need so it can referred to 
-      from within the transaction, the server is to treat it as a new resource -->
+      from within this transaction, the server is to treat it as a new resource (see transaction below) -->
     <resource>
       <DocumentReference>
         <id value="a1"/>
@@ -69,16 +66,15 @@
           </period>
         </context>
       </DocumentReference>
-
     </resource>
+    <transaction>
+      <method value="POST"/>
+      <url value="DocumentReference"/>
+    </transaction>
   </entry>
   <entry>
     <!-- if the server can find a matching resource, use that, else create a new 
       resource with these details -->
-    <transaction>
-      <operation value="create"/>
-      <match value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
-    </transaction> 
     <resource>  
       <Patient>
         <id value="a2"/>
@@ -100,15 +96,15 @@
           <given value="John"/>
         </name>
         <birthDate value="1956-05-27"/>
-
       </Patient>
-
     </resource>
+    <transaction>
+      <method value="POST"/>
+      <url value="Patient"/>
+      <header value="If-None-Exist: Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
+    </transaction> 
   </entry>
   <entry>
-    <transaction>
-      <operation value="create"/>
-    </transaction>
     <resource>  
       <Practitioner>
         <id value="a3"/>
@@ -149,11 +145,12 @@
       </Practitioner>
 
     </resource>
+    <transaction>
+      <method value="POST"/>
+      <url value="Practitioner"/>
+    </transaction>
   </entry>
   <entry>
-    <transaction>
-      <operation value="create"/>
-    </transaction>
     <resource>  
       <Practitioner>
         <id value="a4"/>
@@ -195,11 +192,12 @@
       </Practitioner>
 
     </resource>
+    <transaction>
+      <method value="POST"/>
+      <url value="Practitioner"/>
+    </transaction>
   </entry>
   <entry>
-    <transaction>
-      <operation value="create"/>
-    </transaction>
     <resource>  
       <Binary>
         <id value="1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
@@ -210,5 +208,9 @@
         <content value="YXNkYXNkYXNkYXNkYXNk"/>
       </Binary>    
     </resource>
+    <transaction>
+      <method value="POST"/>
+      <url value="Binary"/>
+    </transaction>
   </entry>
 </Bundle>

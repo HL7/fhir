@@ -1,8 +1,6 @@
 package org.hl7.fhir.tools.publisher;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,22 +9,21 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.FormatUtilities;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
-import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
-import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
+import org.hl7.fhir.instance.utils.ValueSetUtilities;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -36,7 +33,6 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 public class ValueSetImporterV2 {
   private static final String HTTP_separator = "/";
@@ -233,13 +229,16 @@ public class ValueSetImporterV2 {
 
   private ValueSet buildV2Valueset(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id);
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
+    vs.setVersion("2.7");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setExperimental(true);
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
@@ -313,6 +312,7 @@ public class ValueSetImporterV2 {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
@@ -320,6 +320,8 @@ public class ValueSetImporterV2 {
     vs.setPublisher("HL7, Inc");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
+    vs.setExperimental(false);
+    vs.setVersion(id);
     vs.setDateElement(new DateTimeType("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);

@@ -69,14 +69,9 @@ information:
 
 <p>
 An update history (type = "history") consists of a series of 
-0 or more entries. Each entry element SHALL contain a transaction element, and either a resource or an information element, but not both
-The transaction operation indicates the kind of operation that changed the resource - create, update or delete.
-If the transaction operation is a 'create' or 'update', then the 
-entry SHALL contain the resource state at the conclusion of the operation. 
-If the transaction operation is 'delete', then the entry SHALL contain 
-an information element which is used to convey the identity of the deleted
-resource. It may also include a meta element to provide additional information
-about the state of the deleted resource (if a meta is provided, then meta.deleted must be true). 
+0 or more entries. Each entry element SHALL contain a transaction element that describes the change
+that was made, and, if the method is a POST or PUT, a resource that represents the state of the 
+resource at the conclusion of the operation. 
 See <a href="http.html#history">History</a> for further information.
 </p>
 <p>
@@ -92,27 +87,18 @@ and that may be returned by following the "next" <a href="bundle-definitions.htm
 
 <p>
 A transaction (type = "transaction") consists of a series of 0 or more entries. Each entry element 
-MAY contain a transaction element, and SHALL contain either a resource or an information element, but not both. 
+MAY contain a transaction element, and MAY contain either a resource element. 
 See <a href="http.html#transaction">Transactions</a> for further information.
+Each entry in a transaction has the details of an HTTP operation that informs the system 
+processing the transaction what to do with the entry. If the entry method is a 'PUT' or 
+'POST', then the entry SHALL contain a resource that becomes the body of the HTTP operation. 
 </p>
 <p>
-Each entry in a transaction has an operation that informs the system processing the 
-transaction what to do with the entry. 
-If the transaction operation is a 'create' or 'update', then the 
-entry SHALL contain the resource to create or update. 
-If the transaction operation is 'delete', then the entry SHALL contain 
-an information element which conveys the identity of the resource to delete (e.g. delete Patient/345), and 
-which may also include a meta element to provide additional information
-about the state of the deleted resource (if a meta is provided, then meta.deleted must be true). 
-If there is no operation, then there SHALL be a resource (not information) and the server must 
+If there is no <code>transaction</code> element, then there SHALL be a resource and the server must 
 infer whether this is a create or an update from from the resource identity supplied.
 </p>
-<p>
-Clients can specify how resources are matched to existing resources during a transaction using 
-the transaction.match element. 
-</p>
 
-<p><a href="xds-example.html">Example</a></p>
+<p><a href="bundle-transaction.html">Example</a></p>
 
 <a name="transaction-response"> </a>
 <h4>Transaction Response</h4>
@@ -120,14 +106,11 @@ the transaction.match element.
 <p>
 A transaction response (type = "transaction-response") consists of a series of 
 0 or more entries, 1 for each entry in the transaction it is in response to. 
-Each entry element SHALL contain a transaction element which indicates 
-the operation that the server performed for the entry. This SHALL match the 
-operation requested unless the value is "noop" indicating the server did not
-process the operation. See <a href="http.html#transaction">Transactions</a> for the 
-circumstances under which this would be appropriate.
+Each entry element SHALL contain a <code>transactionResponse</code> element which indicates 
+the outcome of the HTTP operation that the server performed for the entry. 
 </p>
 
-<p>Example to be done</p>
+<p><a href="bundle-response.html">Example</a></p>
 
 <a name="collection"> </a>
 <h4>Collection</h4>

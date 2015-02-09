@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Tue, Feb 3, 2015 22:31+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -38,6 +38,7 @@ public enum ResourceType {
     ImagingObjectSelection,
     OperationDefinition,
     ClaimResponse,
+    BodySite,
     CommunicationRequest,
     RiskAssessment,
     Observation,
@@ -177,6 +178,8 @@ public enum ResourceType {
       return "operationdefinition";
     case ClaimResponse:
       return "claimresponse";
+    case BodySite:
+      return "bodysite";
     case CommunicationRequest:
       return "communicationrequest";
     case RiskAssessment:

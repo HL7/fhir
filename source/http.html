@@ -652,10 +652,8 @@ All servers are required to support the conformance operation, but servers may c
 <a name="transaction"> </a>
 <h3>transaction</h3>
 <p>
-The transaction interaction submits a set of resources to be created, updated or deleted on the server.
-This interaction allows multiple resources to be updated/created in a single transaction on a single server
-as a singe atomic action. Multiple resources of the same or different types may be submitted, and they may
-be a mix of new and existing resources.
+The transaction interaction submits a set of actions to perform on a server as a single atomic action. 
+Multiple actions on multiple resources of the same or different types may be submitted, and they may be a mix of other operations defined on this page (e.g. read, search, create, update, delete, etc).
 </p>
 <p>
 This is especially useful where one would otherwise need multiple interactions, possibly
@@ -671,133 +669,38 @@ The transaction interaction is performed by an HTTP POST command as shown:
 </pre>
 <p>
 The content of the post submission is a <a href="bundle.html">Bundle</a> with type = transaction.
-Each entry in a transaction carries an operation (entry.transaction.operation) that informs
-the system processing the transaction what to do with the entry.
-If the transaction operation is a 'create' or 'update', then the
-entry SHALL contain the resource to create or update.
-if the operation is an update, the identity of the resource must be a valid
-identity for the server processing the transaction (e.g. the base must be a
-value that the server accepts as a reference to itself).
-If the transaction operation is 'delete', then the entry SHALL contain
-an information element which conveys the identity of the resource to delete (e.g. delete Patient/345), and
-which may also include a meta element to provide additional information
-about the state of the deleted resource (if a meta is provided, then meta.deleted must be true).
-</p>
-<p>
-If there is no operation specified, then the server must treat the entry as either
-a create or an update operation, depending on whether it recognises the identity of
-the resource - if the identity of the resource refers to a valid location on the
-server, it should treat it as an update to that location.
-</p>
-<p>
+Each entry carries a <code>transaction</code> (<a href="bundle-definitions.html#Bundle.entry.transaction">Bundle.entry.transaction</a>) 
+that provides the HTTP details of the operation in order to inform the system processing the transaction 
+what to do for the entry. If the HTTP operation is a 'PUT' or 'POST', then the entry SHALL contain a resource for the body of the operation.
 The resources in the bundle are each processed separately as if they were an individual
-<a href="#create">create</a>, <a href="#update">update</a> or <a href="#delete">delete</a>,
-along with the normal processing for each (including the <a href="resource.html#meta">meta element</a>,
-verification and version aware updates, subject to the note on <a href="#transactional-integrity">transactional integrity</a>).
-Servers SHALL either accept all resources and return a 200 OK, along with a
-response bundle, or reject all resources and return an HTTP 400 or 500 type
+operation as otherwise described on this page, or for <a href="operations.html">Extended 
+Operations</a>. The operations are subject to the the normal processing for each, 
+including the <a href="resource.html#meta">meta element</a>, verification and version aware updates, 
+and <a href="#transactional-integrity">transactional integrity</a>.
+</p>
+<p>
+Servers SHALL either accept all actions and return a 200 OK, along with a
+response bundle (see below), or reject all resources and return an HTTP 400 or 500 type
 response. It is not an error if the submitted bundle has no resources in it.
 The outcome of the processing the transaction SHALL not depend on the order
 of the resources in the transaction. A resource can only appear in a transaction
-once (by identity), and since some bundles may have the same resource more than once or other order
-dependencies (e.g. history lists), some kinds of bundles may not be able to be used
-in a transaction. Servers may choose to only accept bundles with a <a href="bundle-definitions.html#Bundle.type">type</a> "transaction".
+once (by identity).
 </p>
 <p><b>Processing Bundle Entries</b></p>
 <p>
-How each entry in the bundle is processed depends on the operation code, and the match url.
+Because of the rules that a transaction is atomic, that all operations pass or fail 
+together, and that order of the entries doesn't matter, there is a particular order in which to process the operations:
 </p>
-<a name="match"> </a>
+<ol>
+ <li>Process any POST operations</li>
+ <li>Process any PUT operations</li>
+ <li>Process any DELETE operations</li>
+ <li>Process any GET operations</li>
+</ol>
 <p>
-The application building a transaction can exercise more control over the
-processing of a bundle by specifying a match url:
+If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, then the transaction SHALL fail.
 </p>
-<pre>
- &lt;match value="Patient?[parameters]"/&gt;
-</pre>
-<p>
-This can be useful if the client is not sure whether a particular resource will already exist
-at the time that the transaction is executed; this is typically the case with reference resources such
-as patient and provider.
-</p>
-<p>
-This means that the server search it's local resource store for a match as specified in the
-search parameters (which must conform to the servers capability for searching as specified
-in its conformance statement).
-</p>
-<p>
-The server processes each entry using the following rules:
-</p>
-<table class="grid">
-  <tr>
-   <td><b>Operation</b></td>
-   <td><b>Match</b></td>
-   <td><b>Processing</b></td>
-  </tr>
-  <tr>
-   <td>create</td>
-   <td>no <i>match</i> url</td>
-   <td>The resource is to be treated as a create. Any id provided with the resource SHALL be ignored</td>
-  </tr>
-  <tr>
-   <td>create</td>
-   <td>no matches</td>
-   <td>The resource is to be treated as a create. Any id provided with the resource SHALL be ignored</td>
-  </tr>
-  <tr>
-   <td>create</td>
-   <td>one match</td>
-   <td>ignore this entry, and don't do anything with it (return operation = noop)</td>
-  </tr>
-  <tr>
-   <td>create</td>
-   <td>multiple matches</td>
-   <td>This is an error - the transaction fails</td>
-  </tr>
-
-  <tr>
-   <td>update</td>
-   <td>no <i>match</i> url</td>
-   <td>The resource is to be treated as an update based on it's provided identity</td>
-  </tr>
-  <tr>
-   <td>update</td>
-   <td>no matches</td>
-   <td>The resource is to be treated as an update based on it's provided identity</td>
-  </tr>
-  <tr>
-   <td>update</td>
-   <td>one match</td>
-   <td>Don't use the provided identity; instead, update the matching resource</td>
-  </tr>
-  <tr>
-   <td>update</td>
-   <td>multiple matches</td>
-   <td>This is an error - the transaction fails</td>
-  </tr>
-
-  <tr>
-   <td>delete</td>
-   <td>no <i>match</i> url</td>
-   <td>Delete the resource if it exists. If it does not exist, ignore this entry (return operation = noop) </td>
-  </tr>
-  <tr>
-   <td>delete</td>
-   <td>no matches</td>
-   <td>This is an error - the resource to be deleted couldn't be found, and the transaction fails</td>
-  </tr>
-  <tr>
-   <td>delete</td>
-   <td>one match</td>
-   <td>Delete the resource</td>
-  </tr>
-  <tr>
-   <td>delete</td>
-   <td>multiple matches</td>
-   <td>This is an error - the transaction fails</td>
-  </tr>
-</table>
-
+ 
 <p>
 A transaction may include references from one resource to another in the bundle, including
 circular references where resources refer to each other. If the server assigns
@@ -805,10 +708,11 @@ a new id to any resource in the bundle as part of the processing rules above,
 it SHALL also update any references to that resource in the same bundle as they
 are processed. References to resources that are not
 part of the bundle are left untouched. Version-specific references should remain
-as version=specific references after the references have been updated.
+as version-specific references after the references have been updated.
 Servers SHALL be replace all matching links in the bundle, whether they are found in the resource ids,
 resource references, url elements, or &lt;a href="" &amp; &lt;img src="" in the narrative.
 </p>
+
 
 <a name="transaction-response"> </a>
 <h4>Transaction Response</h4>
@@ -821,19 +725,34 @@ transaction, with the outcome of processing the entry.
 </p>
 
 <p>
-Each entry element SHALL contain a transaction element which indicates
-the operation that the server performed for the entry. This SHALL match the
-operation requested unless the value is "noop" indicating the server did not
-process the operation, as specified above.
+Each entry element SHALL contain a <code>transactionResponse</code> element which 
+details the outcome of processing the entry - the HTTP status code, and the location
+and ETag header values, which are used for identifying and versioning the resources.
+In addition, a resource may be included in the entry. 
+</p>
+
+<a name="other-bundles"> </a>
+<h4>Accepting Other bundle types</h4>
+
+<p>
+A server may choose to accept bundle types other than "transaction" as transactions.
 </p>
 <p>
-If the operation is delete, the entry SHALL include an information element
-containing at the type and resource id of the deleted resource, and optionally
-a meta (with deleted = true). If the operation is a create or update, then
-the entry SHALL contain either a resource (with the full resource) or
-an information with type and id, and optionally meta. See <a href="#return">Return body</a>
-for further details. If the operation is noop, then the entry MAY contain a information
-with details of the matching resource, or no information (in the case of a non-delete).
+Bundles of type "history" inherently have the same structure as a transaction, and 
+can be treated as one, so servers SHOULD accept a history bundle - this makes it
+possible to replicate data from one server to another easily. Not, however, that 
+existing transaction boundaries are not represented in a history list, and
+a resource may occur more than once in a history list, so
+servers processing history bundles must have some strategy to manage this. 
+</p>
+<p>
+For other bundle types, should the server choose to accept them, there will be 
+no <code>transaction</code> element (note that every entry will have a resource). 
+In this case, the server treats the entry as either a create or an update operation, 
+depending on whether it recognises the identity of the resource - if the identity 
+of the resource refers to a valid location on the server, it should treat it 
+as an update to that location. Note: this option allows a client to delegate 
+the matching process to the server.
 </p>
 
 
@@ -853,45 +772,35 @@ interaction are performed by HTTP Get command as shown:
 The return content is a <a href="extras.html#bundle">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> = "history" containing the specified version history,
 sorted with oldest versions last, and including deleted resources.
-Each entry SHALL contain a transaction element, and either a resource or an information element, but not both
-The transaction operation indicates the kind of operation that changed the resource - create, update or delete.
-If the transaction operation is a 'create' or 'update', then the
-entry SHALL contain the resource state at the conclusion of the operation.
-If the transaction operation is 'delete', then the entry SHALL contain
-an information element which is used to convey the identity of the deleted
-resource. It may also include a meta element to provide additional information
-about the state of the deleted resource (if a meta is provided, then meta.deleted must be true).
+Each entry SHALL contain a <code>transaction</code>, and, if the entry.method is a PUT or a POST, a resource.
+The entry SHALL contain the resource state at the conclusion of the operation. 
 </p>
 <p>
-An updated resource:
+The operations <a href="#create">create</a>, <a href="#update">update</a>, and <a href="#delete">delete</a>
+create history entries. Other operations do not (note that these operations may produce side-effects 
+such as new SecurityEvent resources; these are represented as create operations in their own right.
+Note that a create operation is represented in a history operation in the following way:
 </p>
 <pre class="xml">
   &lt;entry&gt;
-    &lt;transaction&gt;
-      &lt;operation value="update"/&gt;
-    &lt;/transaction&gt;
     &lt;resource&gt;
       &lt;Patient&gt;
+        &lt;!-- the id of the created resource --&gt;
         &lt;id value=&quot;23424&quot;/&gt;
         &lt;!-- snip --&gt;
       &lt;/Patient&gt;
-    &lt;/deleted&gt;
+    &lt;/resource&gt;
+    &lt;transaction&gt;
+      &lt;!-- POST: this was a create --&gt;
+      &lt;method value="POST"/&gt;
+      &lt;URL value="Patient"/&gt;
+    &lt;/transaction&gt;
   &lt;/entry&gt;
 </pre>
 <p>
-A deleted resource:
+Note that conditional creates, updates and deletes are converted to direct 
+updates and deletes in a history list. 
 </p>
-<pre class="xml">
-  &lt;entry&gt;
-    &lt;transaction&gt;
-      &lt;operation value="delete"/&gt;
-    &lt;/transaction&gt;
-    &lt;deleted&gt;
-      &lt;type value=&quot;Patient&quot;/&gt;
-      &lt;resourceId value=&quot;23424&quot;/&gt;
-    &lt;/deleted&gt;
-  &lt;/entry&gt;
-</pre>
 <p>
 In addition to the standard _format parameter, the parameters to this interaction may also include:
 </p>
@@ -912,10 +821,8 @@ below </a> for breaking the list into pages if appropriate.
 </p>
 <p>
 The history interaction can be used to set up a subscription from one system
-to another, so that resources are synchronized between them. Systems receiving such feeds and planning
-on enforcing resource integrity should note that <a href="#transaction">transaction</a> boundaries
-are not reflected in the history list and plan accordingly. Refer to the <a href="subscription.html">Subscription reosurce</a>
-for an alternate means of system synschronization.
+to another, so that resources are synchronized between them. Refer to the <a href="subscription.html">Subscription reosurce</a>
+for an alternate means of system synchronization.
 </p>
 
  <a name="tags"> </a>

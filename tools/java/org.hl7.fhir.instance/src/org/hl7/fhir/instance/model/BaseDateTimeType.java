@@ -20,7 +20,9 @@ package org.hl7.fhir.instance.model;
  * #L%
  */
 
-import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.*;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.DAY;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.MONTH;
+import static org.hl7.fhir.instance.model.TemporalPrecisionEnum.YEAR;
 
 import java.text.ParseException;
 import java.util.ArrayList;

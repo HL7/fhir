@@ -49,6 +49,8 @@ import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.io.FileUtils;
+
 import net.sf.saxon.TransformerFactoryImpl;
 
 public class Utilities {
@@ -234,15 +236,18 @@ public class Utilities {
   }
 
   public static void clearDirectory(String folder) throws IOException {
-	  String[] files = new CSFile(folder).list();
-	  if (files != null) {
-		  for (String f : files) {
-			  File fh = new CSFile(folder+File.separatorChar+f);
-			  if (fh.isDirectory()) 
-				  clearDirectory(fh.getAbsolutePath());
-			  fh.delete();
-		  }
-	  }
+    File dir = new File(folder);
+    if (dir.exists())
+      FileUtils.cleanDirectory(dir);
+//	  String[] files = new CSFile(folder).list();
+//	  if (files != null) {
+//		  for (String f : files) {
+//			  File fh = new CSFile(folder+File.separatorChar+f);
+//			  if (fh.isDirectory()) 
+//				  clearDirectory(fh.getAbsolutePath());
+//			  fh.delete();
+//		  }
+//	  }
   }
 
   public static void createDirectory(String path) throws IOException{

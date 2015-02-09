@@ -5,7 +5,8 @@
   <meta>
     <lastUpdated value="2012-05-29T23:45:32Z"/> 
   </meta> 
-  <type value="collection"/> [%loop count=70%]
+  <type value="collection"/>
+  <base value="http://hl7.org/fhir"/> [%loop count=70%]
   <entry>
     <resource>
       <Patient>

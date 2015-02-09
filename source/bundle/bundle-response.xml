@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+  <id value="bundle-response"/>
+  <!-- this example bundle is a transaction response  -->
+  <meta>
+    <lastUpdated value="2014-08-18T01:43:33Z"/>
+    <!-- when the transaction response was constructed --> 
+  </meta> 
+  <type value="transaction-response"/>  
+  <!-- the base URL of the server that handled the transaction -->
+  <base value="http://example.com/base"/> 
+  <!-- 
+    one entry for each entry in the transaction, in order, with a 
+    response
+  -->
+  <entry>
+    <!-- response for the simple create operation -->
+    <!-- whether to return the result resource depends on client preference -->
+    <resource>
+      <Patient>
+        <id value="12423"/>
+        <meta>
+          <versionId value="1"/>
+          <lastUpdated value="2014-08-18T01:43:31Z"/>
+        </meta>
+       <text>
+         <status value="generated"/>
+         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+       </text>
+       <name>
+         <use value="official"/>
+         <family value="Chalmers"/>
+         <given value="Peter"/>
+         <given value="James"/>
+       </name>
+       <gender value="male" />
+       <birthDate value="1974-12-25"/>
+       <active value="true"/>
+      </Patient>
+    </resource>
+    <!-- now, details about the action to take with the resource -->
+    <transactionResponse>
+      <!-- important responses from the server -->
+      <status value="201 Created"/>
+      <location value="Patient/12423/_history/1"/>
+      <etag value="W/1"/>
+    </transactionResponse>
+  </entry>
+  
+  <entry>
+    <!-- response to the conditional create operation -->
+    <!-- in this case, there was a match to the If-None-Exist header -->
+    <transactionResponse>
+      <!-- no action taken -->
+      <status value="200 OK"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- response to a simple update operation -->
+    <!-- no return resource for this example, though in a 
+      real transaction, all entries would have a resource or all would not 
+    -->
+    <transactionResponse>
+      <status value="200 OK"/>
+      <location value="Patient/123/_history/4"/>
+      <etag value="W/4"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- response to the conditional update operation -->
+    <transactionResponse>
+      <!-- created a new resource for this one -->
+      <status value="201 Created"/>
+      <location value="Patient/12424/_history/1"/>
+      <etag value="W/1"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- response to the simple delete operation -->
+    <transactionResponse>
+      <!-- successful deletion -->
+      <status value="202 Accepted"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- response to the conditional delete operation -->
+    <transactionResponse>
+      <!-- delete matching resource - but which was it? no way 
+       to find out. So don't use this method if that would be a problem -->
+      <status value="DELETE"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- operation response -->
+    <resource>
+      <Parameters>
+        <parameter>
+          <name value="name"/>
+          <valueString value="LOINC"/>
+        </parameter>
+        <!-- etc -->
+      </Parameters>
+    </resource>
+    <transactionResponse>
+      <!-- POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service) -->
+      <status value="200 ok"/>
+    </transactionResponse>
+  </entry>
+  <entry>
+    <!-- response to search -->
+    <resource>
+      <Bundle>
+        <id value="fb6ed6cb-324e-4588-87cd-0c92c68986ca"/>
+        <type value="searchset"/>  
+        <!-- etc -->
+      </Bundle>
+    </resource>    
+    <transactionResponse>
+      <status value="200 OK"/>
+    </transactionResponse>
+  </entry>
+</Bundle>
+

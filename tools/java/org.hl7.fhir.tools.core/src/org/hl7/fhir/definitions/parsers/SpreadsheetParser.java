@@ -36,15 +36,15 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
-import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.ConformancePackage;
+import org.hl7.fhir.definitions.model.ConformancePackage.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -53,13 +53,11 @@ import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
-import org.hl7.fhir.definitions.model.ConformancePackage;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
 import org.hl7.fhir.definitions.model.ProfileDefn;
-import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -69,31 +67,29 @@ import org.hl7.fhir.instance.formats.FormatUtilities;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Base64BinaryType;
+import org.hl7.fhir.instance.model.BooleanType;
 import org.hl7.fhir.instance.model.CodeType;
+import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DateType;
 import org.hl7.fhir.instance.model.DecimalType;
-import org.hl7.fhir.instance.model.ExtensionDefinition;
-import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
+import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.ExtensionDefinition.ExtensionContext;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.IdType;
 import org.hl7.fhir.instance.model.InstantType;
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.OidType;
-import org.hl7.fhir.instance.model.BooleanType;
-import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.StringType;
 import org.hl7.fhir.instance.model.TimeType;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.UuidType;
 import org.hl7.fhir.instance.model.ValueSet;
-import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.instance.utils.ValueSetUtilities;
 import org.hl7.fhir.instance.utils.WorkerContext;
-import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
@@ -626,32 +622,36 @@ public class SpreadsheetParser {
 			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".xml").exists()) {
 			    XmlParser p = new XmlParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".xml");
-	        cd.setReferredValueSet((ValueSet) p.parse(input));
+	        cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
 			  } else if (new File(Utilities.appendSlash(folder)+cd.getReference()+".json").exists()) {
 			    JsonParser p = new JsonParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(folder)+cd.getReference()+".json");
-			    cd.setReferredValueSet((ValueSet) p.parse(input));
+			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
 			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml").exists()) {
 			    XmlParser p = new XmlParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".xml");
-			    cd.setReferredValueSet((ValueSet) p.parse(input));
+			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
 			  } else if (new File(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json").exists()) {
 			    JsonParser p = new JsonParser();
 			    FileInputStream input = new FileInputStream(Utilities.appendSlash(dataTypesFolder)+cd.getReference()+".json");
-			    cd.setReferredValueSet((ValueSet) p.parse(input));
+			    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
         } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".xml").exists()) {
           XmlParser p = new XmlParser();
           FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".xml");
-          cd.setReferredValueSet((ValueSet) p.parse(input));
+          cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
         } else if (new File(Utilities.appendSlash(txFolder)+cd.getReference()+".json").exists()) {
           JsonParser p = new JsonParser();
           FileInputStream input = new FileInputStream(Utilities.appendSlash(txFolder)+cd.getReference()+".json");
-          cd.setReferredValueSet((ValueSet) p.parse(input));
+          cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
 			  } else
 			    throw new Exception("Unable to find source for "+cd.getReference()+" ("+Utilities.appendSlash(folder)+cd.getReference()+".xml/json)");
 			  if (cd.getReferredValueSet() != null) {
 			    cd.getReferredValueSet().setId(FormatUtilities.makeId(cd.getReference()));
-			    cd.getReferredValueSet().setUserData("filename", cd.getReference()+".html");
+          cd.getReferredValueSet().setUserData("filename", cd.getReference()+".html");
+          if (!cd.getReferredValueSet().hasExperimental())
+            cd.getReferredValueSet().setExperimental(true);
+          if (!cd.getReferredValueSet().hasVersion())
+            cd.getReferredValueSet().setVersion(version);
 			  }
 			}
 			if (definitions.getBindingByName(cd.getName()) != null) {

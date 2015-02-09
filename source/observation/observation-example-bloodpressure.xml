@@ -32,6 +32,7 @@ bundle, but this is not required
     <lastUpdated value="2014-01-30T22:35:23+11:00"/>
   </meta>
   <type value="collection"/>
+  <base value="http://hl7.org/fhir"/>
 
   <!-- first entry: the single resource with combined
      narrative, and links to the 2 component resources -->

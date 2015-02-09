@@ -13,7 +13,6 @@ import org.hl7.fhir.definitions.ecore.fhir.InvariantRef;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
 import org.hl7.fhir.definitions.ecore.fhir.XmlFormatHint;
-import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
 /*

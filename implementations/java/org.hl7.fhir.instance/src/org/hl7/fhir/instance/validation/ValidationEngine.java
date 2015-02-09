@@ -118,11 +118,11 @@ public class ValidationEngine {
     InstanceValidator validator = new InstanceValidator(context);
 
 		if (profile != null)
-      outputs.addAll(validator.validate(doc.getDocumentElement(), profile));
+      outputs.addAll(validator.validate(doc, profile));
     else if (profileURI != null)
-      outputs.addAll(validator.validate(doc.getDocumentElement(), profileURI));
+      outputs.addAll(validator.validate(doc, profileURI));
     else
-      outputs.addAll(validator.validate(doc.getDocumentElement()));
+      outputs.addAll(validator.validate(doc));
     
     new XmlParser().parse(new ByteArrayInputStream(source));
         

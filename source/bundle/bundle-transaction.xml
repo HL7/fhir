@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
+  <id value="bundle-transaction"/>
+  <!-- this example bundle is a transaction  -->
+  <meta>
+    <lastUpdated value="2014-08-18T01:43:30Z"/>
+    <!-- when the transaction was constructed --> 
+  </meta> 
+  <type value="transaction"/>  
+  <!-- 
+    the base URL of the transaction
+    typically, this base URL will correspond to the address
+    of the server that will process the transaction, and the 
+    transaction ids are valid on the server itself
+    
+    On the other hand, all the resources could have an identity
+    on some other server, and the receiving server will re-identify
+    all of them. This more complicated scenario has many pitfalls
+    (e.g. ensuring consistency of identity across different transactions)
+  -->
+  <base value="http://example.com/base"/> 
+    
+  <!-- now, each entry is an action to take in the transaction -->
+  <entry>
+    <!-- a simple create operation -->
+    <!-- first, the resource to create -->
+    <resource>
+      <Patient>
+        <!-- no id for create operations -->
+        <!-- and no metadata on this resource, though it would be valid -->
+       <text>
+         <status value="generated"/>
+         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+       </text>
+       <name>
+         <use value="official"/>
+         <family value="Chalmers"/>
+         <given value="Peter"/>
+         <given value="James"/>
+       </name>
+       <gender value="male" />
+       <birthDate value="1974-12-25"/>
+       <active value="true"/>
+      </Patient>
+    </resource>
+    <!-- now, details about the action to take with the resource -->
+    <transaction>
+      <!-- POST to [base]/Patient - that's a create -->
+      <method value="POST"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient becomes just 'Patient': -->
+      <url value="Patient"/>
+    </transaction>
+  </entry>
+  
+  <entry>
+    <!-- a conditional create operation -->
+    <!-- first, the resource -->
+    <resource>
+      <Patient>
+        <!-- no id for create operations -->
+        <!-- and no metadata on this resource, though it would be valid -->
+       <text>
+         <status value="generated"/>
+         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+       </text>
+       <name>
+         <use value="official"/>
+         <family value="Chalmers"/>
+         <given value="Peter"/>
+         <given value="James"/>
+       </name>
+       <gender value="male" />
+       <birthDate value="1974-12-25"/>
+       <active value="true"/>
+      </Patient>
+    </resource>
+    <!-- transaction details -->
+    <transaction>
+      <!-- POST to [base]/Patient - that's a create -->
+      <method value="POST"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient becomes just 'Patient': -->
+      <url value="Patient"/>
+      <!-- the conditional header: only add this resource if 
+      there isn't already one for this patient. If there is one,
+      the content of this resource will be ignored -->
+      <header value="If-None-Exist: Patient?identifier=234234"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- a simple update operation -->
+    <!-- first, the resource -->
+    <resource>
+      <Patient>
+        <!-- the id here and in the url have to match -->
+        <id value="123"/> 
+        <!-- and no metadata on this resource, though it would be valid -->
+       <text>
+         <status value="generated"/>
+         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+       </text>
+       <name>
+         <use value="official"/>
+         <family value="Chalmers"/>
+         <given value="Peter"/>
+         <given value="James"/>
+       </name>
+       <gender value="male" />
+       <birthDate value="1974-12-25"/>
+       <active value="true"/>
+      </Patient>
+    </resource>
+    <!-- transaction details -->
+    <transaction>
+      <!-- PUT to [base]/Patient/[id] - that's an update -->
+      <method value="PUT"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient becomes just 'Patient': -->
+      <url value="Patient/123"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- a conditional update operation -->
+    <!-- first, the resource -->
+    <resource>
+      <Patient>
+        <!-- no id for conditional update operations -->
+        <!-- and no metadata on this resource, though it would be valid -->
+       <text>
+         <status value="generated"/>
+         <div xmlns="http://www.w3.org/1999/xhtml">Some narrative</div>
+       </text>
+       <name>
+         <use value="official"/>
+         <family value="Chalmers"/>
+         <given value="Peter"/>
+         <given value="James"/>
+       </name>
+       <gender value="male" />
+       <birthDate value="1974-12-25"/>
+       <active value="true"/>
+      </Patient>
+    </resource>
+    <!-- transaction details -->
+    <transaction>
+      <!-- PUT to [base]/Patient?search_params - that's a conditional update -->
+      <method value="PUT"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient?params becomes just 'Patient?params': -->
+      <url value="Patient?identifier=234234"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- a simple delete operation -->
+    <!-- no resource in this case -->
+    <!-- transaction details -->
+    <transaction>
+      <!-- DELETE to [base]/Patient/[id]- that's a delete operation -->
+      <method value="DELETE"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient/234 becomes just 'Patient/234': -->
+      <!-- btw, couldn't re-use Patient/123 for the delete, since 
+        the transaction couldn't do two different operations on the
+        same resource -->
+      <url value="Patient/234"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- a conditional delete operation -->
+    <!-- no resource in this case -->
+    <!-- transaction details -->
+    <transaction>
+      <!-- DELETE to [base]/Patient?params- that's a conditional delete operation -->
+      <method value="DELETE"/>
+      <!-- actually, in a transaction, you don't specify the [base], 
+         so [base]/Patient?params becomes just 'Patient?params': -->
+      <url value="Patient?identifier=123456"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- can do more than just create/update/delete. 
+      This is how to invoke an operation with a set of parameters -->
+    <resource>
+      <Parameters>
+        <parameter>
+          <name value="coding"/>
+          <valueCoding>
+            <system value="http://loinc.org"/>
+            <code value="1963-8"/>
+          </valueCoding>
+        </parameter>
+      </Parameters>
+    </resource>
+    <transaction>
+      <!-- POST to [base]/ValueSet/$lookup - invoking a lookup operation (see Terminology Service) -->
+      <method value="POST"/>
+      <url value="ValueSet/$lookup"/>
+    </transaction>
+  </entry>
+  <entry>
+    <!-- can also do read-only operations. 
+    
+    Note that these do not 'fail' - see discussion on transaction 
+    atomicity for further information 
+    -->
+    <transaction>
+      <!-- GET from [base]/Patient?params - searching for a patient -->
+      <method value="GET"/>
+      <url value="Patient?name=peter"/>
+    </transaction>
+  </entry>
+</Bundle>
+

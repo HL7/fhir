@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.SearchParameter;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;

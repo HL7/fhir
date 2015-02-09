@@ -1,9 +1,5 @@
 package org.hl7.fhir.definitions.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.hl7.fhir.instance.model.Profile;
 
 /*
 Copyright (c) 2011+, HL7, Inc

@@ -29,16 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 3, 2015 22:31+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * An order for both supply of the medication and the instructions for administration of the medicine to a patient.
  */
@@ -1020,9 +1022,16 @@ public class MedicationPrescription extends DomainResource {
     protected Type reason;
 
     /**
+     * Extra information about the prescription that could not be conveyed by the other attributes.
+     */
+    @Child(name="note", type={StringType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="Information about the prescription", formalDefinition="Extra information about the prescription that could not be conveyed by the other attributes." )
+    protected StringType note;
+
+    /**
      * Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name="medication", type={Medication.class}, order=6, min=0, max=1)
+    @Child(name="medication", type={Medication.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Medication to be taken", formalDefinition="Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications." )
     protected Reference medication;
 
@@ -1034,25 +1043,25 @@ public class MedicationPrescription extends DomainResource {
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    @Child(name="dosageInstruction", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="dosageInstruction", type={}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="How medication should be taken", formalDefinition="Indicates how the medication is to be used by the patient." )
     protected List<MedicationPrescriptionDosageInstructionComponent> dosageInstruction;
 
     /**
      * Deals with details of the dispense part of the order.
      */
-    @Child(name="dispense", type={}, order=8, min=0, max=1)
+    @Child(name="dispense", type={}, order=9, min=0, max=1)
     @Description(shortDefinition="Medication supply authorization", formalDefinition="Deals with details of the dispense part of the order." )
     protected MedicationPrescriptionDispenseComponent dispense;
 
     /**
      * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.
      */
-    @Child(name="substitution", type={}, order=9, min=0, max=1)
+    @Child(name="substitution", type={}, order=10, min=0, max=1)
     @Description(shortDefinition="Any restrictions on medication substitution?", formalDefinition="Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done." )
     protected MedicationPrescriptionSubstitutionComponent substitution;
 
-    private static final long serialVersionUID = 609335905L;
+    private static final long serialVersionUID = 277504612L;
 
     public MedicationPrescription() {
       super();
@@ -1356,6 +1365,55 @@ public class MedicationPrescription extends DomainResource {
     }
 
     /**
+     * @return {@link #note} (Extra information about the prescription that could not be conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     */
+    public StringType getNoteElement() { 
+      if (this.note == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationPrescription.note");
+        else if (Configuration.doAutoCreate())
+          this.note = new StringType(); // bb
+      return this.note;
+    }
+
+    public boolean hasNoteElement() { 
+      return this.note != null && !this.note.isEmpty();
+    }
+
+    public boolean hasNote() { 
+      return this.note != null && !this.note.isEmpty();
+    }
+
+    /**
+     * @param value {@link #note} (Extra information about the prescription that could not be conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     */
+    public MedicationPrescription setNoteElement(StringType value) { 
+      this.note = value;
+      return this;
+    }
+
+    /**
+     * @return Extra information about the prescription that could not be conveyed by the other attributes.
+     */
+    public String getNote() { 
+      return this.note == null ? null : this.note.getValue();
+    }
+
+    /**
+     * @param value Extra information about the prescription that could not be conveyed by the other attributes.
+     */
+    public MedicationPrescription setNote(String value) { 
+      if (Utilities.noString(value))
+        this.note = null;
+      else {
+        if (this.note == null)
+          this.note = new StringType();
+        this.note.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #medication} (Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public Reference getMedication() { 
@@ -1486,6 +1544,7 @@ public class MedicationPrescription extends DomainResource {
         childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("note", "string", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("medication", "Reference(Medication)", "Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the order.", 0, java.lang.Integer.MAX_VALUE, dispense));
@@ -1506,6 +1565,7 @@ public class MedicationPrescription extends DomainResource {
         dst.prescriber = prescriber == null ? null : prescriber.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.reason = reason == null ? null : reason.copy();
+        dst.note = note == null ? null : note.copy();
         dst.medication = medication == null ? null : medication.copy();
         if (dosageInstruction != null) {
           dst.dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
@@ -1524,9 +1584,10 @@ public class MedicationPrescription extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (dateWritten == null || dateWritten.isEmpty())
            && (status == null || status.isEmpty()) && (patient == null || patient.isEmpty()) && (prescriber == null || prescriber.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (reason == null || reason.isEmpty()) && (medication == null || medication.isEmpty())
-           && (dosageInstruction == null || dosageInstruction.isEmpty()) && (dispense == null || dispense.isEmpty())
-           && (substitution == null || substitution.isEmpty());
+           && (encounter == null || encounter.isEmpty()) && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty())
+           && (medication == null || medication.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (dispense == null || dispense.isEmpty()) && (substitution == null || substitution.isEmpty())
+          ;
       }
 
   @Override

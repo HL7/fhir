@@ -511,7 +511,6 @@ public class QuestionnaireBuilder {
           vs.setDefine(null);
           vs.setCompose(null);
           vs.getTelecom().clear();
-          vs.setPurposeElement(null);
           vs.setPublisherElement(null);
           vs.setCopyrightElement(null);
         }

@@ -29,17 +29,18 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 3, 2015 22:31+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 9, 2015 15:08+1100 for FHIR v0.4.0
 
-import java.util.*;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.math.*;
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
-import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
 import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
+import org.hl7.fhir.instance.model.annotations.SearchParamDefinition;
+import org.hl7.fhir.utilities.Utilities;
 /**
  * A container for a group of resources.
  */
@@ -260,102 +261,102 @@ public class Bundle extends Resource {
       }
     }
 
-    public enum TransactionOperation {
+    public enum HttpVerb {
         /**
-         * 
+         * HTTP GET.
          */
-        CREATE, 
+        GET, 
         /**
-         * 
+         * HTTP POST.
          */
-        UPDATE, 
+        POST, 
         /**
-         * 
+         * HTTP PUT.
+         */
+        PUT, 
+        /**
+         * HTTP DELETE.
          */
         DELETE, 
-        /**
-         * No Operation occurred - only valid in a transaction response.
-         */
-        NOOP, 
         /**
          * added to help the parsers
          */
         NULL;
-        public static TransactionOperation fromCode(String codeString) throws Exception {
+        public static HttpVerb fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("create".equals(codeString))
-          return CREATE;
-        if ("update".equals(codeString))
-          return UPDATE;
-        if ("delete".equals(codeString))
+        if ("GET".equals(codeString))
+          return GET;
+        if ("POST".equals(codeString))
+          return POST;
+        if ("PUT".equals(codeString))
+          return PUT;
+        if ("DELETE".equals(codeString))
           return DELETE;
-        if ("noop".equals(codeString))
-          return NOOP;
-        throw new Exception("Unknown TransactionOperation code '"+codeString+"'");
+        throw new Exception("Unknown HttpVerb code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case CREATE: return "create";
-            case UPDATE: return "update";
-            case DELETE: return "delete";
-            case NOOP: return "noop";
+            case GET: return "GET";
+            case POST: return "POST";
+            case PUT: return "PUT";
+            case DELETE: return "DELETE";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case CREATE: return "http://hl7.org/fhir/restful-interaction";
-            case UPDATE: return "http://hl7.org/fhir/restful-interaction";
-            case DELETE: return "http://hl7.org/fhir/restful-interaction";
-            case NOOP: return "";
+            case GET: return "";
+            case POST: return "";
+            case PUT: return "";
+            case DELETE: return "";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case CREATE: return "";
-            case UPDATE: return "";
-            case DELETE: return "";
-            case NOOP: return "No Operation occurred - only valid in a transaction response.";
+            case GET: return "HTTP GET.";
+            case POST: return "HTTP POST.";
+            case PUT: return "HTTP PUT.";
+            case DELETE: return "HTTP DELETE.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case CREATE: return "create";
-            case UPDATE: return "update";
-            case DELETE: return "delete";
-            case NOOP: return "no operation";
+            case GET: return "GET";
+            case POST: return "POST";
+            case PUT: return "PUT";
+            case DELETE: return "DELETE";
             default: return "?";
           }
         }
     }
 
-  public static class TransactionOperationEnumFactory implements EnumFactory<TransactionOperation> {
-    public TransactionOperation fromCode(String codeString) throws IllegalArgumentException {
+  public static class HttpVerbEnumFactory implements EnumFactory<HttpVerb> {
+    public HttpVerb fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("create".equals(codeString))
-          return TransactionOperation.CREATE;
-        if ("update".equals(codeString))
-          return TransactionOperation.UPDATE;
-        if ("delete".equals(codeString))
-          return TransactionOperation.DELETE;
-        if ("noop".equals(codeString))
-          return TransactionOperation.NOOP;
-        throw new IllegalArgumentException("Unknown TransactionOperation code '"+codeString+"'");
+        if ("GET".equals(codeString))
+          return HttpVerb.GET;
+        if ("POST".equals(codeString))
+          return HttpVerb.POST;
+        if ("PUT".equals(codeString))
+          return HttpVerb.PUT;
+        if ("DELETE".equals(codeString))
+          return HttpVerb.DELETE;
+        throw new IllegalArgumentException("Unknown HttpVerb code '"+codeString+"'");
         }
-    public String toCode(TransactionOperation code) {
-      if (code == TransactionOperation.CREATE)
-        return "create";
-      if (code == TransactionOperation.UPDATE)
-        return "update";
-      if (code == TransactionOperation.DELETE)
-        return "delete";
-      if (code == TransactionOperation.NOOP)
-        return "noop";
+    public String toCode(HttpVerb code) {
+      if (code == HttpVerb.GET)
+        return "GET";
+      if (code == HttpVerb.POST)
+        return "POST";
+      if (code == HttpVerb.PUT)
+        return "PUT";
+      if (code == HttpVerb.DELETE)
+        return "DELETE";
       return "?";
       }
     }
@@ -509,34 +510,34 @@ public class Bundle extends Resource {
         protected UriType base;
 
         /**
+         * The Resources for the entry.
+         */
+        @Child(name="resource", type={Resource.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="Resources in this bundle", formalDefinition="The Resources for the entry." )
+        protected Resource resource;
+
+        /**
          * Information about the search process that lead to the creation of this entry.
          */
-        @Child(name="search", type={}, order=2, min=0, max=1)
+        @Child(name="search", type={}, order=3, min=0, max=1)
         @Description(shortDefinition="Search related information", formalDefinition="Information about the search process that lead to the creation of this entry." )
         protected BundleEntrySearchComponent search;
 
         /**
          * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name="transaction", type={}, order=3, min=0, max=1)
+        @Child(name="transaction", type={}, order=4, min=0, max=1)
         @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
         protected BundleEntryTransactionComponent transaction;
 
         /**
-         * The Resources for the entry.
+         * Additional information about how this entry should be processed as part of a transaction.
          */
-        @Child(name="resource", type={Resource.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="Resources in this bundle", formalDefinition="The Resources for the entry." )
-        protected Resource resource;
+        @Child(name="transactionResponse", type={}, order=5, min=0, max=1)
+        @Description(shortDefinition="Transaction Related Information", formalDefinition="Additional information about how this entry should be processed as part of a transaction." )
+        protected BundleEntryTransactionResponseComponent transactionResponse;
 
-        /**
-         * Information about the resource (if deleted, or if a summary transaction response).
-         */
-        @Child(name="information", type={}, order=5, min=0, max=1)
-        @Description(shortDefinition="If deleted, or a summary transaction response", formalDefinition="Information about the resource (if deleted, or if a summary transaction response)." )
-        protected BundleEntryInformationComponent information;
-
-        private static final long serialVersionUID = -1355904858L;
+        private static final long serialVersionUID = 2068509254L;
 
       public BundleEntryComponent() {
         super();
@@ -592,6 +593,25 @@ public class Bundle extends Resource {
         }
 
         /**
+         * @return {@link #resource} (The Resources for the entry.)
+         */
+        public Resource getResource() { 
+          return this.resource;
+        }
+
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
+        }
+
+        /**
+         * @param value {@link #resource} (The Resources for the entry.)
+         */
+        public BundleEntryComponent setResource(Resource value) { 
+          this.resource = value;
+          return this;
+        }
+
+        /**
          * @return {@link #search} (Information about the search process that lead to the creation of this entry.)
          */
         public BundleEntrySearchComponent getSearch() { 
@@ -640,72 +660,53 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return {@link #resource} (The Resources for the entry.)
+         * @return {@link #transactionResponse} (Additional information about how this entry should be processed as part of a transaction.)
          */
-        public Resource getResource() { 
-          return this.resource;
-        }
-
-        public boolean hasResource() { 
-          return this.resource != null && !this.resource.isEmpty();
-        }
-
-        /**
-         * @param value {@link #resource} (The Resources for the entry.)
-         */
-        public BundleEntryComponent setResource(Resource value) { 
-          this.resource = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #information} (Information about the resource (if deleted, or if a summary transaction response).)
-         */
-        public BundleEntryInformationComponent getInformation() { 
-          if (this.information == null)
+        public BundleEntryTransactionResponseComponent getTransactionResponse() { 
+          if (this.transactionResponse == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryComponent.information");
+              throw new Error("Attempt to auto-create BundleEntryComponent.transactionResponse");
             else if (Configuration.doAutoCreate())
-              this.information = new BundleEntryInformationComponent(); // cc
-          return this.information;
+              this.transactionResponse = new BundleEntryTransactionResponseComponent(); // cc
+          return this.transactionResponse;
         }
 
-        public boolean hasInformation() { 
-          return this.information != null && !this.information.isEmpty();
+        public boolean hasTransactionResponse() { 
+          return this.transactionResponse != null && !this.transactionResponse.isEmpty();
         }
 
         /**
-         * @param value {@link #information} (Information about the resource (if deleted, or if a summary transaction response).)
+         * @param value {@link #transactionResponse} (Additional information about how this entry should be processed as part of a transaction.)
          */
-        public BundleEntryComponent setInformation(BundleEntryInformationComponent value) { 
-          this.information = value;
+        public BundleEntryComponent setTransactionResponse(BundleEntryTransactionResponseComponent value) { 
+          this.transactionResponse = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("base", "uri", "The Base URL for the resource, if different to the base URL specified for the bundle as a whole.", 0, java.lang.Integer.MAX_VALUE, base));
+          childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, java.lang.Integer.MAX_VALUE, search));
           childrenList.add(new Property("transaction", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, transaction));
-          childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
-          childrenList.add(new Property("information", "", "Information about the resource (if deleted, or if a summary transaction response).", 0, java.lang.Integer.MAX_VALUE, information));
+          childrenList.add(new Property("transactionResponse", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, transactionResponse));
         }
 
       public BundleEntryComponent copy() {
         BundleEntryComponent dst = new BundleEntryComponent();
         copyValues(dst);
         dst.base = base == null ? null : base.copy();
+        dst.resource = resource == null ? null : resource.copy();
         dst.search = search == null ? null : search.copy();
         dst.transaction = transaction == null ? null : transaction.copy();
-        dst.resource = resource == null ? null : resource.copy();
-        dst.information = information == null ? null : information.copy();
+        dst.transactionResponse = transactionResponse == null ? null : transactionResponse.copy();
         return dst;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (base == null || base.isEmpty()) && (search == null || search.isEmpty())
-           && (transaction == null || transaction.isEmpty()) && (resource == null || resource.isEmpty())
-           && (information == null || information.isEmpty());
+        return super.isEmpty() && (base == null || base.isEmpty()) && (resource == null || resource.isEmpty())
+           && (search == null || search.isEmpty()) && (transaction == null || transaction.isEmpty())
+           && (transactionResponse == null || transactionResponse.isEmpty());
       }
 
   }
@@ -854,313 +855,414 @@ public class Bundle extends Resource {
     @Block()
     public static class BundleEntryTransactionComponent extends BackboneElement {
         /**
-         * The operation associated with this entry in either a update history, or a transaction/ transaction response.
+         * The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
          */
-        @Child(name="operation", type={CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="create | update | delete | noop", formalDefinition="The operation associated with this entry in either a update history, or a transaction/ transaction response." )
-        protected Enumeration<TransactionOperation> operation;
+        @Child(name="method", type={CodeType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="GET | POST | PUT | DELETE", formalDefinition="The HTTP verb for this entry in either a update history, or a transaction/ transaction response." )
+        protected Enumeration<HttpVerb> method;
 
         /**
          * A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
          */
-        @Child(name="match", type={UriType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Search URL specifies how to match existing resource", formalDefinition="A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation)." )
-        protected UriType match;
+        @Child(name="url", type={UriType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="The URL for the transaction", formalDefinition="A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation)." )
+        protected UriType url;
 
-        private static final long serialVersionUID = 1629152962L;
+        /**
+         * Headers are provided principally to support the If-None-Exist header.
+         */
+        @Child(name="header", type={StringType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Headers for the transaction", formalDefinition="Headers are provided principally to support the If-None-Exist header." )
+        protected List<StringType> header;
+
+        private static final long serialVersionUID = 1127884142L;
 
       public BundleEntryTransactionComponent() {
         super();
       }
 
-      public BundleEntryTransactionComponent(Enumeration<TransactionOperation> operation) {
+      public BundleEntryTransactionComponent(Enumeration<HttpVerb> method, UriType url) {
         super();
-        this.operation = operation;
+        this.method = method;
+        this.url = url;
       }
 
         /**
-         * @return {@link #operation} (The operation associated with this entry in either a update history, or a transaction/ transaction response.). This is the underlying object with id, value and extensions. The accessor "getOperation" gives direct access to the value
+         * @return {@link #method} (The HTTP verb for this entry in either a update history, or a transaction/ transaction response.). This is the underlying object with id, value and extensions. The accessor "getMethod" gives direct access to the value
          */
-        public Enumeration<TransactionOperation> getOperationElement() { 
-          if (this.operation == null)
+        public Enumeration<HttpVerb> getMethodElement() { 
+          if (this.method == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.operation");
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.method");
             else if (Configuration.doAutoCreate())
-              this.operation = new Enumeration<TransactionOperation>(new TransactionOperationEnumFactory()); // bb
-          return this.operation;
+              this.method = new Enumeration<HttpVerb>(new HttpVerbEnumFactory()); // bb
+          return this.method;
         }
 
-        public boolean hasOperationElement() { 
-          return this.operation != null && !this.operation.isEmpty();
+        public boolean hasMethodElement() { 
+          return this.method != null && !this.method.isEmpty();
         }
 
-        public boolean hasOperation() { 
-          return this.operation != null && !this.operation.isEmpty();
+        public boolean hasMethod() { 
+          return this.method != null && !this.method.isEmpty();
         }
 
         /**
-         * @param value {@link #operation} (The operation associated with this entry in either a update history, or a transaction/ transaction response.). This is the underlying object with id, value and extensions. The accessor "getOperation" gives direct access to the value
+         * @param value {@link #method} (The HTTP verb for this entry in either a update history, or a transaction/ transaction response.). This is the underlying object with id, value and extensions. The accessor "getMethod" gives direct access to the value
          */
-        public BundleEntryTransactionComponent setOperationElement(Enumeration<TransactionOperation> value) { 
-          this.operation = value;
+        public BundleEntryTransactionComponent setMethodElement(Enumeration<HttpVerb> value) { 
+          this.method = value;
           return this;
         }
 
         /**
-         * @return The operation associated with this entry in either a update history, or a transaction/ transaction response.
+         * @return The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
          */
-        public TransactionOperation getOperation() { 
-          return this.operation == null ? null : this.operation.getValue();
+        public HttpVerb getMethod() { 
+          return this.method == null ? null : this.method.getValue();
         }
 
         /**
-         * @param value The operation associated with this entry in either a update history, or a transaction/ transaction response.
+         * @param value The HTTP verb for this entry in either a update history, or a transaction/ transaction response.
          */
-        public BundleEntryTransactionComponent setOperation(TransactionOperation value) { 
-            if (this.operation == null)
-              this.operation = new Enumeration<TransactionOperation>(new TransactionOperationEnumFactory());
-            this.operation.setValue(value);
+        public BundleEntryTransactionComponent setMethod(HttpVerb value) { 
+            if (this.method == null)
+              this.method = new Enumeration<HttpVerb>(new HttpVerbEnumFactory());
+            this.method.setValue(value);
           return this;
         }
 
         /**
-         * @return {@link #match} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getMatch" gives direct access to the value
+         * @return {@link #url} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getMatchElement() { 
-          if (this.match == null)
+        public UriType getUrlElement() { 
+          if (this.url == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.match");
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.url");
             else if (Configuration.doAutoCreate())
-              this.match = new UriType(); // bb
-          return this.match;
+              this.url = new UriType(); // bb
+          return this.url;
         }
 
-        public boolean hasMatchElement() { 
-          return this.match != null && !this.match.isEmpty();
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasMatch() { 
-          return this.match != null && !this.match.isEmpty();
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
         /**
-         * @param value {@link #match} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getMatch" gives direct access to the value
+         * @param value {@link #url} (A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public BundleEntryTransactionComponent setMatchElement(UriType value) { 
-          this.match = value;
+        public BundleEntryTransactionComponent setUrlElement(UriType value) { 
+          this.url = value;
           return this;
         }
 
         /**
          * @return A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
          */
-        public String getMatch() { 
-          return this.match == null ? null : this.match.getValue();
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).
          */
-        public BundleEntryTransactionComponent setMatch(String value) { 
-          if (Utilities.noString(value))
-            this.match = null;
-          else {
-            if (this.match == null)
-              this.match = new UriType();
-            this.match.setValue(value);
-          }
+        public BundleEntryTransactionComponent setUrl(String value) { 
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
           return this;
+        }
+
+        /**
+         * @return {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         */
+        public List<StringType> getHeader() { 
+          if (this.header == null)
+            this.header = new ArrayList<StringType>();
+          return this.header;
+        }
+
+        public boolean hasHeader() { 
+          if (this.header == null)
+            return false;
+          for (StringType item : this.header)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         */
+    // syntactic sugar
+        public StringType addHeaderElement() {//2 
+          StringType t = new StringType();
+          if (this.header == null)
+            this.header = new ArrayList<StringType>();
+          this.header.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         */
+        public BundleEntryTransactionComponent addHeader(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.header == null)
+            this.header = new ArrayList<StringType>();
+          this.header.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         */
+        public boolean hasHeader(String value) { 
+          if (this.header == null)
+            return false;
+          for (StringType v : this.header)
+            if (v.equals(value)) // string
+              return true;
+          return false;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("operation", "code", "The operation associated with this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, operation));
-          childrenList.add(new Property("match", "uri", "A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, match));
+          childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
+          childrenList.add(new Property("url", "uri", "A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("header", "string", "Headers are provided principally to support the If-None-Exist header.", 0, java.lang.Integer.MAX_VALUE, header));
         }
 
       public BundleEntryTransactionComponent copy() {
         BundleEntryTransactionComponent dst = new BundleEntryTransactionComponent();
         copyValues(dst);
-        dst.operation = operation == null ? null : operation.copy();
-        dst.match = match == null ? null : match.copy();
+        dst.method = method == null ? null : method.copy();
+        dst.url = url == null ? null : url.copy();
+        if (header != null) {
+          dst.header = new ArrayList<StringType>();
+          for (StringType i : header)
+            dst.header.add(i.copy());
+        };
         return dst;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (match == null || match.isEmpty())
-          ;
+        return super.isEmpty() && (method == null || method.isEmpty()) && (url == null || url.isEmpty())
+           && (header == null || header.isEmpty());
       }
 
   }
 
     @Block()
-    public static class BundleEntryInformationComponent extends BackboneElement {
+    public static class BundleEntryTransactionResponseComponent extends BackboneElement {
         /**
-         * The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).
+         * The status code returned by processing this entry.
          */
-        @Child(name="type", type={CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="The type of the resource", formalDefinition="The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id)." )
-        protected CodeType type;
-
-        /**
-         * The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).
-         */
-        @Child(name="resourceId", type={IdType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="The id of the resource", formalDefinition="The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id)." )
-        protected IdType resourceId;
+        @Child(name="status", type={StringType.class}, order=1, min=1, max=1)
+        @Description(shortDefinition="Status return code for entry", formalDefinition="The status code returned by processing this entry." )
+        protected StringType status;
 
         /**
-         * The meta information for the resource. Optional - only provided if there is a need for version id, last updated, and/or tag, profile and security information.
+         * The location header created by processing this operation.
          */
-        @Child(name="meta", type={Meta.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="Meta information for the resource", formalDefinition="The meta information for the resource. Optional - only provided if there is a need for version id, last updated, and/or tag, profile and security information." )
-        protected Meta meta;
+        @Child(name="location", type={UriType.class}, order=2, min=0, max=1)
+        @Description(shortDefinition="The location, if the operation returns a location", formalDefinition="The location header created by processing this operation." )
+        protected UriType location;
 
-        private static final long serialVersionUID = -269851433L;
+        /**
+         * The etag for the resource, it the operation for the entry produced a versioned resource.
+         */
+        @Child(name="etag", type={StringType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="The etag for the resource (if relevant)", formalDefinition="The etag for the resource, it the operation for the entry produced a versioned resource." )
+        protected List<StringType> etag;
 
-      public BundleEntryInformationComponent() {
+        private static final long serialVersionUID = -1512370306L;
+
+      public BundleEntryTransactionResponseComponent() {
         super();
       }
 
-      public BundleEntryInformationComponent(CodeType type, IdType resourceId) {
+      public BundleEntryTransactionResponseComponent(StringType status) {
         super();
-        this.type = type;
-        this.resourceId = resourceId;
+        this.status = status;
       }
 
         /**
-         * @return {@link #type} (The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @return {@link #status} (The status code returned by processing this entry.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public CodeType getTypeElement() { 
-          if (this.type == null)
+        public StringType getStatusElement() { 
+          if (this.status == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryInformationComponent.type");
+              throw new Error("Attempt to auto-create BundleEntryTransactionResponseComponent.status");
             else if (Configuration.doAutoCreate())
-              this.type = new CodeType(); // bb
-          return this.type;
+              this.status = new StringType(); // bb
+          return this.status;
         }
 
-        public boolean hasTypeElement() { 
-          return this.type != null && !this.type.isEmpty();
+        public boolean hasStatusElement() { 
+          return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
+        public boolean hasStatus() { 
+          return this.status != null && !this.status.isEmpty();
         }
 
         /**
-         * @param value {@link #type} (The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         * @param value {@link #status} (The status code returned by processing this entry.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public BundleEntryInformationComponent setTypeElement(CodeType value) { 
-          this.type = value;
+        public BundleEntryTransactionResponseComponent setStatusElement(StringType value) { 
+          this.status = value;
           return this;
         }
 
         /**
-         * @return The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).
+         * @return The status code returned by processing this entry.
          */
-        public String getType() { 
-          return this.type == null ? null : this.type.getValue();
+        public String getStatus() { 
+          return this.status == null ? null : this.status.getValue();
         }
 
         /**
-         * @param value The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).
+         * @param value The status code returned by processing this entry.
          */
-        public BundleEntryInformationComponent setType(String value) { 
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
+        public BundleEntryTransactionResponseComponent setStatus(String value) { 
+            if (this.status == null)
+              this.status = new StringType();
+            this.status.setValue(value);
           return this;
         }
 
         /**
-         * @return {@link #resourceId} (The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
+         * @return {@link #location} (The location header created by processing this operation.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
          */
-        public IdType getResourceIdElement() { 
-          if (this.resourceId == null)
+        public UriType getLocationElement() { 
+          if (this.location == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryInformationComponent.resourceId");
+              throw new Error("Attempt to auto-create BundleEntryTransactionResponseComponent.location");
             else if (Configuration.doAutoCreate())
-              this.resourceId = new IdType(); // bb
-          return this.resourceId;
+              this.location = new UriType(); // bb
+          return this.location;
         }
 
-        public boolean hasResourceIdElement() { 
-          return this.resourceId != null && !this.resourceId.isEmpty();
+        public boolean hasLocationElement() { 
+          return this.location != null && !this.location.isEmpty();
         }
 
-        public boolean hasResourceId() { 
-          return this.resourceId != null && !this.resourceId.isEmpty();
+        public boolean hasLocation() { 
+          return this.location != null && !this.location.isEmpty();
         }
 
         /**
-         * @param value {@link #resourceId} (The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
+         * @param value {@link #location} (The location header created by processing this operation.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
          */
-        public BundleEntryInformationComponent setResourceIdElement(IdType value) { 
-          this.resourceId = value;
+        public BundleEntryTransactionResponseComponent setLocationElement(UriType value) { 
+          this.location = value;
           return this;
         }
 
         /**
-         * @return The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).
+         * @return The location header created by processing this operation.
          */
-        public String getResourceId() { 
-          return this.resourceId == null ? null : this.resourceId.getValue();
+        public String getLocation() { 
+          return this.location == null ? null : this.location.getValue();
         }
 
         /**
-         * @param value The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).
+         * @param value The location header created by processing this operation.
          */
-        public BundleEntryInformationComponent setResourceId(String value) { 
-            if (this.resourceId == null)
-              this.resourceId = new IdType();
-            this.resourceId.setValue(value);
+        public BundleEntryTransactionResponseComponent setLocation(String value) { 
+          if (Utilities.noString(value))
+            this.location = null;
+          else {
+            if (this.location == null)
+              this.location = new UriType();
+            this.location.setValue(value);
+          }
           return this;
         }
 
         /**
-         * @return {@link #meta} (The meta information for the resource. Optional - only provided if there is a need for version id, last updated, and/or tag, profile and security information.)
+         * @return {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.)
          */
-        public Meta getMeta() { 
-          if (this.meta == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create BundleEntryInformationComponent.meta");
-            else if (Configuration.doAutoCreate())
-              this.meta = new Meta(); // cc
-          return this.meta;
+        public List<StringType> getEtag() { 
+          if (this.etag == null)
+            this.etag = new ArrayList<StringType>();
+          return this.etag;
         }
 
-        public boolean hasMeta() { 
-          return this.meta != null && !this.meta.isEmpty();
+        public boolean hasEtag() { 
+          if (this.etag == null)
+            return false;
+          for (StringType item : this.etag)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #meta} (The meta information for the resource. Optional - only provided if there is a need for version id, last updated, and/or tag, profile and security information.)
+         * @return {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.)
          */
-        public BundleEntryInformationComponent setMeta(Meta value) { 
-          this.meta = value;
+    // syntactic sugar
+        public StringType addEtagElement() {//2 
+          StringType t = new StringType();
+          if (this.etag == null)
+            this.etag = new ArrayList<StringType>();
+          this.etag.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.)
+         */
+        public BundleEntryTransactionResponseComponent addEtag(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.etag == null)
+            this.etag = new ArrayList<StringType>();
+          this.etag.add(t);
           return this;
+        }
+
+        /**
+         * @param value {@link #etag} (The etag for the resource, it the operation for the entry produced a versioned resource.)
+         */
+        public boolean hasEtag(String value) { 
+          if (this.etag == null)
+            return false;
+          for (StringType v : this.etag)
+            if (v.equals(value)) // string
+              return true;
+          return false;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "code", "The type of resource (required to construct the identity - e.g. identity Patient/345 is type + id).", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("resourceId", "id", "The id of the resource  (required to construct the identity - e.g. identity Patient/345 is type + id).", 0, java.lang.Integer.MAX_VALUE, resourceId));
-          childrenList.add(new Property("meta", "Meta", "The meta information for the resource. Optional - only provided if there is a need for version id, last updated, and/or tag, profile and security information.", 0, java.lang.Integer.MAX_VALUE, meta));
+          childrenList.add(new Property("status", "string", "The status code returned by processing this entry.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("location", "uri", "The location header created by processing this operation.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource.", 0, java.lang.Integer.MAX_VALUE, etag));
         }
 
-      public BundleEntryInformationComponent copy() {
-        BundleEntryInformationComponent dst = new BundleEntryInformationComponent();
+      public BundleEntryTransactionResponseComponent copy() {
+        BundleEntryTransactionResponseComponent dst = new BundleEntryTransactionResponseComponent();
         copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.resourceId = resourceId == null ? null : resourceId.copy();
-        dst.meta = meta == null ? null : meta.copy();
+        dst.status = status == null ? null : status.copy();
+        dst.location = location == null ? null : location.copy();
+        if (etag != null) {
+          dst.etag = new ArrayList<StringType>();
+          for (StringType i : etag)
+            dst.etag.add(i.copy());
+        };
         return dst;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resourceId == null || resourceId.isEmpty())
-           && (meta == null || meta.isEmpty());
+        return super.isEmpty() && (status == null || status.isEmpty()) && (location == null || location.isEmpty())
+           && (etag == null || etag.isEmpty());
       }
 
   }

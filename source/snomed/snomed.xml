@@ -1633,6 +1633,12 @@
     <display value="PCA - Patient controlled analgesia"/>
     <display value="Patient controlled analgesia (procedure)"/>
   </concept>
+  <concept id="243899009" display="Transverse plane (body structure)">
+    <display value="Horizontal plane"/>
+    <display value="Transverse plane"/>
+    <display value="Transverse level"/>
+    <display value="Transverse plane (body structure)"/>
+  </concept>
   <concept id="24484000" display="Severe">
     <display value="Severe (severity modifier)"/>
     <display value="Severe"/>
@@ -1918,10 +1924,19 @@
     <display value="Big"/>
     <display value="Large (qualifier value)"/>
   </concept>
+  <concept id="255551008" display="Posterior (qualifier value)">
+    <display value="Back of"/>
+    <display value="Posterior"/>
+    <display value="Posterior (qualifier value)"/>
+  </concept>
   <concept id="255560000" display="Intravenous (qualifier value)">
     <display value="Intravenous"/>
     <display value="IV - Intravenous"/>
     <display value="Intravenous (qualifier value)"/>
+  </concept>
+  <concept id="255561001" display="Medial (qualifier value)">
+    <display value="Medial"/>
+    <display value="Medial (qualifier value)"/>
   </concept>
   <concept id="255566006" display="Post-dose (qualifier value)">
     <display value="Post-dose"/>
@@ -2529,6 +2544,10 @@
     <display value="Via umbilical vein"/>
     <display value="Via umbilical vein (qualifier value)"/>
   </concept>
+  <concept id="261089000" display="Inferior (qualifier value)">
+    <display value="Inferior"/>
+    <display value="Inferior (qualifier value)"/>
+  </concept>
   <concept id="261122009" display="Lower (qualifier value)">
     <display value="Lower"/>
     <display value="Lower (qualifier value)"/>
@@ -2608,6 +2627,10 @@
   <concept id="263906002" display="Turbid (qualifier value)">
     <display value="Turbid"/>
     <display value="Turbid (qualifier value)"/>
+  </concept>
+  <concept id="264217000" display="Superior (qualifier value)">
+    <display value="Superior"/>
+    <display value="Superior (qualifier value)"/>
   </concept>
   <concept id="264259004" display="Entire spinous process of vertebra (body structure)">
     <display value="Entire spinous process of vertebra"/>
@@ -2814,6 +2837,19 @@
   <concept id="279107003" display="Central nervous system space (body structure)">
     <display value="Central nervous system space"/>
     <display value="Central nervous system space (body structure)"/>
+  </concept>
+  <concept id="279238009" display="Coronal plane (body structure)">
+    <display value="Coronal plane"/>
+    <display value="Coronal plane (body structure)"/>
+  </concept>
+  <concept id="279239001" display="Median plane (body structure)">
+    <display value="Median plane"/>
+    <display value="Sagittal plane"/>
+    <display value="Median plane (body structure)"/>
+  </concept>
+  <concept id="279240004" display="Parasagittal plane (body structure)">
+    <display value="Parasagittal plane"/>
+    <display value="Parasagittal plane (body structure)"/>
   </concept>
   <concept id="27925004" display="Nodule (morphologic abnormality)">
     <display value="Nodule"/>
@@ -3467,6 +3503,20 @@
     <display value="Augmented"/>
     <display value="Increased by"/>
     <display value="Increased (qualifier value)"/>
+  </concept>
+  <concept id="351726001" display="Below (qualifier value)">
+    <display value="Beneath"/>
+    <display value="Infra-"/>
+    <display value="Under"/>
+    <display value="Subjacent"/>
+    <display value="Sub-"/>
+    <display value="Below"/>
+    <display value="Below (qualifier value)"/>
+  </concept>
+  <concept id="352730000" display="Supra- (qualifier value)">
+    <display value="Above"/>
+    <display value="Supra-"/>
+    <display value="Supra- (qualifier value)"/>
   </concept>
   <concept id="354051007" display="Strychnine product (product)">
     <display value="Strychnine product (product)"/>
@@ -4366,6 +4416,10 @@
     <display value="Respiratory disease specialist"/>
     <display value="Respiratory disease specialist (occupation)"/>
   </concept>
+  <concept id="416820004" display="Frontal plane (body structure)">
+    <display value="Frontal plane (body structure)"/>
+    <display value="Frontal plane"/>
+  </concept>
   <concept id="416932001" display="Segmental diagnosis (qualifier value)">
     <display value="Segmental diagnosis (qualifier value)"/>
     <display value="Segmental diagnosis"/>
@@ -4475,6 +4529,10 @@
   <concept id="419115000" display="Do not take milk, indigestion remedies, or medicines containing iron or zinc at the same time of day as this medicine (qualifier value)">
     <display value="Do not take milk, indigestion remedies, or medicines containing iron or zinc at the same time of day as this medicine (qualifier value)"/>
     <display value="Do not take milk, indigestion remedies, or medicines containing iron or zinc at the same time of day as this medicine"/>
+  </concept>
+  <concept id="419161000" display="Unilateral left (qualifier value)">
+    <display value="Unilateral left (qualifier value)"/>
+    <display value="Unilateral left"/>
   </concept>
   <concept id="419199007" display="Allergy to substance (disorder)">
     <display value="Allergy to substance (disorder)"/>
@@ -5066,6 +5124,10 @@
     <display value="Blood group antigen Sd^a^"/>
     <display value="Blood group antigen Sid"/>
   </concept>
+  <concept id="49370004" display="Lateral (qualifier value)">
+    <display value="Lateral (qualifier value)"/>
+    <display value="Lateral"/>
+  </concept>
   <concept id="49436004" display="Atrial fibrillation (disorder)">
     <display value="AF - Atrial fibrillation"/>
     <display value="Atrial fibrillation (disorder)"/>
@@ -5131,6 +5193,13 @@
     <display value="Food preservative (substance)"/>
     <display value="Food preservative"/>
     <display value="Food preservative, NOS"/>
+  </concept>
+  <concept id="51440002" display="Right and left (qualifier value)">
+    <display value="Right and left (qualifier value)"/>
+    <display value="Right and left"/>
+    <display value="Both"/>
+    <display value="Both sides"/>
+    <display value="Bilateral"/>
   </concept>
   <concept id="51905005" display="Mustard (substance)">
     <display value="Mustard (substance)"/>
