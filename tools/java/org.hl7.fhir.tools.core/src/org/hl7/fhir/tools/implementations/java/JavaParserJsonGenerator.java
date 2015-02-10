@@ -158,15 +158,22 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElementParser() throws Exception {
     write("  protected void parseElementProperties(JsonObject json, Element element) throws Exception {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
-    write("    parseExtensions(json, element.getExtension(), false);\r\n");
+    write("    if (json.has(\"extension\")) {\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"extension\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        element.getExtension().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
+    write("      }\r\n");
+    write("    };\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
-    write("    if (json != null && json.has(\"modifier\")) {\r\n");
-    write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
-    write("      parseExtensions(obj, element.getModifierExtension(), false);\r\n");
-    write("    };\r\n");    
+    write("    if (json.has(\"modifierExtension\")) {\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        element.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
+    write("      }\r\n");
+    write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  protected void parseTypeProperties(JsonObject json, Element element) throws Exception {\r\n");
@@ -338,14 +345,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("    Type "+getElementName(en, false)+" = parseType(\""+en+"\", json);\r\n");
       write("    if ("+getElementName(en, false)+" != null)\r\n");
       write("      res.set"+upFirst(getElementName(en, false))+"("+getElementName(en, false)+");\r\n");
-    } else if (name.equals("extension")) {
-      // special case handling for extensions in json
-      write("    parseExtensions(json, res.getExtension(), false);\r\n");
-    } else if (name.equals("modifierExtension")) {
-      write("    if (json != null && json.has(\"modifier\")) {\r\n");
-      write("      JsonObject obj = json.getAsJsonObject(\"modifier\");\r\n");
-      write("      parseExtensions(obj, res.getModifierExtension(), false);\r\n");
-      write("    };\r\n");
     } else {
       String prsr = null;
       String aprsr = null;
@@ -670,16 +669,20 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("         closeArray();\r\n");
     write("      }\r\n");
     write("    if (element.hasExtension()) {\r\n");
-    write("      composeExtensions(element.getExtension());\r\n");
+    write("      openArray(\"extension\");\r\n");
+    write("      for (Extension e : element.getExtension())\r\n");
+    write("        composeExtension(null, e);\r\n");
+    write("      closeArray();\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
     write("  protected void composeBackbone(BackboneElement element) throws Exception {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");
-    write("      openObject(\"modifier\");\r\n");
-    write("      composeExtensions(element.getModifierExtension());\r\n");
-    write("      close();\r\n");
+    write("      openArray(\"modifierExtension\");\r\n");
+    write("      for (Extension e : element.getExtension())\r\n");
+    write("        composeExtension(null, e);\r\n");
+    write("      closeArray();\r\n");
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -850,17 +853,6 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       write("      if (element.has"+upFirst(en)+"()) {\r\n");
       write("        composeType(\""+pfx+"\", element.get"+upFirst(en)+"());\r\n");
       write("      }\r\n");
-    } else if (name.equals("extension")) {
-      // special case handling for extensions in json
-      write("      if (element.hasExtension()) {\r\n");
-      write("        composeExtensions(element.getExtension());\r\n");
-      write("      };\r\n");
-    } else if (name.equals("modifierExtension")) {
-      write("      if (element.hasModifierExtension()) {\r\n");
-      write("        openObject(\"modifier\");\r\n");
-      write("        composeExtensions(element.getModifierExtension());\r\n");
-      write("        close();\r\n");
-      write("      };\r\n");      
     } else {
       String comp = null;
       String en = null;
@@ -894,15 +886,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       //      if ((!contentsHaveId && typeIsSimple(e)) || e.typeCode().equals("xml:lang")) 
       //        comp = comp+"Simple";
 
-      if (name.equals("extension")) {
-        String s = "Extension"; 
-        write("      if (element.has"+s+"()) {\r\n");
-        write("        openArray(\"extension\");\r\n");
-        write("        for (Extension e : element.get"+s+"()) \r\n");
-        write("          composeExtension(null, e);\r\n");
-        write("        closeArray();\r\n");
-        write("      };\r\n");
-      } else if (e.unbounded()) {
+      if (e.unbounded()) {
         tn = typeName(root, e, true);
         if (tn.contains("Reference(")) {
           comp = "composeReference";

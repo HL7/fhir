@@ -37,7 +37,6 @@ In the current absence of a specific json description, the JSON representation i
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property "resourceType"</li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (id, value) are handled differently</li>
- <li><a href="extensibility.html">Extensions are represented differently</a></li>
  <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
  <li>There is no inherent support in JSON for a comment syntax. As a convention, content that would be comments in an XML representation is represented in a property with the name "fhir_comments", which is an array of strings, which can appear on any JSON object. 
@@ -126,7 +125,7 @@ If the value has an id attribute, or extensions, then this is represented as fol
 </p>
 <pre class="xml">
  &lt;<b>dob</b> id="314159" value="1970-03-30" &gt;
-   &lt;extension url="http://example.org/fhir/extensions#text"&gt;
+   &lt;extension url="http://example.org/fhir/ExtensionDefinition/text"&gt;
      &lt;valueString value="Easter 1970"/&gt;     
    &lt;/extension&gt;
  &lt;/<b>dob</b>&gt;
@@ -136,7 +135,8 @@ If the value has an id attribute, or extensions, then this is represented as fol
  "dob": "1972-11-30",
  "_dob": { 
    "id": "314159", 
-   "http://example.org/fhir/extensions#text": [{
+   "extension" : [ {
+      "url" : "http://example.org/fhir/ExtensionDefinition/text",
       "valueString" : "Easter 1970"
    }]
  }
@@ -151,7 +151,7 @@ the first array, as demonstrated in this example:
 <pre class="xml">
  &lt;<b>code</b> value="au"/&gt;
  &lt;<b>code</b> value="nz"&gt;
-   &lt;extension url="http://hl7.org/fhir/Profile/tools-extensions#display"&gt;
+   &lt;extension url="http://hl7.org/fhir/ExtensionDefinition/display"&gt;
      &lt;valueString value="New Zealand a.k.a Kiwiland"/&gt;     
    &lt;/extension&gt;
  &lt;/<b>code</b>&gt;
@@ -161,9 +161,12 @@ the first array, as demonstrated in this example:
  "code": [ "au", "nz" ],
  "_code": [ 
    null, 
-   { "http://example.org/fhir/extensions#text": [{
-      "valueString" : "New Zealand a.k.a Kiwiland"
-   }] }
+   { 
+     "extension" : [ {
+        "url" : "http://hl7.org/fhir/ExtensionDefinition/display",
+        "valueString" : "New Zealand a.k.a Kiwiland"
+     }]
+   }
   ]
  }
 </pre>

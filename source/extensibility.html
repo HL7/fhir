@@ -104,14 +104,15 @@ Here is an example of an extension in XML:
 &lt;/name&gt;
 </pre>
 <p>
-In JSON, extensions are represented differently:
+In JSON, extensions are represented similarly:
 </p>
 <pre class="json" fragment="HumanName">
   "name" : {
-     "http://hl7.org/fhir/ExtensionDefinition/iso-21090-name-use" : [{ 
-        "valueCode" : "I"
-     }],
-     "text" : "Chief Red Cloud"
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/ExtensionDefinition/iso-21090-name-use",
+      "valueCode" : "I"
+    }],
+   "text" : "Chief Red Cloud"
   }
 </pre>
 </div>
@@ -119,11 +120,6 @@ In JSON, extensions are represented differently:
 Making the types explicit in the representation means that all systems can read and write 
 (and therefore store and/or exchange) extensions correctly without needing to access the
 definition of the extension.
-</p>
-<p>
-Note: in JSON, extensions are always arrays, since they can have multiple values, 
-though whether a particular extension is allowed to have multiple values
-depends on it's definition.
 </p>
 <p>
 Extensions can also contain extensions, either because the extension 
@@ -164,12 +160,19 @@ Or in JSON:
 <pre class="json" fragment="Patient">
 {
   "resourceType" : "Patient",
-  "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
-    "code" : [{ "valueCode" : "unsure" }],
-    "date" : [{ "valueDate" : "2009-03-14" }], 
-    "registrar" : [{ "valueReference" : {
-      "reference" : "Practitioner/example"
-      }
+  "extension" : [{
+    "url" : "http://acme.org/fhir/ExtensionDefinition/trial-status",
+    "extension" : [{ 
+      "url" : "code",
+      "valueCode" : "unsure"
+    }, {
+      "url" : "date", 
+      "valueDate" : "2009-03-14" 
+    },  {
+      "url" : "registrar",
+      "valueReference" : {
+        "reference" : "Practitioner/example"
+       }
     }]
   }]
   ... other data for patient ...
@@ -213,14 +216,21 @@ or in JSON:
 <pre class="json" fragment="Patient">
 {
   "resourceType" : "Patient",
-  "http://acme.org/fhir/ExtensionDefinition/trial-status" : [{
-    "code" : { "valueCode" : "unsure" },
-    "date" : { "valueDate" : "2009-03-14" }, 
-    "http://acme.org/fhir/ExtensionDefinition/registrar" : [{ "valueReference" : {
-      "reference" : "Practitioner/example"
+  "extension" : [{
+    "url" : "http://acme.org/fhir/ExtensionDefinition/trial-status",
+    "extension" : [{
+      "url" : "code",
+      "valueCode" : "unsure"
+    }, {
+      "url" : "date",
+      "valueDate" : "2009-03-14" 
+    }, {
+      "url" : "http://acme.org/fhir/ExtensionDefinition/registrar",
+      "valueReference" : {
+        "reference" : "Practitioner/example"
       }
     }]
-  }
+  }]
   ... other data for patient ...
 }
 </pre>
@@ -283,11 +293,10 @@ Or in JSON:
 <pre class="json">
 {
   "resourceType" : "Procedure",
-  "modifier" : { 
-    "http://example.org/fhir/ExtensionDefinition/negation" : [{
-      "boolean" : "true"
-      }],
-    }
+  "modifierExtension" : [{ 
+    "url" : "http://example.org/fhir/ExtensionDefinition/negation",
+    "valueBoolean" : "true"
+  }],
   .. other content ... 
 }
 </pre>
