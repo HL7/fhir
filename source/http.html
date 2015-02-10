@@ -721,7 +721,7 @@ resource references, url elements, or &lt;a href="" &amp; &lt;img src="" in the 
 In order to allow the client to know the outcomes of processing the entry, and the identities
 assigned to the resources by the server, the server SHALL return a <a href="extras.html#bundle">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> = "transaction-response" that contains one entry for each entry in the
-transaction, with the outcome of processing the entry.
+transaction, in the same order, with the outcome of processing the entry.
 </p>
 
 <p>
