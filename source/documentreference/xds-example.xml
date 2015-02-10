@@ -45,6 +45,7 @@
             <display value="History and Physical"/>
           </coding>
         </type>
+        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/> 
         <author>
           <reference value="cid:123@healthintersections.com.au/Practitioner/a3"/>
         </author>
@@ -55,10 +56,11 @@
         <indexed value="2013-07-01T23:11:33+10:00"/>
         <status value="current"/>
         <description value="Physical"/>
-        <primaryLanguage value="en-us"/>
-        <mimeType value="text/plain"/>
-        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/>
-        <location value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+        <content>
+          <contentType value="text/plain"/>
+          <language value="en-us"/> 
+          <url value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+        </content>
         <context>
           <period>
             <start value="2004-12-23T08:00:00"/>

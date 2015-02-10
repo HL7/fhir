@@ -1502,7 +1502,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     BindingSpecification cd = definitions.getBindingByReference("#"+name);
     if (cd == null)
       cd = definitions.getBindingByName(name);
-
+    
     String csn = null;
     String vsn = null;
     
@@ -1609,6 +1609,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String getBSTypeDesc(BindingSpecification cd) {
+    if (cd == null || cd.getBindingStrength() == null) // partial build
+      return "Unknown";
     switch (cd.getBindingStrength()) {
     case Required: return "(<a href=\"terminologies.html#code\">Fixed</a>)";
     case Preferred: return "(<a href=\"terminologies.html#incomplete\">Incomplete</a>)";

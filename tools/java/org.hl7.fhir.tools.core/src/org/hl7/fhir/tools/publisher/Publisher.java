@@ -185,6 +185,7 @@ import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.implementations.objectivec.ObjectiveCGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -454,11 +455,18 @@ public class Publisher implements URIResolver {
     }
     if (!doAny || !(new File(page.getFolders().dstDir + "qa.html").exists()))
       buildFlags.put("all", true); // nothing - build all
-    buildFlags.put("all", true); // override partial bild until it can figured out
+     //buildFlags.put("all", true); // override partial bild until it can figured out
     cache.save();
 
-    if (!buildFlags.get("all"))
+    if (!buildFlags.get("all")) {
       page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (String n : buildFlags.keySet()) 
+        if (buildFlags.get(n))
+          b.append(n);
+      page.log("  Build: "+b.toString(), LogMessageType.Process);
+    } else 
+      page.log("Full Build", LogMessageType.Process);
     Utilities.createDirectory(page.getFolders().dstDir);
     Utilities.deleteTempFiles();
 
@@ -894,7 +902,7 @@ public class Publisher implements URIResolver {
   private void loadValueSets2() throws Exception {
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
-    if (isGenerate) {
+    if (isGenerate && wantBuild("ValueSet")) {
       produceResource1(r, false);
       produceResource2(r, false, null);
     }
