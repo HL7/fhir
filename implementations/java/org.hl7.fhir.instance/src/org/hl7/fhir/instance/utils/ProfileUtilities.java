@@ -103,7 +103,7 @@ public class ProfileUtilities {
     {
       String p = e.getPath();
       
-      if (e != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p)) 
+      if (path != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p))
       {
     	/* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
     	 * structure.
