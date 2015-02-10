@@ -1467,29 +1467,31 @@ public class Publisher implements URIResolver {
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir,
         page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()));
 
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
+    if (buildFlags.get("all")) {
+      for (PlatformGenerator gen : page.getReferenceImplementations()) {
+        page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 
-      String destDir = page.getFolders().dstDir;
-      String implDir = page.getFolders().implDir(gen.getName());
+        String destDir = page.getFolders().dstDir;
+        String implDir = page.getFolders().implDir(gen.getName());
 
-      if (!gen.isECoreGenerator())
-        gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
-      else
-        gen.generate(eCoreDefs, destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
-    }
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesCompile()) {
-        page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-        if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page)) {
-          // Must always be able to compile Java to go on. Also, if we're
-          // building
-          // the web build, all generators that can compile, must compile
-          // without error.
-          if (gen.getName().equals("java") || web)
-            throw new Exception("Compile " + gen.getName() + " failed");
-          else
-            page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
+        if (!gen.isECoreGenerator())
+          gen.generate(page.getDefinitions(), destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
+        else
+          gen.generate(eCoreDefs, destDir, implDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
+      }
+      for (PlatformGenerator gen : page.getReferenceImplementations()) {
+        if (gen.doesCompile()) {
+          page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
+          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page)) {
+            // Must always be able to compile Java to go on. Also, if we're
+            // building
+            // the web build, all generators that can compile, must compile
+            // without error.
+            if (gen.getName().equals("java") || web)
+              throw new Exception("Compile " + gen.getName() + " failed");
+            else
+              page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
+          }
         }
       }
     }
