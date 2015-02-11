@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -76,6 +76,7 @@ public enum ResourceType {
     ImagingStudy,
     Provenance,
     Device,
+    StructureDefinition,
     Order,
     Procedure,
     DiagnosticReport,
@@ -254,6 +255,8 @@ public enum ResourceType {
       return "provenance";
     case Device:
       return "device";
+    case StructureDefinition:
+      return "structuredefinition";
     case Order:
       return "order";
     case Procedure:

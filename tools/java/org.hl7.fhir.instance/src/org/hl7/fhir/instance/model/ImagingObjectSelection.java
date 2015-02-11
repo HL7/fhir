@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -55,28 +55,20 @@ public class ImagingObjectSelection extends DomainResource {
         protected OidType uid;
 
         /**
-         * The DICOM Application Entity Title where the study can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.
-         */
-        @Child(name="retrieveAETitle", type={IdType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="AE Title where may be retrieved", formalDefinition="The DICOM Application Entity Title where the study can be retrieved.\nNote that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection." )
-        protected IdType retrieveAETitle;
-
-        /**
          * WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        @Child(name="retrieveUrl", type={UriType.class}, order=3, min=0, max=1)
+        @Child(name="url", type={UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection." )
-        protected UriType retrieveUrl;
+        protected UriType url;
 
         /**
          * Series indetity and locating information of the DICOM SOP instances in the selection.
          */
-        @Child(name="series", type={}, order=4, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name="series", type={}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Series identity of the selected instances", formalDefinition="Series indetity and locating information of the DICOM SOP instances in the selection." )
         protected List<SeriesComponent> series;
 
-        private static final long serialVersionUID = -1655229615L;
+        private static final long serialVersionUID = -1632673574L;
 
       public StudyComponent() {
         super();
@@ -133,103 +125,50 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
         }
 
         /**
-         * @return {@link #retrieveAETitle} (The DICOM Application Entity Title where the study can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
+         * @return {@link #url} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public IdType getRetrieveAETitleElement() { 
-          if (this.retrieveAETitle == null)
+        public UriType getUrlElement() { 
+          if (this.url == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StudyComponent.retrieveAETitle");
+              throw new Error("Attempt to auto-create StudyComponent.url");
             else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType(); // bb
-          return this.retrieveAETitle;
+              this.url = new UriType(); // bb
+          return this.url;
         }
 
-        public boolean hasRetrieveAETitleElement() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasRetrieveAETitle() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
-        }
-
-        /**
-         * @param value {@link #retrieveAETitle} (The DICOM Application Entity Title where the study can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
-         */
-        public StudyComponent setRetrieveAETitleElement(IdType value) { 
-          this.retrieveAETitle = value;
-          return this;
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
         /**
-         * @return The DICOM Application Entity Title where the study can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.
+         * @param value {@link #url} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public String getRetrieveAETitle() { 
-          return this.retrieveAETitle == null ? null : this.retrieveAETitle.getValue();
-        }
-
-        /**
-         * @param value The DICOM Application Entity Title where the study can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.
-         */
-        public StudyComponent setRetrieveAETitle(String value) { 
-          if (Utilities.noString(value))
-            this.retrieveAETitle = null;
-          else {
-            if (this.retrieveAETitle == null)
-              this.retrieveAETitle = new IdType();
-            this.retrieveAETitle.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #retrieveUrl} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
-         */
-        public UriType getRetrieveUrlElement() { 
-          if (this.retrieveUrl == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StudyComponent.retrieveUrl");
-            else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType(); // bb
-          return this.retrieveUrl;
-        }
-
-        public boolean hasRetrieveUrlElement() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
-        }
-
-        public boolean hasRetrieveUrl() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
-        }
-
-        /**
-         * @param value {@link #retrieveUrl} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
-         */
-        public StudyComponent setRetrieveUrlElement(UriType value) { 
-          this.retrieveUrl = value;
+        public StudyComponent setUrlElement(UriType value) { 
+          this.url = value;
           return this;
         }
 
         /**
          * @return WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        public String getRetrieveUrl() { 
-          return this.retrieveUrl == null ? null : this.retrieveUrl.getValue();
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        public StudyComponent setRetrieveUrl(String value) { 
+        public StudyComponent setUrl(String value) { 
           if (Utilities.noString(value))
-            this.retrieveUrl = null;
+            this.url = null;
           else {
-            if (this.retrieveUrl == null)
-              this.retrieveUrl = new UriType();
-            this.retrieveUrl.setValue(value);
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
           }
           return this;
         }
@@ -267,8 +206,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("uid", "oid", "Study instance uid of the SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, uid));
-          childrenList.add(new Property("retrieveAETitle", "id", "The DICOM Application Entity Title where the study can be retrieved.\nNote that this AE Title is provided to retrieve all SOP instances of the study, not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, retrieveAETitle));
-          childrenList.add(new Property("retrieveUrl", "uri", "WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, retrieveUrl));
+          childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("series", "", "Series indetity and locating information of the DICOM SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
@@ -276,8 +214,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
         StudyComponent dst = new StudyComponent();
         copyValues(dst);
         dst.uid = uid == null ? null : uid.copy();
-        dst.retrieveAETitle = retrieveAETitle == null ? null : retrieveAETitle.copy();
-        dst.retrieveUrl = retrieveUrl == null ? null : retrieveUrl.copy();
+        dst.url = url == null ? null : url.copy();
         if (series != null) {
           dst.series = new ArrayList<SeriesComponent>();
           for (SeriesComponent i : series)
@@ -287,8 +224,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (retrieveAETitle == null || retrieveAETitle.isEmpty())
-           && (retrieveUrl == null || retrieveUrl.isEmpty()) && (series == null || series.isEmpty())
+        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty()) && (series == null || series.isEmpty())
           ;
       }
 
@@ -299,41 +235,28 @@ Note that this AE Title is provided to retrieve all SOP instances of the study, 
         /**
          * Series instance uid of the SOP instances in the selection.
          */
-        @Child(name="uid", type={OidType.class}, order=1, min=1, max=1)
+        @Child(name="uid", type={OidType.class}, order=1, min=0, max=1)
         @Description(shortDefinition="Series instance uid", formalDefinition="Series instance uid of the SOP instances in the selection." )
         protected OidType uid;
 
         /**
-         * The DICOM Application Entity Title where the series can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.
-         */
-        @Child(name="retrieveAETitle", type={IdType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="AE Title where may be retrieved", formalDefinition="The DICOM Application Entity Title where the series can be retrieved.\nNote that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection." )
-        protected IdType retrieveAETitle;
-
-        /**
          * WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        @Child(name="retrieveUrl", type={UriType.class}, order=3, min=0, max=1)
+        @Child(name="url", type={UriType.class}, order=2, min=0, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection." )
-        protected UriType retrieveUrl;
+        protected UriType url;
 
         /**
          * Identity and locating information of the selected DICOM SOP instances.
          */
-        @Child(name="instance", type={}, order=4, min=1, max=Child.MAX_UNLIMITED)
+        @Child(name="instance", type={}, order=3, min=1, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="The selected instance", formalDefinition="Identity and locating information of the selected DICOM SOP instances." )
         protected List<InstanceComponent> instance;
 
-        private static final long serialVersionUID = -156906991L;
+        private static final long serialVersionUID = 229247770L;
 
       public SeriesComponent() {
         super();
-      }
-
-      public SeriesComponent(OidType uid) {
-        super();
-        this.uid = uid;
       }
 
         /**
@@ -375,110 +298,61 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
          * @param value Series instance uid of the SOP instances in the selection.
          */
         public SeriesComponent setUid(String value) { 
+          if (Utilities.noString(value))
+            this.uid = null;
+          else {
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #retrieveAETitle} (The DICOM Application Entity Title where the series can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
-         */
-        public IdType getRetrieveAETitleElement() { 
-          if (this.retrieveAETitle == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SeriesComponent.retrieveAETitle");
-            else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType(); // bb
-          return this.retrieveAETitle;
-        }
-
-        public boolean hasRetrieveAETitleElement() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
-        }
-
-        public boolean hasRetrieveAETitle() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
-        }
-
-        /**
-         * @param value {@link #retrieveAETitle} (The DICOM Application Entity Title where the series can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
-         */
-        public SeriesComponent setRetrieveAETitleElement(IdType value) { 
-          this.retrieveAETitle = value;
-          return this;
-        }
-
-        /**
-         * @return The DICOM Application Entity Title where the series can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.
-         */
-        public String getRetrieveAETitle() { 
-          return this.retrieveAETitle == null ? null : this.retrieveAETitle.getValue();
-        }
-
-        /**
-         * @param value The DICOM Application Entity Title where the series can be retrieved.
-Note that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.
-         */
-        public SeriesComponent setRetrieveAETitle(String value) { 
-          if (Utilities.noString(value))
-            this.retrieveAETitle = null;
-          else {
-            if (this.retrieveAETitle == null)
-              this.retrieveAETitle = new IdType();
-            this.retrieveAETitle.setValue(value);
           }
           return this;
         }
 
         /**
-         * @return {@link #retrieveUrl} (WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
+         * @return {@link #url} (WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getRetrieveUrlElement() { 
-          if (this.retrieveUrl == null)
+        public UriType getUrlElement() { 
+          if (this.url == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SeriesComponent.retrieveUrl");
+              throw new Error("Attempt to auto-create SeriesComponent.url");
             else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType(); // bb
-          return this.retrieveUrl;
+              this.url = new UriType(); // bb
+          return this.url;
         }
 
-        public boolean hasRetrieveUrlElement() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasRetrieveUrl() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
         /**
-         * @param value {@link #retrieveUrl} (WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
+         * @param value {@link #url} (WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public SeriesComponent setRetrieveUrlElement(UriType value) { 
-          this.retrieveUrl = value;
+        public SeriesComponent setUrlElement(UriType value) { 
+          this.url = value;
           return this;
         }
 
         /**
          * @return WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        public String getRetrieveUrl() { 
-          return this.retrieveUrl == null ? null : this.retrieveUrl.getValue();
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        public SeriesComponent setRetrieveUrl(String value) { 
+        public SeriesComponent setUrl(String value) { 
           if (Utilities.noString(value))
-            this.retrieveUrl = null;
+            this.url = null;
           else {
-            if (this.retrieveUrl == null)
-              this.retrieveUrl = new UriType();
-            this.retrieveUrl.setValue(value);
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
           }
           return this;
         }
@@ -516,8 +390,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("uid", "oid", "Series instance uid of the SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, uid));
-          childrenList.add(new Property("retrieveAETitle", "id", "The DICOM Application Entity Title where the series can be retrieved.\nNote that this AE Title is provided to retrieve all SOP instances of the series not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, retrieveAETitle));
-          childrenList.add(new Property("retrieveUrl", "uri", "WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, retrieveUrl));
+          childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the series Note that this URL retrieves all SOP instances of the series not only those in the selection.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("instance", "", "Identity and locating information of the selected DICOM SOP instances.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
 
@@ -525,8 +398,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         SeriesComponent dst = new SeriesComponent();
         copyValues(dst);
         dst.uid = uid == null ? null : uid.copy();
-        dst.retrieveAETitle = retrieveAETitle == null ? null : retrieveAETitle.copy();
-        dst.retrieveUrl = retrieveUrl == null ? null : retrieveUrl.copy();
+        dst.url = url == null ? null : url.copy();
         if (instance != null) {
           dst.instance = new ArrayList<InstanceComponent>();
           for (InstanceComponent i : instance)
@@ -536,8 +408,7 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (uid == null || uid.isEmpty()) && (retrieveAETitle == null || retrieveAETitle.isEmpty())
-           && (retrieveUrl == null || retrieveUrl.isEmpty()) && (instance == null || instance.isEmpty())
+        return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty()) && (instance == null || instance.isEmpty())
           ;
       }
 
@@ -560,29 +431,30 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         protected OidType uid;
 
         /**
-         * The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.
-         */
-        @Child(name="retrieveAETitle", type={IdType.class}, order=3, min=0, max=1)
-        @Description(shortDefinition="AE Title where may be retrieved", formalDefinition="The DICOM Application Entity Title where the DICOM SOP instance can be retrieved." )
-        protected IdType retrieveAETitle;
-
-        /**
          * WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        @Child(name="retrieveUrl", type={UriType.class}, order=4, min=0, max=1)
+        @Child(name="url", type={UriType.class}, order=3, min=1, max=1)
         @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the DICOM SOP Instance." )
-        protected UriType retrieveUrl;
+        protected UriType url;
 
-        private static final long serialVersionUID = 1148429294L;
+        /**
+         * Identity and location information of the frames in the selected instance.
+         */
+        @Child(name="frames", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="The frame set", formalDefinition="Identity and location information of the frames in the selected instance." )
+        protected List<FramesComponent> frames;
+
+        private static final long serialVersionUID = 1641180916L;
 
       public InstanceComponent() {
         super();
       }
 
-      public InstanceComponent(OidType sopClass, OidType uid) {
+      public InstanceComponent(OidType sopClass, OidType uid, UriType url) {
         super();
         this.sopClass = sopClass;
         this.uid = uid;
+        this.url = url;
       }
 
         /**
@@ -676,109 +548,86 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         }
 
         /**
-         * @return {@link #retrieveAETitle} (The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
+         * @return {@link #url} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public IdType getRetrieveAETitleElement() { 
-          if (this.retrieveAETitle == null)
+        public UriType getUrlElement() { 
+          if (this.url == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InstanceComponent.retrieveAETitle");
+              throw new Error("Attempt to auto-create InstanceComponent.url");
             else if (Configuration.doAutoCreate())
-              this.retrieveAETitle = new IdType(); // bb
-          return this.retrieveAETitle;
+              this.url = new UriType(); // bb
+          return this.url;
         }
 
-        public boolean hasRetrieveAETitleElement() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasRetrieveAETitle() { 
-          return this.retrieveAETitle != null && !this.retrieveAETitle.isEmpty();
-        }
-
-        /**
-         * @param value {@link #retrieveAETitle} (The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.). This is the underlying object with id, value and extensions. The accessor "getRetrieveAETitle" gives direct access to the value
-         */
-        public InstanceComponent setRetrieveAETitleElement(IdType value) { 
-          this.retrieveAETitle = value;
-          return this;
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
         }
 
         /**
-         * @return The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.
+         * @param value {@link #url} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public String getRetrieveAETitle() { 
-          return this.retrieveAETitle == null ? null : this.retrieveAETitle.getValue();
-        }
-
-        /**
-         * @param value The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.
-         */
-        public InstanceComponent setRetrieveAETitle(String value) { 
-          if (Utilities.noString(value))
-            this.retrieveAETitle = null;
-          else {
-            if (this.retrieveAETitle == null)
-              this.retrieveAETitle = new IdType();
-            this.retrieveAETitle.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #retrieveUrl} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
-         */
-        public UriType getRetrieveUrlElement() { 
-          if (this.retrieveUrl == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create InstanceComponent.retrieveUrl");
-            else if (Configuration.doAutoCreate())
-              this.retrieveUrl = new UriType(); // bb
-          return this.retrieveUrl;
-        }
-
-        public boolean hasRetrieveUrlElement() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
-        }
-
-        public boolean hasRetrieveUrl() { 
-          return this.retrieveUrl != null && !this.retrieveUrl.isEmpty();
-        }
-
-        /**
-         * @param value {@link #retrieveUrl} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getRetrieveUrl" gives direct access to the value
-         */
-        public InstanceComponent setRetrieveUrlElement(UriType value) { 
-          this.retrieveUrl = value;
+        public InstanceComponent setUrlElement(UriType value) { 
+          this.url = value;
           return this;
         }
 
         /**
          * @return WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        public String getRetrieveUrl() { 
-          return this.retrieveUrl == null ? null : this.retrieveUrl.getValue();
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        public InstanceComponent setRetrieveUrl(String value) { 
-          if (Utilities.noString(value))
-            this.retrieveUrl = null;
-          else {
-            if (this.retrieveUrl == null)
-              this.retrieveUrl = new UriType();
-            this.retrieveUrl.setValue(value);
-          }
+        public InstanceComponent setUrl(String value) { 
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
           return this;
+        }
+
+        /**
+         * @return {@link #frames} (Identity and location information of the frames in the selected instance.)
+         */
+        public List<FramesComponent> getFrames() { 
+          if (this.frames == null)
+            this.frames = new ArrayList<FramesComponent>();
+          return this.frames;
+        }
+
+        public boolean hasFrames() { 
+          if (this.frames == null)
+            return false;
+          for (FramesComponent item : this.frames)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #frames} (Identity and location information of the frames in the selected instance.)
+         */
+    // syntactic sugar
+        public FramesComponent addFrames() { //3
+          FramesComponent t = new FramesComponent();
+          if (this.frames == null)
+            this.frames = new ArrayList<FramesComponent>();
+          this.frames.add(t);
+          return t;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sopClass", "oid", "SOP class uid of the selected instance.", 0, java.lang.Integer.MAX_VALUE, sopClass));
           childrenList.add(new Property("uid", "oid", "SOP Instance uid of the selected instance.", 0, java.lang.Integer.MAX_VALUE, uid));
-          childrenList.add(new Property("retrieveAETitle", "id", "The DICOM Application Entity Title where the DICOM SOP instance can be retrieved.", 0, java.lang.Integer.MAX_VALUE, retrieveAETitle));
-          childrenList.add(new Property("retrieveUrl", "uri", "WADO-RS URL to retrieve the DICOM SOP Instance.", 0, java.lang.Integer.MAX_VALUE, retrieveUrl));
+          childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM SOP Instance.", 0, java.lang.Integer.MAX_VALUE, url));
+          childrenList.add(new Property("frames", "", "Identity and location information of the frames in the selected instance.", 0, java.lang.Integer.MAX_VALUE, frames));
         }
 
       public InstanceComponent copy() {
@@ -786,14 +635,168 @@ Note that this AE Title is provided to retrieve all SOP instances of the series 
         copyValues(dst);
         dst.sopClass = sopClass == null ? null : sopClass.copy();
         dst.uid = uid == null ? null : uid.copy();
-        dst.retrieveAETitle = retrieveAETitle == null ? null : retrieveAETitle.copy();
-        dst.retrieveUrl = retrieveUrl == null ? null : retrieveUrl.copy();
+        dst.url = url == null ? null : url.copy();
+        if (frames != null) {
+          dst.frames = new ArrayList<FramesComponent>();
+          for (FramesComponent i : frames)
+            dst.frames.add(i.copy());
+        };
         return dst;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (sopClass == null || sopClass.isEmpty()) && (uid == null || uid.isEmpty())
-           && (retrieveAETitle == null || retrieveAETitle.isEmpty()) && (retrieveUrl == null || retrieveUrl.isEmpty())
+           && (url == null || url.isEmpty()) && (frames == null || frames.isEmpty());
+      }
+
+  }
+
+    @Block()
+    public static class FramesComponent extends BackboneElement {
+        /**
+         * The frame numbers in the frame set.
+         */
+        @Child(name="frameNumbers", type={IntegerType.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Frame numbers", formalDefinition="The frame numbers in the frame set." )
+        protected List<IntegerType> frameNumbers;
+
+        /**
+         * WADO-RS URL to retrieve the DICOM frames.
+         */
+        @Child(name="url", type={UriType.class}, order=2, min=1, max=1)
+        @Description(shortDefinition="Retrieve URL", formalDefinition="WADO-RS URL to retrieve the DICOM frames." )
+        protected UriType url;
+
+        private static final long serialVersionUID = 587981442L;
+
+      public FramesComponent() {
+        super();
+      }
+
+      public FramesComponent(UriType url) {
+        super();
+        this.url = url;
+      }
+
+        /**
+         * @return {@link #frameNumbers} (The frame numbers in the frame set.)
+         */
+        public List<IntegerType> getFrameNumbers() { 
+          if (this.frameNumbers == null)
+            this.frameNumbers = new ArrayList<IntegerType>();
+          return this.frameNumbers;
+        }
+
+        public boolean hasFrameNumbers() { 
+          if (this.frameNumbers == null)
+            return false;
+          for (IntegerType item : this.frameNumbers)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #frameNumbers} (The frame numbers in the frame set.)
+         */
+    // syntactic sugar
+        public IntegerType addFrameNumbersElement() {//2 
+          IntegerType t = new IntegerType();
+          if (this.frameNumbers == null)
+            this.frameNumbers = new ArrayList<IntegerType>();
+          this.frameNumbers.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
+         */
+        public FramesComponent addFrameNumbers(int value) { //1
+          IntegerType t = new IntegerType();
+          t.setValue(value);
+          if (this.frameNumbers == null)
+            this.frameNumbers = new ArrayList<IntegerType>();
+          this.frameNumbers.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
+         */
+        public boolean hasFrameNumbers(int value) { 
+          if (this.frameNumbers == null)
+            return false;
+          for (IntegerType v : this.frameNumbers)
+            if (v.equals(value)) // integer
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #url} (WADO-RS URL to retrieve the DICOM frames.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         */
+        public UriType getUrlElement() { 
+          if (this.url == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create FramesComponent.url");
+            else if (Configuration.doAutoCreate())
+              this.url = new UriType(); // bb
+          return this.url;
+        }
+
+        public boolean hasUrlElement() { 
+          return this.url != null && !this.url.isEmpty();
+        }
+
+        public boolean hasUrl() { 
+          return this.url != null && !this.url.isEmpty();
+        }
+
+        /**
+         * @param value {@link #url} (WADO-RS URL to retrieve the DICOM frames.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+         */
+        public FramesComponent setUrlElement(UriType value) { 
+          this.url = value;
+          return this;
+        }
+
+        /**
+         * @return WADO-RS URL to retrieve the DICOM frames.
+         */
+        public String getUrl() { 
+          return this.url == null ? null : this.url.getValue();
+        }
+
+        /**
+         * @param value WADO-RS URL to retrieve the DICOM frames.
+         */
+        public FramesComponent setUrl(String value) { 
+            if (this.url == null)
+              this.url = new UriType();
+            this.url.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("frameNumbers", "integer", "The frame numbers in the frame set.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
+          childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM frames.", 0, java.lang.Integer.MAX_VALUE, url));
+        }
+
+      public FramesComponent copy() {
+        FramesComponent dst = new FramesComponent();
+        copyValues(dst);
+        if (frameNumbers != null) {
+          dst.frameNumbers = new ArrayList<IntegerType>();
+          for (IntegerType i : frameNumbers)
+            dst.frameNumbers.add(i.copy());
+        };
+        dst.url = url == null ? null : url.copy();
+        return dst;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (frameNumbers == null || frameNumbers.isEmpty()) && (url == null || url.isEmpty())
           ;
       }
 

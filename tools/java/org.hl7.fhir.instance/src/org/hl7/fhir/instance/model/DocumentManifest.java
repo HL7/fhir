@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -134,7 +134,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
-    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=1, max=1)
+    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=0, max=1)
     @Description(shortDefinition="Unique Identifier for the set of documents", formalDefinition="A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts." )
     protected Identifier masterIdentifier;
 
@@ -148,14 +148,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
      */
-    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=0, max=1)
     @Description(shortDefinition="The subject of the set of documents", formalDefinition="Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)." )
-    protected List<Reference> subject;
-    /**
-     * The actual objects that are the target of the reference (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
-     */
-    protected List<Resource> subjectTarget;
+    protected Reference subject;
 
+    /**
+     * The actual object that is the target of the reference (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
+     */
+    protected Resource subjectTarget;
 
     /**
      * A patient, practitioner, or organization for which this set of documents is intended.
@@ -179,7 +179,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    @Child(name="author", type={Practitioner.class, Device.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="author", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who and/or what authored the document", formalDefinition="Identifies who is responsible for adding the information to the document." )
     protected List<Reference> author;
     /**
@@ -247,15 +247,14 @@ public class DocumentManifest extends DomainResource {
     protected List<Resource> contentTarget;
 
 
-    private static final long serialVersionUID = 388610018L;
+    private static final long serialVersionUID = -383334336L;
 
     public DocumentManifest() {
       super();
     }
 
-    public DocumentManifest(Identifier masterIdentifier, Enumeration<DocumentReferenceStatus> status) {
+    public DocumentManifest(Enumeration<DocumentReferenceStatus> status) {
       super();
-      this.masterIdentifier = masterIdentifier;
       this.status = status;
     }
 
@@ -316,40 +315,40 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public List<Reference> getSubject() { 
+    public Reference getSubject() { 
       if (this.subject == null)
-        this.subject = new ArrayList<Reference>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference(); // cc
       return this.subject;
     }
 
     public boolean hasSubject() { 
-      if (this.subject == null)
-        return false;
-      for (Reference item : this.subject)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
-     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
+     * @param value {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    // syntactic sugar
-    public Reference addSubject() { //3
-      Reference t = new Reference();
-      if (this.subject == null)
-        this.subject = new ArrayList<Reference>();
-      this.subject.add(t);
-      return t;
+    public DocumentManifest setSubject(Reference value) { 
+      this.subject = value;
+      return this;
     }
 
     /**
-     * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public List<Resource> getSubjectTarget() { 
-      if (this.subjectTarget == null)
-        this.subjectTarget = new ArrayList<Resource>();
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
+     */
+    public DocumentManifest setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
     }
 
     /**
@@ -760,7 +759,7 @@ public class DocumentManifest extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recipient", "Reference(Patient|Practitioner|Organization)", "A patient, practitioner, or organization for which this set of documents is intended.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -779,11 +778,7 @@ public class DocumentManifest extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        if (subject != null) {
-          dst.subject = new ArrayList<Reference>();
-          for (Reference i : subject)
-            dst.subject.add(i.copy());
-        };
+        dst.subject = subject == null ? null : subject.copy();
         if (recipient != null) {
           dst.recipient = new ArrayList<Reference>();
           for (Reference i : recipient)
@@ -827,30 +822,32 @@ public class DocumentManifest extends DomainResource {
     return ResourceType.DocumentManifest;
    }
 
+  @SearchParamDefinition(name="supersedes", path="DocumentManifest.supercedes", description="If this document manifest replaces another", type="reference" )
+  public static final String SP_SUPERSEDES = "supersedes";
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered in error", type="token" )
+  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
+  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
+  public static final String SP_RECIPIENT = "recipient";
   @SearchParamDefinition(name="content", path="DocumentManifest.content", description="Contents of this set of documents", type="reference" )
   public static final String SP_CONTENT = "content";
   @SearchParamDefinition(name="author", path="DocumentManifest.author", description="Who and/or what authored the document", type="reference" )
   public static final String SP_AUTHOR = "author";
   @SearchParamDefinition(name="patient", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="supersedes", path="DocumentManifest.supercedes", description="If this document manifest replaces another", type="reference" )
-  public static final String SP_SUPERSEDES = "supersedes";
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered in error", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="source", path="DocumentManifest.source", description="The source system/application/software", type="string" )
+  public static final String SP_SOURCE = "source";
   @SearchParamDefinition(name="created", path="DocumentManifest.created", description="When this document manifest created", type="date" )
   public static final String SP_CREATED = "created";
-  @SearchParamDefinition(name="confidentiality", path="DocumentManifest.confidentiality", description="Sensitivity of set of documents", type="token" )
-  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
-  public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="type", path="DocumentManifest.type", description="What kind of document set this is", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="confidentiality", path="DocumentManifest.confidentiality", description="Sensitivity of set of documents", type="token" )
+  public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="recipient", path="DocumentManifest.recipient", description="Intended to get notified about this set of documents", type="reference" )
-  public static final String SP_RECIPIENT = "recipient";
 
 }
 

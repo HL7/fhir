@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Feb 10, 2015 07:37+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -375,312 +375,6 @@ public class DocumentReference extends DomainResource {
   }
 
     @Block()
-    public static class DocumentReferenceServiceComponent extends BackboneElement {
-        /**
-         * The type of the service that can be used to access the documents.
-         */
-        @Child(name="type", type={CodeableConcept.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="Type of service (i.e. XDS.b)", formalDefinition="The type of the service that can be used to access the documents." )
-        protected CodeableConcept type;
-
-        /**
-         * Where the service end-point is located.
-         */
-        @Child(name="address", type={StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Where service is located (usually a URL)", formalDefinition="Where the service end-point is located." )
-        protected StringType address;
-
-        /**
-         * A list of named parameters that is used in the service call.
-         */
-        @Child(name="parameter", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Service call parameters", formalDefinition="A list of named parameters that is used in the service call." )
-        protected List<DocumentReferenceServiceParameterComponent> parameter;
-
-        private static final long serialVersionUID = 1797455740L;
-
-      public DocumentReferenceServiceComponent() {
-        super();
-      }
-
-      public DocumentReferenceServiceComponent(CodeableConcept type) {
-        super();
-        this.type = type;
-      }
-
-        /**
-         * @return {@link #type} (The type of the service that can be used to access the documents.)
-         */
-        public CodeableConcept getType() { 
-          if (this.type == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceServiceComponent.type");
-            else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept(); // cc
-          return this.type;
-        }
-
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        /**
-         * @param value {@link #type} (The type of the service that can be used to access the documents.)
-         */
-        public DocumentReferenceServiceComponent setType(CodeableConcept value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #address} (Where the service end-point is located.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
-         */
-        public StringType getAddressElement() { 
-          if (this.address == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceServiceComponent.address");
-            else if (Configuration.doAutoCreate())
-              this.address = new StringType(); // bb
-          return this.address;
-        }
-
-        public boolean hasAddressElement() { 
-          return this.address != null && !this.address.isEmpty();
-        }
-
-        public boolean hasAddress() { 
-          return this.address != null && !this.address.isEmpty();
-        }
-
-        /**
-         * @param value {@link #address} (Where the service end-point is located.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
-         */
-        public DocumentReferenceServiceComponent setAddressElement(StringType value) { 
-          this.address = value;
-          return this;
-        }
-
-        /**
-         * @return Where the service end-point is located.
-         */
-        public String getAddress() { 
-          return this.address == null ? null : this.address.getValue();
-        }
-
-        /**
-         * @param value Where the service end-point is located.
-         */
-        public DocumentReferenceServiceComponent setAddress(String value) { 
-          if (Utilities.noString(value))
-            this.address = null;
-          else {
-            if (this.address == null)
-              this.address = new StringType();
-            this.address.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #parameter} (A list of named parameters that is used in the service call.)
-         */
-        public List<DocumentReferenceServiceParameterComponent> getParameter() { 
-          if (this.parameter == null)
-            this.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
-          return this.parameter;
-        }
-
-        public boolean hasParameter() { 
-          if (this.parameter == null)
-            return false;
-          for (DocumentReferenceServiceParameterComponent item : this.parameter)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #parameter} (A list of named parameters that is used in the service call.)
-         */
-    // syntactic sugar
-        public DocumentReferenceServiceParameterComponent addParameter() { //3
-          DocumentReferenceServiceParameterComponent t = new DocumentReferenceServiceParameterComponent();
-          if (this.parameter == null)
-            this.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
-          this.parameter.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "The type of the service that can be used to access the documents.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("address", "string", "Where the service end-point is located.", 0, java.lang.Integer.MAX_VALUE, address));
-          childrenList.add(new Property("parameter", "", "A list of named parameters that is used in the service call.", 0, java.lang.Integer.MAX_VALUE, parameter));
-        }
-
-      public DocumentReferenceServiceComponent copy() {
-        DocumentReferenceServiceComponent dst = new DocumentReferenceServiceComponent();
-        copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.address = address == null ? null : address.copy();
-        if (parameter != null) {
-          dst.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
-          for (DocumentReferenceServiceParameterComponent i : parameter)
-            dst.parameter.add(i.copy());
-        };
-        return dst;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (address == null || address.isEmpty())
-           && (parameter == null || parameter.isEmpty());
-      }
-
-  }
-
-    @Block()
-    public static class DocumentReferenceServiceParameterComponent extends BackboneElement {
-        /**
-         * The name of a parameter.
-         */
-        @Child(name="name", type={StringType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="Parameter name in service call", formalDefinition="The name of a parameter." )
-        protected StringType name;
-
-        /**
-         * The value of the named parameter.
-         */
-        @Child(name="value", type={StringType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="Parameter value for the name", formalDefinition="The value of the named parameter." )
-        protected StringType value;
-
-        private static final long serialVersionUID = 395259392L;
-
-      public DocumentReferenceServiceParameterComponent() {
-        super();
-      }
-
-      public DocumentReferenceServiceParameterComponent(StringType name) {
-        super();
-        this.name = name;
-      }
-
-        /**
-         * @return {@link #name} (The name of a parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public StringType getNameElement() { 
-          if (this.name == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceServiceParameterComponent.name");
-            else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
-        }
-
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        /**
-         * @param value {@link #name} (The name of a parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public DocumentReferenceServiceParameterComponent setNameElement(StringType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of a parameter.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of a parameter.
-         */
-        public DocumentReferenceServiceParameterComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (The value of the named parameter.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
-         */
-        public StringType getValueElement() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DocumentReferenceServiceParameterComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new StringType(); // bb
-          return this.value;
-        }
-
-        public boolean hasValueElement() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (The value of the named parameter.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
-         */
-        public DocumentReferenceServiceParameterComponent setValueElement(StringType value) { 
-          this.value = value;
-          return this;
-        }
-
-        /**
-         * @return The value of the named parameter.
-         */
-        public String getValue() { 
-          return this.value == null ? null : this.value.getValue();
-        }
-
-        /**
-         * @param value The value of the named parameter.
-         */
-        public DocumentReferenceServiceParameterComponent setValue(String value) { 
-          if (Utilities.noString(value))
-            this.value = null;
-          else {
-            if (this.value == null)
-              this.value = new StringType();
-            this.value.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of a parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("value", "string", "The value of the named parameter.", 0, java.lang.Integer.MAX_VALUE, value));
-        }
-
-      public DocumentReferenceServiceParameterComponent copy() {
-        DocumentReferenceServiceParameterComponent dst = new DocumentReferenceServiceParameterComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        dst.value = value == null ? null : value.copy();
-        return dst;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
-      }
-
-  }
-
-    @Block()
     public static class DocumentReferenceContextComponent extends BackboneElement {
         /**
          * This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.
@@ -817,7 +511,7 @@ public class DocumentReference extends DomainResource {
     /**
      * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.
      */
-    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=1, max=1)
+    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=0, max=1)
     @Description(shortDefinition="Master Version Specific Identifier", formalDefinition="Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document." )
     protected Identifier masterIdentifier;
 
@@ -831,7 +525,7 @@ public class DocumentReference extends DomainResource {
     /**
      * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
      */
-    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=1, max=1)
+    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Who|what is the subject of the document", formalDefinition="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)." )
     protected Reference subject;
 
@@ -841,23 +535,30 @@ public class DocumentReference extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
+     * The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
      */
     @Child(name="type", type={CodeableConcept.class}, order=2, min=1, max=1)
-    @Description(shortDefinition="What kind of document this is (LOINC if possible)", formalDefinition="Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
+    @Description(shortDefinition="Precice type of document", formalDefinition="The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
     protected CodeableConcept type;
 
     /**
-     * A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type.
+     * The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).
      */
     @Child(name="class_", type={CodeableConcept.class}, order=3, min=0, max=1)
-    @Description(shortDefinition="Categorization of Document", formalDefinition="A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type." )
+    @Description(shortDefinition="High-level classification of document", formalDefinition="The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow)." )
     protected CodeableConcept class_;
+
+    /**
+     * An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.
+     */
+    @Child(name="format", type={UriType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType." )
+    protected List<UriType> format;
 
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    @Child(name="author", type={Practitioner.class, Device.class, Patient.class, RelatedPerson.class}, order=4, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="author", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=5, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who and/or what authored the document", formalDefinition="Identifies who is responsible for adding the information to the document." )
     protected List<Reference> author;
     /**
@@ -869,7 +570,7 @@ public class DocumentReference extends DomainResource {
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
-    @Child(name="custodian", type={Organization.class}, order=5, min=0, max=1)
+    @Child(name="custodian", type={Organization.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Org which maintains the document", formalDefinition="Identifies the organization or group who is responsible for ongoing maintenance of and access to the document." )
     protected Reference custodian;
 
@@ -881,14 +582,14 @@ public class DocumentReference extends DomainResource {
     /**
      * A reference to a domain or server that manages policies under which the document is accessed and/or made available.
      */
-    @Child(name="policyManager", type={UriType.class}, order=6, min=0, max=1)
+    @Child(name="policyManager", type={UriType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Manages access policies for the document", formalDefinition="A reference to a domain or server that manages policies under which the document is accessed and/or made available." )
     protected UriType policyManager;
 
     /**
      * Which person or organization authenticates that this document is valid.
      */
-    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=7, min=0, max=1)
+    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Who/What authenticated the document", formalDefinition="Which person or organization authenticates that this document is valid." )
     protected Reference authenticator;
 
@@ -900,122 +601,77 @@ public class DocumentReference extends DomainResource {
     /**
      * When the document was created.
      */
-    @Child(name="created", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Child(name="created", type={DateTimeType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Document creation time", formalDefinition="When the document was created." )
     protected DateTimeType created;
 
     /**
      * When the document reference was created.
      */
-    @Child(name="indexed", type={InstantType.class}, order=9, min=1, max=1)
+    @Child(name="indexed", type={InstantType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="When this document reference created", formalDefinition="When the document reference was created." )
     protected InstantType indexed;
 
     /**
      * The status of this document reference.
      */
-    @Child(name="status", type={CodeType.class}, order=10, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="current | superceded | entered in error", formalDefinition="The status of this document reference." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * The status of the underlying document.
      */
-    @Child(name="docStatus", type={CodeableConcept.class}, order=11, min=0, max=1)
+    @Child(name="docStatus", type={CodeableConcept.class}, order=12, min=0, max=1)
     @Description(shortDefinition="preliminary | final | appended | amended | entered in error", formalDefinition="The status of the underlying document." )
     protected CodeableConcept docStatus;
 
     /**
      * Relationships that this document has with other document references that already exist.
      */
-    @Child(name="relatesTo", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="relatesTo", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Relationships to other documents", formalDefinition="Relationships that this document has with other document references that already exist." )
     protected List<DocumentReferenceRelatesToComponent> relatesTo;
 
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    @Child(name="description", type={StringType.class}, order=13, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
-     * A code specifying the level of confidentiality of the XDS Document.
+     * A set of Security-Tag codes specifying the level of privacy/security of the Document.
      */
-    @Child(name="confidentiality", type={CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Sensitivity of source document", formalDefinition="A code specifying the level of confidentiality of the XDS Document." )
+    @Child(name="confidentiality", type={CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Sensitivity of source document", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document." )
     protected List<CodeableConcept> confidentiality;
 
     /**
-     * The primary language in which the source document is written.
+     * The document or url to the document along with critical metadata to prove content has integrity.
      */
-    @Child(name="primaryLanguage", type={CodeType.class}, order=15, min=0, max=1)
-    @Description(shortDefinition="The marked primary language for the document", formalDefinition="The primary language in which the source document is written." )
-    protected CodeType primaryLanguage;
-
-    /**
-     * The mime type of the source document.
-     */
-    @Child(name="mimeType", type={CodeType.class}, order=16, min=1, max=1)
-    @Description(shortDefinition="Mime type, + maybe character encoding", formalDefinition="The mime type of the source document." )
-    protected CodeType mimeType;
-
-    /**
-     * An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.
-     */
-    @Child(name="format", type={UriType.class}, order=17, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType." )
-    protected List<UriType> format;
-
-    /**
-     * The size of the source document this reference refers to in bytes.
-     */
-    @Child(name="size", type={IntegerType.class}, order=18, min=0, max=1)
-    @Description(shortDefinition="Size of the document in bytes", formalDefinition="The size of the source document this reference refers to in bytes." )
-    protected IntegerType size;
-
-    /**
-     * A hash of the source document to ensure that changes have not occurred.
-     */
-    @Child(name="hash", type={Base64BinaryType.class}, order=19, min=0, max=1)
-    @Description(shortDefinition="Base64 representation of SHA1", formalDefinition="A hash of the source document to ensure that changes have not occurred." )
-    protected Base64BinaryType hash;
-
-    /**
-     * A url at which the document can be accessed.
-     */
-    @Child(name="location", type={UriType.class}, order=20, min=0, max=1)
-    @Description(shortDefinition="Where to access the document", formalDefinition="A url at which the document can be accessed." )
-    protected UriType location;
-
-    /**
-     * A description of a service call that can be used to retrieve the document.
-     */
-    @Child(name="service", type={}, order=21, min=0, max=1)
-    @Description(shortDefinition="If access is not fully described by location", formalDefinition="A description of a service call that can be used to retrieve the document." )
-    protected DocumentReferenceServiceComponent service;
+    @Child(name="content", type={Attachment.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Where to access the document", formalDefinition="The document or url to the document along with critical metadata to prove content has integrity." )
+    protected List<Attachment> content;
 
     /**
      * The clinical context in which the document was prepared.
      */
-    @Child(name="context", type={}, order=22, min=0, max=1)
+    @Child(name="context", type={}, order=17, min=0, max=1)
     @Description(shortDefinition="Clinical context of document", formalDefinition="The clinical context in which the document was prepared." )
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = -752030368L;
+    private static final long serialVersionUID = -392974585L;
 
     public DocumentReference() {
       super();
     }
 
-    public DocumentReference(Identifier masterIdentifier, Reference subject, CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status, CodeType mimeType) {
+    public DocumentReference(CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status) {
       super();
-      this.masterIdentifier = masterIdentifier;
-      this.subject = subject;
       this.type = type;
       this.indexed = indexed;
       this.status = status;
-      this.mimeType = mimeType;
     }
 
     /**
@@ -1112,7 +768,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     * @return {@link #type} (The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -1128,7 +784,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     * @param value {@link #type} (The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
      */
     public DocumentReference setType(CodeableConcept value) { 
       this.type = value;
@@ -1136,7 +792,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #class_} (A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type.)
+     * @return {@link #class_} (The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).)
      */
     public CodeableConcept getClass_() { 
       if (this.class_ == null)
@@ -1152,11 +808,65 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #class_} (A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type.)
+     * @param value {@link #class_} (The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).)
      */
     public DocumentReference setClass_(CodeableConcept value) { 
       this.class_ = value;
       return this;
+    }
+
+    /**
+     * @return {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     */
+    public List<UriType> getFormat() { 
+      if (this.format == null)
+        this.format = new ArrayList<UriType>();
+      return this.format;
+    }
+
+    public boolean hasFormat() { 
+      if (this.format == null)
+        return false;
+      for (UriType item : this.format)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     */
+    // syntactic sugar
+    public UriType addFormatElement() {//2 
+      UriType t = new UriType();
+      if (this.format == null)
+        this.format = new ArrayList<UriType>();
+      this.format.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     */
+    public DocumentReference addFormat(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
+      if (this.format == null)
+        this.format = new ArrayList<UriType>();
+      this.format.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #format} (An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.)
+     */
+    public boolean hasFormat(String value) { 
+      if (this.format == null)
+        return false;
+      for (UriType v : this.format)
+        if (v.equals(value)) // uri
+          return true;
+      return false;
     }
 
     /**
@@ -1573,7 +1283,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
+     * @return {@link #confidentiality} (A set of Security-Tag codes specifying the level of privacy/security of the Document.)
      */
     public List<CodeableConcept> getConfidentiality() { 
       if (this.confidentiality == null)
@@ -1591,7 +1301,7 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
+     * @return {@link #confidentiality} (A set of Security-Tag codes specifying the level of privacy/security of the Document.)
      */
     // syntactic sugar
     public CodeableConcept addConfidentiality() { //3
@@ -1603,318 +1313,33 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #primaryLanguage} (The primary language in which the source document is written.). This is the underlying object with id, value and extensions. The accessor "getPrimaryLanguage" gives direct access to the value
+     * @return {@link #content} (The document or url to the document along with critical metadata to prove content has integrity.)
      */
-    public CodeType getPrimaryLanguageElement() { 
-      if (this.primaryLanguage == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.primaryLanguage");
-        else if (Configuration.doAutoCreate())
-          this.primaryLanguage = new CodeType(); // bb
-      return this.primaryLanguage;
+    public List<Attachment> getContent() { 
+      if (this.content == null)
+        this.content = new ArrayList<Attachment>();
+      return this.content;
     }
 
-    public boolean hasPrimaryLanguageElement() { 
-      return this.primaryLanguage != null && !this.primaryLanguage.isEmpty();
-    }
-
-    public boolean hasPrimaryLanguage() { 
-      return this.primaryLanguage != null && !this.primaryLanguage.isEmpty();
-    }
-
-    /**
-     * @param value {@link #primaryLanguage} (The primary language in which the source document is written.). This is the underlying object with id, value and extensions. The accessor "getPrimaryLanguage" gives direct access to the value
-     */
-    public DocumentReference setPrimaryLanguageElement(CodeType value) { 
-      this.primaryLanguage = value;
-      return this;
-    }
-
-    /**
-     * @return The primary language in which the source document is written.
-     */
-    public String getPrimaryLanguage() { 
-      return this.primaryLanguage == null ? null : this.primaryLanguage.getValue();
-    }
-
-    /**
-     * @param value The primary language in which the source document is written.
-     */
-    public DocumentReference setPrimaryLanguage(String value) { 
-      if (Utilities.noString(value))
-        this.primaryLanguage = null;
-      else {
-        if (this.primaryLanguage == null)
-          this.primaryLanguage = new CodeType();
-        this.primaryLanguage.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #mimeType} (The mime type of the source document.). This is the underlying object with id, value and extensions. The accessor "getMimeType" gives direct access to the value
-     */
-    public CodeType getMimeTypeElement() { 
-      if (this.mimeType == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.mimeType");
-        else if (Configuration.doAutoCreate())
-          this.mimeType = new CodeType(); // bb
-      return this.mimeType;
-    }
-
-    public boolean hasMimeTypeElement() { 
-      return this.mimeType != null && !this.mimeType.isEmpty();
-    }
-
-    public boolean hasMimeType() { 
-      return this.mimeType != null && !this.mimeType.isEmpty();
-    }
-
-    /**
-     * @param value {@link #mimeType} (The mime type of the source document.). This is the underlying object with id, value and extensions. The accessor "getMimeType" gives direct access to the value
-     */
-    public DocumentReference setMimeTypeElement(CodeType value) { 
-      this.mimeType = value;
-      return this;
-    }
-
-    /**
-     * @return The mime type of the source document.
-     */
-    public String getMimeType() { 
-      return this.mimeType == null ? null : this.mimeType.getValue();
-    }
-
-    /**
-     * @param value The mime type of the source document.
-     */
-    public DocumentReference setMimeType(String value) { 
-        if (this.mimeType == null)
-          this.mimeType = new CodeType();
-        this.mimeType.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
-     */
-    public List<UriType> getFormat() { 
-      if (this.format == null)
-        this.format = new ArrayList<UriType>();
-      return this.format;
-    }
-
-    public boolean hasFormat() { 
-      if (this.format == null)
+    public boolean hasContent() { 
+      if (this.content == null)
         return false;
-      for (UriType item : this.format)
+      for (Attachment item : this.content)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
+     * @return {@link #content} (The document or url to the document along with critical metadata to prove content has integrity.)
      */
     // syntactic sugar
-    public UriType addFormatElement() {//2 
-      UriType t = new UriType();
-      if (this.format == null)
-        this.format = new ArrayList<UriType>();
-      this.format.add(t);
+    public Attachment addContent() { //3
+      Attachment t = new Attachment();
+      if (this.content == null)
+        this.content = new ArrayList<Attachment>();
+      this.content.add(t);
       return t;
-    }
-
-    /**
-     * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
-     */
-    public DocumentReference addFormat(String value) { //1
-      UriType t = new UriType();
-      t.setValue(value);
-      if (this.format == null)
-        this.format = new ArrayList<UriType>();
-      this.format.add(t);
-      return this;
-    }
-
-    /**
-     * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
-     */
-    public boolean hasFormat(String value) { 
-      if (this.format == null)
-        return false;
-      for (UriType v : this.format)
-        if (v.equals(value)) // uri
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #size} (The size of the source document this reference refers to in bytes.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
-     */
-    public IntegerType getSizeElement() { 
-      if (this.size == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.size");
-        else if (Configuration.doAutoCreate())
-          this.size = new IntegerType(); // bb
-      return this.size;
-    }
-
-    public boolean hasSizeElement() { 
-      return this.size != null && !this.size.isEmpty();
-    }
-
-    public boolean hasSize() { 
-      return this.size != null && !this.size.isEmpty();
-    }
-
-    /**
-     * @param value {@link #size} (The size of the source document this reference refers to in bytes.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
-     */
-    public DocumentReference setSizeElement(IntegerType value) { 
-      this.size = value;
-      return this;
-    }
-
-    /**
-     * @return The size of the source document this reference refers to in bytes.
-     */
-    public int getSize() { 
-      return this.size == null ? 0 : this.size.getValue();
-    }
-
-    /**
-     * @param value The size of the source document this reference refers to in bytes.
-     */
-    public DocumentReference setSize(int value) { 
-        if (this.size == null)
-          this.size = new IntegerType();
-        this.size.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
-     */
-    public Base64BinaryType getHashElement() { 
-      if (this.hash == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.hash");
-        else if (Configuration.doAutoCreate())
-          this.hash = new Base64BinaryType(); // bb
-      return this.hash;
-    }
-
-    public boolean hasHashElement() { 
-      return this.hash != null && !this.hash.isEmpty();
-    }
-
-    public boolean hasHash() { 
-      return this.hash != null && !this.hash.isEmpty();
-    }
-
-    /**
-     * @param value {@link #hash} (A hash of the source document to ensure that changes have not occurred.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
-     */
-    public DocumentReference setHashElement(Base64BinaryType value) { 
-      this.hash = value;
-      return this;
-    }
-
-    /**
-     * @return A hash of the source document to ensure that changes have not occurred.
-     */
-    public byte[] getHash() { 
-      return this.hash == null ? null : this.hash.getValue();
-    }
-
-    /**
-     * @param value A hash of the source document to ensure that changes have not occurred.
-     */
-    public DocumentReference setHash(byte[] value) { 
-      if (value == null)
-        this.hash = null;
-      else {
-        if (this.hash == null)
-          this.hash = new Base64BinaryType();
-        this.hash.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #location} (A url at which the document can be accessed.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
-     */
-    public UriType getLocationElement() { 
-      if (this.location == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.location");
-        else if (Configuration.doAutoCreate())
-          this.location = new UriType(); // bb
-      return this.location;
-    }
-
-    public boolean hasLocationElement() { 
-      return this.location != null && !this.location.isEmpty();
-    }
-
-    public boolean hasLocation() { 
-      return this.location != null && !this.location.isEmpty();
-    }
-
-    /**
-     * @param value {@link #location} (A url at which the document can be accessed.). This is the underlying object with id, value and extensions. The accessor "getLocation" gives direct access to the value
-     */
-    public DocumentReference setLocationElement(UriType value) { 
-      this.location = value;
-      return this;
-    }
-
-    /**
-     * @return A url at which the document can be accessed.
-     */
-    public String getLocation() { 
-      return this.location == null ? null : this.location.getValue();
-    }
-
-    /**
-     * @param value A url at which the document can be accessed.
-     */
-    public DocumentReference setLocation(String value) { 
-      if (Utilities.noString(value))
-        this.location = null;
-      else {
-        if (this.location == null)
-          this.location = new UriType();
-        this.location.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #service} (A description of a service call that can be used to retrieve the document.)
-     */
-    public DocumentReferenceServiceComponent getService() { 
-      if (this.service == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.service");
-        else if (Configuration.doAutoCreate())
-          this.service = new DocumentReferenceServiceComponent(); // cc
-      return this.service;
-    }
-
-    public boolean hasService() { 
-      return this.service != null && !this.service.isEmpty();
-    }
-
-    /**
-     * @param value {@link #service} (A description of a service call that can be used to retrieve the document.)
-     */
-    public DocumentReference setService(DocumentReferenceServiceComponent value) { 
-      this.service = value;
-      return this;
     }
 
     /**
@@ -1946,9 +1371,10 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("masterIdentifier", "Identifier", "Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type.", 0, java.lang.Integer.MAX_VALUE, class_));
-        childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("type", "CodeableConcept", "The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("class", "CodeableConcept", "The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("format", "uri", "An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
+        childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
         childrenList.add(new Property("policyManager", "uri", "A reference to a domain or server that manages policies under which the document is accessed and/or made available.", 0, java.lang.Integer.MAX_VALUE, policyManager));
         childrenList.add(new Property("authenticator", "Reference(Practitioner|Organization)", "Which person or organization authenticates that this document is valid.", 0, java.lang.Integer.MAX_VALUE, authenticator));
@@ -1958,14 +1384,8 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("docStatus", "CodeableConcept", "The status of the underlying document.", 0, java.lang.Integer.MAX_VALUE, docStatus));
         childrenList.add(new Property("relatesTo", "", "Relationships that this document has with other document references that already exist.", 0, java.lang.Integer.MAX_VALUE, relatesTo));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("confidentiality", "CodeableConcept", "A code specifying the level of confidentiality of the XDS Document.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
-        childrenList.add(new Property("primaryLanguage", "code", "The primary language in which the source document is written.", 0, java.lang.Integer.MAX_VALUE, primaryLanguage));
-        childrenList.add(new Property("mimeType", "code", "The mime type of the source document.", 0, java.lang.Integer.MAX_VALUE, mimeType));
-        childrenList.add(new Property("format", "uri", "An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
-        childrenList.add(new Property("size", "integer", "The size of the source document this reference refers to in bytes.", 0, java.lang.Integer.MAX_VALUE, size));
-        childrenList.add(new Property("hash", "base64Binary", "A hash of the source document to ensure that changes have not occurred.", 0, java.lang.Integer.MAX_VALUE, hash));
-        childrenList.add(new Property("location", "uri", "A url at which the document can be accessed.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("service", "", "A description of a service call that can be used to retrieve the document.", 0, java.lang.Integer.MAX_VALUE, service));
+        childrenList.add(new Property("confidentiality", "CodeableConcept", "A set of Security-Tag codes specifying the level of privacy/security of the Document.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
+        childrenList.add(new Property("content", "Attachment", "The document or url to the document along with critical metadata to prove content has integrity.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("context", "", "The clinical context in which the document was prepared.", 0, java.lang.Integer.MAX_VALUE, context));
       }
 
@@ -1981,6 +1401,11 @@ public class DocumentReference extends DomainResource {
         dst.subject = subject == null ? null : subject.copy();
         dst.type = type == null ? null : type.copy();
         dst.class_ = class_ == null ? null : class_.copy();
+        if (format != null) {
+          dst.format = new ArrayList<UriType>();
+          for (UriType i : format)
+            dst.format.add(i.copy());
+        };
         if (author != null) {
           dst.author = new ArrayList<Reference>();
           for (Reference i : author)
@@ -2004,17 +1429,11 @@ public class DocumentReference extends DomainResource {
           for (CodeableConcept i : confidentiality)
             dst.confidentiality.add(i.copy());
         };
-        dst.primaryLanguage = primaryLanguage == null ? null : primaryLanguage.copy();
-        dst.mimeType = mimeType == null ? null : mimeType.copy();
-        if (format != null) {
-          dst.format = new ArrayList<UriType>();
-          for (UriType i : format)
-            dst.format.add(i.copy());
+        if (content != null) {
+          dst.content = new ArrayList<Attachment>();
+          for (Attachment i : content)
+            dst.content.add(i.copy());
         };
-        dst.size = size == null ? null : size.copy();
-        dst.hash = hash == null ? null : hash.copy();
-        dst.location = location == null ? null : location.copy();
-        dst.service = service == null ? null : service.copy();
         dst.context = context == null ? null : context.copy();
         return dst;
       }
@@ -2026,14 +1445,12 @@ public class DocumentReference extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (subject == null || subject.isEmpty()) && (type == null || type.isEmpty()) && (class_ == null || class_.isEmpty())
-           && (author == null || author.isEmpty()) && (custodian == null || custodian.isEmpty()) && (policyManager == null || policyManager.isEmpty())
-           && (authenticator == null || authenticator.isEmpty()) && (created == null || created.isEmpty())
-           && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty()) && (docStatus == null || docStatus.isEmpty())
-           && (relatesTo == null || relatesTo.isEmpty()) && (description == null || description.isEmpty())
-           && (confidentiality == null || confidentiality.isEmpty()) && (primaryLanguage == null || primaryLanguage.isEmpty())
-           && (mimeType == null || mimeType.isEmpty()) && (format == null || format.isEmpty()) && (size == null || size.isEmpty())
-           && (hash == null || hash.isEmpty()) && (location == null || location.isEmpty()) && (service == null || service.isEmpty())
-           && (context == null || context.isEmpty());
+           && (format == null || format.isEmpty()) && (author == null || author.isEmpty()) && (custodian == null || custodian.isEmpty())
+           && (policyManager == null || policyManager.isEmpty()) && (authenticator == null || authenticator.isEmpty())
+           && (created == null || created.isEmpty()) && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty())
+           && (docStatus == null || docStatus.isEmpty()) && (relatesTo == null || relatesTo.isEmpty())
+           && (description == null || description.isEmpty()) && (confidentiality == null || confidentiality.isEmpty())
+           && (content == null || content.isEmpty()) && (context == null || context.isEmpty());
       }
 
   @Override
@@ -2041,7 +1458,7 @@ public class DocumentReference extends DomainResource {
     return ResourceType.DocumentReference;
    }
 
-  @SearchParamDefinition(name="location", path="DocumentReference.location", description="Where to access the document", type="string" )
+  @SearchParamDefinition(name="location", path="DocumentReference.content.url", description="Uri where the data can be found", type="string" )
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
   public static final String SP_INDEXED = "indexed";
@@ -2053,18 +1470,16 @@ public class DocumentReference extends DomainResource {
   public static final String SP_RELATESTO = "relatesto";
   @SearchParamDefinition(name="relation", path="DocumentReference.relatesTo.code", description="replaces | transforms | signs | appends", type="token" )
   public static final String SP_RELATION = "relation";
-  @SearchParamDefinition(name="class", path="DocumentReference.class", description="Categorization of Document", type="token" )
+  @SearchParamDefinition(name="class", path="DocumentReference.class", description="High-level classification of document", type="token" )
   public static final String SP_CLASS = "class";
   @SearchParamDefinition(name="format", path="DocumentReference.format", description="Format/content rules for the document", type="token" )
   public static final String SP_FORMAT = "format";
   @SearchParamDefinition(name="period", path="DocumentReference.context.period", description="Time of service that is being documented", type="date" )
   public static final String SP_PERIOD = "period";
-  @SearchParamDefinition(name="type", path="DocumentReference.type", description="What kind of document this is (LOINC if possible)", type="token" )
+  @SearchParamDefinition(name="type", path="DocumentReference.type", description="Precice type of document", type="token" )
   public static final String SP_TYPE = "type";
   @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/What authenticated the document", type="reference" )
   public static final String SP_AUTHENTICATOR = "authenticator";
-  @SearchParamDefinition(name="size", path="DocumentReference.size", description="Size of the document in bytes", type="number" )
-  public static final String SP_SIZE = "size";
   @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
   public static final String SP_RELATIONSHIP = "relationship";
   @SearchParamDefinition(name="author", path="DocumentReference.author", description="Who and/or what authored the document", type="reference" )
@@ -2083,7 +1498,7 @@ public class DocumentReference extends DomainResource {
   public static final String SP_CONFIDENTIALITY = "confidentiality";
   @SearchParamDefinition(name="description", path="DocumentReference.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="language", path="DocumentReference.primaryLanguage", description="The marked primary language for the document", type="token" )
+  @SearchParamDefinition(name="language", path="DocumentReference.content.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
   @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";

@@ -177,26 +177,6 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	  return (DomainResource) parseResource(json);
   }
 
-  protected void parseExtensions(JsonObject json, List<Extension> extensions, boolean inExtension) throws Exception {
-	  for (Entry<String, JsonElement> p : json.entrySet()) {
-	  	if (p.getKey().contains(":") || (inExtension && !(p.getKey().startsWith("value") || p.getKey().startsWith("_value")))) {
-	  		// it's an extension
-	  		if (!(p.getValue() instanceof JsonArray))
-	  			throw new Exception("The property "+p.getKey()+" looks like an extension, but isn't a JSON array (it's a "+p.getValue().getClass().getName()+")");
-	  		JsonArray arr = (JsonArray) p.getValue();
-	  		for (int i = 0; i < arr.size(); i++) {
-	  			Extension ex = new Extension();
-	  			ex.setUrl(p.getKey());
-	  			JsonObject obj = (JsonObject) arr.get(i);
-	  			if (hasTypeName(obj, "value"))
-	  			  ex.setValue(parseType("value", obj));
-	  			parseExtensions(obj, ex.getExtension(), true);
-	  			extensions.add(ex);
-	  		}
-	  	}
-	  }
-  }
-  
 	protected void writeNull(String name) throws Exception {
 		json.nullValue();
 	}
@@ -297,25 +277,5 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 
   protected abstract void composeType(String prefix, Type type) throws Exception;
 
-  protected void composeExtensions(List<Extension> extensions) throws Exception {
-  	Set<String> handled = new HashSet<String>();
-  	for (Extension e : extensions) {
-  		if (!handled.contains(e.getUrl())) {
-  			handled.add(e.getUrl());
-  			openArray(e.getUrl());
-  			for (Extension ex : extensions) {
-  				if (ex.getUrl().equals(e.getUrl())) {
-  					openObject(null);
-  					if (e.getValue() != null)
-  						composeType("value", e.getValue());
-  					if (ex.getExtension().size() > 0)
-  					  composeExtensions(ex.getExtension());
-  					close();
-  				}
-  			}
-  			closeArray();
-  		}
-  		
-  	}
-  }
+
 }

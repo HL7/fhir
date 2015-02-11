@@ -153,7 +153,6 @@ Type
     procedure iterateArray(arr : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectHandler);
     procedure iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
     procedure iterateEnumArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectEnumHandler; Const aNames : Array Of String);
-    procedure iterateExtensions(obj : TJsonObject; ctxt : TFHIRObjectList; handler : TJsonObjectHandler; inExtension : boolean);
 
     // handlers
     procedure parseDomainResource(jsn : TJsonObject; ctxt : TFHIRObjectList);
@@ -223,8 +222,8 @@ Type
     Procedure PropNumber(json : TJSONWriter; name, value : String); overload;
     Procedure Prop(json : TJSONWriter; name : String; value : boolean); overload;
     Procedure ComposeXHtmlNode(json : TJSONWriter; name : String; value : TFhirXHtmlNode); overload;
-    Procedure ComposeExtensions(json : TJSONWriter; extensions : TFhirExtensionList);
-    Procedure ComposeModifierExtensions(json : TJSONWriter; extensions : TFhirExtensionList);
+//    Procedure ComposeExtensions(json : TJSONWriter; extensions : TFhirExtensionList);
+//    Procedure ComposeModifierExtensions(json : TJSONWriter; extensions : TFhirExtensionList);
 
     Procedure composeComments(json : TJSONWriter; base : TFHIRBase);
     procedure ComposeDomainResource(json : TJSONWriter; name : String; oResource : TFhirDomainResource); overload; virtual;
@@ -232,7 +231,7 @@ Type
     Procedure ComposeResource(json : TJSONWriter; oResource : TFhirResource; links : TFhirBundleLinkList); overload; virtual;
     Procedure ComposeResourceMetaElement(json : TJSONWriter; oMeta : TFhirMeta); overload; virtual;
     Procedure ComposeResource(xml : TXmlBuilder; oResource : TFhirResource; links : TFhirBundleLinkList); overload; override;
-    Procedure ComposeExtension(json : TJSONWriter; name : String; extension : TFhirExtension; noObj : boolean = false); virtual;
+//    Procedure ComposeExtension(json : TJSONWriter; name : String; extension : TFhirExtension; noObj : boolean = false); virtual;
 //    Procedure ComposeBinary(json : TJSONWriter; binary : TFhirBinary);
   Public
     Procedure Compose(stream : TStream; oResource : TFhirResource; isPretty : Boolean = false; links : TFhirBundleLinkList = nil); Override;
@@ -555,27 +554,6 @@ begin
   end;
 end;
 
-procedure TFHIRJsonParserBase.iterateExtensions(obj : TJsonObject; ctxt : TFHIRObjectList; handler : TJsonObjectHandler; inExtension : boolean);
-var
-  i : integer;
-  n : TJsonNode;
-begin
-  if obj <> nil then
-  begin
-    for i := 0 to obj.properties.Count - 1 do
-      if (inExtension and not (obj.properties.KeyByIndex[i].StartsWith('value') or obj.properties.KeyByIndex[i].StartsWith('_value') or obj.properties.KeyByIndex[i].StartsWith('_xml'))) or
-         (not inExtension and obj.properties.KeyByIndex[i].Contains(':'))  then
-        begin
-          ctxt.tags['url'] := obj.properties.KeyByIndex[i];
-          n := obj.properties.Matches[obj.properties.KeyByIndex[i]] as  TJsonNode;
-          if n is TJsonArray then
-            iterateArray(TJsonArray(n), ctxt, handler)
-          else
-            raise Exception.Create('Syntax error: the property "'+obj.properties.KeyByIndex[i]+'" that looks like an extension isn''t a Json Array - it''s a '+n.ClassName);
-        end;
-  end;
-end;
-
 procedure TFHIRJsonParserBase.iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
 var
   i : integer;
@@ -865,38 +843,6 @@ begin
   json.FinishObject;
 end;
 
-procedure TFHIRJsonComposerBase.ComposeExtension(json: TJSONWriter; name: String; extension: TFhirExtension; noObj: boolean);
-begin
-  raise Exception.Create('Error : call to TFHIRJsonComposerBase.ComposeExtension(json: TJSONWriter; name: String; extension: TFhirExtension; noObj: boolean)');
-end;
-
-procedure TFHIRJsonComposerBase.ComposeExtensions(json: TJSONWriter; extensions: TFhirExtensionList);
-var
-  done : TStringList;
-  i, j : integer;
-  ex : TFhirExtension;
-begin
-  done := TStringList.Create;
-  try
-    for i := 0 to extensions.Count - 1 do
-    begin
-      ex := extensions[i];
-      if done.IndexOf(ex.url) = -1 then
-      begin
-        done.Add(ex.url);
-        json.ValueArray(ex.url);
-        composeExtension(json, '', ex);
-        for j := i + 1 to extensions.count - 1 do
-          if extensions[j].url = ex.url then
-            composeExtension(json, '', extensions[j]);
-        json.FinishArray;
-      end;
-    end;
-  finally
-    done.Free;
-  end;
-end;
-
 procedure TFHIRJsonComposerBase.composeInnerResource(json: TJSONWriter; name: String; oResource: TFhirResource);
 begin
   if oResource <> nil then
@@ -905,13 +851,6 @@ begin
     ComposeResource(json, oResource, nil);
     json.FinishObject;
   end;
-end;
-
-procedure TFHIRJsonComposerBase.ComposeModifierExtensions(json: TJSONWriter; extensions: TFhirExtensionList);
-begin
-  json.ValueObject('modifier');
-  ComposeExtensions(json, extensions);
-  json.FinishObject;
 end;
 
 //procedure TFHIRJsonComposerBase.ComposeBinary(json: TJSONWriter; binary: TFhirBinary);
