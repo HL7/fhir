@@ -188,4 +188,19 @@ public class ZipGenerator {
     out.setLevel(Deflater.BEST_COMPRESSION);
   }
 
+  public void addStream(String statedPath, InputStream fi, boolean omitIfExists) throws Exception {
+    if (!omitIfExists || !names.contains(statedPath)) {
+      byte data[] = new byte[BUFFER];
+      BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
+      ZipEntry entry = new ZipEntry(statedPath);
+      names.add(statedPath);
+      out.putNextEntry(entry);
+      int count;
+      while ((count = origin.read(data, 0, BUFFER)) != -1) {
+        out.write(data, 0, count);
+      }
+      origin.close();
+    }
+  }
+
 }
