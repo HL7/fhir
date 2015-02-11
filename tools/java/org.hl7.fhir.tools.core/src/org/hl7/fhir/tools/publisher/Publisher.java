@@ -53,13 +53,20 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -136,6 +143,7 @@ import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
+import org.hl7.fhir.instance.model.ElementDefinition;
 import org.hl7.fhir.instance.model.ExtensionDefinition;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.InstantType;
@@ -185,6 +193,7 @@ import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.implementations.objectivec.ObjectiveCGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
+import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
@@ -608,14 +617,12 @@ public class Publisher implements URIResolver {
     page.log(" ...process profiles (resources)", LogMessageType.Process);
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
-      if (!r.isAbstract()) {
         r.setConformancePack(makeConformancePack(r));
         r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
         r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
-      }
     }
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
@@ -1034,7 +1041,7 @@ public class Publisher implements URIResolver {
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameterDefn i) {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setName(i.getCode());
-    result.setDefinition("http://hl7.org/fhir/Profile/" + rn+"#"+rn+"."+i.getCode());
+    result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode());
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
     i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
@@ -1802,10 +1809,14 @@ public class Publisher implements URIResolver {
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".xslt", null);
       zip.close();
 
+      page.log("....validator-min", LogMessageType.Process);
+      minify(page.getFolders().dstDir + "validation.zip", page.getFolders().dstDir + "validation-min.zip");
+      
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
       zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"), false);
       zip.addFileName("validation.zip", page.getFolders().dstDir + "validation.zip", false);
+      zip.addFileName("validation-min.zip", page.getFolders().dstDir + "validation-min.zip", false);
       zip.addFiles(Utilities.path(page.getFolders().rootDir, "tools", "schematron", ""), "", ".zip", null); // saxon
       // too
       // -
@@ -1844,6 +1855,134 @@ public class Publisher implements URIResolver {
       page.log("Partial Build - terminating now", LogMessageType.Error);
   }
 
+
+  private void minify(String srcFile, String dstFile) throws Exception {
+    CloseProtectedZipInputStream source = new CloseProtectedZipInputStream(new FileInputStream(srcFile));
+    ZipGenerator dest = new ZipGenerator(dstFile);
+    ZipEntry entry = null;
+    while ((entry = source.getNextEntry()) != null) {
+      String name = entry.getName();
+      
+      if (name.endsWith(".xsd")) 
+        dest.addStream(entry.getName(), stripXsd(source), false);
+      else if (name.endsWith(".json")) 
+        dest.addStream(entry.getName(), stripJson(source), false);
+      else if (name.endsWith(".xml")) 
+        dest.addStream(entry.getName(), stripXml(source), false);
+      else
+        dest.addStream(entry.getName(), source, false);
+    }
+    source.actualClose();
+    dest.close();
+  }
+  
+  private InputStream stripJson(InputStream source) throws Exception {
+    JsonParser p = new JsonParser();
+    Resource r = p.parse(source);
+    minify(r);
+    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+    p.compose(bo, r);
+    bo.close();
+    return new ByteArrayInputStream(bo.toByteArray());
+  }
+
+  private InputStream stripXml(InputStream source) throws Exception {
+    XmlParser p = new XmlParser();
+    Resource r = p.parse(source);
+    minify(r);
+    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+    p.compose(bo, r);
+    bo.close();
+    return new ByteArrayInputStream(bo.toByteArray());
+  }
+
+  private void minify(Resource r) {
+    if (r == null)
+      return;
+    if (r instanceof DomainResource)
+      dropNarrative((DomainResource) r); 
+    if (r instanceof Profile)
+      minifyProfile((Profile) r);
+    if (r instanceof ValueSet)
+      minifyValueSet((ValueSet) r);
+    if (r instanceof Bundle) 
+      minifyBundle((Bundle) r);
+  }
+
+  private void dropNarrative(DomainResource r) {
+    if (r.hasText() && r.getText().hasDiv()) {
+      r.getText().getDiv().getChildNodes().clear();
+      r.getText().getDiv().addText("Narrative removed to reduce size");
+    }
+  }
+
+  private void minifyBundle(Bundle b) {
+    for (BundleEntryComponent e : b.getEntry())
+      minify(e.getResource());
+  }
+
+  private void minifyProfile(Profile p) {
+    p.getTelecom().clear();
+    p.setDescriptionElement(null);
+    p.getCode().clear();
+    p.setRequirementsElement(null);
+    p.getMapping().clear();
+    p.setDifferential(null);
+    for (ElementDefinition ed : p.getSnapshot().getElement()) {
+      ed.setShortElement(null);
+      ed.setFormalElement(null);
+      ed.setCommentsElement(null);
+      ed.setRequirementsElement(null);
+      ed.getSynonym().clear();
+      ed.setMeaningWhenMissingElement(null);
+      ed.getMapping().clear();
+    } 
+  }
+
+  private void minifyValueSet(ValueSet vs) {
+    vs.getTelecom().clear();
+    vs.setDescriptionElement(null);
+    vs.setCopyrightElement(null);
+    if (vs.hasDefine()) 
+      stripDefinition(vs.getDefine().getConcept());
+  }
+
+  private void stripDefinition(List<ConceptDefinitionComponent> concept) {
+    for (ConceptDefinitionComponent c : concept) {
+      c.setDefinitionElement(null);
+      if (c.hasConcept())
+        stripDefinition(c.getConcept());
+    }
+  }
+
+  private InputStream stripXsd(InputStream source) throws Exception {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(false);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document doc = builder.parse(source);
+    stripElement(doc.getDocumentElement(), "annotation");
+    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    Transformer transformer = transformerFactory.newTransformer();
+    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+    DOMSource src = new DOMSource(doc);
+    StreamResult streamResult =  new StreamResult(bo);
+    transformer.transform(src, streamResult);
+    bo.close();
+    return new ByteArrayInputStream(bo.toByteArray());
+  }
+
+  private void stripElement(Element element, String name) {
+    Node child = element.getFirstChild();
+    while (child != null) {
+      Node next = child.getNextSibling();
+      if (child.getNodeName().endsWith(name))
+        element.removeChild(child);
+      else if (child.getNodeType() == Node.ELEMENT_NODE)
+        stripElement((Element) child, name);
+      child = next;
+    }
+    
+  }
 
   private void addOtherProfiles(Bundle bundle, ConformancePackage cp) {
     for (ProfileDefn p : cp.getProfiles()) 
@@ -2709,8 +2848,7 @@ public class Publisher implements URIResolver {
 
     xmls.put(n, xml);
     jsons.put(n, json);
-    if (!isAbstract)
-      generateProfile(resource, n, xml, json);
+    generateProfile(resource, n, xml, json);
   }
 
   private void produceResource2(ResourceDefn resource, boolean isAbstract, String extraTypeForDefn) throws Exception {
@@ -2838,13 +2976,11 @@ public class Publisher implements URIResolver {
     // File(page.getFolders().dstDir+n+".json"));
 
     tmp.delete();
-    if (!isAbstract) {
-      // because we'll pick up a little more information as we process the
-      // resource
-      Profile p = generateProfile(resource, n, xml, json);
-      if (!n.equals("Bundle"))
-        generateQuestionnaire(n, p);
-    }
+    // because we'll pick up a little more information as we process the
+    // resource
+    Profile p = generateProfile(resource, n, xml, json);
+//    if (!isAbstract && !n.equals("Bundle") && web)
+//      generateQuestionnaire(n, p);
   }
 
   private void produceOperation(ResourceDefn r, Operation op) throws Exception {

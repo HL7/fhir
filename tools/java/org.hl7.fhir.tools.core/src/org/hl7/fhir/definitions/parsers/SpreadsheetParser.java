@@ -1002,7 +1002,7 @@ public class SpreadsheetParser {
 		  e.setXmlAttribute(true);
 		}
 		String c = sheet.getColumn(row, "Card.");
-		if (c == null || c.equals("")) {
+		if (c == null || c.equals("") || c.startsWith("!")) {
 			if (!isRoot && !profile)
 				throw new Exception("Missing cardinality");
 			if (isRoot) {
