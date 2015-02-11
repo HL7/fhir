@@ -328,9 +328,10 @@ the note on <a href="#transactional-integrity">transactional integrity</a> for d
 <p>
 If the interaction is successful, the server SHALL return either a 200 OK HTTP status code if the resource was updated, or a 201 Created status code if the resource was created,
 with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. A <code>Content-Location</code> header
-that refers to the specific version created by the update interaction SHOULD also be returned. The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a>
-resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
-</p>
+that refers to the specific version created by the update interaction SHOULD also be returned. If the resource was created (i.e. the interaction resulted in a 201 Created), the server SHOULD in addition
+return a <code>Location</code> header.</p>
+<p>The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a>
+resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.</p>
 <h4>Conditional updates</h4>
 <p>
 The conditional update operation allows a client to update an existing resource based on some identification criteria,
@@ -347,7 +348,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server performs a <a href="#create">create</a> operation</li>
  <li><b>One Match</b>: The server performs the update against the matching resource</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns a 412 Precondition Failed error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to submit
@@ -473,7 +474,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server returns 404 (Not found)</li>
  <li><b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns a 412 Precondition Failed error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
@@ -556,7 +557,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server processes the create as above</li>
  <li><b>One Match</b>: The server ignore the post and returns 200 OK</li>
- <li><b>Multiple matches</b>: The server returns an error indicating the the client's criteria were not selective enough</li>
+ <li><b>Multiple matches</b>: The server returns a 412 Precondition Failed error indicating the the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to avoid the risk of two clients
