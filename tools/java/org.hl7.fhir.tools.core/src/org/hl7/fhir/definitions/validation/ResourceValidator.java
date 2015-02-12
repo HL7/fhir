@@ -291,6 +291,7 @@ public class ResourceValidator extends BaseValidator {
 //		rule(errors, path, !"code".equals(e.typeCode()) || e.hasBinding(),
 //				"Must have a binding if type is 'code'");
 
+    rule(errors, "structure", path, !"uuid".equals(e.typeCode()), "The type uuid is illegal");
 		if (e.typeCode().equals("code") && parent != null) {
 		  rule(errors, "structure", path, e.hasBindingOrOk(), "An element of type code must have a binding");
 		}

@@ -22,7 +22,7 @@
 
 <p>
 The FHIR specification defines a set of data types that are used for the 
-resource elements. There are two categories of data type: simple / primitive types, imported from XML schema, and complex types, which are re-usable clusters of elements.
+resource elements. There are two categories of data type: simple / primitive types, which are single elements, and complex types, which are re-usable clusters of elements.
 This page describes the data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Detailed Descriptions</a> and 
 <a href="datatypes-mappings.html">Mappings</a>.
 </p>
@@ -41,10 +41,8 @@ The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 
 <a name="imports"> </a>
 <p>
-The following table summarizes the primitive types and their simple restrictions that
-are used in throughout this specification. Primitive types are those without sub-properties, though primitives, like all types, have <a href="extensibility.html">extensions</a>.
-Primitive types have a value which has the same value domain as defined in the <a href="http://www.w3.org/TR/xmlschema-2/">W3C Schema (1.0) specification part 2</a>, 
-though in most cases, this specification makes additional constraints marked in bold. 
+The following table describes the primitive types are used in throughout this specification. Primitive types are those with only a value, and no additional elements as children (though, like 
+all types, they have <a href="extensibility.html">extensions</a>.
 </p>
 
 <a name="boolean"> </a>
@@ -60,6 +58,182 @@ though in most cases, this specification makes additional constraints marked in 
 <a name="datetime"> </a>
 <a name="time"> </a>
 
+<table class="list">
+ <tr>
+   <td colspan="3"><b>Primitive Types</b></td>
+ </tr>
+ <tr>
+   <th>FHIR Name</th>
+   <th>Value Domain</th>
+   <th>XML Representation</th>
+   <th>JSON representation</th>
+ </tr>
+ <tr>
+   <td>boolean</td>
+   <td>true | false</td>
+   <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
+   <td>JSON boolean (true or false)</td>
+ </tr>
+ <tr>
+   <td>integer</td>
+   <td>A signed 32-bit integer (for larger values, use decimal)</td>
+   <td>xs:int</td>
+   <td>JSON number</td>
+ </tr>
+ <tr>
+   <td>string</td>
+   <td>A sequence of Unicode characters</td>
+   <td>xs:string</td>
+   <td>JSON String</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB in size</td>
+ </tr> 
+ <tr>
+   <td>decimal</td>
+   <td>Rational numbers that have a decimal representation. See below for a decision about the precision of the number</td>
+   <td>xs:decimal, except that <b>decimals may not use exponents</b></td>
+   <td>A JSON number, but without exponents</td>
+ </tr>
+ <tr>
+   <td>uri</td>
+   <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>)</td>
+    <td>xs:anyURI</td>
+   <td>A JSON string - a URI</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier</td>
+ </tr> 
+ <tr>
+   <td>base64Binary</td>
+   <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
+   <td>xs:base64Binary</td>
+   <td>A JSON string - base64 content</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)</i></td>
+ </tr> 
+ <tr>
+   <td>instant</td>
+   <td>An instant in time - <b>known at least to the second and always includes a time zone</b></td>
+   <td>xs:dateTime</td>
+   <td>A JSON string - an xs:dateTime</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
+ </tr>
+ <tr>
+   <td>date</td>
+   <td>A date, or partial date (e.g. just year or year + month) as used in human communication. <b>There is no time zone</b>. Dates SHALL be valid dates</td>
+   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
+   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
+  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: -?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?</td>
+ </tr>
+ <tr>
+   <td>dateTime</td>
+   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds may be provided but may also be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b></td>
+   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
+   <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
+  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: -?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?</td>
+ </tr>
+ <tr>
+   <td>time</td>
+   <td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b></td>
+   <td>xs:time</td>
+   <td>A JSON string - an xs:time</td>
+  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?</td>
+ </tr>
+</table>
+
+<p>
+Notes:
+</p>
+<ul>
+ <li>For all the types, the XML and JSON representations are the same except for different escaping in XML and JSON</li>
+ <li>The regexes allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
+ <li>The precision of the decimal value is signficant
+    <ul> 
+      <li>e.g 0.010 is regarded as different to 0.01</li>
+      <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented</li> 
+      <li>Implementations that might meet this constraint are GMP implementations or Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field</li> 
+      <li>Note that there is no absolute limit to the magnitude of the value, though large and/or highly precise values are extremely rare in medicine</li>
+    </ul>
+ </li>
+ <li></li>
+ <li></li>
+</ul>
+
+
+<h3>XML and JSON representations</h3>
+
+<p>
+All the primitive types have some combination of value as described above, an internal identity (e.g. xml:id), and extensions. 
+The value is represented in XML as an attribute named "value":
+</p>
+<pre>
+  &lt;count value="2"/&gt;
+</pre>
+<p>
+ and as the value of the property in JSON:
+</p>
+<pre>
+  "count" : "2"
+</pre>
+<p>
+For additional details, including how the internal identity and extensions are represented, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats. 
+When the value is missing, it is not represented in the instance; the XML value attribute or the JSON property are not represented at all. 
+</p>
+<p>
+According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types 
+boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the 
+schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
+XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
+String values should only have leading and trailing spaces if they are part of the content of the value. 
+In JSON, whitespace is always significant in JSON. Primitive types other than string SHALL NOT have leading or trailing whitespace.
+</p>
+
+<h3>Simple Restrictions</h3>
+<p>
+In addition to the base primitive types, a few additional primitive types are defined as restrictions on one of the other primitive types.
+</p>
+
+<a name="patterns"></a>
+<a name="code"> </a>
+<a name="oid"> </a>
+<a name="uuid"> </a>
+<a name="id"> </a>
+
+<table class="list">
+ <tr>
+   <th>FHIR Name</th><th>Base FHIR Type</th><th>Description</th>
+ </tr>
+ <tr><td>code</td><td>string</td><td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents <br/>regex: [^\s]+([\s]+[^\s]+)*</td></tr>
+ 
+ 
+ <tr><td>oid</td><td>uri</td><td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>). e.g. urn:oid:1.2.3.4.5</td></tr>
+<!--
+ <tr><td>uuid</td><td>uri</td><td>A UUID, represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>): urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11. Note the RFC comments about case: UUID values SHALL be represented in lower case, but systems SHOULD interpret them case insensitively</td></tr>
+-->
+ <tr><td>id</td><td>string</td><td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.
+   <br/>Note: this format includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.
+   <br/>regex: [%id_regex%]</td></tr>
+</table>
+
+<hr/>
+<p>Old primitive data types description, for reference</p>
  
 <table class="list">
  <tr>
@@ -148,97 +322,6 @@ is always significant in JSON. Primitive types other than string SHALL NOT have 
 
 <hr/>
 <!-- these regex tested using http://www.regexr.com/ -->
-<table class="list">
- <tr>
-   <td colspan="3"><b>Primitive Types</b></td>
- </tr>
- <tr>
-   <th>FHIR Name</th>
-   <th>Value Domain</th>
-   <th>XML Representation</th>
-   <th>JSON representation</th>
- </tr>
- <tr>
-   <td>boolean</td>
-   <td>true | false</td>
-   <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
-   <td>JSON boolean (true or false)</td>
- </tr>
- <tr>
-   <td>integer</td>
-   <td>A signed 32-bit integer (for larger values, use decimal)</td>
-   <td>xs:int</td>
-   <td>JSON number</td>
- </tr>
- <tr>
-   <td>string</td>
-   <td>A sequence of Unicode characters. <b>Note that strings SHALL NOT exceed 1MB in size</b></td>
-   <td>xs:string</td>
-   <td>JSON String</td>
- </tr>
- <tr>
-   <td>decimal</td>
-   <td>Rational numbers that have a decimal representation. The precision of the number is significant - see below</td>
-   <td>xs:decimal, except that <b>Decimals may not use exponents</b></td>
-   <td>A JSON number, but without exponents</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Note: for implementations, do not use an IEEE type floating point type. Instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigDecimal)</td>
- </tr>
- <tr>
-   <td>uri</td>
-   <td>A Uniform Resource Identifier Reference. It can be absolute or relative, and may have an optional fragment identifier (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>)</td>
-    <td>xs:anyURI</td>
-   <td>A JSON string containing the URI</td>
- </tr>
- <tr>
-   <td>base64Binary</td>
-   <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
-   <td>xs:base64Binary</td>
-   <td>A JSON string containing base64 content</td>
- </tr>
- <tr>
-   <td>instant</td>
-   <td>An instant in time - <b>known at least to the second and always includes a time zone</b></td>
-   <td>xs:dateTime</td>
-   <td>A JSON string containing an xs:dateTime</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
- </tr>
- <tr>
-   <td>date</td>
-   <td>A date, or partial date (e.g. just year or year + month) as used in human communication. <b>There is no time zone</b>. Dates SHALL be valid dates</td>
-   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
-   <td>A JSON string containing a string that is union of xs:date, xs:gYearMonth, xs:gYear</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: -?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?</td>
- </tr>
- <tr>
-   <td>dateTime</td>
-   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds may be provided but may also be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b></td>
-   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
-   <td>A JSON string containing a string that is union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: -?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?</td>
- </tr>
- <tr>
-   <td>time</td>
-   <td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b></td>
-   <td>xs:time</td>
-   <td>A JSON string containing an xs:time</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?</td>
- </tr>
-</table>
 
 <!-- <tr><td colspan="3"><i>Note: not all restrictions imposed on the date/time types can be expressed using regular expressions, so these regexes allow a broader set of values than are actually valid</i></td></tr> -->
 

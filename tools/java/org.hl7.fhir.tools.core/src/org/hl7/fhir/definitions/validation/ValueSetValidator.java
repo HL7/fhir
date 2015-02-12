@@ -33,6 +33,16 @@ public class ValueSetValidator {
       if (!vs.getDefine().hasCaseSensitiveElement() || !vs.getDefine().getCaseSensitive())
         throw new Exception("Value set "+nameForErrors+" ("+vs.getName()+"): All value sets that define codes must mark them as case sensitive");
       checkCodeCaseDuplicates(nameForErrors, vs, codes, vs.getDefine().getConcept());
+      if (!vs.getDefine().getSystem().startsWith("http://hl7.org/fhir/v2/") && !vs.getDefine().getSystem().startsWith("urn:uuid:"))
+        checkCodesForSpaces(nameForErrors, vs, vs.getDefine().getConcept());
+    }
+  }
+
+  private void checkCodesForSpaces(String nameForErrors, ValueSet vs, List<ConceptDefinitionComponent> concept) throws Exception {
+    for (ConceptDefinitionComponent cc : concept) {
+      if (cc.hasCode() && cc.getCode().contains(" "))
+        throw new Exception("Value set "+nameForErrors+" ("+vs.getName()+"/"+vs.getDefine().getSystem()+"): Defined codes cannot include spaces: "+cc.getCode());
+      checkCodesForSpaces(nameForErrors, vs, cc.getConcept());  
     }
   }
 
