@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -179,7 +179,7 @@ public class Supply extends DomainResource {
         public static ValuesetSupplyDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("dispensed".equals(codeString))
           return DISPENSED;
@@ -189,7 +189,7 @@ public class Supply extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case DISPENSED: return "dispensed";
             case ABANDONED: return "abandoned";
             default: return "?";
@@ -226,7 +226,7 @@ public class Supply extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return ValuesetSupplyDispenseStatus.INPROGRESS;
         if ("dispensed".equals(codeString))
           return ValuesetSupplyDispenseStatus.DISPENSED;
@@ -236,7 +236,7 @@ public class Supply extends DomainResource {
         }
     public String toCode(ValuesetSupplyDispenseStatus code) {
       if (code == ValuesetSupplyDispenseStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == ValuesetSupplyDispenseStatus.DISPENSED)
         return "dispensed";
       if (code == ValuesetSupplyDispenseStatus.ABANDONED)
@@ -258,7 +258,7 @@ public class Supply extends DomainResource {
          * A code specifying the state of the dispense event.
          */
         @Child(name="status", type={CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="in progress | dispensed | abandoned", formalDefinition="A code specifying the state of the dispense event." )
+        @Description(shortDefinition="in-progress | dispensed | abandoned", formalDefinition="A code specifying the state of the dispense event." )
         protected Enumeration<ValuesetSupplyDispenseStatus> status;
 
         /**
@@ -1080,7 +1080,7 @@ public class Supply extends DomainResource {
   public static final String SP_SUPPLIER = "supplier";
   @SearchParamDefinition(name="kind", path="Supply.kind", description="The kind of supply (central, non-stock, etc)", type="token" )
   public static final String SP_KIND = "kind";
-  @SearchParamDefinition(name="dispensestatus", path="Supply.dispense.status", description="in progress | dispensed | abandoned", type="token" )
+  @SearchParamDefinition(name="dispensestatus", path="Supply.dispense.status", description="in-progress | dispensed | abandoned", type="token" )
   public static final String SP_DISPENSESTATUS = "dispensestatus";
 
 }

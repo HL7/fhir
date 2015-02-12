@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -65,19 +65,19 @@ public class MedicationStatement extends DomainResource {
         public static MedicationStatementStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("completed".equals(codeString))
           return COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -99,9 +99,9 @@ public class MedicationStatement extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -112,21 +112,21 @@ public class MedicationStatement extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return MedicationStatementStatus.INPROGRESS;
         if ("completed".equals(codeString))
           return MedicationStatementStatus.COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return MedicationStatementStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
     public String toCode(MedicationStatementStatus code) {
       if (code == MedicationStatementStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == MedicationStatementStatus.COMPLETED)
         return "completed";
       if (code == MedicationStatementStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }
@@ -532,10 +532,10 @@ public class MedicationStatement extends DomainResource {
     protected DateTimeType dateAsserted;
 
     /**
-     * A code specifying the state of the statement.  Generally this will be in progress or completed state.
+     * A code specifying the state of the statement.  Generally this will be in-progress or completed state.
      */
     @Child(name="status", type={CodeType.class}, order=3, min=1, max=1)
-    @Description(shortDefinition="in progress | completed | entered in error", formalDefinition="A code specifying the state of the statement.  Generally this will be in progress or completed state." )
+    @Description(shortDefinition="in-progress | completed | entered-in-error", formalDefinition="A code specifying the state of the statement.  Generally this will be in-progress or completed state." )
     protected Enumeration<MedicationStatementStatus> status;
 
     /**
@@ -766,7 +766,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code specifying the state of the statement.  Generally this will be in progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code specifying the state of the statement.  Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<MedicationStatementStatus> getStatusElement() { 
       if (this.status == null)
@@ -786,7 +786,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code specifying the state of the statement.  Generally this will be in progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code specifying the state of the statement.  Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public MedicationStatement setStatusElement(Enumeration<MedicationStatementStatus> value) { 
       this.status = value;
@@ -794,14 +794,14 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return A code specifying the state of the statement.  Generally this will be in progress or completed state.
+     * @return A code specifying the state of the statement.  Generally this will be in-progress or completed state.
      */
     public MedicationStatementStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code specifying the state of the statement.  Generally this will be in progress or completed state.
+     * @param value A code specifying the state of the statement.  Generally this will be in-progress or completed state.
      */
     public MedicationStatement setStatus(MedicationStatementStatus value) { 
         if (this.status == null)
@@ -1088,7 +1088,7 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal who is /was taking the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson)", "The person who provided the information about the taking of this medication.", 0, java.lang.Integer.MAX_VALUE, informationSource));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
-        childrenList.add(new Property("status", "code", "A code specifying the state of the statement.  Generally this will be in progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "A code specifying the state of the statement.  Generally this will be in-progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT taken.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("reasonForUse[x]", "CodeableConcept|Reference(Condition)", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUse));

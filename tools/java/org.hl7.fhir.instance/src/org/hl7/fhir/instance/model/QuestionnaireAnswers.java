@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -65,7 +65,7 @@ public class QuestionnaireAnswers extends DomainResource {
         public static QuestionnaireAnswersStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("completed".equals(codeString))
           return COMPLETED;
@@ -75,7 +75,7 @@ public class QuestionnaireAnswers extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case AMENDED: return "amended";
             default: return "?";
@@ -99,7 +99,7 @@ public class QuestionnaireAnswers extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case AMENDED: return "amended";
             default: return "?";
@@ -112,7 +112,7 @@ public class QuestionnaireAnswers extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return QuestionnaireAnswersStatus.INPROGRESS;
         if ("completed".equals(codeString))
           return QuestionnaireAnswersStatus.COMPLETED;
@@ -122,7 +122,7 @@ public class QuestionnaireAnswers extends DomainResource {
         }
     public String toCode(QuestionnaireAnswersStatus code) {
       if (code == QuestionnaireAnswersStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == QuestionnaireAnswersStatus.COMPLETED)
         return "completed";
       if (code == QuestionnaireAnswersStatus.AMENDED)
@@ -880,7 +880,7 @@ public class QuestionnaireAnswers extends DomainResource {
      * The lifecycle status of the questionnaire answers as a whole.
      */
     @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="in progress | completed | amended", formalDefinition="The lifecycle status of the questionnaire answers as a whole." )
+    @Description(shortDefinition="in-progress | completed | amended", formalDefinition="The lifecycle status of the questionnaire answers as a whole." )
     protected Enumeration<QuestionnaireAnswersStatus> status;
 
     /**

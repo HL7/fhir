@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -73,13 +73,13 @@ public class MedicationAdministration extends DomainResource {
         public static MedicationAdminStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return STOPPED;
@@ -87,10 +87,10 @@ public class MedicationAdministration extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
             default: return "?";
           }
@@ -117,10 +117,10 @@ public class MedicationAdministration extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
             default: return "?";
           }
@@ -132,13 +132,13 @@ public class MedicationAdministration extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return MedicationAdminStatus.INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return MedicationAdminStatus.ONHOLD;
         if ("completed".equals(codeString))
           return MedicationAdminStatus.COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return MedicationAdminStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationAdminStatus.STOPPED;
@@ -146,13 +146,13 @@ public class MedicationAdministration extends DomainResource {
         }
     public String toCode(MedicationAdminStatus code) {
       if (code == MedicationAdminStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == MedicationAdminStatus.ONHOLD)
-        return "on hold";
+        return "on-hold";
       if (code == MedicationAdminStatus.COMPLETED)
         return "completed";
       if (code == MedicationAdminStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       if (code == MedicationAdminStatus.STOPPED)
         return "stopped";
       return "?";
@@ -419,7 +419,7 @@ public class MedicationAdministration extends DomainResource {
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="in progress | on hold | completed | entered in error | stopped", formalDefinition="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way." )
+    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way." )
     protected Enumeration<MedicationAdminStatus> status;
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -852,14 +852,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * Identifies the type of context to which the extension applies.
      */
-    @Child(name="contextType", type={CodeType.class}, order=15, min=1, max=1)
+    @Child(name="contextType", type={CodeType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="Identifies the type of context to which the extension applies." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name="context", type={StringType.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="context", type={StringType.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
@@ -890,13 +890,12 @@ public class StructureDefinition extends DomainResource {
       super();
     }
 
-    public StructureDefinition(UriType url, StringType name, Enumeration<StructureDefinitionStatus> status, Enumeration<StructureDefinitionType> type, Enumeration<ExtensionContext> contextType) {
+    public StructureDefinition(UriType url, StringType name, Enumeration<StructureDefinitionStatus> status, Enumeration<StructureDefinitionType> type) {
       super();
       this.url = url;
       this.name = name;
       this.status = status;
       this.type = type;
-      this.contextType = contextType;
     }
 
     /**
@@ -1626,9 +1625,13 @@ public class StructureDefinition extends DomainResource {
      * @param value Identifies the type of context to which the extension applies.
      */
     public StructureDefinition setContextType(ExtensionContext value) { 
+      if (value == null)
+        this.contextType = null;
+      else {
         if (this.contextType == null)
           this.contextType = new Enumeration<ExtensionContext>(new ExtensionContextEnumFactory());
         this.contextType.setValue(value);
+      }
       return this;
     }
 

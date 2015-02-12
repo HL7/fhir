@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class Alert extends DomainResource {
           return ACTIVE;
         if ("inactive".equals(codeString))
           return INACTIVE;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
@@ -77,7 +77,7 @@ public class Alert extends DomainResource {
           switch (this) {
             case ACTIVE: return "active";
             case INACTIVE: return "inactive";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -101,7 +101,7 @@ public class Alert extends DomainResource {
           switch (this) {
             case ACTIVE: return "active";
             case INACTIVE: return "inactive";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -116,7 +116,7 @@ public class Alert extends DomainResource {
           return AlertStatus.ACTIVE;
         if ("inactive".equals(codeString))
           return AlertStatus.INACTIVE;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return AlertStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown AlertStatus code '"+codeString+"'");
         }
@@ -126,7 +126,7 @@ public class Alert extends DomainResource {
       if (code == AlertStatus.INACTIVE)
         return "inactive";
       if (code == AlertStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }
@@ -149,7 +149,7 @@ public class Alert extends DomainResource {
      * Supports basic workflow.
      */
     @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-    @Description(shortDefinition="active | inactive | entered in error", formalDefinition="Supports basic workflow." )
+    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="Supports basic workflow." )
     protected Enumeration<AlertStatus> status;
 
     /**

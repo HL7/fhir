@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import org.hl7.fhir.instance.model.annotations.Block;
 import org.hl7.fhir.instance.model.annotations.Child;
 import org.hl7.fhir.instance.model.annotations.Description;
 /**
- * 
+ * A resource that includes narrative, extensions, and contained resources.
  */
 @ResourceDef(name="DomainResource", profile="http://hl7.org/fhir/Profile/DomainResource")
 public abstract class DomainResource extends Resource {

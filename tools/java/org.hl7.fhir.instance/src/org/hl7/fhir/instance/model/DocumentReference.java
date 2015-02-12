@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class DocumentReference extends DomainResource {
           return CURRENT;
         if ("superceded".equals(codeString))
           return SUPERCEDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
@@ -77,7 +77,7 @@ public class DocumentReference extends DomainResource {
           switch (this) {
             case CURRENT: return "current";
             case SUPERCEDED: return "superceded";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -101,7 +101,7 @@ public class DocumentReference extends DomainResource {
           switch (this) {
             case CURRENT: return "current";
             case SUPERCEDED: return "superceded";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -116,7 +116,7 @@ public class DocumentReference extends DomainResource {
           return DocumentReferenceStatus.CURRENT;
         if ("superceded".equals(codeString))
           return DocumentReferenceStatus.SUPERCEDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return DocumentReferenceStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
@@ -126,7 +126,7 @@ public class DocumentReference extends DomainResource {
       if (code == DocumentReferenceStatus.SUPERCEDED)
         return "superceded";
       if (code == DocumentReferenceStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }
@@ -616,14 +616,14 @@ public class DocumentReference extends DomainResource {
      * The status of this document reference.
      */
     @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
-    @Description(shortDefinition="current | superceded | entered in error", formalDefinition="The status of this document reference." )
+    @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document reference." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * The status of the underlying document.
      */
     @Child(name="docStatus", type={CodeableConcept.class}, order=12, min=0, max=1)
-    @Description(shortDefinition="preliminary | final | appended | amended | entered in error", formalDefinition="The status of the underlying document." )
+    @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The status of the underlying document." )
     protected CodeableConcept docStatus;
 
     /**
@@ -1462,7 +1462,7 @@ public class DocumentReference extends DomainResource {
   public static final String SP_LOCATION = "location";
   @SearchParamDefinition(name="indexed", path="DocumentReference.indexed", description="When this document reference created", type="date" )
   public static final String SP_INDEXED = "indexed";
-  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered in error", type="token" )
+  @SearchParamDefinition(name="status", path="DocumentReference.status", description="current | superceded | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DocumentReference.subject", description="Who|what is the subject of the document", type="reference" )
   public static final String SP_SUBJECT = "subject";

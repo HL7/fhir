@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -99,7 +99,7 @@ public class DiagnosticReport extends DomainResource {
           return APPENDED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
@@ -112,7 +112,7 @@ public class DiagnosticReport extends DomainResource {
             case AMENDED: return "amended";
             case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -151,7 +151,7 @@ public class DiagnosticReport extends DomainResource {
             case AMENDED: return "amended";
             case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -176,7 +176,7 @@ public class DiagnosticReport extends DomainResource {
           return DiagnosticReportStatus.APPENDED;
         if ("cancelled".equals(codeString))
           return DiagnosticReportStatus.CANCELLED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return DiagnosticReportStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
@@ -196,7 +196,7 @@ public class DiagnosticReport extends DomainResource {
       if (code == DiagnosticReportStatus.CANCELLED)
         return "cancelled";
       if (code == DiagnosticReportStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }

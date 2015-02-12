@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2075,10 +2075,10 @@ public class Conformance extends DomainResource {
         protected List<StringType> searchInclude;
 
         /**
-         * Additional search parameters for implementations to support and/or make use of.
+         * Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
          */
         @Child(name="searchParam", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Additional search params defined", formalDefinition="Additional search parameters for implementations to support and/or make use of." )
+        @Description(shortDefinition="Search params supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<ConformanceRestResourceSearchParamComponent> searchParam;
 
         private static final long serialVersionUID = -1665668054L;
@@ -2540,7 +2540,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         * @return {@link #searchParam} (Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
           if (this.searchParam == null)
@@ -2558,7 +2558,7 @@ public class Conformance extends DomainResource {
         }
 
         /**
-         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         * @return {@link #searchParam} (Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.)
          */
     // syntactic sugar
         public ConformanceRestResourceSearchParamComponent addSearchParam() { //3
@@ -2581,7 +2581,7 @@ public class Conformance extends DomainResource {
           childrenList.add(new Property("conditionalUpdate", "boolean", "A flag that indicates that the server supports conditional update.", 0, java.lang.Integer.MAX_VALUE, conditionalUpdate));
           childrenList.add(new Property("conditionalDelete", "boolean", "A flag that indicates that the server supports conditional delete.", 0, java.lang.Integer.MAX_VALUE, conditionalDelete));
           childrenList.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
-          childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
+          childrenList.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
       public ConformanceRestResourceComponent copy() {

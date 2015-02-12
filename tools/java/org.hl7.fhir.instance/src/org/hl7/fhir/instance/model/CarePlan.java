@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -155,7 +155,7 @@ public class CarePlan extends DomainResource {
         public static CarePlanGoalStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("achieved".equals(codeString))
           return ACHIEVED;
@@ -167,7 +167,7 @@ public class CarePlan extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case ACHIEVED: return "achieved";
             case SUSTAINING: return "sustaining";
             case CANCELLED: return "cancelled";
@@ -194,7 +194,7 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case ACHIEVED: return "achieved";
             case SUSTAINING: return "sustaining";
             case CANCELLED: return "cancelled";
@@ -208,7 +208,7 @@ public class CarePlan extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return CarePlanGoalStatus.INPROGRESS;
         if ("achieved".equals(codeString))
           return CarePlanGoalStatus.ACHIEVED;
@@ -220,7 +220,7 @@ public class CarePlan extends DomainResource {
         }
     public String toCode(CarePlanGoalStatus code) {
       if (code == CarePlanGoalStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == CarePlanGoalStatus.ACHIEVED)
         return "achieved";
       if (code == CarePlanGoalStatus.SUSTAINING)
@@ -263,13 +263,13 @@ public class CarePlan extends DomainResource {
         public static CarePlanActivityStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("not started".equals(codeString))
+        if ("not-started".equals(codeString))
           return NOTSTARTED;
         if ("scheduled".equals(codeString))
           return SCHEDULED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
@@ -279,10 +279,10 @@ public class CarePlan extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case NOTSTARTED: return "not started";
+            case NOTSTARTED: return "not-started";
             case SCHEDULED: return "scheduled";
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
             default: return "?";
@@ -312,10 +312,10 @@ public class CarePlan extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case NOTSTARTED: return "not started";
+            case NOTSTARTED: return "not-started";
             case SCHEDULED: return "scheduled";
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
             default: return "?";
@@ -328,13 +328,13 @@ public class CarePlan extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("not started".equals(codeString))
+        if ("not-started".equals(codeString))
           return CarePlanActivityStatus.NOTSTARTED;
         if ("scheduled".equals(codeString))
           return CarePlanActivityStatus.SCHEDULED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return CarePlanActivityStatus.INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return CarePlanActivityStatus.ONHOLD;
         if ("completed".equals(codeString))
           return CarePlanActivityStatus.COMPLETED;
@@ -344,13 +344,13 @@ public class CarePlan extends DomainResource {
         }
     public String toCode(CarePlanActivityStatus code) {
       if (code == CarePlanActivityStatus.NOTSTARTED)
-        return "not started";
+        return "not-started";
       if (code == CarePlanActivityStatus.SCHEDULED)
         return "scheduled";
       if (code == CarePlanActivityStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == CarePlanActivityStatus.ONHOLD)
-        return "on hold";
+        return "on-hold";
       if (code == CarePlanActivityStatus.COMPLETED)
         return "completed";
       if (code == CarePlanActivityStatus.CANCELLED)
@@ -630,7 +630,7 @@ public class CarePlan extends DomainResource {
          * Indicates whether the goal has been reached and is still considered relevant.
          */
         @Child(name="status", type={CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="in progress | achieved | sustaining | cancelled", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
+        @Description(shortDefinition="in-progress | achieved | sustaining | cancelled", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
         protected Enumeration<CarePlanGoalStatus> status;
 
         /**
@@ -899,7 +899,7 @@ public class CarePlan extends DomainResource {
          * Identifies what progress is being made for the specific activity.
          */
         @Child(name="status", type={CodeType.class}, order=2, min=0, max=1)
-        @Description(shortDefinition="not started | scheduled | in progress | on hold | completed | cancelled", formalDefinition="Identifies what progress is being made for the specific activity." )
+        @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled", formalDefinition="Identifies what progress is being made for the specific activity." )
         protected Enumeration<CarePlanActivityStatus> status;
 
         /**

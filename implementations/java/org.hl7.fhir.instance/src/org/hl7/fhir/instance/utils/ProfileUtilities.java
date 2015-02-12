@@ -561,10 +561,19 @@ public class ProfileUtilities {
       if (src.hasShortElement())
         dst.setShortElement(src.getShortElement().copy());
       if (src.hasFormalElement())
+        if (src.getFormal().startsWith("..."))
+          dst.setFormal(dst.getFormal()+"\r\n"+src.getFormal().substring(3));
+        else
         dst.setFormalElement(src.getFormalElement().copy());
       if (src.hasCommentsElement())
+        if (src.getComments().startsWith("..."))
+          dst.setComments(dst.getComments()+"\r\n"+src.getComments().substring(3));
+        else
         dst.setCommentsElement(src.getCommentsElement().copy());
       if (src.hasRequirementsElement())
+        if (src.getRequirements().startsWith("..."))
+          dst.setRequirements(dst.getRequirements()+"\r\n"+src.getRequirements().substring(3));
+        else
         dst.setRequirementsElement(src.getRequirementsElement().copy());
       if (src.hasSynonym()) {
       	for (StringType s : src.getSynonym()) {

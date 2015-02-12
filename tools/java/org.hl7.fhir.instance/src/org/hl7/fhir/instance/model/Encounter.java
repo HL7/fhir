@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -81,7 +81,7 @@ public class Encounter extends DomainResource {
           return PLANNED;
         if ("arrived".equals(codeString))
           return ARRIVED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("onleave".equals(codeString))
           return ONLEAVE;
@@ -95,7 +95,7 @@ public class Encounter extends DomainResource {
           switch (this) {
             case PLANNED: return "planned";
             case ARRIVED: return "arrived";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case ONLEAVE: return "onleave";
             case FINISHED: return "finished";
             case CANCELLED: return "cancelled";
@@ -128,7 +128,7 @@ public class Encounter extends DomainResource {
           switch (this) {
             case PLANNED: return "Planned";
             case ARRIVED: return "Arrived";
-            case INPROGRESS: return "In Progress";
+            case INPROGRESS: return "in-progress";
             case ONLEAVE: return "On Leave";
             case FINISHED: return "Finished";
             case CANCELLED: return "Cancelled";
@@ -146,7 +146,7 @@ public class Encounter extends DomainResource {
           return EncounterState.PLANNED;
         if ("arrived".equals(codeString))
           return EncounterState.ARRIVED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return EncounterState.INPROGRESS;
         if ("onleave".equals(codeString))
           return EncounterState.ONLEAVE;
@@ -162,7 +162,7 @@ public class Encounter extends DomainResource {
       if (code == EncounterState.ARRIVED)
         return "arrived";
       if (code == EncounterState.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == EncounterState.ONLEAVE)
         return "onleave";
       if (code == EncounterState.FINISHED)
@@ -432,10 +432,10 @@ public class Encounter extends DomainResource {
     @Block()
     public static class EncounterStatusHistoryComponent extends BackboneElement {
         /**
-         * planned | arrived | in progress | onleave | finished | cancelled.
+         * planned | arrived | in-progress | onleave | finished | cancelled.
          */
         @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="planned | arrived | in progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in progress | onleave | finished | cancelled." )
+        @Description(shortDefinition="planned | arrived | in-progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in-progress | onleave | finished | cancelled." )
         protected Enumeration<EncounterState> status;
 
         /**
@@ -458,7 +458,7 @@ public class Encounter extends DomainResource {
       }
 
         /**
-         * @return {@link #status} (planned | arrived | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         * @return {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
         public Enumeration<EncounterState> getStatusElement() { 
           if (this.status == null)
@@ -478,7 +478,7 @@ public class Encounter extends DomainResource {
         }
 
         /**
-         * @param value {@link #status} (planned | arrived | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+         * @param value {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
         public EncounterStatusHistoryComponent setStatusElement(Enumeration<EncounterState> value) { 
           this.status = value;
@@ -486,14 +486,14 @@ public class Encounter extends DomainResource {
         }
 
         /**
-         * @return planned | arrived | in progress | onleave | finished | cancelled.
+         * @return planned | arrived | in-progress | onleave | finished | cancelled.
          */
         public EncounterState getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
-         * @param value planned | arrived | in progress | onleave | finished | cancelled.
+         * @param value planned | arrived | in-progress | onleave | finished | cancelled.
          */
         public EncounterStatusHistoryComponent setStatus(EncounterState value) { 
             if (this.status == null)
@@ -528,7 +528,7 @@ public class Encounter extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("status", "code", "planned | arrived | in progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
+          childrenList.add(new Property("status", "code", "planned | arrived | in-progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("period", "Period", "The time that the episode was in the specified status.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -1358,10 +1358,10 @@ public class Encounter extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * planned | arrived | in progress | onleave | finished | cancelled.
+     * planned | arrived | in-progress | onleave | finished | cancelled.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=1, max=1)
-    @Description(shortDefinition="planned | arrived | in progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in progress | onleave | finished | cancelled." )
+    @Description(shortDefinition="planned | arrived | in-progress | onleave | finished | cancelled", formalDefinition="planned | arrived | in-progress | onleave | finished | cancelled." )
     protected Enumeration<EncounterState> status;
 
     /**
@@ -1549,7 +1549,7 @@ public class Encounter extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (planned | arrived | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<EncounterState> getStatusElement() { 
       if (this.status == null)
@@ -1569,7 +1569,7 @@ public class Encounter extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (planned | arrived | in progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Encounter setStatusElement(Enumeration<EncounterState> value) { 
       this.status = value;
@@ -1577,14 +1577,14 @@ public class Encounter extends DomainResource {
     }
 
     /**
-     * @return planned | arrived | in progress | onleave | finished | cancelled.
+     * @return planned | arrived | in-progress | onleave | finished | cancelled.
      */
     public EncounterState getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value planned | arrived | in progress | onleave | finished | cancelled.
+     * @param value planned | arrived | in-progress | onleave | finished | cancelled.
      */
     public Encounter setStatus(EncounterState value) { 
         if (this.status == null)
@@ -2140,7 +2140,7 @@ public class Encounter extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this encounter is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "planned | arrived | in progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "planned | arrived | in-progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusHistory", "", "The current status is always found in the current version of the resource. This status history permits the encounter resource to contain the status history without the needing to read through the historical versions of the resource, or even have the server store them.", 0, java.lang.Integer.MAX_VALUE, statusHistory));
         childrenList.add(new Property("class", "code", "inpatient | outpatient | ambulatory | emergency +.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
@@ -2232,7 +2232,7 @@ public class Encounter extends DomainResource {
   public static final String SP_PARTICIPANTTYPE = "participant-type";
   @SearchParamDefinition(name="episodeofcare", path="Encounter.episodeOfCare", description="An episode of care that this encounter should be recorded against", type="reference" )
   public static final String SP_EPISODEOFCARE = "episodeofcare";
-  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in progress | onleave | finished | cancelled", type="token" )
+  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in-progress | onleave | finished | cancelled", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="location", path="Encounter.location.location", description="Location the encounter takes place", type="reference" )
   public static final String SP_LOCATION = "location";

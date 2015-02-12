@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -103,7 +103,7 @@ public class DeviceUseRequest extends DomainResource {
           return RECEIVED;
         if ("accepted".equals(codeString))
           return ACCEPTED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("completed".equals(codeString))
           return COMPLETED;
@@ -122,7 +122,7 @@ public class DeviceUseRequest extends DomainResource {
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -167,7 +167,7 @@ public class DeviceUseRequest extends DomainResource {
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -192,7 +192,7 @@ public class DeviceUseRequest extends DomainResource {
           return DeviceUseRequestStatus.RECEIVED;
         if ("accepted".equals(codeString))
           return DeviceUseRequestStatus.ACCEPTED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return DeviceUseRequestStatus.INPROGRESS;
         if ("completed".equals(codeString))
           return DeviceUseRequestStatus.COMPLETED;
@@ -216,7 +216,7 @@ public class DeviceUseRequest extends DomainResource {
       if (code == DeviceUseRequestStatus.ACCEPTED)
         return "accepted";
       if (code == DeviceUseRequestStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == DeviceUseRequestStatus.COMPLETED)
         return "completed";
       if (code == DeviceUseRequestStatus.SUSPENDED)
@@ -340,7 +340,7 @@ public class DeviceUseRequest extends DomainResource {
      * The status of the request.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | requested | received | accepted | in progress | completed | suspended | rejected | aborted", formalDefinition="The status of the request." )
+    @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the request." )
     protected Enumeration<DeviceUseRequestStatus> status;
 
     /**

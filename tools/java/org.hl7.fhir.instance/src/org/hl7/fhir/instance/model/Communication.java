@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -73,7 +73,7 @@ public class Communication extends DomainResource {
         public static CommunicationStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("completed".equals(codeString))
           return COMPLETED;
@@ -87,7 +87,7 @@ public class Communication extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -117,7 +117,7 @@ public class Communication extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
@@ -132,7 +132,7 @@ public class Communication extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return CommunicationStatus.INPROGRESS;
         if ("completed".equals(codeString))
           return CommunicationStatus.COMPLETED;
@@ -146,7 +146,7 @@ public class Communication extends DomainResource {
         }
     public String toCode(CommunicationStatus code) {
       if (code == CommunicationStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == CommunicationStatus.COMPLETED)
         return "completed";
       if (code == CommunicationStatus.SUSPENDED)
@@ -299,7 +299,7 @@ public class Communication extends DomainResource {
      * The status of the transmission.
      */
     @Child(name="status", type={CodeType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="in progress | completed | suspended | rejected | failed", formalDefinition="The status of the transmission." )
+    @Description(shortDefinition="in-progress | completed | suspended | rejected | failed", formalDefinition="The status of the transmission." )
     protected Enumeration<CommunicationStatus> status;
 
     /**
@@ -889,7 +889,7 @@ public class Communication extends DomainResource {
   public static final String SP_CATEGORY = "category";
   @SearchParamDefinition(name="patient", path="Communication.subject", description="Focus of message", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="status", path="Communication.status", description="in progress | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="Communication.status", description="in-progress | completed | suspended | rejected | failed", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="Communication.subject", description="Focus of message", type="reference" )
   public static final String SP_SUBJECT = "subject";

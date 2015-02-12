@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -81,7 +81,7 @@ public class Composition extends DomainResource {
           return APPENDED;
         if ("amended".equals(codeString))
           return AMENDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
         }
@@ -91,7 +91,7 @@ public class Composition extends DomainResource {
             case FINAL: return "final";
             case APPENDED: return "appended";
             case AMENDED: return "amended";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -121,7 +121,7 @@ public class Composition extends DomainResource {
             case FINAL: return "final";
             case APPENDED: return "appended";
             case AMENDED: return "amended";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -140,7 +140,7 @@ public class Composition extends DomainResource {
           return CompositionStatus.APPENDED;
         if ("amended".equals(codeString))
           return CompositionStatus.AMENDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return CompositionStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown CompositionStatus code '"+codeString+"'");
         }
@@ -154,7 +154,7 @@ public class Composition extends DomainResource {
       if (code == CompositionStatus.AMENDED)
         return "amended";
       if (code == CompositionStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }
@@ -871,7 +871,7 @@ public class Composition extends DomainResource {
      * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
     @Child(name="status", type={CodeType.class}, order=4, min=1, max=1)
-    @Description(shortDefinition="preliminary | final | appended | amended | entered in error", formalDefinition="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document." )
+    @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document." )
     protected Enumeration<CompositionStatus> status;
 
     /**
@@ -1530,7 +1530,7 @@ public class Composition extends DomainResource {
 
   @SearchParamDefinition(name="section-code", path="Composition.section.code", description="Classification of section (recommended)", type="token" )
   public static final String SP_SECTIONCODE = "section-code";
-  @SearchParamDefinition(name="status", path="Composition.status", description="preliminary | final | appended | amended | entered in error", type="token" )
+  @SearchParamDefinition(name="status", path="Composition.status", description="preliminary | final | appended | amended | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="Composition.subject", description="Who and/or what the composition is about", type="reference" )
   public static final String SP_SUBJECT = "subject";

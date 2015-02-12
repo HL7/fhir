@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -95,7 +95,7 @@ public class DiagnosticOrder extends DomainResource {
           return RECEIVED;
         if ("accepted".equals(codeString))
           return ACCEPTED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("review".equals(codeString))
           return REVIEW;
@@ -114,7 +114,7 @@ public class DiagnosticOrder extends DomainResource {
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
@@ -156,7 +156,7 @@ public class DiagnosticOrder extends DomainResource {
             case REQUESTED: return "requested";
             case RECEIVED: return "received";
             case ACCEPTED: return "accepted";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case REVIEW: return "review";
             case COMPLETED: return "completed";
             case SUSPENDED: return "suspended";
@@ -178,7 +178,7 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderStatus.RECEIVED;
         if ("accepted".equals(codeString))
           return DiagnosticOrderStatus.ACCEPTED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return DiagnosticOrderStatus.INPROGRESS;
         if ("review".equals(codeString))
           return DiagnosticOrderStatus.REVIEW;
@@ -200,7 +200,7 @@ public class DiagnosticOrder extends DomainResource {
       if (code == DiagnosticOrderStatus.ACCEPTED)
         return "accepted";
       if (code == DiagnosticOrderStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == DiagnosticOrderStatus.REVIEW)
         return "review";
       if (code == DiagnosticOrderStatus.COMPLETED)
@@ -321,7 +321,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status for the event.
          */
         @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
-        @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status for the event." )
+        @Description(shortDefinition="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status for the event." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -572,7 +572,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status of this individual item within the order.
          */
         @Child(name="status", type={CodeType.class}, order=4, min=0, max=1)
-        @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status of this individual item within the order." )
+        @Description(shortDefinition="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status of this individual item within the order." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -898,7 +898,7 @@ public class DiagnosticOrder extends DomainResource {
      * The status of the order.
      */
     @Child(name="status", type={CodeType.class}, order=6, min=0, max=1)
-    @Description(shortDefinition="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the order." )
+    @Description(shortDefinition="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", formalDefinition="The status of the order." )
     protected Enumeration<DiagnosticOrderStatus> status;
 
     /**
@@ -1458,13 +1458,13 @@ public class DiagnosticOrder extends DomainResource {
 
   @SearchParamDefinition(name="orderer", path="DiagnosticOrder.orderer", description="Who ordered the test", type="reference" )
   public static final String SP_ORDERER = "orderer";
-  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DiagnosticOrder.subject", description="Who and/or what test is about", type="reference" )
   public static final String SP_SUBJECT = "subject";
-  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
   public static final String SP_ITEMSTATUS = "item-status";
-  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
   public static final String SP_EVENTSTATUS = "event-status";
   @SearchParamDefinition(name="actor", path="DiagnosticOrder.event.actor|DiagnosticOrder.item.event.actor", description="Who recorded or did this", type="reference" )
   public static final String SP_ACTOR = "actor";
@@ -1472,7 +1472,7 @@ public class DiagnosticOrder extends DomainResource {
   public static final String SP_CODE = "code";
   @SearchParamDefinition(name="encounter", path="DiagnosticOrder.encounter", description="The encounter that this diagnostic order is associated with", type="reference" )
   public static final String SP_ENCOUNTER = "encounter";
-  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="requested | received | accepted | in progress | review | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="requested | received | accepted | in-progress | review | completed | suspended | rejected | failed", type="token" )
   public static final String SP_ITEMPASTSTATUS = "item-past-status";
   @SearchParamDefinition(name="patient", path="DiagnosticOrder.subject", description="Who and/or what test is about", type="reference" )
   public static final String SP_PATIENT = "patient";

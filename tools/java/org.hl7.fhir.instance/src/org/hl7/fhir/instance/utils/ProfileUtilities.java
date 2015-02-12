@@ -105,7 +105,7 @@ public class ProfileUtilities {
     {
       String p = e.getPath();
       
-      if (e != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p)) 
+      if (path != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p))
       {
     	/* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
     	 * structure.
@@ -563,10 +563,19 @@ public class ProfileUtilities {
       if (src.hasShortElement())
         dst.setShortElement(src.getShortElement().copy());
       if (src.hasFormalElement())
-        dst.setFormalElement(src.getFormalElement().copy());
+        if (src.getFormal().startsWith("..."))
+          dst.setFormal(dst.getFormal()+"\r\n"+src.getFormal().substring(3));
+        else
+          dst.setFormalElement(src.getFormalElement().copy());
       if (src.hasCommentsElement())
-        dst.setCommentsElement(src.getCommentsElement().copy());
+        if (src.getComments().startsWith("..."))
+          dst.setComments(dst.getComments()+"\r\n"+src.getComments().substring(3));
+        else
+          dst.setCommentsElement(src.getCommentsElement().copy());
       if (src.hasRequirementsElement())
+        if (src.getRequirements().startsWith("..."))
+          dst.setRequirements(dst.getRequirements()+"\r\n"+src.getRequirements().substring(3));
+        else
         dst.setRequirementsElement(src.getRequirementsElement().copy());
       if (src.hasSynonym()) {
       	for (StringType s : src.getSynonym()) {

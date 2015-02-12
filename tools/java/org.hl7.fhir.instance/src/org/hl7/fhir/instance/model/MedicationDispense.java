@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -73,13 +73,13 @@ public class MedicationDispense extends DomainResource {
         public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return STOPPED;
@@ -87,10 +87,10 @@ public class MedicationDispense extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
             default: return "?";
           }
@@ -117,10 +117,10 @@ public class MedicationDispense extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case INPROGRESS: return "in progress";
-            case ONHOLD: return "on hold";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
             default: return "?";
           }
@@ -132,13 +132,13 @@ public class MedicationDispense extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return MedicationDispenseStatus.INPROGRESS;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return MedicationDispenseStatus.ONHOLD;
         if ("completed".equals(codeString))
           return MedicationDispenseStatus.COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return MedicationDispenseStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationDispenseStatus.STOPPED;
@@ -146,13 +146,13 @@ public class MedicationDispense extends DomainResource {
         }
     public String toCode(MedicationDispenseStatus code) {
       if (code == MedicationDispenseStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == MedicationDispenseStatus.ONHOLD)
-        return "on hold";
+        return "on-hold";
       if (code == MedicationDispenseStatus.COMPLETED)
         return "completed";
       if (code == MedicationDispenseStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       if (code == MedicationDispenseStatus.STOPPED)
         return "stopped";
       return "?";
@@ -718,7 +718,7 @@ public class MedicationDispense extends DomainResource {
      * A code specifying the state of the set of dispense events.
      */
     @Child(name="status", type={CodeType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="in progress | on hold | completed | entered in error | stopped", formalDefinition="A code specifying the state of the set of dispense events." )
+    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="A code specifying the state of the set of dispense events." )
     protected Enumeration<MedicationDispenseStatus> status;
 
     /**

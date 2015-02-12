@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -83,11 +83,11 @@ public class MedicationPrescription extends DomainResource {
                 return null;
         if ("active".equals(codeString))
           return ACTIVE;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return ONHOLD;
         if ("completed".equals(codeString))
           return COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return STOPPED;
@@ -100,9 +100,9 @@ public class MedicationPrescription extends DomainResource {
         public String toCode() {
           switch (this) {
             case ACTIVE: return "active";
-            case ONHOLD: return "on hold";
+            case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
             case SUPERCEDED: return "superceded";
             case DRAFT: return "draft";
@@ -154,11 +154,11 @@ public class MedicationPrescription extends DomainResource {
                 return null;
         if ("active".equals(codeString))
           return MedicationPrescriptionStatus.ACTIVE;
-        if ("on hold".equals(codeString))
+        if ("on-hold".equals(codeString))
           return MedicationPrescriptionStatus.ONHOLD;
         if ("completed".equals(codeString))
           return MedicationPrescriptionStatus.COMPLETED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return MedicationPrescriptionStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationPrescriptionStatus.STOPPED;
@@ -172,11 +172,11 @@ public class MedicationPrescription extends DomainResource {
       if (code == MedicationPrescriptionStatus.ACTIVE)
         return "active";
       if (code == MedicationPrescriptionStatus.ONHOLD)
-        return "on hold";
+        return "on-hold";
       if (code == MedicationPrescriptionStatus.COMPLETED)
         return "completed";
       if (code == MedicationPrescriptionStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       if (code == MedicationPrescriptionStatus.STOPPED)
         return "stopped";
       if (code == MedicationPrescriptionStatus.SUPERCEDED)
@@ -969,7 +969,7 @@ public class MedicationPrescription extends DomainResource {
      * A code specifying the state of the order.  Generally this will be active or completed state.
      */
     @Child(name="status", type={CodeType.class}, order=1, min=0, max=1)
-    @Description(shortDefinition="active | on hold | completed | entered in error | stopped | superceded | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
+    @Description(shortDefinition="active | on-hold | completed | entered-in-error | stopped | superceded | draft", formalDefinition="A code specifying the state of the order.  Generally this will be active or completed state." )
     protected Enumeration<MedicationPrescriptionStatus> status;
 
     /**

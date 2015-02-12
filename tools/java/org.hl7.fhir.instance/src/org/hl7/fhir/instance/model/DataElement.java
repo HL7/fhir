@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -165,7 +165,7 @@ public class DataElement extends DomainResource {
                 return null;
         if ("comparable".equals(codeString))
           return COMPARABLE;
-        if ("fully specified".equals(codeString))
+        if ("fully-specified".equals(codeString))
           return FULLYSPECIFIED;
         if ("equivalent".equals(codeString))
           return EQUIVALENT;
@@ -180,7 +180,7 @@ public class DataElement extends DomainResource {
         public String toCode() {
           switch (this) {
             case COMPARABLE: return "comparable";
-            case FULLYSPECIFIED: return "fully specified";
+            case FULLYSPECIFIED: return "fully-specified";
             case EQUIVALENT: return "equivalent";
             case CONVERTABLE: return "convertable";
             case SCALEABLE: return "scaleable";
@@ -213,7 +213,7 @@ public class DataElement extends DomainResource {
         public String getDisplay() {
           switch (this) {
             case COMPARABLE: return "comparable";
-            case FULLYSPECIFIED: return "fully specified";
+            case FULLYSPECIFIED: return "fully-specified";
             case EQUIVALENT: return "equivalent";
             case CONVERTABLE: return "convertable";
             case SCALEABLE: return "scaleable";
@@ -230,7 +230,7 @@ public class DataElement extends DomainResource {
                 return null;
         if ("comparable".equals(codeString))
           return DataelementGranularity.COMPARABLE;
-        if ("fully specified".equals(codeString))
+        if ("fully-specified".equals(codeString))
           return DataelementGranularity.FULLYSPECIFIED;
         if ("equivalent".equals(codeString))
           return DataelementGranularity.EQUIVALENT;
@@ -246,7 +246,7 @@ public class DataElement extends DomainResource {
       if (code == DataelementGranularity.COMPARABLE)
         return "comparable";
       if (code == DataelementGranularity.FULLYSPECIFIED)
-        return "fully specified";
+        return "fully-specified";
       if (code == DataelementGranularity.EQUIVALENT)
         return "equivalent";
       if (code == DataelementGranularity.CONVERTABLE)
@@ -977,7 +977,7 @@ public class DataElement extends DomainResource {
      * Identifies how precise the data element is in its definition.
      */
     @Child(name="granularity", type={CodeType.class}, order=7, min=0, max=1)
-    @Description(shortDefinition="comparable | fully specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
+    @Description(shortDefinition="comparable | fully-specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
     protected Enumeration<DataelementGranularity> granularity;
 
     /**

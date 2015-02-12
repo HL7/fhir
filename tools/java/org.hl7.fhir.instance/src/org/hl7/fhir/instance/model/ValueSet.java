@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -173,7 +173,7 @@ public class ValueSet extends DomainResource {
           return REGEX;
         if ("in".equals(codeString))
           return IN;
-        if ("not in".equals(codeString))
+        if ("not-in".equals(codeString))
           return NOTIN;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
         }
@@ -184,7 +184,7 @@ public class ValueSet extends DomainResource {
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
-            case NOTIN: return "not in";
+            case NOTIN: return "not-in";
             default: return "?";
           }
         }
@@ -217,7 +217,7 @@ public class ValueSet extends DomainResource {
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
-            case NOTIN: return "not in";
+            case NOTIN: return "not-in";
             default: return "?";
           }
         }
@@ -238,7 +238,7 @@ public class ValueSet extends DomainResource {
           return FilterOperator.REGEX;
         if ("in".equals(codeString))
           return FilterOperator.IN;
-        if ("not in".equals(codeString))
+        if ("not-in".equals(codeString))
           return FilterOperator.NOTIN;
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
@@ -254,7 +254,7 @@ public class ValueSet extends DomainResource {
       if (code == FilterOperator.IN)
         return "in";
       if (code == FilterOperator.NOTIN)
-        return "not in";
+        return "not-in";
       return "?";
       }
     }
@@ -1620,7 +1620,7 @@ public class ValueSet extends DomainResource {
          * The kind of operation to perform as a part of the filter criteria.
          */
         @Child(name="op", type={CodeType.class}, order=2, min=1, max=1)
-        @Description(shortDefinition="= | is-a | is-not-a | regex | in | not in", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
+        @Description(shortDefinition="= | is-a | is-not-a | regex | in | not-in", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         protected Enumeration<FilterOperator> op;
 
         /**

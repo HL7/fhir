@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -69,7 +69,7 @@ public class DocumentManifest extends DomainResource {
           return CURRENT;
         if ("superceded".equals(codeString))
           return SUPERCEDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
@@ -77,7 +77,7 @@ public class DocumentManifest extends DomainResource {
           switch (this) {
             case CURRENT: return "current";
             case SUPERCEDED: return "superceded";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -101,7 +101,7 @@ public class DocumentManifest extends DomainResource {
           switch (this) {
             case CURRENT: return "current";
             case SUPERCEDED: return "superceded";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -116,7 +116,7 @@ public class DocumentManifest extends DomainResource {
           return DocumentReferenceStatus.CURRENT;
         if ("superceded".equals(codeString))
           return DocumentReferenceStatus.SUPERCEDED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return DocumentReferenceStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
@@ -126,7 +126,7 @@ public class DocumentManifest extends DomainResource {
       if (code == DocumentReferenceStatus.SUPERCEDED)
         return "superceded";
       if (code == DocumentReferenceStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }
@@ -206,7 +206,7 @@ public class DocumentManifest extends DomainResource {
      * The status of this document manifest.
      */
     @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
-    @Description(shortDefinition="current | superceded | entered in error", formalDefinition="The status of this document manifest." )
+    @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document manifest." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
@@ -824,7 +824,7 @@ public class DocumentManifest extends DomainResource {
 
   @SearchParamDefinition(name="supersedes", path="DocumentManifest.supercedes", description="If this document manifest replaces another", type="reference" )
   public static final String SP_SUPERSEDES = "supersedes";
-  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered in error", type="token" )
+  @SearchParamDefinition(name="status", path="DocumentManifest.status", description="current | superceded | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
   @SearchParamDefinition(name="subject", path="DocumentManifest.subject", description="The subject of the set of documents", type="reference" )
   public static final String SP_SUBJECT = "subject";

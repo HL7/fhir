@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -243,7 +243,7 @@ public class Observation extends DomainResource {
           return AMENDED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
@@ -254,7 +254,7 @@ public class Observation extends DomainResource {
             case FINAL: return "final";
             case AMENDED: return "amended";
             case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -287,7 +287,7 @@ public class Observation extends DomainResource {
             case FINAL: return "final";
             case AMENDED: return "amended";
             case CANCELLED: return "cancelled";
-            case ENTEREDINERROR: return "entered in error";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -308,7 +308,7 @@ public class Observation extends DomainResource {
           return ObservationStatus.AMENDED;
         if ("cancelled".equals(codeString))
           return ObservationStatus.CANCELLED;
-        if ("entered in error".equals(codeString))
+        if ("entered-in-error".equals(codeString))
           return ObservationStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown ObservationStatus code '"+codeString+"'");
         }
@@ -324,7 +324,7 @@ public class Observation extends DomainResource {
       if (code == ObservationStatus.CANCELLED)
         return "cancelled";
       if (code == ObservationStatus.ENTEREDINERROR)
-        return "entered in error";
+        return "entered-in-error";
       return "?";
       }
     }

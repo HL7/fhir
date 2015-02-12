@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 10:27+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -89,7 +89,7 @@ public class Goal extends DomainResource {
           return PROPOSED;
         if ("planned".equals(codeString))
           return PLANNED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("achieved".equals(codeString))
           return ACHIEVED;
@@ -107,7 +107,7 @@ public class Goal extends DomainResource {
           switch (this) {
             case PROPOSED: return "proposed";
             case PLANNED: return "planned";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case ACHIEVED: return "achieved";
             case SUSTAINING: return "sustaining";
             case CANCELLED: return "cancelled";
@@ -146,7 +146,7 @@ public class Goal extends DomainResource {
           switch (this) {
             case PROPOSED: return "proposed";
             case PLANNED: return "planned";
-            case INPROGRESS: return "in progress";
+            case INPROGRESS: return "in-progress";
             case ACHIEVED: return "achieved";
             case SUSTAINING: return "sustaining";
             case CANCELLED: return "cancelled";
@@ -166,7 +166,7 @@ public class Goal extends DomainResource {
           return GoalStatus.PROPOSED;
         if ("planned".equals(codeString))
           return GoalStatus.PLANNED;
-        if ("in progress".equals(codeString))
+        if ("in-progress".equals(codeString))
           return GoalStatus.INPROGRESS;
         if ("achieved".equals(codeString))
           return GoalStatus.ACHIEVED;
@@ -186,7 +186,7 @@ public class Goal extends DomainResource {
       if (code == GoalStatus.PLANNED)
         return "planned";
       if (code == GoalStatus.INPROGRESS)
-        return "in progress";
+        return "in-progress";
       if (code == GoalStatus.ACHIEVED)
         return "achieved";
       if (code == GoalStatus.SUSTAINING)
@@ -231,7 +231,7 @@ public class Goal extends DomainResource {
      * Indicates whether the goal has been reached and is still considered relevant.
      */
     @Child(name="status", type={CodeType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="proposed | planned | in progress | achieved | sustaining | cancelled | accepted | rejected", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
+    @Description(shortDefinition="proposed | planned | in-progress | achieved | sustaining | cancelled | accepted | rejected", formalDefinition="Indicates whether the goal has been reached and is still considered relevant." )
     protected Enumeration<GoalStatus> status;
 
     /**
