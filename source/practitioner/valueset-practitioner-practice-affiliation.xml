@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">TBD</div>
+  </text>
+  <identifier value="http://www.example.com/valueset/provider-practiceAffiliation"/>
+  <version value="0.01"/>
+  <name value="HSPC Provider Practice Affiliation Value Set Definition"/>
+  <immutable value="true"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <description value="TBD"/>
+  <copyright value="TBD"/>
+  <status value="draft"/>
+  <extensible value="true"/>
+  <date value="2015-02-09"/>
+  <compose>
+    <include>
+      <system value="http://need.a.uri.org/practitioner/practiceAffiliation"/>
+      <concept>
+        <code value="1"/>
+        <display value="TBD"/>
+      </concept>
+    </include>
+  </compose> 
+</ValueSet>
