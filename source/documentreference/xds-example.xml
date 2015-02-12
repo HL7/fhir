@@ -103,7 +103,7 @@
     <transaction>
       <method value="POST"/>
       <url value="Patient"/>
-      <header value="If-None-Exist: Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
+      <ifNoneExist value="Patient?identifier=http://acme.org/xds/patients!89765a87b"/>
     </transaction> 
   </entry>
   <entry>

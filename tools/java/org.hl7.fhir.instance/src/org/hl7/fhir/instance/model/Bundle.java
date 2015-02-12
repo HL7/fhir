@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
+// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -868,13 +868,34 @@ public class Bundle extends Resource {
         protected UriType url;
 
         /**
-         * Headers are provided principally to support the If-None-Exist header.
+         * If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.
          */
-        @Child(name="header", type={StringType.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Headers for the transaction", formalDefinition="Headers are provided principally to support the If-None-Exist header." )
-        protected List<StringType> header;
+        @Child(name="ifNoneMatch", type={StringType.class}, order=3, min=0, max=1)
+        @Description(shortDefinition="For managing cache currency", formalDefinition="If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation." )
+        protected StringType ifNoneMatch;
 
-        private static final long serialVersionUID = 1127884142L;
+        /**
+         * Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".
+         */
+        @Child(name="ifMatch", type={StringType.class}, order=4, min=0, max=1)
+        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'." )
+        protected StringType ifMatch;
+
+        /**
+         * Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".
+         */
+        @Child(name="ifModifiedSince", type={StringType.class}, order=5, min=0, max=1)
+        @Description(shortDefinition="For managing update contention", formalDefinition="Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'." )
+        protected StringType ifModifiedSince;
+
+        /**
+         * Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         */
+        @Child(name="ifNoneExist", type={StringType.class}, order=6, min=0, max=1)
+        @Description(shortDefinition="For conditional creates", formalDefinition="Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'." )
+        protected StringType ifNoneExist;
+
+        private static final long serialVersionUID = 1494764694L;
 
       public BundleEntryTransactionComponent() {
         super();
@@ -977,64 +998,209 @@ public class Bundle extends Resource {
         }
 
         /**
-         * @return {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         * @return {@link #ifNoneMatch} (If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.). This is the underlying object with id, value and extensions. The accessor "getIfNoneMatch" gives direct access to the value
          */
-        public List<StringType> getHeader() { 
-          if (this.header == null)
-            this.header = new ArrayList<StringType>();
-          return this.header;
+        public StringType getIfNoneMatchElement() { 
+          if (this.ifNoneMatch == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.ifNoneMatch");
+            else if (Configuration.doAutoCreate())
+              this.ifNoneMatch = new StringType(); // bb
+          return this.ifNoneMatch;
         }
 
-        public boolean hasHeader() { 
-          if (this.header == null)
-            return false;
-          for (StringType item : this.header)
-            if (!item.isEmpty())
-              return true;
-          return false;
+        public boolean hasIfNoneMatchElement() { 
+          return this.ifNoneMatch != null && !this.ifNoneMatch.isEmpty();
         }
 
-        /**
-         * @return {@link #header} (Headers are provided principally to support the If-None-Exist header.)
-         */
-    // syntactic sugar
-        public StringType addHeaderElement() {//2 
-          StringType t = new StringType();
-          if (this.header == null)
-            this.header = new ArrayList<StringType>();
-          this.header.add(t);
-          return t;
+        public boolean hasIfNoneMatch() { 
+          return this.ifNoneMatch != null && !this.ifNoneMatch.isEmpty();
         }
 
         /**
-         * @param value {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         * @param value {@link #ifNoneMatch} (If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.). This is the underlying object with id, value and extensions. The accessor "getIfNoneMatch" gives direct access to the value
          */
-        public BundleEntryTransactionComponent addHeader(String value) { //1
-          StringType t = new StringType();
-          t.setValue(value);
-          if (this.header == null)
-            this.header = new ArrayList<StringType>();
-          this.header.add(t);
+        public BundleEntryTransactionComponent setIfNoneMatchElement(StringType value) { 
+          this.ifNoneMatch = value;
           return this;
         }
 
         /**
-         * @param value {@link #header} (Headers are provided principally to support the If-None-Exist header.)
+         * @return If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.
          */
-        public boolean hasHeader(String value) { 
-          if (this.header == null)
-            return false;
-          for (StringType v : this.header)
-            if (v.equals(value)) // string
-              return true;
-          return false;
+        public String getIfNoneMatch() { 
+          return this.ifNoneMatch == null ? null : this.ifNoneMatch.getValue();
+        }
+
+        /**
+         * @param value If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.
+         */
+        public BundleEntryTransactionComponent setIfNoneMatch(String value) { 
+          if (Utilities.noString(value))
+            this.ifNoneMatch = null;
+          else {
+            if (this.ifNoneMatch == null)
+              this.ifNoneMatch = new StringType();
+            this.ifNoneMatch.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #ifMatch} (Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".). This is the underlying object with id, value and extensions. The accessor "getIfMatch" gives direct access to the value
+         */
+        public StringType getIfMatchElement() { 
+          if (this.ifMatch == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.ifMatch");
+            else if (Configuration.doAutoCreate())
+              this.ifMatch = new StringType(); // bb
+          return this.ifMatch;
+        }
+
+        public boolean hasIfMatchElement() { 
+          return this.ifMatch != null && !this.ifMatch.isEmpty();
+        }
+
+        public boolean hasIfMatch() { 
+          return this.ifMatch != null && !this.ifMatch.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ifMatch} (Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".). This is the underlying object with id, value and extensions. The accessor "getIfMatch" gives direct access to the value
+         */
+        public BundleEntryTransactionComponent setIfMatchElement(StringType value) { 
+          this.ifMatch = value;
+          return this;
+        }
+
+        /**
+         * @return Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".
+         */
+        public String getIfMatch() { 
+          return this.ifMatch == null ? null : this.ifMatch.getValue();
+        }
+
+        /**
+         * @param value Only perform the operation if the Etag value matches. For more information, see the API section "Managing Resource Contention".
+         */
+        public BundleEntryTransactionComponent setIfMatch(String value) { 
+          if (Utilities.noString(value))
+            this.ifMatch = null;
+          else {
+            if (this.ifMatch == null)
+              this.ifMatch = new StringType();
+            this.ifMatch.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #ifModifiedSince} (Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".). This is the underlying object with id, value and extensions. The accessor "getIfModifiedSince" gives direct access to the value
+         */
+        public StringType getIfModifiedSinceElement() { 
+          if (this.ifModifiedSince == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.ifModifiedSince");
+            else if (Configuration.doAutoCreate())
+              this.ifModifiedSince = new StringType(); // bb
+          return this.ifModifiedSince;
+        }
+
+        public boolean hasIfModifiedSinceElement() { 
+          return this.ifModifiedSince != null && !this.ifModifiedSince.isEmpty();
+        }
+
+        public boolean hasIfModifiedSince() { 
+          return this.ifModifiedSince != null && !this.ifModifiedSince.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ifModifiedSince} (Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".). This is the underlying object with id, value and extensions. The accessor "getIfModifiedSince" gives direct access to the value
+         */
+        public BundleEntryTransactionComponent setIfModifiedSinceElement(StringType value) { 
+          this.ifModifiedSince = value;
+          return this;
+        }
+
+        /**
+         * @return Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".
+         */
+        public String getIfModifiedSince() { 
+          return this.ifModifiedSince == null ? null : this.ifModifiedSince.getValue();
+        }
+
+        /**
+         * @param value Only perform the operation if the last updated date matches. For more information, see the API section "Managing Resource Contention".
+         */
+        public BundleEntryTransactionComponent setIfModifiedSince(String value) { 
+          if (Utilities.noString(value))
+            this.ifModifiedSince = null;
+          else {
+            if (this.ifModifiedSince == null)
+              this.ifModifiedSince = new StringType();
+            this.ifModifiedSince.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
+         */
+        public StringType getIfNoneExistElement() { 
+          if (this.ifNoneExist == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BundleEntryTransactionComponent.ifNoneExist");
+            else if (Configuration.doAutoCreate())
+              this.ifNoneExist = new StringType(); // bb
+          return this.ifNoneExist;
+        }
+
+        public boolean hasIfNoneExistElement() { 
+          return this.ifNoneExist != null && !this.ifNoneExist.isEmpty();
+        }
+
+        public boolean hasIfNoneExist() { 
+          return this.ifNoneExist != null && !this.ifNoneExist.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ifNoneExist} (Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".). This is the underlying object with id, value and extensions. The accessor "getIfNoneExist" gives direct access to the value
+         */
+        public BundleEntryTransactionComponent setIfNoneExistElement(StringType value) { 
+          this.ifNoneExist = value;
+          return this;
+        }
+
+        /**
+         * @return Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         */
+        public String getIfNoneExist() { 
+          return this.ifNoneExist == null ? null : this.ifNoneExist.getValue();
+        }
+
+        /**
+         * @param value Instruct the server not to perform the create if a specified resource already exists. For further information, see "Conditional Create".
+         */
+        public BundleEntryTransactionComponent setIfNoneExist(String value) { 
+          if (Utilities.noString(value))
+            this.ifNoneExist = null;
+          else {
+            if (this.ifNoneExist == null)
+              this.ifNoneExist = new StringType();
+            this.ifNoneExist.setValue(value);
+          }
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a update history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
           childrenList.add(new Property("url", "uri", "A search URL for this resource that specifies how the resource is matched to an existing resource when processing a transaction (see transaction documentation).", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("header", "string", "Headers are provided principally to support the If-None-Exist header.", 0, java.lang.Integer.MAX_VALUE, header));
+          childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not modified status. See the read/vread interaction documentation.", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
+          childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifMatch));
+          childrenList.add(new Property("ifModifiedSince", "string", "Only perform the operation if the last updated date matches. For more information, see the API section 'Managing Resource Contention'.", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));
+          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see 'Conditional Create'.", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
         }
 
       public BundleEntryTransactionComponent copy() {
@@ -1042,17 +1208,18 @@ public class Bundle extends Resource {
         copyValues(dst);
         dst.method = method == null ? null : method.copy();
         dst.url = url == null ? null : url.copy();
-        if (header != null) {
-          dst.header = new ArrayList<StringType>();
-          for (StringType i : header)
-            dst.header.add(i.copy());
-        };
+        dst.ifNoneMatch = ifNoneMatch == null ? null : ifNoneMatch.copy();
+        dst.ifMatch = ifMatch == null ? null : ifMatch.copy();
+        dst.ifModifiedSince = ifModifiedSince == null ? null : ifModifiedSince.copy();
+        dst.ifNoneExist = ifNoneExist == null ? null : ifNoneExist.copy();
         return dst;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (method == null || method.isEmpty()) && (url == null || url.isEmpty())
-           && (header == null || header.isEmpty());
+           && (ifNoneMatch == null || ifNoneMatch.isEmpty()) && (ifMatch == null || ifMatch.isEmpty())
+           && (ifModifiedSince == null || ifModifiedSince.isEmpty()) && (ifNoneExist == null || ifNoneExist.isEmpty())
+          ;
       }
 
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
+// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1539,21 +1539,22 @@ public class JsonParser extends JsonParserBase {
       res.setUrlElement(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
       parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    if (json.has("header")) {
-      JsonArray array = json.getAsJsonArray("header");
-      for (int i = 0; i < array.size(); i++) {
-        res.getHeader().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_header")) {
-      JsonArray array = json.getAsJsonArray("_header");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getHeader().size())
-          res.getHeader().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getHeader().get(i));
-      }
-    };
+    if (json.has("ifNoneMatch"))
+      res.setIfNoneMatchElement(parseString(json.get("ifNoneMatch").getAsString()));
+    if (json.has("_ifNoneMatch"))
+      parseElementProperties(json.getAsJsonObject("_ifNoneMatch"), res.getIfNoneMatchElement());
+    if (json.has("ifMatch"))
+      res.setIfMatchElement(parseString(json.get("ifMatch").getAsString()));
+    if (json.has("_ifMatch"))
+      parseElementProperties(json.getAsJsonObject("_ifMatch"), res.getIfMatchElement());
+    if (json.has("ifModifiedSince"))
+      res.setIfModifiedSinceElement(parseString(json.get("ifModifiedSince").getAsString()));
+    if (json.has("_ifModifiedSince"))
+      parseElementProperties(json.getAsJsonObject("_ifModifiedSince"), res.getIfModifiedSinceElement());
+    if (json.has("ifNoneExist"))
+      res.setIfNoneExistElement(parseString(json.get("ifNoneExist").getAsString()));
+    if (json.has("_ifNoneExist"))
+      parseElementProperties(json.getAsJsonObject("_ifNoneExist"), res.getIfNoneExistElement());
     return res;
   }
 
@@ -13960,18 +13961,22 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("url", element.getUrlElement(), false);
         composeUriExtras("url", element.getUrlElement(), false);
       }
-      if (element.hasHeader()) {
-        openArray("header");
-        for (StringType e : element.getHeader()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getHeader())) {
-          openArray("_header");
-          for (StringType e : element.getHeader()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
+      if (element.hasIfNoneMatchElement()) {
+        composeStringCore("ifNoneMatch", element.getIfNoneMatchElement(), false);
+        composeStringExtras("ifNoneMatch", element.getIfNoneMatchElement(), false);
+      }
+      if (element.hasIfMatchElement()) {
+        composeStringCore("ifMatch", element.getIfMatchElement(), false);
+        composeStringExtras("ifMatch", element.getIfMatchElement(), false);
+      }
+      if (element.hasIfModifiedSinceElement()) {
+        composeStringCore("ifModifiedSince", element.getIfModifiedSinceElement(), false);
+        composeStringExtras("ifModifiedSince", element.getIfModifiedSinceElement(), false);
+      }
+      if (element.hasIfNoneExistElement()) {
+        composeStringCore("ifNoneExist", element.getIfNoneExistElement(), false);
+        composeStringExtras("ifNoneExist", element.getIfNoneExistElement(), false);
+      }
   }
 
   protected void composeBundleBundleEntryTransactionResponseComponent(String name, Bundle.BundleEntryTransactionResponseComponent element) throws Exception {

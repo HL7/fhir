@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Feb 12, 2015 21:46+1100 for FHIR v0.4.0
+// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1484,8 +1484,14 @@ public class XmlParser extends XmlParserBase {
         res.setMethodElement(parseEnumeration(xpp, Bundle.HttpVerb.NULL, new Bundle.HttpVerbEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("url")) {
         res.setUrlElement(parseUri(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("header")) {
-        res.getHeader().add(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ifNoneMatch")) {
+        res.setIfNoneMatchElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ifMatch")) {
+        res.setIfMatchElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ifModifiedSince")) {
+        res.setIfModifiedSinceElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ifNoneExist")) {
+        res.setIfNoneExistElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -12127,9 +12133,17 @@ public class XmlParser extends XmlParserBase {
       if (element.hasUrlElement()) {
         composeUri("url", element.getUrlElement());
       }
-      if (element.hasHeader()) { 
-        for (StringType e : element.getHeader()) 
-          composeString("header", e);
+      if (element.hasIfNoneMatchElement()) {
+        composeString("ifNoneMatch", element.getIfNoneMatchElement());
+      }
+      if (element.hasIfMatchElement()) {
+        composeString("ifMatch", element.getIfMatchElement());
+      }
+      if (element.hasIfModifiedSinceElement()) {
+        composeString("ifModifiedSince", element.getIfModifiedSinceElement());
+      }
+      if (element.hasIfNoneExistElement()) {
+        composeString("ifNoneExist", element.getIfNoneExistElement());
       }
       xml.close(FHIR_NS, name);
     }
