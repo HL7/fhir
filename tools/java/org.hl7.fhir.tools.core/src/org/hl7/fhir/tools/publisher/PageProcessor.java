@@ -5259,7 +5259,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return typeCode;
   }
   
-  private String genStatusCodes() {
+  private String genStatusCodes() throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table border=\"1\">\r\n");
     int colcount = 0;
@@ -5280,7 +5280,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     for (String n : names) {
       b.append("<tr>");
-      b.append("<td>"+n+"</td>");
+      ElementDefn ed = getElementDefn(n);
+      if (ed == null || !ed.isModifier())
+        b.append("<td>"+n+"</td>");
+      else 
+        b.append("<td><b>"+n+"</b></td>");
       ArrayList<String> row = definitions.getStatusCodes().get(n);
       for (int i = 0; i < colcount; i++) 
         b.append("<td>"+(i < row.size() ? row.get(i) : "")+"</td>");
@@ -5291,5 +5295,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("</table>\r\n");
     
     return b.toString();
+  }
+
+  private ElementDefn getElementDefn(String n) throws Exception {
+    String[] path = n.split("\\.");
+    ElementDefn ed = definitions.getElementDefn(path[0]);
+    for (int i = 1; i < path.length; i++) {
+      if (ed == null)
+        return null;
+      ed = ed.getElementByName(path[i]);
+    }
+    return ed;
   }
 }
