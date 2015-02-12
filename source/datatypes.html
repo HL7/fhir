@@ -41,8 +41,8 @@ The data types are available as a <a href="fhir-base.xsd">W3C Schema</a>.
 
 <a name="imports"> </a>
 <p>
-The following table describes the primitive types are used in throughout this specification. Primitive types are those with only a value, and no additional elements as children (though, like 
-all types, they have <a href="extensibility.html">extensions</a>.
+The following table describes the primitive types that are used in this specification. Primitive types are those with only a value, and no additional elements as children (though, like 
+all types, they have <a href="extensibility.html">extensions</a>).
 </p>
 
 <a name="boolean"> </a>
@@ -172,8 +172,6 @@ Notes:
       <li>Note that there is no absolute limit to the magnitude of the value, though large and/or highly precise values are extremely rare in medicine</li>
     </ul>
  </li>
- <li></li>
- <li></li>
 </ul>
 
 
@@ -190,7 +188,7 @@ The value is represented in XML as an attribute named "value":
  and as the value of the property in JSON:
 </p>
 <pre>
-  "count" : "2"
+  "count" : 2
 </pre>
 <p>
 For additional details, including how the internal identity and extensions are represented, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats. 
@@ -202,7 +200,7 @@ boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and 
 schema aware XML libraries give different attribute values to non schema aware libraries when reading the 
 XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
 String values should only have leading and trailing spaces if they are part of the content of the value. 
-In JSON, whitespace is always significant in JSON. Primitive types other than string SHALL NOT have leading or trailing whitespace.
+In JSON, whitespace in string values is always significant. Primitive types other than string SHALL NOT have leading or trailing whitespace.
 </p>
 
 <h3>Simple Restrictions</h3>
@@ -231,7 +229,7 @@ In addition to the base primitive types, a few additional primitive types are de
    <br/>Note: this format includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.
    <br/>regex: [%id_regex%]</td></tr>
 </table>
-
+<!--
 <hr/>
 <p>Old primitive data types description, for reference</p>
  
@@ -277,7 +275,7 @@ In addition to the base primitive types, a few additional primitive types are de
  </td></tr>
  <tr><td>time</td><td>xs:time</td><td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds may be provided but may also be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b><br/>
  regex: ([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?
-<!-- these regex tested using http://www.regexr.com/ -->
+<!-- these regex tested using http://www.regexr.com/ - ->
  </td> 
  </tr>
  <tr><td colspan="3"><i>Note: not all restrictions imposed on the date/time types can be expressed using regular expressions, so these regexes allow a broader set of values than are actually valid</i></td></tr>
@@ -321,7 +319,7 @@ is always significant in JSON. Primitive types other than string SHALL NOT have 
 </p>
 
 <hr/>
-<!-- these regex tested using http://www.regexr.com/ -->
+<!-- these regex tested using http://www.regexr.com/ - ->
 
 <!-- <tr><td colspan="3"><i>Note: not all restrictions imposed on the date/time types can be expressed using regular expressions, so these regexes allow a broader set of values than are actually valid</i></td></tr> -->
 
