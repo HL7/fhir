@@ -26,7 +26,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>on hold
+			<td>on-hold
 			  <a name="onhold"> </a>
 			</td>
 			<td>Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</td>
@@ -36,7 +36,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>entered in error
+			<td>entered-in-error
 			  <a name="enteredinerror"> </a>
 			</td>
 			<td>The administration was entered in error and therefore nullified.</td>
@@ -76,10 +76,10 @@
     <include>
 	  <system value="http://hl7.org/fhir/medication-admin-status"/>  
 	  <concept>
-		<code value="on hold"/>
+		<code value="on-hold"/>
 	  </concept>
 	  <concept>
-		<code value="entered in error"/>
+		<code value="entered-in-error"/>
 	  </concept>
 	  <concept>
 		<code value="stopped"/>

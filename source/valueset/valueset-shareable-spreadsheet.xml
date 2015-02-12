@@ -2290,7 +2290,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">= | is-a | is-not-a | regex | in | not in</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">= | is-a | is-not-a | regex | in | not-in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">The kind of operation to perform as a part of the filter criteria</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

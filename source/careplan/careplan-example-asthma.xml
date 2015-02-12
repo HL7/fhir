@@ -207,7 +207,7 @@
       <valueInteger value="500"></valueInteger>
     </extension>
     <description value="Maintain Peak flow above 500"/>
-    <status value="in progress"/>
+    <status value="in-progress"/>
   </goal>
   
   <goal>
@@ -244,7 +244,7 @@
   
   <activity>
     <!-- Specifies that this activity (start a reducing dose of steriods) is only triggered when the peak flow drops below 350-->
-    <status value="not started"/>
+    <status value="not-started"/>
     <prohibited value="false"/>
       <actionResulting>
           <reference value="#rx1"/>
@@ -273,7 +273,7 @@
   </activity>
   
   <activity>
-    <status value="not started"/>
+    <status value="not-started"/>
     <prohibited value="false"/>
     <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
     <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->

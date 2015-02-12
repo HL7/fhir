@@ -86,10 +86,10 @@
   </participant>
   <goal>
     <description value="Elimination of the spenoid bone tumor"/>
-    <status value="in progress"/>
+    <status value="in-progress"/>
   </goal>
   <activity>
-    <status value="in progress"/>
+    <status value="in-progress"/>
     <prohibited value="false"/>
     <actionResulting>
       <reference value="Procedure/f201"/>

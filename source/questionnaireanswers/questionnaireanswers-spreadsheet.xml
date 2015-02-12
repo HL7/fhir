@@ -1091,7 +1091,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">in progress | completed | amended</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">in-progress | completed | amended</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The lifecycle status of the questionnaire answers as a whole.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1099,7 +1099,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">.statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in progress&quot; from &quot;published)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">.statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in-progress&quot; from &quot;published)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7473,11 +7473,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>

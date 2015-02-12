@@ -39,7 +39,7 @@
 		<display value="Peter James Chalmers"/>
 	</patient>
 	<description value="Target weight is 160 to 180 lbs."/>
-	<status value="in progress"/>
+	<status value="in-progress"/>
 	<concern>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>

@@ -26,7 +26,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>in progress
+			<td>in-progress
 			  <a name="inprogress"> </a>
 			</td>
 			<td>The administration has started but has not yet completed.</td>
@@ -66,7 +66,7 @@
     <include>
 	  <system value="http://hl7.org/fhir/medication-admin-status"/>  
 	  <concept>
-		<code value="in progress"/>
+		<code value="in-progress"/>
 	  </concept>
 	  <concept>
 		<code value="completed"/>

@@ -1232,7 +1232,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">in progress | completed | suspended | rejected | failed</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">in-progress | completed | suspended | rejected | failed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The status of the transmission.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7333,7 +7333,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>

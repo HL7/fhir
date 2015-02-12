@@ -7,7 +7,7 @@
         This example value set includes codes from the following code systems:
       </p>
       <ul>
-       <li>Special Values (http://hl7.org/fhir/special-values): true, false, trace, sufficient, withdrawn, nil known</li>
+       <li>Special Values (http://hl7.org/fhir/special-values): true, false, trace, sufficient, withdrawn, nil-known</li>
        <li>Data Absent Reason (http://hl7.org/fhir/data-absent-reason):   unknown, asked, temp, not asked, masked, unsupported, as text, error</li>
        <li>SNOMED CT Clinical Findings (is-a relationship with 404684003: Clinical finding)</li>
        

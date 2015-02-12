@@ -4613,7 +4613,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">SHALL | SHOULD | MAY |SHOULD NOT</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">SHALL | SHOULD | MAY |SHOULD-NOT</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Defines the level of expectation associated with a given system capability.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7558,7 +7558,7 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:Height="45">
-    <Cell ss:StyleID="s158"><Data ss:Type="String">SHOULD NOT</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">SHOULD-NOT</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s159"/>

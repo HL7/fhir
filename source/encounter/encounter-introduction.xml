@@ -42,7 +42,7 @@ to determine which location entry is of interest)
 <h3>Status Management</h3>
 <p>
 During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the
-organizations workflow: planned, in progress, finished/cancelled.<br/>
+organizations workflow: planned, in-progress, finished/cancelled.<br/>
 This status information is often used for other things, and often an analysis of the status history is required.
 This could be done my scanning throuh all the versions of the encounter and then checking the period of each,
 and doing some form of post processing. To ease the burden of this (or where a system doesn't support resource

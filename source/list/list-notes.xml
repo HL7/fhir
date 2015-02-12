@@ -85,7 +85,7 @@ If the list is empty, there could be several different reasons why this is so. F
 <p>
 Given these possibilities, and the common and significant first case, source systems SHOULD 
 provide an empty reason if the list is empty. Because of the importance of this case, the 
-<a href="special-values.html">special value "nil known"</a> should be used when 
+<a href="special-values.html">special value "nil-known"</a> should be used when 
 there are no (significant) entries in this context of care. Note that this concept is 
 sometimes described differently, such as "patient denies taking medications", or 
 "patient was unable to identify any relevant medical history".
@@ -94,7 +94,7 @@ sometimes described differently, such as "patient denies taking medications", or
 When receiving a list, systems should not assume that the list is complete (some entries may 
 have been withheld for a variety of reasons), unless there are specific trading partner
 arrangements in place or, if the list is empty, that there are actually nil known, 
-unless the "nil known" code is present.
+unless the "nil-known" code is present.
 </p>
 <p>
 If the list is empty, the narrative should contain text equivalent to the empty reason.

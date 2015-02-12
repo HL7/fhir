@@ -24,7 +24,7 @@
 		<td>The receiving system has accepted the order, but work has not yet commenced.</td>
 	  </tr>		  
 	  <tr>
-		<td>in progress
+		<td>in-progress
 		  <a name="inprogress"> </a>
 		</td>
 		<td>The work to fulfill the order is happening.</td>
@@ -61,7 +61,7 @@
         <code value="accepted"/>
       </concept>	  
       <concept>
-        <code value="in progress"/>
+        <code value="in-progress"/>
       </concept>
       <concept>
         <code value="review"/>

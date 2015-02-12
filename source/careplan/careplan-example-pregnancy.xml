@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
     <id value="preg"/>
-    <!-- an extension to record the LMP, which is required at the plan level... -->
-    <extension url="http://example.org/DoNotUse/careplan#lmp" >
-        <valueDateTime value="2013-01-01" />
-    </extension>
- 
     <text>
-        <status value="additional"></status>
+        <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
             <p>A maternity care plan (for a pregnant woman).</p>           
             <p>LMP is 1st Jan, 2013 (a greaat new years party!) The plan has a scheduled first antenatal,
@@ -52,6 +47,10 @@
         </specialty>
       </Practitioner>
     </contained>
+    <!-- an extension to record the LMP, which is required at the plan level... -->
+    <extension url="http://example.org/DoNotUse/careplan#lmp" >
+        <valueDateTime value="2013-01-01" />
+    </extension>
     <patient>
         <reference value="Patient/1"/>
         <display value="Eve Everywoman"/>
@@ -143,7 +142,7 @@
     </activity>
     
     <activity>
-        <status value="not started"/>
+        <status value="not-started"/>
         <prohibited value="false"></prohibited>
         <simple>
         <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
@@ -179,7 +178,7 @@
     -->
     
     <activity>
-        <status value="not started"/>
+        <status value="not-started"/>
         <prohibited value="false"></prohibited>
         <simple>
         <!-- This will be the delivery. It is not yet scheduled. -->

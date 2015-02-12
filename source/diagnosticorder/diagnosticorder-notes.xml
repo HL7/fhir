@@ -6,7 +6,7 @@ Notes:
 <ul>
  <li>In normal practice, there would always be at least one item in a request (no point requesting nothing), but the minimum cardinality is 0 so that a workflow can quote order details (identifiers, requester) without having to list the items</li>
  <li>Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is processed</li>
- <li>If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) "in progress"</li>
+ <li>If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) "in-progress"</li>
  <li>The event list is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events</li>
  <li>Many investigation requests will create a need for specimens, but in these cases, the request itself is not actually about the specimens.
   This specimen elements in this resource are provided for when the diagnostic investigation is requested on already existing specimens</li>

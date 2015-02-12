@@ -46,7 +46,7 @@
   <status value="cancelled"/>
  </goal>
  <activity> 
-  <status value="not started"/>
+  <status value="not-started"/>
   <prohibited value="false"/>
   <simple>
     <category value="observation"/>

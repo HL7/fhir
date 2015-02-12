@@ -11,7 +11,7 @@
 		<h2>MedicationPrescriptionStatus</h2>
 		<p>A code specifying the state of the prescribing event. Describes the lifecycle of the prescription.</p>
 		<p>This value set defines its own terms in the system http://hl7.org/fhir/medication-prescription-status
-		and omits the "entered in error" and "superceded" codes.</p>
+		and omits the "entered-in-error" and "superceded" codes.</p>
 		<table class="codes">
 		  <tr>
 			<td>
@@ -37,7 +37,7 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>on hold
+			<td>on-hold
 			  <a name="onhold"> </a>
 			</td>
 			<td>Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called &quot;suspended&quot;.</td>
@@ -90,7 +90,7 @@
            <code value="active"/>
        </concept>
        <concept>
-           <code value="on hold"/>
+           <code value="on-hold"/>
        </concept>
        <concept>
            <code value="completed"/>

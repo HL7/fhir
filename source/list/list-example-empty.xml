@@ -24,7 +24,7 @@
   <emptyReason>
     <coding>
       <system value="http://hl7.org/fhir/special-values"/>
-      <code value="nil known"/>
+      <code value="nil-known"/>
       <display value="Nil Known"/>
     </coding>
     <text value="The patient is not on any medications"/>

@@ -6,7 +6,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient @example</div>
   </text> 
-  <status value="in progress" />
+  <status value="in-progress" />
   <class value="inpatient" />
   <patient>
     <reference value="Patient/example"/>

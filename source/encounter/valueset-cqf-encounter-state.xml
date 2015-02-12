@@ -24,10 +24,10 @@
 			</td>
 		  </tr>
 		  <tr>
-			<td>in progress
+			<td>in-progress
 			  <a name="inprogress"> </a>
 			</td>
-			<td>In Progress</td>
+			<td>in-progress</td>
 			<td>The Encounter has begun and the patient is present / the practitioner and the patient are meeting.</td>
 		  </tr>
 		  <tr>
@@ -65,7 +65,7 @@
     <include>
 	  <system value="http://hl7.org/fhir/encounter-state"/>
 	  <concept>
-		<code value="in progress"/>
+		<code value="in-progress"/>
 	  </concept>
 	  <concept>
 		<code value="onleave"/>
