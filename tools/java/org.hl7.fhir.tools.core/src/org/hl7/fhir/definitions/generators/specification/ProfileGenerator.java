@@ -504,7 +504,7 @@ public class ProfileGenerator {
     return null;
   }
 
-  public SearchParameter makeSearchParam(Profile p, String rn, SearchParameterDefn spd) {
+  public SearchParameter makeSearchParam(Profile p, String rn, SearchParameterDefn spd) throws Exception  {
     SearchParameter sp = new SearchParameter();
     sp.setId(rn.toLowerCase()+"-"+spd.getCode().replace("_", "").replace("[", "").replace("]", ""));
     sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
@@ -521,7 +521,19 @@ public class ProfileGenerator {
         xpath = convertToXpath(xpath);
       sp.setXpath(xpath);
     }
-    // todo: SearchParameter.target
+    
+    for(String target : spd.getTargets()) {
+    	if("Any".equals(target) == true) {
+    	    if(spd.getTargets().size()>1)
+    	      throw new Exception("Can not declare multiple target codes for SearchParameter when one of them is 'Any'");
+    	  
+    	    for(String resourceName : definitions.sortedResourceNames())
+    	      sp.addTarget(resourceName);
+    	}
+    	else
+    	  sp.addTarget(target);
+    }
+    
     return sp;
   }
 

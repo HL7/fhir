@@ -1996,7 +1996,7 @@ public class Publisher implements URIResolver {
     
   }
 
-  private void addSearchParams(Bundle bundle, ResourceDefn rd) {
+  private void addSearchParams(Bundle bundle, ResourceDefn rd) throws Exception {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
         Profile p = new Profile();
