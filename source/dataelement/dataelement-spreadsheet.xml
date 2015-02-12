@@ -4658,7 +4658,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">DataElement.binding</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">not(f:conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">not(f:conformance/@value='example' and f:isExtensible/@value='false')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">26</Data><NamedCell
