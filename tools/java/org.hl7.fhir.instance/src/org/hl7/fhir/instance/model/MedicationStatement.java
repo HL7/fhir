@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -482,6 +482,29 @@ public class MedicationStatement extends DomainResource {
         dst.rate = rate == null ? null : rate.copy();
         dst.maxDosePerPeriod = maxDosePerPeriod == null ? null : maxDosePerPeriod.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationStatementDosageComponent))
+          return false;
+        MedicationStatementDosageComponent o = (MedicationStatementDosageComponent) other;
+        return compareDeep(text, o.text, true) && compareDeep(schedule, o.schedule, true) && compareDeep(asNeeded, o.asNeeded, true)
+           && compareDeep(site, o.site, true) && compareDeep(route, o.route, true) && compareDeep(method, o.method, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(rate, o.rate, true) && compareDeep(maxDosePerPeriod, o.maxDosePerPeriod, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationStatementDosageComponent))
+          return false;
+        MedicationStatementDosageComponent o = (MedicationStatementDosageComponent) other;
+        return compareValues(text, o.text, true);
       }
 
       public boolean isEmpty() {
@@ -1130,6 +1153,31 @@ public class MedicationStatement extends DomainResource {
 
       protected MedicationStatement typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationStatement))
+          return false;
+        MedicationStatement o = (MedicationStatement) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(informationSource, o.informationSource, true)
+           && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(status, o.status, true) && compareDeep(wasNotGiven, o.wasNotGiven, true)
+           && compareDeep(reasonNotGiven, o.reasonNotGiven, true) && compareDeep(reasonForUse, o.reasonForUse, true)
+           && compareDeep(effective, o.effective, true) && compareDeep(note, o.note, true) && compareDeep(medication, o.medication, true)
+           && compareDeep(dosage, o.dosage, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationStatement))
+          return false;
+        MedicationStatement o = (MedicationStatement) other;
+        return compareValues(dateAsserted, o.dateAsserted, true) && compareValues(status, o.status, true) && compareValues(wasNotGiven, o.wasNotGiven, true)
+           && compareValues(note, o.note, true);
       }
 
       public boolean isEmpty() {

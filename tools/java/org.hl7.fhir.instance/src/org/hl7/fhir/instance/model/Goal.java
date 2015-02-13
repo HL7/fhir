@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -564,6 +564,29 @@ public class Goal extends DomainResource {
 
       protected Goal typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Goal))
+          return false;
+        Goal o = (Goal) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(description, o.description, true)
+           && compareDeep(status, o.status, true) && compareDeep(notes, o.notes, true) && compareDeep(concern, o.concern, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Goal))
+          return false;
+        Goal o = (Goal) other;
+        return compareValues(description, o.description, true) && compareValues(status, o.status, true) && compareValues(notes, o.notes, true)
+          ;
       }
 
       public boolean isEmpty() {

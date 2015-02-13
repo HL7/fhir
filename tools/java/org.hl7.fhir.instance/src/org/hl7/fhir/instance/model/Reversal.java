@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -268,6 +268,27 @@ public class Reversal extends DomainResource {
         dst.organization = organization == null ? null : organization.copy();
         dst.person = person == null ? null : person.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PayeeComponent))
+          return false;
+        PayeeComponent o = (PayeeComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
+           && compareDeep(person, o.person, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PayeeComponent))
+          return false;
+        PayeeComponent o = (PayeeComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -559,6 +580,29 @@ public class Reversal extends DomainResource {
         dst.businessArrangement = businessArrangement == null ? null : businessArrangement.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ReversalCoverageComponent))
+          return false;
+        ReversalCoverageComponent o = (ReversalCoverageComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
+           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(relationship, o.relationship, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ReversalCoverageComponent))
+          return false;
+        ReversalCoverageComponent o = (ReversalCoverageComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(businessArrangement, o.businessArrangement, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1160,6 +1204,30 @@ public class Reversal extends DomainResource {
 
       protected Reversal typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Reversal))
+          return false;
+        Reversal o = (Reversal) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
+           && compareDeep(payee, o.payee, true) && compareDeep(coverage, o.coverage, true) && compareDeep(nullify, o.nullify, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Reversal))
+          return false;
+        Reversal o = (Reversal) other;
+        return compareValues(created, o.created, true) && compareValues(nullify, o.nullify, true);
       }
 
       public boolean isEmpty() {

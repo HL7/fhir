@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -463,6 +463,30 @@ public class Attachment extends Type {
 
       protected Attachment typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Attachment))
+          return false;
+        Attachment o = (Attachment) other;
+        return compareDeep(contentType, o.contentType, true) && compareDeep(language, o.language, true)
+           && compareDeep(data, o.data, true) && compareDeep(url, o.url, true) && compareDeep(size, o.size, true)
+           && compareDeep(hash, o.hash, true) && compareDeep(title, o.title, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Attachment))
+          return false;
+        Attachment o = (Attachment) other;
+        return compareValues(contentType, o.contentType, true) && compareValues(language, o.language, true)
+           && compareValues(data, o.data, true) && compareValues(url, o.url, true) && compareValues(size, o.size, true)
+           && compareValues(hash, o.hash, true) && compareValues(title, o.title, true);
       }
 
       public boolean isEmpty() {

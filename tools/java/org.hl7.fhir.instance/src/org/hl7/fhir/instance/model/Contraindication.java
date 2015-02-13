@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -215,6 +215,27 @@ public class Contraindication extends DomainResource {
         dst.date = date == null ? null : date.copy();
         dst.author = author == null ? null : author.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ContraindicationMitigationComponent))
+          return false;
+        ContraindicationMitigationComponent o = (ContraindicationMitigationComponent) other;
+        return compareDeep(action, o.action, true) && compareDeep(date, o.date, true) && compareDeep(author, o.author, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ContraindicationMitigationComponent))
+          return false;
+        ContraindicationMitigationComponent o = (ContraindicationMitigationComponent) other;
+        return compareValues(date, o.date, true);
       }
 
       public boolean isEmpty() {
@@ -751,6 +772,30 @@ public class Contraindication extends DomainResource {
 
       protected Contraindication typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Contraindication))
+          return false;
+        Contraindication o = (Contraindication) other;
+        return compareDeep(patient, o.patient, true) && compareDeep(category, o.category, true) && compareDeep(severity, o.severity, true)
+           && compareDeep(implicated, o.implicated, true) && compareDeep(detail, o.detail, true) && compareDeep(date, o.date, true)
+           && compareDeep(author, o.author, true) && compareDeep(identifier, o.identifier, true) && compareDeep(reference, o.reference, true)
+           && compareDeep(mitigation, o.mitigation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Contraindication))
+          return false;
+        Contraindication o = (Contraindication) other;
+        return compareValues(severity, o.severity, true) && compareValues(detail, o.detail, true) && compareValues(date, o.date, true)
+           && compareValues(reference, o.reference, true);
       }
 
       public boolean isEmpty() {

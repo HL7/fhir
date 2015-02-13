@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -126,6 +126,26 @@ public class Order extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OrderWhenComponent))
+          return false;
+        OrderWhenComponent o = (OrderWhenComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(schedule, o.schedule, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OrderWhenComponent))
+          return false;
+        OrderWhenComponent o = (OrderWhenComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -607,6 +627,29 @@ public class Order extends DomainResource {
 
       protected Order typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Order))
+          return false;
+        Order o = (Order) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(date, o.date, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(source, o.source, true) && compareDeep(target, o.target, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(authority, o.authority, true) && compareDeep(when, o.when, true) && compareDeep(detail, o.detail, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Order))
+          return false;
+        Order o = (Order) other;
+        return compareValues(date, o.date, true);
       }
 
       public boolean isEmpty() {

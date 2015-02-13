@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -545,6 +545,29 @@ public class RelatedPerson extends DomainResource {
 
       protected RelatedPerson typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof RelatedPerson))
+          return false;
+        RelatedPerson o = (RelatedPerson) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(relationship, o.relationship, true)
+           && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true) && compareDeep(gender, o.gender, true)
+           && compareDeep(address, o.address, true) && compareDeep(photo, o.photo, true) && compareDeep(period, o.period, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof RelatedPerson))
+          return false;
+        RelatedPerson o = (RelatedPerson) other;
+        return compareValues(gender, o.gender, true);
       }
 
       public boolean isEmpty() {

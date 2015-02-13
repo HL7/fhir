@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.annotations.DatatypeDef;
 /**
@@ -53,6 +53,28 @@ public class Money extends Quantity {
 
       protected Money typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Money))
+          return false;
+        Money o = (Money) other;
+        return compareDeep(value, o.value, true) && compareDeep(comparator, o.comparator, true) && compareDeep(units, o.units, true)
+           && compareDeep(system, o.system, true) && compareDeep(code, o.code, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Money))
+          return false;
+        Money o = (Money) other;
+        return compareValues(value, o.value, true) && compareValues(comparator, o.comparator, true) && compareValues(units, o.units, true)
+           && compareValues(system, o.system, true) && compareValues(code, o.code, true);
       }
 
       public boolean isEmpty() {

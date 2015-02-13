@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1057,6 +1057,35 @@ public class VisionPrescription extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof VisionPrescriptionDispenseComponent))
+          return false;
+        VisionPrescriptionDispenseComponent o = (VisionPrescriptionDispenseComponent) other;
+        return compareDeep(product, o.product, true) && compareDeep(eye, o.eye, true) && compareDeep(sphere, o.sphere, true)
+           && compareDeep(cylinder, o.cylinder, true) && compareDeep(axis, o.axis, true) && compareDeep(prism, o.prism, true)
+           && compareDeep(base, o.base, true) && compareDeep(add, o.add, true) && compareDeep(power, o.power, true)
+           && compareDeep(backCurve, o.backCurve, true) && compareDeep(diameter, o.diameter, true) && compareDeep(duration, o.duration, true)
+           && compareDeep(color, o.color, true) && compareDeep(brand, o.brand, true) && compareDeep(notes, o.notes, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof VisionPrescriptionDispenseComponent))
+          return false;
+        VisionPrescriptionDispenseComponent o = (VisionPrescriptionDispenseComponent) other;
+        return compareValues(eye, o.eye, true) && compareValues(sphere, o.sphere, true) && compareValues(cylinder, o.cylinder, true)
+           && compareValues(axis, o.axis, true) && compareValues(prism, o.prism, true) && compareValues(base, o.base, true)
+           && compareValues(add, o.add, true) && compareValues(power, o.power, true) && compareValues(backCurve, o.backCurve, true)
+           && compareValues(diameter, o.diameter, true) && compareValues(color, o.color, true) && compareValues(brand, o.brand, true)
+           && compareValues(notes, o.notes, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (product == null || product.isEmpty()) && (eye == null || eye.isEmpty())
            && (sphere == null || sphere.isEmpty()) && (cylinder == null || cylinder.isEmpty()) && (axis == null || axis.isEmpty())
@@ -1450,6 +1479,28 @@ public class VisionPrescription extends DomainResource {
 
       protected VisionPrescription typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof VisionPrescription))
+          return false;
+        VisionPrescription o = (VisionPrescription) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(dateWritten, o.dateWritten, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(prescriber, o.prescriber, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(reason, o.reason, true) && compareDeep(dispense, o.dispense, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof VisionPrescription))
+          return false;
+        VisionPrescription o = (VisionPrescription) other;
+        return compareValues(dateWritten, o.dateWritten, true);
       }
 
       public boolean isEmpty() {

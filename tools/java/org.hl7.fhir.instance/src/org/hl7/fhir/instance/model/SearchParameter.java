@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -768,6 +768,32 @@ public class SearchParameter extends DomainResource {
 
       protected SearchParameter typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SearchParameter))
+          return false;
+        SearchParameter o = (SearchParameter) other;
+        return compareDeep(url, o.url, true) && compareDeep(name, o.name, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(telecom, o.telecom, true) && compareDeep(requirements, o.requirements, true) && compareDeep(base, o.base, true)
+           && compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(xpath, o.xpath, true)
+           && compareDeep(target, o.target, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SearchParameter))
+          return false;
+        SearchParameter o = (SearchParameter) other;
+        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(requirements, o.requirements, true) && compareValues(base, o.base, true) && compareValues(type, o.type, true)
+           && compareValues(description, o.description, true) && compareValues(xpath, o.xpath, true) && compareValues(target, o.target, true)
+          ;
       }
 
       public boolean isEmpty() {

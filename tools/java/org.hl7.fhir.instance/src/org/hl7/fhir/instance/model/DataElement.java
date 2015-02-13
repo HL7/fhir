@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -596,6 +596,28 @@ public class DataElement extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DataElementBindingComponent))
+          return false;
+        DataElementBindingComponent o = (DataElementBindingComponent) other;
+        return compareDeep(isExtensible, o.isExtensible, true) && compareDeep(conformance, o.conformance, true)
+           && compareDeep(description, o.description, true) && compareDeep(valueSet, o.valueSet, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DataElementBindingComponent))
+          return false;
+        DataElementBindingComponent o = (DataElementBindingComponent) other;
+        return compareValues(isExtensible, o.isExtensible, true) && compareValues(conformance, o.conformance, true)
+           && compareValues(description, o.description, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (isExtensible == null || isExtensible.isEmpty()) && (conformance == null || conformance.isEmpty())
            && (description == null || description.isEmpty()) && (valueSet == null || valueSet.isEmpty())
@@ -907,6 +929,28 @@ public class DataElement extends DomainResource {
         dst.comments = comments == null ? null : comments.copy();
         dst.map = map == null ? null : map.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DataElementMappingComponent))
+          return false;
+        DataElementMappingComponent o = (DataElementMappingComponent) other;
+        return compareDeep(uri, o.uri, true) && compareDeep(definitional, o.definitional, true) && compareDeep(name, o.name, true)
+           && compareDeep(comments, o.comments, true) && compareDeep(map, o.map, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DataElementMappingComponent))
+          return false;
+        DataElementMappingComponent o = (DataElementMappingComponent) other;
+        return compareValues(uri, o.uri, true) && compareValues(definitional, o.definitional, true) && compareValues(name, o.name, true)
+           && compareValues(comments, o.comments, true) && compareValues(map, o.map, true);
       }
 
       public boolean isEmpty() {
@@ -2065,6 +2109,37 @@ public class DataElement extends DomainResource {
 
       protected DataElement typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DataElement))
+          return false;
+        DataElement o = (DataElement) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(telecom, o.telecom, true) && compareDeep(status, o.status, true) && compareDeep(date, o.date, true)
+           && compareDeep(name, o.name, true) && compareDeep(category, o.category, true) && compareDeep(granularity, o.granularity, true)
+           && compareDeep(code, o.code, true) && compareDeep(question, o.question, true) && compareDeep(label, o.label, true)
+           && compareDeep(definition, o.definition, true) && compareDeep(comments, o.comments, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(synonym, o.synonym, true) && compareDeep(type, o.type, true) && compareDeep(example, o.example, true)
+           && compareDeep(maxLength, o.maxLength, true) && compareDeep(units, o.units, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(mapping, o.mapping, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DataElement))
+          return false;
+        DataElement o = (DataElement) other;
+        return compareValues(version, o.version, true) && compareValues(publisher, o.publisher, true) && compareValues(status, o.status, true)
+           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(granularity, o.granularity, true)
+           && compareValues(question, o.question, true) && compareValues(label, o.label, true) && compareValues(definition, o.definition, true)
+           && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(synonym, o.synonym, true)
+           && compareValues(type, o.type, true) && compareValues(maxLength, o.maxLength, true);
       }
 
       public boolean isEmpty() {

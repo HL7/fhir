@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -317,6 +317,28 @@ public class RiskAssessment extends DomainResource {
         dst.when = when == null ? null : when.copy();
         dst.rationale = rationale == null ? null : rationale.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof RiskAssessmentPredictionComponent))
+          return false;
+        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other;
+        return compareDeep(outcome, o.outcome, true) && compareDeep(probability, o.probability, true) && compareDeep(relativeRisk, o.relativeRisk, true)
+           && compareDeep(when, o.when, true) && compareDeep(rationale, o.rationale, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof RiskAssessmentPredictionComponent))
+          return false;
+        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other;
+        return compareValues(relativeRisk, o.relativeRisk, true) && compareValues(rationale, o.rationale, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -791,6 +813,29 @@ public class RiskAssessment extends DomainResource {
 
       protected RiskAssessment typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof RiskAssessment))
+          return false;
+        RiskAssessment o = (RiskAssessment) other;
+        return compareDeep(subject, o.subject, true) && compareDeep(date, o.date, true) && compareDeep(condition, o.condition, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(identifier, o.identifier, true) && compareDeep(method, o.method, true)
+           && compareDeep(basis, o.basis, true) && compareDeep(prediction, o.prediction, true) && compareDeep(mitigation, o.mitigation, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof RiskAssessment))
+          return false;
+        RiskAssessment o = (RiskAssessment) other;
+        return compareValues(date, o.date, true) && compareValues(mitigation, o.mitigation, true);
       }
 
       public boolean isEmpty() {

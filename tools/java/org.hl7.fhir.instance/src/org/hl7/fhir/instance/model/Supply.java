@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -749,6 +749,30 @@ public class Supply extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SupplyDispenseComponent))
+          return false;
+        SupplyDispenseComponent o = (SupplyDispenseComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(suppliedItem, o.suppliedItem, true) && compareDeep(supplier, o.supplier, true)
+           && compareDeep(whenPrepared, o.whenPrepared, true) && compareDeep(whenHandedOver, o.whenHandedOver, true)
+           && compareDeep(destination, o.destination, true) && compareDeep(receiver, o.receiver, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SupplyDispenseComponent))
+          return false;
+        SupplyDispenseComponent o = (SupplyDispenseComponent) other;
+        return compareValues(status, o.status, true) && compareValues(whenHandedOver, o.whenHandedOver, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
            && (type == null || type.isEmpty()) && (quantity == null || quantity.isEmpty()) && (suppliedItem == null || suppliedItem.isEmpty())
@@ -1055,6 +1079,28 @@ public class Supply extends DomainResource {
 
       protected Supply typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Supply))
+          return false;
+        Supply o = (Supply) other;
+        return compareDeep(kind, o.kind, true) && compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true)
+           && compareDeep(orderedItem, o.orderedItem, true) && compareDeep(patient, o.patient, true) && compareDeep(dispense, o.dispense, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Supply))
+          return false;
+        Supply o = (Supply) other;
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {

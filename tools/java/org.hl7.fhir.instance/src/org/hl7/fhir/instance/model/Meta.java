@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -384,6 +384,29 @@ public class Meta extends Type {
 
       protected Meta typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Meta))
+          return false;
+        Meta o = (Meta) other;
+        return compareDeep(versionId, o.versionId, true) && compareDeep(lastUpdated, o.lastUpdated, true)
+           && compareDeep(deleted, o.deleted, true) && compareDeep(profile, o.profile, true) && compareDeep(security, o.security, true)
+           && compareDeep(tag, o.tag, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Meta))
+          return false;
+        Meta o = (Meta) other;
+        return compareValues(versionId, o.versionId, true) && compareValues(lastUpdated, o.lastUpdated, true)
+           && compareValues(deleted, o.deleted, true) && compareValues(profile, o.profile, true);
       }
 
       public boolean isEmpty() {

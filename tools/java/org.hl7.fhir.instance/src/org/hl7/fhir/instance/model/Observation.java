@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -821,6 +821,27 @@ public class Observation extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ObservationReferenceRangeComponent))
+          return false;
+        ObservationReferenceRangeComponent o = (ObservationReferenceRangeComponent) other;
+        return compareDeep(low, o.low, true) && compareDeep(high, o.high, true) && compareDeep(meaning, o.meaning, true)
+           && compareDeep(age, o.age, true) && compareDeep(text, o.text, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ObservationReferenceRangeComponent))
+          return false;
+        ObservationReferenceRangeComponent o = (ObservationReferenceRangeComponent) other;
+        return compareValues(text, o.text, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (low == null || low.isEmpty()) && (high == null || high.isEmpty())
            && (meaning == null || meaning.isEmpty()) && (age == null || age.isEmpty()) && (text == null || text.isEmpty())
@@ -966,6 +987,26 @@ public class Observation extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ObservationRelatedComponent))
+          return false;
+        ObservationRelatedComponent o = (ObservationRelatedComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(target, o.target, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ObservationRelatedComponent))
+          return false;
+        ObservationRelatedComponent o = (ObservationRelatedComponent) other;
+        return compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
@@ -1989,6 +2030,35 @@ other observer (for example a relative or EMT), or any observation made about th
 
       protected Observation typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Observation))
+          return false;
+        Observation o = (Observation) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true) && compareDeep(dataAbsentReason, o.dataAbsentReason, true)
+           && compareDeep(interpretation, o.interpretation, true) && compareDeep(comments, o.comments, true)
+           && compareDeep(applies, o.applies, true) && compareDeep(issued, o.issued, true) && compareDeep(status, o.status, true)
+           && compareDeep(reliability, o.reliability, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(method, o.method, true)
+           && compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(specimen, o.specimen, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(device, o.device, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(referenceRange, o.referenceRange, true) && compareDeep(related, o.related, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Observation))
+          return false;
+        Observation o = (Observation) other;
+        return compareValues(dataAbsentReason, o.dataAbsentReason, true) && compareValues(comments, o.comments, true)
+           && compareValues(issued, o.issued, true) && compareValues(status, o.status, true) && compareValues(reliability, o.reliability, true)
+          ;
       }
 
       public boolean isEmpty() {

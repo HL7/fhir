@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -348,6 +348,28 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(noteNumber, o.noteNumber, true)
+           && compareDeep(adjudication, o.adjudication, true) && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (noteNumber == null || noteNumber.isEmpty())
            && (adjudication == null || adjudication.isEmpty()) && (detail == null || detail.isEmpty())
@@ -501,6 +523,27 @@ public class ClaimResponse extends DomainResource {
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemAdjudicationComponent))
+          return false;
+        ItemAdjudicationComponent o = (ItemAdjudicationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemAdjudicationComponent))
+          return false;
+        ItemAdjudicationComponent o = (ItemAdjudicationComponent) other;
+        return compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -673,6 +716,27 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemDetailComponent))
+          return false;
+        ItemDetailComponent o = (ItemDetailComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(subdetail, o.subdetail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemDetailComponent))
+          return false;
+        ItemDetailComponent o = (ItemDetailComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (adjudication == null || adjudication.isEmpty())
            && (subdetail == null || subdetail.isEmpty());
@@ -827,6 +891,27 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DetailAdjudicationComponent))
+          return false;
+        DetailAdjudicationComponent o = (DetailAdjudicationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DetailAdjudicationComponent))
+          return false;
+        DetailAdjudicationComponent o = (DetailAdjudicationComponent) other;
+        return compareValues(value, o.value, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
            && (value == null || value.isEmpty());
@@ -952,6 +1037,27 @@ public class ClaimResponse extends DomainResource {
             dst.adjudication.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemSubdetailComponent))
+          return false;
+        ItemSubdetailComponent o = (ItemSubdetailComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(adjudication, o.adjudication, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemSubdetailComponent))
+          return false;
+        ItemSubdetailComponent o = (ItemSubdetailComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true);
       }
 
       public boolean isEmpty() {
@@ -1106,6 +1212,27 @@ public class ClaimResponse extends DomainResource {
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubdetailAdjudicationComponent))
+          return false;
+        SubdetailAdjudicationComponent o = (SubdetailAdjudicationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubdetailAdjudicationComponent))
+          return false;
+        SubdetailAdjudicationComponent o = (SubdetailAdjudicationComponent) other;
+        return compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -1424,6 +1551,29 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AddedItemComponent))
+          return false;
+        AddedItemComponent o = (AddedItemComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(service, o.service, true)
+           && compareDeep(fee, o.fee, true) && compareDeep(noteNumberLinkId, o.noteNumberLinkId, true) && compareDeep(adjudication, o.adjudication, true)
+           && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AddedItemComponent))
+          return false;
+        AddedItemComponent o = (AddedItemComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumberLinkId, o.noteNumberLinkId, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (service == null || service.isEmpty())
            && (fee == null || fee.isEmpty()) && (noteNumberLinkId == null || noteNumberLinkId.isEmpty())
@@ -1580,6 +1730,27 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AddedItemAdjudicationComponent))
+          return false;
+        AddedItemAdjudicationComponent o = (AddedItemAdjudicationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AddedItemAdjudicationComponent))
+          return false;
+        AddedItemAdjudicationComponent o = (AddedItemAdjudicationComponent) other;
+        return compareValues(value, o.value, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (amount == null || amount.isEmpty())
            && (value == null || value.isEmpty());
@@ -1717,6 +1888,27 @@ public class ClaimResponse extends DomainResource {
             dst.adjudication.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AddedItemsDetailComponent))
+          return false;
+        AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
+        return compareDeep(service, o.service, true) && compareDeep(fee, o.fee, true) && compareDeep(adjudication, o.adjudication, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AddedItemsDetailComponent))
+          return false;
+        AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1871,6 +2063,27 @@ public class ClaimResponse extends DomainResource {
         dst.amount = amount == null ? null : amount.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AddedItemDetailAdjudicationComponent))
+          return false;
+        AddedItemDetailAdjudicationComponent o = (AddedItemDetailAdjudicationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(amount, o.amount, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AddedItemDetailAdjudicationComponent))
+          return false;
+        AddedItemDetailAdjudicationComponent o = (AddedItemDetailAdjudicationComponent) other;
+        return compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -2098,6 +2311,29 @@ public class ClaimResponse extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ErrorsComponent))
+          return false;
+        ErrorsComponent o = (ErrorsComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(detailSequenceLinkId, o.detailSequenceLinkId, true)
+           && compareDeep(subdetailSequenceLinkId, o.subdetailSequenceLinkId, true) && compareDeep(code, o.code, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ErrorsComponent))
+          return false;
+        ErrorsComponent o = (ErrorsComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(detailSequenceLinkId, o.detailSequenceLinkId, true)
+           && compareValues(subdetailSequenceLinkId, o.subdetailSequenceLinkId, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequenceLinkId == null || sequenceLinkId.isEmpty()) && (detailSequenceLinkId == null || detailSequenceLinkId.isEmpty())
            && (subdetailSequenceLinkId == null || subdetailSequenceLinkId.isEmpty()) && (code == null || code.isEmpty())
@@ -2267,6 +2503,27 @@ public class ClaimResponse extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NotesComponent))
+          return false;
+        NotesComponent o = (NotesComponent) other;
+        return compareDeep(number, o.number, true) && compareDeep(type, o.type, true) && compareDeep(text, o.text, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NotesComponent))
+          return false;
+        NotesComponent o = (NotesComponent) other;
+        return compareValues(number, o.number, true) && compareValues(text, o.text, true);
       }
 
       public boolean isEmpty() {
@@ -3364,6 +3621,37 @@ public class ClaimResponse extends DomainResource {
 
       protected ClaimResponse typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ClaimResponse))
+          return false;
+        ClaimResponse o = (ClaimResponse) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(ruleset, o.ruleset, true)
+           && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
+           && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(outcome, o.outcome, true)
+           && compareDeep(disposition, o.disposition, true) && compareDeep(payeeType, o.payeeType, true) && compareDeep(item, o.item, true)
+           && compareDeep(additem, o.additem, true) && compareDeep(error, o.error, true) && compareDeep(totalCost, o.totalCost, true)
+           && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
+           && compareDeep(paymentAdjustment, o.paymentAdjustment, true) && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true)
+           && compareDeep(paymentDate, o.paymentDate, true) && compareDeep(paymentAmount, o.paymentAmount, true)
+           && compareDeep(paymentRef, o.paymentRef, true) && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true)
+           && compareDeep(note, o.note, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ClaimResponse))
+          return false;
+        ClaimResponse o = (ClaimResponse) other;
+        return compareValues(created, o.created, true) && compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true)
+           && compareValues(paymentDate, o.paymentDate, true);
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -492,6 +492,26 @@ public class Bundle extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BundleLinkComponent))
+          return false;
+        BundleLinkComponent o = (BundleLinkComponent) other;
+        return compareDeep(relation, o.relation, true) && compareDeep(url, o.url, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BundleLinkComponent))
+          return false;
+        BundleLinkComponent o = (BundleLinkComponent) other;
+        return compareValues(relation, o.relation, true) && compareValues(url, o.url, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (relation == null || relation.isEmpty()) && (url == null || url.isEmpty())
           ;
@@ -702,6 +722,28 @@ public class Bundle extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BundleEntryComponent))
+          return false;
+        BundleEntryComponent o = (BundleEntryComponent) other;
+        return compareDeep(base, o.base, true) && compareDeep(resource, o.resource, true) && compareDeep(search, o.search, true)
+           && compareDeep(transaction, o.transaction, true) && compareDeep(transactionResponse, o.transactionResponse, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BundleEntryComponent))
+          return false;
+        BundleEntryComponent o = (BundleEntryComponent) other;
+        return compareValues(base, o.base, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (base == null || base.isEmpty()) && (resource == null || resource.isEmpty())
            && (search == null || search.isEmpty()) && (transaction == null || transaction.isEmpty())
@@ -842,6 +884,26 @@ public class Bundle extends Resource {
         dst.mode = mode == null ? null : mode.copy();
         dst.score = score == null ? null : score.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BundleEntrySearchComponent))
+          return false;
+        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other;
+        return compareDeep(mode, o.mode, true) && compareDeep(score, o.score, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BundleEntrySearchComponent))
+          return false;
+        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other;
+        return compareValues(mode, o.mode, true) && compareValues(score, o.score, true);
       }
 
       public boolean isEmpty() {
@@ -1215,6 +1277,30 @@ public class Bundle extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BundleEntryTransactionComponent))
+          return false;
+        BundleEntryTransactionComponent o = (BundleEntryTransactionComponent) other;
+        return compareDeep(method, o.method, true) && compareDeep(url, o.url, true) && compareDeep(ifNoneMatch, o.ifNoneMatch, true)
+           && compareDeep(ifMatch, o.ifMatch, true) && compareDeep(ifModifiedSince, o.ifModifiedSince, true)
+           && compareDeep(ifNoneExist, o.ifNoneExist, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BundleEntryTransactionComponent))
+          return false;
+        BundleEntryTransactionComponent o = (BundleEntryTransactionComponent) other;
+        return compareValues(method, o.method, true) && compareValues(url, o.url, true) && compareValues(ifNoneMatch, o.ifNoneMatch, true)
+           && compareValues(ifMatch, o.ifMatch, true) && compareValues(ifModifiedSince, o.ifModifiedSince, true)
+           && compareValues(ifNoneExist, o.ifNoneExist, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (method == null || method.isEmpty()) && (url == null || url.isEmpty())
            && (ifNoneMatch == null || ifNoneMatch.isEmpty()) && (ifMatch == null || ifMatch.isEmpty())
@@ -1424,6 +1510,28 @@ public class Bundle extends Resource {
             dst.etag.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BundleEntryTransactionResponseComponent))
+          return false;
+        BundleEntryTransactionResponseComponent o = (BundleEntryTransactionResponseComponent) other;
+        return compareDeep(status, o.status, true) && compareDeep(location, o.location, true) && compareDeep(etag, o.etag, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BundleEntryTransactionResponseComponent))
+          return false;
+        BundleEntryTransactionResponseComponent o = (BundleEntryTransactionResponseComponent) other;
+        return compareValues(status, o.status, true) && compareValues(location, o.location, true) && compareValues(etag, o.etag, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1766,6 +1874,29 @@ public class Bundle extends Resource {
 
       protected Bundle typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Bundle))
+          return false;
+        Bundle o = (Bundle) other;
+        return compareDeep(type, o.type, true) && compareDeep(base, o.base, true) && compareDeep(total, o.total, true)
+           && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true) && compareDeep(signature, o.signature, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Bundle))
+          return false;
+        Bundle o = (Bundle) other;
+        return compareValues(type, o.type, true) && compareValues(base, o.base, true) && compareValues(total, o.total, true)
+           && compareValues(signature, o.signature, true);
       }
 
       public boolean isEmpty() {

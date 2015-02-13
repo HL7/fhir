@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -806,6 +806,32 @@ public class DocumentManifest extends DomainResource {
 
       protected DocumentManifest typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentManifest))
+          return false;
+        DocumentManifest o = (DocumentManifest) other;
+        return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(type, o.type, true)
+           && compareDeep(author, o.author, true) && compareDeep(created, o.created, true) && compareDeep(source, o.source, true)
+           && compareDeep(status, o.status, true) && compareDeep(supercedes, o.supercedes, true) && compareDeep(description, o.description, true)
+           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(content, o.content, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentManifest))
+          return false;
+        DocumentManifest o = (DocumentManifest) other;
+        return compareValues(created, o.created, true) && compareValues(source, o.source, true) && compareValues(status, o.status, true)
+           && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {

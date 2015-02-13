@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -533,6 +533,27 @@ public class DiagnosticOrder extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticOrderEventComponent))
+          return false;
+        DiagnosticOrderEventComponent o = (DiagnosticOrderEventComponent) other;
+        return compareDeep(status, o.status, true) && compareDeep(description, o.description, true) && compareDeep(dateTime, o.dateTime, true)
+           && compareDeep(actor, o.actor, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticOrderEventComponent))
+          return false;
+        DiagnosticOrderEventComponent o = (DiagnosticOrderEventComponent) other;
+        return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (status == null || status.isEmpty()) && (description == null || description.isEmpty())
            && (dateTime == null || dateTime.isEmpty()) && (actor == null || actor.isEmpty());
@@ -810,6 +831,27 @@ public class DiagnosticOrder extends DomainResource {
             dst.event.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticOrderItemComponent))
+          return false;
+        DiagnosticOrderItemComponent o = (DiagnosticOrderItemComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(specimen, o.specimen, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(status, o.status, true) && compareDeep(event, o.event, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticOrderItemComponent))
+          return false;
+        DiagnosticOrderItemComponent o = (DiagnosticOrderItemComponent) other;
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
@@ -1441,6 +1483,31 @@ public class DiagnosticOrder extends DomainResource {
 
       protected DiagnosticOrder typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticOrder))
+          return false;
+        DiagnosticOrder o = (DiagnosticOrder) other;
+        return compareDeep(subject, o.subject, true) && compareDeep(orderer, o.orderer, true) && compareDeep(identifier, o.identifier, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(clinicalNotes, o.clinicalNotes, true)
+           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(specimen, o.specimen, true)
+           && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true) && compareDeep(event, o.event, true)
+           && compareDeep(item, o.item, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticOrder))
+          return false;
+        DiagnosticOrder o = (DiagnosticOrder) other;
+        return compareValues(clinicalNotes, o.clinicalNotes, true) && compareValues(status, o.status, true)
+           && compareValues(priority, o.priority, true);
       }
 
       public boolean isEmpty() {

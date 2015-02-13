@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -253,6 +253,26 @@ public class Condition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConditionStageComponent))
+          return false;
+        ConditionStageComponent o = (ConditionStageComponent) other;
+        return compareDeep(summary, o.summary, true) && compareDeep(assessment, o.assessment, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConditionStageComponent))
+          return false;
+        ConditionStageComponent o = (ConditionStageComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (summary == null || summary.isEmpty()) && (assessment == null || assessment.isEmpty())
           ;
@@ -366,6 +386,26 @@ public class Condition extends DomainResource {
             dst.detail.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConditionEvidenceComponent))
+          return false;
+        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConditionEvidenceComponent))
+          return false;
+        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -484,6 +524,26 @@ public class Condition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConditionLocationComponent))
+          return false;
+        ConditionLocationComponent o = (ConditionLocationComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConditionLocationComponent))
+          return false;
+        ConditionLocationComponent o = (ConditionLocationComponent) other;
+        return compareValues(detail, o.detail, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (detail == null || detail.isEmpty())
           ;
@@ -595,6 +655,27 @@ public class Condition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConditionDueToComponent))
+          return false;
+        ConditionDueToComponent o = (ConditionDueToComponent) other;
+        return compareDeep(codeableConcept, o.codeableConcept, true) && compareDeep(target, o.target, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConditionDueToComponent))
+          return false;
+        ConditionDueToComponent o = (ConditionDueToComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (codeableConcept == null || codeableConcept.isEmpty()) && (target == null || target.isEmpty())
           ;
@@ -704,6 +785,27 @@ public class Condition extends DomainResource {
         dst.codeableConcept = codeableConcept == null ? null : codeableConcept.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConditionOccurredFollowingComponent))
+          return false;
+        ConditionOccurredFollowingComponent o = (ConditionOccurredFollowingComponent) other;
+        return compareDeep(codeableConcept, o.codeableConcept, true) && compareDeep(target, o.target, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConditionOccurredFollowingComponent))
+          return false;
+        ConditionOccurredFollowingComponent o = (ConditionOccurredFollowingComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1558,6 +1660,33 @@ public class Condition extends DomainResource {
 
       protected Condition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Condition))
+          return false;
+        Condition o = (Condition) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(asserter, o.asserter, true) && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(code, o.code, true)
+           && compareDeep(category, o.category, true) && compareDeep(status, o.status, true) && compareDeep(certainty, o.certainty, true)
+           && compareDeep(severity, o.severity, true) && compareDeep(onset, o.onset, true) && compareDeep(abatement, o.abatement, true)
+           && compareDeep(stage, o.stage, true) && compareDeep(evidence, o.evidence, true) && compareDeep(location, o.location, true)
+           && compareDeep(dueTo, o.dueTo, true) && compareDeep(occurredFollowing, o.occurredFollowing, true)
+           && compareDeep(notes, o.notes, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Condition))
+          return false;
+        Condition o = (Condition) other;
+        return compareValues(dateAsserted, o.dateAsserted, true) && compareValues(status, o.status, true) && compareValues(notes, o.notes, true)
+          ;
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -142,6 +142,26 @@ public class HealthcareService extends DomainResource {
             dst.specialty.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ServiceTypeComponent))
+          return false;
+        ServiceTypeComponent o = (ServiceTypeComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(specialty, o.specialty, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ServiceTypeComponent))
+          return false;
+        ServiceTypeComponent o = (ServiceTypeComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -382,6 +402,28 @@ public class HealthcareService extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof HealthcareServiceAvailableTimeComponent))
+          return false;
+        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other;
+        return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(availableStartTime, o.availableStartTime, true)
+           && compareDeep(availableEndTime, o.availableEndTime, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof HealthcareServiceAvailableTimeComponent))
+          return false;
+        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other;
+        return compareValues(allDay, o.allDay, true) && compareValues(availableStartTime, o.availableStartTime, true)
+           && compareValues(availableEndTime, o.availableEndTime, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (daysOfWeek == null || daysOfWeek.isEmpty()) && (allDay == null || allDay.isEmpty())
            && (availableStartTime == null || availableStartTime.isEmpty()) && (availableEndTime == null || availableEndTime.isEmpty())
@@ -581,6 +623,28 @@ public class HealthcareService extends DomainResource {
         dst.startDate = startDate == null ? null : startDate.copy();
         dst.endDate = endDate == null ? null : endDate.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof HealthcareServiceNotAvailableTimeComponent))
+          return false;
+        HealthcareServiceNotAvailableTimeComponent o = (HealthcareServiceNotAvailableTimeComponent) other;
+        return compareDeep(description, o.description, true) && compareDeep(startDate, o.startDate, true)
+           && compareDeep(endDate, o.endDate, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof HealthcareServiceNotAvailableTimeComponent))
+          return false;
+        HealthcareServiceNotAvailableTimeComponent o = (HealthcareServiceNotAvailableTimeComponent) other;
+        return compareValues(description, o.description, true) && compareValues(startDate, o.startDate, true)
+           && compareValues(endDate, o.endDate, true);
       }
 
       public boolean isEmpty() {
@@ -1792,6 +1856,40 @@ public class HealthcareService extends DomainResource {
 
       protected HealthcareService typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof HealthcareService))
+          return false;
+        HealthcareService o = (HealthcareService) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(location, o.location, true) && compareDeep(serviceCategory, o.serviceCategory, true)
+           && compareDeep(serviceType, o.serviceType, true) && compareDeep(serviceName, o.serviceName, true)
+           && compareDeep(comment, o.comment, true) && compareDeep(extraDetails, o.extraDetails, true) && compareDeep(freeProvisionCode, o.freeProvisionCode, true)
+           && compareDeep(eligibility, o.eligibility, true) && compareDeep(eligibilityNote, o.eligibilityNote, true)
+           && compareDeep(appointmentRequired, o.appointmentRequired, true) && compareDeep(imageURI, o.imageURI, true)
+           && compareDeep(availableTime, o.availableTime, true) && compareDeep(notAvailableTime, o.notAvailableTime, true)
+           && compareDeep(availabilityExceptions, o.availabilityExceptions, true) && compareDeep(publicKey, o.publicKey, true)
+           && compareDeep(programName, o.programName, true) && compareDeep(contactPoint, o.contactPoint, true)
+           && compareDeep(characteristic, o.characteristic, true) && compareDeep(referralMethod, o.referralMethod, true)
+           && compareDeep(setting, o.setting, true) && compareDeep(targetGroup, o.targetGroup, true) && compareDeep(coverageArea, o.coverageArea, true)
+           && compareDeep(catchmentArea, o.catchmentArea, true) && compareDeep(serviceCode, o.serviceCode, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof HealthcareService))
+          return false;
+        HealthcareService o = (HealthcareService) other;
+        return compareValues(serviceName, o.serviceName, true) && compareValues(comment, o.comment, true) && compareValues(extraDetails, o.extraDetails, true)
+           && compareValues(eligibilityNote, o.eligibilityNote, true) && compareValues(imageURI, o.imageURI, true)
+           && compareValues(availabilityExceptions, o.availabilityExceptions, true) && compareValues(publicKey, o.publicKey, true)
+           && compareValues(programName, o.programName, true);
       }
 
       public boolean isEmpty() {

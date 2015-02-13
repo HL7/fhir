@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -254,6 +254,26 @@ public class Narrative extends Element {
 
       protected Narrative typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Narrative))
+          return false;
+        Narrative o = (Narrative) other;
+        return compareDeep(status, o.status, true) && compareDeep(div, o.div, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Narrative))
+          return false;
+        Narrative o = (Narrative) other;
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {

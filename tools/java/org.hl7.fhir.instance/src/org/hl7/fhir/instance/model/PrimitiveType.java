@@ -11,22 +11,6 @@ public abstract class PrimitiveType<T> extends Type {
   private String myStringValue;
   
 
-	@Override
-	public boolean equals(Object theObj) {
-		if (theObj == null) {
-			return false;
-		}
-		if (!(theObj.getClass() == getClass())) {
-			return false;
-		}
-
-		PrimitiveType<?> o = (PrimitiveType<?>) theObj;
-
-		EqualsBuilder b = new EqualsBuilder();
-		b.append(getValue(), o.getValue());
-		return b.isEquals();
-	}
-
 	public T getValue() {
 		return myCoercedValue;
 	}
@@ -111,4 +95,38 @@ public abstract class PrimitiveType<T> extends Type {
 
 	public abstract Type copy();
   
+	@Override
+	public boolean equalsDeep(Base obj) {
+		if (!super.equalsDeep(obj))
+			return false;
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj.getClass() == getClass())) {
+			return false;
+		}
+
+		PrimitiveType<?> o = (PrimitiveType<?>) obj;
+
+		EqualsBuilder b = new EqualsBuilder();
+		b.append(getValue(), o.getValue());
+		return b.isEquals();
+	}
+
+	 @Override
+	  public boolean equalsShallow(Base obj) {
+	    if (obj == null) {
+	      return false;
+	    }
+	    if (!(obj.getClass() == getClass())) {
+	      return false;
+	    }
+
+	    PrimitiveType<?> o = (PrimitiveType<?>) obj;
+
+	    EqualsBuilder b = new EqualsBuilder();
+	    b.append(getValue(), o.getValue());
+	    return b.isEquals();
+	  }
+
 }

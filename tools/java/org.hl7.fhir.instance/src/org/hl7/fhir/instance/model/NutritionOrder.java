@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -440,6 +440,28 @@ public class NutritionOrder extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietComponent))
+          return false;
+        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(scheduled, o.scheduled, true) && compareDeep(nutrients, o.nutrients, true)
+           && compareDeep(texture, o.texture, true) && compareDeep(fluidConsistencyType, o.fluidConsistencyType, true)
+           && compareDeep(instruction, o.instruction, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietComponent))
+          return false;
+        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other;
+        return compareValues(instruction, o.instruction, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (scheduled == null || scheduled.isEmpty())
            && (nutrients == null || nutrients.isEmpty()) && (texture == null || texture.isEmpty()) && (fluidConsistencyType == null || fluidConsistencyType.isEmpty())
@@ -532,6 +554,26 @@ public class NutritionOrder extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietNutrientsComponent))
+          return false;
+        NutritionOrderOralDietNutrientsComponent o = (NutritionOrderOralDietNutrientsComponent) other;
+        return compareDeep(modifier, o.modifier, true) && compareDeep(amount, o.amount, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietNutrientsComponent))
+          return false;
+        NutritionOrderOralDietNutrientsComponent o = (NutritionOrderOralDietNutrientsComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (modifier == null || modifier.isEmpty()) && (amount == null || amount.isEmpty())
           ;
@@ -621,6 +663,26 @@ public class NutritionOrder extends DomainResource {
         dst.modifier = modifier == null ? null : modifier.copy();
         dst.foodType = foodType == null ? null : foodType.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietTextureComponent))
+          return false;
+        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other;
+        return compareDeep(modifier, o.modifier, true) && compareDeep(foodType, o.foodType, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrderOralDietTextureComponent))
+          return false;
+        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -803,6 +865,27 @@ public class NutritionOrder extends DomainResource {
         dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrderSupplementComponent))
+          return false;
+        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(productName, o.productName, true) && compareDeep(scheduled, o.scheduled, true)
+           && compareDeep(quantity, o.quantity, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrderSupplementComponent))
+          return false;
+        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
+        return compareValues(productName, o.productName, true);
       }
 
       public boolean isEmpty() {
@@ -1300,6 +1383,32 @@ public class NutritionOrder extends DomainResource {
         dst.rateAdjustment = rateAdjustment == null ? null : rateAdjustment.copy();
         dst.maxVolumeToDeliver = maxVolumeToDeliver == null ? null : maxVolumeToDeliver.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrderEnteralFormulaComponent))
+          return false;
+        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other;
+        return compareDeep(administrationInstructions, o.administrationInstructions, true) && compareDeep(baseFormulaType, o.baseFormulaType, true)
+           && compareDeep(baseFormulaProductName, o.baseFormulaProductName, true) && compareDeep(scheduled, o.scheduled, true)
+           && compareDeep(additiveType, o.additiveType, true) && compareDeep(additiveProductName, o.additiveProductName, true)
+           && compareDeep(caloricDensity, o.caloricDensity, true) && compareDeep(routeofAdministration, o.routeofAdministration, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(rate, o.rate, true) && compareDeep(rateAdjustment, o.rateAdjustment, true)
+           && compareDeep(maxVolumeToDeliver, o.maxVolumeToDeliver, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrderEnteralFormulaComponent))
+          return false;
+        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other;
+        return compareValues(administrationInstructions, o.administrationInstructions, true) && compareValues(baseFormulaProductName, o.baseFormulaProductName, true)
+           && compareValues(additiveProductName, o.additiveProductName, true);
       }
 
       public boolean isEmpty() {
@@ -1931,6 +2040,30 @@ public class NutritionOrder extends DomainResource {
 
       protected NutritionOrder typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NutritionOrder))
+          return false;
+        NutritionOrder o = (NutritionOrder) other;
+        return compareDeep(patient, o.patient, true) && compareDeep(orderer, o.orderer, true) && compareDeep(identifier, o.identifier, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(allergyIntolerance, o.allergyIntolerance, true)
+           && compareDeep(foodPreferenceModifier, o.foodPreferenceModifier, true) && compareDeep(excludeFoodModifier, o.excludeFoodModifier, true)
+           && compareDeep(oralDiet, o.oralDiet, true) && compareDeep(supplement, o.supplement, true) && compareDeep(enteralFormula, o.enteralFormula, true)
+           && compareDeep(status, o.status, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NutritionOrder))
+          return false;
+        NutritionOrder o = (NutritionOrder) other;
+        return compareValues(dateTime, o.dateTime, true) && compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {

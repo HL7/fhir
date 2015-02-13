@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -507,6 +507,28 @@ public class Subscription extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubscriptionChannelComponent))
+          return false;
+        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(url, o.url, true) && compareDeep(payload, o.payload, true)
+           && compareDeep(header, o.header, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubscriptionChannelComponent))
+          return false;
+        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other;
+        return compareValues(type, o.type, true) && compareValues(url, o.url, true) && compareValues(payload, o.payload, true)
+           && compareValues(header, o.header, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (url == null || url.isEmpty())
            && (payload == null || payload.isEmpty()) && (header == null || header.isEmpty());
@@ -702,6 +724,28 @@ public class Subscription extends DomainResource {
         dst.scheme = scheme == null ? null : scheme.copy();
         dst.description = description == null ? null : description.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubscriptionTagComponent))
+          return false;
+        SubscriptionTagComponent o = (SubscriptionTagComponent) other;
+        return compareDeep(term, o.term, true) && compareDeep(scheme, o.scheme, true) && compareDeep(description, o.description, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubscriptionTagComponent))
+          return false;
+        SubscriptionTagComponent o = (SubscriptionTagComponent) other;
+        return compareValues(term, o.term, true) && compareValues(scheme, o.scheme, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1134,6 +1178,29 @@ public class Subscription extends DomainResource {
 
       protected Subscription typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Subscription))
+          return false;
+        Subscription o = (Subscription) other;
+        return compareDeep(criteria, o.criteria, true) && compareDeep(contact, o.contact, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(status, o.status, true) && compareDeep(error, o.error, true) && compareDeep(channel, o.channel, true)
+           && compareDeep(end, o.end, true) && compareDeep(tag, o.tag, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Subscription))
+          return false;
+        Subscription o = (Subscription) other;
+        return compareValues(criteria, o.criteria, true) && compareValues(reason, o.reason, true) && compareValues(status, o.status, true)
+           && compareValues(error, o.error, true) && compareValues(end, o.end, true);
       }
 
       public boolean isEmpty() {

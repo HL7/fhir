@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -462,6 +462,29 @@ public class QuestionnaireAnswers extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof GroupComponent))
+          return false;
+        GroupComponent o = (GroupComponent) other;
+        return compareDeep(linkId, o.linkId, true) && compareDeep(title, o.title, true) && compareDeep(text, o.text, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(group, o.group, true) && compareDeep(question, o.question, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof GroupComponent))
+          return false;
+        GroupComponent o = (GroupComponent) other;
+        return compareValues(linkId, o.linkId, true) && compareValues(title, o.title, true) && compareValues(text, o.text, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (title == null || title.isEmpty())
            && (text == null || text.isEmpty()) && (subject == null || subject.isEmpty()) && (group == null || group.isEmpty())
@@ -690,6 +713,27 @@ public class QuestionnaireAnswers extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof QuestionComponent))
+          return false;
+        QuestionComponent o = (QuestionComponent) other;
+        return compareDeep(linkId, o.linkId, true) && compareDeep(text, o.text, true) && compareDeep(answer, o.answer, true)
+           && compareDeep(group, o.group, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof QuestionComponent))
+          return false;
+        QuestionComponent o = (QuestionComponent) other;
+        return compareValues(linkId, o.linkId, true) && compareValues(text, o.text, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (text == null || text.isEmpty())
            && (answer == null || answer.isEmpty()) && (group == null || group.isEmpty());
@@ -849,6 +893,26 @@ public class QuestionnaireAnswers extends DomainResource {
         copyValues(dst);
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof QuestionAnswerComponent))
+          return false;
+        QuestionAnswerComponent o = (QuestionAnswerComponent) other;
+        return compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof QuestionAnswerComponent))
+          return false;
+        QuestionAnswerComponent o = (QuestionAnswerComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1330,6 +1394,29 @@ public class QuestionnaireAnswers extends DomainResource {
 
       protected QuestionnaireAnswers typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof QuestionnaireAnswers))
+          return false;
+        QuestionnaireAnswers o = (QuestionnaireAnswers) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(questionnaire, o.questionnaire, true)
+           && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true) && compareDeep(author, o.author, true)
+           && compareDeep(authored, o.authored, true) && compareDeep(source, o.source, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(group, o.group, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof QuestionnaireAnswers))
+          return false;
+        QuestionnaireAnswers o = (QuestionnaireAnswers) other;
+        return compareValues(status, o.status, true) && compareValues(authored, o.authored, true);
       }
 
       public boolean isEmpty() {

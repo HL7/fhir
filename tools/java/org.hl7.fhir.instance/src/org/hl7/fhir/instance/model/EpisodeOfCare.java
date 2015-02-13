@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -284,6 +284,26 @@ public class EpisodeOfCare extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EpisodeOfCareStatusHistoryComponent))
+          return false;
+        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other;
+        return compareDeep(status, o.status, true) && compareDeep(period, o.period, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EpisodeOfCareStatusHistoryComponent))
+          return false;
+        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other;
+        return compareValues(status, o.status, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (status == null || status.isEmpty()) && (period == null || period.isEmpty())
           ;
@@ -441,6 +461,27 @@ public class EpisodeOfCare extends DomainResource {
         };
         dst.period = period == null ? null : period.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EpisodeOfCareCareTeamComponent))
+          return false;
+        EpisodeOfCareCareTeamComponent o = (EpisodeOfCareCareTeamComponent) other;
+        return compareDeep(member, o.member, true) && compareDeep(role, o.role, true) && compareDeep(period, o.period, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EpisodeOfCareCareTeamComponent))
+          return false;
+        EpisodeOfCareCareTeamComponent o = (EpisodeOfCareCareTeamComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1034,6 +1075,30 @@ public class EpisodeOfCare extends DomainResource {
 
       protected EpisodeOfCare typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EpisodeOfCare))
+          return false;
+        EpisodeOfCare o = (EpisodeOfCare) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(currentStatus, o.currentStatus, true)
+           && compareDeep(statusHistory, o.statusHistory, true) && compareDeep(type, o.type, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(managingOrganization, o.managingOrganization, true) && compareDeep(period, o.period, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(referralRequest, o.referralRequest, true)
+           && compareDeep(careManager, o.careManager, true) && compareDeep(careTeam, o.careTeam, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EpisodeOfCare))
+          return false;
+        EpisodeOfCare o = (EpisodeOfCare) other;
+        return compareValues(currentStatus, o.currentStatus, true);
       }
 
       public boolean isEmpty() {

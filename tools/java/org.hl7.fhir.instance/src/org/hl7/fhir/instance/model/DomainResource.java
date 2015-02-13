@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -209,6 +209,27 @@ public abstract class DomainResource extends Resource {
           for (Extension i : modifierExtension)
             dst.modifierExtension.add(i.copy());
         };
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DomainResource))
+          return false;
+        DomainResource o = (DomainResource) other;
+        return compareDeep(text, o.text, true) && compareDeep(contained, o.contained, true) && compareDeep(extension, o.extension, true)
+           && compareDeep(modifierExtension, o.modifierExtension, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DomainResource))
+          return false;
+        DomainResource o = (DomainResource) other;
+        return true;
       }
 
       public boolean isEmpty() {

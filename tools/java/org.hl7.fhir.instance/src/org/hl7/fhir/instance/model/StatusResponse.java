@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -152,6 +152,26 @@ public class StatusResponse extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StatusResponseNotesComponent))
+          return false;
+        StatusResponseNotesComponent o = (StatusResponseNotesComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(text, o.text, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StatusResponseNotesComponent))
+          return false;
+        StatusResponseNotesComponent o = (StatusResponseNotesComponent) other;
+        return compareValues(text, o.text, true);
       }
 
       public boolean isEmpty() {
@@ -783,6 +803,30 @@ public class StatusResponse extends DomainResource {
 
       protected StatusResponse typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StatusResponse))
+          return false;
+        StatusResponse o = (StatusResponse) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(outcome, o.outcome, true)
+           && compareDeep(disposition, o.disposition, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(organization, o.organization, true) && compareDeep(requestProvider, o.requestProvider, true)
+           && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(form, o.form, true)
+           && compareDeep(notes, o.notes, true) && compareDeep(error, o.error, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StatusResponse))
+          return false;
+        StatusResponse o = (StatusResponse) other;
+        return compareValues(disposition, o.disposition, true) && compareValues(created, o.created, true);
       }
 
       public boolean isEmpty() {

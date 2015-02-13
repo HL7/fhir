@@ -33,6 +33,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+import com.sun.corba.se.impl.oa.poa.AOMEntry;
+
 //@DatatypeDef()
 public class XhtmlNode {
 
@@ -242,5 +245,41 @@ public class XhtmlNode {
 
 	public boolean isEmpty() {
 	  return (childNodes == null || childNodes.isEmpty()) && content == null;
+  }
+
+	public boolean equalsDeep(XhtmlNode other) {
+    if (other instanceof XhtmlNode)
+      return false;
+    XhtmlNode o = (XhtmlNode) other;
+    if (!(nodeType == o.nodeType) || !compare(name, o.name) || !compare(content, o.content))
+    	return false;
+    if (Attributes.size() != o.Attributes.size())
+    	return false;
+    for (String an : Attributes.keySet())
+    	if (!Attributes.get(an).equals(o.Attributes.get(an)))
+    		return false;
+    if (childNodes.size() != o.childNodes.size())
+    	return false;
+		for (int i = 0; i < childNodes.size(); i++) {
+			if (!compareDeep(childNodes.get(i), o.childNodes.get(i)))
+				return false;
+		}
+		return true;
+  }
+
+	private boolean compare(String s1, String s2) {
+		if (s1 == null && s2 == null)
+			return true;
+		if (s1 == null || s2 == null)
+			return false;
+		return s1.equals(s2);
+  }
+
+	private static boolean compareDeep(XhtmlNode e1, XhtmlNode e2) {
+		if (e1 == null && e2 == null)
+			return true;
+		if (e1 == null || e2 == null)
+			return false;
+		return e1.equalsDeep(e2);
   }
 }

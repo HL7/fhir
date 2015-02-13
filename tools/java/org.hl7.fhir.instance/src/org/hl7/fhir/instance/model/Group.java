@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -347,6 +347,27 @@ public class Group extends DomainResource {
         dst.value = value == null ? null : value.copy();
         dst.exclude = exclude == null ? null : exclude.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof GroupCharacteristicComponent))
+          return false;
+        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(value, o.value, true) && compareDeep(exclude, o.exclude, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof GroupCharacteristicComponent))
+          return false;
+        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other;
+        return compareValues(exclude, o.exclude, true);
       }
 
       public boolean isEmpty() {
@@ -766,6 +787,29 @@ public class Group extends DomainResource {
 
       protected Group typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Group))
+          return false;
+        Group o = (Group) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(actual, o.actual, true)
+           && compareDeep(code, o.code, true) && compareDeep(name, o.name, true) && compareDeep(quantity, o.quantity, true)
+           && compareDeep(characteristic, o.characteristic, true) && compareDeep(member, o.member, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Group))
+          return false;
+        Group o = (Group) other;
+        return compareValues(type, o.type, true) && compareValues(actual, o.actual, true) && compareValues(name, o.name, true)
+           && compareValues(quantity, o.quantity, true);
       }
 
       public boolean isEmpty() {

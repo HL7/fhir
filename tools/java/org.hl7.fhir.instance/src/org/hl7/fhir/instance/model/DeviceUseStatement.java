@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -527,6 +527,29 @@ public class DeviceUseStatement extends DomainResource {
 
       protected DeviceUseStatement typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceUseStatement))
+          return false;
+        DeviceUseStatement o = (DeviceUseStatement) other;
+        return compareDeep(bodySite, o.bodySite, true) && compareDeep(whenUsed, o.whenUsed, true) && compareDeep(device, o.device, true)
+           && compareDeep(identifier, o.identifier, true) && compareDeep(indication, o.indication, true) && compareDeep(notes, o.notes, true)
+           && compareDeep(recordedOn, o.recordedOn, true) && compareDeep(subject, o.subject, true) && compareDeep(timing, o.timing, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceUseStatement))
+          return false;
+        DeviceUseStatement o = (DeviceUseStatement) other;
+        return compareValues(notes, o.notes, true) && compareValues(recordedOn, o.recordedOn, true);
       }
 
       public boolean isEmpty() {

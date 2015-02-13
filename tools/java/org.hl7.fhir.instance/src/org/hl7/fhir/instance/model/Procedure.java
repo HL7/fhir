@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -226,6 +226,26 @@ public class Procedure extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProcedurePerformerComponent))
+          return false;
+        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other;
+        return compareDeep(person, o.person, true) && compareDeep(role, o.role, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProcedurePerformerComponent))
+          return false;
+        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (person == null || person.isEmpty()) && (role == null || role.isEmpty())
           ;
@@ -360,6 +380,26 @@ public class Procedure extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.target = target == null ? null : target.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProcedureRelatedItemComponent))
+          return false;
+        ProcedureRelatedItemComponent o = (ProcedureRelatedItemComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(target, o.target, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProcedureRelatedItemComponent))
+          return false;
+        ProcedureRelatedItemComponent o = (ProcedureRelatedItemComponent) other;
+        return compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
@@ -1076,6 +1116,31 @@ public class Procedure extends DomainResource {
 
       protected Procedure typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Procedure))
+          return false;
+        Procedure o = (Procedure) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(type, o.type, true)
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(indication, o.indication, true) && compareDeep(performer, o.performer, true)
+           && compareDeep(date, o.date, true) && compareDeep(encounter, o.encounter, true) && compareDeep(outcome, o.outcome, true)
+           && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true)
+           && compareDeep(relatedItem, o.relatedItem, true) && compareDeep(notes, o.notes, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Procedure))
+          return false;
+        Procedure o = (Procedure) other;
+        return compareValues(outcome, o.outcome, true) && compareValues(followUp, o.followUp, true) && compareValues(notes, o.notes, true)
+          ;
       }
 
       public boolean isEmpty() {

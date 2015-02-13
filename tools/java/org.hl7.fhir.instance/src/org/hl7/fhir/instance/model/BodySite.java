@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -216,6 +216,27 @@ public class BodySite extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BodySiteSpecificLocationComponent))
+          return false;
+        BodySiteSpecificLocationComponent o = (BodySiteSpecificLocationComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(side, o.side, true) && compareDeep(number, o.number, true)
+           && compareDeep(anatomicalPlane, o.anatomicalPlane, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BodySiteSpecificLocationComponent))
+          return false;
+        BodySiteSpecificLocationComponent o = (BodySiteSpecificLocationComponent) other;
+        return compareValues(number, o.number, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (side == null || side.isEmpty())
            && (number == null || number.isEmpty()) && (anatomicalPlane == null || anatomicalPlane.isEmpty())
@@ -339,6 +360,27 @@ public class BodySite extends DomainResource {
         dst.aspect = aspect == null ? null : aspect.copy();
         dst.distance = distance == null ? null : distance.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BodySiteRelativeLocationComponent))
+          return false;
+        BodySiteRelativeLocationComponent o = (BodySiteRelativeLocationComponent) other;
+        return compareDeep(landmark, o.landmark, true) && compareDeep(aspect, o.aspect, true) && compareDeep(distance, o.distance, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BodySiteRelativeLocationComponent))
+          return false;
+        BodySiteRelativeLocationComponent o = (BodySiteRelativeLocationComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -586,6 +628,28 @@ public class BodySite extends DomainResource {
 
       protected BodySite typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BodySite))
+          return false;
+        BodySite o = (BodySite) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(specificLocation, o.specificLocation, true)
+           && compareDeep(relativeLocation, o.relativeLocation, true) && compareDeep(description, o.description, true)
+           && compareDeep(image, o.image, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BodySite))
+          return false;
+        BodySite o = (BodySite) other;
+        return compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {

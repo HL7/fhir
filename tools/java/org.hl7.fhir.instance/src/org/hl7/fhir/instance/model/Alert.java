@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -451,6 +451,28 @@ public class Alert extends DomainResource {
 
       protected Alert typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Alert))
+          return false;
+        Alert o = (Alert) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(status, o.status, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(author, o.author, true) && compareDeep(note, o.note, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Alert))
+          return false;
+        Alert o = (Alert) other;
+        return compareValues(status, o.status, true) && compareValues(note, o.note, true);
       }
 
       public boolean isEmpty() {

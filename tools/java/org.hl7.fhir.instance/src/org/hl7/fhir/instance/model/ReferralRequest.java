@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -900,6 +900,32 @@ public class ReferralRequest extends DomainResource {
 
       protected ReferralRequest typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ReferralRequest))
+          return false;
+        ReferralRequest o = (ReferralRequest) other;
+        return compareDeep(status, o.status, true) && compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true)
+           && compareDeep(specialty, o.specialty, true) && compareDeep(priority, o.priority, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(requester, o.requester, true) && compareDeep(recipient, o.recipient, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(dateSent, o.dateSent, true) && compareDeep(reason, o.reason, true) && compareDeep(description, o.description, true)
+           && compareDeep(serviceRequested, o.serviceRequested, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(fulfillmentTime, o.fulfillmentTime, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ReferralRequest))
+          return false;
+        ReferralRequest o = (ReferralRequest) other;
+        return compareValues(status, o.status, true) && compareValues(dateSent, o.dateSent, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {

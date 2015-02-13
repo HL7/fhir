@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -348,6 +348,27 @@ public class Provenance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProvenanceAgentComponent))
+          return false;
+        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(type, o.type, true) && compareDeep(reference, o.reference, true)
+           && compareDeep(display, o.display, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProvenanceAgentComponent))
+          return false;
+        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
+        return compareValues(reference, o.reference, true) && compareValues(display, o.display, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (role == null || role.isEmpty()) && (type == null || type.isEmpty())
            && (reference == null || reference.isEmpty()) && (display == null || display.isEmpty());
@@ -610,6 +631,28 @@ public class Provenance extends DomainResource {
         dst.display = display == null ? null : display.copy();
         dst.agent = agent == null ? null : agent.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProvenanceEntityComponent))
+          return false;
+        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(type, o.type, true) && compareDeep(reference, o.reference, true)
+           && compareDeep(display, o.display, true) && compareDeep(agent, o.agent, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProvenanceEntityComponent))
+          return false;
+        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other;
+        return compareValues(role, o.role, true) && compareValues(reference, o.reference, true) && compareValues(display, o.display, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1089,6 +1132,30 @@ public class Provenance extends DomainResource {
 
       protected Provenance typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Provenance))
+          return false;
+        Provenance o = (Provenance) other;
+        return compareDeep(target, o.target, true) && compareDeep(period, o.period, true) && compareDeep(recorded, o.recorded, true)
+           && compareDeep(reason, o.reason, true) && compareDeep(location, o.location, true) && compareDeep(policy, o.policy, true)
+           && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true) && compareDeep(integritySignature, o.integritySignature, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Provenance))
+          return false;
+        Provenance o = (Provenance) other;
+        return compareValues(recorded, o.recorded, true) && compareValues(policy, o.policy, true) && compareValues(integritySignature, o.integritySignature, true)
+          ;
       }
 
       public boolean isEmpty() {

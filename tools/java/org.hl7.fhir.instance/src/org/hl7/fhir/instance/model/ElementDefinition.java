@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -686,6 +686,28 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinitionSlicingComponent))
+          return false;
+        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other;
+        return compareDeep(discriminator, o.discriminator, true) && compareDeep(description, o.description, true)
+           && compareDeep(ordered, o.ordered, true) && compareDeep(rules, o.rules, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinitionSlicingComponent))
+          return false;
+        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other;
+        return compareValues(discriminator, o.discriminator, true) && compareValues(description, o.description, true)
+           && compareValues(ordered, o.ordered, true) && compareValues(rules, o.rules, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (discriminator == null || discriminator.isEmpty()) && (description == null || description.isEmpty())
            && (ordered == null || ordered.isEmpty()) && (rules == null || rules.isEmpty());
@@ -892,6 +914,28 @@ public class ElementDefinition extends Type {
             dst.aggregation.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TypeRefComponent))
+          return false;
+        TypeRefComponent o = (TypeRefComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(aggregation, o.aggregation, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TypeRefComponent))
+          return false;
+        TypeRefComponent o = (TypeRefComponent) other;
+        return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(aggregation, o.aggregation, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1200,6 +1244,28 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinitionConstraintComponent))
+          return false;
+        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
+        return compareDeep(key, o.key, true) && compareDeep(name, o.name, true) && compareDeep(severity, o.severity, true)
+           && compareDeep(human, o.human, true) && compareDeep(xpath, o.xpath, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinitionConstraintComponent))
+          return false;
+        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
+        return compareValues(key, o.key, true) && compareValues(name, o.name, true) && compareValues(severity, o.severity, true)
+           && compareValues(human, o.human, true) && compareValues(xpath, o.xpath, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (key == null || key.isEmpty()) && (name == null || name.isEmpty())
            && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (xpath == null || xpath.isEmpty())
@@ -1501,6 +1567,28 @@ public class ElementDefinition extends Type {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinitionBindingComponent))
+          return false;
+        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(isExtensible, o.isExtensible, true) && compareDeep(conformance, o.conformance, true)
+           && compareDeep(description, o.description, true) && compareDeep(reference, o.reference, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinitionBindingComponent))
+          return false;
+        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
+        return compareValues(name, o.name, true) && compareValues(isExtensible, o.isExtensible, true) && compareValues(conformance, o.conformance, true)
+           && compareValues(description, o.description, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (isExtensible == null || isExtensible.isEmpty())
            && (conformance == null || conformance.isEmpty()) && (description == null || description.isEmpty())
@@ -1638,6 +1726,26 @@ public class ElementDefinition extends Type {
         dst.identity = identity == null ? null : identity.copy();
         dst.map = map == null ? null : map.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinitionMappingComponent))
+          return false;
+        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
+        return compareDeep(identity, o.identity, true) && compareDeep(map, o.map, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinitionMappingComponent))
+          return false;
+        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
+        return compareValues(identity, o.identity, true) && compareValues(map, o.map, true);
       }
 
       public boolean isEmpty() {
@@ -2966,6 +3074,40 @@ public class ElementDefinition extends Type {
 
       protected ElementDefinition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinition))
+          return false;
+        ElementDefinition o = (ElementDefinition) other;
+        return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(name, o.name, true)
+           && compareDeep(slicing, o.slicing, true) && compareDeep(short_, o.short_, true) && compareDeep(formal, o.formal, true)
+           && compareDeep(comments, o.comments, true) && compareDeep(requirements, o.requirements, true) && compareDeep(synonym, o.synonym, true)
+           && compareDeep(min, o.min, true) && compareDeep(max, o.max, true) && compareDeep(type, o.type, true)
+           && compareDeep(nameReference, o.nameReference, true) && compareDeep(defaultValue, o.defaultValue, true)
+           && compareDeep(meaningWhenMissing, o.meaningWhenMissing, true) && compareDeep(fixed, o.fixed, true)
+           && compareDeep(pattern, o.pattern, true) && compareDeep(example, o.example, true) && compareDeep(maxLength, o.maxLength, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(constraint, o.constraint, true) && compareDeep(mustSupport, o.mustSupport, true)
+           && compareDeep(isModifier, o.isModifier, true) && compareDeep(isSummary, o.isSummary, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(mapping, o.mapping, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinition))
+          return false;
+        ElementDefinition o = (ElementDefinition) other;
+        return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(name, o.name, true)
+           && compareValues(short_, o.short_, true) && compareValues(formal, o.formal, true) && compareValues(comments, o.comments, true)
+           && compareValues(requirements, o.requirements, true) && compareValues(synonym, o.synonym, true) && compareValues(min, o.min, true)
+           && compareValues(max, o.max, true) && compareValues(nameReference, o.nameReference, true) && compareValues(meaningWhenMissing, o.meaningWhenMissing, true)
+           && compareValues(maxLength, o.maxLength, true) && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true)
+           && compareValues(isModifier, o.isModifier, true) && compareValues(isSummary, o.isSummary, true);
       }
 
       public boolean isEmpty() {

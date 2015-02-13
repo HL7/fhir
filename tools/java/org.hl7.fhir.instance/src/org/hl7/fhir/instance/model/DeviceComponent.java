@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -383,6 +383,27 @@ public class DeviceComponent extends DomainResource {
         dst.componentId = componentId == null ? null : componentId.copy();
         dst.productionSpec = productionSpec == null ? null : productionSpec.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceComponentProductionSpecificationComponent))
+          return false;
+        DeviceComponentProductionSpecificationComponent o = (DeviceComponentProductionSpecificationComponent) other;
+        return compareDeep(specType, o.specType, true) && compareDeep(componentId, o.componentId, true)
+           && compareDeep(productionSpec, o.productionSpec, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceComponentProductionSpecificationComponent))
+          return false;
+        DeviceComponentProductionSpecificationComponent o = (DeviceComponentProductionSpecificationComponent) other;
+        return compareValues(productionSpec, o.productionSpec, true);
       }
 
       public boolean isEmpty() {
@@ -863,6 +884,31 @@ public class DeviceComponent extends DomainResource {
 
       protected DeviceComponent typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceComponent))
+          return false;
+        DeviceComponent o = (DeviceComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(lastSystemChange, o.lastSystemChange, true)
+           && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalStatus, o.operationalStatus, true)
+           && compareDeep(parameterGroup, o.parameterGroup, true) && compareDeep(measurementPrinciple, o.measurementPrinciple, true)
+           && compareDeep(productionSpecification, o.productionSpecification, true) && compareDeep(languageCode, o.languageCode, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceComponent))
+          return false;
+        DeviceComponent o = (DeviceComponent) other;
+        return compareValues(lastSystemChange, o.lastSystemChange, true) && compareValues(measurementPrinciple, o.measurementPrinciple, true)
+          ;
       }
 
       public boolean isEmpty() {

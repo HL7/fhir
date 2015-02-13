@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1079,6 +1079,31 @@ public class ProcedureRequest extends DomainResource {
 
       protected ProcedureRequest typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProcedureRequest))
+          return false;
+        ProcedureRequest o = (ProcedureRequest) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(type, o.type, true)
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(indication, o.indication, true) && compareDeep(timing, o.timing, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(performer, o.performer, true) && compareDeep(status, o.status, true)
+           && compareDeep(notes, o.notes, true) && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(orderedOn, o.orderedOn, true)
+           && compareDeep(orderer, o.orderer, true) && compareDeep(priority, o.priority, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProcedureRequest))
+          return false;
+        ProcedureRequest o = (ProcedureRequest) other;
+        return compareValues(status, o.status, true) && compareValues(notes, o.notes, true) && compareValues(orderedOn, o.orderedOn, true)
+           && compareValues(priority, o.priority, true);
       }
 
       public boolean isEmpty() {

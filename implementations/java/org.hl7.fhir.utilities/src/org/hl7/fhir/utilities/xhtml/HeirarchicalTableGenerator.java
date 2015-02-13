@@ -167,7 +167,7 @@ public class HeirarchicalTableGenerator  {
       for (Piece p : pieces)
         p.addToHint(text);            
     }
-    public void addImage(String src, String hint, String alt) {
+    public Piece addImage(String src, String hint, String alt) {
       if (pieces.size() > 0 && pieces.get(0).tag == null)
         pieces.get(0).text += " ";
 //      Piece img = new Piece("img");
@@ -177,6 +177,7 @@ public class HeirarchicalTableGenerator  {
 //      img.attributes.put("alt", alt);
 //      img.hint = hint;
       pieces.add(img);
+      return img;
     }
     public String text() {
       StringBuilder b = new StringBuilder();

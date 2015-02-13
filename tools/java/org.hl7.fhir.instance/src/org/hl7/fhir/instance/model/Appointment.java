@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -616,6 +616,27 @@ public class Appointment extends DomainResource {
         dst.required = required == null ? null : required.copy();
         dst.status = status == null ? null : status.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AppointmentParticipantComponent))
+          return false;
+        AppointmentParticipantComponent o = (AppointmentParticipantComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(actor, o.actor, true) && compareDeep(required, o.required, true)
+           && compareDeep(status, o.status, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AppointmentParticipantComponent))
+          return false;
+        AppointmentParticipantComponent o = (AppointmentParticipantComponent) other;
+        return compareValues(required, o.required, true) && compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
@@ -1430,6 +1451,33 @@ public class Appointment extends DomainResource {
 
       protected Appointment typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Appointment))
+          return false;
+        Appointment o = (Appointment) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(priority, o.priority, true) && compareDeep(status, o.status, true)
+           && compareDeep(type, o.type, true) && compareDeep(reason, o.reason, true) && compareDeep(description, o.description, true)
+           && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(slot, o.slot, true)
+           && compareDeep(location, o.location, true) && compareDeep(comment, o.comment, true) && compareDeep(order, o.order, true)
+           && compareDeep(participant, o.participant, true) && compareDeep(lastModifiedBy, o.lastModifiedBy, true)
+           && compareDeep(lastModified, o.lastModified, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Appointment))
+          return false;
+        Appointment o = (Appointment) other;
+        return compareValues(priority, o.priority, true) && compareValues(status, o.status, true) && compareValues(description, o.description, true)
+           && compareValues(start, o.start, true) && compareValues(end, o.end, true) && compareValues(comment, o.comment, true)
+           && compareValues(lastModified, o.lastModified, true);
       }
 
       public boolean isEmpty() {

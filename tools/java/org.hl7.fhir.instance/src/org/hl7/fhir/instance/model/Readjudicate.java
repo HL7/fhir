@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -120,6 +120,26 @@ public class Readjudicate extends DomainResource {
         copyValues(dst);
         dst.sequenceLinkId = sequenceLinkId == null ? null : sequenceLinkId.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true);
       }
 
       public boolean isEmpty() {
@@ -694,6 +714,29 @@ public class Readjudicate extends DomainResource {
 
       protected Readjudicate typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Readjudicate))
+          return false;
+        Readjudicate o = (Readjudicate) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
+           && compareDeep(reference, o.reference, true) && compareDeep(item, o.item, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Readjudicate))
+          return false;
+        Readjudicate o = (Readjudicate) other;
+        return compareValues(created, o.created, true) && compareValues(reference, o.reference, true);
       }
 
       public boolean isEmpty() {

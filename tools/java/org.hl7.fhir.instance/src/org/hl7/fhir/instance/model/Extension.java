@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -148,6 +148,26 @@ public class Extension extends Element {
 
       protected Extension typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Extension))
+          return false;
+        Extension o = (Extension) other;
+        return compareDeep(url, o.url, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Extension))
+          return false;
+        Extension o = (Extension) other;
+        return compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {

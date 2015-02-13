@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -319,6 +319,27 @@ public class MessageHeader extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.details = details == null ? null : details.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MessageHeaderResponseComponent))
+          return false;
+        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true) && compareDeep(details, o.details, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MessageHeaderResponseComponent))
+          return false;
+        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(code, o.code, true);
       }
 
       public boolean isEmpty() {
@@ -612,6 +633,28 @@ public class MessageHeader extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MessageSourceComponent))
+          return false;
+        MessageSourceComponent o = (MessageSourceComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(software, o.software, true) && compareDeep(version, o.version, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(endpoint, o.endpoint, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MessageSourceComponent))
+          return false;
+        MessageSourceComponent o = (MessageSourceComponent) other;
+        return compareValues(name, o.name, true) && compareValues(software, o.software, true) && compareValues(version, o.version, true)
+           && compareValues(endpoint, o.endpoint, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (software == null || software.isEmpty())
            && (version == null || version.isEmpty()) && (contact == null || contact.isEmpty()) && (endpoint == null || endpoint.isEmpty())
@@ -811,6 +854,27 @@ public class MessageHeader extends DomainResource {
         dst.target = target == null ? null : target.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MessageDestinationComponent))
+          return false;
+        MessageDestinationComponent o = (MessageDestinationComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(target, o.target, true) && compareDeep(endpoint, o.endpoint, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MessageDestinationComponent))
+          return false;
+        MessageDestinationComponent o = (MessageDestinationComponent) other;
+        return compareValues(name, o.name, true) && compareValues(endpoint, o.endpoint, true);
       }
 
       public boolean isEmpty() {
@@ -1408,6 +1472,31 @@ public class MessageHeader extends DomainResource {
 
       protected MessageHeader typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MessageHeader))
+          return false;
+        MessageHeader o = (MessageHeader) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
+           && compareDeep(event, o.event, true) && compareDeep(response, o.response, true) && compareDeep(source, o.source, true)
+           && compareDeep(destination, o.destination, true) && compareDeep(enterer, o.enterer, true) && compareDeep(author, o.author, true)
+           && compareDeep(receiver, o.receiver, true) && compareDeep(responsible, o.responsible, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(data, o.data, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MessageHeader))
+          return false;
+        MessageHeader o = (MessageHeader) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(timestamp, o.timestamp, true)
+          ;
       }
 
       public boolean isEmpty() {

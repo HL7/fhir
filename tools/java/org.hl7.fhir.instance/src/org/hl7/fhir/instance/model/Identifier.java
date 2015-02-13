@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -484,6 +484,29 @@ public class Identifier extends Type {
 
       protected Identifier typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Identifier))
+          return false;
+        Identifier o = (Identifier) other;
+        return compareDeep(use, o.use, true) && compareDeep(label, o.label, true) && compareDeep(system, o.system, true)
+           && compareDeep(value, o.value, true) && compareDeep(period, o.period, true) && compareDeep(assigner, o.assigner, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Identifier))
+          return false;
+        Identifier o = (Identifier) other;
+        return compareValues(use, o.use, true) && compareValues(label, o.label, true) && compareValues(system, o.system, true)
+           && compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {

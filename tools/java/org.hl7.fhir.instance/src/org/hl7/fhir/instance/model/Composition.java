@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -455,6 +455,27 @@ public class Composition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CompositionAttesterComponent))
+          return false;
+        CompositionAttesterComponent o = (CompositionAttesterComponent) other;
+        return compareDeep(mode, o.mode, true) && compareDeep(time, o.time, true) && compareDeep(party, o.party, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CompositionAttesterComponent))
+          return false;
+        CompositionAttesterComponent o = (CompositionAttesterComponent) other;
+        return compareValues(mode, o.mode, true) && compareValues(time, o.time, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (mode == null || mode.isEmpty()) && (time == null || time.isEmpty())
            && (party == null || party.isEmpty());
@@ -611,6 +632,27 @@ public class Composition extends DomainResource {
             dst.detail.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CompositionEventComponent))
+          return false;
+        CompositionEventComponent o = (CompositionEventComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(period, o.period, true) && compareDeep(detail, o.detail, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CompositionEventComponent))
+          return false;
+        CompositionEventComponent o = (CompositionEventComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -823,6 +865,27 @@ public class Composition extends DomainResource {
         };
         dst.content = content == null ? null : content.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SectionComponent))
+          return false;
+        SectionComponent o = (SectionComponent) other;
+        return compareDeep(title, o.title, true) && compareDeep(code, o.code, true) && compareDeep(section, o.section, true)
+           && compareDeep(content, o.content, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SectionComponent))
+          return false;
+        SectionComponent o = (SectionComponent) other;
+        return compareValues(title, o.title, true);
       }
 
       public boolean isEmpty() {
@@ -1512,6 +1575,32 @@ public class Composition extends DomainResource {
 
       protected Composition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Composition))
+          return false;
+        Composition o = (Composition) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(date, o.date, true) && compareDeep(type, o.type, true)
+           && compareDeep(class_, o.class_, true) && compareDeep(title, o.title, true) && compareDeep(status, o.status, true)
+           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(author, o.author, true) && compareDeep(attester, o.attester, true) && compareDeep(custodian, o.custodian, true)
+           && compareDeep(event, o.event, true) && compareDeep(encounter, o.encounter, true) && compareDeep(section, o.section, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Composition))
+          return false;
+        Composition o = (Composition) other;
+        return compareValues(date, o.date, true) && compareValues(title, o.title, true) && compareValues(status, o.status, true)
+          ;
       }
 
       public boolean isEmpty() {

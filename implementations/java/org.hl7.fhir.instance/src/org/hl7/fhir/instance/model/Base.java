@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+
 public abstract class Base implements Serializable {
 
   /**
@@ -30,6 +32,14 @@ private Map<String, Object> userData;
       userData = new HashMap<String, Object>();
     userData.put(name, value);
   }
+
+  public boolean hasUserData(String name) {
+    if (userData == null)
+      return false;
+    else
+      return userData.containsKey(name);
+  }
+
 
   public boolean hasFormatComment() {
   	return (formatComments != null && !formatComments.isEmpty());
@@ -79,6 +89,65 @@ private Map<String, Object> userData;
 
 	public boolean isEmpty() {
 	  return true; // userData does not count
+  }
+
+	public boolean equalsDeep(Base other) {
+	  return other != null;
   }  
   
+	public boolean equalsShallow(Base other) {
+	  return other != null;
+  }  
+  
+	public static boolean compareDeep(List<? extends Base> e1, List<? extends Base> e2, boolean allowNull) {
+		if (e1 == null && e2 == null && allowNull)
+			return true;
+		if (e1 == null || e2 == null)
+			return false;
+		if (e1.size() != e2.size())
+			return false;
+		for (int i = 0; i < e1.size(); i++) {
+			if (!compareDeep(e1.get(i), e2.get(i), allowNull))
+				return false;
+		}
+		return true;
+	}
+	public static boolean compareDeep(Base e1, Base e2, boolean allowNull) {
+		if (e1 == null && e2 == null && allowNull)
+			return true;
+		if (e1 == null || e2 == null)
+			return false;
+		return e1.equalsDeep(e2);
+	}
+	
+	public static boolean compareDeep(XhtmlNode div1, XhtmlNode div2, boolean allowNull) {
+		if (div1 == null && div2 == null && allowNull)
+			return true;
+		if (div1 == null || div2 == null)
+			return false;
+		return div1.equalsDeep(div2);
+  }
+
+
+	public static boolean compareValues(List<? extends PrimitiveType> e1, List<? extends PrimitiveType> e2, boolean allowNull) {
+		if (e1 == null && e2 == null && allowNull)
+			return true;
+		if (e1 == null || e2 == null)
+			return false;
+		if (e1.size() != e2.size())
+			return false;
+		for (int i = 0; i < e1.size(); i++) {
+			if (!compareValues(e1.get(i), e2.get(i), allowNull))
+				return false;
+		}
+		return true;
+	}
+
+	public static boolean compareValues(PrimitiveType e1, PrimitiveType e2, boolean allowNull) {
+		if (e1 == null && e2 == null && allowNull)
+			return true;
+		if (e1 == null || e2 == null)
+			return false;
+		return e1.equalsShallow(e2);
+  }
 }

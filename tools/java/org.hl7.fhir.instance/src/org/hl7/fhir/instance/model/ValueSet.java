@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -491,6 +491,28 @@ public class ValueSet extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSetDefineComponent))
+          return false;
+        ValueSetDefineComponent o = (ValueSetDefineComponent) other;
+        return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(caseSensitive, o.caseSensitive, true)
+           && compareDeep(concept, o.concept, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSetDefineComponent))
+          return false;
+        ValueSetDefineComponent o = (ValueSetDefineComponent) other;
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(caseSensitive, o.caseSensitive, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
            && (caseSensitive == null || caseSensitive.isEmpty()) && (concept == null || concept.isEmpty())
@@ -832,6 +854,29 @@ public class ValueSet extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionComponent))
+          return false;
+        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(display, o.display, true)
+           && compareDeep(definition, o.definition, true) && compareDeep(designation, o.designation, true)
+           && compareDeep(concept, o.concept, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionComponent))
+          return false;
+        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other;
+        return compareValues(code, o.code, true) && compareValues(abstract_, o.abstract_, true) && compareValues(display, o.display, true)
+           && compareValues(definition, o.definition, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
            && (display == null || display.isEmpty()) && (definition == null || definition.isEmpty())
@@ -1007,6 +1052,27 @@ public class ValueSet extends DomainResource {
         dst.use = use == null ? null : use.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionDesignationComponent))
+          return false;
+        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other;
+        return compareDeep(language, o.language, true) && compareDeep(use, o.use, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionDesignationComponent))
+          return false;
+        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other;
+        return compareValues(language, o.language, true) && compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -1185,6 +1251,27 @@ public class ValueSet extends DomainResource {
             dst.exclude.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSetComposeComponent))
+          return false;
+        ValueSetComposeComponent o = (ValueSetComposeComponent) other;
+        return compareDeep(import_, o.import_, true) && compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSetComposeComponent))
+          return false;
+        ValueSetComposeComponent o = (ValueSetComposeComponent) other;
+        return compareValues(import_, o.import_, true);
       }
 
       public boolean isEmpty() {
@@ -1415,6 +1502,27 @@ public class ValueSet extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptSetComponent))
+          return false;
+        ConceptSetComponent o = (ConceptSetComponent) other;
+        return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(concept, o.concept, true)
+           && compareDeep(filter, o.filter, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptSetComponent))
+          return false;
+        ConceptSetComponent o = (ConceptSetComponent) other;
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
            && (concept == null || concept.isEmpty()) && (filter == null || filter.isEmpty());
@@ -1598,6 +1706,27 @@ public class ValueSet extends DomainResource {
             dst.designation.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptReferenceComponent))
+          return false;
+        ConceptReferenceComponent o = (ConceptReferenceComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(designation, o.designation, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptReferenceComponent))
+          return false;
+        ConceptReferenceComponent o = (ConceptReferenceComponent) other;
+        return compareValues(code, o.code, true) && compareValues(display, o.display, true);
       }
 
       public boolean isEmpty() {
@@ -1794,6 +1923,28 @@ public class ValueSet extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptSetFilterComponent))
+          return false;
+        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other;
+        return compareDeep(property, o.property, true) && compareDeep(op, o.op, true) && compareDeep(value, o.value, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptSetFilterComponent))
+          return false;
+        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other;
+        return compareValues(property, o.property, true) && compareValues(op, o.op, true) && compareValues(value, o.value, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (property == null || property.isEmpty()) && (op == null || op.isEmpty())
            && (value == null || value.isEmpty());
@@ -1952,6 +2103,27 @@ public class ValueSet extends DomainResource {
             dst.contains.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionComponent))
+          return false;
+        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
+           && compareDeep(contains, o.contains, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionComponent))
+          return false;
+        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
+        return compareValues(timestamp, o.timestamp, true);
       }
 
       public boolean isEmpty() {
@@ -2306,6 +2478,29 @@ public class ValueSet extends DomainResource {
             dst.contains.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionContainsComponent))
+          return false;
+        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
+        return compareDeep(system, o.system, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(version, o.version, true)
+           && compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(contains, o.contains, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSetExpansionContainsComponent))
+          return false;
+        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
+        return compareValues(system, o.system, true) && compareValues(abstract_, o.abstract_, true) && compareValues(version, o.version, true)
+           && compareValues(code, o.code, true) && compareValues(display, o.display, true);
       }
 
       public boolean isEmpty() {
@@ -3161,6 +3356,35 @@ public class ValueSet extends DomainResource {
 
       protected ValueSet typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ValueSet))
+          return false;
+        ValueSet o = (ValueSet) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
+           && compareDeep(immutable, o.immutable, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(description, o.description, true) && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(extensible, o.extensible, true)
+           && compareDeep(date, o.date, true) && compareDeep(stableDate, o.stableDate, true) && compareDeep(define, o.define, true)
+           && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ValueSet))
+          return false;
+        ValueSet o = (ValueSet) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(immutable, o.immutable, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(copyright, o.copyright, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
+           && compareValues(extensible, o.extensible, true) && compareValues(date, o.date, true) && compareValues(stableDate, o.stableDate, true)
+          ;
       }
 
       public boolean isEmpty() {

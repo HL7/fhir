@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -97,6 +97,26 @@ public abstract class BackboneElement extends Element {
           for (Extension i : modifierExtension)
             dst.modifierExtension.add(i.copy());
         };
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof BackboneElement))
+          return false;
+        BackboneElement o = (BackboneElement) other;
+        return compareDeep(modifierExtension, o.modifierExtension, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof BackboneElement))
+          return false;
+        BackboneElement o = (BackboneElement) other;
+        return true;
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -371,6 +371,27 @@ public class ProfessionalClaim extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PayeeComponent))
+          return false;
+        PayeeComponent o = (PayeeComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
+           && compareDeep(person, o.person, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PayeeComponent))
+          return false;
+        PayeeComponent o = (PayeeComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (provider == null || provider.isEmpty())
            && (organization == null || organization.isEmpty()) && (person == null || person.isEmpty())
@@ -488,6 +509,26 @@ public class ProfessionalClaim extends DomainResource {
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.diagnosis = diagnosis == null ? null : diagnosis.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosisComponent))
+          return false;
+        DiagnosisComponent o = (DiagnosisComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(diagnosis, o.diagnosis, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosisComponent))
+          return false;
+        DiagnosisComponent o = (DiagnosisComponent) other;
+        return compareValues(sequence, o.sequence, true);
       }
 
       public boolean isEmpty() {
@@ -936,6 +977,30 @@ public class ProfessionalClaim extends DomainResource {
         dst.claimResponse = claimResponse == null ? null : claimResponse.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CoverageComponent))
+          return false;
+        CoverageComponent o = (CoverageComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(focal, o.focal, true) && compareDeep(coverage, o.coverage, true)
+           && compareDeep(businessArrangement, o.businessArrangement, true) && compareDeep(relationship, o.relationship, true)
+           && compareDeep(preauthref, o.preauthref, true) && compareDeep(claimResponse, o.claimResponse, true)
+           && compareDeep(originalRuleset, o.originalRuleset, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CoverageComponent))
+          return false;
+        CoverageComponent o = (CoverageComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(focal, o.focal, true) && compareValues(businessArrangement, o.businessArrangement, true)
+           && compareValues(preauthref, o.preauthref, true);
       }
 
       public boolean isEmpty() {
@@ -1686,6 +1751,33 @@ public class ProfessionalClaim extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(service, o.service, true)
+           && compareDeep(serviceDate, o.serviceDate, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
+           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
+           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subsite, o.subsite, true)
+           && compareDeep(modifier, o.modifier, true) && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ItemsComponent))
+          return false;
+        ItemsComponent o = (ItemsComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(diagnosisLinkId, o.diagnosisLinkId, true)
+           && compareValues(serviceDate, o.serviceDate, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
            && (provider == null || provider.isEmpty()) && (diagnosisLinkId == null || diagnosisLinkId.isEmpty())
@@ -2134,6 +2226,30 @@ public class ProfessionalClaim extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DetailComponent))
+          return false;
+        DetailComponent o = (DetailComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(service, o.service, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
+           && compareDeep(points, o.points, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
+           && compareDeep(subDetail, o.subDetail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DetailComponent))
+          return false;
+        DetailComponent o = (DetailComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
            && (service == null || service.isEmpty()) && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
@@ -2534,6 +2650,30 @@ public class ProfessionalClaim extends DomainResource {
         dst.net = net == null ? null : net.copy();
         dst.udi = udi == null ? null : udi.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubDetailComponent))
+          return false;
+        SubDetailComponent o = (SubDetailComponent) other;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(service, o.service, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
+           && compareDeep(points, o.points, true) && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubDetailComponent))
+          return false;
+        SubDetailComponent o = (SubDetailComponent) other;
+        return compareValues(sequence, o.sequence, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -3748,6 +3888,36 @@ public class ProfessionalClaim extends DomainResource {
 
       protected ProfessionalClaim typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProfessionalClaim))
+          return false;
+        ProfessionalClaim o = (ProfessionalClaim) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(use, o.use, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(fundsReserve, o.fundsReserve, true) && compareDeep(enterer, o.enterer, true) && compareDeep(facility, o.facility, true)
+           && compareDeep(payee, o.payee, true) && compareDeep(referral, o.referral, true) && compareDeep(diagnosis, o.diagnosis, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true)
+           && compareDeep(exception, o.exception, true) && compareDeep(school, o.school, true) && compareDeep(accident, o.accident, true)
+           && compareDeep(accidentType, o.accidentType, true) && compareDeep(interventionException, o.interventionException, true)
+           && compareDeep(item, o.item, true) && compareDeep(additionalMaterials, o.additionalMaterials, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProfessionalClaim))
+          return false;
+        ProfessionalClaim o = (ProfessionalClaim) other;
+        return compareValues(created, o.created, true) && compareValues(use, o.use, true) && compareValues(school, o.school, true)
+           && compareValues(accident, o.accident, true);
       }
 
       public boolean isEmpty() {

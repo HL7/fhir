@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -367,6 +367,26 @@ public class DocumentReference extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentReferenceRelatesToComponent))
+          return false;
+        DocumentReferenceRelatesToComponent o = (DocumentReferenceRelatesToComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentReferenceRelatesToComponent))
+          return false;
+        DocumentReferenceRelatesToComponent o = (DocumentReferenceRelatesToComponent) other;
+        return compareValues(code, o.code, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
           ;
@@ -499,6 +519,27 @@ public class DocumentReference extends DomainResource {
         dst.period = period == null ? null : period.copy();
         dst.facilityType = facilityType == null ? null : facilityType.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentReferenceContextComponent))
+          return false;
+        DocumentReferenceContextComponent o = (DocumentReferenceContextComponent) other;
+        return compareDeep(event, o.event, true) && compareDeep(period, o.period, true) && compareDeep(facilityType, o.facilityType, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentReferenceContextComponent))
+          return false;
+        DocumentReferenceContextComponent o = (DocumentReferenceContextComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1440,6 +1481,35 @@ public class DocumentReference extends DomainResource {
 
       protected DocumentReference typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DocumentReference))
+          return false;
+        DocumentReference o = (DocumentReference) other;
+        return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(type, o.type, true) && compareDeep(class_, o.class_, true)
+           && compareDeep(format, o.format, true) && compareDeep(author, o.author, true) && compareDeep(custodian, o.custodian, true)
+           && compareDeep(policyManager, o.policyManager, true) && compareDeep(authenticator, o.authenticator, true)
+           && compareDeep(created, o.created, true) && compareDeep(indexed, o.indexed, true) && compareDeep(status, o.status, true)
+           && compareDeep(docStatus, o.docStatus, true) && compareDeep(relatesTo, o.relatesTo, true) && compareDeep(description, o.description, true)
+           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(content, o.content, true)
+           && compareDeep(context, o.context, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DocumentReference))
+          return false;
+        DocumentReference o = (DocumentReference) other;
+        return compareValues(format, o.format, true) && compareValues(policyManager, o.policyManager, true)
+           && compareValues(created, o.created, true) && compareValues(indexed, o.indexed, true) && compareValues(status, o.status, true)
+           && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {

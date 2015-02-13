@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -637,6 +637,31 @@ public class Slot extends DomainResource {
 
       protected Slot typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Slot))
+          return false;
+        Slot o = (Slot) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(schedule, o.schedule, true)
+           && compareDeep(freeBusyType, o.freeBusyType, true) && compareDeep(start, o.start, true) && compareDeep(end, o.end, true)
+           && compareDeep(overbooked, o.overbooked, true) && compareDeep(comment, o.comment, true) && compareDeep(lastModified, o.lastModified, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Slot))
+          return false;
+        Slot o = (Slot) other;
+        return compareValues(freeBusyType, o.freeBusyType, true) && compareValues(start, o.start, true) && compareValues(end, o.end, true)
+           && compareValues(overbooked, o.overbooked, true) && compareValues(comment, o.comment, true) && compareValues(lastModified, o.lastModified, true)
+          ;
       }
 
       public boolean isEmpty() {

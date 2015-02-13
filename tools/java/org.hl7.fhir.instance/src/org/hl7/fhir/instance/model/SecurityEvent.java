@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1435,6 +1435,29 @@ public class SecurityEvent extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventEventComponent))
+          return false;
+        SecurityEventEventComponent o = (SecurityEventEventComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true) && compareDeep(action, o.action, true)
+           && compareDeep(dateTime, o.dateTime, true) && compareDeep(outcome, o.outcome, true) && compareDeep(outcomeDesc, o.outcomeDesc, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventEventComponent))
+          return false;
+        SecurityEventEventComponent o = (SecurityEventEventComponent) other;
+        return compareValues(action, o.action, true) && compareValues(dateTime, o.dateTime, true) && compareValues(outcome, o.outcome, true)
+           && compareValues(outcomeDesc, o.outcomeDesc, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (subtype == null || subtype.isEmpty())
            && (action == null || action.isEmpty()) && (dateTime == null || dateTime.isEmpty()) && (outcome == null || outcome.isEmpty())
@@ -1856,6 +1879,29 @@ public class SecurityEvent extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventParticipantComponent))
+          return false;
+        SecurityEventParticipantComponent o = (SecurityEventParticipantComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true) && compareDeep(userId, o.userId, true)
+           && compareDeep(altId, o.altId, true) && compareDeep(name, o.name, true) && compareDeep(requestor, o.requestor, true)
+           && compareDeep(media, o.media, true) && compareDeep(network, o.network, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventParticipantComponent))
+          return false;
+        SecurityEventParticipantComponent o = (SecurityEventParticipantComponent) other;
+        return compareValues(userId, o.userId, true) && compareValues(altId, o.altId, true) && compareValues(name, o.name, true)
+           && compareValues(requestor, o.requestor, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
            && (userId == null || userId.isEmpty()) && (altId == null || altId.isEmpty()) && (name == null || name.isEmpty())
@@ -1997,6 +2043,26 @@ public class SecurityEvent extends DomainResource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventParticipantNetworkComponent))
+          return false;
+        SecurityEventParticipantNetworkComponent o = (SecurityEventParticipantNetworkComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventParticipantNetworkComponent))
+          return false;
+        SecurityEventParticipantNetworkComponent o = (SecurityEventParticipantNetworkComponent) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
@@ -2182,6 +2248,27 @@ public class SecurityEvent extends DomainResource {
             dst.type.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventSourceComponent))
+          return false;
+        SecurityEventSourceComponent o = (SecurityEventSourceComponent) other;
+        return compareDeep(site, o.site, true) && compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventSourceComponent))
+          return false;
+        SecurityEventSourceComponent o = (SecurityEventSourceComponent) other;
+        return compareValues(site, o.site, true) && compareValues(identifier, o.identifier, true);
       }
 
       public boolean isEmpty() {
@@ -2719,6 +2806,31 @@ public class SecurityEvent extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventObjectComponent))
+          return false;
+        SecurityEventObjectComponent o = (SecurityEventObjectComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(reference, o.reference, true)
+           && compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(lifecycle, o.lifecycle, true)
+           && compareDeep(sensitivity, o.sensitivity, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
+           && compareDeep(query, o.query, true) && compareDeep(detail, o.detail, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventObjectComponent))
+          return false;
+        SecurityEventObjectComponent o = (SecurityEventObjectComponent) other;
+        return compareValues(type, o.type, true) && compareValues(role, o.role, true) && compareValues(lifecycle, o.lifecycle, true)
+           && compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(query, o.query, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (reference == null || reference.isEmpty())
            && (type == null || type.isEmpty()) && (role == null || role.isEmpty()) && (lifecycle == null || lifecycle.isEmpty())
@@ -2858,6 +2970,26 @@ public class SecurityEvent extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEventObjectDetailComponent))
+          return false;
+        SecurityEventObjectDetailComponent o = (SecurityEventObjectDetailComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEventObjectDetailComponent))
+          return false;
+        SecurityEventObjectDetailComponent o = (SecurityEventObjectDetailComponent) other;
+        return compareValues(type, o.type, true) && compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -3043,6 +3175,27 @@ public class SecurityEvent extends DomainResource {
 
       protected SecurityEvent typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SecurityEvent))
+          return false;
+        SecurityEvent o = (SecurityEvent) other;
+        return compareDeep(event, o.event, true) && compareDeep(participant, o.participant, true) && compareDeep(source, o.source, true)
+           && compareDeep(object, o.object, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SecurityEvent))
+          return false;
+        SecurityEvent o = (SecurityEvent) other;
+        return true;
       }
 
       public boolean isEmpty() {

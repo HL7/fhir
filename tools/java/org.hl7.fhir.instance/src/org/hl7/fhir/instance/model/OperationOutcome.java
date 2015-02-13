@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -380,6 +380,28 @@ public class OperationOutcome extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationOutcomeIssueComponent))
+          return false;
+        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
+        return compareDeep(severity, o.severity, true) && compareDeep(type, o.type, true) && compareDeep(details, o.details, true)
+           && compareDeep(location, o.location, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationOutcomeIssueComponent))
+          return false;
+        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
+        return compareValues(severity, o.severity, true) && compareValues(details, o.details, true) && compareValues(location, o.location, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (severity == null || severity.isEmpty()) && (type == null || type.isEmpty())
            && (details == null || details.isEmpty()) && (location == null || location.isEmpty());
@@ -448,6 +470,26 @@ public class OperationOutcome extends DomainResource {
 
       protected OperationOutcome typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationOutcome))
+          return false;
+        OperationOutcome o = (OperationOutcome) other;
+        return compareDeep(issue, o.issue, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationOutcome))
+          return false;
+        OperationOutcome o = (OperationOutcome) other;
+        return true;
       }
 
       public boolean isEmpty() {

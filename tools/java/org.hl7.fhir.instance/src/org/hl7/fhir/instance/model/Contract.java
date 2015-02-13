@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -164,6 +164,26 @@ public class Contract extends DomainResource {
         };
         dst.signature = signature == null ? null : signature.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ContractSignerComponent))
+          return false;
+        ContractSignerComponent o = (ContractSignerComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(signature, o.signature, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ContractSignerComponent))
+          return false;
+        ContractSignerComponent o = (ContractSignerComponent) other;
+        return compareValues(signature, o.signature, true);
       }
 
       public boolean isEmpty() {
@@ -705,6 +725,31 @@ public class Contract extends DomainResource {
         dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ContractTermComponent))
+          return false;
+        ContractTermComponent o = (ContractTermComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(text, o.text, true) && compareDeep(issued, o.issued, true)
+           && compareDeep(applies, o.applies, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
+           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ContractTermComponent))
+          return false;
+        ContractTermComponent o = (ContractTermComponent) other;
+        return compareValues(text, o.text, true) && compareValues(issued, o.issued, true) && compareValues(factor, o.factor, true)
+           && compareValues(points, o.points, true);
       }
 
       public boolean isEmpty() {
@@ -2177,6 +2222,39 @@ public class Contract extends DomainResource {
 
       protected Contract typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Contract))
+          return false;
+        Contract o = (Contract) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(authority, o.authority, true)
+           && compareDeep(domain, o.domain, true) && compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true)
+           && compareDeep(issued, o.issued, true) && compareDeep(applies, o.applies, true) && compareDeep(quantity, o.quantity, true)
+           && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true)
+           && compareDeep(net, o.net, true) && compareDeep(author, o.author, true) && compareDeep(grantor, o.grantor, true)
+           && compareDeep(grantee, o.grantee, true) && compareDeep(witness, o.witness, true) && compareDeep(executor, o.executor, true)
+           && compareDeep(notary, o.notary, true) && compareDeep(signer, o.signer, true) && compareDeep(term, o.term, true)
+           && compareDeep(binding, o.binding, true) && compareDeep(bindingDateTime, o.bindingDateTime, true)
+           && compareDeep(friendly, o.friendly, true) && compareDeep(friendlyDateTime, o.friendlyDateTime, true)
+           && compareDeep(legal, o.legal, true) && compareDeep(legalDateTime, o.legalDateTime, true) && compareDeep(rule, o.rule, true)
+           && compareDeep(ruleDateTime, o.ruleDateTime, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Contract))
+          return false;
+        Contract o = (Contract) other;
+        return compareValues(issued, o.issued, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
+           && compareValues(bindingDateTime, o.bindingDateTime, true) && compareValues(friendlyDateTime, o.friendlyDateTime, true)
+           && compareValues(legalDateTime, o.legalDateTime, true) && compareValues(ruleDateTime, o.ruleDateTime, true)
+          ;
       }
 
       public boolean isEmpty() {

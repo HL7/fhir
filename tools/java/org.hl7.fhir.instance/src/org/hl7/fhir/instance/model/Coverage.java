@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -672,6 +672,31 @@ public class Coverage extends DomainResource {
 
       protected Coverage typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Coverage))
+          return false;
+        Coverage o = (Coverage) other;
+        return compareDeep(issuer, o.issuer, true) && compareDeep(period, o.period, true) && compareDeep(type, o.type, true)
+           && compareDeep(identifier, o.identifier, true) && compareDeep(group, o.group, true) && compareDeep(plan, o.plan, true)
+           && compareDeep(subplan, o.subplan, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
+           && compareDeep(subscriber, o.subscriber, true) && compareDeep(network, o.network, true) && compareDeep(contract, o.contract, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Coverage))
+          return false;
+        Coverage o = (Coverage) other;
+        return compareValues(group, o.group, true) && compareValues(plan, o.plan, true) && compareValues(subplan, o.subplan, true)
+           && compareValues(dependent, o.dependent, true) && compareValues(sequence, o.sequence, true);
       }
 
       public boolean isEmpty() {

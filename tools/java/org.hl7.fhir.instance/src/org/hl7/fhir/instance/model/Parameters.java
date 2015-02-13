@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -221,6 +221,27 @@ public class Parameters extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ParametersParameterComponent))
+          return false;
+        ParametersParameterComponent o = (ParametersParameterComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true) && compareDeep(resource, o.resource, true)
+           && compareDeep(part, o.part, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ParametersParameterComponent))
+          return false;
+        ParametersParameterComponent o = (ParametersParameterComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
            && (resource == null || resource.isEmpty()) && (part == null || part.isEmpty());
@@ -334,6 +355,26 @@ public class Parameters extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ParametersParameterPartComponent))
+          return false;
+        ParametersParameterPartComponent o = (ParametersParameterPartComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ParametersParameterPartComponent))
+          return false;
+        ParametersParameterPartComponent o = (ParametersParameterPartComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
           ;
@@ -402,6 +443,26 @@ public class Parameters extends Resource {
 
       protected Parameters typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Parameters))
+          return false;
+        Parameters o = (Parameters) other;
+        return compareDeep(parameter, o.parameter, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Parameters))
+          return false;
+        Parameters o = (Parameters) other;
+        return true;
       }
 
       public boolean isEmpty() {

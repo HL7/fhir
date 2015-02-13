@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -486,6 +486,28 @@ public class PaymentReconciliation extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DetailsComponent))
+          return false;
+        DetailsComponent o = (DetailsComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(request, o.request, true) && compareDeep(responce, o.responce, true)
+           && compareDeep(submitter, o.submitter, true) && compareDeep(payee, o.payee, true) && compareDeep(date, o.date, true)
+           && compareDeep(amount, o.amount, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DetailsComponent))
+          return false;
+        DetailsComponent o = (DetailsComponent) other;
+        return compareValues(date, o.date, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (request == null || request.isEmpty())
            && (responce == null || responce.isEmpty()) && (submitter == null || submitter.isEmpty())
@@ -602,6 +624,26 @@ public class PaymentReconciliation extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.text = text == null ? null : text.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof NotesComponent))
+          return false;
+        NotesComponent o = (NotesComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(text, o.text, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof NotesComponent))
+          return false;
+        NotesComponent o = (NotesComponent) other;
+        return compareValues(text, o.text, true);
       }
 
       public boolean isEmpty() {
@@ -1334,6 +1376,32 @@ public class PaymentReconciliation extends DomainResource {
 
       protected PaymentReconciliation typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PaymentReconciliation))
+          return false;
+        PaymentReconciliation o = (PaymentReconciliation) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(request, o.request, true) && compareDeep(outcome, o.outcome, true)
+           && compareDeep(disposition, o.disposition, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
+           && compareDeep(created, o.created, true) && compareDeep(period, o.period, true) && compareDeep(organization, o.organization, true)
+           && compareDeep(requestProvider, o.requestProvider, true) && compareDeep(requestOrganization, o.requestOrganization, true)
+           && compareDeep(detail, o.detail, true) && compareDeep(form, o.form, true) && compareDeep(total, o.total, true)
+           && compareDeep(note, o.note, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PaymentReconciliation))
+          return false;
+        PaymentReconciliation o = (PaymentReconciliation) other;
+        return compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true) && compareValues(created, o.created, true)
+          ;
       }
 
       public boolean isEmpty() {

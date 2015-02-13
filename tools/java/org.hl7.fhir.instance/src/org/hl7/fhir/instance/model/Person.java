@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -377,6 +377,26 @@ public class Person extends DomainResource {
         dst.other = other == null ? null : other.copy();
         dst.assurance = assurance == null ? null : assurance.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PersonLinkComponent))
+          return false;
+        PersonLinkComponent o = (PersonLinkComponent) other;
+        return compareDeep(other, o.other, true) && compareDeep(assurance, o.assurance, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PersonLinkComponent))
+          return false;
+        PersonLinkComponent o = (PersonLinkComponent) other;
+        return compareValues(assurance, o.assurance, true);
       }
 
       public boolean isEmpty() {
@@ -880,6 +900,30 @@ public class Person extends DomainResource {
 
       protected Person typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Person))
+          return false;
+        Person o = (Person) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(gender, o.gender, true) && compareDeep(birthDate, o.birthDate, true) && compareDeep(address, o.address, true)
+           && compareDeep(photo, o.photo, true) && compareDeep(managingOrganization, o.managingOrganization, true)
+           && compareDeep(active, o.active, true) && compareDeep(link, o.link, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Person))
+          return false;
+        Person o = (Person) other;
+        return compareValues(gender, o.gender, true) && compareValues(birthDate, o.birthDate, true) && compareValues(active, o.active, true)
+          ;
       }
 
       public boolean isEmpty() {

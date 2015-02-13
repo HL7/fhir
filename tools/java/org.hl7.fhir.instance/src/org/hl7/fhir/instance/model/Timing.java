@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -725,6 +725,30 @@ public class Timing extends Type {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TimingRepeatComponent))
+          return false;
+        TimingRepeatComponent o = (TimingRepeatComponent) other;
+        return compareDeep(frequency, o.frequency, true) && compareDeep(when, o.when, true) && compareDeep(duration, o.duration, true)
+           && compareDeep(units, o.units, true) && compareDeep(count, o.count, true) && compareDeep(end, o.end, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TimingRepeatComponent))
+          return false;
+        TimingRepeatComponent o = (TimingRepeatComponent) other;
+        return compareValues(frequency, o.frequency, true) && compareValues(when, o.when, true) && compareValues(duration, o.duration, true)
+           && compareValues(units, o.units, true) && compareValues(count, o.count, true) && compareValues(end, o.end, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (frequency == null || frequency.isEmpty()) && (when == null || when.isEmpty())
            && (duration == null || duration.isEmpty()) && (units == null || units.isEmpty()) && (count == null || count.isEmpty())
@@ -827,6 +851,26 @@ public class Timing extends Type {
 
       protected Timing typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Timing))
+          return false;
+        Timing o = (Timing) other;
+        return compareDeep(event, o.event, true) && compareDeep(repeat, o.repeat, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Timing))
+          return false;
+        Timing o = (Timing) other;
+        return true;
       }
 
       public boolean isEmpty() {

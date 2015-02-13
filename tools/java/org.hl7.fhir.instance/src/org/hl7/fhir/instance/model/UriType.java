@@ -73,28 +73,6 @@ public class UriType extends PrimitiveType<String> {
 		return theValue;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-
-		UriType other = (UriType) obj;
-		if (getValue() == null && other.getValue() == null) {
-			return true;
-		}
-		if (getValue() == null || other.getValue() == null) {
-			return false;
-		}
-
-		String normalize = normalize(getValue());
-		String normalize2 = normalize(other.getValue());
-		return normalize.equals(normalize2);
-	}
-
 	/**
 	 * Compares the given string to the string representation of this URI. In many cases it is preferable to use this
 	 * instead of the standard {@link #equals(Object)} method, since that method returns <code>false</code> unless it is
@@ -153,4 +131,28 @@ public class UriType extends PrimitiveType<String> {
 		return new OidType("urn:oid:" + theOid);
 	}
 	
+	 @Override
+   public boolean equalsDeep(Base obj) {
+     if (!super.equalsDeep(obj))
+       return false;
+ 		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+
+		UriType other = (UriType) obj;
+		if (getValue() == null && other.getValue() == null) {
+			return true;
+		}
+		if (getValue() == null || other.getValue() == null) {
+			return false;
+		}
+
+		String normalize = normalize(getValue());
+		String normalize2 = normalize(other.getValue());
+		return normalize.equals(normalize2);
+   }
+
 }

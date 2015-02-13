@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -800,6 +800,29 @@ public class Questionnaire extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof GroupComponent))
+          return false;
+        GroupComponent o = (GroupComponent) other;
+        return compareDeep(linkId, o.linkId, true) && compareDeep(title, o.title, true) && compareDeep(concept, o.concept, true)
+           && compareDeep(text, o.text, true) && compareDeep(required, o.required, true) && compareDeep(repeats, o.repeats, true)
+           && compareDeep(group, o.group, true) && compareDeep(question, o.question, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof GroupComponent))
+          return false;
+        GroupComponent o = (GroupComponent) other;
+        return compareValues(linkId, o.linkId, true) && compareValues(title, o.title, true) && compareValues(text, o.text, true)
+           && compareValues(required, o.required, true) && compareValues(repeats, o.repeats, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (title == null || title.isEmpty())
            && (concept == null || concept.isEmpty()) && (text == null || text.isEmpty()) && (required == null || required.isEmpty())
@@ -1253,6 +1276,29 @@ public class Questionnaire extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof QuestionComponent))
+          return false;
+        QuestionComponent o = (QuestionComponent) other;
+        return compareDeep(linkId, o.linkId, true) && compareDeep(concept, o.concept, true) && compareDeep(text, o.text, true)
+           && compareDeep(type, o.type, true) && compareDeep(required, o.required, true) && compareDeep(repeats, o.repeats, true)
+           && compareDeep(options, o.options, true) && compareDeep(group, o.group, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof QuestionComponent))
+          return false;
+        QuestionComponent o = (QuestionComponent) other;
+        return compareValues(linkId, o.linkId, true) && compareValues(text, o.text, true) && compareValues(type, o.type, true)
+           && compareValues(required, o.required, true) && compareValues(repeats, o.repeats, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (concept == null || concept.isEmpty())
            && (text == null || text.isEmpty()) && (type == null || type.isEmpty()) && (required == null || required.isEmpty())
@@ -1590,6 +1636,29 @@ public class Questionnaire extends DomainResource {
 
       protected Questionnaire typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Questionnaire))
+          return false;
+        Questionnaire o = (Questionnaire) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(status, o.status, true)
+           && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(group, o.group, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Questionnaire))
+          return false;
+        Questionnaire o = (Questionnaire) other;
+        return compareValues(version, o.version, true) && compareValues(status, o.status, true) && compareValues(date, o.date, true)
+           && compareValues(publisher, o.publisher, true);
       }
 
       public boolean isEmpty() {

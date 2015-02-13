@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -405,6 +405,29 @@ public class Coding extends Type {
 
       protected Coding typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Coding))
+          return false;
+        Coding o = (Coding) other;
+        return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(code, o.code, true)
+           && compareDeep(display, o.display, true) && compareDeep(primary, o.primary, true) && compareDeep(valueSet, o.valueSet, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Coding))
+          return false;
+        Coding o = (Coding) other;
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(code, o.code, true)
+           && compareValues(display, o.display, true) && compareValues(primary, o.primary, true);
       }
 
       public boolean isEmpty() {

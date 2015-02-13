@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -176,6 +176,26 @@ public class Period extends Type {
 
       protected Period typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Period))
+          return false;
+        Period o = (Period) other;
+        return compareDeep(start, o.start, true) && compareDeep(end, o.end, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Period))
+          return false;
+        Period o = (Period) other;
+        return compareValues(start, o.start, true) && compareValues(end, o.end, true);
       }
 
       public boolean isEmpty() {

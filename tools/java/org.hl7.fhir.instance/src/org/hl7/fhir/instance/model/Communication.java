@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -235,6 +235,26 @@ public class Communication extends DomainResource {
         copyValues(dst);
         dst.content = content == null ? null : content.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CommunicationPayloadComponent))
+          return false;
+        CommunicationPayloadComponent o = (CommunicationPayloadComponent) other;
+        return compareDeep(content, o.content, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CommunicationPayloadComponent))
+          return false;
+        CommunicationPayloadComponent o = (CommunicationPayloadComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -866,6 +886,31 @@ public class Communication extends DomainResource {
 
       protected Communication typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Communication))
+          return false;
+        Communication o = (Communication) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(sender, o.sender, true)
+           && compareDeep(recipient, o.recipient, true) && compareDeep(payload, o.payload, true) && compareDeep(medium, o.medium, true)
+           && compareDeep(status, o.status, true) && compareDeep(encounter, o.encounter, true) && compareDeep(sent, o.sent, true)
+           && compareDeep(received, o.received, true) && compareDeep(reason, o.reason, true) && compareDeep(subject, o.subject, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Communication))
+          return false;
+        Communication o = (Communication) other;
+        return compareValues(status, o.status, true) && compareValues(sent, o.sent, true) && compareValues(received, o.received, true)
+          ;
       }
 
       public boolean isEmpty() {

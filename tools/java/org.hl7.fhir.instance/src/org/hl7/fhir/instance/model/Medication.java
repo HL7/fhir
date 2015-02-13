@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -254,6 +254,27 @@ public class Medication extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationProductComponent))
+          return false;
+        MedicationProductComponent o = (MedicationProductComponent) other;
+        return compareDeep(form, o.form, true) && compareDeep(ingredient, o.ingredient, true) && compareDeep(batch, o.batch, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationProductComponent))
+          return false;
+        MedicationProductComponent o = (MedicationProductComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (form == null || form.isEmpty()) && (ingredient == null || ingredient.isEmpty())
            && (batch == null || batch.isEmpty());
@@ -368,6 +389,26 @@ public class Medication extends DomainResource {
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationProductIngredientComponent))
+          return false;
+        MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
+        return compareDeep(item, o.item, true) && compareDeep(amount, o.amount, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationProductIngredientComponent))
+          return false;
+        MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -511,6 +552,28 @@ public class Medication extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationProductBatchComponent))
+          return false;
+        MedicationProductBatchComponent o = (MedicationProductBatchComponent) other;
+        return compareDeep(lotNumber, o.lotNumber, true) && compareDeep(expirationDate, o.expirationDate, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationProductBatchComponent))
+          return false;
+        MedicationProductBatchComponent o = (MedicationProductBatchComponent) other;
+        return compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
           ;
@@ -610,6 +673,26 @@ public class Medication extends DomainResource {
             dst.content.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationPackageComponent))
+          return false;
+        MedicationPackageComponent o = (MedicationPackageComponent) other;
+        return compareDeep(container, o.container, true) && compareDeep(content, o.content, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationPackageComponent))
+          return false;
+        MedicationPackageComponent o = (MedicationPackageComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -731,6 +814,26 @@ public class Medication extends DomainResource {
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationPackageContentComponent))
+          return false;
+        MedicationPackageContentComponent o = (MedicationPackageContentComponent) other;
+        return compareDeep(item, o.item, true) && compareDeep(amount, o.amount, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationPackageContentComponent))
+          return false;
+        MedicationPackageContentComponent o = (MedicationPackageContentComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1085,6 +1188,29 @@ public class Medication extends DomainResource {
 
       protected Medication typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Medication))
+          return false;
+        Medication o = (Medication) other;
+        return compareDeep(name, o.name, true) && compareDeep(code, o.code, true) && compareDeep(isBrand, o.isBrand, true)
+           && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(kind, o.kind, true) && compareDeep(product, o.product, true)
+           && compareDeep(package_, o.package_, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Medication))
+          return false;
+        Medication o = (Medication) other;
+        return compareValues(name, o.name, true) && compareValues(isBrand, o.isBrand, true) && compareValues(kind, o.kind, true)
+          ;
       }
 
       public boolean isEmpty() {

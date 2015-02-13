@@ -185,6 +185,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
 
 		generateCopy(root, classname, false, isAbstract);
+		generateEquals(root, classname, false, isAbstract);
 		generateIsEmpty(root, classname, false, isAbstract);
 
 		if (clss == JavaGenClass.Resource && !isAbstract) {
@@ -501,12 +502,81 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
     generateChildrenRegister(e, "      ", false);
     generateCopy(e, tn, true, false);
+    generateEquals(e, tn, true, false);
     generateIsEmpty(e, tn, true, false);
     write("  }\r\n");
 		write("\r\n");
 
 	}
 
+  
+  private void generateEquals(ElementDefn e, String tn, boolean owner, boolean isAbstract) throws IOException {
+    write("      @Override\r\n");
+    write("      public boolean equalsDeep(Base other) {\r\n");
+    write("        if (!super.equalsDeep(other))\r\n");
+    write("          return false;\r\n");
+    write("        if (!(other instanceof "+tn+"))\r\n");
+    write("          return false;\r\n");
+    write("        "+tn+" o = ("+tn+") other;\r\n");
+    write("        return ");
+    boolean first = true;
+    int col = 18;
+    for (ElementDefn c : e.getElements()) {
+      if (first)
+        first = false;
+      else {
+        write(" && ");
+        col = col+4;
+      }
+      String name = getElementName(c.getName(), true);
+      if (name.endsWith("[x]"))
+        name = name.substring(0, name.length()-3);
+      write("compareDeep("+name+", o."+name+", true)");
+      col = col+21 + name.length()*2;
+      if (col > 100) {
+        col = 10;
+        write("\r\n          ");
+      }
+    }
+    if (first)
+      write("true"); 
+    write(";\r\n");
+    write("      }\r\n\r\n");  
+    write("      @Override\r\n");
+    write("      public boolean equalsShallow(Base other) {\r\n");
+    write("        if (!super.equalsShallow(other))\r\n");
+    write("          return false;\r\n");
+    write("        if (!(other instanceof "+tn+"))\r\n");
+    write("          return false;\r\n");
+    write("        "+tn+" o = ("+tn+") other;\r\n");
+    write("        return ");
+    first = true;
+    col = 18;
+    for (ElementDefn c : e.getElements()) {
+      if (isJavaPrimitive(c)) {
+        if (first)
+          first = false;
+        else {
+          write(" && ");
+          col = col+4;
+        }
+        String name = getElementName(c.getName(), true);
+        if (name.endsWith("[x]"))
+          name = name.substring(0, name.length()-3);
+        write("compareValues("+name+", o."+name+", true)");
+        col = col+21 + name.length()*2;
+        if (col > 100) {
+          col = 10;
+          write("\r\n          ");
+        }
+      }
+    }
+    if (first)
+      write("true"); 
+    write(";\r\n");
+    write("      }\r\n\r\n");  
+  }
+  
 	private void generateCopy(ElementDefn e, String tn, boolean owner, boolean isAbstract) throws IOException {
 	  if (isAbstract) {
       write("      public abstract "+tn+" copy();\r\n\r\n");

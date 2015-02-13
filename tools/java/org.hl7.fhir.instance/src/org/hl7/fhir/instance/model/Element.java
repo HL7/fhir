@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -155,6 +155,26 @@ public abstract class Element extends Base {
           for (Extension i : extension)
             dst.extension.add(i.copy());
         };
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Element))
+          return false;
+        Element o = (Element) other;
+        return compareDeep(id, o.id, true) && compareDeep(extension, o.extension, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Element))
+          return false;
+        Element o = (Element) other;
+        return compareValues(id, o.id, true);
       }
 
       public boolean isEmpty() {

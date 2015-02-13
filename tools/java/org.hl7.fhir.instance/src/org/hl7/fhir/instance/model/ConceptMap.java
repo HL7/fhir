@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -521,6 +521,27 @@ public class ConceptMap extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptMapElementComponent))
+          return false;
+        ConceptMapElementComponent o = (ConceptMapElementComponent) other;
+        return compareDeep(codeSystem, o.codeSystem, true) && compareDeep(code, o.code, true) && compareDeep(dependsOn, o.dependsOn, true)
+           && compareDeep(map, o.map, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptMapElementComponent))
+          return false;
+        ConceptMapElementComponent o = (ConceptMapElementComponent) other;
+        return compareValues(codeSystem, o.codeSystem, true) && compareValues(code, o.code, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (codeSystem == null || codeSystem.isEmpty()) && (code == null || code.isEmpty())
            && (dependsOn == null || dependsOn.isEmpty()) && (map == null || map.isEmpty());
@@ -713,6 +734,28 @@ public class ConceptMap extends DomainResource {
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OtherElementComponent))
+          return false;
+        OtherElementComponent o = (OtherElementComponent) other;
+        return compareDeep(element, o.element, true) && compareDeep(codeSystem, o.codeSystem, true) && compareDeep(code, o.code, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OtherElementComponent))
+          return false;
+        OtherElementComponent o = (OtherElementComponent) other;
+        return compareValues(element, o.element, true) && compareValues(codeSystem, o.codeSystem, true) && compareValues(code, o.code, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -1014,6 +1057,28 @@ public class ConceptMap extends DomainResource {
             dst.product.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptMapElementMapComponent))
+          return false;
+        ConceptMapElementMapComponent o = (ConceptMapElementMapComponent) other;
+        return compareDeep(codeSystem, o.codeSystem, true) && compareDeep(code, o.code, true) && compareDeep(equivalence, o.equivalence, true)
+           && compareDeep(comments, o.comments, true) && compareDeep(product, o.product, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptMapElementMapComponent))
+          return false;
+        ConceptMapElementMapComponent o = (ConceptMapElementMapComponent) other;
+        return compareValues(codeSystem, o.codeSystem, true) && compareValues(code, o.code, true) && compareValues(equivalence, o.equivalence, true)
+           && compareValues(comments, o.comments, true);
       }
 
       public boolean isEmpty() {
@@ -1741,6 +1806,33 @@ public class ConceptMap extends DomainResource {
 
       protected ConceptMap typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptMap))
+          return false;
+        ConceptMap o = (ConceptMap) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
+           && compareDeep(date, o.date, true) && compareDeep(source, o.source, true) && compareDeep(target, o.target, true)
+           && compareDeep(element, o.element, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptMap))
+          return false;
+        ConceptMap o = (ConceptMap) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(copyright, o.copyright, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
+          ;
       }
 
       public boolean isEmpty() {

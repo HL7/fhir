@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -614,6 +614,30 @@ P.O. Box number, delivery hints, and similar address information.)
 
       protected Address typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Address))
+          return false;
+        Address o = (Address) other;
+        return compareDeep(use, o.use, true) && compareDeep(text, o.text, true) && compareDeep(line, o.line, true)
+           && compareDeep(city, o.city, true) && compareDeep(state, o.state, true) && compareDeep(postalCode, o.postalCode, true)
+           && compareDeep(country, o.country, true) && compareDeep(period, o.period, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Address))
+          return false;
+        Address o = (Address) other;
+        return compareValues(use, o.use, true) && compareValues(text, o.text, true) && compareValues(line, o.line, true)
+           && compareValues(city, o.city, true) && compareValues(state, o.state, true) && compareValues(postalCode, o.postalCode, true)
+           && compareValues(country, o.country, true);
       }
 
       public boolean isEmpty() {

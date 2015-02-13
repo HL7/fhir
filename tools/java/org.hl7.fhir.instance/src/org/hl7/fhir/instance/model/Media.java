@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -794,6 +794,32 @@ public class Media extends DomainResource {
 
       protected Media typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Media))
+          return false;
+        Media o = (Media) other;
+        return compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true) && compareDeep(identifier, o.identifier, true)
+           && compareDeep(created, o.created, true) && compareDeep(subject, o.subject, true) && compareDeep(operator, o.operator, true)
+           && compareDeep(view, o.view, true) && compareDeep(deviceName, o.deviceName, true) && compareDeep(height, o.height, true)
+           && compareDeep(width, o.width, true) && compareDeep(frames, o.frames, true) && compareDeep(duration, o.duration, true)
+           && compareDeep(content, o.content, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Media))
+          return false;
+        Media o = (Media) other;
+        return compareValues(type, o.type, true) && compareValues(created, o.created, true) && compareValues(deviceName, o.deviceName, true)
+           && compareValues(height, o.height, true) && compareValues(width, o.width, true) && compareValues(frames, o.frames, true)
+           && compareValues(duration, o.duration, true);
       }
 
       public boolean isEmpty() {

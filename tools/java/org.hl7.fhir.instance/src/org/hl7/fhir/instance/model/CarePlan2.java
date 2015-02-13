@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -238,6 +238,26 @@ public class CarePlan2 extends DomainResource {
         dst.role = role == null ? null : role.copy();
         dst.member = member == null ? null : member.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CarePlan2ParticipantComponent))
+          return false;
+        CarePlan2ParticipantComponent o = (CarePlan2ParticipantComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(member, o.member, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CarePlan2ParticipantComponent))
+          return false;
+        CarePlan2ParticipantComponent o = (CarePlan2ParticipantComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -812,6 +832,30 @@ public class CarePlan2 extends DomainResource {
 
       protected CarePlan2 typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CarePlan2))
+          return false;
+        CarePlan2 o = (CarePlan2) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(status, o.status, true)
+           && compareDeep(period, o.period, true) && compareDeep(modified, o.modified, true) && compareDeep(concern, o.concern, true)
+           && compareDeep(participant, o.participant, true) && compareDeep(notes, o.notes, true) && compareDeep(goal, o.goal, true)
+           && compareDeep(activity, o.activity, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CarePlan2))
+          return false;
+        CarePlan2 o = (CarePlan2) other;
+        return compareValues(status, o.status, true) && compareValues(modified, o.modified, true) && compareValues(notes, o.notes, true)
+          ;
       }
 
       public boolean isEmpty() {

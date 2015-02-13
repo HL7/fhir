@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -446,6 +446,29 @@ public class ImmunizationRecommendation extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationComponent))
+          return false;
+        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other;
+        return compareDeep(date, o.date, true) && compareDeep(vaccineType, o.vaccineType, true) && compareDeep(doseNumber, o.doseNumber, true)
+           && compareDeep(forecastStatus, o.forecastStatus, true) && compareDeep(dateCriterion, o.dateCriterion, true)
+           && compareDeep(protocol, o.protocol, true) && compareDeep(supportingImmunization, o.supportingImmunization, true)
+           && compareDeep(supportingPatientInformation, o.supportingPatientInformation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationComponent))
+          return false;
+        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other;
+        return compareValues(date, o.date, true) && compareValues(doseNumber, o.doseNumber, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (date == null || date.isEmpty()) && (vaccineType == null || vaccineType.isEmpty())
            && (doseNumber == null || doseNumber.isEmpty()) && (forecastStatus == null || forecastStatus.isEmpty())
@@ -565,6 +588,26 @@ public class ImmunizationRecommendation extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
+          return false;
+        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
+          return false;
+        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other;
+        return compareValues(value, o.value, true);
       }
 
       public boolean isEmpty() {
@@ -820,6 +863,28 @@ public class ImmunizationRecommendation extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationProtocolComponent))
+          return false;
+        ImmunizationRecommendationRecommendationProtocolComponent o = (ImmunizationRecommendationRecommendationProtocolComponent) other;
+        return compareDeep(doseSequence, o.doseSequence, true) && compareDeep(description, o.description, true)
+           && compareDeep(authority, o.authority, true) && compareDeep(series, o.series, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendationRecommendationProtocolComponent))
+          return false;
+        ImmunizationRecommendationRecommendationProtocolComponent o = (ImmunizationRecommendationRecommendationProtocolComponent) other;
+        return compareValues(doseSequence, o.doseSequence, true) && compareValues(description, o.description, true)
+           && compareValues(series, o.series, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (doseSequence == null || doseSequence.isEmpty()) && (description == null || description.isEmpty())
            && (authority == null || authority.isEmpty()) && (series == null || series.isEmpty());
@@ -994,6 +1059,27 @@ public class ImmunizationRecommendation extends DomainResource {
 
       protected ImmunizationRecommendation typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendation))
+          return false;
+        ImmunizationRecommendation o = (ImmunizationRecommendation) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(recommendation, o.recommendation, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationRecommendation))
+          return false;
+        ImmunizationRecommendation o = (ImmunizationRecommendation) other;
+        return true;
       }
 
       public boolean isEmpty() {

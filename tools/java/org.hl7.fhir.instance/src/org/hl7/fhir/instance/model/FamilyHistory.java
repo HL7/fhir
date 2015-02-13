@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -443,6 +443,28 @@ public class FamilyHistory extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof FamilyHistoryRelationComponent))
+          return false;
+        FamilyHistoryRelationComponent o = (FamilyHistoryRelationComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(relationship, o.relationship, true) && compareDeep(born, o.born, true)
+           && compareDeep(age, o.age, true) && compareDeep(deceased, o.deceased, true) && compareDeep(note, o.note, true)
+           && compareDeep(condition, o.condition, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof FamilyHistoryRelationComponent))
+          return false;
+        FamilyHistoryRelationComponent o = (FamilyHistoryRelationComponent) other;
+        return compareValues(name, o.name, true) && compareValues(note, o.note, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (relationship == null || relationship.isEmpty())
            && (born == null || born.isEmpty()) && (age == null || age.isEmpty()) && (deceased == null || deceased.isEmpty())
@@ -651,6 +673,27 @@ public class FamilyHistory extends DomainResource {
         dst.onset = onset == null ? null : onset.copy();
         dst.note = note == null ? null : note.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof FamilyHistoryRelationConditionComponent))
+          return false;
+        FamilyHistoryRelationConditionComponent o = (FamilyHistoryRelationConditionComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(outcome, o.outcome, true) && compareDeep(onset, o.onset, true)
+           && compareDeep(note, o.note, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof FamilyHistoryRelationConditionComponent))
+          return false;
+        FamilyHistoryRelationConditionComponent o = (FamilyHistoryRelationConditionComponent) other;
+        return compareValues(note, o.note, true);
       }
 
       public boolean isEmpty() {
@@ -943,6 +986,27 @@ public class FamilyHistory extends DomainResource {
 
       protected FamilyHistory typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof FamilyHistory))
+          return false;
+        FamilyHistory o = (FamilyHistory) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true)
+           && compareDeep(note, o.note, true) && compareDeep(relation, o.relation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof FamilyHistory))
+          return false;
+        FamilyHistory o = (FamilyHistory) other;
+        return compareValues(date, o.date, true) && compareValues(note, o.note, true);
       }
 
       public boolean isEmpty() {

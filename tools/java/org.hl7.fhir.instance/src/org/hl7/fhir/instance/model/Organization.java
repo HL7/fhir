@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -361,6 +361,27 @@ public class Organization extends DomainResource {
         dst.address = address == null ? null : address.copy();
         dst.gender = gender == null ? null : gender.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OrganizationContactComponent))
+          return false;
+        OrganizationContactComponent o = (OrganizationContactComponent) other;
+        return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OrganizationContactComponent))
+          return false;
+        OrganizationContactComponent o = (OrganizationContactComponent) other;
+        return compareValues(gender, o.gender, true);
       }
 
       public boolean isEmpty() {
@@ -833,6 +854,29 @@ public class Organization extends DomainResource {
 
       protected Organization typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Organization))
+          return false;
+        Organization o = (Organization) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(type, o.type, true)
+           && compareDeep(telecom, o.telecom, true) && compareDeep(address, o.address, true) && compareDeep(partOf, o.partOf, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(location, o.location, true) && compareDeep(active, o.active, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Organization))
+          return false;
+        Organization o = (Organization) other;
+        return compareValues(name, o.name, true) && compareValues(active, o.active, true);
       }
 
       public boolean isEmpty() {

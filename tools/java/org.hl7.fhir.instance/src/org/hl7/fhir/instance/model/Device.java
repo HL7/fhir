@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -767,6 +767,32 @@ public class Device extends DomainResource {
 
       protected Device typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Device))
+          return false;
+        Device o = (Device) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(manufacturer, o.manufacturer, true)
+           && compareDeep(model, o.model, true) && compareDeep(version, o.version, true) && compareDeep(manufactureDate, o.manufactureDate, true)
+           && compareDeep(expiry, o.expiry, true) && compareDeep(lotNumber, o.lotNumber, true) && compareDeep(owner, o.owner, true)
+           && compareDeep(location, o.location, true) && compareDeep(patient, o.patient, true) && compareDeep(contact, o.contact, true)
+           && compareDeep(url, o.url, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Device))
+          return false;
+        Device o = (Device) other;
+        return compareValues(manufacturer, o.manufacturer, true) && compareValues(model, o.model, true) && compareValues(version, o.version, true)
+           && compareValues(manufactureDate, o.manufactureDate, true) && compareValues(expiry, o.expiry, true)
+           && compareValues(lotNumber, o.lotNumber, true) && compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {

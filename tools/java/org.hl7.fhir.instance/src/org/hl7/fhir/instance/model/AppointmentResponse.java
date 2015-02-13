@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -737,6 +737,32 @@ public class AppointmentResponse extends DomainResource {
 
       protected AppointmentResponse typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AppointmentResponse))
+          return false;
+        AppointmentResponse o = (AppointmentResponse) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(appointment, o.appointment, true)
+           && compareDeep(participantType, o.participantType, true) && compareDeep(individual, o.individual, true)
+           && compareDeep(participantStatus, o.participantStatus, true) && compareDeep(comment, o.comment, true)
+           && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(lastModifiedBy, o.lastModifiedBy, true)
+           && compareDeep(lastModified, o.lastModified, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AppointmentResponse))
+          return false;
+        AppointmentResponse o = (AppointmentResponse) other;
+        return compareValues(participantStatus, o.participantStatus, true) && compareValues(comment, o.comment, true)
+           && compareValues(start, o.start, true) && compareValues(end, o.end, true) && compareValues(lastModified, o.lastModified, true)
+          ;
       }
 
       public boolean isEmpty() {

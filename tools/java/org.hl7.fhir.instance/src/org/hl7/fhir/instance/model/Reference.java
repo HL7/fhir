@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -177,6 +177,26 @@ public class Reference extends Type {
 
       protected Reference typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Reference))
+          return false;
+        Reference o = (Reference) other;
+        return compareDeep(reference, o.reference, true) && compareDeep(display, o.display, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Reference))
+          return false;
+        Reference o = (Reference) other;
+        return compareValues(reference, o.reference, true) && compareValues(display, o.display, true);
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -734,6 +734,30 @@ public class OperationDefinition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterComponent))
+          return false;
+        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(use, o.use, true) && compareDeep(min, o.min, true)
+           && compareDeep(max, o.max, true) && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true)
+           && compareDeep(profile, o.profile, true) && compareDeep(part, o.part, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterComponent))
+          return false;
+        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
+        return compareValues(name, o.name, true) && compareValues(use, o.use, true) && compareValues(min, o.min, true)
+           && compareValues(max, o.max, true) && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
            && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
@@ -1099,6 +1123,29 @@ public class OperationDefinition extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterPartComponent))
+          return false;
+        OperationDefinitionParameterPartComponent o = (OperationDefinitionParameterPartComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
+           && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationDefinitionParameterPartComponent))
+          return false;
+        OperationDefinitionParameterPartComponent o = (OperationDefinitionParameterPartComponent) other;
+        return compareValues(name, o.name, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
+           && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
@@ -2117,6 +2164,36 @@ public class OperationDefinition extends DomainResource {
 
       protected OperationDefinition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof OperationDefinition))
+          return false;
+        OperationDefinition o = (OperationDefinition) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(title, o.title, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
+           && compareDeep(code, o.code, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
+           && compareDeep(date, o.date, true) && compareDeep(kind, o.kind, true) && compareDeep(name, o.name, true)
+           && compareDeep(notes, o.notes, true) && compareDeep(base, o.base, true) && compareDeep(system, o.system, true)
+           && compareDeep(type, o.type, true) && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof OperationDefinition))
+          return false;
+        OperationDefinition o = (OperationDefinition) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(title, o.title, true)
+           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
+           && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(kind, o.kind, true)
+           && compareValues(name, o.name, true) && compareValues(notes, o.notes, true) && compareValues(system, o.system, true)
+           && compareValues(type, o.type, true) && compareValues(instance, o.instance, true);
       }
 
       public boolean isEmpty() {

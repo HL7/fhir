@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -480,6 +480,28 @@ public class ExtensionDefinition extends DomainResource {
         dst.name = name == null ? null : name.copy();
         dst.comments = comments == null ? null : comments.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExtensionDefinitionMappingComponent))
+          return false;
+        ExtensionDefinitionMappingComponent o = (ExtensionDefinitionMappingComponent) other;
+        return compareDeep(identity, o.identity, true) && compareDeep(uri, o.uri, true) && compareDeep(name, o.name, true)
+           && compareDeep(comments, o.comments, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExtensionDefinitionMappingComponent))
+          return false;
+        ExtensionDefinitionMappingComponent o = (ExtensionDefinitionMappingComponent) other;
+        return compareValues(identity, o.identity, true) && compareValues(uri, o.uri, true) && compareValues(name, o.name, true)
+           && compareValues(comments, o.comments, true);
       }
 
       public boolean isEmpty() {
@@ -1357,6 +1379,34 @@ public class ExtensionDefinition extends DomainResource {
 
       protected ExtensionDefinition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExtensionDefinition))
+          return false;
+        ExtensionDefinition o = (ExtensionDefinition) other;
+        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true)
+           && compareDeep(display, o.display, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(description, o.description, true) && compareDeep(code, o.code, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(mapping, o.mapping, true) && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true)
+           && compareDeep(element, o.element, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExtensionDefinition))
+          return false;
+        ExtensionDefinition o = (ExtensionDefinition) other;
+        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(display, o.display, true)
+           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
+           && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true)
+           && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true);
       }
 
       public boolean isEmpty() {

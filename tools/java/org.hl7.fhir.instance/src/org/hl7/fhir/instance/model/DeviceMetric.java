@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -623,6 +623,28 @@ public class DeviceMetric extends Resource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceMetricCalibrationInfoComponent))
+          return false;
+        DeviceMetricCalibrationInfoComponent o = (DeviceMetricCalibrationInfoComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(state, o.state, true) && compareDeep(time, o.time, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceMetricCalibrationInfoComponent))
+          return false;
+        DeviceMetricCalibrationInfoComponent o = (DeviceMetricCalibrationInfoComponent) other;
+        return compareValues(type, o.type, true) && compareValues(state, o.state, true) && compareValues(time, o.time, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (state == null || state.isEmpty())
            && (time == null || time.isEmpty());
@@ -1139,6 +1161,31 @@ period.)
 
       protected DeviceMetric typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceMetric))
+          return false;
+        DeviceMetric o = (DeviceMetric) other;
+        return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(unit, o.unit, true)
+           && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalState, o.operationalState, true)
+           && compareDeep(measurementMode, o.measurementMode, true) && compareDeep(color, o.color, true) && compareDeep(category, o.category, true)
+           && compareDeep(measurementPeriod, o.measurementPeriod, true) && compareDeep(calibrationInfo, o.calibrationInfo, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceMetric))
+          return false;
+        DeviceMetric o = (DeviceMetric) other;
+        return compareValues(operationalState, o.operationalState, true) && compareValues(category, o.category, true)
+          ;
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -187,6 +187,27 @@ public class Substance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubstanceInstanceComponent))
+          return false;
+        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(expiry, o.expiry, true) && compareDeep(quantity, o.quantity, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubstanceInstanceComponent))
+          return false;
+        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other;
+        return compareValues(expiry, o.expiry, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (expiry == null || expiry.isEmpty())
            && (quantity == null || quantity.isEmpty());
@@ -306,6 +327,26 @@ public class Substance extends DomainResource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.substance = substance == null ? null : substance.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SubstanceIngredientComponent))
+          return false;
+        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other;
+        return compareDeep(quantity, o.quantity, true) && compareDeep(substance, o.substance, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SubstanceIngredientComponent))
+          return false;
+        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -505,6 +546,27 @@ public class Substance extends DomainResource {
 
       protected Substance typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Substance))
+          return false;
+        Substance o = (Substance) other;
+        return compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(instance, o.instance, true)
+           && compareDeep(ingredient, o.ingredient, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Substance))
+          return false;
+        Substance o = (Substance) other;
+        return compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -596,6 +596,28 @@ public class StructureDefinition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StructureDefinitionMappingComponent))
+          return false;
+        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
+        return compareDeep(identity, o.identity, true) && compareDeep(uri, o.uri, true) && compareDeep(name, o.name, true)
+           && compareDeep(comments, o.comments, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StructureDefinitionMappingComponent))
+          return false;
+        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
+        return compareValues(identity, o.identity, true) && compareValues(uri, o.uri, true) && compareValues(name, o.name, true)
+           && compareValues(comments, o.comments, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
            && (name == null || name.isEmpty()) && (comments == null || comments.isEmpty());
@@ -664,6 +686,26 @@ public class StructureDefinition extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StructureDefinitionSnapshotComponent))
+          return false;
+        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other;
+        return compareDeep(element, o.element, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StructureDefinitionSnapshotComponent))
+          return false;
+        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other;
+        return true;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (element == null || element.isEmpty());
       }
@@ -729,6 +771,26 @@ public class StructureDefinition extends DomainResource {
             dst.element.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StructureDefinitionDifferentialComponent))
+          return false;
+        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other;
+        return compareDeep(element, o.element, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StructureDefinitionDifferentialComponent))
+          return false;
+        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1860,6 +1922,38 @@ public class StructureDefinition extends DomainResource {
 
       protected StructureDefinition typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StructureDefinition))
+          return false;
+        StructureDefinition o = (StructureDefinition) other;
+        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
+           && compareDeep(name, o.name, true) && compareDeep(display, o.display, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true) && compareDeep(code, o.code, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(fhirVersion, o.fhirVersion, true)
+           && compareDeep(mapping, o.mapping, true) && compareDeep(type, o.type, true) && compareDeep(contextType, o.contextType, true)
+           && compareDeep(context, o.context, true) && compareDeep(base, o.base, true) && compareDeep(snapshot, o.snapshot, true)
+           && compareDeep(differential, o.differential, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StructureDefinition))
+          return false;
+        StructureDefinition o = (StructureDefinition) other;
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(display, o.display, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
+           && compareValues(requirements, o.requirements, true) && compareValues(fhirVersion, o.fhirVersion, true)
+           && compareValues(type, o.type, true) && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true)
+           && compareValues(base, o.base, true);
       }
 
       public boolean isEmpty() {

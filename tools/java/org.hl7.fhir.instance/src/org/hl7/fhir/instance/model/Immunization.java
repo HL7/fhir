@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -147,6 +147,27 @@ public class Immunization extends DomainResource {
             dst.refusalReason.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationExplanationComponent))
+          return false;
+        ImmunizationExplanationComponent o = (ImmunizationExplanationComponent) other;
+        return compareDeep(reason, o.reason, true) && compareDeep(refusalReason, o.refusalReason, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationExplanationComponent))
+          return false;
+        ImmunizationExplanationComponent o = (ImmunizationExplanationComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -342,6 +363,27 @@ public class Immunization extends DomainResource {
         dst.detail = detail == null ? null : detail.copy();
         dst.reported = reported == null ? null : reported.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationReactionComponent))
+          return false;
+        ImmunizationReactionComponent o = (ImmunizationReactionComponent) other;
+        return compareDeep(date, o.date, true) && compareDeep(detail, o.detail, true) && compareDeep(reported, o.reported, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationReactionComponent))
+          return false;
+        ImmunizationReactionComponent o = (ImmunizationReactionComponent) other;
+        return compareValues(date, o.date, true) && compareValues(reported, o.reported, true);
       }
 
       public boolean isEmpty() {
@@ -755,6 +797,30 @@ public class Immunization extends DomainResource {
         dst.doseStatus = doseStatus == null ? null : doseStatus.copy();
         dst.doseStatusReason = doseStatusReason == null ? null : doseStatusReason.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImmunizationVaccinationProtocolComponent))
+          return false;
+        ImmunizationVaccinationProtocolComponent o = (ImmunizationVaccinationProtocolComponent) other;
+        return compareDeep(doseSequence, o.doseSequence, true) && compareDeep(description, o.description, true)
+           && compareDeep(authority, o.authority, true) && compareDeep(series, o.series, true) && compareDeep(seriesDoses, o.seriesDoses, true)
+           && compareDeep(doseTarget, o.doseTarget, true) && compareDeep(doseStatus, o.doseStatus, true) && compareDeep(doseStatusReason, o.doseStatusReason, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImmunizationVaccinationProtocolComponent))
+          return false;
+        ImmunizationVaccinationProtocolComponent o = (ImmunizationVaccinationProtocolComponent) other;
+        return compareValues(doseSequence, o.doseSequence, true) && compareValues(description, o.description, true)
+           && compareValues(series, o.series, true) && compareValues(seriesDoses, o.seriesDoses, true);
       }
 
       public boolean isEmpty() {
@@ -1655,6 +1721,35 @@ public class Immunization extends DomainResource {
 
       protected Immunization typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Immunization))
+          return false;
+        Immunization o = (Immunization) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(date, o.date, true) && compareDeep(vaccineType, o.vaccineType, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(refusedIndicator, o.refusedIndicator, true)
+           && compareDeep(reported, o.reported, true) && compareDeep(performer, o.performer, true) && compareDeep(requester, o.requester, true)
+           && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(location, o.location, true) && compareDeep(lotNumber, o.lotNumber, true)
+           && compareDeep(expirationDate, o.expirationDate, true) && compareDeep(site, o.site, true) && compareDeep(route, o.route, true)
+           && compareDeep(doseQuantity, o.doseQuantity, true) && compareDeep(explanation, o.explanation, true)
+           && compareDeep(reaction, o.reaction, true) && compareDeep(vaccinationProtocol, o.vaccinationProtocol, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Immunization))
+          return false;
+        Immunization o = (Immunization) other;
+        return compareValues(date, o.date, true) && compareValues(refusedIndicator, o.refusedIndicator, true)
+           && compareValues(reported, o.reported, true) && compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
+          ;
       }
 
       public boolean isEmpty() {

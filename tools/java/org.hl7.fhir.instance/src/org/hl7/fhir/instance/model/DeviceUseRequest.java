@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1053,6 +1053,31 @@ public class DeviceUseRequest extends DomainResource {
 
       protected DeviceUseRequest typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceUseRequest))
+          return false;
+        DeviceUseRequest o = (DeviceUseRequest) other;
+        return compareDeep(bodySite, o.bodySite, true) && compareDeep(status, o.status, true) && compareDeep(device, o.device, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(identifier, o.identifier, true) && compareDeep(indication, o.indication, true)
+           && compareDeep(notes, o.notes, true) && compareDeep(prnReason, o.prnReason, true) && compareDeep(orderedOn, o.orderedOn, true)
+           && compareDeep(recordedOn, o.recordedOn, true) && compareDeep(subject, o.subject, true) && compareDeep(timing, o.timing, true)
+           && compareDeep(priority, o.priority, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceUseRequest))
+          return false;
+        DeviceUseRequest o = (DeviceUseRequest) other;
+        return compareValues(status, o.status, true) && compareValues(notes, o.notes, true) && compareValues(orderedOn, o.orderedOn, true)
+           && compareValues(recordedOn, o.recordedOn, true) && compareValues(priority, o.priority, true);
       }
 
       public boolean isEmpty() {

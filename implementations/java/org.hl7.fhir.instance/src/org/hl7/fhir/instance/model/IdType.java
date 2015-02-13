@@ -65,5 +65,6 @@ public class IdType extends PrimitiveType<String> {
 	public IdType copy() {
 		return new IdType(getValue());
 	}
-
+	
+	
 }

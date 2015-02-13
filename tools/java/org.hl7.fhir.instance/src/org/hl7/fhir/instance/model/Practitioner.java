@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -333,6 +333,27 @@ public class Practitioner extends DomainResource {
         dst.period = period == null ? null : period.copy();
         dst.issuer = issuer == null ? null : issuer.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PractitionerQualificationComponent))
+          return false;
+        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true) && compareDeep(period, o.period, true)
+           && compareDeep(issuer, o.issuer, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PractitionerQualificationComponent))
+          return false;
+        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1013,6 +1034,31 @@ public class Practitioner extends DomainResource {
 
       protected Practitioner typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Practitioner))
+          return false;
+        Practitioner o = (Practitioner) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true) && compareDeep(birthDate, o.birthDate, true)
+           && compareDeep(photo, o.photo, true) && compareDeep(organization, o.organization, true) && compareDeep(role, o.role, true)
+           && compareDeep(specialty, o.specialty, true) && compareDeep(period, o.period, true) && compareDeep(location, o.location, true)
+           && compareDeep(qualification, o.qualification, true) && compareDeep(communication, o.communication, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Practitioner))
+          return false;
+        Practitioner o = (Practitioner) other;
+        return compareValues(gender, o.gender, true) && compareValues(birthDate, o.birthDate, true);
       }
 
       public boolean isEmpty() {

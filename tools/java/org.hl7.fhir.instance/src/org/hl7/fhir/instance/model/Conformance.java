@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1110,6 +1110,28 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceSoftwareComponent))
+          return false;
+        ConformanceSoftwareComponent o = (ConformanceSoftwareComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(version, o.version, true) && compareDeep(releaseDate, o.releaseDate, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceSoftwareComponent))
+          return false;
+        ConformanceSoftwareComponent o = (ConformanceSoftwareComponent) other;
+        return compareValues(name, o.name, true) && compareValues(version, o.version, true) && compareValues(releaseDate, o.releaseDate, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (version == null || version.isEmpty())
            && (releaseDate == null || releaseDate.isEmpty());
@@ -1250,6 +1272,26 @@ public class Conformance extends DomainResource {
         dst.description = description == null ? null : description.copy();
         dst.url = url == null ? null : url.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceImplementationComponent))
+          return false;
+        ConformanceImplementationComponent o = (ConformanceImplementationComponent) other;
+        return compareDeep(description, o.description, true) && compareDeep(url, o.url, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceImplementationComponent))
+          return false;
+        ConformanceImplementationComponent o = (ConformanceImplementationComponent) other;
+        return compareValues(description, o.description, true) && compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {
@@ -1623,6 +1665,29 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestComponent))
+          return false;
+        ConformanceRestComponent o = (ConformanceRestComponent) other;
+        return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(security, o.security, true)
+           && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(operation, o.operation, true)
+           && compareDeep(documentMailbox, o.documentMailbox, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestComponent))
+          return false;
+        ConformanceRestComponent o = (ConformanceRestComponent) other;
+        return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true) && compareValues(documentMailbox, o.documentMailbox, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (mode == null || mode.isEmpty()) && (documentation == null || documentation.isEmpty())
            && (security == null || security.isEmpty()) && (resource == null || resource.isEmpty()) && (interaction == null || interaction.isEmpty())
@@ -1848,6 +1913,27 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestSecurityComponent))
+          return false;
+        ConformanceRestSecurityComponent o = (ConformanceRestSecurityComponent) other;
+        return compareDeep(cors, o.cors, true) && compareDeep(service, o.service, true) && compareDeep(description, o.description, true)
+           && compareDeep(certificate, o.certificate, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestSecurityComponent))
+          return false;
+        ConformanceRestSecurityComponent o = (ConformanceRestSecurityComponent) other;
+        return compareValues(cors, o.cors, true) && compareValues(description, o.description, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (cors == null || cors.isEmpty()) && (service == null || service.isEmpty())
            && (description == null || description.isEmpty()) && (certificate == null || certificate.isEmpty())
@@ -1988,6 +2074,26 @@ public class Conformance extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.blob = blob == null ? null : blob.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestSecurityCertificateComponent))
+          return false;
+        ConformanceRestSecurityCertificateComponent o = (ConformanceRestSecurityCertificateComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(blob, o.blob, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestSecurityCertificateComponent))
+          return false;
+        ConformanceRestSecurityCertificateComponent o = (ConformanceRestSecurityCertificateComponent) other;
+        return compareValues(type, o.type, true) && compareValues(blob, o.blob, true);
       }
 
       public boolean isEmpty() {
@@ -2613,6 +2719,34 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestResourceComponent))
+          return false;
+        ConformanceRestResourceComponent o = (ConformanceRestResourceComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true) && compareDeep(interaction, o.interaction, true)
+           && compareDeep(versioning, o.versioning, true) && compareDeep(readHistory, o.readHistory, true)
+           && compareDeep(updateCreate, o.updateCreate, true) && compareDeep(conditionalCreate, o.conditionalCreate, true)
+           && compareDeep(conditionalUpdate, o.conditionalUpdate, true) && compareDeep(conditionalDelete, o.conditionalDelete, true)
+           && compareDeep(searchInclude, o.searchInclude, true) && compareDeep(searchParam, o.searchParam, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestResourceComponent))
+          return false;
+        ConformanceRestResourceComponent o = (ConformanceRestResourceComponent) other;
+        return compareValues(type, o.type, true) && compareValues(versioning, o.versioning, true) && compareValues(readHistory, o.readHistory, true)
+           && compareValues(updateCreate, o.updateCreate, true) && compareValues(conditionalCreate, o.conditionalCreate, true)
+           && compareValues(conditionalUpdate, o.conditionalUpdate, true) && compareValues(conditionalDelete, o.conditionalDelete, true)
+           && compareValues(searchInclude, o.searchInclude, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
            && (interaction == null || interaction.isEmpty()) && (versioning == null || versioning.isEmpty())
@@ -2757,6 +2891,26 @@ public class Conformance extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ResourceInteractionComponent))
+          return false;
+        ResourceInteractionComponent o = (ResourceInteractionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ResourceInteractionComponent))
+          return false;
+        ResourceInteractionComponent o = (ResourceInteractionComponent) other;
+        return compareValues(code, o.code, true) && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
@@ -3148,6 +3302,30 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestResourceSearchParamComponent))
+          return false;
+        ConformanceRestResourceSearchParamComponent o = (ConformanceRestResourceSearchParamComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true) && compareDeep(type, o.type, true)
+           && compareDeep(documentation, o.documentation, true) && compareDeep(target, o.target, true) && compareDeep(chain, o.chain, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestResourceSearchParamComponent))
+          return false;
+        ConformanceRestResourceSearchParamComponent o = (ConformanceRestResourceSearchParamComponent) other;
+        return compareValues(name, o.name, true) && compareValues(definition, o.definition, true) && compareValues(type, o.type, true)
+           && compareValues(documentation, o.documentation, true) && compareValues(target, o.target, true) && compareValues(chain, o.chain, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (definition == null || definition.isEmpty())
            && (type == null || type.isEmpty()) && (documentation == null || documentation.isEmpty())
@@ -3291,6 +3469,26 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SystemInteractionComponent))
+          return false;
+        SystemInteractionComponent o = (SystemInteractionComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SystemInteractionComponent))
+          return false;
+        SystemInteractionComponent o = (SystemInteractionComponent) other;
+        return compareValues(code, o.code, true) && compareValues(documentation, o.documentation, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
           ;
@@ -3432,6 +3630,26 @@ public class Conformance extends DomainResource {
         dst.name = name == null ? null : name.copy();
         dst.definition = definition == null ? null : definition.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceRestOperationComponent))
+          return false;
+        ConformanceRestOperationComponent o = (ConformanceRestOperationComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceRestOperationComponent))
+          return false;
+        ConformanceRestOperationComponent o = (ConformanceRestOperationComponent) other;
+        return compareValues(name, o.name, true);
       }
 
       public boolean isEmpty() {
@@ -3670,6 +3888,28 @@ public class Conformance extends DomainResource {
             dst.event.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingComponent))
+          return false;
+        ConformanceMessagingComponent o = (ConformanceMessagingComponent) other;
+        return compareDeep(endpoint, o.endpoint, true) && compareDeep(reliableCache, o.reliableCache, true)
+           && compareDeep(documentation, o.documentation, true) && compareDeep(event, o.event, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingComponent))
+          return false;
+        ConformanceMessagingComponent o = (ConformanceMessagingComponent) other;
+        return compareValues(endpoint, o.endpoint, true) && compareValues(reliableCache, o.reliableCache, true)
+           && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
@@ -4123,6 +4363,30 @@ public class Conformance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingEventComponent))
+          return false;
+        ConformanceMessagingEventComponent o = (ConformanceMessagingEventComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(category, o.category, true) && compareDeep(mode, o.mode, true)
+           && compareDeep(protocol, o.protocol, true) && compareDeep(focus, o.focus, true) && compareDeep(request, o.request, true)
+           && compareDeep(response, o.response, true) && compareDeep(documentation, o.documentation, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceMessagingEventComponent))
+          return false;
+        ConformanceMessagingEventComponent o = (ConformanceMessagingEventComponent) other;
+        return compareValues(category, o.category, true) && compareValues(mode, o.mode, true) && compareValues(focus, o.focus, true)
+           && compareValues(documentation, o.documentation, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (category == null || category.isEmpty())
            && (mode == null || mode.isEmpty()) && (protocol == null || protocol.isEmpty()) && (focus == null || focus.isEmpty())
@@ -4324,6 +4588,27 @@ public class Conformance extends DomainResource {
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.profile = profile == null ? null : profile.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConformanceDocumentComponent))
+          return false;
+        ConformanceDocumentComponent o = (ConformanceDocumentComponent) other;
+        return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(profile, o.profile, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConformanceDocumentComponent))
+          return false;
+        ConformanceDocumentComponent o = (ConformanceDocumentComponent) other;
+        return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
@@ -5293,6 +5578,35 @@ public class Conformance extends DomainResource {
 
       protected Conformance typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Conformance))
+          return false;
+        Conformance o = (Conformance) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
+           && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
+           && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
+           && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
+           && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Conformance))
+          return false;
+        Conformance o = (Conformance) other;
+        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
+           && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(fhirVersion, o.fhirVersion, true)
+           && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {

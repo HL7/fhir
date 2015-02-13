@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -223,6 +223,27 @@ public class ImagingObjectSelection extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof StudyComponent))
+          return false;
+        StudyComponent o = (StudyComponent) other;
+        return compareDeep(uid, o.uid, true) && compareDeep(url, o.url, true) && compareDeep(series, o.series, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof StudyComponent))
+          return false;
+        StudyComponent o = (StudyComponent) other;
+        return compareValues(uid, o.uid, true) && compareValues(url, o.url, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (uid == null || uid.isEmpty()) && (url == null || url.isEmpty()) && (series == null || series.isEmpty())
           ;
@@ -405,6 +426,27 @@ public class ImagingObjectSelection extends DomainResource {
             dst.instance.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SeriesComponent))
+          return false;
+        SeriesComponent o = (SeriesComponent) other;
+        return compareDeep(uid, o.uid, true) && compareDeep(url, o.url, true) && compareDeep(instance, o.instance, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SeriesComponent))
+          return false;
+        SeriesComponent o = (SeriesComponent) other;
+        return compareValues(uid, o.uid, true) && compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {
@@ -644,6 +686,28 @@ public class ImagingObjectSelection extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof InstanceComponent))
+          return false;
+        InstanceComponent o = (InstanceComponent) other;
+        return compareDeep(sopClass, o.sopClass, true) && compareDeep(uid, o.uid, true) && compareDeep(url, o.url, true)
+           && compareDeep(frames, o.frames, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof InstanceComponent))
+          return false;
+        InstanceComponent o = (InstanceComponent) other;
+        return compareValues(sopClass, o.sopClass, true) && compareValues(uid, o.uid, true) && compareValues(url, o.url, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (sopClass == null || sopClass.isEmpty()) && (uid == null || uid.isEmpty())
            && (url == null || url.isEmpty()) && (frames == null || frames.isEmpty());
@@ -793,6 +857,26 @@ public class ImagingObjectSelection extends DomainResource {
         };
         dst.url = url == null ? null : url.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof FramesComponent))
+          return false;
+        FramesComponent o = (FramesComponent) other;
+        return compareDeep(frameNumbers, o.frameNumbers, true) && compareDeep(url, o.url, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof FramesComponent))
+          return false;
+        FramesComponent o = (FramesComponent) other;
+        return compareValues(frameNumbers, o.frameNumbers, true) && compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {
@@ -1184,6 +1268,29 @@ public class ImagingObjectSelection extends DomainResource {
 
       protected ImagingObjectSelection typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImagingObjectSelection))
+          return false;
+        ImagingObjectSelection o = (ImagingObjectSelection) other;
+        return compareDeep(uid, o.uid, true) && compareDeep(patient, o.patient, true) && compareDeep(title, o.title, true)
+           && compareDeep(description, o.description, true) && compareDeep(author, o.author, true) && compareDeep(authoringTime, o.authoringTime, true)
+           && compareDeep(study, o.study, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImagingObjectSelection))
+          return false;
+        ImagingObjectSelection o = (ImagingObjectSelection) other;
+        return compareValues(uid, o.uid, true) && compareValues(description, o.description, true) && compareValues(authoringTime, o.authoringTime, true)
+          ;
       }
 
       public boolean isEmpty() {

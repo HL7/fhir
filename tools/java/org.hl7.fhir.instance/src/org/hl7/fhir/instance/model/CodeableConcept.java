@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -162,6 +162,26 @@ public class CodeableConcept extends Type {
 
       protected CodeableConcept typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CodeableConcept))
+          return false;
+        CodeableConcept o = (CodeableConcept) other;
+        return compareDeep(coding, o.coding, true) && compareDeep(text, o.text, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CodeableConcept))
+          return false;
+        CodeableConcept o = (CodeableConcept) other;
+        return compareValues(text, o.text, true);
       }
 
       public boolean isEmpty() {

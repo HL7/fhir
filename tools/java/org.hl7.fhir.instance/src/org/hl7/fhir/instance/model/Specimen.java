@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -261,6 +261,26 @@ public class Specimen extends DomainResource {
             dst.target.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SpecimenSourceComponent))
+          return false;
+        SpecimenSourceComponent o = (SpecimenSourceComponent) other;
+        return compareDeep(relationship, o.relationship, true) && compareDeep(target, o.target, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SpecimenSourceComponent))
+          return false;
+        SpecimenSourceComponent o = (SpecimenSourceComponent) other;
+        return compareValues(relationship, o.relationship, true);
       }
 
       public boolean isEmpty() {
@@ -571,6 +591,28 @@ public class Specimen extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SpecimenCollectionComponent))
+          return false;
+        SpecimenCollectionComponent o = (SpecimenCollectionComponent) other;
+        return compareDeep(collector, o.collector, true) && compareDeep(comment, o.comment, true) && compareDeep(collected, o.collected, true)
+           && compareDeep(quantity, o.quantity, true) && compareDeep(method, o.method, true) && compareDeep(bodySite, o.bodySite, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SpecimenCollectionComponent))
+          return false;
+        SpecimenCollectionComponent o = (SpecimenCollectionComponent) other;
+        return compareValues(comment, o.comment, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (collector == null || collector.isEmpty()) && (comment == null || comment.isEmpty())
            && (collected == null || collected.isEmpty()) && (quantity == null || quantity.isEmpty())
@@ -755,6 +797,27 @@ public class Specimen extends DomainResource {
             dst.additive.add(i.copy());
         };
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SpecimenTreatmentComponent))
+          return false;
+        SpecimenTreatmentComponent o = (SpecimenTreatmentComponent) other;
+        return compareDeep(description, o.description, true) && compareDeep(procedure, o.procedure, true)
+           && compareDeep(additive, o.additive, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SpecimenTreatmentComponent))
+          return false;
+        SpecimenTreatmentComponent o = (SpecimenTreatmentComponent) other;
+        return compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
@@ -1026,6 +1089,28 @@ public class Specimen extends DomainResource {
         dst.specimenQuantity = specimenQuantity == null ? null : specimenQuantity.copy();
         dst.additive = additive == null ? null : additive.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SpecimenContainerComponent))
+          return false;
+        SpecimenContainerComponent o = (SpecimenContainerComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(description, o.description, true)
+           && compareDeep(type, o.type, true) && compareDeep(capacity, o.capacity, true) && compareDeep(specimenQuantity, o.specimenQuantity, true)
+           && compareDeep(additive, o.additive, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SpecimenContainerComponent))
+          return false;
+        SpecimenContainerComponent o = (SpecimenContainerComponent) other;
+        return compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
@@ -1441,6 +1526,29 @@ public class Specimen extends DomainResource {
 
       protected Specimen typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Specimen))
+          return false;
+        Specimen o = (Specimen) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(source, o.source, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(accessionIdentifier, o.accessionIdentifier, true)
+           && compareDeep(receivedTime, o.receivedTime, true) && compareDeep(collection, o.collection, true)
+           && compareDeep(treatment, o.treatment, true) && compareDeep(container, o.container, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Specimen))
+          return false;
+        Specimen o = (Specimen) other;
+        return compareValues(receivedTime, o.receivedTime, true);
       }
 
       public boolean isEmpty() {

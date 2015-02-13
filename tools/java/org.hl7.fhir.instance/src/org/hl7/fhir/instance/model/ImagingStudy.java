@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -2028,6 +2028,32 @@ public class ImagingStudy extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImagingStudySeriesComponent))
+          return false;
+        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other;
+        return compareDeep(number, o.number, true) && compareDeep(modality, o.modality, true) && compareDeep(uid, o.uid, true)
+           && compareDeep(description, o.description, true) && compareDeep(numberOfInstances, o.numberOfInstances, true)
+           && compareDeep(availability, o.availability, true) && compareDeep(url, o.url, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(dateTime, o.dateTime, true) && compareDeep(instance, o.instance, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImagingStudySeriesComponent))
+          return false;
+        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other;
+        return compareValues(number, o.number, true) && compareValues(modality, o.modality, true) && compareValues(uid, o.uid, true)
+           && compareValues(description, o.description, true) && compareValues(numberOfInstances, o.numberOfInstances, true)
+           && compareValues(availability, o.availability, true) && compareValues(url, o.url, true) && compareValues(dateTime, o.dateTime, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (number == null || number.isEmpty()) && (modality == null || modality.isEmpty())
            && (uid == null || uid.isEmpty()) && (description == null || description.isEmpty()) && (numberOfInstances == null || numberOfInstances.isEmpty())
@@ -2448,6 +2474,30 @@ public class ImagingStudy extends DomainResource {
         dst.url = url == null ? null : url.copy();
         dst.attachment = attachment == null ? null : attachment.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImagingStudySeriesInstanceComponent))
+          return false;
+        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
+        return compareDeep(number, o.number, true) && compareDeep(uid, o.uid, true) && compareDeep(sopclass, o.sopclass, true)
+           && compareDeep(type, o.type, true) && compareDeep(title, o.title, true) && compareDeep(url, o.url, true)
+           && compareDeep(attachment, o.attachment, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImagingStudySeriesInstanceComponent))
+          return false;
+        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
+        return compareValues(number, o.number, true) && compareValues(uid, o.uid, true) && compareValues(sopclass, o.sopclass, true)
+           && compareValues(type, o.type, true) && compareValues(title, o.title, true) && compareValues(url, o.url, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -3408,6 +3458,35 @@ public class ImagingStudy extends DomainResource {
 
       protected ImagingStudy typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ImagingStudy))
+          return false;
+        ImagingStudy o = (ImagingStudy) other;
+        return compareDeep(started, o.started, true) && compareDeep(patient, o.patient, true) && compareDeep(uid, o.uid, true)
+           && compareDeep(accession, o.accession, true) && compareDeep(identifier, o.identifier, true) && compareDeep(order, o.order, true)
+           && compareDeep(modalityList, o.modalityList, true) && compareDeep(referrer, o.referrer, true) && compareDeep(availability, o.availability, true)
+           && compareDeep(url, o.url, true) && compareDeep(numberOfSeries, o.numberOfSeries, true) && compareDeep(numberOfInstances, o.numberOfInstances, true)
+           && compareDeep(clinicalInformation, o.clinicalInformation, true) && compareDeep(procedure, o.procedure, true)
+           && compareDeep(interpreter, o.interpreter, true) && compareDeep(description, o.description, true)
+           && compareDeep(series, o.series, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ImagingStudy))
+          return false;
+        ImagingStudy o = (ImagingStudy) other;
+        return compareValues(started, o.started, true) && compareValues(uid, o.uid, true) && compareValues(modalityList, o.modalityList, true)
+           && compareValues(availability, o.availability, true) && compareValues(url, o.url, true) && compareValues(numberOfSeries, o.numberOfSeries, true)
+           && compareValues(numberOfInstances, o.numberOfInstances, true) && compareValues(clinicalInformation, o.clinicalInformation, true)
+           && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1011,6 +1011,31 @@ public class AllergyIntolerance extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AllergyIntoleranceEventComponent))
+          return false;
+        AllergyIntoleranceEventComponent o = (AllergyIntoleranceEventComponent) other;
+        return compareDeep(substance, o.substance, true) && compareDeep(certainty, o.certainty, true) && compareDeep(manifestation, o.manifestation, true)
+           && compareDeep(description, o.description, true) && compareDeep(onset, o.onset, true) && compareDeep(duration, o.duration, true)
+           && compareDeep(severity, o.severity, true) && compareDeep(exposureRoute, o.exposureRoute, true)
+           && compareDeep(comment, o.comment, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AllergyIntoleranceEventComponent))
+          return false;
+        AllergyIntoleranceEventComponent o = (AllergyIntoleranceEventComponent) other;
+        return compareValues(certainty, o.certainty, true) && compareValues(description, o.description, true)
+           && compareValues(onset, o.onset, true) && compareValues(severity, o.severity, true) && compareValues(comment, o.comment, true)
+          ;
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (substance == null || substance.isEmpty()) && (certainty == null || certainty.isEmpty())
            && (manifestation == null || manifestation.isEmpty()) && (description == null || description.isEmpty())
@@ -1681,6 +1706,32 @@ public class AllergyIntolerance extends DomainResource {
 
       protected AllergyIntolerance typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof AllergyIntolerance))
+          return false;
+        AllergyIntolerance o = (AllergyIntolerance) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(recordedDate, o.recordedDate, true)
+           && compareDeep(recorder, o.recorder, true) && compareDeep(subject, o.subject, true) && compareDeep(substance, o.substance, true)
+           && compareDeep(status, o.status, true) && compareDeep(criticality, o.criticality, true) && compareDeep(type, o.type, true)
+           && compareDeep(category, o.category, true) && compareDeep(lastOccurence, o.lastOccurence, true)
+           && compareDeep(comment, o.comment, true) && compareDeep(event, o.event, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof AllergyIntolerance))
+          return false;
+        AllergyIntolerance o = (AllergyIntolerance) other;
+        return compareValues(recordedDate, o.recordedDate, true) && compareValues(status, o.status, true) && compareValues(criticality, o.criticality, true)
+           && compareValues(type, o.type, true) && compareValues(category, o.category, true) && compareValues(lastOccurence, o.lastOccurence, true)
+           && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {

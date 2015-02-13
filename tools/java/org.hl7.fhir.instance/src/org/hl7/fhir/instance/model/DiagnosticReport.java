@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -338,6 +338,26 @@ public class DiagnosticReport extends DomainResource {
         dst.comment = comment == null ? null : comment.copy();
         dst.link = link == null ? null : link.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticReportImageComponent))
+          return false;
+        DiagnosticReportImageComponent o = (DiagnosticReportImageComponent) other;
+        return compareDeep(comment, o.comment, true) && compareDeep(link, o.link, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticReportImageComponent))
+          return false;
+        DiagnosticReportImageComponent o = (DiagnosticReportImageComponent) other;
+        return compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
@@ -1255,6 +1275,33 @@ public class DiagnosticReport extends DomainResource {
 
       protected DiagnosticReport typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticReport))
+          return false;
+        DiagnosticReport o = (DiagnosticReport) other;
+        return compareDeep(name, o.name, true) && compareDeep(status, o.status, true) && compareDeep(issued, o.issued, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(performer, o.performer, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(identifier, o.identifier, true) && compareDeep(requestDetail, o.requestDetail, true)
+           && compareDeep(serviceCategory, o.serviceCategory, true) && compareDeep(diagnostic, o.diagnostic, true)
+           && compareDeep(specimen, o.specimen, true) && compareDeep(result, o.result, true) && compareDeep(imagingStudy, o.imagingStudy, true)
+           && compareDeep(image, o.image, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(codedDiagnosis, o.codedDiagnosis, true)
+           && compareDeep(presentedForm, o.presentedForm, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticReport))
+          return false;
+        DiagnosticReport o = (DiagnosticReport) other;
+        return compareValues(status, o.status, true) && compareValues(issued, o.issued, true) && compareValues(conclusion, o.conclusion, true)
+          ;
       }
 
       public boolean isEmpty() {

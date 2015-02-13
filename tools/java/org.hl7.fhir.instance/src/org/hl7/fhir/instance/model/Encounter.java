@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Feb 13, 2015 08:21+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -540,6 +540,26 @@ public class Encounter extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EncounterStatusHistoryComponent))
+          return false;
+        EncounterStatusHistoryComponent o = (EncounterStatusHistoryComponent) other;
+        return compareDeep(status, o.status, true) && compareDeep(period, o.period, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EncounterStatusHistoryComponent))
+          return false;
+        EncounterStatusHistoryComponent o = (EncounterStatusHistoryComponent) other;
+        return compareValues(status, o.status, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (status == null || status.isEmpty()) && (period == null || period.isEmpty())
           ;
@@ -692,6 +712,27 @@ public class Encounter extends DomainResource {
         dst.period = period == null ? null : period.copy();
         dst.individual = individual == null ? null : individual.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EncounterParticipantComponent))
+          return false;
+        EncounterParticipantComponent o = (EncounterParticipantComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(period, o.period, true) && compareDeep(individual, o.individual, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EncounterParticipantComponent))
+          return false;
+        EncounterParticipantComponent o = (EncounterParticipantComponent) other;
+        return true;
       }
 
       public boolean isEmpty() {
@@ -1160,6 +1201,30 @@ public class Encounter extends DomainResource {
         return dst;
       }
 
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EncounterHospitalizationComponent))
+          return false;
+        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
+        return compareDeep(preAdmissionIdentifier, o.preAdmissionIdentifier, true) && compareDeep(origin, o.origin, true)
+           && compareDeep(admitSource, o.admitSource, true) && compareDeep(diet, o.diet, true) && compareDeep(specialCourtesy, o.specialCourtesy, true)
+           && compareDeep(specialArrangement, o.specialArrangement, true) && compareDeep(destination, o.destination, true)
+           && compareDeep(dischargeDisposition, o.dischargeDisposition, true) && compareDeep(dischargeDiagnosis, o.dischargeDiagnosis, true)
+           && compareDeep(reAdmission, o.reAdmission, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EncounterHospitalizationComponent))
+          return false;
+        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
+        return compareValues(reAdmission, o.reAdmission, true);
+      }
+
       public boolean isEmpty() {
         return super.isEmpty() && (preAdmissionIdentifier == null || preAdmissionIdentifier.isEmpty())
            && (origin == null || origin.isEmpty()) && (admitSource == null || admitSource.isEmpty())
@@ -1341,6 +1406,27 @@ public class Encounter extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.period = period == null ? null : period.copy();
         return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof EncounterLocationComponent))
+          return false;
+        EncounterLocationComponent o = (EncounterLocationComponent) other;
+        return compareDeep(location, o.location, true) && compareDeep(status, o.status, true) && compareDeep(period, o.period, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof EncounterLocationComponent))
+          return false;
+        EncounterLocationComponent o = (EncounterLocationComponent) other;
+        return compareValues(status, o.status, true);
       }
 
       public boolean isEmpty() {
@@ -2209,6 +2295,33 @@ public class Encounter extends DomainResource {
 
       protected Encounter typedCopy() {
         return copy();
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof Encounter))
+          return false;
+        Encounter o = (Encounter) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusHistory, o.statusHistory, true)
+           && compareDeep(class_, o.class_, true) && compareDeep(type, o.type, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(episodeOfCare, o.episodeOfCare, true) && compareDeep(participant, o.participant, true)
+           && compareDeep(fulfills, o.fulfills, true) && compareDeep(period, o.period, true) && compareDeep(length, o.length, true)
+           && compareDeep(reason, o.reason, true) && compareDeep(indication, o.indication, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(location, o.location, true)
+           && compareDeep(serviceProvider, o.serviceProvider, true) && compareDeep(partOf, o.partOf, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof Encounter))
+          return false;
+        Encounter o = (Encounter) other;
+        return compareValues(status, o.status, true) && compareValues(class_, o.class_, true);
       }
 
       public boolean isEmpty() {
