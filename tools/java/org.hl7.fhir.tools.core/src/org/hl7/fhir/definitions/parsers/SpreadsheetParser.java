@@ -101,6 +101,7 @@ import com.trilead.ssh2.crypto.Base64;
 
 public class SpreadsheetParser {
 
+  private String usageContext;
 	private String name;
 	private XLSXmlParser xls;
 	private List<EventDefn> events = new ArrayList<EventDefn>();
@@ -122,7 +123,8 @@ public class SpreadsheetParser {
   private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
   private ProfileKnowledgeProvider pkp;
   
-	public SpreadsheetParser(InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp) throws Exception {
+	  this.usageContext = usageContext;
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
@@ -394,6 +396,13 @@ public class SpreadsheetParser {
           ConformancePackage pack = new ConformancePackage();
           pack.setTitle(name);
           pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
+          pack.setCategory(sheet.getColumn(row, "IG Name"));
+          if (Utilities.noString(pack.getCategory()))
+            throw new Exception("Missing IG Name at "+getLocation(row));
+          if (!definitions.getIgs().containsKey(pack.getCategory()))
+            throw new Exception("IG Name '"+pack.getCategory()+"' is not reegistered in [igs] in fhir.ini at "+getLocation(row));
+            
+            
           String type = sheet.getColumn(row, "Type");
           if ("bundle".equalsIgnoreCase(type))
             pack.setSourceType(ConformancePackageSourceType.Bundle);
@@ -577,7 +586,7 @@ public class SpreadsheetParser {
 		  // Ignore bindings whose name start with "!"
 		  if (bindingName.startsWith("!")) continue;
 	      
-			BindingSpecification cd = new BindingSpecification();
+			BindingSpecification cd = new BindingSpecification(usageContext);
 
 			cd.setName(bindingName);
 			cd.setDefinition(sheet.getColumn(row, "Definition"));

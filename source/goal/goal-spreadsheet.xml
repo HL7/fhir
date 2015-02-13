@@ -24,7 +24,7 @@
   <WindowWidth>21600</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -2838,7 +2838,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4956,7 +4955,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Packages!R1C1:R1C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="40" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="40" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s109" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s109" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s109" ss:AutoFitWidth="0" ss:Width="281.25"/>
@@ -4979,12 +4978,14 @@
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s111"><Data ss:Type="String">Simple Goal Profile</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">goal-simple.xml</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">goal-simple-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"/>
@@ -5217,6 +5218,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5236,8 +5238,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

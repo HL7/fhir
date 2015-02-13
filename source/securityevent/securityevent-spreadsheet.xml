@@ -10,9 +10,16 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-05T07:41:57Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <SupBook>
+   <Path>Invariants</Path>
+   <SheetName>Invariants</SheetName>
+  </SupBook>
   <WindowHeight>2580</WindowHeight>
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
@@ -3930,7 +3937,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4,R4C4:R100C4</Range>
    <Type>List</Type>
-   <Value>'Invariants'!R2C1:R50C1</Value>
+   <Value>Invariants!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6016,7 +6023,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Packages!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="281.25"/>
@@ -6039,6 +6046,7 @@
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s113"><Data ss:Type="String">EHRS FM Record Lifecycle Event - Security Event</Data><NamedCell
@@ -6048,6 +6056,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">spreadsheet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ehrfm</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"/>
@@ -6307,6 +6316,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

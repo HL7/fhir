@@ -20,7 +20,7 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3994,7 +3994,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4174,7 +4173,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R25C1</Range>
+   <Range>R22C1:R25C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4198,13 +4197,6 @@
    <Range>R28C23,R6C23:R7C23</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,LEFT(RC5,1)&lt;&gt;&quot;@&quot;,LEFT(R[2]C1,LEN(RC1)+1)&lt;&gt;(RC1&amp;&quot;.&quot;),LEFT(R[2]C1,LEN(RC1)+2)&lt;&gt;(&quot;!&quot;&amp;RC1&amp;&quot;.&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C1:R24C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -6223,7 +6215,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Packages!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="281.25"/>
@@ -6246,6 +6238,7 @@
        xmlns="http://www.w3.org/TR/REC-html40"> <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font> </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">StructureDefinition.extensions</Data><NamedCell
@@ -6256,6 +6249,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"/>
@@ -6494,6 +6488,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6514,7 +6509,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

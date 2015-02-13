@@ -27,6 +27,7 @@ public class ConformancePackage {
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
   private String introduction;
   private String notes;
+  private String category;
   
   // content
   private List<ProfileDefn> profiles = new ArrayList<ProfileDefn>();
@@ -136,6 +137,12 @@ public class ConformancePackage {
   }
   public List<SearchParameter> getSearchParameters() {
     return searchParameters;
+  }
+  public String getCategory() {
+    return category;
+  }
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   

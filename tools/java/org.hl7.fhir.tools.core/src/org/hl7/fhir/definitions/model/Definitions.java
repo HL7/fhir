@@ -98,6 +98,7 @@ public class Definitions {
 
   private Map<String, W5Entry> w5s = new HashMap<String, W5Entry>();
   private Map<String, String> typePages = new HashMap<String, String>();
+  private Map<String, ImplementationGuide> igs = new HashMap<String, ImplementationGuide>();
   
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -375,6 +376,10 @@ public class Definitions {
 
   public Map<String, String> getTypePages() {
     return typePages;
+  }
+
+  public Map<String, ImplementationGuide> getIgs() {
+    return igs;
   }
 
 

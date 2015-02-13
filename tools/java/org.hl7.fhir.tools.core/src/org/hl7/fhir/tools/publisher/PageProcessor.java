@@ -55,6 +55,7 @@ import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
+import org.hl7.fhir.definitions.generators.specification.ValueSetTools;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
@@ -2293,7 +2294,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String genValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"codes\">\r\n");
-    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td><td><b>Usage</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
     for (String sn : valueSets.keySet()) {
       String n = getNamespace(sn);
@@ -2309,7 +2310,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
   
   private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId) {
-    s.append(" <tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>Namespace: </b>"+ns+"</td></tr>\r\n");
+    s.append(" <tr><td colspan=\"5\" style=\"background: #DFDFDF\"><b>Namespace: </b>"+ns+"</td></tr>\r\n");
     List<String> sorts = new ArrayList<String>();
     for (String sn : vslist.keySet()) {
       String n = getNamespace(sn);
@@ -2325,10 +2326,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       s.append(" <tr><td><a href=\""+Utilities.changeFileExt(path, ".html")+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
       if (hasId)
         s.append("<td>"+Utilities.oidTail(ToolingExtensions.getOID(ae))+"</td>");
+      s.append("<td>"+usageSummary(vs)+"</td>");
       s.append("</tr>\r\n");
     }
   }
 
+
+  private String usageSummary(ValueSet vs) {
+    String s = (String) vs.getUserData(ValueSetTools.NAME_SPEC_USAGE);
+    if (Utilities.noString(s))
+      return "??";
+    else {
+      String[] ps = s.split("\\,");
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (String p : ps) {
+        if (!definitions.getIgs().containsKey(p))
+          b.append(p);
+        else if (!Utilities.noString(definitions.getIgs().get(p).getPage()))
+          b.append("<a href=\""+definitions.getIgs().get(p).getPage()+"\" title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
+        else
+          b.append("<a title=\""+definitions.getIgs().get(p).getName()+"\">"+p+"</a>");
+      }
+      return b.toString();
+    }
+  }
 
   private String getTail(String sn) {
     return sn.substring(getNamespace(sn).length()+1);

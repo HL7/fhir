@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.definitions.generators.specification.ValueSetTools;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
@@ -77,6 +78,7 @@ public class BindingSpecification {
   }
 
   // properties
+  private String usageContext;
   private String id; // to generate the OID
   private String name;
 	private String definition;
@@ -113,6 +115,12 @@ public class BindingSpecification {
   private String v3Map;
   private ValuesetStatus status;
   
+  
+  public BindingSpecification(String usageContext) {
+    super();
+    this.usageContext = usageContext;
+  }
+
   public String getId() {
     return id;
   }
@@ -269,6 +277,7 @@ public class BindingSpecification {
 
   public void setReferredValueSet(ValueSet referredValueSet) {
     this.referredValueSet = referredValueSet;
+    ValueSetTools.updateUsage(referredValueSet, usageContext);
   }
 
   

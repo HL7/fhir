@@ -61,6 +61,7 @@ import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
+import org.hl7.fhir.definitions.model.ImplementationGuide;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
@@ -205,6 +206,7 @@ public class SourceParser {
 		eCoreParseResults.getBinding().addAll(sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions.getBindings().values(), null)));
 
 		loadTLAs();
+		loadIgs();
 		loadTypePages();
 		
 		loadPrimitives();
@@ -288,6 +290,16 @@ public class SourceParser {
 		    loadConformancePackage(p);
 		}
 	}
+
+
+  private void loadIgs() {
+    if (ini.getPropertyNames("igs") != null) {
+      for (String n : ini.getPropertyNames("igs")) {
+        definitions.getIgs().put(n, new ImplementationGuide(n, ini.getStringProperty("igs", n), ini.getStringProperty("ig-pages", n)));        
+      }
+    }
+  
+  }
 
 
   private void loadTypePages() {
@@ -427,7 +439,7 @@ public class SourceParser {
 	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
-	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
+	    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
 	    try {
 	      ConformancePackage pack = new ConformancePackage();
 	      pack.setTitle(n);
@@ -474,7 +486,7 @@ public class SourceParser {
 
   private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
+      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
@@ -586,7 +598,7 @@ public class SourceParser {
 		  TypeRef t = ts.get(0);
 		  File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
 		  if (csv.exists()) {
-		    SpreadsheetParser p = new SpreadsheetParser(new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
+		    SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
 		    org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
 		    map.put(t.getName(), el);
 		    el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
@@ -630,7 +642,7 @@ public class SourceParser {
     String folder = n;
 		File spreadsheet = new CSFile((srcDir) + folder + File.separatorChar + n + "-spreadsheet.xml");
 
-		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(
+		SpreadsheetParser sparser = new SpreadsheetParser("core", new CSFileInputStream(
 				spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, isAbstract, extensionDefinitions, pkp);
 		ResourceDefn root;
 		try {

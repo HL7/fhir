@@ -500,6 +500,7 @@ public class Publisher implements URIResolver {
       if (page.hasIG()) {
         processIGFiles();
       }
+      
       if (isGenerate) {
         page.log("Clear Directory", LogMessageType.Process);
         if (buildFlags.get("all"))

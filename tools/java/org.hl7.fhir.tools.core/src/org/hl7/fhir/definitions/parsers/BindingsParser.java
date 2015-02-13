@@ -72,7 +72,7 @@ public class BindingsParser {
 	}
 	
 	private void processLine(List<BindingSpecification> results, Sheet sheet, int row) throws Exception {
-	  BindingSpecification cd = new BindingSpecification();
+	  BindingSpecification cd = new BindingSpecification("core");
 	  cd.setName(sheet.getColumn(row, "Binding Name"));
 	  if (!cd.getName().startsWith("!")) {
 	    cd.setDefinition(sheet.getColumn(row, "Definition"));
