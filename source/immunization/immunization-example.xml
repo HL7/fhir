@@ -11,10 +11,10 @@
       <code value="396427003"/>
     </coding>
   </vaccineType> 
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
-  <refusedIndicator value="false"/>
+  </patient>
+  <wasNotGiven value="false"/>
   <reported value="false"/>
   <performer>
     <reference value="Practitioner/example"/>

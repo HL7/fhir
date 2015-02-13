@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Immunization xmlns="http://hl7.org/fhir">
-  <id value="refused"/>
+  <id value="notGiven"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Refused Immunization Example</div>
@@ -12,18 +12,18 @@
       <code value="396427003"/>
     </coding>
   </vaccineType>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
-  <refusedIndicator value="true"/>
+  </patient>
+  <wasNotGiven value="true"/>
   <reported value="false"/>
   <explanation>	
-	<refusalReason>
+	<reasonNotGiven>
       <coding>
         <system value="http://hl7.org/fhir/v3/ActReason"/>
         <code value="MEDPREC"/>
         <display value="medical precaution"/>
       </coding>
-	</refusalReason>	
+	</reasonNotGiven>	
  </explanation>
 </Immunization>

@@ -21,6 +21,7 @@ This resource references the following resources:
     <li>Organization</li>
     <li>Location</li>
     <li>Observation</li>
+    <li>Encounter</li>
 </ul>
 <p>
 Administration of vaccines is intended to be handled using the <b>Immunization</b> resource.  <a href="medicationadministration.html">MedicationAdministration</a> is intended for tracking the administration of non-vaccine medications.  Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  If systems need to use a <a href="medicationadministration.html">MedicationAdministration</a> resource to capture vaccinations for workflow or other reasons, they SHOULD also expose an equivalent <b>Immunization</b> instance.
