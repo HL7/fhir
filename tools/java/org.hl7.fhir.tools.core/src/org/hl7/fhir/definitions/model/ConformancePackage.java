@@ -35,6 +35,10 @@ public class ConformancePackage {
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<SearchParameter> searchParameters = new ArrayList<SearchParameter>();
     
+  public ConformancePackage(String category) {
+    super();
+    this.category = category;
+  }
   public String getTitle() {
     return title;
   }

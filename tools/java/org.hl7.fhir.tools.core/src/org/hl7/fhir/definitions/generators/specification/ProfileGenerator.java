@@ -118,6 +118,7 @@ public class ProfileGenerator {
 
   public Profile generate(PrimitiveType type, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, "core");
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
@@ -190,6 +191,7 @@ public class ProfileGenerator {
 
   public Profile generate(DefinedStringPattern type, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, "core");
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
@@ -267,6 +269,7 @@ public class ProfileGenerator {
 
   public Profile generate(TypeDefn t, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, "core");
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ t.getName());
     p.setName(t.getName());
@@ -302,6 +305,7 @@ public class ProfileGenerator {
   
   public Profile generate(ProfiledType pt, Calendar genDate) throws Exception {
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, "core");
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ pt.getName());
     p.setName(pt.getName());
@@ -364,8 +368,9 @@ public class ProfileGenerator {
     throw new Exception("Unable to find snapshot for "+baseType);
   }
 
-  public Profile generate(ConformancePackage pack, ResourceDefn r, Calendar genDate) throws Exception {
+  public Profile generate(ConformancePackage pack, ResourceDefn r, Calendar genDate, String usage) throws Exception {
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, usage);
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
     p.setName(r.getRoot().getName());
@@ -412,19 +417,20 @@ public class ProfileGenerator {
     pathNames.clear();  
   }
 
-  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, Calendar genDate) throws Exception {
+  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, Calendar genDate, String usage) throws Exception {
     
     try {
-      return generate(pack, profile, resource, id, null, genDate);
+      return generate(pack, profile, resource, id, null, genDate, usage);
     } catch (Exception e) {
       throw new Exception("Error processing profile '"+id+"': "+e.getMessage(), e);
     }
   }
   
-  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, Calendar genDate) throws Exception {
+  public Profile generate(ConformancePackage pack, ProfileDefn profile, ResourceDefn resource, String id, String html, Calendar genDate, String usage) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
     Profile p = new Profile();
+    ResourceUtilities.updateUsage(p, usage);
     p.setId(FormatUtilities.makeId(id));
     p.setUrl("http://hl7.org/fhir/Profile/"+ id);
     p.setName(pack.metadata("name"));
@@ -994,7 +1000,7 @@ public class ProfileGenerator {
   }
 
   public static ProfileDefn wrapProfile(Profile profile) {
-    return new ProfileDefn(profile);
+    return new ProfileDefn(profile, (String) profile.getUserData(ResourceUtilities.NAME_SPEC_USAGE));
   }
 
   public void convertElements(ElementDefn src, ExtensionDefinition ed, String path) throws Exception {

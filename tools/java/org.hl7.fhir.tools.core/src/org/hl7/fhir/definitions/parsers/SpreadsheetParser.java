@@ -393,12 +393,11 @@ public class SpreadsheetParser {
       for (int row = 0; row < sheet.rows.size(); row++) {
         String name = sheet.getColumn(row, "Name");
         if (name != null && !name.equals("") && !name.startsWith("!")) {
-          ConformancePackage pack = new ConformancePackage();
-          pack.setTitle(name);
-          pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
-          pack.setCategory(sheet.getColumn(row, "IG Name"));
+          ConformancePackage pack = new ConformancePackage(sheet.getColumn(row, "IG Name"));
           if (Utilities.noString(pack.getCategory()))
             throw new Exception("Missing IG Name at "+getLocation(row));
+          pack.setTitle(name);
+          pack.setSource(checkFile(sheet, row, "Source", false, sheet.getColumn(row, "Filename"))); // todo-profile
           if (!definitions.getIgs().containsKey(pack.getCategory()))
             throw new Exception("IG Name '"+pack.getCategory()+"' is not reegistered in [igs] in fhir.ini at "+getLocation(row));
             
@@ -743,6 +742,7 @@ public class SpreadsheetParser {
 	        }
 	      }
 	    }
+      String usage = ap.metadata("category");
       if (ap.hasMetadata("name"))
         ap.setTitle(ap.metadata("name"));
       if (ap.hasMetadata("introduction"))
@@ -764,13 +764,13 @@ public class SpreadsheetParser {
 	    if (ap.getMetadata().containsKey("published.structure")) {
 	      for (String n : ap.getMetadata().get("published.structure")) {
 	        if (!Utilities.noString(n))
-	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true));
+	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage));
 	      }
 	    }
 
 	    int i = 0;
 	    while (i < namedSheets.size()) {
-	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false));
+	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage));
 	      i++;
 	    }
 
@@ -791,7 +791,7 @@ public class SpreadsheetParser {
 	}
 
 
-  private ProfileDefn parseProfileSheet(Definitions definitions, ConformancePackage ap, String n, List<String> namedSheets, boolean published) throws Exception {
+  private ProfileDefn parseProfileSheet(Definitions definitions, ConformancePackage ap, String n, List<String> namedSheets, boolean published, String usage) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -852,7 +852,7 @@ public class SpreadsheetParser {
 		}
 
     resource.getRoot().setProfileName(n);
-		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource);
+		ProfileDefn p = new ProfileDefn(ap.getId().toLowerCase()+'-'+n.toLowerCase(), resource.getRoot().getProfileName(), resource, usage);
     return p;
   }
 

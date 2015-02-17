@@ -36,17 +36,20 @@ public class ProfileDefn {
   private String id; // id in the resource, which is also the file name root
   private Profile resource;
   private ResourceDefn defn; // temporary, until we get around to building the resource 
+  private String usage;
     
-  public ProfileDefn(Profile resource) {
+  public ProfileDefn(Profile resource, String usage) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
+    this.usage = usage;
   }
 
-  public ProfileDefn(String id, String title, ResourceDefn defn) {
+  public ProfileDefn(String id, String title, ResourceDefn defn, String usage) {
     this.id = id;
     this.title = title;
     this.defn = defn;
+    this.usage = usage;
   }
 
   public String getTitle() {
@@ -79,6 +82,14 @@ public class ProfileDefn {
 
   public void setDefn(ResourceDefn defn) {
     this.defn = defn;
+  }
+
+  public String getUsage() {
+    return usage;
+  }
+
+  public void setUsage(String usage) {
+    this.usage = usage;
   }
 
   

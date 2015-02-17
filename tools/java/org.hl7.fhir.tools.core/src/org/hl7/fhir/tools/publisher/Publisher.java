@@ -619,7 +619,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate(), "core"));
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -628,7 +628,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate()));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate(), "core"));
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -646,7 +646,7 @@ public class Publisher implements URIResolver {
       page.log(" ...process profiles (ig)", LogMessageType.Process);
       for (Resource rd : page.getIgResources().values()) {
         if (rd instanceof Profile) {
-          ProfileDefn pd = new ProfileDefn((Profile) rd);
+          ProfileDefn pd = new ProfileDefn((Profile) rd, "ig");
           pack.getProfiles().add(pd);
         }
       }
@@ -679,13 +679,13 @@ public class Publisher implements URIResolver {
   }
 
   private ConformancePackage makeConformancePackage() {
-    ConformancePackage result = new ConformancePackage();
+    ConformancePackage result = new ConformancePackage("ig");
     result.setTitle(page.getIg().getName());
     return result;
   }
 
   private ConformancePackage makeConformancePack(ResourceDefn r) {
-    ConformancePackage result = new ConformancePackage();
+    ConformancePackage result = new ConformancePackage("core");
     result.setTitle("Base Conformance Package for "+r.getName());
     return result;
   }
@@ -761,7 +761,7 @@ public class Publisher implements URIResolver {
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate());
+      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate(), profile.getUsage());
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
     } else {
@@ -1668,7 +1668,7 @@ public class Publisher implements URIResolver {
           if (ae instanceof Profile) {
             String n = Utilities.fileTitle((String) ae.getUserData("path")).replace(".xml", "");
             Profile p = (Profile) ae;
-            ProfileDefn pd = new ProfileDefn(p);
+            ProfileDefn pd = new ProfileDefn(p, "ig");
 
 
             page.log(" ...profile " + n, LogMessageType.Process);
@@ -3922,10 +3922,6 @@ public class Publisher implements URIResolver {
           validateRoundTrip(schema, n);
         }
       }
-    }
-    if (buildFlags.get("all")) {
-      page.log(" ...test " + "profiles-resources", LogMessageType.Process);
-      validateRoundTrip(schema, "profiles-resources");
     }
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);

@@ -295,7 +295,7 @@ public class SourceParser {
   private void loadIgs() {
     if (ini.getPropertyNames("igs") != null) {
       for (String n : ini.getPropertyNames("igs")) {
-        definitions.getIgs().put(n, new ImplementationGuide(n, ini.getStringProperty("igs", n), ini.getStringProperty("ig-pages", n)));        
+        definitions.getIgs().put(n, new ImplementationGuide(n, ini.getStringProperty("igs", n), ini.getStringProperty("ig-pages", n), ini.getBooleanProperty("ig-review", n)));        
       }
     }
   
@@ -437,11 +437,12 @@ public class SourceParser {
 	
 	
 	private void loadConformancePackages(String n, Map<String, ConformancePackage> packs) throws Exception {
+	  String usage = "core";
 	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
 	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
 	    SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp);
 	    try {
-	      ConformancePackage pack = new ConformancePackage();
+	      ConformancePackage pack = new ConformancePackage(usage);
 	      pack.setTitle(n);
 	      pack.setSource(spreadsheet.getAbsolutePath());
 	      pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
@@ -451,14 +452,14 @@ public class SourceParser {
 	      throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
 	    }
 	  } else {
-	    ConformancePackage pack = new ConformancePackage();
-	    parseConformanceDocument(pack, n, spreadsheet);
+	    ConformancePackage pack = new ConformancePackage(usage);
+	    parseConformanceDocument(pack, n, spreadsheet, usage);
       packs.put(n, pack);
 	  }
 	}
 
 
-  private void parseConformanceDocument(ConformancePackage pack, String n, File file) throws Exception {
+  private void parseConformanceDocument(ConformancePackage pack, String n, File file, String usage) throws Exception {
     try {
       Resource rf = new XmlParser().parse(new CSFileInputStream(file));
       if (!(rf instanceof Bundle))
@@ -471,7 +472,7 @@ public class SourceParser {
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
         else if (ae.getResource() instanceof Profile)
-          pack.getProfiles().add(new ProfileDefn((Profile) ae.getResource()));
+          pack.getProfiles().add(new ProfileDefn((Profile) ae.getResource(), usage));
         else if (ae.getResource() instanceof ExtensionDefinition) {
           ExtensionDefinition ed = (ExtensionDefinition) ae.getResource();
           context.seeExtensionDefinition(base, ed);
@@ -490,7 +491,7 @@ public class SourceParser {
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
-      parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()));
+      parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()), ap.getCategory());
   }
 	
 	private void loadGlobalConceptDomains() throws Exception {

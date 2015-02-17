@@ -55,7 +55,7 @@ import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
-import org.hl7.fhir.definitions.generators.specification.ValueSetTools;
+import org.hl7.fhir.definitions.generators.specification.ResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
@@ -2333,7 +2333,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
   private String usageSummary(ValueSet vs) {
-    String s = (String) vs.getUserData(ValueSetTools.NAME_SPEC_USAGE);
+    String s = (String) vs.getUserData(ResourceUtilities.NAME_SPEC_USAGE);
     if (Utilities.noString(s))
       return "??";
     else {
@@ -4512,7 +4512,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String profileReviewLink(ProfileDefn profile) {
-    return Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls");
+    String s = profile.getUsage();
+    if (!definitions.getIgs().containsKey(s) || !definitions.getIgs().get(s).isReview())
+      return "";
+    s = Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls");
+    return "Use the <a href=\""+s+"\">Review Spreadsheet</a> to comment on this profile."; 
   }
 
   private String profileExampleList(ProfileDefn profile, Map<String, Example> examples, String example) {
