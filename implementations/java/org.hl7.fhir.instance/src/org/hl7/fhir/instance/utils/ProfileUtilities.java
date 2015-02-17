@@ -1389,13 +1389,23 @@ public class ProfileUtilities {
 
   private int processElementsIntoTree(ElementDefinitionHolder edh, int i, List<ElementDefinition> list) {
     String path = edh.getSelf().getPath();
-    while (i < list.size() && list.get(i).getPath().startsWith(path+".")) {
+    final String prefix = path + ".";
+    while (i < list.size() && list.get(i).getPath().startsWith(prefix)) {
       ElementDefinitionHolder child = new ElementDefinitionHolder(list.get(i));
       edh.getChildren().add(child);
-      i++;
-      i = processElementsIntoTree(child, i, list);
+      i = processElementsIntoTree(child, i+1, list);
     }
-    return i;    
+    // check if any matching elements later in list
+    for (int j = i + 1; j < list.size(); ) {
+      if(list.get(j).getPath().startsWith(prefix)) {
+        ElementDefinitionHolder child = new ElementDefinitionHolder(list.remove(j));
+        edh.getChildren().add(child);
+        j = processElementsIntoTree(child, j, list);
+      } else {
+        j++;
+      }
+    }
+    return i;
   }
 
   private void sortElements(ElementDefinitionHolder edh, ElementDefinitionComparer cmp, List<String> errors) {
