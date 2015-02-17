@@ -3500,7 +3500,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
 
-    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + title + "-review.xls", "HL7 FHIR Project", page.getGenDate(), profile.getResource());
+    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls"), "HL7 FHIR Project", page.getGenDate(), profile.getResource());
 
     //
     // src = Utilities.fileToString(page.getFolders().srcDir +
