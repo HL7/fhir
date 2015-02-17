@@ -1285,7 +1285,7 @@ public class ProfileUtilities {
 
 
 
-  public class ElementDefinitionHolder {
+  public static class ElementDefinitionHolder {
     private ElementDefinition self;
     private int baseIndex = 0;
     private List<ElementDefinitionHolder> children;
@@ -1315,7 +1315,7 @@ public class ProfileUtilities {
     
   }
 
-  public class ElementDefinitionComparer implements Comparator<ElementDefinitionHolder> {
+  public static class ElementDefinitionComparer implements Comparator<ElementDefinitionHolder> {
 
     private boolean inExtension;
     private List<ElementDefinition> snapshot; 
