@@ -11,7 +11,7 @@ namespace Hl7.Fhir.Model
     {
         public DomainResource()
         {
-            Meta = new ResourceMetaComponent();
+            Meta = new Meta();
         }
 
         public DomainResource(Uri id, DateTimeOffset lastUpdated)
