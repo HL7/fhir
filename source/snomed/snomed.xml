@@ -698,6 +698,13 @@
     <display value="Established diagnosis (contextual qualifier)"/>
     <display value="Established diagnosis (contextual qualifier) (qualifier value)"/>
   </concept>
+  <concept id="14745005" display="Hepatitis A virus vaccine (product)">
+    <display value="Hepatitis A virus vaccine (product)"/>
+    <display value="Hepatitis A vaccine"/>
+    <display value="Hep A - Hepatitis A vaccine"/>
+    <display value="Hepatitis A virus vaccine"/>
+    <display value="Hepatitis A virus vaccine (substance)"/>
+  </concept>
   <concept id="14766002" display="Aspiration (procedure)">
     <display value="Aspiration"/>
     <display value="Removal by suction"/>

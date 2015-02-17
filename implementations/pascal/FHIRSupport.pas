@@ -231,12 +231,14 @@ Type
     FOperationName: String;
     FIfMatch : String;
     FMeta: TFhirMeta;
+    FProvenance: TFhirProvenance;
     procedure SetResource(const Value: TFhirResource);
     procedure SetSource(const Value: TAdvBuffer);
     procedure SetSession(const Value: TFhirSession);
     function GetFeed: TFhirBundle;
     procedure SetFeed(const Value: TFhirBundle);
     procedure SetMeta(const Value: TFhirMeta);
+    procedure SetProvenance(const Value: TFhirProvenance);
   Public
     Constructor Create; Override;
     Destructor Destroy; Override;
@@ -364,6 +366,8 @@ Type
     Property Lang : String read FLang write FLang;
 
     Property IfMatch : String read FIfMatch write FIfMatch;
+
+    Property Provenance : TFhirProvenance read FProvenance write SetProvenance;
   End;
 
   {@Class TFHIRResponse
@@ -761,6 +765,7 @@ begin
   FSession.Free;
   FSource.Free;
   FResource.Free;
+  FProvenance.Free;
   inherited;
 end;
 
@@ -814,6 +819,12 @@ procedure TFHIRRequest.SetMeta(const Value: TFhirMeta);
 begin
   FMeta.Free;
   FMeta := Value;
+end;
+
+procedure TFHIRRequest.SetProvenance(const Value: TFhirProvenance);
+begin
+  FProvenance.Free;
+  FProvenance := Value;
 end;
 
 procedure TFHIRRequest.SetResource(const Value: TFhirResource);
