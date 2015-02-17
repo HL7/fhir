@@ -14,13 +14,13 @@
 <h2>Extended Operations on the RESTful API</h2>
 
 <p>
-The <a href="http.html">RESTful API</a> defines a set of common interactions performed on 
-a repository of typed resources (read, update, search, etc). These interactions follow 
-the RESTful paradigm of managing state by Create/Read/Update/Delete actions on a set of identified 
-resources. While this approach solves many use cases, there is some specific 
+The <a href="http.html">RESTful API</a> defines a set of common interactions performed on
+a repository of typed resources (read, update, search, etc). These interactions follow
+the RESTful paradigm of managing state by Create/Read/Update/Delete actions on a set of identified
+resources. While this approach solves many use cases, there is some specific
 functionality that can be met more efficiently using an RPC-like paradigm,
-where named operations are performed with inputs and outputs. This specification 
-describes a light operation framework that seamlessly extends the RESTful API. 
+where named operations are performed with inputs and outputs. This specification
+describes a light operation framework that seamlessly extends the RESTful API.
 </p>
 <p>
 Operations have the following general properties:
@@ -35,7 +35,7 @@ Operations have the following general properties:
 </ul>
 
 <p>
-Note: the definition of these services does not prevent the use of other 
+Note: the definition of these services does not prevent the use of other
 kinds of services that are not dependent on and/or not integrated with the RESTful API.
 </p>
 
@@ -47,8 +47,8 @@ This specification defines several operations:
 <%operationslist%>
 <p>
 Implementations are able to define their own operations in addition to
-those defined here. Name clashes between operations defined 
-by different implementers can be resolved by use of the 
+those defined here. Name clashes between operations defined
+by different implementers can be resolved by use of the
 <a href="conformance.html">conformance statement</a>.
 </p>
 
@@ -75,13 +75,13 @@ For each parameter, the following information is needed:
  <li>Documentation - describes its use</li>
 </ul>
 <p>
-There is a special parameter type called "Tuple" which is a parameter type that has additional 
-parts. Each part has the same information as a parameter, except for use, which is taken from 
+There is a special parameter type called "Tuple" which is a parameter type that has additional
+parts. Each part has the same information as a parameter, except for use, which is taken from
 the parameter it is part of.
 </p>
 
 <p>
-The resource <a href="operationdefinition.html">Operation Definition</a> is used to provide a computable definition 
+The resource <a href="operationdefinition.html">Operation Definition</a> is used to provide a computable definition
 of the operation.
 </p>
 
@@ -89,9 +89,9 @@ of the operation.
 <h3>Extending an Operation</h3>
 <p>
 Implementations are able to extend operations by defining new named parameters.
-Implementations can publish their own extended definitions using the 
+Implementations can publish their own extended definitions using the
  <a href="operationdefinition.html">Operation Definition</a> resource, and
-this variant definition can use OperationDefinition.base to refer to the 
+this variant definition can use OperationDefinition.base to refer to the
 underlying definition.
 </p>
 <p>
@@ -105,8 +105,8 @@ Note that the FHIR specification will never define any parameter names starting 
 
 <p>
 Most commonly, operations are executed synchronously - the client sends a request
-to the server with the operation in parameters, and the server replies with the 
-operation out parameters. 
+to the server with the operation in parameters, and the server replies with the
+operation out parameters.
 </p>
 
 <p>
@@ -123,7 +123,7 @@ The URL for an operation end-point depends on its context:
 
 <p>
 In the general case, an operation is invoked by performing an HTTP POST to the operation end-point.
-The format of the submitted content is the special <a href="parameters.html">Parameters</a> format - a list 
+The format of the submitted content is the special <a href="parameters.html">Parameters</a> format - a list
 of named parameters (the "in" parameters). For an example, see <a href="op-example-request.html">the value set expansion request example</a>.
 </p>
 <p>
@@ -131,14 +131,14 @@ Note that the same arrangement as the RESTful interface applies
 in regard to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
-If there are no parameters with complex types (including resourcse) to the operation, and the operation 
-is idempotent (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification 
-definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where 
+If there are no parameters with complex types (including resourcse) to the operation, and the operation
+is idempotent (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
+definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
 all the parameters are appended to the URL in the search portion of the URL (e.g. after the "?").
 Servers SHALL support this method of invocation.
 </p>
 <p>
-Servers MAY choose to support submission of the parameters multi-part form method as well, 
+Servers MAY choose to support submission of the parameters multi-part form method as well,
 which can be useful for allowing testing of an operation using HTML forms.
 </p>
 
@@ -148,26 +148,26 @@ which can be useful for allowing testing of an operation using HTML forms.
 
 <p>
 If the operation succeeds, the HTTP Status code is 200 OK. An
-HTTP status code if 4xx or 5xx indicates an error, and an 
-<a href="operationoutcome.html">OperationOutcome</a> may be returned. 
-User agents should note that servers may issue redirects etc to 
+HTTP status code if 4xx or 5xx indicates an error, and an
+<a href="operationoutcome.html">OperationOutcome</a> may be returned.
+User agents should note that servers may issue redirects etc to
 authenticate the client in response to an operation request.
 </p>
 
 <p>
 In the general case, an operation response uses the same
 <a href="parameters.html">Parameters</a> format one or more
-named parameters (the "out" parameters). 
+named parameters (the "out" parameters).
 </p>
 <p>
-If there is only one out parameter, which is a resource, 
-and it has the name "return" then the parameter format is 
+If there is only one out parameter, which is a resource,
+and it has the name "return" then the parameter format is
 not used, and the response is simply the resource itself.
 </p>
 <p>
-The resources that are returned by the operation may be 
-retained and made available in the resource repository 
-on the operation server. In that case, the server will 
+The resources that are returned by the operation may be
+retained and made available in the resource repository
+on the operation server. In that case, the server will
 provide the identity of the resource in the returned resources. When
 resources that are not persisted are returned in the response,
 they will have no id property.
@@ -180,15 +180,15 @@ they will have no id property.
 <h3>Executing an Operation Asynchronously</h3>
 
 <p>
-Operations can also be executed asynchronously. In this case, the 
+Operations can also be executed asynchronously. In this case, the
 requester sends a message requesting that an operation be executed,
-and the destination system subsequently sends a message back with 
-the results of the operation. 
+and the destination system subsequently sends a message back with
+the results of the operation.
 </p>
 <p>
-Given the increased complexity of the asynchronous use case, the 
+Given the increased complexity of the asynchronous use case, the
 implementation has increased complexity. As a summary, asynchronous
-operations are performed like this: 
+operations are performed like this:
 </p>
 <ul>
  <li>The requester contructs a message (a bundle with type = message)</li>
@@ -197,7 +197,7 @@ operations are performed like this:
  <li>The message data item refers to a <a href="parameters.html">Parameters</a>
   format that carries the in parameters for the operation. If there are no parameters,
   the message SHOULD have no data element</li>
- <li>The sender accepts the message (see <a href="message.html#asynchronous">Asynchronous messaging</a>)</li>
+ <li>The sender accepts the message (see <a href="messaging.html#asynchronous">Asynchronous messaging</a>)</li>
  <li>When the operation has been executed, the processor sends back one or more messages</li>
  <li>Each message is a bundle of type = message that contains a message header that refers to the id of the original message</li>
  <li>If the operation fails, the MessageHeader.response.code must indicate failure, and an <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned as well</li>
