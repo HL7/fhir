@@ -41,9 +41,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -84,9 +84,9 @@
 
 
         <gender value="female" />
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -127,9 +127,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -170,9 +170,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -213,9 +213,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -256,9 +256,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -299,9 +299,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -342,9 +342,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -385,9 +385,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -429,9 +429,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -473,9 +473,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -517,9 +517,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -561,9 +561,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -605,9 +605,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -649,9 +649,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -693,9 +693,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -736,9 +736,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -780,9 +780,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -824,9 +824,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -868,9 +868,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -911,9 +911,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -954,9 +954,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -998,9 +998,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1042,9 +1042,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1086,9 +1086,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1129,9 +1129,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1172,9 +1172,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1215,9 +1215,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1259,9 +1259,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1302,9 +1302,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1345,9 +1345,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1389,9 +1389,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1433,9 +1433,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1476,9 +1476,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1519,9 +1519,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1563,9 +1563,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1607,9 +1607,10 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization>
+				</practitionerRole>
       </Practitioner>
 
 
@@ -1651,9 +1652,11 @@
 
         <gender value="female" />
 
-        <organization>
-          <reference value="Organization/hl7"/>
-        </organization>
+				<practitionerRole>
+					<managingOrganization>
+						<reference value="Organization/hl7"/>
+					</managingOrganization>
+				</practitionerRole>
       </Practitioner>
 
 
@@ -1695,9 +1698,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1739,9 +1742,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1783,9 +1786,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -1826,9 +1829,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1870,9 +1873,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1914,9 +1917,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -1958,9 +1961,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2002,9 +2005,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2045,9 +2048,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2089,9 +2092,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2132,9 +2135,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2174,9 +2177,9 @@
           <line value="1016 Healthcare Drive"/>
         </address>
         <gender value="female" />
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2218,9 +2221,9 @@
 
 
         <gender value="male" />
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2261,9 +2264,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2305,9 +2308,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2347,9 +2350,9 @@
         </address>
 
         <gender value="female" />
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2388,9 +2391,9 @@
         </address>
 
         <gender value="female" />
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
     </resource>
@@ -2431,9 +2434,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2475,9 +2478,9 @@
 
         <gender value="male" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 
@@ -2519,9 +2522,9 @@
 
         <gender value="female" />
 
-        <organization>
+        <practitionerRole><managingOrganization>
           <reference value="Organization/hl7"/>
-        </organization>
+        </managingOrganization></practitionerRole>
       </Practitioner>
 
 

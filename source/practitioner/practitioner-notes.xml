@@ -3,9 +3,6 @@
 Notes:
 </h2>
   <ul>
-    <li>Practitioner.organization is optional, so it can be used to represent self-employed professionals.</li>
-  </ul>
-  <ul>
   <li>Practitioner.period is different from Qualification.period: the first concerns the period during which the Practitioner
   is allowed to perform in the given roles for the organization. The second is about the period of validity for qualifications
   for which licenses have been obtained by training or otherwise.</li>

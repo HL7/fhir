@@ -33,10 +33,11 @@
         <display value="Picture_Carla_Espinosa"/>
     </photo>-->
    
-    <organization>
+		<practitionerRole>
+    <managingOrganization>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
-    </organization>
+    </managingOrganization>
     <role>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -51,4 +52,5 @@
             <display value="Nursing procedure"/>
         </coding>
     </specialty>
+		</practitionerRole>
 </Practitioner>

@@ -40,11 +40,12 @@
             <reference value="Media/AB-201.bmp"/>
             <display value="Picture_Dokter_Bronsig"/>
         </photo> -->
-    
-    <organization>
+    <practitionerRole>
+			
+    <managingOrganization>
         <reference value="Organization/f201"/>
         <display value="AUMC"/>
-    </organization>
+    </managingOrganization>
     <role>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -59,6 +60,7 @@
             <display value="Medical oncologist"/>
         </coding>
     </specialty>
+		</practitionerRole>
     <qualification>
         <code>
             <!--Dr. Bronsig is not only a medical oncologist, but also a pulmonologist-->

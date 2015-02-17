@@ -45,11 +45,12 @@
     
         <gender value="female" />
         <birthDate value="1959-03-11"/>
-    
-    <organization>
+
+	<practitionerRole>
+	<managingOrganization>
         <reference value="Organization/f001"/>
         <display value="BMC"/>
-    </organization>
+    </managingOrganization>
     <role>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
@@ -68,8 +69,9 @@
         </coding>
         <text value="specialisation"/>
     </specialty>
-    
-    <communication>
+	</practitionerRole>
+
+	<communication>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.6.121"/>
             <!-- List of ISO 639-1 language codes (ISO 3066) -->

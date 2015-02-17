@@ -22,10 +22,10 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
           <system value="email"/>
           <value value="john.doe@healthcare.example.org"/>
         </telecom>
-      
-      <organization>
+			<practitionerRole>
+      <managingOrganization>
         <display value="Cleveland Clinic"/>
-      </organization>
+      </managingOrganization>
 <!--
       <organization>
         <display value="Berea Community"/>
@@ -33,6 +33,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 -->
       <role><text value="Primary Surgon"/></role>
       <specialty><text value="Orthopedic"/></specialty>
+			</practitionerRole>
     </Practitioner>
   </contained>
 

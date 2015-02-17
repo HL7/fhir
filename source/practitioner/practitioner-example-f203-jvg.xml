@@ -36,10 +36,11 @@
         <reference value="Media/@JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>
     </photo>-->
-  <organization>
+		<practitionerRole>
+  <managingOrganization>
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
- </organization>
+ </managingOrganization>
  <role>
      <coding>
         <system value="http://snomed.info/sct"/>
@@ -54,4 +55,5 @@
         <display value="Assess physical therapist service"/>
     </coding>
  </specialty>
+		</practitionerRole>
 </Practitioner>

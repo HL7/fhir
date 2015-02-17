@@ -130,10 +130,10 @@
           <family value="Smitty"/>
           <given value="Gerald"/>
         </name>
-
-        <organization>
+				<practitionerRole>
+        <managingOrganization>
           <display value="Cleveland Clinic"/>
-        </organization>
+        </managingOrganization>
         <role>
           <coding>
             <code value="Attending"/>
@@ -144,6 +144,7 @@
             <code value="Orthopedic"/>
           </coding>
         </specialty>
+				</practitionerRole>
       </Practitioner>
 
     </resource>
@@ -177,10 +178,11 @@
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>
         </name>
-
-        <organization>
+				<practitionerRole>
+					
+        <managingOrganization>
           <display value="Cleveland Clinic"/>
-        </organization>
+        </managingOrganization>
         <role>
           <coding>
             <code value="Primary Surgon"/>
@@ -191,6 +193,7 @@
             <code value="Orthopedic"/>
           </coding>
         </specialty>
+				</practitionerRole>
       </Practitioner>
 
     </resource>

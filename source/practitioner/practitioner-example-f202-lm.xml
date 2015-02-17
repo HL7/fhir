@@ -40,10 +40,11 @@
         <reference value="Media/@LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>
     </photo>-->
-  <organization>
+		<practitionerRole>
+  <managingOrganization>
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
- </organization>
+ </managingOrganization>
  <role>
      <coding>
         <system value="http://snomed.info/sct"/>
@@ -58,4 +59,5 @@
         <display value="Medical laboratory technician"/>
     </coding>
  </specialty>
+		</practitionerRole>
 </Practitioner>

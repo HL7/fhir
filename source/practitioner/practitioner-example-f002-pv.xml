@@ -46,11 +46,12 @@
     <gender value="male" />
     <birthDate value="1979-04-29"/>
 
-    <organization>
+		<practitionerRole>
+    <managingOrganization>
         <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
         <reference value="Organization/f001"/>
         <display value="BMC"/>
-    </organization>
+    </managingOrganization>
     <role>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
@@ -69,4 +70,5 @@
         </coding>
         <text value="specialisation"/>
     </specialty>
+		</practitionerRole>
 </Practitioner>

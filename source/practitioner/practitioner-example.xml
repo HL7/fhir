@@ -21,10 +21,11 @@
     <prefix value="Dr"/>
   </name>
 
+		<practitionerRole>
 
-  <organization>
+  <managingOrganization>
     <reference value="Organization/1"/>
-  </organization>
+  </managingOrganization>
 
   <!-- Referring Practitioner for the first 3 months of 2012 -->
   <role>
@@ -38,4 +39,5 @@
     <start value="2012-01-01"/>
     <end value="2012-03-31"/>
   </period>
+		</practitionerRole>
 </Practitioner>

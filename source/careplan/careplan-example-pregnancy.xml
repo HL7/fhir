@@ -29,10 +29,12 @@
           <name>
             <family value="Midwife"/>
             <given value="Mavis"/>
-          </name>      
-        <specialty>
+          </name>
+				<practitionerRole>
+				<specialty>
           <text value="Midwife"/>
         </specialty>
+				</practitionerRole>
       </Practitioner>
     </contained>
     <contained>
@@ -41,10 +43,13 @@
           <name>
             <family value="Obstetrician"/>
             <given value="Oscar"/>
-          </name>     
+          </name>
+				<practitionerRole>
+					
         <specialty>
           <text value="Obstetrician"/>
         </specialty>
+				</practitionerRole>
       </Practitioner>
     </contained>
     <!-- an extension to record the LMP, which is required at the plan level... -->
@@ -76,7 +81,7 @@
             <text value='Midwife'></text>
         </role>
         <member>
-            <!-- This links to the clincian resource, so we get all the stuff related to that like address, contact etc... -->
+            <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
             <reference value="#pr1"/>
             <display value="Mavis Midwife"/>
         </member>
@@ -91,7 +96,7 @@
             <text value='Obstretitian'></text>
         </role>
         <member>
-            <!-- This links to the clincian resource, so we get all tha stuff related to that like address, contact etc... -->
+            <!-- This links to the clinician resource, so we get all tha stuff related to that like address, contact etc... -->
             <reference value="#pr2"/>
             <display value="Oscar Obstetrician"/>
         </member>
@@ -192,7 +197,7 @@
             
         </code>
         <scheduledTiming>
-            <!-- The delivery should occur between 1 september and 14 september -->
+            <!-- The delivery should occur between 1 September and 14 September -->
             <event>
                 <start value="2013-09-01"/>
                 <end value="2013-09-14"/>
@@ -205,7 +210,7 @@
             <display value="St Albans delivery suite"/>
         </location>-->
         <performer>
-            <!-- The intention is that Maris will be perfroming the delivery... -->
+            <!-- The intention is that Maris will be performing the delivery... -->
             <reference value="#pr1"/>
             <display value="Mavis Midwife"/>
         </performer>

@@ -27,10 +27,11 @@
         <family value="Dietician"/>
         <given value="Dorothy"/>
       </name>
-      
+			<practitionerRole>
       <specialty>
         <text value="Dietician"/>
       </specialty>
+			</practitionerRole>      
     </Practitioner>
   </contained>
   <patient>

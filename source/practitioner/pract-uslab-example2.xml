@@ -70,8 +70,10 @@ Authored by: Eric M Haas  Health eData Inc.
 		<postalCode value="01236"/>
 		<country value="USA"/>
 	</address>
-	<organization>
+	<practitionerRole>
+	<managingOrganization>
 		<reference value="Organization/uslab-example1"/>
 		<display value="Children's Hospital"/>
-	</organization>
+	</managingOrganization>
+	</practitionerRole>
 </Practitioner>
