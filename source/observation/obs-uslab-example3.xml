@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 	</text>
-	<!-- extension for specimen reject goes here - not for this use case 
+	<!-- extension for specimen reject goes here - not for this use case
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -37,7 +37,7 @@
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and LOINC test codes go here -->
-	<name>
+	<code>
 		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
@@ -51,7 +51,7 @@
 			<display value="Misc Culture"/>
 		</coding>
 		<text value="Miscellaneous Culture"/>
-	</name>
+	</code>
 	<!--EH :  The text result here -->
 <valueString value="Moderate Growth of gram-positive cocci bacteria"></valueString>
 	<!--  eH dataabsent reason  would go here if valueQuantity was empty e.g.:

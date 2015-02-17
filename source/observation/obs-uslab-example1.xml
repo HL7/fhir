@@ -21,7 +21,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 			</ul>
 		</div>
 	</text>
-	<!-- extension for specimen reject goes here - not for this use case 
+	<!-- extension for specimen reject goes here - not for this use case
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -37,7 +37,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and /or LOINC test codes go here -->
-	<name>
+	<code>
 		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
@@ -51,15 +51,15 @@ see narrative this the screen that leads to follow up order for whole blood lead
 			<display value="Blood Lead, Capillary"/>
 		</coding>
 		<text value="Capillary Blood Lead Screen"/>
-	</name>
-	<!-- In FHIR, units may be represented twice. Once in the 
+	</code>
+	<!-- In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     Both is best, since it's not always possible to infer
     one from the other in code.
 
-    When a computable unit is provided, UCUM (http://unitsofmeasure.org) 
-    is always preferred, but it doesn't provide notional units (such as 
-    "tablet"), etc. For these, something else is required (e.g. Snomed-CT) 
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org)
+    is always preferred, but it doesn't provide notional units (such as
+    "tablet"), etc. For these, something else is required (e.g. Snomed-CT)
    -->
 	<valueQuantity>
 		<value value="65"/>
@@ -100,7 +100,7 @@ see narrative this the screen that leads to follow up order for whole blood lead
 	<referenceRange>
 		<high>
 			<value value="5.0"/>
-			
+
 			<units value="microgram per deciliter"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="ug/dL"/>

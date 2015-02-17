@@ -29,15 +29,16 @@ provide a clinical or workflow context for a set of observations. Expected uses 
 The observation resource has the following aspects:
 </p>
 <ul>
- <li>status and reliability (mandatory) - all users of observations SHALL be sure of the status of the observation</li>
- <li>name (mandatory) - describes what was observed. Sometimes called this is called the observation "code"</li>
+ <li>status (mandatory) - all users of observations SHALL be sure of the status of the observation</li>
+ <li>reliability -  provides an estimate of the degree to which quality issues have impacted on the value of an observation</li>
+ <li>code (mandatory) - describes what was observed. This is the 'name' in the name/value pair assertion pattern used in this resource</li>
  <li>identifier - Unique identifier for this particular observation so it can be recognized in all contexts where it is represented</li>
  <li>value - the actual value that was observed</li>
  <li>related observations - Other observations that are components of this observation, or provide supporting information, context or warnings about this observation</li>
- <li>subject,.bodySite[x] - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.name</li>
+ <li>subject,.bodySite[x] - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.code</li>
  <li>applies[x] - the time or period that this observation was made on the subject. Each observation has multiple times - prepared, made, reported etc - but the important time is when the data relates to the patient condition</li>
  <li>interpretation, comments, and reference range: information to help understand the observed value</li>
- <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.name</li>
+ <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.code</li>
 </ul>  
 <p>
 Typically, an observation will have either a value or component observations, and not both.

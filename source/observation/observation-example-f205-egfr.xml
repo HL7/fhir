@@ -2,14 +2,14 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f205"/>
-   <name>
+   <code>
       <!-- Kind of observation = eGFR -->
       <coding>
          <system value="http://loinc.org"/>
          <code value="69405-9"/>
          <display value="Glomerular filtration rate/1.73 sq M.predicted"/>
       </coding>
-   </name>
+   </code>
    <valueQuantity>
       <!-- eGFR=54mL/min/1.73m2 -->
       <value value="54"/>
@@ -59,7 +59,7 @@
          <value value="60"/>
          <units value="mL/min/1.73m2"/>
          <system value="http://unitsofmeasure.org"/>
-         <code value="mL/min/{1.73_m2}"/>         
+         <code value="mL/min/{1.73_m2}"/>
       </low>
    </referenceRange>
 </Observation>

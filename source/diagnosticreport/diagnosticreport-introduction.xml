@@ -3,13 +3,13 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-A diagnostic report is the set of information that is typically provided by a diagnostic service
+A diagnostic report (in contrast to the <i>DiagnosticReport resource</i>) is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
-of the outcomes for a particular investigation.
+of the outcomes for a particular investigation.  In FHIR, the report can conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
 </p>
 <p>
-The Diagnostic Report Resource is suitable for the following kinds of Diagnostic Reports:
+The DiagnosticReport resource is suitable for the following kinds of diagnostic reports:
 </p>
 <ul>
  <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc.)</li>
@@ -18,15 +18,15 @@ The Diagnostic Report Resource is suitable for the following kinds of Diagnostic
  <li>Other diagnostics - Cardiology, Gastroenterology etc.</li>
 </ul>
 <p>
-The Diagnostic Report resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
-The Diagnostic Report resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
+The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
+The DiagnosticReport resource does not yet provide full support for detailed structured reports of sequencing; this is planned for a future release.
 </p>
 </div>
 
 <div>
 <h2>Background and Context</h2>
 <p>
-The Diagnostic Report resource has the following aspects:
+The DiagnosticReport resource has the following aspects:
 </p>
 <ul>
  <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>

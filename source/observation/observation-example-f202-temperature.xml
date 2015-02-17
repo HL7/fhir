@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f202"/>
- <name><!--Kind of observation = Oral Temperature-->
+ <code><!--Kind of observation = Oral Temperature-->
     <coding>
        <system value="http://snomed.info/sct"/>
        <code value="415945006"/>
@@ -13,7 +13,7 @@
        <display value="Body temperature"/>
     </coding>
     <text value="Body temperature"/>
- </name>
+ </code>
  <valueQuantity><!--Temperature=39 degrees Celsius-->
     <value value="39"/>
     <units value="degrees C"/>
@@ -33,14 +33,14 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
-        <display value="Entire body as a whole"/>  
+        <display value="Entire body as a whole"/>
     </coding>
  </bodySiteCodeableConcept>
  <method>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="89003005"/>
-        <display value="Oral temperature taking"/>  
+        <display value="Oral temperature taking"/>
     </coding>
  </method>
  <!--No identifier could be provided to this observation-->

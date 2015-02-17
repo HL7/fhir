@@ -3,24 +3,24 @@
 <!--
  This is an example of a standard blood pressure measurement.
 
- Blood Pressure is a regarded as a single observation, and 
- presented that way in plain text: 120/80. Also, it is usually 
- interpreted as a single value, though intepretation can also 
+ Blood Pressure is a regarded as a single observation, and
+ presented that way in plain text: 120/80. Also, it is usually
+ interpreted as a single value, though intepretation can also
  be offered to the parts individually
 
- Technically, though, a blood pressure is a pair of component 
+ Technically, though, a blood pressure is a pair of component
  observations. LOINC code 55284-4 notes say:
-   This term is intended as a section header for various 
-   blood pressure measurements (e.g., systolic, diastolic). 
-   LOINC discourages the reporting of two numbers, such as 
-   systolic and diastolic blood pressure (e.g., 120/80), 
-   in one observation. They should be reported as two 
-   separate variables, systolic (LOINC 8480-6) and 
+   This term is intended as a section header for various
+   blood pressure measurements (e.g., systolic, diastolic).
+   LOINC discourages the reporting of two numbers, such as
+   systolic and diastolic blood pressure (e.g., 120/80),
+   in one observation. They should be reported as two
+   separate variables, systolic (LOINC 8480-6) and
    diastolic (LOINC 8462-4)
 
- This example shows the standard way to represent blood pressure - a 
- single resource, with a narrative in the standard form, and two 
- component observations for the actual values 
+ This example shows the standard way to represent blood pressure - a
+ single resource, with a narrative in the standard form, and two
+ component observations for the actual values
 
 for publication convenience, the 3 resources are packaged in a single
 bundle, but this is not required
@@ -49,18 +49,18 @@ bundle, but this is not required
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
         </text>
-        <name>
+        <code>
           <coding>
             <system value="http://loinc.org"/>
             <code value="55284-4"/>
             <display value="Blood pressure systolic &amp; diastolic"/>
           </coding>
-        </name>
+        </code>
 
         <!-- an interpretation offered to the combination observation
         generally, it would only be appropriate to offer an interpretation
         of an observation that has no value if it has "COMP" (component)
-        observations -->        
+        observations -->
         <interpretation>
           <coding>
             <system value="http://hl7.org/fhir/v2/0078"/>
@@ -106,18 +106,18 @@ bundle, but this is not required
   <!-- Observation for systolic blood pressure: name, value, and flags -->
   <entry>
     <resource>
-      <!-- 
+      <!--
       Most systems won't store systolic and diastolic observations separately.
-      They'd usually be two fields in a database or something like that. The 
-      FHIR interface treats these as separate observation for consistency 
-      purposes (makes query easy). But that doesn't mean that the systems 
-      have to really do that internally. This example implies a system that 
+      They'd usually be two fields in a database or something like that. The
+      FHIR interface treats these as separate observation for consistency
+      purposes (makes query easy). But that doesn't mean that the systems
+      have to really do that internally. This example implies a system that
       appends -d or -s to the id of the base observation for the individual
-      components. 
+      components.
 
       This implies that you can operate on them separately, even though
-      this would probably not be true. It would be up to the implementing 
-      system to decide how to manage this (e.g. readonly, so there's no 
+      this would probably not be true. It would be up to the implementing
+      system to decide how to manage this (e.g. readonly, so there's no
       update operations to worry about)
     -->
 
@@ -130,13 +130,13 @@ bundle, but this is not required
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
         </text>
-        <!-- 
-           Observations are often coded in multiple code systems. 
+        <!--
+           Observations are often coded in multiple code systems.
            - Loinc provides a very specific code (though not usefully more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
          -->
-        <name>
+        <code>
           <!-- LOINC - always recommended to have a LOINC code -->
           <coding>
             <system value="http://loinc.org"/>
@@ -155,8 +155,8 @@ bundle, but this is not required
             <code value="bp-s"/>
             <display value="Systolic Blood pressure"/>
           </coding>
-          <!-- that shows the concept. The next two names only have a LOINC code --> 
-        </name>
+          <!-- that shows the concept. The next two names only have a LOINC code -->
+        </code>
         <!-- no formal units in this example -->
         <valueQuantity>
           <value value="107"/>
@@ -183,13 +183,13 @@ bundle, but this is not required
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
         </text>
-        <name>
+        <code>
           <coding>
             <system value="http://loinc.org"/>
             <code value="8462-4"/>
             <display value="Diastolic blood pressure"/>
           </coding>
-        </name>
+        </code>
         <!-- no formal units in this example -->
         <valueQuantity>
           <value value="60"/>
@@ -202,4 +202,4 @@ bundle, but this is not required
 
     </resource>
   </entry>
-</Bundle>  
+</Bundle>

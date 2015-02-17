@@ -6,12 +6,70 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="TextureModifier :  all SNOMED CT codes for now.  This is  a placeholder until code set defined"/>
+  <!-- Set of SNOMED CT - Children of SCTID: food consistency types "229961002" --> 
+  <description value="TextureModifier: This value set represents SNOMED CT codes for food consistency types or texture modifications to apply to foods."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
+      <version value="http://snomed.info/sct/US1000124/version/20140901"/>
+    <concept>
+        <code value="228053002"/>
+		<display value="Cut-up food"/>           
+      </concept>  
+	  <concept>
+        <code value="439091000124107"/>
+        <display value="Easy to chew food"/>
+      </concept>
+      <concept>
+        <code value="228049004"/>
+		<display value="Chopped food"/>      
+      </concept>
+       <concept>
+        <code value="441881000124103"/>
+        <display value="Ground food"/>
+      </concept>  
+	  <concept>
+        <code value="441761000124103"/>
+        <display value="Minced food"/>
+      </concept>       
+      <concept>
+        <code value="441751000124100"/>
+        <display value="Mashed food"/>
+      </concept>
+      <concept>
+        <code value="228059003"/>
+        <display value="Soft food"/>
+      </concept>
+      <concept>
+        <code value="441791000124106"/>
+        <display value="Strained food"/>
+      </concept> 
+      <concept>
+        <code value="228055009"/>
+        <display value="Liquidized food"/>
+      </concept>
+      <concept>
+        <code value="228056005"/>
+        <display value="Lumpy food"/>
+      </concept>
+      <concept>
+        <code value="441771000124105"/>
+        <display value="Moist food"/>
+      </concept>
+      <concept>
+        <code value="228057001"/>
+        <display value="Semi-solid food"/>
+      </concept>
+      <concept>
+        <code value="228058006"/>
+        <display value="Single texture food"/>
+      </concept>
+        <concept>
+        <code value="228060008"/>
+        <display value="Solid food"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

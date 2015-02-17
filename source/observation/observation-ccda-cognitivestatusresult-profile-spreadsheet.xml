@@ -1335,7 +1335,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -11829,8 +11829,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">6.  SHALL contain exactly one [1..1] code (CONF:14591). &#10;a.  This code SHOULD contain zero or one [0..1] @code=&quot;373930000&quot; &#10;Cognitive function finding (CodeSystem: SNOMED-CT &#10;2.16.840.1.113883.6.96) (CONF:14592). </Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&lt;valueCodeableConcept&gt;&lt;coding&gt;&lt;system value=&quot;http://snomed.info/sct&quot;/&gt;&lt;version value=&quot;20140731&quot;/&gt;&lt;code value=&quot;373930000&quot;/&gt;&lt;display value=&quot;Cognitive function finding&quot;/&gt;&lt;/coding&gt;&lt;/valueCodeableConcept&gt;</Data></Cell>

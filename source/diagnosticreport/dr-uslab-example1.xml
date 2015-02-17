@@ -2,7 +2,7 @@
 <!--
 file: dr-uslab-example1.xml
  id: uslab-example1
- Name: USLab DiagnosticReport Example1 
+ Name: USLab DiagnosticReport Example1
 Description: USLabReport DiagnosticReport Profile Canonical Example: Childhood Blood Lead Report
 
 Published by HL7 Orders and Observation Work Group
@@ -72,8 +72,8 @@ see narrative
 
 <codedDiagnosis><coding><system value="http://snomed.info/sct"></system><code value="407152001"></code><display value="Increased blood lead level"></display></coding></codedDiagnosis>
 
-	<!-- finally, here's a pdf representation of the same report. 
-    A consuming application could choose to display either the 
+	<!-- finally, here's a pdf representation of the same report.
+    A consuming application could choose to display either the
 	html version above, or the pdf version - they both need to convey the
 	same information -->
 	<presentedForm>

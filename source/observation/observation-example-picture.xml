@@ -5,19 +5,19 @@
     <valueIdentifier>
       <system value="http://acme-imaging.com/accession/2012"/>
       <value value="1234567"/>
-    </valueIdentifier> 
+    </valueIdentifier>
   </extension>
   <extension url="http://hl7.org/fhir/Profilepicture#studyid">
     <valueIdentifier>
       <system value="urn:ietf:rfc:3986"/>
       <value value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
-    </valueIdentifier> 
+    </valueIdentifier>
   </extension>
   <extension url="http://hl7.org/fhir/Profilepicture#seriesid">
     <valueIdentifier>
       <system value="urn:ietf:rfc:3986"/>
       <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
-    </valueIdentifier> 
+    </valueIdentifier>
   </extension>
   <text>
     <status value="generated"/>
@@ -26,13 +26,13 @@
       <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033" alt="WADO reference to image"/>
     </div>
   </text>
-  <name>
+  <code>
     <coding>
       <system value="http://hl7.org/fhir/image-modality4"/>
       <code value="US"/>
       <display value="Ultrasound"/>
     </coding>
-  </name>
+  </code>
   <valueAttachment>
     <contentType value="application/dicom"/>
     <!-- The actual image could be anywhere. This is a WADO example -->
@@ -40,13 +40,13 @@
   </valueAttachment>
   <status value="final"/>
   <reliability value="ok"/>
-  
+
   <identifier>
     <label value="InstanceUID"/>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
   </identifier>
-  
+
   <subject>
     <reference value="Patient/example"/>
   </subject>
@@ -55,50 +55,50 @@
   </performer>
 
   <component>
-    <name>
+    <code>
       <coding>
         <system value="http://hl7.org/fhir/picture-fields"/>
         <code value="height"/>
         <display value="Height"/>
       </coding>
-    </name>
-    <valueQuantity> 
+    </code>
+    <valueQuantity>
       <value value="480"/>
     </valueQuantity>
   </component>
   <component>
-    <name>
+    <code>
       <coding>
         <system value="http://hl7.org/fhir/picture-fields"/>
         <code value="width"/>
         <display value="Width"/>
       </coding>
-    </name>
-    <valueQuantity> 
+    </code>
+    <valueQuantity>
       <value value="640"/>
     </valueQuantity>
   </component>
   <component>
-    <name>
+    <code>
       <coding>
         <system value="http://hl7.org/fhir/picture-fields"/>
         <code value="bits"/>
         <display value="Bit Count"/>
       </coding>
-    </name>
-    <valueQuantity> 
+    </code>
+    <valueQuantity>
       <value value="2"/>
     </valueQuantity>
   </component>
   <component>
-    <name>
+    <code>
       <coding>
         <system value="http://hl7.org/fhir/picture-fields"/>
         <code value="frames"/>
         <display value="Frame Count"/>
       </coding>
-    </name>
-    <valueQuantity> 
+    </code>
+    <valueQuantity>
       <value value="1"/>
     </valueQuantity>
   </component>

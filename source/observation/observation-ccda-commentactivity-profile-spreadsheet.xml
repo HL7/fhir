@@ -1226,7 +1226,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -3869,7 +3869,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -11700,9 +11700,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s84"><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code=&quot;48767-8&quot; Annotation Comment &#10;(CodeSystem: LOINC 2.16.840.1.113883.6.1) (CONF:9428). &#10;</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s84"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s84"/>
     <Cell ss:StyleID="s84"/>

@@ -21,7 +21,7 @@ see narrative
 			</ul>
 		</div>
 	</text>
-	<!-- extenstion for specimen reject goes here - not for this use case 
+	<!-- extenstion for specimen reject goes here - not for this use case
 	<extension url="http://hl7.org/fhir/ExtensionDefinition/uslabspecimenrejectreason">
 		<valueCodeableConcept>
 			<coding>
@@ -37,7 +37,7 @@ see narrative
 		<valueCode value="result"/>
 	</extension>
 	<!--EH :  The local and LOINC test codes go here -->
-	<name>
+	<code>
 		<!-- EH: LOINC code goes here-->
 		<coding>
 			<system value="http://loinc.org"/>
@@ -51,7 +51,7 @@ see narrative
 			<display value="APTIMA GC"/>
 		</coding>
 		<text value="Neisseria gonorrhoeae by PCR"/>
-	</name>
+	</code>
 	<!--EH :  The local and SNOMED Result codes go here -->
 	<valueCodeableConcept>
 		<coding>

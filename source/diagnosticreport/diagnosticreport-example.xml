@@ -6,9 +6,9 @@
   <id value="101"/>
   <text>
         <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml"> 
-      <h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>            
-<!-- you could use ab html table here, but laboratories are still 
+        <div xmlns="http://www.w3.org/1999/xhtml">
+      <h3>CBC Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2011 11:45</h3>
+<!-- you could use ab html table here, but laboratories are still
  using fixed text tables, and this will take decades to change... -->
             <pre>
 Test                  Units       Value       Reference Range
@@ -19,41 +19,41 @@ Mean Cell Volume      fL          99+         80 - 98
 Mean Cell Haemoglobin pg          36+         27 - 35
 Platelet Count        x10*9/L     444         150 - 450
 White Cell Count      x10*9/L     4.6         4.0 - 11.0
-Neutrophils           %           20 
+Neutrophils           %           20
 Neutrophils           x10*9/L     0.9---      2.0 - 7.5
-Lymphocytes           %           20  
+Lymphocytes           %           20
 Lymphocytes           x10*9/L     0.9-        1.1 - 4.0
-Monocytes             %           20 
+Monocytes             %           20
 Monocytes             x10*9/L     0.9         0.2 - 1.0
-Eosinophils           %           20 
+Eosinophils           %           20
 Eosinophils           x10*9/L     0.92++      0.04 - 0.40
-Basophils             %           20 
+Basophils             %           20
 Basophils             x10*9/L     0.92+++     &lt;0.21
       </pre>
           <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
       </div>
   </text>
-  <!-- 
-  all the data items (= Observations) are contained 
-  in this diagnostic report. It would be equally 
+  <!--
+  all the data items (= Observations) are contained
+  in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable
     items. However for the purposes of this example, it's
   more convenient to have them here. For more discussion,
   see under "Contained Resources" on the Resource Definitions
   topic page -->
-  <!-- for users steeped in v2, each observation roughly corresponds with an 
+  <!-- for users steeped in v2, each observation roughly corresponds with an
     OBX, and the Diagnostic Report with an ORU_R01 message -->
   <contained>
     <Observation>
       <id value="r1"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="718-7"/>
           <display value="Hemoglobin [Mass/volume] in Blood"/>
         </coding>
         <text value="Haemoglobin"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="176"/>
         <units value="g/L"/>
@@ -77,18 +77,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r2"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="789-8"/>
           <display value="Erythrocytes [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Red Cell Count"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="5.9"/>
         <units value="x10*12/L"/>
@@ -112,24 +112,24 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r3"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="4544-3"/>
           <display value="Hematocrit [Volume Fraction] of Blood by Automated count"/>
         </coding>
         <text value="Haematocrit"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="55"/>
     <units value="%"/>
       </valueQuantity>
       <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="H"/>
         </coding>
@@ -147,18 +147,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r4"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="787-2"/>
           <display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
         </coding>
         <text value="Mean Cell Volume"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="99"/>
         <units value="fL"/>
@@ -166,7 +166,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="fL"/>
       </valueQuantity>
       <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="H"/>
         </coding>
@@ -188,18 +188,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r5"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="785-6"/>
           <display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
         </coding>
         <text value="Mean Cell Haemoglobin"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="36"/>
         <units value="pg"/>
@@ -207,7 +207,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="pg"/>
       </valueQuantity>
             <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="H"/>
         </coding>
@@ -229,18 +229,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r6"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="777-3"/>
           <display value="Platelets [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Platelet Count"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="444"/>
         <units value="x10*9/L"/>
@@ -264,18 +264,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r7"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="6690-2"/>
           <display value="Leukocytes [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="White Cell Count"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="4.6"/>
         <units value="x10*9/L"/>
@@ -299,18 +299,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r8"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="770-8"/>
           <display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
         </coding>
         <text value="Neutrophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="20"/>
         <units value="%"/>
@@ -320,18 +320,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <status value="final"/>
       <reliability value="ok"/>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r9"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="751-8"/>
           <display value="Neutrophils [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Neutrophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="0.9"/>
         <units value="x10*9/L"/>
@@ -339,7 +339,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="LL"/>
         </coding>
@@ -361,18 +361,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r10"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="736-9"/>
           <display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
         </coding>
         <text value="Lymphocytes"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="20"/>
         <units value="%"/>
@@ -382,18 +382,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <status value="final"/>
       <reliability value="ok"/>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
   <Observation>
     <id value="r11"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="731-0"/>
           <display value="Lymphocytes [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Lymphocytes"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="0.9"/>
         <units value="x10*9/L"/>
@@ -401,7 +401,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="L"/>
         </coding>
@@ -423,18 +423,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r12"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="5905-5"/>
           <display value="Monocytes/100 leukocytes in Blood by Automated count"/>
         </coding>
         <text value="Monocytes"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="20"/>
         <units value="%"/>
@@ -444,18 +444,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <status value="final"/>
       <reliability value="ok"/>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r13"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="742-7"/>
           <display value="Monocytes [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Monocytes"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="0.9"/>
         <units value="x10*9/L"/>
@@ -479,18 +479,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r14"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="713-8"/>
           <display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
         </coding>
         <text value="Eosinophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="20"/>
         <units value="%"/>
@@ -500,18 +500,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <status value="final"/>
       <reliability value="ok"/>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r15"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="711-2"/>
           <display value="Eosinophils [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Eosinophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="0.92"/>
         <units value="x10*9/L"/>
@@ -519,7 +519,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <code value="10*9/L"/>
       </valueQuantity>
       <interpretation>
-        <coding> 
+        <coding>
            <system value="http://hl7.org/fhir/v2/0078"/>
            <code value="HH"/>
         </coding>
@@ -541,18 +541,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r16"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="706-2"/>
           <display value="Basophils/100 leukocytes in Blood by Automated count"/>
         </coding>
         <text value="Basophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="20"/>
         <units value="%"/>
@@ -562,18 +562,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
       <status value="final"/>
       <reliability value="ok"/>
     </Observation>
-  </contained> 
-  <contained>  
+  </contained>
+  <contained>
     <Observation>
       <id value="r17"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="704-7"/>
           <display value="Basophils [#/volume] in Blood by Automated count"/>
         </coding>
         <text value="Basophils"/>
-      </name>
+      </code>
       <valueQuantity>
         <value value="0.92"/>
         <units value="x10*9/L"/>
@@ -591,7 +591,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         </high>
       </referenceRange>
     </Observation>
-  </contained> 
+  </contained>
 
 <!-- first, various administrative/context stuff -->
   <name>
@@ -630,7 +630,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   <!-- now the atomic results -->
   <result>
     <reference value="#r1"/>
-  </result>  
+  </result>
   <result>
     <reference value="#r2"/>
   </result>
@@ -680,8 +680,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <reference value="#r17"/>
   </result>
 
-  <!-- finally, here's a pdf representation of the same report. 
-    A consuming application could choose to display either the 
+  <!-- finally, here's a pdf representation of the same report.
+    A consuming application could choose to display either the
 	html version above, or the pdf version - they both need to convey the
 	same information -->
   <presentedForm>

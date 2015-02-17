@@ -1,8 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<h2>Scope and Usage</h2>
-<p>
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
 An order resource describes a request that an action be performed. An order is 
 expected to lead to one or more <a href="orderresponse.html">responses</a> that describe 
 the outcome of processing/handling the order. The order resource is focused on
@@ -11,7 +10,7 @@ be performed  is detailed in a separate resource that contains the details.
 Note that orders are often called "requests", but this name is not used here 
 since the word "request" is used differently elsewhere in this specification.
 </p>
-<p>
+		<p>
 Note that there are a variety of processes associated with making and processing 
 orders. Some orders may be handled immediately by automated systems but most require 
 real world actions by one or more humans. Some orders can only be processed when other real 
@@ -19,12 +18,11 @@ world actions happen, such as a patient actually presenting themselves so that
 the action to be performed can actually be performed. Often these real world dependencies are only 
 implicit in the order details. 
 </p>
-</div>
-
-<div>
-<h2>Background and Context</h2>
-<h3>Separation of Order and Order details</h3>
-<p>
+	</div>
+	<div>
+		<h2>Background and Context</h2>
+		<h3>Separation of Order and Order details</h3>
+		<p>
 In healthcare, information that a particular action has been requested is often widely 
 disseminated throughout the context of a patient's healthcare. For example, the patient's
 healthcare record will often include a list of prescriptions that have been made for 
@@ -32,32 +30,25 @@ the patient. For this reason, the presence of a prescription record itself is no
 enough to create an obligation for a dispense to occur. Most other things that can be
 ordered follow this same pattern. 
 </p>
-
-<p>
+		<p>
 For this reason, the information about what is requested is separated from the 
 actual request for an action to be taken. The various workflows around the
 actual order/fulfillment process are associated with this resource and the 
 <a href="orderresponse.html">Order Response</a> resource, while the details
 of what is actually ordered are delegated to other resources.
 </p>
-
-<h3>Using Orders in a RESTful context</h3>
-
-<p>In a RESTful context, a server functions as a repository of requests. When the 
+		<h3>Using Orders in a RESTful context</h3>
+		<p>In a RESTful context, a server functions as a repository of requests. When the 
 server accepts the order, it has only stored the order; there is no direct 
 response to the order. Some other process detects the existence of the order, 
 processes it, and creates one or more responses as the order is processed. 
 Usually, these responses are made available on the same server as the order, so that
 the client can monitor the result of the original order.</p>
-
-<p>A client can determine that an order has not been performed by searching for order resources
+		<p>A client can determine that an order has not been performed by searching for order resources
 with no matching responses (see below)</p>
-
-<h3>Using Orders with messaging</h3>
-
-<p>Two message event codes are defined for sending orders: synchronous and asynchronous.</p>
-
-<p>
+		<h3>Using Orders with messaging</h3>
+		<p>Two message event codes are defined for sending orders: synchronous and asynchronous.</p>
+		<p>
 In a  <a href="messaging.html#synchronous">synchronous message</a>, an order message (i.e. a <a href="extras.html#bundle">bundle</a> with a
 <a href="messageheader.html">Message Header</a> resource, an order resource and a <i>detail</i> resource for the order - see below) 
 is sent to a system, and it responds with a message that includes the <a href="orderresponse.html">response</a> 
@@ -65,8 +56,7 @@ is sent to a system, and it responds with a message that includes the <a href="o
 synchronous message exchange is simple, but only useful where there only needs to be one response, and where 
 the response can be made in a timely fashion.
 </p>
-
-<p>
+		<p>
 For more general use, an asynchronous message event code is also defined. With this code, 
 the requesting system sends the order message, and receives a simple acknowledgement message (only 
 a message resource) that acknowledges that the order was received. Then the receiving 
@@ -74,16 +64,19 @@ system sends one or more response messages as the order is processed. Each of th
 is sent back to the originating system, which also acknowledges receipt of these messages with
 an acknowledgement message.
 </p>
-
-<h3>Using orders in other contexts</h3>
-
-<p>
+		<h3>Using orders in other contexts</h3>
+		<p>
 There are a wide variety of ways to implement Order/Order Response. The Order and Order Response 
 resources are special resources created to manage behavior in a RESTful or messaging context. 
 In other contexts, such as a Service based environment, there may be alternate methods for 
 managing this behavior that are more appropriate, and there is no need to use Order/Order Response
 in these contexts.
 </p>
-</div>
-
+	</div>
+	<div>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+ As described above, the split between the Order resource and the domain order resources is that  Order is a <b>workflow</b> resource, not a clinical resource. It is used to manage fulfillment requests and other state transitions for the 'real' clinical orders - <a href="deviceuserequest.html">DeviceUseRequest</a>, <a href="diagnosticorder.html">DiagnosticOrder</a>,  <a href="medicationprescription.html">MedicationPrescription</a>, <a href="nutritionorder.html">NutritionOrder</a> and <a href="procedurerequest.html">ProcedureRequest</a>.
+</p>
+	</div>
 </div>

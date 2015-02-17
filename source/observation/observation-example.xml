@@ -5,14 +5,14 @@
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
   <id value="example"/>
-    
-  <!-- 
-    Observations are often coded in multiple code systems. 
+
+  <!--
+    Observations are often coded in multiple code systems.
       - Loinc provides a very specific code (though not usefully more specific in this particular case)
       - snomed provides a clinically relevant code that is usually less granular than LOINC
       - the source system provides it's own code, which may be less or more granular than LOINC
   -->
-  <name>
+  <code>
     <!-- LOINC - always recommended to have a LOINC code -->
     <coding>
       <system value="http://loinc.org"/>
@@ -31,16 +31,16 @@
       <code value="body-weight"/>
       <display value="Body Weight"/>
     </coding>
-  </name>
+  </code>
 
-  <!-- In FHIR, units may be represented twice. Once in the 
+  <!-- In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     Both is best, since it's not always possible to infer
     one from the other in code.
 
-    When a computable unit is provided, UCUM (http://unitsofmeasure.org) 
-    is always preferred, but it doesn't provide notional units (such as 
-    "tablet"), etc. For these, something else is required (e.g. Snomed-CT) 
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org)
+    is always preferred, but it doesn't provide notional units (such as
+    "tablet"), etc. For these, something else is required (e.g. Snomed-CT)
    -->
   <valueQuantity>
     <value value="185"/>

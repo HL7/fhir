@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f002"/>
-    <name>
+    <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="11555-0"/>
             <display value="Base excess in Blood by calculation"/>
         </coding>
-    </name>
+    </code>
     <valueQuantity>
         <value value="12.6"/>
         <units value="mmol/l"/>
@@ -21,7 +21,7 @@
             <display value="abnormal"/>
         </coding>
     </interpretation>
-    <appliesPeriod> 
+    <appliesPeriod>
         <start value="2013-04-02T10:30:10+01:00"/>
         <end value="2013-04-05T10:30:10+01:00"/>
     </appliesPeriod>
@@ -44,7 +44,7 @@
     </method>
     <identifier>
         <use value="official"/>
-        <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/> 
+        <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
         <value value="6324"/>
     </identifier>
     <subject>

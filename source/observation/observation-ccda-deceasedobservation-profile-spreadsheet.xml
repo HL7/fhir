@@ -17,7 +17,8 @@
   <WindowWidth>9870</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1324,7 +1325,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1352,7 +1353,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">11/8/2014 EH  map assertion to LOINC =31210-8 Vital status NAACCR,  discuss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3942,13 +3943,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>20</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3964,8 +3964,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>24</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11276,9 +11276,9 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">11/8/2014 EH  map assertion to LOINC =31210-8 Vital status NAACCR,  discuss</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"><Data ss:Type="String">5. SHALL contain exactly one [1..1] code=&quot;ASSERTION&quot; Assertion (CodeSystem: ActCode 2.16.840.1.113883.5.4 STATIC) (CONF:14853).</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
@@ -13925,10 +13925,12 @@
    </PageSetup>
    <Unsynced/>
    <TabColorIndex>9</TabColorIndex>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

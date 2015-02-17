@@ -1,31 +1,27 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<h2>Scope and Usage</h2>
-<p>Any material sample:</p>
-<ul>
-    <li>taken from a biological entity, living or dead</li>
-    <li>taken from a physical object or the environment</li>
-</ul>
-<p>
-Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs,
-body fluids, embryos, and body excretory products (source: <a href="http://ncit.nci.nih.gov/">NCI Thesaurus</a>, modified).
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>Any material sample:</p>
+		<ul>
+			<li>taken from a biological entity, living or dead</li>
+			<li>taken from a physical object or the environment</li>
+		</ul>
+		<p>
+Some specimens are biological and can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products (source: <a href="http://ncit.nci.nih.gov/">NCI Thesaurus</a>, modified).
 </p>
-<p>The specimen resource covers substances used for diagnostic and environmental testing. The focus of the specimen resource
+		<p>The specimen resource covers substances used for diagnostic and environmental testing. The focus of the specimen resource
   is the process for gathering, maintaining and processing the specimen as well as where the specimen originated.
   This is distinct from the use of Substance which is only used when these other aspects are not relevant.
 </p>
-</div>
-
-<div>
-<h2>Background and Context</h2>
-<p>
+	</div>
+	<div>
+		<h2>Background and Context</h2>
+		<p>
 The current definition of the specimen resource contains only basic information about specimen containers. It does not
 address the recursive nature of containers or the tracking of the location of a container within its parent container
 (for instance: a tube in a tray in a rack in a freezer). The frequency with which these elements are tracked may depend on the context
 of use; general lab; biobanking, etc. Comments from reviewers on the appropriate scope for this resource, and the need for tracking
 related specimen management attributes, are welcomed.
 </p>
-</div>
-
+	</div>
 </div>

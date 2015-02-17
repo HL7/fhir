@@ -2,13 +2,13 @@
 <!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f206"/>
- <name><!--Kind of observation = Blood culture-->
+ <code><!--Kind of observation = Blood culture-->
     <coding>
        <system value="http://snomed.info/sct"/>
        <code value="104177005"/>
        <display value="Blood culture for bacteria, including anaerobic screen"/>
     </coding>
- </name>
+ </code>
  <valueCodeableConcept>
      <coding>
         <system value="http://snomed.info/sct"/>
@@ -38,7 +38,7 @@
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </subject>
- <performer><!--Roel's blood culture was tested by Luigi Maas-->     
+ <performer><!--Roel's blood culture was tested by Luigi Maas-->
      <reference value="Practitioner/f202"/>
      <display value="Luigi Maas"/>
  </performer>

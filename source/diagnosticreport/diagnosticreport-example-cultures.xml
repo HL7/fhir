@@ -22,9 +22,9 @@
   </performer>
   <diagnosticDateTime value="2013-03-04T18:00:00"/>
     <group>
-      <name>
+      <code>
         <text value="Streptococcus lactis"/>
-      </name>
+      </code>
       <result>
         <reference value="#c1-id"/> <!-- 11475-1^Culture^LN|1|Streptococcus lactis -->
       </result>

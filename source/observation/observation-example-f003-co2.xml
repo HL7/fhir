@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
   <id value="f003"/>
-    <name>
+    <code>
         <coding>
             <system value="http://loinc.org"/>
             <code value="11557-6"/>
             <display value="Carbon dioxide in blood"/>
         </coding>
-    </name>
+    </code>
     <valueQuantity>
         <value value="6.2"/>
         <units value="kPa"/>
@@ -44,7 +44,7 @@
     </method>
     <identifier>
         <use value="official"/>
-        <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/> 
+        <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
         <value value="6325"/>
     </identifier>
     <subject>

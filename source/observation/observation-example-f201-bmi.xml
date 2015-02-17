@@ -5,13 +5,13 @@
   <contained>
     <Observation>
       <id value="height"/>
-      <name>
-        <coding>   
+      <code>
+        <coding>
             <system value="http://snomed.info/sct"/>
             <code value="50373000"/>
-            <display value="Body height measure"/>   
-        </coding>      
-      </name>
+            <display value="Body height measure"/>
+        </coding>
+      </code>
       <valueQuantity>
          <value value="182"/>
          <units value="centimeter"/>
@@ -25,13 +25,13 @@
   <contained>
     <Observation>
       <id value="weight"/>
-      <name>
+      <code>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="27113001"/>
-            <display value="Body weight"/>  
-        </coding>    
-      </name>
+            <display value="Body weight"/>
+        </coding>
+      </code>
       <valueQuantity>
          <value value="103.7"/>
          <units value="kilogram"/>
@@ -42,8 +42,8 @@
       <reliability value="ok"/><!--No reliability concerns-->
     </Observation>
   </contained>
-  
-  <name>
+
+  <code>
     <!--Kind of observation = BMI-->
     <coding>
         <system value="http://snomed.info/sct"/>
@@ -56,15 +56,15 @@
         <display value="Body mass index (BMI) [Ratio]"/>
     </coding>
     <text value="BMI"/>
-  </name>
+  </code>
   <valueQuantity><!--BMI=31,31-->
      <value value="31.31"/>
-  </valueQuantity> 
+  </valueQuantity>
   <interpretation><!--BMI of 31,31 is high-->
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="75540009"/>
-        <display value="High"/>     
+        <display value="High"/>
     </coding>
      <coding>
          <system value="http://hl7.org/fhir/v2/0078" />
@@ -78,14 +78,14 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
-        <display value="Entire body as a whole"/>   
+        <display value="Entire body as a whole"/>
     </coding>
   </bodySiteCodeableConcept>
   <method><!--BMI method is measurement as an action-->
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="122869004"/>
-        <display value="Measurement procedure"/> 
+        <display value="Measurement procedure"/>
     </coding>
   </method>
   <!--No identifier could be provided to this observation-->
@@ -104,52 +104,52 @@
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="248342006"/>
-            <display value="Underweight"/> 
+            <display value="Underweight"/>
         </coding>
     </meaning>
   </referenceRange>
   <referenceRange><!--20<BMI<25 indicates normal BMI-->
-    <low> 
+    <low>
         <value value="20"/>
-    </low> 
-    <high> 
-        <value value="25"/> 
+    </low>
+    <high>
+        <value value="25"/>
     </high>
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="43664005"/>
-            <display value="Normal weight"/> 
+            <display value="Normal weight"/>
         </coding>
     </meaning>
   </referenceRange>
   <referenceRange><!--25<BMI<30 indicates overweight-->
-    <low> 
+    <low>
         <value value="25"/>
-    </low> 
-    <high> 
-        <value value="30"/> 
+    </low>
+    <high>
+        <value value="30"/>
     </high>
     <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="238131007"/>
-            <display value="Overweight"/> 
+            <display value="Overweight"/>
         </coding>
     </meaning>
   </referenceRange>
   <referenceRange><!--30<BMI<40 indicates obesity-->
-    <low> 
+    <low>
         <value value="30"/>
-    </low> 
-    <high> 
-        <value value="40"/> 
+    </low>
+    <high>
+        <value value="40"/>
     </high>
-    <meaning> 
+    <meaning>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="414915002"/>
-            <display value="Obese"/> 
+            <display value="Obese"/>
         </coding>
     </meaning>
   </referenceRange>
@@ -158,11 +158,11 @@
         <value value="40"/>
     </low>
     <meaning>
-        <coding>   
+        <coding>
             <system value="http://snomed.info/sct"/>
             <code value="238136002"/>
-            <display value="Morbid obesity"/> 
-        </coding>   
+            <display value="Morbid obesity"/>
+        </coding>
     </meaning>
   </referenceRange>
   <related>

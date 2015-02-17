@@ -71,7 +71,7 @@
       </Composition>
     </resource>
   </entry>
-  <!-- The Practitioner Resource. In this document they are the author of the document 
+  <!-- The Practitioner Resource. In this document they are the author of the document
     (There is a reference from the document resource). Note that, strictly, it doesn't need to be within the document as the
     recipient knows where to go and get it if they need it - assuming it is available on-line of course.-->
   <entry>
@@ -177,13 +177,13 @@
           <div xmlns="http://www.w3.org/1999/xhtml"> Acute Asthmatic attack. Was wheezing
                         for days prior to admission. </div>
         </text>
-        <name>
+        <code>
           <coding>
             <system value="http://loinc.org"/>
             <code value="46241-6"/>
           </coding>
           <text value="Reason for admission"/>
-        </name>
+        </code>
         <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
         <status value="final"/>
         <reliability value="ok"/>
@@ -251,7 +251,7 @@
         <!-- This is an entry that refers to a medicationPrescription that is available on an external server.
                 In practice, you may still want an entry in the document as well, but it's not necessary. The medication
                 was stopped on this admission. Note that the deleted element is also true. Because the resource is
-                no longer active, we assume that it was deleted on the server, so following the link would result 
+                no longer active, we assume that it was deleted on the server, so following the link would result
                 in an http status code of 410 (Though you can always use the history to get previous versions)-->
         <entry>
           <flag>

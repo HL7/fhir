@@ -10,7 +10,7 @@
   <LastAuthor>Brett A Marquard</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-03T18:39:22Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -1209,9 +1209,9 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.name, i.e. the being resulted.</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1244,7 +1244,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLOINCCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1277,7 +1277,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1309,7 +1309,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1340,7 +1340,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1372,7 +1372,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLocalCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Local</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1403,7 +1403,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1435,7 +1435,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1465,7 +1465,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1496,7 +1496,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Used when the laboratory define how the dsplay text if different from the code display text.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.text</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4192,9 +4192,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.</Data></Cell>
     <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.name, i.e. the being resulted.</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4227,7 +4227,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLOINCCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4260,7 +4260,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4292,7 +4292,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4323,7 +4323,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4355,7 +4355,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLocalCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Local</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4386,7 +4386,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4418,7 +4418,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4448,7 +4448,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4479,7 +4479,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Used when the laboratory define how the dsplay text if different from the code display text.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.text</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7371,9 +7371,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.</Data></Cell>
     <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.name, i.e. the being resulted.</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7406,7 +7406,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLOINCCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7439,7 +7439,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7471,7 +7471,7 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7502,7 +7502,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7534,7 +7534,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLocalCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Local</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7565,7 +7565,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7597,7 +7597,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -7627,7 +7627,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -7658,7 +7658,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Used when the laboratory define how the dsplay text if different from the code display text.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.text</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -10463,9 +10463,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/19/2014 EH:OBX.3Observation IdentifierCWE_CRR[1..1]Laboratory Observation Identifier Value Set  Use same structure as DO and DR name.</Data></Cell>
     <Cell ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.name, i.e. the being resulted.</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">The use of the Logical Observation Identifiers Names and Codes (LOINC) code system is required where a LOINC code is available for the Observation.code, i.e. the being resulted.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10491,7 +10491,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:LOINC Slice</Data></Cell>
@@ -10499,7 +10499,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLOINCCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10526,14 +10526,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.3</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -10559,14 +10559,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.system</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.1</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">regex to LOINC invarient  ( how create context  for slice onlyhave lloyd check the regex</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -10591,14 +10591,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.code</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.2</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -10623,7 +10623,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.display</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.display</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:Local Slice</Data></Cell>
@@ -10631,7 +10631,7 @@
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><Data ss:Type="String">USLabLocalCoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Local</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10656,14 +10656,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.6</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.system</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -10689,14 +10689,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.system</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.4</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.code</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
@@ -10720,14 +10720,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.code</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.7</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.coding.display</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.coding.display</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -10752,14 +10752,14 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.coding.display</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.coding.display</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/24/2014 EH:CWE-CR.9  display text - originated by lab</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Used when the laboratory define how the dsplay text if different from the code display text.</Data></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.name.text</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Observation.code.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell
@@ -10785,7 +10785,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.name.text</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.code.text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">11/19/2014 EH: OBX.5Observation ValueVarRE[0..1]  Note that Ratio requires a  reference range and should be handled separately.&#10;</Data></Cell>
@@ -13357,7 +13357,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">LOINC or Local</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:coding)</Data></Cell>
@@ -13922,7 +13922,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">LOINC or Local</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:coding)</Data></Cell>
@@ -14489,7 +14489,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">LOINC or Local</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:coding)</Data></Cell>
@@ -15056,7 +15056,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">LOINC or Local</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Must have a LOINC or a Local code or both.</Data></Cell>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:coding)</Data></Cell>

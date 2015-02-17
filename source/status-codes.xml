@@ -198,6 +198,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26.0625">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
@@ -210,6 +212,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
@@ -222,6 +226,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell><Data ss:Type="String">received</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
@@ -327,6 +333,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">NutritionOrder.status</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell><Data ss:Type="String">held</Data></Cell>

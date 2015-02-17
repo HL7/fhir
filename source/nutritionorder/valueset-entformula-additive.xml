@@ -1,17 +1,36 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="EnteralFormulaAdditiveType"/>
-  <publisher value="FHIR NutritionOrder team"/>
-  <telecom>  
-    <system value="url"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
-  <description value="EnteralFormulaAdditiveType :  all SNOMED CT codes for now.  This is  a placeholder until code set defined"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
-  <status value="draft"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-    </include>
-  </compose>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="EnteralFormulaAdditiveType"/>
+	<publisher value="FHIR NutritionOrder team"/>
+	<telecom>
+		<system value="url"/>
+		<value value="http://hl7.org/fhir"/>
+	</telecom>
+	<description value="EnteralFormulaAdditiveType :  The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to indicate the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example"/>
+	<!--copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/ -->
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/vs/entformula-additive"/>
+			<concept>
+				<code value="lipid"/>
+				<display value="Modular lipid enteral formula componen"/>
+			</concept>
+			<concept>
+				<code value="protein"/>
+				<display value="Modular protein enteral formula component"/>
+			</concept>
+			<concept>
+				<code value="carbohydrate"/>
+				<display value="Modular carbohydrate enteral formula component"/>
+			</concept>
+			<concept>
+				<code value="GT"/>
+				<display value="???"/>
+			</concept>
+			<concept>
+				<code value="NGT"/>
+				<display value="???"/>
+			</concept>
+		</include>
+	</compose>
 </ValueSet>

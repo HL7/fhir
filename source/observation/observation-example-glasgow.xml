@@ -11,7 +11,7 @@
 		 <h2>Observation: Glasgow Coma Scale , (GCS)</h2>
 	<h3>Date Time: 2014-12-11 20:44PM</h3>
 	<h3>Patient Name: Peter James Chalmers</h3>
-	
+
 		<ul>
 			<li>
 				<b>Glasgow Coma Scale , (GCS)=</b>13<ul>
@@ -23,22 +23,22 @@
 						<b>Eyes=</b>4</li>
 				</ul></li>
 		</ul>
-	
+
 		 </div>
 	</text>
 <!-- Note: will use contained elements for this example but could just as easily use external or bundled elements..-->
-<!-- First contained element = Motor component. --> 
+<!-- First contained element = Motor component. -->
 	<contained>
 		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 			<id value="motor"/>
-			<name>
+			<code>
 				<coding>
 					<system value="http://loinc.org"/>
 					<code value="9268-4"/>
 					<display value="Glasgow coma score motor"/>
 				</coding>
 				<text value="Motor"/>
-			</name>
+			</code>
 			<valueQuantity>
 				<value value="5"/>
 				<system value="http://unitsofmeasure.org"/>
@@ -52,18 +52,18 @@
 			</subject>
 		</Observation>
 	</contained>
-	<!-- Second contained element = Verbal component. --> 
+	<!-- Second contained element = Verbal component. -->
 	<contained>
 		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 			<id value="verbal"/>
-			<name>
+			<code>
 				<coding>
 					<system value="http://loinc.org"/>
 					<code value="9270-0"/>
 					<display value="Glasgow coma score verbal"/>
 				</coding>
 				<text value="Verbal"/>
-			</name>
+			</code>
 			<valueQuantity>
 				<value value="4"/>
 				<system value="http://unitsofmeasure.org"/>
@@ -77,18 +77,18 @@
 			</subject>
 		</Observation>
 	</contained>
-	<!-- Third contained element = Eyes component. --> 
+	<!-- Third contained element = Eyes component. -->
 	<contained>
 		<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
 			<id value="eyes"/>
-			<name>
+			<code>
 				<coding>
 					<system value="http://loinc.org"/>
 					<code value="9267-6"/>
 					<display value="Glasgow coma score eye opening"/>
 				</coding>
 				<text value="Eyes"/>
-			</name>
+			</code>
 			<valueQuantity>
 				<value value="4"/>
 				<system value="http://unitsofmeasure.org"/>
@@ -102,14 +102,14 @@
 			</subject>
 		</Observation>
 	</contained>
-	<!-- 
-    Observations are often coded in multiple code systems. 
+	<!--
+    Observations are often coded in multiple code systems.
       - LOINC
-		- or SNOMED     
-      -and/or the source system may provides it's own "local" code, which may be less or more granular than LOINC.  
-	In this example there is only LOINC 
+		- or SNOMED
+      -and/or the source system may provides it's own "local" code, which may be less or more granular than LOINC.
+	In this example there is only LOINC
   -->
-	<name>
+	<code>
 		<!-- LOINC - always recommended to have a LOINC code -->
 		<coding>
 			<system value="http://loinc.org"/>
@@ -117,8 +117,8 @@
 			<display value="Glasgow coma score total"/>
 		</coding>
 		<text value="Glasgow Coma Scale , (GCS)"/>
-	</name>
-	<!-- In FHIR, units may be represented twice. Once in the 
+	</code>
+	<!-- In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     In this example the UCUM unit is provided but no human representation since this is often not displayed
    -->
@@ -166,7 +166,7 @@
 	<referenceRange>
 		<low>
 			<value value="13"/>
-	
+
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{score}"/>
 		</low>

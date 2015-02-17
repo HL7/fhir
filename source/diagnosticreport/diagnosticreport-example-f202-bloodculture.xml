@@ -12,7 +12,7 @@
          <reference value="Practitioner/f201"/>
          <display value="Dokter Bronsig"/>
       </orderer>
-      <encounter>         
+      <encounter>
         <reference value="Encounter/f203"/>
         <display value="Roel's encounter on March eleventh 2013"/>
       </encounter>
@@ -22,7 +22,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="104177005"/>
-        <display value="Blood culture for bacteria, including anaerobic screen"/> 
+        <display value="Blood culture for bacteria, including anaerobic screen"/>
     </coding>
   </name>
   <status value="final"/>
@@ -43,7 +43,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="15220000"/>
-      <display value="Laboratory test"/> 
+      <display value="Laboratory test"/>
     </coding>
     <coding>
       <system value="http://hl7.org/fhir/v2/0074"/>
@@ -53,14 +53,14 @@
   <diagnosticDateTime value="2013-03-11T03:45:00+01:00"/>
   <result>
     <reference value="Observation/f206"/>
-    <display value="Results for staphylococcus analysis on Roel's blood culture"/>  
+    <display value="Results for staphylococcus analysis on Roel's blood culture"/>
   </result>
   <conclusion value="Blood culture tested positive on staphylococcus aureus"/>
   <codedDiagnosis>
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="428763004"/>
-        <display value="Bacteremia due to staphylococcus"/> 
+        <display value="Bacteremia due to staphylococcus"/>
     </coding>
   </codedDiagnosis>
 </DiagnosticReport>

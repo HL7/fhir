@@ -1266,7 +1266,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4460,7 +4460,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.name</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -14169,7 +14169,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">5.  SHALL contain exactly one [1..1] code (CONF:14439). &#10;a.  SHOULD be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or &#10;SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) identifying the &#10;assessment scale (CONF:14440). </Data></Cell>
     <Cell ss:StyleID="s84"/>
     <Cell ss:StyleID="s84"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s84"/>
     <Cell ss:StyleID="s84"/>
@@ -15031,9 +15031,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s166"><Data ss:Type="String">SHALL contain exactly one [1..1] code with @xsi:type=&quot;CE&quot; (CONF:16717).&#10;a. This code SHALL contain exactly one [1..1] @code (CONF:16738).&#10;i. Such that observation/code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:14458) (CONF:16739).</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s84"/>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.name</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Observation.code</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s84"/>
     <Cell ss:StyleID="s84"/>

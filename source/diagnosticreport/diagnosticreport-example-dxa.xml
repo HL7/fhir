@@ -6,9 +6,9 @@
   <id value="102"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"> 
+    <div xmlns="http://www.w3.org/1999/xhtml">
       <h2>DXA BONE DENSITOMETRY</h2>
-      
+
       <table>
         <tr><td>NAME</td><td>XXXXXXX</td></tr>
         <tr><td>DOB</td><td>10/02/1974</td></tr>
@@ -27,8 +27,8 @@
           <td>BMD</td>
           <td>T-Score</td>
           <td>Z-Score</td>
-          <td>ΔBMD(g/cm2)</td>
-          <td>ΔBMD(%)</td>
+          <td>?BMD(g/cm2)</td>
+          <td>?BMD(%)</td>
         </tr>
 
         <tr>
@@ -66,7 +66,7 @@
           <td>-</td>
           <td>-</td>
         </tr>
-							
+
         <tr>
           <td>Right Femur</td>
           <td>Neck</td>
@@ -78,7 +78,7 @@
           <td>-</td>
           <td>-</td>
         </tr>
- 
+
         <tr>
           <td>Right Femur</td>
           <td>Total</td>
@@ -100,12 +100,12 @@
         <li>The Right Femur Neck BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
         <li>The Right Femur Total BMD is in the osteopenic range. Relative fracture risk is about 2.</li>
       </ul>
-      
+
       <p><b>COMMENT</b></p>
       <p>Osteopenia on measured BMD. The estimated 10-year probability of fracture based on present age, gender and measured BMD is less than 10%. This absolute fracture risk remains low. A follow-up assessment may be considered in 2 to 3 years to monitor the trend in BMD.</p>
-      
+
       <p>Thank you for your referral.  Dr Peter Ng  17/06/2008</p>
- 
+
       <pre>
 Note:
 WHO classification of osteoporosis (WHO Technical Report Series 1994: 843)
@@ -114,26 +114,26 @@ WHO classification of osteoporosis (WHO Technical Report Series 1994: 843)
 - Osteoporosis: T-score equal to -2.5 s.d. or lower
 - Severe/Established osteoporosis: Osteoporosis with one or more fragility fracture.
 
-T-score: The number of s.d. from the mean BMD for a gender-matched young adult population. 
+T-score: The number of s.d. from the mean BMD for a gender-matched young adult population.
 Z-score: The number of s.d. from the mean BMD for an age-, weight- and gender-matched population.
 
 Reference for 10-year probability of fracture risk: Kanis JA, Johnell O, Oden A, Dawson A,  De Laet C, Jonsson B. Ten year probabilities of osteoporotic fractures according to BMD and diagnostic thresholds. Osteoporos.Int. 2001;12(12):989-995.
 
 GE LUNAR PRODIGY DENSITOMETER
-</pre> 
+</pre>
     </div>
   </text>
   <contained>
     <!-- Here is one of the measurements above encoded as an observation for example purposes. -->
     <Observation>
       <id value="r1"/>
-      <name>
+      <code>
         <coding>
           <system value="http://loinc.org"/>
           <code value="24701-5"/>
           <display value="Femur DXA Bone density"/>
         </coding>
-      </name> 
+      </code>
       <valueQuantity>
         <value value="0.887"/>
         <units value="g/cm²"/>
@@ -149,9 +149,9 @@ GE LUNAR PRODIGY DENSITOMETER
         </coding>
       </bodySiteCodeableConcept>
     </Observation>
-  </contained> 
+  </contained>
 
-  
+
 <!-- first, various administrative/context stuff -->
   <name>
     <coding>
@@ -172,16 +172,16 @@ GE LUNAR PRODIGY DENSITOMETER
   <diagnosticDateTime value="2008-06-17"/>
   <result>
     <reference value="#r1"/>
-  </result>  
-  
+  </result>
+
   <!-- the imaging service marks this to help find categories of patient -->
   <codedDiagnosis>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="391040000"/> 
+      <code value="391040000"/>
       <display value="At risk of osteoporotic fracture"/>
     </coding>
-  </codedDiagnosis>  
-  <!-- actually, of course, this is a wrong code - since the risk is <10%, it wouldn't be characterised as at risk. To do: fix this? -->  
-    
+  </codedDiagnosis>
+  <!-- actually, of course, this is a wrong code - since the risk is <10%, it wouldn't be characterised as at risk. To do: fix this? -->
+
 </DiagnosticReport>
