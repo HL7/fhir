@@ -25,5 +25,12 @@
     <display value="Nancy Nurse"/>
   </author>
   
-  <note value="patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures"/>
+  <note>
+    <coding>
+      <system value="local"/>
+      <code value="bigdog"/>
+      <display value="Big dog"/>
+    </coding>
+    <text value="Patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures"/>
+  </note>
 </Alert>

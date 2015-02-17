@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Feb 14, 2015 08:05+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1126,9 +1126,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("author"))
       res.setAuthor(parseReference(json.getAsJsonObject("author")));
     if (json.has("note"))
-      res.setNoteElement(parseString(json.get("note").getAsString()));
-    if (json.has("_note"))
-      parseElementProperties(json.getAsJsonObject("_note"), res.getNoteElement());
+      res.setNote(parseCodeableConcept(json.getAsJsonObject("note")));
     return res;
   }
 
@@ -5462,12 +5460,12 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("vaccineType"))
       res.setVaccineType(parseCodeableConcept(json.getAsJsonObject("vaccineType")));
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
-    if (json.has("refusedIndicator"))
-      res.setRefusedIndicatorElement(parseBoolean(json.get("refusedIndicator").getAsBoolean()));
-    if (json.has("_refusedIndicator"))
-      parseElementProperties(json.getAsJsonObject("_refusedIndicator"), res.getRefusedIndicatorElement());
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
+    if (json.has("wasNotGiven"))
+      res.setWasNotGivenElement(parseBoolean(json.get("wasNotGiven").getAsBoolean()));
+    if (json.has("_wasNotGiven"))
+      parseElementProperties(json.getAsJsonObject("_wasNotGiven"), res.getWasNotGivenElement());
     if (json.has("reported"))
       res.setReportedElement(parseBoolean(json.get("reported").getAsBoolean()));
     if (json.has("_reported"))
@@ -5476,6 +5474,8 @@ public class JsonParser extends JsonParserBase {
       res.setPerformer(parseReference(json.getAsJsonObject("performer")));
     if (json.has("requester"))
       res.setRequester(parseReference(json.getAsJsonObject("requester")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     if (json.has("manufacturer"))
       res.setManufacturer(parseReference(json.getAsJsonObject("manufacturer")));
     if (json.has("location"))
@@ -5520,10 +5520,10 @@ public class JsonParser extends JsonParserBase {
         res.getReason().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("refusalReason")) {
-      JsonArray array = json.getAsJsonArray("refusalReason");
+    if (json.has("reasonNotGiven")) {
+      JsonArray array = json.getAsJsonArray("reasonNotGiven");
       for (int i = 0; i < array.size(); i++) {
-        res.getRefusalReason().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getReasonNotGiven().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     return res;
@@ -5584,8 +5584,8 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("subject"))
-      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("patient"))
+      res.setPatient(parseReference(json.getAsJsonObject("patient")));
     if (json.has("recommendation")) {
       JsonArray array = json.getAsJsonArray("recommendation");
       for (int i = 0; i < array.size(); i++) {
@@ -13434,9 +13434,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasAuthor()) {
         composeReference("author", element.getAuthor());
       }
-      if (element.hasNoteElement()) {
-        composeStringCore("note", element.getNoteElement(), false);
-        composeStringExtras("note", element.getNoteElement(), false);
+      if (element.hasNote()) {
+        composeCodeableConcept("note", element.getNote());
       }
   }
 
@@ -18754,12 +18753,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasVaccineType()) {
         composeCodeableConcept("vaccineType", element.getVaccineType());
       }
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
       }
-      if (element.hasRefusedIndicatorElement()) {
-        composeBooleanCore("refusedIndicator", element.getRefusedIndicatorElement(), false);
-        composeBooleanExtras("refusedIndicator", element.getRefusedIndicatorElement(), false);
+      if (element.hasWasNotGivenElement()) {
+        composeBooleanCore("wasNotGiven", element.getWasNotGivenElement(), false);
+        composeBooleanExtras("wasNotGiven", element.getWasNotGivenElement(), false);
       }
       if (element.hasReportedElement()) {
         composeBooleanCore("reported", element.getReportedElement(), false);
@@ -18770,6 +18769,9 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasRequester()) {
         composeReference("requester", element.getRequester());
+      }
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
       }
       if (element.hasManufacturer()) {
         composeReference("manufacturer", element.getManufacturer());
@@ -18827,9 +18829,9 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasRefusalReason()) {
-        openArray("refusalReason");
-        for (CodeableConcept e : element.getRefusalReason()) 
+      if (element.hasReasonNotGiven()) {
+        openArray("reasonNotGiven");
+        for (CodeableConcept e : element.getReasonNotGiven()) 
           composeCodeableConcept(null, e);
         closeArray();
       };
@@ -18913,8 +18915,8 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.hasSubject()) {
-        composeReference("subject", element.getSubject());
+      if (element.hasPatient()) {
+        composeReference("patient", element.getPatient());
       }
       if (element.hasRecommendation()) {
         openArray("recommendation");
