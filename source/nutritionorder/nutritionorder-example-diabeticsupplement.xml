@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+	<id value="diabeticsupplement"/>
+	<!-- id = diabeticsupplement  file name = nutritionorder-example-diabeticsupplement.xml Name= Diabetic Supplement  Description = Nutrition Order Diabetic Supplement Canonical Example
+edited by Eric Haas Health eData Inc-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Diabetic Supplement Canonical Example</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Known Allergies: </b>Cashew Nuts</li>
+				<li>
+					<b>Food Preferences: </b>Kosher</li>
+				<li>
+					<b>Supplement(Brand): </b>Adult diabetic formula (Glucerna)</li>
+				<li>
+					<b>Schedule: </b>3pm and HS</li>
+			</ul>
+		</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<value value="123"/>
+	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+		<display value="Inpatient"/>
+	</encounter>
+	<dateTime value="2014-09-17"/>
+	<allergyIntolerance>
+		<reference value="AllergyIntolerance/example"/>
+		<display value="Cashew Nuts"/>
+	</allergyIntolerance>
+	<foodPreferenceModifier>
+		<coding>
+			<system value="http://hl7.org/fhir/diet"/>
+			<code value="kosher"/>
+			<valueSet>
+				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
+				<display value="PatientDiet"/>
+			</valueSet>
+		</coding>
+	</foodPreferenceModifier>
+	<excludeFoodModifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<version value="20140730"/>
+			<code value="227493005"/>
+			<display value="Cashew Nut"/>
+		</coding>
+	</excludeFoodModifier>
+	<!-- EH: use supplement element -->
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="443051000124104"/>
+				<display value="Adult diabetes specialty formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1010"/>
+				<display value="Adult diabetic formula"/>
+			</coding>
+			<text value="Adult diabetic formula"/>
+		</type>
+		<productName value="Glucerna"/>
+		<!-- EH 02/11/2015 - no way to say at 3 and HS using the timing datatype - suggest using instructions for these -->
+		<scheduled>
+			<event>
+				<start value="2015-02-10"/>
+			</event>
+			<repeat>
+				<when value="HS"></when>
+				<duration value="1"/>
+				<units value="h"/>
+			</repeat>
+		</scheduled>
+		<quantity>
+			<value value="1"/>
+			<units value="8 oz bottle"/>
+		</quantity>
+				<!-- EH:  use the .instructions element to list diet  supplement order
+		<instruction value="Glucerna Shake at 3pm and HS"/>
+-->
+	</supplement>
+	<status value="active"/>
+</NutritionOrder>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+	<id value="proteinsupplement"/>
+	<!-- id = proteinsupplement  file name = nutritionorder-example-proteinsupplement.xml  Name= Protein Supplement  Description = Nutrition Order Protein Supplement Canonical Example
+edited by Eric Haas Health eData Inc-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Protein Supplement Canonical Example</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Supplement(Brand): </b>High protein powder ( Beneprotein )</li>
+				<li>
+					<b>Schedule: </b>1 scoop with meal</li>
+			</ul>
+		</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<value value="123"/>
+	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+		<display value="Inpatient"/>
+	</encounter>
+	<dateTime value="2014-09-17"/>
+	<excludeFoodModifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<version value="20140730"/>
+			<code value="227493005"/>
+			<display value="Cashew Nut"/>
+		</coding>
+	</excludeFoodModifier>
+	<!-- EH: use supplement element -->
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442991000124104"/>
+				<display value="Adult high protein formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1000"/>
+				<display value="High Protein Powder"/>
+			</coding>
+			<text value="High Protein Powder"/>
+		</type>
+		<productName value="Beneprotein"/>
+		<scheduled>
+			<event>
+				<start value="2015-02-10"/>
+			</event>
+			<!-- 02/11/2015  EH: currently no way to use data type to say "with meal" created a gforge comment for MNM on this also schematron doesn't allow '0 minutes before a meal'  gg fixed this so will update when update my build-->
+			<repeat>
+				<when value="AC"/>
+				<duration value="1"/>
+				<units value="min"/>
+			</repeat>
+		</scheduled>
+		<quantity>
+			<value value="1"/>
+			<units value="scoop"/>
+			<system value="http://unitsofmeasure.org "/>
+			<code value="{scoop}"/>
+		</quantity>
+		<!-- EH:  use the .instructions element to list diet  supplement order
+		<instruction value="Beneprotein 1 scoop TID with meal."/>
+-->
+	</supplement>
+	<status value="active"/>
+</NutritionOrder>

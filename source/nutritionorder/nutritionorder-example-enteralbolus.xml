@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd">
+	<id value="enteralbolus"/>
+	<!-- id = enteralbolus  file name = nutritionorder-example-enteralbolus.xml Name= Enteral Bolus  Description = Nutrition Order Enteral Bolus Feeding Canonical Example 
+edited by Eric Haas Health eData Inc-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"> Description = Nutrition Order Infant Enteral Feeding Canonical Example</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://www.acme.org/nutritionorders"/>
+		<value value="123"/>
+	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+		<display value="Inpatient"/>
+	</encounter>
+	<dateTime value="2014-09-17"/>
+	<allergyIntolerance>
+		<reference value="AllergyIntolerance/example"/>
+		<display value="Cashew Nuts"/>
+	</allergyIntolerance>
+	<foodPreferenceModifier>
+		<coding>
+			<system value="http://hl7.org/fhir/diet"/>
+			<code value="dairy-free"/>
+			<valueSet>
+				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
+				<display value="PatientDiet"/>
+			</valueSet>
+		</coding>
+	</foodPreferenceModifier>
+	<excludeFoodModifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<version value="20140730"/>
+			<code value="227493005"/>
+			<display value="Cashew Nut"/>
+		</coding>
+	</excludeFoodModifier>
+	<enteralFormula>
+		<baseFormulaType>
+			<coding>
+				<system value="http://usextension/snomed.info/sct"/>
+				<!--EH  temporary system value for us extension -->
+				<code value="659311000124118"/>
+				<display value="Adult high protein formula"/>
+			</coding>
+		</baseFormulaType>
+		<baseFormulaProductName value="Acme High Protein Formula"/>
+		<scheduled>
+			<event>
+				<start value="2014-09-17"/>
+			</event>
+		</scheduled>
+		<additiveType>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="427298002"/>
+				<display value="Enteral dietary supplement"/>
+				<valueSet>
+					<reference value="http://hl7.org/fhir/vs/entformula-additive"/>
+					<display value="EnteralFormulaAdditiveType"/>
+				</valueSet>
+			</coding>
+		</additiveType>
+		<additiveProductName value="Acme Additive"/>
+		<caloricDensity>
+			<value value="1.5"/>
+			<units value="calories per milliliter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cal/mL"/>
+		</caloricDensity>
+		<routeofAdministration>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+				<code value="GT"/>
+				<display value="Instillation, gastrostomy tube"/>
+				<valueSet>
+					<reference value="http://hl7.org/fhir/vs/enteral-route"/>
+					<display value="EnteralRouteOfAdministration"/>
+				</valueSet>
+			</coding>
+		</routeofAdministration>
+		<quantity>
+			<value value="240"/>
+			<units value="milliliters"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mL"/>
+		</quantity>
+		<rate>
+			<numerator>
+				<value value="240"/>
+				<units value="milliliters"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mL"/>
+			</numerator>
+			<denominator>
+				<value value="4"/>
+				<units value="hr"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="h"/>
+			</denominator>
+		</rate>
+		<maxVolumeToDeliver>
+			<value value="1440"/>
+			<units value="milliliter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mL"/>
+		</maxVolumeToDeliver>
+	</enteralFormula>
+	<status value="active"/>
+</NutritionOrder>

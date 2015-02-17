@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+	<id value="energysupplement2"/>
+	<!-- id = energysupplement2  file name = nutritionorder-example-energysupplement2.xml  Name= Energy Supplement  Description = Nutrition Order Energy Supplement Canonical Example
+edited by Eric Haas Health eData Inc-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Protein Supplement Canonical Example</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Supplement(Brand): </b>Adult high energy formula (Ensure Pudding)</li>
+				<li>
+					<b>Schedule: </b>Ensure Pudding at breakfast, lunch, supper</li>
+			</ul>
+		</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<value value="123"/>
+	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+		<display value="Inpatient"/>
+	</encounter>
+	<dateTime value="2014-09-17"/>
+	<excludeFoodModifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<version value="20140730"/>
+			<code value="227493005"/>
+			<display value="Cashew Nut"/>
+		</coding>
+	</excludeFoodModifier>
+	<!-- EH: use supplement element -->
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442971000124100"/>
+				<display value="Adult high energy formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1040"/>
+				<display value="Adult high energy pudding"/>
+			</coding>
+			<text value="Adult high energy pudding"/>
+		</type>
+		<productName value="Ensure Pudding"/>
+		<scheduled>
+			<event>
+				<start value="2015-02-10"/>
+			</event>
+			<repeat>
+				<when value="AC"/>
+				<duration value="0"/>
+				<units value="min"/>
+			</repeat>
+		</scheduled>
+		<quantity>
+			<value value="1"/>
+			<units value="4 oz container"/>
+		</quantity>
+	</supplement>
+	<status value="active"/>
+</NutritionOrder>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+	<id value="energysupplement"/>
+	<!-- id = energysupplement  file name = nutritionorder-example-energysupplement.xml  Name= Energy Supplement  Description = Nutrition Order Energy Supplement Canonical Example
+edited by Eric Haas Health eData Inc-->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Nutrition Order Protein Supplement Canonical Example</h3>
+			<ul>
+				<li>
+					<b>Patient: </b>Peter Chalmers</li>
+				<li>
+					<b>Orderer: </b>Dr Adam Careful</li>
+				<li>
+					<b>Date: </b>2014-09-17</li>
+				<li>
+					<b>Known Allergies: </b>Cashew Nuts</li>
+				<li>
+					<b>Food Preferences: </b>Kosher</li>
+				<li>
+					<b>Supplement(Brand): </b>Adult high energy drink (Ensure)</li>
+				<li>
+					<b>Schedule: </b>1 8 oz can tid</li>
+			</ul>
+		</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+		<display value="Peter Chalmers"/>
+	</patient>
+	<orderer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</orderer>
+	<identifier>
+		<system value="http://goodhealthhospital.org/nutrition-orders"/>
+		<value value="123"/>
+	</identifier>
+	<encounter>
+		<reference value="Encounter/example"/>
+		<display value="Inpatient"/>
+	</encounter>
+	<dateTime value="2014-09-17"/>
+	<allergyIntolerance>
+		<reference value="AllergyIntolerance/example"/>
+		<display value="Cashew Nuts"/>
+	</allergyIntolerance>
+	<foodPreferenceModifier>
+		<coding>
+			<system value="http://hl7.org/fhir/diet"/>
+			<code value="kosher"/>
+			<valueSet>
+				<reference value="http://hl7.org/fhir/vs/encounter-diet"/>
+				<display value="PatientDiet"/>
+			</valueSet>
+		</coding>
+	</foodPreferenceModifier>
+	<excludeFoodModifier>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<version value="20140730"/>
+			<code value="227493005"/>
+			<display value="Cashew Nut"/>
+		</coding>
+	</excludeFoodModifier>
+	<!-- EH: use supplement element -->
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442971000124100"/>
+				<display value="Adult high energy formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1010"/>
+				<display value="Adult high energy drink"/>
+			</coding>
+			<text value="Adult high energy drink"/>
+		</type>
+		<productName value="Ensure"/>
+		<scheduled>
+			<event>
+				<start value="2015-02-10"/>
+			</event>
+			<repeat>
+				<frequency value="3"/>
+				<duration value="1"/>
+				<units value="d"/>
+			</repeat>
+		</scheduled>
+		<quantity>
+			<value value="1"/>
+			<units value="8 oz can"/>
+		</quantity>
+	</supplement>
+	<status value="active"/>
+</NutritionOrder>
