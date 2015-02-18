@@ -4597,8 +4597,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
         return "<a href=\""+definitions.getSrcFile(name)+"#"+name+".html\">"+name+"</a>";  
-      else
-        return "??"+name;
+      else {
+        Profile p = definitions.getSnapShotForBase(structure.getBase());
+        if (p == null)
+          return "??"+name;
+        return "<a href=\""+name+".html\">"+name+"</a>";  
+      }
     } else {
       String[] parts = structure.getBase().split("#");
       Profile profile = new ProfileUtilities(workerContext).getProfile(structure, parts[0]);

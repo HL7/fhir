@@ -1130,7 +1130,7 @@ public class SpreadsheetParser {
     if (Utilities.noString(source))
       return null;  
 	  if (e.getTypes().size() != 1) 
-      throw new Exception("Unable to process "+column+" unless a single type is speciifed (types = "+e.typeCode()+") "+getLocation(row));
+      throw new Exception("Unable to process "+column+" unless a single type is specified (types = "+e.typeCode()+") "+getLocation(row));
     if (source.startsWith("{")) {
       JsonParser json = new JsonParser();
       return json.parseType(source, e.typeCode());
@@ -1342,6 +1342,8 @@ public class SpreadsheetParser {
     if (value.equals("DataType") || value.equals("Data Type"))
       return ExtensionContext.DATATYPE;
     if (value.equals("Elements"))
+      return ExtensionContext.RESOURCE;
+    if (value.equals("Element"))
       return ExtensionContext.RESOURCE;
     if (value.equals("Mapping"))
       return ExtensionContext.MAPPING;

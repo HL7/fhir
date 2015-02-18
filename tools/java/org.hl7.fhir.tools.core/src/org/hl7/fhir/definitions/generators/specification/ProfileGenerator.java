@@ -459,7 +459,10 @@ public class ProfileGenerator {
     Set<String> containedSlices = new HashSet<String>();
 
     p.setType(resource.getRoot().getName());
-    p.setBase("http://hl7.org/fhir/Profile/"+p.getType());
+    if (!resource.getRoot().getTypes().isEmpty() && (resource.getRoot().getTypes().get(0).getProfile() != null))
+      p.setBase(resource.getRoot().getTypes().get(0).getProfile());
+    else
+      p.setBase("http://hl7.org/fhir/Profile/"+p.getType());
     p.setDifferential(new ConstraintComponent());
     defineElement(pack, p, p.getDifferential(), resource.getRoot(), resource.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true);
     List<String> names = new ArrayList<String>();
@@ -468,7 +471,7 @@ public class ProfileGenerator {
     for (String pn : names) {
       pack.getSearchParameters().add(makeSearchParam(p, resource.getName(), resource.getSearchParams().get(pn)));
     }
-    Profile base = definitions.getSnapShotForType(p.getType());
+    Profile base = definitions.getSnapShotForBase(p.getBase());
     
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
@@ -709,7 +712,8 @@ public class ProfileGenerator {
       ce.setMax(e.getMaxLength()); 
     
     // no purpose here
-    ce.setMin(e.getMinCardinality());
+    if (e.getMinCardinality() != null)
+      ce.setMin(e.getMinCardinality());
     ce.setMax(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString());
 
     if (!root) {

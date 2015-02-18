@@ -347,6 +347,35 @@ public class Definitions {
     throw new Exception("unable to find snapshot for "+type);
   }
 
+  public Profile getSnapShotForBase(String base) throws Exception {
+    Profile p = getProfileByURL(base);
+    if (p == null)
+      throw new Exception("unable to find base definition "+base);
+    if (p.getSnapshot() != null)
+      return p;
+    throw new Exception("unable to find snapshot for "+base);
+  }
+
+  private Profile getProfileByURL(String base) {
+    for (ResourceDefn r : resources.values()) {
+      if (r.getProfile().getUrl().equals(base))
+        return r.getProfile();
+      for (ConformancePackage cp : r.getConformancePackages()) {
+        for (ProfileDefn p : cp.getProfiles()) {
+          if (p.getResource() != null && base.equals(p.getResource().getUrl()))
+            return p.getResource();
+        }
+      }
+    }
+    for (ConformancePackage cp : packs.values()) {
+      for (ProfileDefn p : cp.getProfiles()) {
+        if (p.getResource() != null && base.equals(p.getResource().getUrl()))
+          return p.getResource();
+      }      
+    }
+    return null;
+  }
+
   public String getSourceFile(String type) {
     return null;
   }

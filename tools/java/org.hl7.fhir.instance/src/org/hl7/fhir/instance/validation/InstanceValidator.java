@@ -1028,18 +1028,28 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
     if (type.equals("dateTime")) {
+      rule(errors, "invalid", path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' is not a valid year");
       rule(errors, "invalid", path, e.getAttribute("value").matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"), "Not a valid date time");
       rule(errors, "invalid", path, !hasTime(e.getAttribute("value")) || hasTimeZone(e.getAttribute("value")), "if a date has a time, it must have a timezone");
       
     }
     if (type.equals("instant")) {
       rule(errors, "invalid", path, e.getAttribute("value").matches("-?[0-9]{4}-(0[1-9]|1[0-2])-(0[0-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))"), "The instant '"+e.getAttribute("value")+"' is not valid (by regex)");
-      
+      rule(errors, "invalid", path, yearIsValid(e.getAttribute("value")), "The value '"+e.getAttribute("value")+"' is not a valid year");      
     }
 
     // for nothing to check    
   }
 
+  private boolean yearIsValid(String v) {
+    if (Utilities.noString(v) || v.length() < 4)
+      return false;
+    v = v.substring(0, 4);
+    if (!Utilities.IsInteger(v))
+      return false;
+    int i = Integer.parseInt(v);
+    return i >= 1800 && i <= 2100;
+  }
   private boolean hasTimeZone(String fmt) {
     return fmt.length() > 10 && (fmt.substring(10).contains("-") || fmt.substring(10).contains("-") || fmt.substring(10).contains("+") || fmt.substring(10).contains("Z"));
   }
