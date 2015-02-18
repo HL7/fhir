@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hspc-Abnormal"/>
+  <identifier value="http://ihc.org/fhir/ValueSet/hspc-Abnormal"/>
+  <version value="0.01"/>
+  <name value="AbnormalInterpretation"/>
+  <publisher value="Intermountain Healthcare"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.clinicaleleement.com"/>
+  </telecom>
+  <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83"/>
+  <copyright value="IHC"/>
+  <status value="draft"/>
+  <date value="2014-06-25"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hspc-DeltaFlag"/>
+  <identifier value="http://ihc.org/fhir/ValueSet/hspc-DeltaFlag"/>
+  <version value="0.01"/>
+  <name value="DeltaFlag"/>
+  <publisher value="Intermountain Healthcare"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.clinicaleleement.com"/>
+  </telecom>
+  <description value="SNOMED CT* SELECT SNOMED CT code system values descending from &#39;change values&#39; (288533004)."/>
+  <copyright value="IHC"/>
+  <status value="draft"/>
+  <date value="2014-06-25"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="288533004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

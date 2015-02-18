@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hspc-ReportingPriority"/>
+  <identifier value="http://ihc.org/fhir/ValueSet/hspc-ReportingPriority"/>
+  <version value="0.01"/>
+  <name value="ReportingPriority"/>
+  <publisher value="Intermountain Healthcare"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.clinicaleleement.com"/>
+  </telecom>
+  <description value="HL7 V3: ActPriority* HL7 V3: ActPriority (2.16.840.1.113883.5.7) code system values,  and CKS ECIDS."/>
+  <copyright value="IHC"/>
+  <status value="draft"/>
+  <date value="2014-06-25"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ActPriority"/>
+    </include>
+  </compose>
+</ValueSet>
