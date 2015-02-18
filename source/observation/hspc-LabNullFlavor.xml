@@ -9,6 +9,7 @@
     <system value="url"/>
     <value value="http://www.clinicaleleement.com"/>
   </telecom>
+  <description value="A list of reasons why a lab result may have no value"/>
   <copyright value="IHC"/>
   <status value="draft"/>
   <date value="2014-06-25"/>
