@@ -161,7 +161,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			}
 
       allfields = "";
-      int i = -1;
+      int i = 0;
 			for (ElementDefn e : root.getElements()) {
 				generateField(root, e, "    ", i++);
 			}
