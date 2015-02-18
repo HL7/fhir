@@ -22,6 +22,7 @@ and as such the Questionnaire is a separately identifiable Resource, whereas the
 <li>Research questionnaires/Clinical research forms (CRFs)</li>
 <li>Quality and evaluation forms</li>
 <li>Patient intake form (e.g. clipboard)</li>
+<li>Insurance claim form</li>
 </ul>
 <p>
 This resource is limited in scope to support the characteristics of simple questionnaires.  However, common extensions have been defined to allow more
