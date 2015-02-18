@@ -831,76 +831,6 @@ to another, so that resources are synchronized between them. Refer to the <a hre
 for an alternate means of system synchronization.
 </p>
 
-<!--
- <a name="tags"> </a>
-<h3>Meta Interaction</h3>
-
-<p>
-The <a href="resource.html#meta">meta element</a> contains references to profiles, tags and security
-labels that control the behaviour of the resource. These rules apply to these meta-attributes:
-</p>
-<table class="grid">
- <tr><td><b>Interaction</b></td><td><b>Meta-Attribute Actions</b></td></tr>
- <tr><td>read/vread</td><td>The server returns the items in the meta element</td></tr>
- <tr><td>create</td><td>The server stores the items provided with the resource, and may add it's own or edit them for it's own reasons</td></tr>
- <tr><td>update</td><td>The server merges the items provided with the resource along with those already associated with the resource, and may add it's own or edit them for it's own reasons</td></tr>
-</table>
-<p>
-These items are allowed to change without changing the version of the resource
-(note: none of the other contents of a resource are allowed to change without changing
-the version of the resource). In particular, it must be possible to update the security
-labels on old version of a resource. To support this, this operation provides several
-interactions that operate directly on the meta element:
-</p>
-<table class="grid">
- <tr><td width="50%"><b>HTTP Command</b></td><td valign="center"><b>description</b></td></tr>
- <tr><td><pre>GET [base]/_meta</pre></td><td valign="center">get a list of all profiles, security labels, and tags used in the system</td></tr>
- <tr><td><pre>GET [base]/[type]/_meta</pre></td><td valign="center">get a list of all profiles, security labels, and tags used for the nominated resource type</td></tr>
- <tr><td><pre>GET [base]/[type]/[id]/_meta</pre></td><td valign="center">get a list of all profiles, security labels, and tags affixed to the nominated resource. This is the same information included when reading the resource, but may have different security clearance</td></tr>
- <tr><td><pre>GET [base]/[type]/[id]/_history/[vid]/_meta</pre></td><td valign="center">get a list of all profiles, security labels, and tags affixed  to the nominated version of the resource. This is the same information included when reading the given version of the resource, but may have different security clearance</td></tr>
- <tr><td><pre>POST [base]/[type]/[id]/_meta</pre></td><td valign="center">Affix the provided profiles, security labels, and tags in the list to the nominated resource</td></tr>
- <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_meta</pre></td><td valign="center">Affix the provided profiles, security labels, and tags in the list to the nominated version of the resource</td></tr>
- <tr><td><pre>POST [base]/[type]/[id]/_meta/_delete</pre></td><td valign="center">Remove all profiles, security labels, and tags in the provided list from the meta for the nominated resource</td></tr>
- <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_meta/_delete</pre></td><td valign="center">Remove all profiles, security labels, and tags in the provided list from the list of tags for the nominated version of the resource</td></tr>
-</table>
-<p>
-In all these operations, versionId is not used. The server may choose to populate the lastUpdated. Note that these interactions do not create a new version of the resource.
-These interactions use the meta element directly:
-</p>
-<pre class="xml">
-&lt;meta xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;profile value=&quot;http://example-consortium.org/fhir/profile/patient&quot;/&gt;
-  &lt;security&gt;
-    &lt;system value=&quot;http://hl7.org/fhir/v3/ActCode&quot;/&gt;
-    &lt;code value=&quot;EMP&quot;/&gt;
-  &lt;/security&gt;
-  &lt;tag&gt;
-    &lt;system value=&quot;http://example.com/codes/workflow&quot;/&gt;
-    &lt;code value=&quot;needs-review&quot;/&gt;
-  &lt;/tag&gt;
-&lt;/meta&gt;
-</pre>
-<p>
-Or, in JSON:
-</p>
-<div class="example">
-<pre class="json linecounter">
-{
-  "resourceType" : "meta",
-  "profile" : ["http://example-consortium.org/fhir/profile/patient"],
-  "security" : [{
-    "system" : "http://hl7.org/fhir/v3/ActCode",
-    "code" : "EMP"
-  }],
-  "tag" : [{
-    "system" : "http://example.com/codes/workflow",
-    "code" : "needs-review"
-  }]
-}
-</pre>
-</div>
--->
-
 <a name="transactional-integrity"> </a>
 <h3>Transactional Integrity</h3>
 <p>
@@ -1104,7 +1034,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr><td>update</td>                     <td>/[type]/[id]</td>                   <td>PUT</td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: If-Match</td></tr>
 <tr><td>delete</td>                     <td>/[type]/[id]</td>                   <td>DELETE</td>         <td>N/A</td>            <td>N/A</td>      <td>N/A</td>	         <td>N/A</td></tr>
 <tr><td>create</td>                     <td>/[type]</td>                        <td>POST</td>           <td>R</td>              <td>Resource</td> <td>O</td>         <td>O: If-None-Exist</td></tr>
-<tr><td rowspan="2">search</td>         <td>/[type]/_search? or /[type]?</td>   <td>GET</td>            <td>N/A</td>            <td>N/A</td>	  <td>N/A</td>			<td>N/A</td></tr>
+<tr><td rowspan="2">search</td>         <td>/[type]?</td>                       <td>GET</td>            <td>N/A</td>            <td>N/A</td>	  <td>N/A</td>			<td>N/A</td></tr>
 <tr>                                    <td>/[type]/_search?</td>               <td>POST</td>           <td>application/x-www-form-urlencoded</td>         <td>form data</td> <td>N/A</td>  <td>N/A</td></tr>
 <tr><td rowspan="2">search-all</td>     <td>/_search? or /?</td>                <td>GET</td>            <td>N/A</td>            <td>N/A</td>              <td>N/A</td>  <td>N/A</td></tr>
 <tr>                                    <td>/_search?</td>			            <td>POST</td>           <td>application/x-www-form-urlencoded</td>         <td>form data</td> <td>N/A</td> <td>N/A</td></tr>
