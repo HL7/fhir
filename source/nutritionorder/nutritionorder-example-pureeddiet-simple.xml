@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir">
 	<id value="pureeddiet-simple"/>
-	<!-- Using only instruction element in oralDiet and minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet Simple Example
+	<!-- Using only instruction element in oralDiet and Suppleent minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>Nutrition Order Pureed Diet Simple Example</h3>
+			<h3>Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example</h3>
 			<ul>
 				<li>
 					<b>Patient: </b>Peter Chalmers</li>
@@ -16,6 +16,10 @@ edited by Eric Haas Health eData Inc-->
 					<b>Date: </b>2014-09-17</li>
 				<li>
 					<b>Instructions: </b>Pureed, Nectar thick liquids</li>
+				<li>
+					<b>Supplement(Brand): </b>Adult high energy formula (Ensure Pudding 4 oz container)</li>
+				<li>
+					<b>Schedule: </b>Ensure Pudding at breakfast, lunch, supper</li>
 			</ul>
 		</div>
 	</text>
@@ -80,5 +84,24 @@ edited by Eric Haas Health eData Inc-->
 			<text value="Nectar thick liquids"/>
 		</fluidConsistencyType>
 	</oralDiet>
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442971000124100"/>
+				<display value="Adult high energy formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1040"/>
+				<display value="Adult high energy pudding"/>
+			</coding>
+			<text value="Adult high energy pudding"/>
+		</type>
+		<productName value="Ensure Pudding 4 oz container"/>
+		<!--EH:  comment #5675 to add Instructions to supplement too
+		<instruction value="Ensure Pudding at breakfast, lunch, supper"></instruction>
+-->
+	</supplement>
 	<status value="active"/>
 </NutritionOrder>
