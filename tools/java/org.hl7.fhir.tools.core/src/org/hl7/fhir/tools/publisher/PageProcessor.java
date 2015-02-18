@@ -1458,7 +1458,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();
   }
 
-  private class TocSort implements Comparator<String> {
+  private static class TocSort implements Comparator<String> {
 
     @Override
 	public int compare(String arg0, String arg1) {

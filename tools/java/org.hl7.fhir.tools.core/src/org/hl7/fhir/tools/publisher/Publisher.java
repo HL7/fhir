@@ -237,7 +237,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
  */
 public class Publisher implements URIResolver {
 
-  public class Fragment {
+  public static class Fragment {
     private String type;
     private String xml;
     private String page;
@@ -268,7 +268,7 @@ public class Publisher implements URIResolver {
 
   }
 
-  public class ExampleReference {
+  public static class ExampleReference {
     private String type;
     private String id;
     private String path;
@@ -2145,7 +2145,7 @@ public class Publisher implements URIResolver {
     return b.toString();
   }
 
-  private class CodeInfo {
+  private static class CodeInfo {
     boolean select;
     String code;
     String display;
@@ -3744,7 +3744,7 @@ public class Publisher implements URIResolver {
     }
   }
 
-  public class MyErrorHandler implements ErrorHandler {
+  public static class MyErrorHandler implements ErrorHandler {
 
     private boolean trackErrors;
     private List<String> errors = new ArrayList<String>();
@@ -3780,7 +3780,7 @@ public class Publisher implements URIResolver {
 
   }
 
-  public class MyResourceResolver implements LSResourceResolver {
+  public static class MyResourceResolver implements LSResourceResolver {
 
     private String dir;
 

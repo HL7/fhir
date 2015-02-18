@@ -97,14 +97,15 @@ public class ProfileGenerator {
 
   private WorkerContext context;
   private Definitions definitions;
-  private Set<String> bindings = new HashSet<String>();
+  private final Set<String> bindings = new HashSet<String>();
 
   // status
   // note that once we start slicing, the slices keep their own maps, but all share the master pathname list
-  private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
-  private List<String> pathNames = new ArrayList<String>();
+  private final Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
+  private final List<String> pathNames = new ArrayList<String>();
   private ProfileKnowledgeProvider pkp;
-  private class SliceHandle {
+
+  private static class SliceHandle {
     private String name;
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
