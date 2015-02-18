@@ -91,7 +91,7 @@ edited by Eric Haas Health eData Inc-->
 		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
 		<scheduled>
 			<event>
-				<start value="1205-02-10"/>
+				<start value="2015-02-10"/>
 			</event>
 			<repeat>
 				<frequency value="3"/>
