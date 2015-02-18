@@ -99,7 +99,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <DCC_DebugDCUs>true</DCC_DebugDCUs>
-        <Debugger_RunParams>c:\work\org.hl7.fhir\build\publish\careplan-example-pregnancy.xml c:\work\org.hl7.fhir\build\publish\careplan-example-pregnancy.out.xml</Debugger_RunParams>
+        <Debugger_RunParams>c:\work\org.hl7.fhir\build\publish\nutritionorder-example-pureeddiet-simple.xml c:\work\org.hl7.fhir\build\publish\nutritionorder-example-pureeddiet-simple.out.xml</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_UnitSearchPath>C:\HL7Connect\indysoap\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Manifest_File>None</Manifest_File>

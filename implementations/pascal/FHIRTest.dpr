@@ -130,6 +130,7 @@ var
   c : TFHIRComposer;
   r : TFhirResource;
 begin
+  r := nil;
   try
     p := TFHIRXmlParser.Create('en');
     try
