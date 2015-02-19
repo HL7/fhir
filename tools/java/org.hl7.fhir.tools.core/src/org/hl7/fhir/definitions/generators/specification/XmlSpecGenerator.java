@@ -397,7 +397,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (!elem.getTypes().isEmpty() && elem.getTypes().get(0).isXhtml()) {
 			write("<b title=\""
 					+ Utilities.escapeXml(elem.getDefinition())
-					+ "\">div</b>" +  ((elem.isModifier() || elem.isMustSupport()) ? "</span>" : "") 
+					+ "\">div</b>" +  ((elem.isModifier() || elem.getMustSupport()) ? "</span>" : "") 
 					+ (defPage == null ? "</span>" : "</a>") 
 					+ " xmlns=\"http://www.w3.org/1999/xhtml\"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: navy\">"
 					+ Utilities.escapeXml(elem.getShortDefn())
