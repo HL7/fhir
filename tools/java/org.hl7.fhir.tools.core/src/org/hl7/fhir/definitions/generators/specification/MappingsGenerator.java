@@ -216,7 +216,10 @@ public class MappingsGenerator {
 			s.append("</table>\r\n");
 		}
 	  mappings = s.toString();
-	  mappingsList = list.toString().substring(1);
+	  if (list.toString().length() > 1)
+	    mappingsList = list.toString().substring(1);
+	  else
+      mappingsList = list.toString();
 	}
 	
 
