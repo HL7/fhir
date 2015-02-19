@@ -8,7 +8,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Claude Nanjo</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-02-19T00:43:58Z</LastSaved>
+  <LastSaved>2015-02-19T02:12:25Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -3122,8 +3122,8 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
-     <RangeSelection>R3C6:R10C6</RangeSelection>
+     <ActiveCol>14</ActiveCol>
+     <RangeSelection>R3C15:R10C15</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
