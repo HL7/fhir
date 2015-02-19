@@ -3268,7 +3268,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       }
     }
     if (b.toString().length() < 2)
-      throw new Error("??");
+      return "(not used as yet)";
     String s = b.toString().substring(2);
     int i = s.lastIndexOf(", ");
     if ( i > 1)
