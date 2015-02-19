@@ -10,7 +10,7 @@
   <LastAuthor>Brett A Marquard</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-12-05T02:31:04Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -1332,7 +1332,7 @@
     <Cell ss:Index="3" ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.subject</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1365,7 +1365,7 @@
     <Cell ss:Index="3" ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.refusedIndicator</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!Immunization.refusedIndicator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1758,7 +1758,7 @@
     <Cell ss:Index="3" ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">Immunization.explanation.refusalReason</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!Immunization.explanation.refusalReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell
@@ -4040,8 +4040,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

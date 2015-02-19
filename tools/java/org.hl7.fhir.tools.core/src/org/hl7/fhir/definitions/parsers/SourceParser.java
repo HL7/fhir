@@ -487,7 +487,7 @@ public class SourceParser {
 
   private void loadConformancePackage(ConformancePackage ap) throws FileNotFoundException, IOException, Exception {
     if (ap.getSourceType() == ConformancePackageSourceType.Spreadsheet) {
-      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp, false);
+      SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, pkp, false);
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {

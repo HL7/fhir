@@ -88,9 +88,13 @@ public class XLSXmlParser {
   
   public XLSXmlParser(InputStream in, String name) throws Exception {
     this.name = name;
-    xml = parseXml(in);
-    sheets = new HashMap<String, Sheet>();
-    readXml();
+    try {
+      xml = parseXml(in);
+      sheets = new HashMap<String, Sheet>();
+      readXml();
+    } catch (Exception e) {
+      throw new Exception("unable to load "+name+": "+e.getMessage(), e);
+    }
   }
 
   private Document parseXml(InputStream in) throws Exception {

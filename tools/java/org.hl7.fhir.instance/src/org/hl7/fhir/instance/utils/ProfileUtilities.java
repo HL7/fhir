@@ -1357,7 +1357,7 @@ public class ProfileUtilities {
           return i;
       }
       if (prefixLength == 0)
-        errors.add("Differential contains path "+path+" which is not found in the base");
+        errors.add("!Differential contains path "+path+" which is not found in the base");
       else
         errors.add("Differential contains path "+path+" which is actually "+actual+", which is not found in the base");
       return 0;
@@ -1365,12 +1365,11 @@ public class ProfileUtilities {
 
     public void checkForErrors(List<String> errorList) {
       if (errors.size() > 0) {
-//        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-//        for (String s : errors) 
-//          b.append("Profile "+name+": "+s);
-//        throw new Exception(b.toString());
-        for (String s : errors) 
-          errorList.add("Profile "+name+": "+s);
+        for (String s : errors)
+          if (s.startsWith("!"))
+            errorList.add("!Profile "+name+": "+s.substring(1));
+          else
+            errorList.add("Profile "+name+": "+s);
       }
     }
   }

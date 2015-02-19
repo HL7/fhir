@@ -126,7 +126,7 @@ public class SpreadsheetParser {
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
-		xls = new XLSXmlParser(in, name);
+  	xls = new XLSXmlParser(in, name);	
 		this.definitions = definitions;
 		if (name.indexOf('-') > 0)
 			title = name.substring(0, name.indexOf('-'));

@@ -83,6 +83,7 @@ import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.WorkerContext;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -477,9 +478,17 @@ public class ProfileGenerator {
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(context).sortDifferential(base, p, p.getName(), pkp, errors);
     if (!errors.isEmpty()) {
-      for (String s : errors) 
-        System.out.println(s);
-//      throw new Exception("Unable to continue due to serious errors in profiles");
+      boolean cont = true;
+      for (String s : errors) {
+        if (s.startsWith("!")) {
+          if (!s.contains(".extension"))
+            cont = false;
+          System.out.println(s.substring(1));
+        } else
+          System.out.println(s);
+      }
+      if (!cont)
+        throw new Exception("Unable to continue due to serious errors in profiles");
     }
     reset();
     // ok, c is the differential. now we make the snapshot
