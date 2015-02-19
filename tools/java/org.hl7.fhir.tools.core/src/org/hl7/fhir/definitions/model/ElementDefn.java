@@ -348,10 +348,9 @@ public class ElementDefn {
 	}
 
 	public String describeCardinality() {
-		if (maxCardinality == null)
-			return minCardinality.toString() + "..*";
-		else
-			return minCardinality.toString() + ".." + maxCardinality.toString();
+	  String min = minCardinality == null ? "" : minCardinality.toString();
+	  String max = maxCardinality == null ? "" : maxCardinality == Integer.MAX_VALUE ? "*" : maxCardinality.toString();
+		return min + ".." + max;
 	}
 
 	// public String textForCardinality() {

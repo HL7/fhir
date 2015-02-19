@@ -908,7 +908,8 @@ public class ProfileUtilities {
     if (max.isEmpty() && fallback != null)
       max = fallback.getMaxElement();
     
-    tracker.used = !max.isEmpty() && !max.getValue().equals("0");
+    if (!max.isEmpty())
+      tracker.used = !max.getValue().equals("0");
 
     Cell cell = gen.new Cell(null, null, null, null, null);
     row.getCells().add(cell);
@@ -976,9 +977,11 @@ public class ProfileUtilities {
     else
       row.setIcon("icon_resource.png", HeirarchicalTableGenerator.TEXT_ICON_RESOURCE);
     String ref = defPath == null ? null : defPath + makePathLink(element);
-      UnusedTracker used = new UnusedTracker();
-      used.used = true;
-      Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getFormal(), null);
+    
+    UnusedTracker used = new UnusedTracker();
+    used.used = true;
+    
+    Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getFormal(), null);
     row.getCells().add(left);
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
