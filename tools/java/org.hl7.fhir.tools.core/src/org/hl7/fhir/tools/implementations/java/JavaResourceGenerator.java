@@ -997,7 +997,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write("\r\n");
 	      jdoc(indent, "@return "+e.getDefinition());
 	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
-	      write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? "+(e.typeCode().equals("boolean") ? "false" : (e.typeCode().equals("integer") ? "0" : "null"))+" : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+	      if (e.typeCode().equals("boolean"))
+          write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? false : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+	      else if (e.typeCode().equals("integer"))
+          write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? 0 : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+	      else
+	        write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
 	      jdoc(indent, "@param value "+e.getDefinition());
