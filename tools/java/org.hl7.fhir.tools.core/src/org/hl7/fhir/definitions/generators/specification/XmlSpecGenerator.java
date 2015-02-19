@@ -383,7 +383,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			en = en.replace("[x]", elem.typeCode());
 
 		if (defPage == null) {
-			if (elem.isModifier() || elem.isMustSupport())
+			if (elem.isModifier() || elem.getMustSupport())
   		  write("&lt;<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(elem.getEnhancedDefinition())	+ "\">");
 			else
 				write("&lt;<span title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\">");
