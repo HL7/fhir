@@ -277,7 +277,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         write("\"<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(elem.getEnhancedDefinition())	+ "\">");
       else
         write("\"<span title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\">");
-    } else if (elem.isModifier() || elem.isMustSupport()) 
+    } else if (elem.isModifier() || elem.getMustSupport()) 
       write("\"<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(elem.getEnhancedDefinition()) 
           + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
     else
@@ -285,7 +285,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     
     if (defPage == null) {
       write(en+"</span>");
-    } else if (elem.isModifier() || elem.isMustSupport())
+    } else if (elem.isModifier() || elem.getMustSupport())
       write(en + "</span></a>");
     else
       write(en + "</a>");
@@ -295,7 +295,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     // 2. value
     boolean delayedCloseArray = false;
     boolean sharedDT = definitions.dataTypeIsSharedInfo(elem.typeCode());
-    if (elem.getMaxCardinality() == null || elem.getMaxCardinality() > 1) 
+    if (elem.getMaxCardinality() != null && elem.getMaxCardinality() > 1) 
       write("[");
 
     if (elem.usesCompositeType()) {
@@ -322,7 +322,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       write(" }");
     } 
 
-    if (!delayedCloseArray && (elem.getMaxCardinality() == null || elem.getMaxCardinality() > 1)) 
+    if (!delayedCloseArray && (elem.getMaxCardinality() != null && elem.getMaxCardinality() > 1)) 
       write("]");
     if (!last && !delayedCloseArray)
       write(",");
@@ -386,7 +386,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     }
     if (elem.getElements().size() > 0) {
       write("}");
-      if (delayedCloseArray && elem.getMaxCardinality() == null || elem.getMaxCardinality() > 1) 
+      if (delayedCloseArray && elem.getMaxCardinality() != null && elem.getMaxCardinality() > 1) 
         write("]");
       if (!last && delayedCloseArray)
         write(",");

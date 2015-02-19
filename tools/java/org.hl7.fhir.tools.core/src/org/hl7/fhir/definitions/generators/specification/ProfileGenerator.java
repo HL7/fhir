@@ -707,7 +707,8 @@ public class ProfileGenerator {
       if ("".equals(e.getShortDefn()))
         ce.setShort(e.getDefinition());
     }
-    ce.setMustSupport(e.isMustSupport());
+    if (e.hasMustSupport())
+      ce.setMustSupport(e.isMustSupport());
 
     if (e.getMaxLength() != null) 
       ce.setMax(e.getMaxLength()); 
@@ -715,7 +716,8 @@ public class ProfileGenerator {
     // no purpose here
     if (e.getMinCardinality() != null)
       ce.setMin(e.getMinCardinality());
-    ce.setMax(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString());
+    if (e.getMaxCardinality() != null)
+      ce.setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
 
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
@@ -778,8 +780,10 @@ public class ProfileGenerator {
       ce.addSynonym(s);
     
     // we don't know mustSupport here
-    ce.setIsModifier(e.isModifier());
-    ce.setIsSummaryElement(Factory.newBoolean(e.isSummaryItem()));
+    if (e.hasModifier())
+      ce.setIsModifier(e.isModifier());
+    if (e.hasSummaryItem())
+      ce.setIsSummaryElement(Factory.newBoolean(e.isSummary()));
     
     for (String n : definitions.getMapTypes().keySet()) {
       addMapping(p, ce, n, e.getMapping(n));
@@ -990,15 +994,18 @@ public class ProfileGenerator {
     for (String a : src.getAliases())
       ce.addSynonym(a);
     ce.setMin(src.getMinCardinality());
-    ce.setMax(src.getMaxCardinality() == null ? "*" : src.getMaxCardinality().toString());
+    if (src.getMaxCardinality() != null)
+      ce.setMax(src.getMaxCardinality() == Integer.MAX_VALUE ? "*" : src.getMaxCardinality().toString());
     ce.getType().add(new TypeRefComponent());
     ce.getType().get(0).setCode(src.typeCode());
     // this one should never be used
     if (!Utilities.noString(src.getTypes().get(0).getProfile()))
       ce.getType().get(0).setProfile(src.getTypes().get(0).getProfile());
     // todo? conditions, constraints, binding, mapping
-    ce.setIsModifier(src.isModifier());
-    ce.setIsSummaryElement(Factory.newBoolean(src.isSummaryItem()));
+    if (src.hasModifier())
+      ce.setIsModifier(src.isModifier());
+    if (src.hasSummaryItem())
+      ce.setIsSummaryElement(Factory.newBoolean(src.isSummary()));
     for (Invariant id : src.getStatedInvariants()) 
       ce.addCondition(id.getId());
     return ce;
@@ -1017,14 +1024,17 @@ public class ProfileGenerator {
     dst.setShort(src.getShortDefn());
     dst.setFormal(src.getDefinition());
     dst.setComments(src.getComments());
-    if (src.getMaxCardinality() == null)
+    if (src.getMaxCardinality() == Integer.MAX_VALUE)
       dst.setMax("*");
     else
       dst.setMax(src.getMaxCardinality().toString());
     dst.setMin(src.getMinCardinality());
-    dst.setMustSupport(src.isMustSupport());
-    dst.setIsModifier(src.isModifier());
-    dst.setIsSummaryElement(Factory.newBoolean(src.isSummaryItem()));
+    if (src.hasMustSupport())
+      dst.setMustSupport(src.isMustSupport());
+    if (src.hasModifier())
+      dst.setIsModifier(src.isModifier());
+    if (src.hasSummaryItem())
+      dst.setIsSummaryElement(Factory.newBoolean(src.isSummary()));
     for (Invariant id : src.getStatedInvariants()) 
       dst.addCondition(id.getId());
 

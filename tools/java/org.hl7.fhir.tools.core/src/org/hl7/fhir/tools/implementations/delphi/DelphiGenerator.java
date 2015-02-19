@@ -861,7 +861,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   private boolean hasASummary(ResourceDefn root) {
     for (ElementDefn e : root.getRoot().getElements())
-      if (e.isSummaryItem())
+      if (e.isSummary())
         return true;
     return false;
   }
@@ -1513,7 +1513,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
 
     String s = getElementName(e.getName()); 
-    boolean summary = e.isSummaryItem() || noSummaries;
+    boolean summary = e.isSummary() || noSummaries;
     String sumAnd = summary ? "" : "Not SummaryOnly and ";
     String sum2 = summary ? "" : "if not SummaryOnly then\r\n    ";
     if (e.unbounded()) {

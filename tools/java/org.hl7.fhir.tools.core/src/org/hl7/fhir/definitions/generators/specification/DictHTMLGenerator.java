@@ -380,7 +380,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
 		tableRowNE("Requirements", null, page.processMarkdown(e.getRequirements()));
 		tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, toSeperatedString(e.getAliases()));
-    if (e.isSummaryItem())
+    if (e.hasSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));
     tableRowNE("Comments", null, page.processMarkdown(e.getComments()));
     tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));

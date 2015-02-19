@@ -178,7 +178,7 @@ public class MongooseModel {
           generateElement(block, nestedElement, iterator.hasNext());
         }
         block.es();
-        if (elementDefinition.getMaxCardinality() == null) {
+        if (elementDefinition.unbounded()) {
           block.ln("}]" + (includeTrailingComma ? "," : ""));
         } else {
           block.ln("}" + (includeTrailingComma ? "," : ""));
@@ -202,7 +202,7 @@ public class MongooseModel {
     }
     
     private String generateTypeOpening(ElementDefn elementDefinition) {
-      if (elementDefinition.getMaxCardinality() == null) {
+      if (elementDefinition.unbounded()) {
         return ": [{";
       } else {
         return ": {";
@@ -210,7 +210,7 @@ public class MongooseModel {
     }
     
     private void generateTypeClosing(ElementDefn elementDefinition, GenBlock block, boolean hasNext, boolean includeTrailingComma) {
-      if (elementDefinition.getMaxCardinality() == null) {
+      if (elementDefinition.unbounded()) {
         block.ln("}]" + (hasNext || includeTrailingComma ? "," : ""));
       } else {
         block.ln("}" + (hasNext || includeTrailingComma ? "," : ""));

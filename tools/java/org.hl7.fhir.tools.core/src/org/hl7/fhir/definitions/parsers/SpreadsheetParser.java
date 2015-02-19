@@ -123,7 +123,7 @@ public class SpreadsheetParser {
   private Map<String, ExtensionDefinition> extensionDefinitions = new HashMap<String, ExtensionDefinition>();
   private ProfileKnowledgeProvider pkp;
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, WorkerContext context, Calendar genDate, boolean isAbstract, Map<String, ExtensionDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
 		xls = new XLSXmlParser(in, name);
@@ -134,7 +134,7 @@ public class SpreadsheetParser {
 			title = name.substring(0, name.indexOf('.'));
 		else
 		  title = name;
-		this.folder = root + title + File.separator;
+		this.folder = root + (isType ? "datatypes" : title) + File.separator;
     this.dataTypesFolder =  root + "datatypes" + File.separator;
     this.txFolder =  root + "terminologies" + File.separator;
 		this.log = log;
@@ -1023,7 +1023,7 @@ public class SpreadsheetParser {
 			if (card.length != 2 || !Utilities.IsInteger(card[0]) || (!"*".equals(card[1]) && !Utilities.IsInteger(card[1])))
 				throw new Exception("Unable to parse Cardinality '" + c + "' " + c + " in " + getLocation(row) + " on " + path);
 			e.setMinCardinality(Integer.parseInt(card[0]));
-			e.setMaxCardinality("*".equals(card[1]) ? null : Integer.parseInt(card[1]));
+			e.setMaxCardinality("*".equals(card[1]) ? Integer.MAX_VALUE : Integer.parseInt(card[1]));
 		}
 		if (profileName.startsWith("#"))
 		  throw new Exception("blah: "+profileName);
@@ -1036,10 +1036,10 @@ public class SpreadsheetParser {
     if (sheet.hasColumn(row, "Must Understand"))
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
-		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, false));
+		e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
 		if (isProfile)
-		  e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
-    e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
+		  e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, null));
+    e.setSummaryItem(parseBoolean(sheet.getColumn(row, "Summary"), row, null));
     e.setRegex(sheet.getColumn(row, "Regex"));
     String uml = sheet.getColumn(row, "UML");
     if (uml != null) {
@@ -1254,7 +1254,6 @@ public class SpreadsheetParser {
 	    e.setMaxCardinality(exe.getMaxCardinality());
 	    e.setCondition(exe.getCondition());
 	    e.setBindingName(sheet.getColumn(row, "Binding"));
-	    e.setIsModifier(exe.isModifier());
 	    e.setDefinition(exe.getDefinition());
 	    e.setRequirements(exe.getRequirements());
 	    e.setComments(exe.getComments());
@@ -1262,17 +1261,20 @@ public class SpreadsheetParser {
 	    e.setTodo(exe.getTodo());
 	    e.setExample(exe.getExample());
 	    e.setCommitteeNotes(exe.getCommitteeNotes());
-	    e.setIsModifier(exe.isModifier());
+	    if (exe.hasModifier())
+	      e.setIsModifier(exe.isModifier());
 
 
 
 	    e.getTypes().clear();
 	    e.getElementByName("definition").setFixed(new UriType(uri));
 	    e.getElementByName("ref").ban();
-	    if (e.isModifier())
-	      e.getElementByName("mustUnderstand").setFixed(new BooleanType(true));
-	    else
-	      e.getElementByName("mustUnderstand").ban();
+	    if (e.hasModifier()) {
+	      if (e.isModifier())
+	        e.getElementByName("mustUnderstand").setFixed(new BooleanType(true));
+	      else
+	        e.getElementByName("mustUnderstand").ban();
+	    }
 	    ElementDefn v = e.getElementByName("value[x]");
 	    v.setShortDefn(sheet.getColumn(row, "Short Name"));
 	    e.setShortDefn("");
@@ -1302,10 +1304,10 @@ public class SpreadsheetParser {
       throw new Exception("Unable to parse Cardinality "
           + sheet.getColumn(row, "Card.") + " in " + getLocation(row));
     exe.setMinCardinality(Integer.parseInt(card[0]));
-    exe.setMaxCardinality("*".equals(card[1]) ? null : Integer.parseInt(card[1]));
+    exe.setMaxCardinality("*".equals(card[1]) ? Integer.MAX_VALUE : Integer.parseInt(card[1]));
     exe.setCondition(sheet.getColumn(row, "Condition"));
     exe.setBindingName(sheet.getColumn(row, "Binding"));
-    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, false));
+    exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Must Understand"), row, null));
     exe.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
     exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
@@ -1447,7 +1449,7 @@ public class SpreadsheetParser {
 		return res;
 	}
 
-	protected boolean parseBoolean(String s, int row, boolean def) throws Exception {
+	protected Boolean parseBoolean(String s, int row, Boolean def) throws Exception {
 		s = s.toLowerCase();
 		if (s == null || s.equals(""))
 			return def;

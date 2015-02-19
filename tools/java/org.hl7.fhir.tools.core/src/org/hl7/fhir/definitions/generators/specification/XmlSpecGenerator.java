@@ -240,7 +240,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       write(" -->\r\n");
     }
 
-    if (ex.getDefinition().isModifier())
+    if (ex.getDefinition().isModifier1())
 	    write(ind+"&lt;<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(ex.getDefinition().getEnhancedDefinition()) + "\"><b>"+n+"</b></span>");
 	  else
 	    write(ind+"&lt;<span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\"><b>"+n+"</b></span>");
@@ -387,7 +387,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   		  write("&lt;<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(elem.getEnhancedDefinition())	+ "\">");
 			else
 				write("&lt;<span title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\">");
-		} else if (elem.isModifier() || elem.isMustSupport()) 
+		} else if (elem.isModifier() || elem.getMustSupport()) 
       write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_")+ "\" title=\"" + Utilities .escapeXml(elem.getEnhancedDefinition()) 
             + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
 		else
@@ -423,7 +423,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 			write("<b>" + en);
 			if (defPage == null) {
 				write("</b></span>");
-			} else if (elem.isModifier() || elem.isMustSupport())
+			} else if (elem.isModifier() || elem.getMustSupport())
 				write("</b></span></a>");
 			else
 				write("</b></a>");
@@ -488,7 +488,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 							+ Utilities.escapeXml(elem.getShortDefn())
 							+ "</span></a> ");
 				} else {
-				  if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+				  if (elem.eliminated()) 
 				    write("<span style=\"text-decoration: line-through\">");
 				  BindingSpecification bs = definitions.getBindingByName(elem.getBindingName());
 				  if (bs != null && bs.getBinding() != Binding.Unbound && !Utilities.noString(bs.getReference())) { 
@@ -515,7 +515,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a></span>");				  
 				  } else
 					  write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>");
-          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+          if (elem.eliminated()) 
             write("</span>");
 				}
 			} else {
@@ -523,19 +523,19 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 					if (elem.usesCompositeType()) {
 						write(" <span style=\"color: Gray\">&lt;!--");
 						writeCardinality(elem);
-	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+	          if (elem.eliminated()) 
 	            write("<span style=\"text-decoration: line-through\">");
 	          write("" + Utilities.escapeXml(elem.getShortDefn()));
-	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+	          if (elem.eliminated()) 
 	            write("</span>");
 	          write(" --&gt;</span>");
 					} else if (elem.hasShortDefn()) {
 						write(" <span style=\"color: Gray\">&lt;!--");
 						writeCardinality(elem);
-	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+	          if (elem.eliminated()) 
 	            write("<span style=\"text-decoration: line-through\">");
 	          write(" " + Utilities.escapeXml(elem.getShortDefn()));
-	          if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+	          if (elem.eliminated()) 
 	            write("</span>");
 	          write(" --&gt;</span>");
 					} else {
@@ -546,10 +546,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				} else if (elem.hasShortDefn()) {
 					  write(" <span style=\"color: Gray\">&lt;!--");
             writeCardinality(elem);
-            if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+            if (elem.eliminated()) 
               write("<span style=\"text-decoration: line-through\">");
             write(" "+Utilities.escapeXml(elem.getShortDefn()));
-            if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
+            if (elem.eliminated()) 
               write("</span>");
             write(" --&gt;</span>");
 				}

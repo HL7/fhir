@@ -259,16 +259,17 @@ public class CompositeTypeConverter {
 		  result.setXmlFormatHint(XmlFormatHint.XHTML_ELEMENT);
 		
 		result.setAnnotation(ann);		
-		result.setIsModifier(element.isModifier());
+		if (element.hasModifier())
+		  result.setIsModifier(element.isModifier());
 		
-		if( isResource )
-		  result.setSummaryItem(element.isSummaryItem());
-		else
-		  result.setSummaryItem(true);
+		if(!isResource )
+      result.setSummaryItem(true);
+		else if (element.hasSummaryItem())
+      result.setSummaryItem(element.isSummaryItem());
 		
 		result.setMinCardinality(element.getMinCardinality());
 
-		if (element.getMaxCardinality() != null)
+		if (element.getMaxCardinality() != Integer.MAX_VALUE)
 			result.setMaxCardinality(element.getMaxCardinality());
 		else
 			result.setMaxCardinality(-1); // Adapt eCore convention for '*'
