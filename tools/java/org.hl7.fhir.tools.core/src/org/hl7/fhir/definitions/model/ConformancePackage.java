@@ -34,7 +34,8 @@ public class ConformancePackage {
   private List<ExtensionDefinition> extensions = new ArrayList<ExtensionDefinition>();
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<SearchParameter> searchParameters = new ArrayList<SearchParameter>();
-    
+  private Map<String, MappingSpace> mappingSpaces = new HashMap<String, MappingSpace>();
+  
   public ConformancePackage(String category) {
     super();
     this.category = category;
@@ -147,6 +148,9 @@ public class ConformancePackage {
   }
   public void setCategory(String category) {
     this.category = category;
+  }
+  public Map<String, MappingSpace> getMappingSpaces() {
+    return mappingSpaces;
   }
 
   

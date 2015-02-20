@@ -54,6 +54,7 @@ import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.OperationParameter;
 import org.hl7.fhir.definitions.model.OperationTuplePart;
@@ -168,7 +169,7 @@ public class SpreadsheetParser {
 	
 	private ResourceDefn parseCommonTypeColumns() throws Exception {
 		ResourceDefn resource = new ResourceDefn();
-		
+				
 		Sheet sheet = loadSheet("Bindings");
 		Map<String, BindingSpecification> typeLocalBindings = null;
 		if (sheet != null)
@@ -183,7 +184,7 @@ public class SpreadsheetParser {
 		if (sheet == null)
 		  throw new Exception("No Sheet found for Data Elements");
 		for (int row = 0; row < sheet.rows.size(); row++) {
-			processLine(resource, sheet, row, invariants, false);
+			processLine(resource, sheet, row, invariants, false, null);
 		}
 
 		if (invariants != null) {
@@ -724,6 +725,7 @@ public class SpreadsheetParser {
 	public void parseConformancePackage(ConformancePackage ap, Definitions definitions, String folder) throws Exception {
 	  try {
 	    isProfile = true;
+	    checkMappings(ap);
 	    Sheet sheet = loadSheet("Bindings");
 	    if (sheet != null)
 	      bindings = readBindings(sheet);
@@ -791,6 +793,19 @@ public class SpreadsheetParser {
 	}
 
 
+  private void checkMappings(ConformancePackage pack) throws Exception {
+    pack.getMappingSpaces().clear();
+    Sheet sheet = loadSheet("Mappings");
+    if (sheet != null) {
+      for (int row = 0; row < sheet.rows.size(); row++) {
+        String uri = sheet.getNonEmptyColumn(row, "Uri");
+        MappingSpace ms = new MappingSpace(sheet.getNonEmptyColumn(row, "Column"), sheet.getNonEmptyColumn(row, "Title"), sheet.getNonEmptyColumn(row, "Id"), sheet.getIntColumn(row, "Sort Order"));
+        pack.getMappingSpaces().put(uri, ms);
+      }
+    }
+  }
+
+
   private ProfileDefn parseProfileSheet(Definitions definitions, ConformancePackage ap, String n, List<String> namedSheets, boolean published, String usage) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
@@ -808,7 +823,7 @@ public class SpreadsheetParser {
     if (sheet == null)
       throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
     for (int row = 0; row < sheet.rows.size(); row++) {
-      ElementDefn e = processLine(resource, sheet, row, invariants, true);
+      ElementDefn e = processLine(resource, sheet, row, invariants, true, ap);
       if (e != null) 
         for (TypeRef t : e.getTypes()) {
           if (t.getProfile() != null && !t.getName().equals("Extension") && t.getProfile().startsWith("#")) { 
@@ -970,7 +985,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile) throws Exception {
+  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, ConformancePackage pack) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
 		if (path.startsWith("!"))
@@ -1100,6 +1115,11 @@ public class SpreadsheetParser {
 		e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     for (String n : definitions.getMapTypes().keySet()) {
       e.addMapping(n, sheet.getColumn(row, definitions.getMapTypes().get(n).getColumnName()));
+    }
+    if (pack != null) {
+      for (String n : pack.getMappingSpaces().keySet()) {
+        e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()));
+      }      
     }
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
 		e.setExample(processValue(sheet, row, "Example", e));

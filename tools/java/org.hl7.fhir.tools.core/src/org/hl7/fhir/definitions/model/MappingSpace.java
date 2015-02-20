@@ -55,7 +55,6 @@ public class MappingSpace {
 
   public void setSortOrder(int sortOrder) {
     this.sortOrder = sortOrder;
-  }
-  
+  } 
   
 }

@@ -426,7 +426,7 @@ public class ValueSet extends DomainResource {
          * @return If code comparison is case sensitive when codes within this system are compared to each other.
          */
         public boolean getCaseSensitive() { 
-          return this.caseSensitive == null ? false : this.caseSensitive.getValue();
+          return this.caseSensitive == null || this.caseSensitive.isEmpty() ? false : this.caseSensitive.getValue();
         }
 
         /**

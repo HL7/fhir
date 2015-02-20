@@ -795,7 +795,12 @@ public class ProfileGenerator {
       ce.setIsSummaryElement(Factory.newBoolean(e.isSummary()));
     
     for (String n : definitions.getMapTypes().keySet()) {
-      addMapping(p, ce, n, e.getMapping(n));
+      addMapping(p, ce, n, e.getMapping(n), null);
+    }
+    if (ap != null) {
+      for (String n : ap.getMappingSpaces().keySet()) {
+        addMapping(p, ce, n, e.getMapping(n), ap);
+      }
     }
     ToolingExtensions.addDisplayHint(ce, e.getDisplayHint());
 
@@ -817,12 +822,6 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.getBindingName())) {
       ce.setBinding(generateBinding(e.getBindingName()));
       bindings.add(e.getBindingName());
-    }
-
-    for (String m : e.getMappings().keySet()) {
-      ElementDefinitionMappingComponent map = ce.addMapping();
-      map.setIdentity(registerMapping(ap, p, m));
-      map.setMap(e.getMappings().get(m));
     }
 
     if (snapshot != SnapShotMode.None && !e.getElements().isEmpty()) {    
@@ -943,20 +942,34 @@ public class ProfileGenerator {
       c.getElement().add(ex);
   }
   
-  private void addMapping(Profile p, ElementDefinition definition, String target, String map) {
+  private void addMapping(Profile p, ElementDefinition definition, String target, String map, ConformancePackage pack) {
     if (!Utilities.noString(map)) {
-      String id = definitions.getMapTypes().get(target).getId();
+      String id;
+      if (pack != null && pack.getMappingSpaces().containsKey(target))
+        id = pack.getMappingSpaces().get(target).getId();
+      else
+        id = definitions.getMapTypes().get(target).getId();
+      
       if (!mappingExists(p, id)) {
         ProfileMappingComponent pm = new ProfileMappingComponent();
         p.getMapping().add(pm);
         pm.setIdentity(id);
         pm.setUri(target);
-        pm.setName(definitions.getMapTypes().get(target).getTitle());
+        if (pack != null && pack.getMappingSpaces().containsKey(target))
+          pm.setName(pack.getMappingSpaces().get(target).getTitle());
+        else
+          pm.setName(definitions.getMapTypes().get(target).getTitle());
       }
-      ElementDefinitionMappingComponent m = new ElementDefinitionMappingComponent();
-      m.setIdentity(id);
-      m.setMap(map);
-      definition.getMapping().add(m);
+      boolean found = false;
+      for (ElementDefinitionMappingComponent m : definition.getMapping()) {
+        found = found || (m.getIdentity().equals(id) && m.getMap().equals(map)); 
+      }
+      if (!found) {
+        ElementDefinitionMappingComponent m = new ElementDefinitionMappingComponent();
+        m.setIdentity(id);
+        m.setMap(map);
+        definition.getMapping().add(m);
+      }
     }
   }
 
