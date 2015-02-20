@@ -208,6 +208,7 @@ public class SourceParser {
 		loadTLAs();
 		loadIgs();
 		loadTypePages();
+		loadDictionaries();
 		
 		loadPrimitives();
 		eCoreParseResults.getPrimitive().addAll(PrimitiveConverter.buildPrimitiveTypesFromFhirModel(definitions.getPrimitives().values()));
@@ -292,6 +293,15 @@ public class SourceParser {
 	}
 
 
+  private void loadDictionaries() {
+    String[] dicts = ini.getPropertyNames("dictionaries");
+    for (String dict : dicts) {
+     String s = ini.getStringProperty("dictionaries", dict);
+     definitions.getDictionaries().put(dict, s);
+    }   
+  }
+
+
   private void loadIgs() {
     if (ini.getPropertyNames("igs") != null) {
       for (String n : ini.getPropertyNames("igs")) {
@@ -307,8 +317,7 @@ public class SourceParser {
     for (String tp : tps) {
      String s = ini.getStringProperty("type-pages", tp);
      definitions.getTypePages().put(tp, s);
-    }    
-    
+    }        
   }
 
 

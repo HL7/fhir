@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- processed by StringTemplate -->
+
+<Profile xmlns="http://hl7.org/fhir">
+  <id value="observation-hspc-standardlabobs-quantitative-$de_id$"/>
+  <url value="http://hl7.org/fhir/Profile/$de_id$"/>
+  <name value="HSPC Standard Quantitative Lab: $de_name$"/>
+  <publisher value="HSPC"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://healthcaresoa.org"/>
+  </telecom>
+  <description value="$de_definition$"/>
+  <status value="draft"/>
+  <date value="2015-02-18"/>
+  <type value="Observation"/>
+  <base value="http://hl7.org/fhir/Profile/observation-hspc-standardlabobs-quantitative-stdqty"/>
+  <differential>
+    <element>
+      <path value="Observation.code"/>
+      <fixedCodeableConcept>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="$de_code0_code$"/>
+        </coding>
+      </fixedCodeableConcept>
+    </element>
+    <element>
+      <path value="Observation.valueQuantity.code"/>
+      <min value="1"/>
+      <max value="1"/>
+      <fixedCode value="$de_units_code0_code$"/>
+    </element>
+  </differential>
+</Profile>

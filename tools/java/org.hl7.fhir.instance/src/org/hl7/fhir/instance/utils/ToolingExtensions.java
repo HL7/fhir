@@ -40,10 +40,12 @@ import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.ExtensionHelper;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Questionnaire.GroupComponent;
 import org.hl7.fhir.instance.model.Questionnaire.QuestionComponent;
 import org.hl7.fhir.instance.model.Reference;
 import org.hl7.fhir.instance.model.StringType;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.instance.model.UriType;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptDefinitionComponent;
@@ -87,6 +89,20 @@ public class ToolingExtensions {
     return ex;
   }
 
+  public static boolean hasExtension(DomainResource de, String url) {
+    return getExtension(de, url) != null;
+  }
+  
+  public static void addStringExtension(DomainResource dr, String url, String content) throws Exception {
+    if (!Utilities.noString(content)) {
+      Extension ex = getExtension(dr, url);
+      if (ex != null)
+        ex.setValue(new StringType(content));
+      else
+        dr.getExtension().add(Factory.newExtension(url, new StringType(content), true));   
+    }
+  }
+
   public static void addComment(Element nc, String comment) throws Exception {
     if (!Utilities.noString(comment))
       nc.getExtension().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
@@ -124,7 +140,7 @@ public class ToolingExtensions {
   }
 
   public static String readStringExtension(DomainResource c, String uri) {
-    Extension ex = ResourceUtilities.getExtension(c, uri);
+    Extension ex = getExtension(c, uri);
     if (ex == null)
       return null;
     if ((ex.getValue() instanceof StringType))
@@ -132,6 +148,14 @@ public class ToolingExtensions {
     if ((ex.getValue() instanceof UriType))
       return ((UriType) ex.getValue()).getValue();
     return null;
+  }
+
+  @SuppressWarnings("unchecked")
+  public static PrimitiveType<Type> readPrimitiveExtension(DomainResource c, String uri) {
+    Extension ex = getExtension(c, uri);
+    if (ex == null)
+      return null;
+    return (PrimitiveType<Type>) ex.getValue();
   }
 
   public static boolean findStringExtension(Element c, String uri) {
@@ -230,7 +254,21 @@ public class ToolingExtensions {
   public static Extension getExtension(DomainResource resource, String name) {
     if (name == null)
       return null;
+    if (!resource.hasExtension())
+      return null;
     for (Extension e : resource.getExtension()) {
+      if (name.equals(e.getUrl()))
+        return e;
+    }
+    return null;
+  }
+  
+  public static Extension getExtension(Element el, String name) {
+    if (name == null)
+      return null;
+    if (!el.hasExtension())
+      return null;
+    for (Extension e : el.getExtension()) {
       if (name.equals(e.getUrl()))
         return e;
     }

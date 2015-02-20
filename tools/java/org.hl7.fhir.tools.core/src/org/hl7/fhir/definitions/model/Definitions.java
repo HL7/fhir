@@ -73,6 +73,7 @@ public class Definitions {
 
 	// conformance packages not owned by a particular resource
   private Map<String, ConformancePackage> packs = new HashMap<String, ConformancePackage>();
+  private Map<String, String> dictionaries = new HashMap<String, String>();
 
   // indexes of above
   private Map<String, DefinedCode> knownResources = new HashMap<String, DefinedCode>();
@@ -409,6 +410,10 @@ public class Definitions {
 
   public Map<String, ImplementationGuide> getIgs() {
     return igs;
+  }
+
+  public Map<String, String> getDictionaries() {
+    return dictionaries;
   }
 
 

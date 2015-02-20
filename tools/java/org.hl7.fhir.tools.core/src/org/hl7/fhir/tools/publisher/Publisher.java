@@ -141,6 +141,7 @@ import org.hl7.fhir.instance.model.Conformance.SystemInteractionComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DateTimeType;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.ElementDefinition;
@@ -180,6 +181,7 @@ import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.ValueSetUtilities;
+import org.hl7.fhir.instance.utils.WorkerContext;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
@@ -210,6 +212,7 @@ import org.hl7.fhir.utilities.xml.NamespaceContextMap;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
+import org.stringtemplate.v4.ST;
 import org.tigris.subversion.javahl.ClientException;
 import org.tigris.subversion.javahl.SVNClient;
 import org.tigris.subversion.javahl.Status;
@@ -1598,6 +1601,12 @@ public class Publisher implements URIResolver {
     for (ExtensionDefinition ae : page.getWorkerContext().getExtensionDefinitions().values()) 
       produceExtensionDefinition(ae);
     
+    for (String n : page.getDefinitions().getDictionaries().keySet()) {
+      if (buildFlags.get("all") || buildFlags.get("dict-" + n.toLowerCase())) {
+        page.log(" ...dictionary " + n, LogMessageType.Process);
+        produceDictionary(n);
+      }
+    }
     
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
@@ -3617,6 +3626,109 @@ public class Publisher implements URIResolver {
     src = TextFile.fileToString(page.getFolders().srcDir + file).replace("<body>", "<body style=\"margin: 10px\">");
     src = page.processPageIncludesForBook(file, src, "page", null);
     cachePage(file, src, logicalName);
+  }
+
+  private void produceDictionary(String file) throws Exception {
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-dictionary.html");
+    XmlParser xml = new XmlParser();
+    Bundle dict = (Bundle) xml.parse(new FileInputStream(Utilities.path(page.getFolders().srcDir, "dictionaries", file+".xml")));
+    
+    src = page.processPageIncludes(file+".html", src, "page", null, dict, null);
+    // before we save this page out, we're going to figure out what it's index
+    // is, and number the headers if we can
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file+".html");
+    src = addSectionNumbers(file, file, src, null);
+
+    TextFile.stringToFile(src, page.getFolders().dstDir + file+".html");
+
+    src = TextFile.fileToString(page.getFolders().srcDir + "template-dictionary.html").replace("<body>", "<body style=\"margin: 10px\">");
+    src = page.processPageIncludesForBook(file+".html", src, "page", dict);
+    cachePage(file+".html", src, file);
+    
+    xml.setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".xml"), dict);
+    cloneToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance");
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".json"), dict);
+    jsonToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), resource2Json(dict), "dict-instance");
+    for (BundleEntryComponent e : dict.getEntry()) {
+      produceDictionaryProfile(file, (DataElement) e.getResource());
+    }
+  }
+
+  private void produceDictionaryProfile(String filebase, DataElement de) throws Exception {
+    // first, sort out identifiers
+    String template = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "dictionaries", filebase+"-profile.xml"));
+    String file = filebase+"-"+de.getId();
+        
+    // second, generate the profile.
+    Map<String, String> variables = new HashMap<String, String>();
+    variables.put("de_id", de.getId());
+    variables.put("de_name", de.getName());
+    variables.put("de_definition", Utilities.noString(de.getDefinition()) ? "??" : de.getDefinition());
+    variables.put("de_code0_code", de.getCode().get(0).getCode());
+    variables.put("de_units_code0_code", de.getUnitsCodeableConcept().getCoding().get(0).getCode());
+    String profile = processTemplate(template, variables); 
+    XmlParser xml = new XmlParser();
+    Profile p = (Profile) xml.parse(new ByteArrayInputStream(profile.getBytes()));
+    new ProfileUtilities(page.getWorkerContext()).generateSnapshot(page.getProfiles().get(p.getBase()), p, p.getBase(), p.getId(), page);
+    ProfileDefn pd = new ProfileDefn(p, "hspc"); // todo
+    pd.setId(p.getId());
+    pd.setTitle(p.getName());
+    ConformancePackage pack = new ConformancePackage("hspc");
+    pack.forceMetadata("date", p.getDateElement().asStringValue());
+    p.setUserData("filename", file  );
+
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    XmlSpecGenerator gen = new XmlSpecGenerator(bs, null, "http://hl7.org/fhir/", page);
+    gen.generate(p);
+    gen.close();
+    String xmls = new String(bs.toByteArray());
+    bs = new ByteArrayOutputStream();
+    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, null, "http://hl7.org/fhir/", page);
+    // genJ.generate(profile.getResource());
+    genJ.close();
+    String jsons = new String(bs.toByteArray());
+
+    String tx = ""; //todo
+
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
+    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??"); // resourceName+"/"+pack.getId()+"/"+profile.getId());
+    page.getEpub().registerFile(file + ".html", "Profile " + p.getName(), EPubManager.XHTML_TYPE);
+    TextFile.stringToFile(src, page.getFolders().dstDir + file + ".html");
+
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
+//    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+//    page.getEpub().registerFile(title + "-mappings.html", "Mappings for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-mappings.html");
+
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-examples.html");
+//    src = page.processProfileIncludes(profile.getId(), pack, profile, xml, tx, src, intro, notes, title + ".html");
+//    page.getEpub().registerFile(title + "-examples.html", "Examples for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-examples.html");
+
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
+//    src = page.processProfileIncludes(profile.getId(), profile.getId(), pack, profile, xml, json, tx, src, title + ".html", resourceName+"/"+pack.getId()+"/"+profile.getId());
+//    page.getEpub().registerFile(title + "-definitions.html", "Definitions for Profile " + profile.getResource().getName(), EPubManager.XHTML_TYPE);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + title + "-definitions.html");
+//
+//    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + Utilities.changeFileExt((String) profile.getResource().getUserData("filename"), "-review.xls"), "HL7 FHIR Project", page.getGenDate(), profile.getResource());
+    
+    // now, save the profile and generate equivalents
+    xml.setOutputStyle(OutputStyle.PRETTY);
+    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".xml"), p);
+    cloneToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance");
+    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".json"), p);
+    jsonToXhtml(file, "Source for Dictionary based Profile" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance");    
+  }
+
+  private String processTemplate(String template, Map<String, String> variables) {
+    ST st = new ST(template, '$', '$');
+    for (String var : variables.keySet())
+      st.add(var, variables.get(var));
+    return st.render();
   }
 
   private void produceSid(int i, String logicalName, String file) throws Exception {

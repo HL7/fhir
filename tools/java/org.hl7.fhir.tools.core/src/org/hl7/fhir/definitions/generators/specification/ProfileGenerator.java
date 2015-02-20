@@ -120,7 +120,7 @@ public class ProfileGenerator {
 
   public Profile generate(PrimitiveType type, Calendar genDate) throws Exception {
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, "core");
+    ToolResourceUtilities.updateUsage(p, "core");
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
@@ -193,7 +193,7 @@ public class ProfileGenerator {
 
   public Profile generate(DefinedStringPattern type, Calendar genDate) throws Exception {
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, "core");
+    ToolResourceUtilities.updateUsage(p, "core");
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/Profile/"+ type.getCode());
     p.setName(type.getCode());
@@ -271,7 +271,7 @@ public class ProfileGenerator {
 
   public Profile generate(TypeDefn t, Calendar genDate) throws Exception {
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, "core");
+    ToolResourceUtilities.updateUsage(p, "core");
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ t.getName());
     p.setName(t.getName());
@@ -307,7 +307,7 @@ public class ProfileGenerator {
   
   public Profile generate(ProfiledType pt, Calendar genDate) throws Exception {
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, "core");
+    ToolResourceUtilities.updateUsage(p, "core");
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ pt.getName());
     p.setName(pt.getName());
@@ -372,7 +372,7 @@ public class ProfileGenerator {
 
   public Profile generate(ConformancePackage pack, ResourceDefn r, Calendar genDate, String usage) throws Exception {
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, usage);
+    ToolResourceUtilities.updateUsage(p, usage);
     p.setId(r.getRoot().getName());
     p.setUrl("http://hl7.org/fhir/Profile/"+ r.getRoot().getName());
     p.setName(r.getRoot().getName());
@@ -432,7 +432,7 @@ public class ProfileGenerator {
     if (profile.getResource() != null)
       return profile.getResource();
     Profile p = new Profile();
-    ResourceUtilities.updateUsage(p, usage);
+    ToolResourceUtilities.updateUsage(p, usage);
     p.setId(FormatUtilities.makeId(id));
     p.setUrl("http://hl7.org/fhir/Profile/"+ id);
     p.setName(pack.metadata("name"));
@@ -458,6 +458,9 @@ public class ProfileGenerator {
         if (!Utilities.noString(s))
           p.getCode().add(Factory.makeCoding(s));
 
+    if (pack.hasMetadata("datadictionary"))
+      ToolingExtensions.setStringExtension(p, "http://hl7.org/fhir/ExtensionDefinition/datadictionary", pack.metadata("datadictionary"));
+    
     Set<String> containedSlices = new HashSet<String>();
 
     p.setType(resource.getRoot().getName());
@@ -1034,7 +1037,7 @@ public class ProfileGenerator {
   }
 
   public static ProfileDefn wrapProfile(Profile profile) {
-    return new ProfileDefn(profile, (String) profile.getUserData(ResourceUtilities.NAME_SPEC_USAGE));
+    return new ProfileDefn(profile, (String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE));
   }
 
   public void convertElements(ElementDefn src, ExtensionDefinition ed, String path) throws Exception {

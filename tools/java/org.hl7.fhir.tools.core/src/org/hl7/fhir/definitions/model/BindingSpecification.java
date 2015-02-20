@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.definitions.generators.specification.ResourceUtilities;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.instance.model.ElementDefinition.BindingConformance;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
@@ -277,7 +277,7 @@ public class BindingSpecification {
 
   public void setReferredValueSet(ValueSet referredValueSet) {
     this.referredValueSet = referredValueSet;
-    ResourceUtilities.updateUsage(referredValueSet, usageContext);
+    ToolResourceUtilities.updateUsage(referredValueSet, usageContext);
   }
 
   

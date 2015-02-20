@@ -4,7 +4,7 @@ import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
 
-public class ResourceUtilities {
+public class ToolResourceUtilities {
 
   public static final String NAME_SPEC_USAGE = "spec.usage";
 

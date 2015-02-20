@@ -6503,14 +6503,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">HSPC Standard Lab Observation</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">observation-hspc-stdlabobs-profile.xml</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">obs-hspc-stdlabobs-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">hspc-stdlabobs-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">hspc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">HSPC Standard Quantitative Lab Observation</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">observation-hspc-stdlabobsqty-profile.xml</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">obs-hspc-stdlabobsqty-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">hspc-stdlabobsqty-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">hspc</Data></Cell>
    </Row>
@@ -6670,7 +6670,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -6687,73 +6687,31 @@
   <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R19C4,R21C1:R40C4</Range>
+   <Range>R2C1:R40C4</Range>
    <Condition>
     <Value1>AND(R[1048571]C1=&quot;&quot;,R[1048571]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R19C1,R21C1:R40C1</Range>
+   <Range>R2C1:R40C1</Range>
    <Condition>
     <Value1>AND(R[1048571]C&lt;&gt;&quot;&quot;,R[1048570]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R19C2,R2C4:R19C4,R21C4:R40C4,R21C2:R40C2</Range>
+   <Range>R2C2:R40C2,R2C4:R40C4,R19C3:R20C3</Range>
    <Condition>
     <Value1>AND(R[1048571]C1&lt;&gt;&quot;&quot;,R[1048571]C[16379]=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R19C4,R21C1:R40C4</Range>
+   <Range>R2C1:R40C4</Range>
    <Condition>
     <Value1>LEFT(R[1048571]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R19C3</Range>
-   <Condition>
-    <Value1>AND(R[-5]C1&lt;&gt;&quot;&quot;,R[-5]C[16379]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C1:R20C4</Range>
-   <Condition>
-    <Value1>AND(R[-5]C1=&quot;&quot;,R[-5]C&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C1</Range>
-   <Condition>
-    <Value1>AND(R[-5]C&lt;&gt;&quot;&quot;,R[-6]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C2,R20C4</Range>
-   <Condition>
-    <Value1>AND(R[-5]C1&lt;&gt;&quot;&quot;,R[-5]C[16379]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C1:R20C4</Range>
-   <Condition>
-    <Value1>LEFT(R[-5]C1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R20C3</Range>
-   <Condition>
-    <Value1>AND(R[-5]C1&lt;&gt;&quot;&quot;,R[-5]C[16379]=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>

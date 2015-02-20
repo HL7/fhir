@@ -55,7 +55,7 @@ import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
-import org.hl7.fhir.definitions.generators.specification.ResourceUtilities;
+import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
@@ -115,6 +115,7 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.instance.utils.ResourceUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.utils.Translations;
 import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
@@ -425,6 +426,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+igHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
         src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("dictheader"))
+        src = s1+dictHeader(name, com.length > 1 ? com[1] : "")+s3;
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
@@ -685,6 +688,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + others.get(com[0]) + s3; 
       else if (com[0].equals("status-codes"))
         src = s1 + genStatusCodes() + s3;        
+      else if (com[0].equals("dictionary.name"))
+        src = s1 + definitions.getDictionaries().get(name) + s3;        
+      else if (com[0].equals("dictionary.view"))
+        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -2008,6 +2015,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return b.toString();   
   }
 
+  private String dictHeader(String n, String mode) {
+    StringBuilder b = new StringBuilder();
+
+    if (n.endsWith(".xml"))
+      n = n.substring(0, n.length()-4);
+    
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("XML", n+".xml.html", "xml".equals(mode)));
+    b.append(makeHeaderTab("JSON", n+".json.html", "json".equals(mode)));
+
+    b.append("</ul>\r\n");
+
+    return b.toString();   
+  }
+
   private String extDefnHeader(String n, String mode) {
     StringBuilder b = new StringBuilder();
 
@@ -2337,7 +2361,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
 
   private String usageSummary(ValueSet vs) {
-    String s = (String) vs.getUserData(ResourceUtilities.NAME_SPEC_USAGE);
+    String s = (String) vs.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE);
     if (Utilities.noString(s))
       return "??";
     else {
@@ -2669,7 +2693,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("elheader") || com[0].equals("extheader") || com[0].equals("narrheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || 
           com[0].equals("txheader") || com[0].equals("refheader") || com[0].equals("extrasheader") || com[0].equals("profilesheader") || com[0].equals("fmtheader") || 
-          com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
+          com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
@@ -3024,7 +3048,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+dictForDt(com[1])+s3;
       else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("edheader") || com[0].equals("elheader") || com[0].equals("extheader") || com[0].equals("resourcesheader") || 
           com[0].equals("formatsheader") || com[0].equals("narrheader") || com[0].equals("refheader") ||  com[0].equals("extrasheader") || com[0].equals("profilesheader") ||
-          com[0].equals("txheader") || com[0].equals("fmtheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader")) 
+          com[0].equals("txheader") || com[0].equals("fmtheader") || com[0].equals("igheader") || com[0].equals("cmpheader") || com[0].equals("atomheader") || com[0].equals("dictheader")) 
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;
@@ -3248,6 +3272,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Integer.toString(definitions.getResources().size()) + s3;  
       else if (com[0].equals("status-codes"))
         src = s1 + genStatusCodes() + s3;        
+      else if (com[0].equals("dictionary.name"))
+        src = s1 + definitions.getDictionaries().get(name) + s3;        
+      else if (com[0].equals("dictionary.view"))
+        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;        
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -4162,6 +4190,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+definitionsProfile(profile.getResource())+s3;
       else if (com[0].equals("profile.review"))
         src = s1+profileReviewLink(profile)+s3;
+      else if (com[0].equals("profile.datadictionary"))
+        src = s1+profileDictionaryLink(profile)+s3;      
       else if (com[0].equals("profile.tx"))
         src = s1+getTerminologyNotes(profile.getResource())+s3;
       else if (com[0].equals("profile.inv"))
@@ -4191,6 +4221,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String profileDictionaryLink(ProfileDefn profile) {
+    String uri = ToolingExtensions.readStringExtension(profile.getResource(), "http://hl7.org/fhir/ExtensionDefinition/datadictionary");
+    if (Utilities.noString(uri))
+      return "";
+    String dict = definitions.getDictionaries().get(uri);
+    if (Utilities.noString(dict))
+      return "<p>This profile specifies that the value of the "+profile.getResource().getSnapshot().getElement().get(0).getPath()+
+          " resource must be a valid Observation as defined in the data dictionary (Unknown? - "+uri+").</p>";
+    else
+      return "<p>This profile specifies that the value of the "+profile.getResource().getSnapshot().getElement().get(0).getPath()+
+          " resource must be a valid Observation as defined in the data dictionary <a href=\""+uri+".html\">"+dict+"</a>.</p>";
   }
 
   private String generateHumanSummary(ConformancePackage pack, Profile profile) {
