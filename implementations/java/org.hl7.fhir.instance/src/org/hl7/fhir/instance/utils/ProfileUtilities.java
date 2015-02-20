@@ -55,10 +55,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
  */
 public class ProfileUtilities {
 
-
-
   private static final String DERIVATION_EQUALS = "derivation.equals";
-  private WorkerContext context;
+  private final WorkerContext context;
   
   public ProfileUtilities(WorkerContext context) {
     super();
@@ -67,7 +65,6 @@ public class ProfileUtilities {
 
   private class UnusedTracker {
     private boolean used;
-    
   }
 
   public interface ProfileKnowledgeProvider {
@@ -174,7 +171,6 @@ public class ProfileUtilities {
             res.add(e);
           }
         }
-
       }
     
     return res;
@@ -420,6 +416,7 @@ public class ProfileUtilities {
         return ae;
       }
     }
+	  System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
     return null;
   }
 
@@ -1061,7 +1058,6 @@ public class ProfileUtilities {
       return path.substring(path.lastIndexOf('/')+1);
     else
       return path;
-
   }
 
 
@@ -1311,8 +1307,7 @@ public class ProfileUtilities {
     public void setBaseIndex(int baseIndex) {
       this.baseIndex = baseIndex;
     }
-    
-    
+
   }
 
   public static class ElementDefinitionComparer implements Comparator<ElementDefinitionHolder> {
@@ -1373,8 +1368,24 @@ public class ProfileUtilities {
 
   
   public void sortDifferential(Profile base, Profile diff, String name, ProfileKnowledgeProvider pkp, List<String> errors) {
+
+    final List<ElementDefinition> diffList = diff.getDifferential().getElement();
     // first, we move the differential elements into a tree
-    ElementDefinitionHolder edh = new ElementDefinitionHolder(diff.getDifferential().getElement().get(0));
+    ElementDefinitionHolder edh = new ElementDefinitionHolder(diffList.get(0));
+
+    boolean hasSlicing = false;
+    for(ElementDefinition elt : diffList) {
+      if (elt.hasSlicing()) {
+        hasSlicing = true;
+        break;
+      }
+    }
+    if(!hasSlicing) {
+      // if Differential does not have slicing then safe to pre-sort the list
+      // so elements and subcomponents are together
+      Collections.sort(diffList, new ElementNameCompare());
+    }
+
     int i = 1;
     processElementsIntoTree(edh, i, diff.getDifferential().getElement());
     
@@ -1383,8 +1394,8 @@ public class ProfileUtilities {
     sortElements(edh, cmp, errors);
     
     // now, we serialise them back to a list
-    diff.getDifferential().getElement().clear();
-    writeElements(edh, diff.getDifferential().getElement());
+    diffList.clear();
+    writeElements(edh, diffList);
   }
 
   private int processElementsIntoTree(ElementDefinitionHolder edh, int i, List<ElementDefinition> list) {
@@ -1395,16 +1406,7 @@ public class ProfileUtilities {
       edh.getChildren().add(child);
       i = processElementsIntoTree(child, i+1, list);
     }
-    // check if any matching elements later in list
-    for (int j = i + 1; j < list.size(); ) {
-      if(list.get(j).getPath().startsWith(prefix)) {
-        ElementDefinitionHolder child = new ElementDefinitionHolder(list.remove(j));
-        edh.getChildren().add(child);
-        j = processElementsIntoTree(child, j, list);
-      } else {
-        j++;
-      }
-    }
+
     return i;
   }
 
@@ -1443,7 +1445,37 @@ public class ProfileUtilities {
     }
   }
 
-  
+  /**
+   * First compare element by path then by name if same
+   */
+  private static class ElementNameCompare implements Comparator<ElementDefinition> {
+
+    @Override
+    public int compare(ElementDefinition o1, ElementDefinition o2) {
+      String path1 = normalizePath(o1);
+      String path2 = normalizePath(o2);
+      int cmp = path1.compareTo(path2);
+      if (cmp == 0) {
+        String name1 = o1.hasName() ? o1.getName() : "";
+        String name2 = o2.hasName() ? o2.getName() : "";
+        cmp = name1.compareTo(name2);
+      }
+      return cmp;
+    }
+
+    private static String normalizePath(ElementDefinition e) {
+      if (!e.hasPath()) return "";
+      String path = e.getPath();
+      // if sorting element names make sure onset[x] appears before onsetAge, onsetDate, etc.
+      // so strip off the [x] suffix when comparing the path names.
+      if (path.endsWith("[x]")) {
+        path = path.substring(0, path.length()-3);
+      }
+      return path;
+    }
+
+  }
+
 //  public ExtensionResult getExtensionDefn(Profile source, String url) {
 //    Profile profile;
 //    String code;
