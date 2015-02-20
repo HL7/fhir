@@ -141,8 +141,9 @@ import com.github.rjeschke.txtmark.Processor;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
-  private ImplementationGuideDetails ig;
   private static final String SIDEBAR_SPACER = "<p>&#xA0;</p>\r\n";
+
+  private ImplementationGuideDetails ig;
   private final List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
@@ -150,9 +151,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private Navigation navigation;
   private final List<PlatformGenerator> referenceImplementations = new ArrayList<PlatformGenerator>();
   private IniFile ini;
-  private Calendar genDate = Calendar.getInstance();
-  private Date start = new Date();
-  private Map<String, String> prevSidebars = new HashMap<String, String>();
+  private final Calendar genDate = Calendar.getInstance();
+  private final Date start = new Date();
+  private final Map<String, String> prevSidebars = new HashMap<String, String>();
   private String svnRevision;
   private final List<String> orderedResources = new ArrayList<String>();
   private final Map<String, SectionTracker> sectionTrackerCache = new HashMap<String, SectionTracker>();
@@ -167,9 +168,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private final Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
   private final Map<String, Profile> profiles = new HashMap<String, Profile>();
   private final Map<String, Resource> igResources = new HashMap<String, Resource>();
-  
-  private Translations translations = new Translations();
   private final Map<String, String> svgs = new HashMap<String, String>();
+  private Translations translations = new Translations();
   private final BreadCrumbManager breadCrumbManager = new BreadCrumbManager(translations);
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
   private String publicationNotice = "";
@@ -177,10 +177,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String oid; // technical identifier associated with the page being built
   private EPubManager epub;
   private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
-  private final String tsServer; // terminology to use
   private SpecificationTerminologyServices terminologyServices;
-  private WorkerContext workerContext;
-  
+  private final String tsServer; // terminology to use
+  private final WorkerContext workerContext;
 
   public PageProcessor(String tsServer) throws URISyntaxException {
     super();
@@ -340,7 +339,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (notes != null && !notes.equals(""))
       s = notes;
     if (followUps.size() > 0)
-      if (s != "")
+      if (!s.isEmpty())
         s = s + "\r\n\r\nFollow ups: "+Utilities.asCSV(followUps);
       else
         s = "Follow ups: "+Utilities.asCSV(followUps);
@@ -348,12 +347,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String describeMsg(List<String> resources, List<String> aggregations) {
-    if (resources.size() == 0 && aggregations.size() == 0)
+    if (resources.isEmpty() && aggregations.isEmpty())
       return "<font color=\"silver\">--</font>";
     else {
-      String s = resources.size() == 0 ? "" : Utilities.asCSV(resources);
+      String s = resources.isEmpty() ? "" : Utilities.asCSV(resources);
       
-      if (aggregations.size() == 0)
+      if (aggregations.isEmpty())
         return s;
       else
         return s + "<br/>"+Utilities.asHtmlBr("&nbsp;"+resources.get(0), aggregations)+"";
@@ -705,7 +704,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private String orgDT(String name, String xml, String tree, String ref, String ts, String json) {
     StringBuilder b = new StringBuilder();
-    b.append("<div id=\"tabs-"+name+"\">\r\n");
+    b.append("<div id=\"tabs-").append(name).append("\">\r\n");
     b.append(" <ul>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-struc\">Structure</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-uml\">UML</a></li>\r\n");
@@ -824,7 +823,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       Profile ae  = (Profile) igResources.get(s);
       b.append("  <tr>\r\n");
       b.append("    <td><a href=\""+((String) ae.getUserData("path")).replace(".xml", ".html")+"\">"+Utilities.escapeXml(ae.getName())+"</a></td>\r\n");
-      b.append("    <td>"+Utilities.escapeXml(ae.getDescription())+"</td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(ae.getDescription())).append("</td>\r\n");
       b.append(" </tr>\r\n");
     }
     b.append("</table>\r\n");
@@ -2263,7 +2262,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     for (String sn : sorts) {
       ConceptMap ae = conceptMaps.get(sn);
-      String n = sn.substring(23);
+      //String n = sn.substring(23);
       ConceptMap cm = ae;
       s.append(" <tr><td><a href=\"").append(ae.getUserData("path")).append("\">").append(cm.getName()).append("</a></td>")
               .append("<td><a href=\"").append(getValueSetRef("", ((Reference) cm.getSource()).getReference())).append("\">").append(describeValueSetByRef(((Reference) cm.getSource()).getReference())).append("</a></td>")
@@ -2391,12 +2390,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
         }
         if (!done.contains(n))
-          b.append(", "+n);
+          b.append(", ").append(n);
         done.add(n);
       }
     return b.length() == 0 ? "" : b.substring(2);
   }
 
+  /*
   private ValueSet getv3ValueSetByRef(String ref) {
     String vsRef = ref.replace("/vs", "");
     for (BundleEntryComponent ae : v3Valuesets.getEntry()) {
@@ -2405,6 +2405,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
     return null;
   }
+  */
 
   private String genBindingsTable() {
     StringBuilder s = new StringBuilder();
@@ -3698,9 +3699,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return false;
   }
 
+  /*
   private String prepWikiName(String name) {
     return Utilities.noString(name) ? "Index" : Utilities.capitalize(Utilities.fileTitle(name));
   }
+  */
   
   private String getSearch(ResourceDefn resource) {
     if (resource.getSearchParams().size() == 0)
@@ -4201,7 +4204,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       StringBuilder card = new StringBuilder(); // mandatory or Excluded fields
       StringBuilder fixed = new StringBuilder(); // Fixed Values 
       StringBuilder ext = new StringBuilder(); // extensions
-      StringBuilder slices = new StringBuilder(); // slices
+      //StringBuilder slices = new StringBuilder(); // slices
       for (ElementDefinition ed : profile.getDifferential().getElement()) {
         if (ed.hasBinding()) {
           String s = summariseBinding(ed.getBinding(), ed.getPath(), hasType(ed, "CodeableConcept"));
@@ -5034,7 +5037,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   public String processConformancePackageIncludes(ConformancePackage pack, String src, String intro, String notes) throws Exception {
     String workingTitle = null;
     int level = 0;
-    boolean even = false;
+    //boolean even = false;
     
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -5187,7 +5190,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     s.append("</table>");
     
     if (pack.getSearchParameters().size() > 0) {
-      // search parmaeters
+      // search parameters
       StringBuilder b = new StringBuilder();
       b.append("<h3>Search Parameters</h3>\r\n");
       b.append("<p>Search parameters defined by this package. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
@@ -5221,10 +5224,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append("<br/>(");
       } else
         b.append(", ");
-      if (rn.equals("Any")) 
+      final String value = rn.getValue();
+      if ("Any".equals(value))
         b.append("Any");
-      else
-        b.append("<a href=\"").append(rn.getValue().toLowerCase()).append(".html\">").append(rn.getValue()).append("</a>");
+       else
+        b.append("<a href=\"").append(value.toLowerCase()).append(".html\">").append(value).append("</a>");
     }
     if (!first)
       b.append(")");
@@ -5330,7 +5334,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       for (int i = 0; i < colcount; i++) 
         b.append("<td>").append(i < row.size() ? row.get(i) : "").append("</td>");
       b.append("</tr>\r\n");
-      
     }
     
     b.append("</table>\r\n");

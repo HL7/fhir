@@ -269,9 +269,9 @@ public class Publisher implements URIResolver {
   }
 
   public static class ExampleReference {
-    private String type;
-    private String id;
-    private String path;
+    private final String type;
+    private final String id;
+    private final String path;
 
     public ExampleReference(String type, String id, String path) {
       super();
@@ -3044,6 +3044,7 @@ public class Publisher implements URIResolver {
     page.getEpub().registerExternal("operation-" + name + ".xml.html");
   }
 
+  /*
   private void generateQuestionnaire(String n, Profile p) throws Exception {
     QuestionnaireBuilder b = new QuestionnaireBuilder(page.getWorkerContext());
     b.setProfile(p);
@@ -3055,6 +3056,7 @@ public class Publisher implements URIResolver {
 
   }
 
+  */
   private void jsonToXhtml(String n, String description, String json, String pageType) throws Exception {
     json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
@@ -3568,7 +3570,7 @@ public class Publisher implements URIResolver {
   // }
 
 
-
+  /*
   private Profile loadResourceProfile(String name) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     try {
@@ -3577,6 +3579,7 @@ public class Publisher implements URIResolver {
       throw new Exception("error parsing " + name, e);
     }
   }
+  */
 
   private void produceIgPage(String source, String file, String logicalName) throws Exception {
     String src = TextFile.fileToString(source);
