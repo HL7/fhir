@@ -15,6 +15,9 @@ For the initial scope, this DeviceComponent resource is only applicable to descr
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
+The DeviceComponent allows us to change the configuration of the device without having to change the device resource instance. The life-cycle of the configuration may be completely different than the one of the device itself.
+</p>
+<p>
 There are several related resources
 </p>
 <ul>
