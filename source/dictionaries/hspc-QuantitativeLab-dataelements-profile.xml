@@ -2,7 +2,7 @@
 <!-- processed by StringTemplate -->
 
 <Profile xmlns="http://hl7.org/fhir">
-  <id value="observation-hspc-standardlabobs-quantitative-$de_id$"/>
+  <id value="hspc-QuantitativeLab-dataelements-$de_id$"/>
   <url value="http://hl7.org/fhir/Profile/$de_id$"/>
   <name value="HSPC Standard Quantitative Lab: $de_name$"/>
   <publisher value="HSPC"/>

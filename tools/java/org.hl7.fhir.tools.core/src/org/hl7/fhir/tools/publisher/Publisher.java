@@ -3717,11 +3717,11 @@ public class Publisher implements URIResolver {
     
     // now, save the profile and generate equivalents
     xml.setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".xml"), p);
-    cloneToXhtml(file, "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance");
+    xml.compose(new FileOutputStream(page.getFolders().dstDir + file+".profile.xml"), p);
+    cloneToXhtml(file+".profile", "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance");
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".json"), p);
-    jsonToXhtml(file, "Source for Dictionary based Profile" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance");    
+    json.compose(new FileOutputStream(page.getFolders().dstDir+file+ ".profile.json"), p);
+    jsonToXhtml(file+".profile", "Source for Dictionary based Profile" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance");    
   }
 
   private String processTemplate(String template, Map<String, String> variables) {
