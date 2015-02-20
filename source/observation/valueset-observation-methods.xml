@@ -40,11 +40,11 @@
       <filter>
         <!-- 
           All LOINC codes that are methods. 
-          These will all have codes starting with "LP"
+          These will all have codes starting with "^LP"
         -->
         <property value="Type"/>
         <op value="="/>
-        <value value="Method"/>
+        <value value="METHOD_TYP"/>
       </filter>
     </include>
   </compose>
