@@ -287,7 +287,7 @@ public class EPubManager implements FileNotifier {
   }
 
   private void reportError(String msg) {
-    page.log(msg, LogMessageType.Error);
+//    page.log(msg, LogMessageType.Error);
     page.getQa().brokenlink(msg);
   }
 

@@ -1602,7 +1602,7 @@ public class Publisher implements URIResolver {
       produceExtensionDefinition(ae);
     
     for (String n : page.getDefinitions().getDictionaries().keySet()) {
-      if (buildFlags.get("all") || buildFlags.get("dict-" + n.toLowerCase())) {
+      if (buildFlags.get("all")) { // || buildFlags.get("dict-" + n.toLowerCase())) {
         page.log(" ...dictionary " + n, LogMessageType.Process);
         produceDictionary(n);
       }
