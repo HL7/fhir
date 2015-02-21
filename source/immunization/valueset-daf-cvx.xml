@@ -4,7 +4,7 @@
   <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
     <valueUri value="2.16.840.1.113883.3.88.12.80.22"/>
   </extension>
-  <identifier value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
+  <url value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
   <name value="Vaccine Administered Value Set"/>
   <publisher value="HL7 FHIR"/>
   <telecom>  

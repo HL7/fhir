@@ -4,7 +4,7 @@
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">SNOMED CT code system values descending from the following:'body position finding' 9851009</div>
     </text>
-    <identifier value="http://www.example.com/valueset/bodyPosition"/>
+    <url value="http://www.example.com/valueset/bodyPosition"/>
     <version value="0.01"/>
     <name value="Body Position Value Set Definition"/>
     <immutable value="true"/>

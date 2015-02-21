@@ -71,7 +71,7 @@
     </div>
   </text>
 
-  <identifier value="http://hl7.org/fhir/valueset-systems"/>
+  <url value="http://hl7.org/fhir/valueset-systems"/>
   <version value="2013-10-12"/>
   <name value="Explicitly Named systems list for FHIR"/>
   <publisher value="FHIR project team"/>

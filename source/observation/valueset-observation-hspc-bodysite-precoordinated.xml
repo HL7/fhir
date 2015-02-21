@@ -7,7 +7,7 @@
             (TUI=T020), Anatomical Abnormality (TUI=T190), Anatomical Structure (TUI=T017), Body Location or Region (TUI=T029), 
             Body Part, Organ, or Organ Component (TUI=T023), Body Space or Junction(TUI=T030), and Body System(TUI=T022). </div>
     </text>
-    <identifier value="http://www.example.com/valueset/deltaflag"/>
+    <url value="http://www.example.com/valueset/deltaflag"/>
     <version value="0.01"/>
     <name value="HSPC Delta Flag Value Set Definition"/>
     <immutable value="true"/>

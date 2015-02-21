@@ -1,6 +1,6 @@
 package org.hl7.fhir.instance.model;
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 public enum ResourceType {
     Condition,
@@ -49,8 +49,8 @@ public enum ResourceType {
     InstitutionalClaim,
     Alert,
     EligibilityResponse,
-    Person,
     StatusRequest,
+    Person,
     ProcedureRequest,
     VisionClaim,
     DeviceMetric,
@@ -82,8 +82,8 @@ public enum ResourceType {
     DiagnosticReport,
     Medication,
     MessageHeader,
-    DocumentManifest,
     DataElement,
+    DocumentManifest,
     MedicationAdministration,
     Encounter,
     SecurityEvent,
@@ -201,10 +201,10 @@ public enum ResourceType {
       return "alert";
     case EligibilityResponse:
       return "eligibilityresponse";
-    case Person:
-      return "person";
     case StatusRequest:
       return "statusrequest";
+    case Person:
+      return "person";
     case ProcedureRequest:
       return "procedurerequest";
     case VisionClaim:
@@ -267,10 +267,10 @@ public enum ResourceType {
       return "medication";
     case MessageHeader:
       return "messageheader";
-    case DocumentManifest:
-      return "documentmanifest";
     case DataElement:
       return "dataelement";
+    case DocumentManifest:
+      return "documentmanifest";
     case MedicationAdministration:
       return "medicationadministration";
     case Encounter:

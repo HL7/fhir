@@ -67,7 +67,7 @@
       </ul>
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/ucum-common"/>
+  <url value="http://hl7.org/fhir/vs/ucum-common"/>
   <name value="Common UCUM units"/>
   <publisher value="FHIR Project"/>
   <description value="Common UCUM units for recording Vital Signs"/>

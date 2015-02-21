@@ -44,7 +44,7 @@
 	</table>
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/diagnostic-order-status"/>
+  <url value="http://hl7.org/fhir/vs/diagnostic-order-status"/>
   <name value="CQFDiagnosticOrderStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>

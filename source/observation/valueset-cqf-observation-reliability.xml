@@ -41,7 +41,7 @@
 		</table>
 	  </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/cqf-observation-reliability"/>
+  <url value="http://hl7.org/fhir/vs/cqf-observation-reliability"/>
   <name value="CQFObservationReliability"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -218,14 +218,14 @@ public class OrderResponse extends DomainResource {
     /**
      * Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Identifiers assigned to this order by the orderer or by the receiver", formalDefinition="Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems." )
     protected List<Identifier> identifier;
 
     /**
      * A reference to the order that this is in response to.
      */
-    @Child(name="request", type={Order.class}, order=0, min=1, max=1)
+    @Child(name="request", type={Order.class}, order=1, min=1, max=1)
     @Description(shortDefinition="The order that this is a response to", formalDefinition="A reference to the order that this is in response to." )
     protected Reference request;
 
@@ -237,14 +237,14 @@ public class OrderResponse extends DomainResource {
     /**
      * The date and time at which this order response was made (created/posted).
      */
-    @Child(name="date", type={DateTimeType.class}, order=1, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="When the response was made", formalDefinition="The date and time at which this order response was made (created/posted)." )
     protected DateTimeType date;
 
     /**
      * The person, organization, or device credited with making the response.
      */
-    @Child(name="who", type={Practitioner.class, Organization.class, Device.class}, order=2, min=0, max=1)
+    @Child(name="who", type={Practitioner.class, Organization.class, Device.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Who made the response", formalDefinition="The person, organization, or device credited with making the response." )
     protected Reference who;
 
@@ -256,28 +256,28 @@ public class OrderResponse extends DomainResource {
     /**
      * A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.
      */
-    @Child(name="authority", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Child(name="authority", type={CodeableConcept.class}, order=4, min=0, max=1)
     @Description(shortDefinition="If required by policy", formalDefinition="A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection." )
     protected Type authority;
 
     /**
      * What this response says about the status of the original order.
      */
-    @Child(name="code", type={CodeType.class}, order=4, min=1, max=1)
+    @Child(name="code", type={CodeType.class}, order=5, min=1, max=1)
     @Description(shortDefinition="pending | review | rejected | error | accepted | cancelled | replaced | aborted | complete", formalDefinition="What this response says about the status of the original order." )
     protected Enumeration<OrderOutcomeCode> code;
 
     /**
      * Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
-    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Additional description of the response", formalDefinition="Additional description about the response - e.g. a text description provided by a human user when making decisions about the order." )
     protected StringType description;
 
     /**
      * Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
      */
-    @Child(name="fulfillment", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="fulfillment", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Details of the outcome of performing the order", formalDefinition="Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order." )
     protected List<Reference> fulfillment;
     /**

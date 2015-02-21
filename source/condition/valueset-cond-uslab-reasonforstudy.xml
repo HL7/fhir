@@ -5,7 +5,7 @@
 			<p>This value set includes all ICD-9CM and  ICD-10CM concepts.  This content may not be published ( EH:Todo - whether and how can display this)</p>
 		</div>
 	</text>
-	<identifier value="http://hl7.org/fhir/vs/"/>
+	<url value="http://hl7.org/fhir/vs/"/>
 	<name value="USlabConditonCodes"/>
 	<publisher value="HL7 Orders and Observation Work Group"/>
 	<telecom>

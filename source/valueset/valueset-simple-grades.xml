@@ -8,7 +8,7 @@
   </text>
   <!-- this example, we elected to use a UUID. We could have used 
      an OID, or a URI - depends on how it will be used. -->
-  <identifier value="http://hl7.org/fhir/vs/clinistix"/>
+  <url value="http://hl7.org/fhir/vs/clinistix"/>
   <!-- set of loinc codes for cholesterol for LONC 2.36 -->
   <name value="Simple grading codes"/>
   <publisher value="HL7"/>

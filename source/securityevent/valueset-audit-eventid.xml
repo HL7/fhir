@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dicm/400"/>
+  <url value="http://nema.org/dicom/dicm/400"/>
   <version value="20100826"/>
   <name value="Audit Event ID"/>
   <publisher value="NEMA/DICOM"/>

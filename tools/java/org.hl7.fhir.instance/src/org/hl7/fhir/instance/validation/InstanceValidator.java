@@ -856,10 +856,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                       try {
                         vs = cache.getExpander().expand(vs).getValueset();
                         if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                          warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifier()+")");
+                          warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
                         }
                       } catch (Exception e) {
-                        warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
+                        warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                       }
                     }
                   } 
@@ -1094,17 +1094,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 try {
                   vs = cache.getExpander().expand(vs).getValueset();
                   if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                    warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifier()+")");
+                    warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
                   }
                 } catch (Exception e) {
                   if (e.getMessage() == null)
-                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": --Null--");
+                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": --Null--");
 //                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
 //                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
 //                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
 //                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
                   else
-                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
+                    warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                 }
               }
             } else if (binding.hasReference())
@@ -1171,22 +1171,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   c = c.getNextSibling();
                 }
                 if (!any && binding.getConformance() == BindingConformance.REQUIRED)
-                  warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getReference())+" ("+vs.getIdentifier()+") is required");
+                  warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+") is required");
                 if (any)
                   if (binding.getConformance() == BindingConformance.EXAMPLE)
-                    hint(errors, "code-unknown", path, found, "None of the codes are in the example value set "+describeReference(binding.getReference())+" ("+vs.getIdentifier()+")");
+                    hint(errors, "code-unknown", path, found, "None of the codes are in the example value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
                   else 
-                    warning(errors, "code-unknown", path, found, "None of the codes are in the expected value set "+describeReference(binding.getReference())+" ("+vs.getIdentifier()+")");
+                    warning(errors, "code-unknown", path, found, "None of the codes are in the expected value set "+describeReference(binding.getReference())+" ("+vs.getUrl()+")");
               }
             } catch (Exception e) {
               if (e.getMessage() == null) {
-                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": --Null--");
+                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": --Null--");
 //              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
 //                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
 //              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
 //                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
               } else
-                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifier()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
+                warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getUrl()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
             }
           }
         } else if (binding.getReference() != null)

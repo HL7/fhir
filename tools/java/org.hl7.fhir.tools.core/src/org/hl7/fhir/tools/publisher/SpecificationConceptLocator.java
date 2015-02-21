@@ -300,7 +300,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
       else
         return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
     }
-    vs.setIdentifier("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
+    vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
     
         
     if (!triedServer || serverOk) {

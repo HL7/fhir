@@ -19,7 +19,7 @@
 
     The identifier should be globally unique - a UUID, an OID, or a URL/URI
    -->
-  <identifier value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
+  <url value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
   <name value="ACME EHR Conformance statement"/>
   <publisher value="ACME Corporation"/>

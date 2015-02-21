@@ -197,9 +197,9 @@ public class ValueSetImporterV2 {
         valuesets.add(vs);
         vs.setId("v2-"+FormatUtilities.makeId(id));
         vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-        page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
+        page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
         page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
-        page.getValueSets().put(vs.getIdentifier(), vs);
+        page.getValueSets().put(vs.getUrl(), vs);
         page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
@@ -216,9 +216,9 @@ public class ValueSetImporterV2 {
           valuesets.add(vs);
           vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
           vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
-          page.getDefinitions().getValuesets().put(vs.getIdentifier(), vs);
+          page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
           page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystem(), vs);
-          page.getValueSets().put(vs.getIdentifier(), vs);
+          page.getValueSets().put(vs.getUrl(), vs);
           page.getCodeSystems().put(vs.getDefine().getSystem().toString(), vs);
         }
       }
@@ -232,7 +232,7 @@ public class ValueSetImporterV2 {
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
-    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id);
+    vs.setUrl("http://hl7.org/fhir/v2/vs/" + id);
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
     vs.setVersion("2.7");
@@ -315,7 +315,7 @@ public class ValueSetImporterV2 {
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
-    vs.setIdentifier("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
+    vs.setUrl("http://hl7.org/fhir/v2/vs/" + id + "/" + version);
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");
     vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));

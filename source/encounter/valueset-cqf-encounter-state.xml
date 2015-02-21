@@ -47,7 +47,7 @@
 		</table>
 	  </div>
 	</text>
-  <identifier value="http://hl7.org/fhir/vs/cqf-encounter-state"/>
+  <url value="http://hl7.org/fhir/vs/cqf-encounter-state"/>
   <name value="CQFEncounterState"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>

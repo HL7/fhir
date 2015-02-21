@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -552,21 +552,21 @@ public class DocumentReference extends DomainResource {
     /**
      * Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.
      */
-    @Child(name="masterIdentifier", type={Identifier.class}, order=-1, min=0, max=1)
+    @Child(name="masterIdentifier", type={Identifier.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Master Version Specific Identifier", formalDefinition="Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document." )
     protected Identifier masterIdentifier;
 
     /**
      * Other identifiers associated with the document, including version independent, source record and workflow related identifiers.
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other identifiers for the document", formalDefinition="Other identifiers associated with the document, including version independent, source record and workflow related identifiers." )
     protected List<Identifier> identifier;
 
     /**
      * Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
      */
-    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=1, min=0, max=1)
+    @Child(name="subject", type={Patient.class, Practitioner.class, Group.class, Device.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Who|what is the subject of the document", formalDefinition="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)." )
     protected Reference subject;
 
@@ -578,28 +578,28 @@ public class DocumentReference extends DomainResource {
     /**
      * The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.).
      */
-    @Child(name="type", type={CodeableConcept.class}, order=2, min=1, max=1)
+    @Child(name="type", type={CodeableConcept.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Precice type of document", formalDefinition="The type code specifies the precise type of document from the user perspective. It is recommended that the value Set be drawn from a coding scheme providing a fine level of granularity such as LOINC.  (e.g. Patient Summary, Discharge Summary, Prescription, etc.)." )
     protected CodeableConcept type;
 
     /**
      * The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow).
      */
-    @Child(name="class_", type={CodeableConcept.class}, order=3, min=0, max=1)
+    @Child(name="class_", type={CodeableConcept.class}, order=4, min=0, max=1)
     @Description(shortDefinition="High-level classification of document", formalDefinition="The class code specifying the high-level use classification of the document type (e.g., Report, Summary, Images, Treatment Plan, Patient Preferences, Workflow)." )
     protected CodeableConcept class_;
 
     /**
      * An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.
      */
-    @Child(name="format", type={UriType.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="format", type={UriType.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType." )
     protected List<UriType> format;
 
     /**
      * Identifies who is responsible for adding the information to the document.
      */
-    @Child(name="author", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=5, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="author", type={Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=6, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Who and/or what authored the document", formalDefinition="Identifies who is responsible for adding the information to the document." )
     protected List<Reference> author;
     /**
@@ -611,7 +611,7 @@ public class DocumentReference extends DomainResource {
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.
      */
-    @Child(name="custodian", type={Organization.class}, order=6, min=0, max=1)
+    @Child(name="custodian", type={Organization.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Org which maintains the document", formalDefinition="Identifies the organization or group who is responsible for ongoing maintenance of and access to the document." )
     protected Reference custodian;
 
@@ -623,14 +623,14 @@ public class DocumentReference extends DomainResource {
     /**
      * A reference to a domain or server that manages policies under which the document is accessed and/or made available.
      */
-    @Child(name="policyManager", type={UriType.class}, order=7, min=0, max=1)
+    @Child(name="policyManager", type={UriType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Manages access policies for the document", formalDefinition="A reference to a domain or server that manages policies under which the document is accessed and/or made available." )
     protected UriType policyManager;
 
     /**
      * Which person or organization authenticates that this document is valid.
      */
-    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=8, min=0, max=1)
+    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Who/What authenticated the document", formalDefinition="Which person or organization authenticates that this document is valid." )
     protected Reference authenticator;
 
@@ -642,63 +642,63 @@ public class DocumentReference extends DomainResource {
     /**
      * When the document was created.
      */
-    @Child(name="created", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name="created", type={DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Document creation time", formalDefinition="When the document was created." )
     protected DateTimeType created;
 
     /**
      * When the document reference was created.
      */
-    @Child(name="indexed", type={InstantType.class}, order=10, min=1, max=1)
+    @Child(name="indexed", type={InstantType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="When this document reference created", formalDefinition="When the document reference was created." )
     protected InstantType indexed;
 
     /**
      * The status of this document reference.
      */
-    @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=12, min=1, max=1)
     @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document reference." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * The status of the underlying document.
      */
-    @Child(name="docStatus", type={CodeableConcept.class}, order=12, min=0, max=1)
+    @Child(name="docStatus", type={CodeableConcept.class}, order=13, min=0, max=1)
     @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The status of the underlying document." )
     protected CodeableConcept docStatus;
 
     /**
      * Relationships that this document has with other document references that already exist.
      */
-    @Child(name="relatesTo", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="relatesTo", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Relationships to other documents", formalDefinition="Relationships that this document has with other document references that already exist." )
     protected List<DocumentReferenceRelatesToComponent> relatesTo;
 
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    @Child(name="description", type={StringType.class}, order=14, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=15, min=0, max=1)
     @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
      * A set of Security-Tag codes specifying the level of privacy/security of the Document.
      */
-    @Child(name="confidentiality", type={CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="confidentiality", type={CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Sensitivity of source document", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document." )
     protected List<CodeableConcept> confidentiality;
 
     /**
      * The document or url to the document along with critical metadata to prove content has integrity.
      */
-    @Child(name="content", type={Attachment.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="content", type={Attachment.class}, order=17, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where to access the document", formalDefinition="The document or url to the document along with critical metadata to prove content has integrity." )
     protected List<Attachment> content;
 
     /**
      * The clinical context in which the document was prepared.
      */
-    @Child(name="context", type={}, order=17, min=0, max=1)
+    @Child(name="context", type={}, order=18, min=0, max=1)
     @Description(shortDefinition="Clinical context of document", formalDefinition="The clinical context in which the document was prepared." )
     protected DocumentReferenceContextComponent context;
 

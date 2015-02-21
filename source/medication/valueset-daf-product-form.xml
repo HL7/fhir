@@ -4,7 +4,7 @@
   <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
     <valueUri value="2.16.840.1.113883.3.88.12.3221.8.11"/>
   </extension>
-  <identifier value="http://hl7.org/fhir/ValueSet/daf-product-form"/>
+  <url value="http://hl7.org/fhir/ValueSet/daf-product-form"/>
   <name value="Medication Product Form Value Set"/>
   <publisher value="PHIN VADS"/>
   <telecom>  

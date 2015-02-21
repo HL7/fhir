@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import org.hl7.fhir.instance.model.annotations.Description;
  * Describes a measurement, calculation or setting capability of a medical device.
  */
 @ResourceDef(name="DeviceMetric", profile="http://hl7.org/fhir/Profile/DeviceMetric")
-public class DeviceMetric extends Resource {
+public class DeviceMetric extends DomainResource {
 
     public enum MetricOperationalStatus {
         /**
@@ -655,7 +655,7 @@ public class DeviceMetric extends Resource {
     /**
      * Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
      */
-    @Child(name="type", type={CodeableConcept.class}, order=-1, min=1, max=1)
+    @Child(name="type", type={CodeableConcept.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Type of metric", formalDefinition="Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc." )
     protected CodeableConcept type;
 
@@ -663,21 +663,21 @@ public class DeviceMetric extends Resource {
      * Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID. 
 It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=1, max=1)
+    @Child(name="identifier", type={Identifier.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Unique identifier of this DeviceMetric", formalDefinition="Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID. \nIt should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device." )
     protected Identifier identifier;
 
     /**
      * Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.
      */
-    @Child(name="unit", type={CodeableConcept.class}, order=1, min=0, max=1)
+    @Child(name="unit", type={CodeableConcept.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Unit of metric", formalDefinition="Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc." )
     protected CodeableConcept unit;
 
     /**
      * Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.
      */
-    @Child(name="source", type={Device.class}, order=2, min=0, max=1)
+    @Child(name="source", type={Device.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Describes the link to the source Device", formalDefinition="Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc." )
     protected Reference source;
 
@@ -690,7 +690,7 @@ It should be noted that in order to make the identifier unique, the system eleme
      * Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device.
 An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.
      */
-    @Child(name="parent", type={DeviceComponent.class}, order=3, min=0, max=1)
+    @Child(name="parent", type={DeviceComponent.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Describes the link to the parent DeviceComponent", formalDefinition="Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device.\nAn example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location." )
     protected Reference parent;
 
@@ -703,28 +703,28 @@ An example would be a DeviceComponent that represents a Channel. This reference 
     /**
      * Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
-    @Child(name="operationalState", type={CodeType.class}, order=4, min=0, max=1)
+    @Child(name="operationalStatus", type={CodeType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="on | off | standby", formalDefinition="Indicates current operational state of the device. For example: On, Off, Standby, etc." )
-    protected Enumeration<MetricOperationalStatus> operationalState;
+    protected Enumeration<MetricOperationalStatus> operationalStatus;
 
     /**
      * Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
      */
-    @Child(name="measurementMode", type={Identifier.class}, order=5, min=0, max=1)
+    @Child(name="measurementMode", type={Identifier.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Describes the physical principle of the measurement", formalDefinition="Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc." )
     protected Identifier measurementMode;
 
     /**
      * Describes the typical color of the representation of observations that have been generated for this DeviceMetric.
      */
-    @Child(name="color", type={Identifier.class}, order=6, min=0, max=1)
+    @Child(name="color", type={Identifier.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Describes the typical color of representation", formalDefinition="Describes the typical color of the representation of observations that have been generated for this DeviceMetric." )
     protected Identifier color;
 
     /**
      * Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.
      */
-    @Child(name="category", type={CodeType.class}, order=7, min=1, max=1)
+    @Child(name="category", type={CodeType.class}, order=8, min=1, max=1)
     @Description(shortDefinition="measurement | setting | calculation | unspecified", formalDefinition="Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation." )
     protected Enumeration<MetricCategory> category;
 
@@ -733,18 +733,18 @@ An example would be a DeviceComponent that represents a Channel. This reference 
 necessarily the same as the update
 period.
      */
-    @Child(name="measurementPeriod", type={Timing.class}, order=8, min=0, max=1)
+    @Child(name="measurementPeriod", type={Timing.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Describes the measurement repetition time", formalDefinition="Describes the measurement repetition time. This is not\nnecessarily the same as the update\nperiod." )
     protected Timing measurementPeriod;
 
     /**
      * Describes the calibrations that have been performed or that are required to be performed.
      */
-    @Child(name="calibrationInfo", type={}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="calibrationInfo", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Describes the calibrations that have been performed or that are required to be performed", formalDefinition="Describes the calibrations that have been performed or that are required to be performed." )
     protected List<DeviceMetricCalibrationInfoComponent> calibrationInfo;
 
-    private static final long serialVersionUID = 600373390L;
+    private static final long serialVersionUID = -861043769L;
 
     public DeviceMetric() {
       super();
@@ -924,50 +924,50 @@ An example would be a DeviceComponent that represents a Channel. This reference 
     }
 
     /**
-     * @return {@link #operationalState} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalState" gives direct access to the value
+     * @return {@link #operationalStatus} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalStatus" gives direct access to the value
      */
-    public Enumeration<MetricOperationalStatus> getOperationalStateElement() { 
-      if (this.operationalState == null)
+    public Enumeration<MetricOperationalStatus> getOperationalStatusElement() { 
+      if (this.operationalStatus == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DeviceMetric.operationalState");
+          throw new Error("Attempt to auto-create DeviceMetric.operationalStatus");
         else if (Configuration.doAutoCreate())
-          this.operationalState = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory()); // bb
-      return this.operationalState;
+          this.operationalStatus = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory()); // bb
+      return this.operationalStatus;
     }
 
-    public boolean hasOperationalStateElement() { 
-      return this.operationalState != null && !this.operationalState.isEmpty();
+    public boolean hasOperationalStatusElement() { 
+      return this.operationalStatus != null && !this.operationalStatus.isEmpty();
     }
 
-    public boolean hasOperationalState() { 
-      return this.operationalState != null && !this.operationalState.isEmpty();
+    public boolean hasOperationalStatus() { 
+      return this.operationalStatus != null && !this.operationalStatus.isEmpty();
     }
 
     /**
-     * @param value {@link #operationalState} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalState" gives direct access to the value
+     * @param value {@link #operationalStatus} (Indicates current operational state of the device. For example: On, Off, Standby, etc.). This is the underlying object with id, value and extensions. The accessor "getOperationalStatus" gives direct access to the value
      */
-    public DeviceMetric setOperationalStateElement(Enumeration<MetricOperationalStatus> value) { 
-      this.operationalState = value;
+    public DeviceMetric setOperationalStatusElement(Enumeration<MetricOperationalStatus> value) { 
+      this.operationalStatus = value;
       return this;
     }
 
     /**
      * @return Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
-    public MetricOperationalStatus getOperationalState() { 
-      return this.operationalState == null ? null : this.operationalState.getValue();
+    public MetricOperationalStatus getOperationalStatus() { 
+      return this.operationalStatus == null ? null : this.operationalStatus.getValue();
     }
 
     /**
      * @param value Indicates current operational state of the device. For example: On, Off, Standby, etc.
      */
-    public DeviceMetric setOperationalState(MetricOperationalStatus value) { 
+    public DeviceMetric setOperationalStatus(MetricOperationalStatus value) { 
       if (value == null)
-        this.operationalState = null;
+        this.operationalStatus = null;
       else {
-        if (this.operationalState == null)
-          this.operationalState = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory());
-        this.operationalState.setValue(value);
+        if (this.operationalStatus == null)
+          this.operationalStatus = new Enumeration<MetricOperationalStatus>(new MetricOperationalStatusEnumFactory());
+        this.operationalStatus.setValue(value);
       }
       return this;
     }
@@ -1130,7 +1130,7 @@ period.)
         childrenList.add(new Property("unit", "CodeableConcept", "Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.", 0, java.lang.Integer.MAX_VALUE, unit));
         childrenList.add(new Property("source", "Reference(Device)", "Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("parent", "Reference(DeviceComponent)", "Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device.\nAn example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.", 0, java.lang.Integer.MAX_VALUE, parent));
-        childrenList.add(new Property("operationalState", "code", "Indicates current operational state of the device. For example: On, Off, Standby, etc.", 0, java.lang.Integer.MAX_VALUE, operationalState));
+        childrenList.add(new Property("operationalStatus", "code", "Indicates current operational state of the device. For example: On, Off, Standby, etc.", 0, java.lang.Integer.MAX_VALUE, operationalStatus));
         childrenList.add(new Property("measurementMode", "Identifier", "Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.", 0, java.lang.Integer.MAX_VALUE, measurementMode));
         childrenList.add(new Property("color", "Identifier", "Describes the typical color of the representation of observations that have been generated for this DeviceMetric.", 0, java.lang.Integer.MAX_VALUE, color));
         childrenList.add(new Property("category", "code", "Indicates the category of the observation generation process. A DeviceMetric can be for example a setting, measurement, or calculation.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -1146,7 +1146,7 @@ period.)
         dst.unit = unit == null ? null : unit.copy();
         dst.source = source == null ? null : source.copy();
         dst.parent = parent == null ? null : parent.copy();
-        dst.operationalState = operationalState == null ? null : operationalState.copy();
+        dst.operationalStatus = operationalStatus == null ? null : operationalStatus.copy();
         dst.measurementMode = measurementMode == null ? null : measurementMode.copy();
         dst.color = color == null ? null : color.copy();
         dst.category = category == null ? null : category.copy();
@@ -1171,7 +1171,7 @@ period.)
           return false;
         DeviceMetric o = (DeviceMetric) other;
         return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(unit, o.unit, true)
-           && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalState, o.operationalState, true)
+           && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalStatus, o.operationalStatus, true)
            && compareDeep(measurementMode, o.measurementMode, true) && compareDeep(color, o.color, true) && compareDeep(category, o.category, true)
            && compareDeep(measurementPeriod, o.measurementPeriod, true) && compareDeep(calibrationInfo, o.calibrationInfo, true)
           ;
@@ -1184,14 +1184,14 @@ period.)
         if (!(other instanceof DeviceMetric))
           return false;
         DeviceMetric o = (DeviceMetric) other;
-        return compareValues(operationalState, o.operationalState, true) && compareValues(category, o.category, true)
+        return compareValues(operationalStatus, o.operationalStatus, true) && compareValues(category, o.category, true)
           ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (unit == null || unit.isEmpty()) && (source == null || source.isEmpty()) && (parent == null || parent.isEmpty())
-           && (operationalState == null || operationalState.isEmpty()) && (measurementMode == null || measurementMode.isEmpty())
+           && (operationalStatus == null || operationalStatus.isEmpty()) && (measurementMode == null || measurementMode.isEmpty())
            && (color == null || color.isEmpty()) && (category == null || category.isEmpty()) && (measurementPeriod == null || measurementPeriod.isEmpty())
            && (calibrationInfo == null || calibrationInfo.isEmpty());
       }

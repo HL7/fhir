@@ -4,7 +4,7 @@
         <status value="additional"/>
         <div xmlns="http://www.w3.org/1999/xhtml">SELECT SNOMED CT code system values descending from 'change values' (288533004).</div>
     </text>
-    <identifier value="http://www.example.com/valueset/deltaflag"/>
+    <url value="http://www.example.com/valueset/deltaflag"/>
     <version value="0.01"/>
     <name value="HSPC Delta Flag Value Set Definition"/>
     <immutable value="true"/>

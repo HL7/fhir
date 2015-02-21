@@ -12,7 +12,7 @@
       </ul>
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/Condition-severity"/>
+  <url value="http://hl7.org/fhir/vs/Condition-severity"/>
   <name value="Condition/Diagnosis Severity"/>
   <publisher value="FHIR Project team"/>
   <telecom>  

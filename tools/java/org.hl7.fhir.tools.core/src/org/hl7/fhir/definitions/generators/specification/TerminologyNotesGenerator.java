@@ -298,11 +298,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       } else if (cd.getReferredValueSet() != null) {
         if (cd.getReference().startsWith("http://hl7.org/fhir/vs/")) {
           if (page.getValueSets().containsKey(cd.getReference()) && page.getValueSets().get(cd.getReference()).getUserData("filename") != null)
-            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("filename")+"\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")"; 
+            return bs+": <a href=\""+page.getValueSets().get(cd.getReference()).getUserData("filename")+"\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")"; 
           else
-          return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
+          return bs+": <a href=\""+cd.getReference().substring(23)+".html\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
         } else 
-          return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifier()+"</a> ("+cd.getDefinition()+")";
+          return bs+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getUrl()+"</a> ("+cd.getDefinition()+")";
       }
       else
         return bs+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";

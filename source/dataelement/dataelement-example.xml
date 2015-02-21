@@ -43,7 +43,7 @@
   <contained>
     <ValueSet>
       <id value="2179414"/>
-      <identifier value="2179414"/>
+      <url value="2179414"/>
       <version value="1.0"/>
       <name value="Gender Code"/>
       <description value="All codes representing the gender of a person."/>

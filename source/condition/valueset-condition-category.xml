@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <identifier value="http://hl7.org/fhir/vs/condition-category"/>
+  <url value="http://hl7.org/fhir/vs/condition-category"/>
   <name value="Condition/Problem/Diagnosis Codes"/>
   <publisher value="FHIR Project team"/>
   <telecom>  

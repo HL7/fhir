@@ -8371,7 +8371,7 @@
     </table>    
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/vs/dicm"/>
+  <url value="http://nema.org/dicom/vs/dicm"/>
   <version value="01"/>
   <name value="DICOM Code Definitions (DCM)"/>
   <publisher value="NEMA/DICOM"/>

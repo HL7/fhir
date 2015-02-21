@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -474,7 +474,7 @@ public class OperationDefinition extends DomainResource {
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
         public int getMin() { 
-          return this.min == null ? 0 : this.min.getValue();
+          return this.min == null || this.min.isEmpty() ? 0 : this.min.getValue();
         }
 
         /**
@@ -907,7 +907,7 @@ public class OperationDefinition extends DomainResource {
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
         public int getMin() { 
-          return this.min == null ? 0 : this.min.getValue();
+          return this.min == null || this.min.isEmpty() ? 0 : this.min.getValue();
         }
 
         /**
@@ -1159,98 +1159,98 @@ public class OperationDefinition extends DomainResource {
     /**
      * The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
      */
-    @Child(name="identifier", type={UriType.class}, order=-1, min=0, max=1)
+    @Child(name="identifier", type={UriType.class}, order=0, min=0, max=1)
     @Description(shortDefinition="Logical id to reference this operation definition", formalDefinition="The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
     protected UriType identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    @Child(name="version", type={StringType.class}, order=0, min=0, max=1)
+    @Child(name="version", type={StringType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of the operation definition", formalDefinition="The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the Profile.
      */
-    @Child(name="title", type={StringType.class}, order=1, min=1, max=1)
+    @Child(name="title", type={StringType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Informal name for this profile", formalDefinition="A free text natural language name identifying the Profile." )
     protected StringType title;
 
     /**
      * Details of the individual or organization who accepts responsibility for publishing the profile.
      */
-    @Child(name="publisher", type={StringType.class}, order=2, min=0, max=1)
+    @Child(name="publisher", type={StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the profile." )
     protected StringType publisher;
 
     /**
      * Contact details to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="telecom", type={ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
     protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the profile and its use.
      */
-    @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Natural language description of the operation", formalDefinition="A free text natural language description of the profile and its use." )
     protected StringType description;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of templates.
      */
-    @Child(name="code", type={Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="code", type={Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of templates." )
     protected List<Coding> code;
 
     /**
      * The status of the profile.
      */
-    @Child(name="status", type={CodeType.class}, order=6, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the profile." )
     protected Enumeration<ResourceProfileStatus> status;
 
     /**
      * This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=7, min=0, max=1)
+    @Child(name="experimental", type={BooleanType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that this version of the profile was published.
      */
-    @Child(name="date", type={DateTimeType.class}, order=8, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Date for this version of the operation definition", formalDefinition="The date that this version of the profile was published." )
     protected DateTimeType date;
 
     /**
      * Whether this is operation or named query.
      */
-    @Child(name="kind", type={CodeType.class}, order=9, min=1, max=1)
+    @Child(name="kind", type={CodeType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="operation | query", formalDefinition="Whether this is operation or named query." )
     protected Enumeration<OperationKind> kind;
 
     /**
      * The name used to invoke the operation.
      */
-    @Child(name="name", type={CodeType.class}, order=10, min=1, max=1)
+    @Child(name="name", type={CodeType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="Name used to invoke the operation", formalDefinition="The name used to invoke the operation." )
     protected CodeType name;
 
     /**
      * Additional information about how to use this operation or named query.
      */
-    @Child(name="notes", type={StringType.class}, order=11, min=0, max=1)
+    @Child(name="notes", type={StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
     protected StringType notes;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
      */
-    @Child(name="base", type={OperationDefinition.class}, order=12, min=0, max=1)
+    @Child(name="base", type={OperationDefinition.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Marks this as a profile of the base", formalDefinition="Indicates that this operation definition is a constraining profile on the base." )
     protected Reference base;
 
@@ -1262,28 +1262,28 @@ public class OperationDefinition extends DomainResource {
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name="system", type={BooleanType.class}, order=13, min=1, max=1)
+    @Child(name="system", type={BooleanType.class}, order=14, min=1, max=1)
     @Description(shortDefinition="Invoke at the system level?", formalDefinition="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)." )
     protected BooleanType system;
 
     /**
      * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name="type", type={CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="type", type={CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Invoke at resource level for these type", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)." )
     protected List<CodeType> type;
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    @Child(name="instance", type={BooleanType.class}, order=15, min=1, max=1)
+    @Child(name="instance", type={BooleanType.class}, order=16, min=1, max=1)
     @Description(shortDefinition="Invoke on an instance?", formalDefinition="Indicates whether this operation can be invoked on a particular instance of one of the given types." )
     protected BooleanType instance;
 
     /**
      * The parameters for the operation/query.
      */
-    @Child(name="parameter", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="parameter", type={}, order=17, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
@@ -1681,7 +1681,7 @@ public class OperationDefinition extends DomainResource {
      * @return This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
-      return this.experimental == null ? false : this.experimental.getValue();
+      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
@@ -1958,7 +1958,7 @@ public class OperationDefinition extends DomainResource {
      * @return Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
     public boolean getSystem() { 
-      return this.system == null ? false : this.system.getValue();
+      return this.system == null || this.system.isEmpty() ? false : this.system.getValue();
     }
 
     /**
@@ -2057,7 +2057,7 @@ public class OperationDefinition extends DomainResource {
      * @return Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
     public boolean getInstance() { 
-      return this.instance == null ? false : this.instance.getValue();
+      return this.instance == null || this.instance.isEmpty() ? false : this.instance.getValue();
     }
 
     /**

@@ -9,7 +9,7 @@
 	  </p>
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/condition-certainty-absent"/>
+  <url value="http://hl7.org/fhir/vs/condition-certainty-absent"/>
   <name value="Condition/Diagnosis Certainty"/>
   <publisher value="CQF Project team"/>
   <telecom>

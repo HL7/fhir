@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://hl7.org/fhir/vs/security-source-type"/>
+  <url value="http://hl7.org/fhir/vs/security-source-type"/>
   <version value="20100826"/>
   <name value="Security Event Source Type"/>
   <publisher value="NEMA/DICOM"/>

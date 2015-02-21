@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1788,7 +1788,7 @@ public class SecurityEvent extends DomainResource {
          * @return Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
         public boolean getRequestor() { 
-          return this.requestor == null ? false : this.requestor.getValue();
+          return this.requestor == null || this.requestor.isEmpty() ? false : this.requestor.getValue();
         }
 
         /**
@@ -3002,28 +3002,28 @@ public class SecurityEvent extends DomainResource {
     /**
      * Identifies the name, action type, time, and disposition of the audited event.
      */
-    @Child(name="event", type={}, order=-1, min=1, max=1)
+    @Child(name="event", type={}, order=0, min=1, max=1)
     @Description(shortDefinition="What was done", formalDefinition="Identifies the name, action type, time, and disposition of the audited event." )
     protected SecurityEventEventComponent event;
 
     /**
      * A person, a hardware device or software process.
      */
-    @Child(name="participant", type={}, order=0, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="participant", type={}, order=1, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A person, a hardware device or software process", formalDefinition="A person, a hardware device or software process." )
     protected List<SecurityEventParticipantComponent> participant;
 
     /**
      * Application systems and processes.
      */
-    @Child(name="source", type={}, order=1, min=1, max=1)
+    @Child(name="source", type={}, order=2, min=1, max=1)
     @Description(shortDefinition="Application systems and processes", formalDefinition="Application systems and processes." )
     protected SecurityEventSourceComponent source;
 
     /**
      * Specific instances of data or objects that have been accessed.
      */
-    @Child(name="object", type={}, order=2, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="object", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Specific instances of data or objects that have been accessed", formalDefinition="Specific instances of data or objects that have been accessed." )
     protected List<SecurityEventObjectComponent> object;
 

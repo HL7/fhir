@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -706,14 +706,14 @@ public class FamilyHistory extends DomainResource {
     /**
      * This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External Id(s) for this record", formalDefinition="This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
     protected List<Identifier> identifier;
 
     /**
      * The person who this history concerns.
      */
-    @Child(name="patient", type={Patient.class}, order=0, min=1, max=1)
+    @Child(name="patient", type={Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Patient history is about", formalDefinition="The person who this history concerns." )
     protected Reference patient;
 
@@ -725,21 +725,21 @@ public class FamilyHistory extends DomainResource {
     /**
      * The date (and possibly time) when the family history was taken.
      */
-    @Child(name="date", type={DateTimeType.class}, order=1, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="When history was captured/updated", formalDefinition="The date (and possibly time) when the family history was taken." )
     protected DateTimeType date;
 
     /**
      * Conveys information about family history not specific to individual relations.
      */
-    @Child(name="note", type={StringType.class}, order=2, min=0, max=1)
+    @Child(name="note", type={StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Additional details not covered elsewhere", formalDefinition="Conveys information about family history not specific to individual relations." )
     protected StringType note;
 
     /**
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
-    @Child(name="relation", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="relation", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Relative described by history", formalDefinition="The related person. Each FamilyHistory resource contains the entire family history for a single person." )
     protected List<FamilyHistoryRelationComponent> relation;
 

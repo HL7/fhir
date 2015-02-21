@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
  <id value="valueset-restful-interaction"/>
 
-  <identifier value="http://hl7.org/fhir/vs/restful-interaction"/>
+  <url value="http://hl7.org/fhir/vs/restful-interaction"/>
   <name value="FHIR Restful Interactions"/>
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -457,7 +457,7 @@ public class Timing extends Type {
          * @return Indicates how often the event should occur.
          */
         public int getFrequency() { 
-          return this.frequency == null ? 0 : this.frequency.getValue();
+          return this.frequency == null || this.frequency.isEmpty() ? 0 : this.frequency.getValue();
         }
 
         /**
@@ -641,7 +641,7 @@ public class Timing extends Type {
          * @return A total count of the desired number of repetitions.
          */
         public int getCount() { 
-          return this.count == null ? 0 : this.count.getValue();
+          return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
         }
 
         /**
@@ -760,14 +760,14 @@ public class Timing extends Type {
     /**
      * Identifies specific time periods when the event should occur.
      */
-    @Child(name="event", type={Period.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="event", type={Period.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="When the event occurs", formalDefinition="Identifies specific time periods when the event should occur." )
     protected List<Period> event;
 
     /**
      * Identifies a repeating pattern to the intended time periods.
      */
-    @Child(name="repeat", type={}, order=0, min=0, max=1)
+    @Child(name="repeat", type={}, order=1, min=0, max=1)
     @Description(shortDefinition="Only if there is none or one event", formalDefinition="Identifies a repeating pattern to the intended time periods." )
     protected TimingRepeatComponent repeat;
 

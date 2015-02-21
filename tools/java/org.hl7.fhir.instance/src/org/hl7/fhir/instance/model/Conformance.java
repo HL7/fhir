@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -133,11 +133,11 @@ public class Conformance extends DomainResource {
 
     public enum RestfulConformanceMode {
         /**
-         * The application acts as a server for this resource.
+         * The application acts as a client for this resource.
          */
         CLIENT, 
         /**
-         * The application acts as a client for this resource.
+         * The application acts as a server for this resource.
          */
         SERVER, 
         /**
@@ -169,15 +169,15 @@ public class Conformance extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case CLIENT: return "The application acts as a server for this resource.";
-            case SERVER: return "The application acts as a client for this resource.";
+            case CLIENT: return "The application acts as a client for this resource.";
+            case SERVER: return "The application acts as a server for this resource.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case CLIENT: return "client";
-            case SERVER: return "server";
+            case CLIENT: return "Client";
+            case SERVER: return "Server";
             default: return "?";
           }
         }
@@ -1765,7 +1765,7 @@ public class Conformance extends DomainResource {
          * @return Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
          */
         public boolean getCors() { 
-          return this.cors == null ? false : this.cors.getValue();
+          return this.cors == null || this.cors.isEmpty() ? false : this.cors.getValue();
         }
 
         /**
@@ -2398,7 +2398,7 @@ public class Conformance extends DomainResource {
          * @return A flag for whether the server is able to return past versions as part of the vRead operation.
          */
         public boolean getReadHistory() { 
-          return this.readHistory == null ? false : this.readHistory.getValue();
+          return this.readHistory == null || this.readHistory.isEmpty() ? false : this.readHistory.getValue();
         }
 
         /**
@@ -2443,7 +2443,7 @@ public class Conformance extends DomainResource {
          * @return A flag to indicate that the server allows the client to create new identities on the server. If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
          */
         public boolean getUpdateCreate() { 
-          return this.updateCreate == null ? false : this.updateCreate.getValue();
+          return this.updateCreate == null || this.updateCreate.isEmpty() ? false : this.updateCreate.getValue();
         }
 
         /**
@@ -2488,7 +2488,7 @@ public class Conformance extends DomainResource {
          * @return A flag that indicates that the server supports conditional create.
          */
         public boolean getConditionalCreate() { 
-          return this.conditionalCreate == null ? false : this.conditionalCreate.getValue();
+          return this.conditionalCreate == null || this.conditionalCreate.isEmpty() ? false : this.conditionalCreate.getValue();
         }
 
         /**
@@ -2533,7 +2533,7 @@ public class Conformance extends DomainResource {
          * @return A flag that indicates that the server supports conditional update.
          */
         public boolean getConditionalUpdate() { 
-          return this.conditionalUpdate == null ? false : this.conditionalUpdate.getValue();
+          return this.conditionalUpdate == null || this.conditionalUpdate.isEmpty() ? false : this.conditionalUpdate.getValue();
         }
 
         /**
@@ -2578,7 +2578,7 @@ public class Conformance extends DomainResource {
          * @return A flag that indicates that the server supports conditional delete.
          */
         public boolean getConditionalDelete() { 
-          return this.conditionalDelete == null ? false : this.conditionalDelete.getValue();
+          return this.conditionalDelete == null || this.conditionalDelete.isEmpty() ? false : this.conditionalDelete.getValue();
         }
 
         /**
@@ -3776,7 +3776,7 @@ public class Conformance extends DomainResource {
          * @return Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).
          */
         public int getReliableCache() { 
-          return this.reliableCache == null ? 0 : this.reliableCache.getValue();
+          return this.reliableCache == null || this.reliableCache.isEmpty() ? 0 : this.reliableCache.getValue();
         }
 
         /**
@@ -4619,107 +4619,107 @@ public class Conformance extends DomainResource {
   }
 
     /**
-     * The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
-    @Child(name="identifier", type={StringType.class}, order=-1, min=0, max=1)
-    @Description(shortDefinition="Logical id to reference this statement", formalDefinition="The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
-    protected StringType identifier;
+    @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Logical uri to reference this statement", formalDefinition="The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    protected UriType url;
 
     /**
      * The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    @Child(name="version", type={StringType.class}, order=0, min=0, max=1)
+    @Child(name="version", type={StringType.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of the statement", formalDefinition="The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
      * A free text natural language name identifying the conformance statement.
      */
-    @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name="name", type={StringType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Informal name for this conformance statement", formalDefinition="A free text natural language name identifying the conformance statement." )
     protected StringType name;
 
     /**
      * Name of Organization publishing this conformance statement.
      */
-    @Child(name="publisher", type={StringType.class}, order=2, min=1, max=1)
+    @Child(name="publisher", type={StringType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Publishing Organization", formalDefinition="Name of Organization publishing this conformance statement." )
     protected StringType publisher;
 
     /**
      * Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="telecom", type={ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contacts for Organization", formalDefinition="Contacts for Organization relevant to this conformance statement.  The contacts may be a website, email, phone numbers, etc." )
     protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
      */
-    @Child(name="description", type={StringType.class}, order=4, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
     @Description(shortDefinition="Human description of the conformance statement", formalDefinition="A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP." )
     protected StringType description;
 
     /**
      * The status of this conformance statement.
      */
-    @Child(name="status", type={CodeType.class}, order=5, min=0, max=1)
+    @Child(name="status", type={CodeType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this conformance statement." )
     protected Enumeration<ConformanceStatementStatus> status;
 
     /**
      * A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=6, min=0, max=1)
+    @Child(name="experimental", type={BooleanType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date  (and optionally time) when the conformance statement was published.
      */
-    @Child(name="date", type={DateTimeType.class}, order=7, min=1, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=8, min=1, max=1)
     @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the conformance statement was published." )
     protected DateTimeType date;
 
     /**
      * Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.
      */
-    @Child(name="software", type={}, order=8, min=0, max=1)
+    @Child(name="software", type={}, order=9, min=0, max=1)
     @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation." )
     protected ConformanceSoftwareComponent software;
 
     /**
      * Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.
      */
-    @Child(name="implementation", type={}, order=9, min=0, max=1)
+    @Child(name="implementation", type={}, order=10, min=0, max=1)
     @Description(shortDefinition="If this describes a specific instance", formalDefinition="Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program." )
     protected ConformanceImplementationComponent implementation;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based.
      */
-    @Child(name="fhirVersion", type={IdType.class}, order=10, min=1, max=1)
+    @Child(name="fhirVersion", type={IdType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="FHIR Version", formalDefinition="The version of the FHIR specification on which this conformance statement is based." )
     protected IdType fhirVersion;
 
     /**
      * A flag that indicates whether the application accepts unknown elements as part of a resource.
      */
-    @Child(name="acceptUnknown", type={BooleanType.class}, order=11, min=1, max=1)
+    @Child(name="acceptUnknown", type={BooleanType.class}, order=12, min=1, max=1)
     @Description(shortDefinition="True if application accepts unknown elements", formalDefinition="A flag that indicates whether the application accepts unknown elements as part of a resource." )
     protected BooleanType acceptUnknown;
 
     /**
      * A list of the formats supported by this implementation.
      */
-    @Child(name="format", type={CodeType.class}, order=12, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="format", type={CodeType.class}, order=13, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation." )
     protected List<CodeType> format;
 
     /**
      * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
-    @Child(name="profile", type={Profile.class}, order=13, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="profile", type={Profile.class}, order=14, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Profiles supported by the system", formalDefinition="A list of profiles supported by the system. For a server, 'supported by the system' means the system hosts/produces a set of resources, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile." )
     protected List<Reference> profile;
     /**
@@ -4731,25 +4731,25 @@ public class Conformance extends DomainResource {
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name="rest", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="rest", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<ConformanceRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name="messaging", type={}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="messaging", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<ConformanceMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name="document", type={}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="document", type={}, order=17, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = 1215207759L;
+    private static final long serialVersionUID = 853470566L;
 
     public Conformance() {
       super();
@@ -4764,50 +4764,50 @@ public class Conformance extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @return {@link #url} (The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public StringType getIdentifierElement() { 
-      if (this.identifier == null)
+    public UriType getUrlElement() { 
+      if (this.url == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Conformance.identifier");
+          throw new Error("Attempt to auto-create Conformance.url");
         else if (Configuration.doAutoCreate())
-          this.identifier = new StringType(); // bb
-      return this.identifier;
+          this.url = new UriType(); // bb
+      return this.url;
     }
 
-    public boolean hasIdentifierElement() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @param value {@link #url} (The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Conformance setIdentifierElement(StringType value) { 
-      this.identifier = value;
+    public Conformance setUrlElement(UriType value) { 
+      this.url = value;
       return this;
     }
 
     /**
-     * @return The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * @return The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
-    public String getIdentifier() { 
-      return this.identifier == null ? null : this.identifier.getValue();
+    public String getUrl() { 
+      return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * @param value The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
-    public Conformance setIdentifier(String value) { 
+    public Conformance setUrl(String value) { 
       if (Utilities.noString(value))
-        this.identifier = null;
+        this.url = null;
       else {
-        if (this.identifier == null)
-          this.identifier = new StringType();
-        this.identifier.setValue(value);
+        if (this.url == null)
+          this.url = new UriType();
+        this.url.setValue(value);
       }
       return this;
     }
@@ -5115,7 +5115,7 @@ public class Conformance extends DomainResource {
      * @return A flag to indicate that this conformance statement is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
-      return this.experimental == null ? false : this.experimental.getValue();
+      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
@@ -5298,7 +5298,7 @@ public class Conformance extends DomainResource {
      * @return A flag that indicates whether the application accepts unknown elements as part of a resource.
      */
     public boolean getAcceptUnknown() { 
-      return this.acceptUnknown == null ? false : this.acceptUnknown.getValue();
+      return this.acceptUnknown == null || this.acceptUnknown.isEmpty() ? false : this.acceptUnknown.getValue();
     }
 
     /**
@@ -5508,7 +5508,7 @@ public class Conformance extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("url", "uri", "The uri that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the conformance statement.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "Name of Organization publishing this conformance statement.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -5531,7 +5531,7 @@ public class Conformance extends DomainResource {
       public Conformance copy() {
         Conformance dst = new Conformance();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -5587,7 +5587,7 @@ public class Conformance extends DomainResource {
         if (!(other instanceof Conformance))
           return false;
         Conformance o = (Conformance) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
+        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
            && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
            && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
@@ -5603,14 +5603,14 @@ public class Conformance extends DomainResource {
         if (!(other instanceof Conformance))
           return false;
         Conformance o = (Conformance) other;
-        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
            && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
+        return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
            && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty())
            && (description == null || description.isEmpty()) && (status == null || status.isEmpty())
            && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (software == null || software.isEmpty())
@@ -5635,6 +5635,8 @@ public class Conformance extends DomainResource {
   public static final String SP_FORMAT = "format";
   @SearchParamDefinition(name="date", path="Conformance.date", description="The conformance statement publication date", type="date" )
   public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="url", path="Conformance.url", description="The uri that identifies the conformance statement", type="token" )
+  public static final String SP_URL = "url";
   @SearchParamDefinition(name="version", path="Conformance.version", description="The version identifier of the conformance statement", type="token" )
   public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="publisher", path="Conformance.publisher", description="Name of the publisher of the conformance statement", type="string" )
@@ -5653,8 +5655,6 @@ public class Conformance extends DomainResource {
   public static final String SP_SUPPORTEDPROFILE = "supported-profile";
   @SearchParamDefinition(name="fhirversion", path="Conformance.version", description="The version of FHIR", type="token" )
   public static final String SP_FHIRVERSION = "fhirversion";
-  @SearchParamDefinition(name="identifier", path="Conformance.identifier", description="The identifier of the conformance statement", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="profile", path="Conformance.rest.resource.profile", description="A profile id invoked in a conformance statement", type="reference" )
   public static final String SP_PROFILE = "profile";
 

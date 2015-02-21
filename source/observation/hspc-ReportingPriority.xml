@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="hspc-ReportingPriority"/>
-  <identifier value="http://ihc.org/fhir/ValueSet/hspc-ReportingPriority"/>
+  <url value="http://ihc.org/fhir/ValueSet/hspc-ReportingPriority"/>
   <version value="0.01"/>
   <name value="ReportingPriority"/>
   <publisher value="Intermountain Healthcare"/>

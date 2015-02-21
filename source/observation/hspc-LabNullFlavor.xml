@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <identifier value="http://ihc.org/fhir/ValueSet/LabNullFlavor"/>
+  <url value="http://ihc.org/fhir/ValueSet/LabNullFlavor"/>
   <version value="0.01"/>
   <name value="LabNullFlavor"/>
   <publisher value="Intermountain Healthcare"/>

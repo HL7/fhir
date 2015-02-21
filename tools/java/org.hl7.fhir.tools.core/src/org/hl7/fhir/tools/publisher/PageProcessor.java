@@ -576,7 +576,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
-          src = s1 + ((ValueSet) resource).getIdentifier() + s3;
+          src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {
@@ -1036,7 +1036,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private ValueSet findRelatedValueset(String n, Map<String, ValueSet> vslist, String prefix) {
     for (String s : vslist.keySet()) {
       ValueSet ae = vslist.get(s); 
-      String url = ae.getIdentifier();
+      String url = ae.getUrl();
       if (url.startsWith(prefix)) {
         String name = url.substring(prefix.length()).replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
         if (n.equals(name))
@@ -1295,9 +1295,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       Resource e = map.get(n);
       ValueSet vs = (ValueSet)e;
-      String id = tail(vs.getIdentifier());
+      String id = tail(vs.getUrl());
       if (vs.getDefine() == null)
-        throw new Error("VS "+vs.getIdentifier()+" has no define");
+        throw new Error("VS "+vs.getUrl()+" has no define");
       String oid = ToolingExtensions.getOID(vs.getDefine());
       if (oid != null)
         oid = oid.substring(8);
@@ -1320,7 +1320,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (BundleEntryComponent e : v3Valuesets.getEntry()) {
       ValueSet vs = (ValueSet) e.getResource();
       if (!vs.hasDefine()) {
-        String n = vs.getIdentifier();
+        String n = vs.getUrl();
         names.add(n);
         map.put(n, vs);
       }
@@ -1330,7 +1330,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     for (String n : names) {
       Resource e = map.get(n);
       ValueSet vs = (ValueSet)e;
-      String id = tail(vs.getIdentifier());
+      String id = tail(vs.getUrl());
       String oid = ToolingExtensions.getOID(vs);
       if (oid != null)
         oid = oid.substring(8);
@@ -1522,7 +1522,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (cd.getReferredValueSet() != null) {
         if (cd.getReferredValueSet().hasDefine())
             csn = cd.getReferredValueSet().getDefine().getSystem();
-        vsn = cd.getReferredValueSet().getIdentifier();
+        vsn = cd.getReferredValueSet().getUrl();
       }
       for (ResourceDefn r : definitions.getResources().values()) {
         scanForUsage(b, cd, r.getRoot(), r.getName().toLowerCase()+".html#def");
@@ -1556,7 +1556,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           ValueSet vs = (ValueSet) ae;
             if (vs.hasDefine())
                 csn = vs.getDefine().getSystem();
-            vsn = vs.getIdentifier();         
+            vsn = vs.getUrl();         
         }
       }
     }
@@ -2478,7 +2478,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
               else if (cd.getReference().startsWith("http://hl7.org/fhir")) 
                 s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");          
               else
-                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getIdentifier()+"</a></td></tr>\r\n");          
+                s.append("</td><td><a href=\""+cd.getReference()+".html\">"+cd.getReferredValueSet().getUrl()+"</a></td></tr>\r\n");          
             } else 
               s.append("</td><td><a href=\""+cd.getReference()+".html\">??</a></td></tr>\r\n");          
           } else if (cd.hasReference())
@@ -2793,7 +2793,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
-          src = s1 + ((ValueSet) resource).getIdentifier() + s3;
+          src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {
@@ -3168,7 +3168,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file) + s3;
       else if (com[0].equals("vsurl")) {
         if (resource != null)
-          src = s1 + ((ValueSet) resource).getIdentifier() + s3;
+          src = s1 + ((ValueSet) resource).getUrl() + s3;
         else {
         BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
         if (bs == null) {

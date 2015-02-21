@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dicm/403"/>
+  <url value="http://nema.org/dicom/dicm/403"/>
   <version value="20100826"/>
   <name value="Security Alert Type Code"/>
   <publisher value="NEMA/DICOM"/>

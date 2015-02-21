@@ -4,7 +4,7 @@
   <extension url="http://hl7.org/fhir/ExtensionDefinition/valueset-oid">
     <valueUri value="2.16.840.1.113883.3.88.12.80.20"/>
   </extension>
-  <identifier value="http://hl7.org/fhir/ValueSet/daf-ingredient-name"/>
+  <url value="http://hl7.org/fhir/ValueSet/daf-ingredient-name"/>
   <name value="Ingredient Name"/>
   <publisher value="HL7 FHIR"/>
   <telecom>  

@@ -6,7 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dicm/401"/>
+  <url value="http://nema.org/dicom/dicm/401"/>
   <version value="20100826"/>
   <name value="DICOM Audit Event Type Code"/>
   <publisher value="NEMA/DICOM"/>

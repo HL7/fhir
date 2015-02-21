@@ -7,7 +7,7 @@
     
     </div>
   </text>
-  <identifier value="http://nema.org/dicom/dicm/402"/>
+  <url value="http://nema.org/dicom/dicm/402"/>
   <version value="20100826"/>
   <name value="Audit Active Participant Role ID Code"/>
   <publisher value="NEMA/DICOM"/>

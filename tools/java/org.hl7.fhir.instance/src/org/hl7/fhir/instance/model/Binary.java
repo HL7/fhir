@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -48,14 +48,14 @@ public class Binary extends Resource {
     /**
      * MimeType of the binary content represented as a standard MimeType (BCP 13).
      */
-    @Child(name="contentType", type={CodeType.class}, order=-1, min=1, max=1)
+    @Child(name="contentType", type={CodeType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="MimeType of the binary content", formalDefinition="MimeType of the binary content represented as a standard MimeType (BCP 13)." )
     protected CodeType contentType;
 
     /**
      * The actual content, base64 encoded.
      */
-    @Child(name="content", type={Base64BinaryType.class}, order=0, min=1, max=1)
+    @Child(name="content", type={Base64BinaryType.class}, order=1, min=1, max=1)
     @Description(shortDefinition="The actual content", formalDefinition="The actual content, base64 encoded." )
     protected Base64BinaryType content;
 

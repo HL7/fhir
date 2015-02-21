@@ -2,7 +2,7 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
 
-  <identifier value="http://hl7.org/fhir/vs/designation-use"/>
+  <url value="http://hl7.org/fhir/vs/designation-use"/>
   <name value="Designation Use"/>
   <publisher value="FHIR Project"/>
   <description value="Details of how a designation would be used"/>

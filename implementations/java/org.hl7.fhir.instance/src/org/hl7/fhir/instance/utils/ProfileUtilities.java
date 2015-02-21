@@ -905,7 +905,8 @@ public class ProfileUtilities {
     if (max.isEmpty() && fallback != null)
       max = fallback.getMaxElement();
     
-    tracker.used = !max.isEmpty() && !max.getValue().equals("0");
+    if (!max.isEmpty())
+      tracker.used = !max.getValue().equals("0");
 
     Cell cell = gen.new Cell(null, null, null, null, null);
     row.getCells().add(cell);
@@ -1361,6 +1362,9 @@ public class ProfileUtilities {
 //          b.append("Profile "+name+": "+s);
 //        throw new Exception(b.toString());
         for (String s : errors) 
+          if (s.startsWith("!"))
+            errorList.add("!Profile "+name+": "+s.substring(1));
+          else
           errorList.add("Profile "+name+": "+s);
       }
     }

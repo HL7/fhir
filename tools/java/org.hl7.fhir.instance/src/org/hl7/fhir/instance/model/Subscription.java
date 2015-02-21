@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -758,56 +758,56 @@ public class Subscription extends DomainResource {
     /**
      * Todo.
      */
-    @Child(name="criteria", type={StringType.class}, order=-1, min=1, max=1)
+    @Child(name="criteria", type={StringType.class}, order=0, min=1, max=1)
     @Description(shortDefinition="Rule for server push criteria", formalDefinition="Todo." )
     protected StringType criteria;
 
     /**
      * Todo.
      */
-    @Child(name="contact", type={ContactPoint.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="contact", type={ContactPoint.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact details for source (e.g. troubleshooting)", formalDefinition="Todo." )
     protected List<ContactPoint> contact;
 
     /**
      * Todo.
      */
-    @Child(name="reason", type={StringType.class}, order=1, min=1, max=1)
+    @Child(name="reason", type={StringType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="Description of why this subscription was created", formalDefinition="Todo." )
     protected StringType reason;
 
     /**
      * Todo.
      */
-    @Child(name="status", type={CodeType.class}, order=2, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="requested | active | error | off", formalDefinition="Todo." )
     protected Enumeration<SubscriptionStatus> status;
 
     /**
      * Todo.
      */
-    @Child(name="error", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name="error", type={StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Latest error note", formalDefinition="Todo." )
     protected StringType error;
 
     /**
      * Todo.
      */
-    @Child(name="channel", type={}, order=4, min=1, max=1)
+    @Child(name="channel", type={}, order=5, min=1, max=1)
     @Description(shortDefinition="The channel on which to report matches to the criteria", formalDefinition="Todo." )
     protected SubscriptionChannelComponent channel;
 
     /**
      * Todo.
      */
-    @Child(name="end", type={InstantType.class}, order=5, min=0, max=1)
+    @Child(name="end", type={InstantType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="When to automatically delete the subscription", formalDefinition="Todo." )
     protected InstantType end;
 
     /**
      * Todo.
      */
-    @Child(name="tag", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="tag", type={}, order=7, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A tag to add to matching resources", formalDefinition="Todo." )
     protected List<SubscriptionTagComponent> tag;
 

@@ -52,7 +52,7 @@
 		</table>
 	  </div>
 	</text>
-	<identifier value="http://hl7.org/fhir/vs/nutrition-order-status-notcanceled"/>
+	<url value="http://hl7.org/fhir/vs/nutrition-order-status-notcanceled"/>
 	<name value="NutritionOrderStatusNotCanceled"/>
 	<publisher value="Health Level Seven, Inc. - CQI WG"/>
 	<telecom>

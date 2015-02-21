@@ -40,7 +40,7 @@
 		</table>
 	  </div>
 	</text>
-	<identifier value="http://hl7.org/fhir/vs/cqf-observation-status"/>
+	<url value="http://hl7.org/fhir/vs/cqf-observation-status"/>
 	<name value="CQFObservationStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>

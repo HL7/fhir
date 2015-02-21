@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="hspc-DeltaFlag"/>
-  <identifier value="http://ihc.org/fhir/ValueSet/hspc-DeltaFlag"/>
+  <url value="http://ihc.org/fhir/ValueSet/hspc-DeltaFlag"/>
   <version value="0.01"/>
   <name value="DeltaFlag"/>
   <publisher value="Intermountain Healthcare"/>

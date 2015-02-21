@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -227,7 +227,7 @@ public class ImmunizationRecommendation extends DomainResource {
          * @return This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         public int getDoseNumber() { 
-          return this.doseNumber == null ? 0 : this.doseNumber.getValue();
+          return this.doseNumber == null || this.doseNumber.isEmpty() ? 0 : this.doseNumber.getValue();
         }
 
         /**
@@ -690,7 +690,7 @@ public class ImmunizationRecommendation extends DomainResource {
          * @return Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         public int getDoseSequence() { 
-          return this.doseSequence == null ? 0 : this.doseSequence.getValue();
+          return this.doseSequence == null || this.doseSequence.isEmpty() ? 0 : this.doseSequence.getValue();
         }
 
         /**
@@ -895,14 +895,14 @@ public class ImmunizationRecommendation extends DomainResource {
     /**
      * A unique identifier assigned to this particular recommendation record.
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business identifier", formalDefinition="A unique identifier assigned to this particular recommendation record." )
     protected List<Identifier> identifier;
 
     /**
      * The patient for whom the recommendations are for.
      */
-    @Child(name="patient", type={Patient.class}, order=0, min=1, max=1)
+    @Child(name="patient", type={Patient.class}, order=1, min=1, max=1)
     @Description(shortDefinition="Who this profile is for", formalDefinition="The patient for whom the recommendations are for." )
     protected Reference patient;
 
@@ -914,7 +914,7 @@ public class ImmunizationRecommendation extends DomainResource {
     /**
      * Vaccine administration recommendations.
      */
-    @Child(name="recommendation", type={}, order=1, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="recommendation", type={}, order=2, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Vaccine administration recommendations", formalDefinition="Vaccine administration recommendations." )
     protected List<ImmunizationRecommendationRecommendationComponent> recommendation;
 

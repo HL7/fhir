@@ -1294,7 +1294,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.getMaps().values()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getIdentifier())) {
+      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
         String url = "";
         if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
             url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");
@@ -1324,7 +1324,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (ConceptMap a : context.getMaps().values()) {
-      if (((Reference) a.getSource()).getReference().equals(vs.getIdentifier())) {
+      if (((Reference) a.getSource()).getReference().equals(vs.getUrl())) {
         String url = "";
         if (context.getValueSets().containsKey(((Reference) a.getTarget()).getReference()))
             url = (String) context.getValueSets().get(((Reference) a.getTarget()).getReference()).getUserData("filename");

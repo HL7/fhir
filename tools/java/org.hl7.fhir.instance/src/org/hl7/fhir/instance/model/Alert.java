@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 16, 2015 11:04-0500 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -134,28 +134,28 @@ public class Alert extends DomainResource {
     /**
      * Identifier assigned to the alert for external use (outside the FHIR environment).
      */
-    @Child(name="identifier", type={Identifier.class}, order=-1, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Business identifier", formalDefinition="Identifier assigned to the alert for external use (outside the FHIR environment)." )
     protected List<Identifier> identifier;
 
     /**
      * Allows an alert to be divided into different categories like clinical, administrative etc.
      */
-    @Child(name="category", type={CodeableConcept.class}, order=0, min=0, max=1)
+    @Child(name="category", type={CodeableConcept.class}, order=1, min=0, max=1)
     @Description(shortDefinition="Clinical, administrative, etc.", formalDefinition="Allows an alert to be divided into different categories like clinical, administrative etc." )
     protected CodeableConcept category;
 
     /**
      * Supports basic workflow.
      */
-    @Child(name="status", type={CodeType.class}, order=1, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=2, min=1, max=1)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="Supports basic workflow." )
     protected Enumeration<AlertStatus> status;
 
     /**
      * The person who this alert concerns.
      */
-    @Child(name="subject", type={Patient.class}, order=2, min=1, max=1)
+    @Child(name="subject", type={Patient.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Who is alert about?", formalDefinition="The person who this alert concerns." )
     protected Reference subject;
 
@@ -167,7 +167,7 @@ public class Alert extends DomainResource {
     /**
      * The person or device that created the alert.
      */
-    @Child(name="author", type={Practitioner.class, Patient.class, Device.class}, order=3, min=0, max=1)
+    @Child(name="author", type={Practitioner.class, Patient.class, Device.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Alert creator", formalDefinition="The person or device that created the alert." )
     protected Reference author;
 
@@ -179,8 +179,8 @@ public class Alert extends DomainResource {
     /**
      * The coded value or textual component of the alert to display to the user.
      */
-    @Child(name="note", type={CodeableConcept.class}, order=4, min=1, max=1)
-    @Description(shortDefinition="A coded value or text string to represent the meaning of alert", formalDefinition="The coded value or textual component of the alert to display to the user." )
+    @Child(name="note", type={CodeableConcept.class}, order=5, min=1, max=1)
+    @Description(shortDefinition="Partially deaf, Requires easy open caps, No permanent address, etc.", formalDefinition="The coded value or textual component of the alert to display to the user." )
     protected CodeableConcept note;
 
     private static final long serialVersionUID = -1519932996L;

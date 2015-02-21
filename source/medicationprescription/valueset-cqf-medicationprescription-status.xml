@@ -69,7 +69,7 @@
 		</table>
 	  </div>
 	</text>
-  <identifier value="http://hl7.org/fhir/vs/cqf-medicationprescription-status"/>
+  <url value="http://hl7.org/fhir/vs/cqf-medicationprescription-status"/>
   <name value="CQFMedicationPrescriptionStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <telecom>
