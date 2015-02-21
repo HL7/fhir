@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1830,10 +1830,10 @@ public class Immunization extends DomainResource {
 
   @SearchParamDefinition(name="reaction", path="Immunization.reaction.detail", description="Additional information on reaction", type="reference" )
   public static final String SP_REACTION = "reaction";
-  @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="What dose number within series?", type="number" )
-  public static final String SP_DOSESEQUENCE = "dose-sequence";
   @SearchParamDefinition(name="requester", path="Immunization.requester", description="The practitioner who ordered the vaccination", type="reference" )
   public static final String SP_REQUESTER = "requester";
+  @SearchParamDefinition(name="dose-sequence", path="Immunization.vaccinationProtocol.doseSequence", description="What dose number within series?", type="number" )
+  public static final String SP_DOSESEQUENCE = "dose-sequence";
   @SearchParamDefinition(name="vaccine-type", path="Immunization.vaccineType", description="Vaccine Product Type Administered", type="token" )
   public static final String SP_VACCINETYPE = "vaccine-type";
   @SearchParamDefinition(name="location", path="Immunization.location", description="The service delivery location or facility in which the vaccine was / was to be administered", type="reference" )

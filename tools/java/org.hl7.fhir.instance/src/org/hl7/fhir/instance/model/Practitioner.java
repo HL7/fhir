@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 14:42+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1241,10 +1241,10 @@ public class Practitioner extends DomainResource {
   public static final String SP_NAME = "name";
   @SearchParamDefinition(name="telecom", path="Practitioner.telecom", description="The value in any kind of contact", type="string" )
   public static final String SP_TELECOM = "telecom";
-  @SearchParamDefinition(name="gender", path="Practitioner.gender", description="Gender of the practitioner", type="token" )
-  public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="role", path="Practitioner.practitionerRole.role", description="The practitioner can perform this role at for the organization", type="token" )
   public static final String SP_ROLE = "role";
+  @SearchParamDefinition(name="gender", path="Practitioner.gender", description="Gender of the practitioner", type="token" )
+  public static final String SP_GENDER = "gender";
   @SearchParamDefinition(name="identifier", path="Practitioner.identifier", description="A practitioner's Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="specialty", path="Practitioner.practitionerRole.specialty", description="The practitioner has this specailty at an organization", type="token" )
