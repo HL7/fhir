@@ -194,7 +194,7 @@ public class WorkerContext {
     zip.close();    
   }
 
-	@SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
   private void loadFromFile(InputStream stream, String name) throws Exception {
     XmlParser xml = new XmlParser();
     Bundle f = (Bundle) xml.parse(stream);
@@ -211,9 +211,9 @@ public class WorkerContext {
       else if (e.getResource() instanceof ExtensionDefinition)
         seeExtensionDefinition(base, (ExtensionDefinition) e.getResource());
       else if (e.getResource() instanceof ConceptMap)
-        maps.put(((ConceptMap) e.getResource()).getIdentifier(), (ConceptMap) e.getResource());
+        maps.put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
     }
-  }
+      }
 
   public void seeExtensionDefinition(String base, ExtensionDefinition ed) throws Exception {
     if (extensionDefinitions.get(ed.getUrl()) != null)
@@ -229,8 +229,8 @@ public class WorkerContext {
 	  valueSets.put(vs.getUrl(), vs);
 	  if (vs.hasDefine()) {
 	    codeSystems.put(vs.getDefine().getSystem().toString(), vs);
-	  }
-  }
+        }
+      }
 
   public void seeProfile(String base, Profile p) {
 	  profiles.put(p.getId(), p);
@@ -388,7 +388,7 @@ public class WorkerContext {
 	  @Override
 	  public Bundle fetchFeed(String url) {
       throw new Error("call to NullClient");
-	  }
+    }
 
     @Override
     public ValueSet expandValueset(ValueSet source) throws Exception {
@@ -407,8 +407,8 @@ public class WorkerContext {
 	    }
       return match == null ? null : new ExtensionDefinitionResult(context.ex, match, path);	    
 	  } else if (url.contains("#")) {
-      String[] parts = url.split("\\#");	      
-      ExtensionDefinition res = extensionDefinitions.get(parts[0]);
+	    String[] parts = url.split("\\#");
+	    ExtensionDefinition res = extensionDefinitions.get(parts[0]);
 	    if (res == null)
 	      return null;
       String path = "Extension."+parts[1];

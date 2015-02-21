@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1090,97 +1090,104 @@ public class ConceptMap extends DomainResource {
   }
 
     /**
-     * The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
-    @Child(name="identifier", type={StringType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Logical id to reference this concept map", formalDefinition="The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
-    protected StringType identifier;
+    @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Globally unique logical id for concept map", formalDefinition="The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    protected UriType url;
+
+    /**
+     * Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     */
+    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Additional identifier for the concept map", formalDefinition="Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    protected Identifier identifier;
 
     /**
      * The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    @Child(name="version", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of the concept map", formalDefinition="The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp." )
     protected StringType version;
 
     /**
      * A free text natural language name describing the concept map.
      */
-    @Child(name="name", type={StringType.class}, order=2, min=0, max=1)
+    @Child(name="name", type={StringType.class}, order=3, min=0, max=1)
     @Description(shortDefinition="Informal name for this concept map", formalDefinition="A free text natural language name describing the concept map." )
     protected StringType name;
 
     /**
      * The name of the individual or organization that published the concept map.
      */
-    @Child(name="publisher", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name="publisher", type={StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the concept map." )
     protected StringType publisher;
 
     /**
      * Contacts of the publisher to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="telecom", type={ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contacts of the publisher to assist a user in finding and communicating with the publisher." )
     protected List<ContactPoint> telecom;
 
     /**
      * A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
      */
-    @Child(name="description", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Human language description of the concept map", formalDefinition="A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc." )
     protected StringType description;
 
     /**
      * A copyright statement relating to the concept map and/or its contents.
      */
-    @Child(name="copyright", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name="copyright", type={StringType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="About the concept map or its content", formalDefinition="A copyright statement relating to the concept map and/or its contents." )
     protected StringType copyright;
 
     /**
      * The status of the concept map.
      */
-    @Child(name="status", type={CodeType.class}, order=7, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=8, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the concept map." )
     protected Enumeration<ValuesetStatus> status;
 
     /**
      * This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=8, min=0, max=1)
+    @Child(name="experimental", type={BooleanType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that the concept map status was last changed.
      */
-    @Child(name="date", type={DateTimeType.class}, order=9, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="Date for given status", formalDefinition="The date that the concept map status was last changed." )
     protected DateTimeType date;
 
     /**
      * The source value set that specifies the concepts that are being mapped.
      */
-    @Child(name="source", type={UriType.class, ValueSet.class, Profile.class}, order=10, min=1, max=1)
+    @Child(name="source", type={UriType.class, ValueSet.class, Profile.class}, order=11, min=1, max=1)
     @Description(shortDefinition="Identifies the source of the concepts which are being mapped", formalDefinition="The source value set that specifies the concepts that are being mapped." )
     protected Type source;
 
     /**
      * The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
      */
-    @Child(name="target", type={UriType.class, ValueSet.class, Profile.class}, order=11, min=1, max=1)
+    @Child(name="target", type={UriType.class, ValueSet.class, Profile.class}, order=12, min=1, max=1)
     @Description(shortDefinition="Provides context to the mappings", formalDefinition="The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made." )
     protected Type target;
 
     /**
      * Mappings for an individual concept in the source to one or more concepts in the target.
      */
-    @Child(name="element", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="element", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Mappings for a concept from the source set", formalDefinition="Mappings for an individual concept in the source to one or more concepts in the target." )
     protected List<ConceptMapElementComponent> element;
 
-    private static final long serialVersionUID = 1130142902L;
+    private static final long serialVersionUID = -1472954967L;
 
     public ConceptMap() {
       super();
@@ -1194,19 +1201,64 @@ public class ConceptMap extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @return {@link #url} (The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public StringType getIdentifierElement() { 
+    public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ConceptMap.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType(); // bb
+      return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    /**
+     * @param value {@link #url} (The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     */
+    public ConceptMap setUrlElement(UriType value) { 
+      this.url = value;
+      return this;
+    }
+
+    /**
+     * @return The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     */
+    public String getUrl() { 
+      return this.url == null ? null : this.url.getValue();
+    }
+
+    /**
+     * @param value The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     */
+    public ConceptMap setUrl(String value) { 
+      if (Utilities.noString(value))
+        this.url = null;
+      else {
+        if (this.url == null)
+          this.url = new UriType();
+        this.url.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #identifier} (Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     */
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.identifier");
         else if (Configuration.doAutoCreate())
-          this.identifier = new StringType(); // bb
+          this.identifier = new Identifier(); // cc
       return this.identifier;
-    }
-
-    public boolean hasIdentifierElement() { 
-      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     public boolean hasIdentifier() { 
@@ -1214,31 +1266,10 @@ public class ConceptMap extends DomainResource {
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @param value {@link #identifier} (Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public ConceptMap setIdentifierElement(StringType value) { 
+    public ConceptMap setIdentifier(Identifier value) { 
       this.identifier = value;
-      return this;
-    }
-
-    /**
-     * @return The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
-     */
-    public String getIdentifier() { 
-      return this.identifier == null ? null : this.identifier.getValue();
-    }
-
-    /**
-     * @param value The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
-     */
-    public ConceptMap setIdentifier(String value) { 
-      if (Utilities.noString(value))
-        this.identifier = null;
-      else {
-        if (this.identifier == null)
-          this.identifier = new StringType();
-        this.identifier.setValue(value);
-      }
       return this;
     }
 
@@ -1762,7 +1793,8 @@ public class ConceptMap extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("url", "uri", "The uri that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the concept map.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the concept map.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -1780,6 +1812,7 @@ public class ConceptMap extends DomainResource {
       public ConceptMap copy() {
         ConceptMap dst = new ConceptMap();
         copyValues(dst);
+        dst.url = url == null ? null : url.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
@@ -1815,11 +1848,11 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof ConceptMap))
           return false;
         ConceptMap o = (ConceptMap) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
-           && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(date, o.date, true) && compareDeep(source, o.source, true) && compareDeep(target, o.target, true)
-           && compareDeep(element, o.element, true);
+        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
+           && compareDeep(name, o.name, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(description, o.description, true) && compareDeep(copyright, o.copyright, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(source, o.source, true)
+           && compareDeep(target, o.target, true) && compareDeep(element, o.element, true);
       }
 
       @Override
@@ -1829,17 +1862,17 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof ConceptMap))
           return false;
         ConceptMap o = (ConceptMap) other;
-        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(copyright, o.copyright, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
-           && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty())
-           && (description == null || description.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
+        return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty())
+           && (telecom == null || telecom.isEmpty()) && (description == null || description.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (source == null || source.isEmpty()) && (target == null || target.isEmpty())
            && (element == null || element.isEmpty());
       }
@@ -1867,8 +1900,10 @@ public class ConceptMap extends DomainResource {
   public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="date", path="ConceptMap.date", description="The concept map publication date", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="identifier", path="ConceptMap.identifier", description="The identifier of the concept map", type="token" )
+  @SearchParamDefinition(name="identifier", path="ConceptMap.identifier", description="Additional identifier for the concept map", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="url", path="ConceptMap.url", description="The url of the concept map", type="token" )
+  public static final String SP_URL = "url";
   @SearchParamDefinition(name="publisher", path="ConceptMap.publisher", description="Name of the publisher of the concept map", type="string" )
   public static final String SP_PUBLISHER = "publisher";
   @SearchParamDefinition(name="version", path="ConceptMap.version", description="The version identifier of the concept map", type="token" )

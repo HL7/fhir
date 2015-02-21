@@ -974,7 +974,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   public void generate(ConceptMap cm) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
-    x.addTag("h2").addText(cm.getName()+" ("+cm.getIdentifier()+")");
+    x.addTag("h2").addText(cm.getName()+" ("+cm.getUrl()+")");
 
     XhtmlNode p = x.addTag("p");
     p.addText("Mapping from ");
@@ -1520,20 +1520,20 @@ public class NarrativeGenerator implements INarrativeGenerator {
       td.addText(Integer.toString(i+1));
       td = tr.addTag("td");
       String s = Utilities.padLeft("", '\u00A0', i*2);
-    td.addText(s);
+      td.addText(s);
     }
     td.addText(c.getCode());
     XhtmlNode a;
     if (c.hasCodeElement()) {
       a = td.addTag("a");
-    a.setAttribute("name", Utilities.nmtokenize(c.getCode()));
-    a.addText(" ");
+      a.setAttribute("name", Utilities.nmtokenize(c.getCode()));
+      a.addText(" ");
     }
     
     if (hasDisplay) {
-    td = tr.addTag("td");
-    if (c.hasDisplayElement())
-      td.addText(c.getDisplay());
+      td = tr.addTag("td");
+      if (c.hasDisplayElement())
+        td.addText(c.getDisplay());
     }
     td = tr.addTag("td");
     if (c != null)
@@ -1935,27 +1935,27 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	
 	private void addMarkdown(XhtmlNode x, String text) throws Exception {
 	  if (text != null) {	    
-    // 1. custom FHIR extensions
-    while (text.contains("[[[")) {
-      String left = text.substring(0, text.indexOf("[[["));
-      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
-      String right = text.substring(text.indexOf("]]]")+3);
-      String actual = url;
-//      String[] parts = url.split("\\#");
-//      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
-//      if (p != null)
-//        actual = p.getTag("filename")+".html";
-//      else {
-//        throw new Exception("Unresolved logical URL "+url);
-//      }
-      text = left+"["+url+"]("+actual+")"+right;
-    }
-    
-    // 2. markdown
-    String s = Processor.process(Utilities.escapeXml(text));
-    XhtmlParser p = new XhtmlParser();
-    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
-    x.getChildNodes().addAll(m.getChildNodes());   
+	    // 1. custom FHIR extensions
+	    while (text.contains("[[[")) {
+	      String left = text.substring(0, text.indexOf("[[["));
+	      String url = text.substring(text.indexOf("[[[")+3, text.indexOf("]]]"));
+	      String right = text.substring(text.indexOf("]]]")+3);
+	      String actual = url;
+	      //      String[] parts = url.split("\\#");
+	      //      Profile p = parts[0]; // todo: definitions.getProfileByURL(parts[0]);
+	      //      if (p != null)
+	      //        actual = p.getTag("filename")+".html";
+	      //      else {
+	      //        throw new Exception("Unresolved logical URL "+url);
+	      //      }
+	      text = left+"["+url+"]("+actual+")"+right;
+	    }
+
+	    // 2. markdown
+	    String s = Processor.process(Utilities.escapeXml(text));
+	    XhtmlParser p = new XhtmlParser();
+	    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
+	    x.getChildNodes().addAll(m.getChildNodes());
 	  }
   }
 

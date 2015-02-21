@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -506,11 +506,11 @@ public class Profile extends DomainResource {
     protected UriType url;
 
     /**
-     * Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
+     * A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri).
      */
-    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Other identifiers for the profile", formalDefinition="Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI)." )
-    protected List<Identifier> identifier;
+    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Additional identifier for the profile", formalDefinition="A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri)." )
+    protected Identifier identifier;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.
@@ -624,7 +624,7 @@ public class Profile extends DomainResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base profile - a statement of differences that it applies." )
     protected ConstraintComponent differential;
 
-    private static final long serialVersionUID = -1737882057L;
+    private static final long serialVersionUID = 147963653L;
 
     public Profile() {
       super();
@@ -684,33 +684,27 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @return {@link #identifier} (A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri).)
      */
-    public List<Identifier> getIdentifier() { 
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Profile.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new Identifier(); // cc
       return this.identifier;
     }
 
     public boolean hasIdentifier() { 
-      if (this.identifier == null)
-        return false;
-      for (Identifier item : this.identifier)
-        if (!item.isEmpty())
-          return true;
-      return false;
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
-     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
+     * @param value {@link #identifier} (A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri).)
      */
-    // syntactic sugar
-    public Identifier addIdentifier() { //3
-      Identifier t = new Identifier();
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      this.identifier.add(t);
-      return t;
+    public Profile setIdentifier(Identifier value) { 
+      this.identifier = value;
+      return this;
     }
 
     /**
@@ -1377,7 +1371,7 @@ public class Profile extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -1400,11 +1394,7 @@ public class Profile extends DomainResource {
         Profile dst = new Profile();
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
-        if (identifier != null) {
-          dst.identifier = new ArrayList<Identifier>();
-          for (Identifier i : identifier)
-            dst.identifier.add(i.copy());
-        };
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();

@@ -368,7 +368,7 @@ public class Publisher implements URIResolver {
         System.out.println("Stack Trace saved as " +  errorFile);
       } catch (IOException e1) {
       }
-      if (hasParam(args, "-debug"))
+//      if (hasParam(args, "-debug"))
         e.printStackTrace();
 
       // Error status code set in case of any exception
@@ -2969,7 +2969,7 @@ public class Publisher implements URIResolver {
     String name = r.getName().toLowerCase()+"-"+op.getName();
     OperationDefinition opd = new OperationDefinition();
     opd.setId(FormatUtilities.makeId(r.getName()+"-"+op.getName()));
-    opd.setIdentifier("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
+    opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
     opd.setTitle(op.getTitle());
     opd.setPublisher("HL7 (FHIR Project)");
     opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
@@ -3251,12 +3251,12 @@ public class Publisher implements URIResolver {
     } else if (r instanceof ConceptMap) {
       ConceptMap cm = (ConceptMap) r;
       new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
-      if (cm.getIdentifier() == null)
+      if (cm.getUrl() == null)
         throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
       addToResourceFeed(cm, conceptMapsFeed);
-      page.getDefinitions().getConceptMaps().put(cm.getIdentifier(), cm);
+      page.getDefinitions().getConceptMaps().put(cm.getUrl(), cm);
       cm.setUserData("path", n + ".html");
-      page.getConceptMaps().put(cm.getIdentifier(), cm);
+      page.getConceptMaps().put(cm.getUrl(), cm);
     }
 
     // generate the canonical xml version (use the java reference platform)
@@ -4513,7 +4513,7 @@ public class Publisher implements URIResolver {
   private void generateConceptMapV2(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v2-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setIdentifier("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
+    cm.setUrl("http://hl7.org/fhir/cm/v2/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
     cm.setName("v2 map for " + cd.getName());
     cm.setPublisher("HL7 (FHIR Project)");
@@ -4592,7 +4592,7 @@ public class Publisher implements URIResolver {
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v2.html"));
     conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
-    page.getConceptMaps().put(cm.getIdentifier(), cm);
+    page.getConceptMaps().put(cm.getUrl(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);
@@ -4601,7 +4601,7 @@ public class Publisher implements URIResolver {
   private void generateConceptMapV3(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
     ConceptMap cm = new ConceptMap();
     cm.setId("v3-"+FormatUtilities.makeId(Utilities.fileTitle(filename)));
-    cm.setIdentifier("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
+    cm.setUrl("http://hl7.org/fhir/cm/v3/" + Utilities.fileTitle(filename));
     // no version?? vs.setVersion(...
     cm.setName("v3 map for " + cd.getName());
     cm.setPublisher("HL7 (FHIR Project)");
@@ -4686,7 +4686,7 @@ public class Publisher implements URIResolver {
 
     cm.setUserData("path", Utilities.changeFileExt(filename, "-map-v3.html"));
     conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm));
-    page.getConceptMaps().put(cm.getIdentifier(), cm);
+    page.getConceptMaps().put(cm.getUrl(), cm);
     page.getEpub().registerFile(n + ".html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".json.html", cm.getName(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n + ".xml.html", cm.getName(), EPubManager.XHTML_TYPE);

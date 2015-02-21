@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -2530,10 +2530,12 @@ public class JsonParser extends JsonParserBase {
   protected ConceptMap parseConceptMap(JsonObject json) throws Exception {
     ConceptMap res = new ConceptMap();
     parseDomainResourceProperties(json, res);
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
     if (json.has("identifier"))
-      res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
-    if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("version"))
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -7050,10 +7052,10 @@ public class JsonParser extends JsonParserBase {
   protected OperationDefinition parseOperationDefinition(JsonObject json) throws Exception {
     OperationDefinition res = new OperationDefinition();
     parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifierElement(parseUri(json.get("identifier").getAsString()));
-    if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
+    if (json.has("url"))
+      res.setUrlElement(parseUri(json.get("url").getAsString()));
+    if (json.has("_url"))
+      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
     if (json.has("version"))
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -9042,12 +9044,8 @@ public class JsonParser extends JsonParserBase {
       res.setUrlElement(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
       parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    if (json.has("identifier")) {
-      JsonArray array = json.getAsJsonArray("identifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("version"))
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -15236,9 +15234,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeConceptMapInner(ConceptMap element) throws Exception {
       composeDomainResourceElements(element);
-      if (element.hasIdentifierElement()) {
-        composeStringCore("identifier", element.getIdentifierElement(), false);
-        composeStringExtras("identifier", element.getIdentifierElement(), false);
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
       }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);
@@ -20863,9 +20864,9 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeOperationDefinitionInner(OperationDefinition element) throws Exception {
       composeDomainResourceElements(element);
-      if (element.hasIdentifierElement()) {
-        composeUriCore("identifier", element.getIdentifierElement(), false);
-        composeUriExtras("identifier", element.getIdentifierElement(), false);
+      if (element.hasUrlElement()) {
+        composeUriCore("url", element.getUrlElement(), false);
+        composeUriExtras("url", element.getUrlElement(), false);
       }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);
@@ -23346,11 +23347,8 @@ public class JsonParser extends JsonParserBase {
         composeUriExtras("url", element.getUrlElement(), false);
       }
       if (element.hasIdentifier()) {
-        openArray("identifier");
-        for (Identifier e : element.getIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
+        composeIdentifier("identifier", element.getIdentifier());
+      }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);
         composeStringExtras("version", element.getVersionElement(), false);

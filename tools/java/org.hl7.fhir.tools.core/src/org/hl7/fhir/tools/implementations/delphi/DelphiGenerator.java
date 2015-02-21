@@ -3304,7 +3304,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
-    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\12.0\\bin\\dcc32.exe";
+    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\12.0\\bin\\dcc64.exe";
     exe = rootDir+"implementations\\pascal\\fhirtest.exe";
     logger.log("Compiling Pascal implementation using "+dcc, LogMessageType.Process);
     new File(exe).delete();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 15:25+1100 for FHIR v0.4.0
+// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1157,11 +1157,11 @@ public class OperationDefinition extends DomainResource {
   }
 
     /**
-     * The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).
      */
-    @Child(name="identifier", type={UriType.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Logical id to reference this operation definition", formalDefinition="The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI)." )
-    protected UriType identifier;
+    @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Logical url to reference this operation definition", formalDefinition="The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri)." )
+    protected UriType url;
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
@@ -1287,7 +1287,7 @@ public class OperationDefinition extends DomainResource {
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = 300577956L;
+    private static final long serialVersionUID = -1073081070L;
 
     public OperationDefinition() {
       super();
@@ -1304,50 +1304,50 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @return {@link #url} (The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getIdentifierElement() { 
-      if (this.identifier == null)
+    public UriType getUrlElement() { 
+      if (this.url == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OperationDefinition.identifier");
+          throw new Error("Attempt to auto-create OperationDefinition.url");
         else if (Configuration.doAutoCreate())
-          this.identifier = new UriType(); // bb
-      return this.identifier;
+          this.url = new UriType(); // bb
+      return this.url;
     }
 
-    public boolean hasIdentifierElement() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
+     * @param value {@link #url} (The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public OperationDefinition setIdentifierElement(UriType value) { 
-      this.identifier = value;
+    public OperationDefinition setUrlElement(UriType value) { 
+      this.url = value;
       return this;
     }
 
     /**
-     * @return The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * @return The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).
      */
-    public String getIdentifier() { 
-      return this.identifier == null ? null : this.identifier.getValue();
+    public String getUrl() { 
+      return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     * @param value The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).
      */
-    public OperationDefinition setIdentifier(String value) { 
+    public OperationDefinition setUrl(String value) { 
       if (Utilities.noString(value))
-        this.identifier = null;
+        this.url = null;
       else {
-        if (this.identifier == null)
-          this.identifier = new UriType();
-        this.identifier.setValue(value);
+        if (this.url == null)
+          this.url = new UriType();
+        this.url.setValue(value);
       }
       return this;
     }
@@ -2102,7 +2102,7 @@ public class OperationDefinition extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "uri", "The identifier that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("url", "uri", "The url that is used to identify this operation definition when it is referenced in a specification, model, design or an instance (should be globally unique uri).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("title", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -2125,7 +2125,7 @@ public class OperationDefinition extends DomainResource {
       public OperationDefinition copy() {
         OperationDefinition dst = new OperationDefinition();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.title = title == null ? null : title.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -2173,7 +2173,7 @@ public class OperationDefinition extends DomainResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(title, o.title, true)
+        return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(title, o.title, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true) && compareDeep(description, o.description, true)
            && compareDeep(code, o.code, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(date, o.date, true) && compareDeep(kind, o.kind, true) && compareDeep(name, o.name, true)
@@ -2189,7 +2189,7 @@ public class OperationDefinition extends DomainResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareValues(identifier, o.identifier, true) && compareValues(version, o.version, true) && compareValues(title, o.title, true)
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(title, o.title, true)
            && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
            && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(kind, o.kind, true)
            && compareValues(name, o.name, true) && compareValues(notes, o.notes, true) && compareValues(system, o.system, true)
@@ -2197,7 +2197,7 @@ public class OperationDefinition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
+        return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
            && (title == null || title.isEmpty()) && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty())
            && (description == null || description.isEmpty()) && (code == null || code.isEmpty()) && (status == null || status.isEmpty())
            && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (kind == null || kind.isEmpty())
@@ -2219,6 +2219,8 @@ public class OperationDefinition extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
   public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="url", path="OperationDefinition.url", description="Logical url to reference this operation definition", type="token" )
+  public static final String SP_URL = "url";
   @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
   public static final String SP_KIND = "kind";
   @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
@@ -2235,8 +2237,6 @@ public class OperationDefinition extends DomainResource {
   public static final String SP_BASE = "base";
   @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
   public static final String SP_INSTANCE = "instance";
-  @SearchParamDefinition(name="identifier", path="OperationDefinition.identifier", description="Logical id to reference this operation definition", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
   @SearchParamDefinition(name="profile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference" )
   public static final String SP_PROFILE = "profile";
 

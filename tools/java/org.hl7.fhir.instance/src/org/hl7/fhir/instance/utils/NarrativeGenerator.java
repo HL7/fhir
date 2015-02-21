@@ -974,7 +974,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   public void generate(ConceptMap cm) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
-    x.addTag("h2").addText(cm.getName()+" ("+cm.getIdentifier()+")");
+    x.addTag("h2").addText(cm.getName()+" ("+cm.getUrl()+")");
 
     XhtmlNode p = x.addTag("p");
     p.addText("Mapping from ");

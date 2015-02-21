@@ -211,7 +211,7 @@ public class WorkerContext {
       else if (e.getResource() instanceof ExtensionDefinition)
         seeExtensionDefinition(base, (ExtensionDefinition) e.getResource());
       else if (e.getResource() instanceof ConceptMap)
-        maps.put(((ConceptMap) e.getResource()).getIdentifier(), (ConceptMap) e.getResource());
+        maps.put(((ConceptMap) e.getResource()).getUrl(), (ConceptMap) e.getResource());
     }
       }
 
