@@ -82,4 +82,11 @@ value set, it is expected that the content for the question and the referenced d
 alignment is required.  E.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
 These rules will need to be established within implementation environments.
 </p>
+
+<h3>Extensions for Additional capabilities</h3>
+<p>
+The core elements defined in the questionnaire resource are sufficient for simple questionnaires.  For more sophisticated capabilities, a number of "common" extensions
+are defined in the <a href="questionnaire-extensions.html">Questionnaire Core extensions</a> and the <a href="element-extensions">Element extensions</a> profiles.  
+For example, strict control over allowed number of conditions, conditional display of questionnaire content, etc.
+</p>
 </div>
