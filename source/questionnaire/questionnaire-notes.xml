@@ -38,14 +38,17 @@ such <b>Questionnaires</b> using other, more specific, Resources increases the a
 A Questionnaire is built out of three components:</p>
 <ul>
   <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
-  like the identifier, publisher, date authored, etc. The Questionnaire contains one "main" Group, which contains all the content of the questionnaire.</li>
+  like the identifier, publisher, date authored, etc. The Questionnaire contains one "root" Group, which contains all the content of the questionnaire.
+  This "root" group contains elements that apply to the entire questionnaire - the <code>title</code> for the questionnaire, the <code>concept</code> that represents the meaning
+  of the overall questionnaire (e.g. a code for "family history"), the <code>text</code> to display at the top of the questionnaire, etc.  (In most cases, <code>required</code> 
+  would be 'true' and <code>repeats</code> would be false for the root group</li>
   <li>This Group can contain <em>either</em> nested Groups (to represent sections and subsections on a questionnaire form) or Questions.
   This way, any form containing sections or subsections can be represented, down to the actual questions.</li>
   <li>The Questions themselves may be simple questions with a prompt text and one expected answer, but they may also contain nested groups, 
 each containing sets of nested questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
 depending on the answers of a parent question. E.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
 group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
-the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian NSW blue book</a></li>
+the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
 <li>Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and
 are expected to be introduced as extensions.</li>
 </ul>
@@ -57,7 +60,7 @@ questions and the constraints enforced on the accompanying answers increases the
 mechanisms defined in the specification for linking a Question (or Group) to a standardized definition:
 </p>
 <ul>
-  <li>The <code>code</code> element on both Group and Question allows an individual question, a group of questions or even the questionnaire as a whole to be associated
+  <li>The <code>concept</code> element on both Group and Question allows an individual question, a group of questions or even the questionnaire as a whole to be associated
   with a pre-defined terminology of questions and question groups such as LOINC</li>
   <li>The <a href="questionnaire-extensions.html#deReference">deReference</a> extension allows a question or group to be associated with the
   <a href="dataelement.html">DataElement</a> (DE) resource that formally defines the data element.</li>
@@ -68,13 +71,13 @@ formal definition, linkages to formal definitions may also be used to automatica
 <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.
 </p>
 <p>
-NOTE: Even if standard question definitions are referenced using <code>code</code> or the <code>deReference</code> extension, information such as the question text,
+NOTE: Even if standard question definitions are referenced using <code>concept</code> or the <code>deReference</code> extension, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire may not have access to or support the ability to look
 up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems may not be able to to render
 or use the Questionnaire.
 </p>
 <p>
-If an external reference (<code>code</code> or <code>deReference</code> extension) is included along with question information such as question text, data type or
+If an external reference (<code>concept</code> or <code>deReference</code> extension) is included along with question information such as question text, data type or
 value set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of
 alignment is required.  E.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
 These rules will need to be established within implementation environments.
