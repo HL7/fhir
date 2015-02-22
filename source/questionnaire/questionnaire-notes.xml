@@ -58,7 +58,7 @@ mechanisms defined in the specification for linking a Question (or Group) to a s
 </p>
 <ul>
   <li>The <code>code</code> element on both Group and Question allows an individual question, a group of questions or even the questionnaire as a whole to be associated
-  with a pre-defined terminology of questions and question groups such as LOINC or SNOMED</li>
+  with a pre-defined terminology of questions and question groups such as LOINC</li>
   <li>The <a href="questionnaire-extensions.html#deReference">deReference</a> extension allows a question or group to be associated with the
   <a href="dataelement.html">DataElement</a> (DE) resource that formally defines the data element.</li>
 </ul>
