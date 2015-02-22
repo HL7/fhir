@@ -27,6 +27,7 @@ The extensions provided here fall into several categories:
   <li>Length-related (govern allowed length of an element): <a href="#minLength">minLength</a>, <a href="#maxLength">maxLength</a></li>
   <li>Format (govern the appearance of string and string-like simple data types): <a href="#regex">regex</a>, <a href="#entryFormat">entryFormat</a></li>
   <li>Numeric/date (govern the allowed range of numeric, date or time data types):  <a href="#minValue">minValue</a>, <a href="#maxValue">maxValue</a>, <a href="#maxDecimalPlaces">maxDecimalPlaces</a></li>
+  <li>Attachment-related (govern allowed attachments): <a href="#mimeType">mimeType</a>, <a href="#maxSize">maxSize</a></li>
 </ul>
 
 </div>

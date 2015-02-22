@@ -127,18 +127,8 @@
             </extension>
           </xsl:for-each>
           <xsl:for-each select="sdc:form_design/sdc:security_and_privacy[normalize-space(.)!='']">
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText">
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.value">
-                <valueString value="{normalize-space(.)}"/>
-              </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.type">
-                <valueCodeableConcept>
-                  <coding>
-                    <system value="http://hl7.org/fhir/questionnaire-text-type"/>
-                    <code value="security"/>
-                  </coding>
-                </valueCodeableConcept>
-              </extension>
+            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#security">
+              <valueString value="{normalize-space(.)}"/>
             </extension>
           </xsl:for-each>
           <linkId value="root"/>
@@ -247,37 +237,14 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:additional_instruction/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText">
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.value">
-            <valueString value="{normalize-space(.)}">
-              <xsl:call-template name="doStyle"/>
-            </valueString>
-          </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.type">
-            <valueCodeableConcept>
-              <coding>
-                <system value="http://hl7.org/fhir/questionnaire-text-type"/>
-                <code value="instruction"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#instruction">
+          <valueString value="{normalize-space(.)}">
+            <xsl:call-template name="doStyle"/>
+          </valueString>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:additional_text/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText">
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.value">
-            <valueString value="{normalize-space(.)}">
-              <xsl:call-template name="doStyle"/>
-            </valueString>
-          </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalGroupText.type">
-            <valueCodeableConcept>
-              <coding>
-                <text value="Unknown"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
-        </extension>
+        <xsl:message>No support for generic 'additional_text'</xsl:message>
       </xsl:for-each>
       <xsl:call-template name="doCardinalityExtensions"/>
       <xsl:for-each select="sdc:section_identifier">
@@ -341,51 +308,21 @@
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:additional_instruction/mfi13:label|sdc:question_instruction/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText">
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.value">
-            <xsl:call-template name="doStyle"/>
-            <valueString value="{.}"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.type">
-            <valueCodeableConcept>
-              <coding>
-                <system value="http://hl7.org/fhir/questionnaire-text-type"/>
-                <code value="instruction"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#instruction">
+          <xsl:call-template name="doStyle"/>
+          <valueString value="{.}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:text_after_question/mfi13:label">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText">
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.value">
-            <valueString value="{normalize-space(.)}">
-              <xsl:call-template name="doStyle"/>
-            </valueString>
-          </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.type">
-            <valueCodeableConcept>
-              <coding>
-                <system value="http://hl7.org/fhir/questionnaire-text-type"/>
-                <code value="trailing"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#trailing">
+          <valueString value="{normalize-space(.)}">
+            <xsl:call-template name="doStyle"/>
+          </valueString>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="sdc:*/mfi13:unit_of_measure[normalize-space(.)!='']">
-        <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText">
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.value">
-            <valueString value="{normalize-space(.)}"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#additionalQuestionText.type">
-            <valueCodeableConcept>
-              <coding>
-                <system value="http://hl7.org/fhir/questionnaire-text-type"/>
-                <code value="units"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#units">
+          <valueString value="{normalize-space(.)}"/>
         </extension>
       </xsl:for-each>
       <xsl:for-each select="*/mfi13:default_value">
