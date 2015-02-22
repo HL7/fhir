@@ -25,13 +25,6 @@ Structured Data Capture - an effort under the <a href="http://www.healthit.gov/n
 However, much of the content is likely to be useable in other jurisdictions.
 </p>
 
-<h3>Comment-only Ballot</h3>
-<p>
-This FHIR Implementation Guide is balloted as comment-only.  The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance
-statements it defines, though comments on the underlying resources will also be accepted.  This guide will be balloted together with the FHIR specification itself as part of the
-second FHIR DSTU as part of the April-May ballot cycle.  This will provide an opportunity to provide feedback on all aspects of the FHIR specification.
-</p>
-
 <h3>Background</h3>
 <ul>
   <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
@@ -41,7 +34,12 @@ second FHIR DSTU as part of the April-May ballot cycle.  This will provide an op
 
 <h3>Specification</h3>
 <p>
-The <i>SDC FHIR Implementation Guide</i> is based on the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
+The <i>SDC FHIR Implementation Guide</i> is based on the <a href="index.html">HL7 FHIR</a> standard.  
+Readers of this specification should familiarize themselves with the FHIR specification, including its notions around the use of resources, extensions, bundles,
+conformance rules, etc.  The <a href="overview.html">Overview</a> is probably a good place to start.
+</p>
+<p>
+This specific profile makes use of the following resources:
 </p>
 <ul>
   <li><a href="dataelement.html">DataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
@@ -51,10 +49,13 @@ The <i>SDC FHIR Implementation Guide</i> is based on the <a href="index.html">HL
 </ul>
 <p>
 Additional resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>, <a href="provenance.html">Provenance</a>, 
-<a href="securityevent.html">SecurityEvent</a> and others are likely to be used in SDC solutions, though
+<a href="securityevent.html">SecurityEvent</a> and others are also likely to be used in SDC solutions, though
 no SDC-specific profiles have been created for them.    Basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
 <a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. also apply.
 <!-- Todo: decide how explicit the list of relevant sections needs to be -->
+</p>
+<p>
+
 </p>
 <p>
 The SDC specification consists of the following components:
