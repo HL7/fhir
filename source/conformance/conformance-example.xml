@@ -23,10 +23,12 @@
   <version value="20130510"/>
   <name value="ACME EHR Conformance statement"/>
   <publisher value="ACME Corporation"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="email"/>
     <value value="wile@acme.org"/>
   </telecom>
+  </contact>
   <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
   <date value="2012-01-04"/>
   <software>

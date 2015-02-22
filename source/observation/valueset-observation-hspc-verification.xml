@@ -4,10 +4,12 @@
     </extension>
     <name value="Observation Verification Method"/>
     <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <contact>
     <telecom>
         <system value="url"/>
         <value value="http://www.hspc.org/"/>
     </telecom>
+  </contact>
     
     <description value="Code for method by which the observation result was validated, e.g., human review, sliding average."/>
     <status value="active"/>

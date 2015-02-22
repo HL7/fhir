@@ -11,6 +11,7 @@
   </text>
   <type value="codesystem"/>
   <name value="SNOMED CT"/>
+  <date value="2014-12-13"/>
   <status value="active"/>
   <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid &quot;semantic drift&quot; so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.  
 

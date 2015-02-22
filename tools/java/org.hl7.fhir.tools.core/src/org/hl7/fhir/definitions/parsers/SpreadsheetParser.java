@@ -1240,7 +1240,7 @@ public class SpreadsheetParser {
 
     ex.setPublisher(ap.metadata("author.name"));
     if (ap.hasMetadata("author.reference"))
-      ex.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, ap.metadata("author.reference")));
+      ex.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, ap.metadata("author.reference")));
     //  <code> opt Zero+ Coding assist with indexing and finding</code>
     if (ap.hasMetadata("date"))
       ex.setDateElement(Factory.newDateTime(ap.metadata("date").substring(0, 10)));
@@ -1308,7 +1308,7 @@ public class SpreadsheetParser {
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
-    new ProfileGenerator(definitions, null, pkp).convertElements(exe, ex, null);
+    new ProfileGenerator(definitions, null, pkp, null).convertElements(exe, ex, null);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}

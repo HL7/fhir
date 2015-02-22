@@ -1,10 +1,12 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<name value="USLAB Diagnostic Order Event Codes"/>
 	<publisher value="Orders and Observations Working Group"/>
-	<telecom>
+	<contact>
+    <telecom>
 		<system value="url"/>
 		<value value="http://hl7.org/fhir"/>
 	</telecom>
+  </contact>
 	<description value="US Realm ambulatory care event codes that correspond the Use cases outlined in the USLabOrder Implementation Guide"/>
 	<status value="draft"/>
 	<define>

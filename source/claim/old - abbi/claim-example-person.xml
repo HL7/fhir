@@ -17,10 +17,12 @@ Part B Effective Date: 2/1/2009
     <family>BOURNE</family>
     <given>JACYLN</given>
   </name>
-  <telecom>
+  <contact>
+    <telecom>
     <system>email</system>
     <value>sample@bluebuttontrust.org</value>
   </telecom>
+  </contact>
   <birthDate>1941-04-15</birthDate>
   <address>
     <line>415 EAST 71ST ST</line>

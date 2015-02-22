@@ -17,10 +17,12 @@
   <url value="http://hl7.org/fhir/vs/security-labels"/>
   <name value="All Security Labels"/>
   <publisher value="FHIR project team"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="A single value set for all security labels defined by FHIR"/>
   <status value="draft"/>
   <experimental value="true"/>

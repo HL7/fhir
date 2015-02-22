@@ -17,10 +17,12 @@
   </text>
   <name value="PHR Template"/>
   <publisher value="FHIR Project"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Prototype Conformance Statement for September 2013 Connectathon"/>
   <date value="2013-06-18"/>
   

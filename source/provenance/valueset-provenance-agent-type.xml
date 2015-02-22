@@ -3,14 +3,18 @@
   <url value="http://hl7.org/fhir/vs/provenance-participant-type"/>
   <name value="ProvenanceParticipantType"/>
   <publisher value="HL7 (FHIR Project)"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="email"/>
     <value value="fhir@lists.hl7.org"/>
   </telecom>
+  </contact>
   <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
   <status value="draft"/>
   <date value="2023-05-12"/>

@@ -14,10 +14,12 @@ Range Basis
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="Observation Reference Range Meaning Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>

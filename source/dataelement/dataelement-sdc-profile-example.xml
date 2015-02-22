@@ -40,10 +40,12 @@
   </identifier>
   <version value="1.2"/>
   <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="email"/>
     <value value="william.munier@ahrq.hhs.gov"/>
   </telecom>
+  </contact>
   <status value="draft"/>
   <date value="2012-10-21"/>
   <name value="Patient Gender"/>

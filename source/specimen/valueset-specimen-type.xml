@@ -2,10 +2,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="SpecimenType"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Specimen type : HL7 v2 table 0487.  
     An alternate value set could be all SNOMED CT descendents of 123038009 (Specimen)"/>
   <status value="draft"/>

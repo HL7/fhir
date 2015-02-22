@@ -6,10 +6,12 @@
   <url value="http://hl7.org/fhir/vs/daf-problem-severity"/>
   <name value="Problem Severity"/>
   <publisher value="PHIN VADS"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=72FDBFB5-A277-DE11-9B52-0015173D1785"/>
   </telecom>
+  </contact>
   <description value="This is a description of the level of the severity of the problem"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International
    Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement

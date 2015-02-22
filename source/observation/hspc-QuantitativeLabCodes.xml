@@ -4,10 +4,12 @@
   <id value="hspc-standardlabs-qty"/>
   <name value="HSPC Quantitative Labs"/>
   <publisher value="HSPC"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://healthcaresoa.org"/>
   </telecom>
+  </contact>
   <description value="Quantitative LOINC codes used in HSPC"/>
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <status value="draft"/>

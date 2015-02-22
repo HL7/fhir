@@ -6,10 +6,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-bodysite"/>
   <name value="Body Site Value Set"/>
   <publisher value="PHIN VADS"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.9"/>
   </telecom>
+  </contact>
   <description value="Body site value set is based upon the concepts descending from the SNOMED CT Anatomical Structure (91723000) hierarchy."/>
   <status value="active"/>
   <compose>

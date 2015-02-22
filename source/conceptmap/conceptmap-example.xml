@@ -11,10 +11,12 @@
   <!-- set of loinc codes for cholesterol for LONC 2.36 -->
   <name value="FHIR/v3 Address Use Mapping"/>
   <publisher value="FHIR project team (example)"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="A mapping between the FHIR and V3 AddressUse Code systems"/>
   <status value="draft"/>
   <experimental value="true"/>

@@ -704,9 +704,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return "by the FHIR project";
     
     ValueSet vs = cd.getReferredValueSet();    
-    if (vs == null || vs.getTelecom().isEmpty() || vs.getTelecom().get(0).getSystem() != ContactPointSystem.URL || vs.getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
+    if (vs == null || vs.getContact().isEmpty() || vs.getContact().get(0).getTelecom().isEmpty() || vs.getContact().get(0).getTelecom().get(0).getSystem() != ContactPointSystem.URL || vs.getContact().get(0).getTelecom().get(0).getValue().startsWith("http://hl7.org/fhir"))
       return "by the FHIR project";
-    return " at <a href=\""+vs.getTelecom().get(0).getValue()+"\">"+vs.getTelecom().get(0).getValue()+"</a>";
+    return " at <a href=\""+vs.getContact().get(0).getTelecom().get(0).getValue()+"\">"+vs.getContact().get(0).getTelecom().get(0).getValue()+"</a>";
   }
 
   private String orgDT(String name, String xml, String tree, String ref, String ts, String json) {

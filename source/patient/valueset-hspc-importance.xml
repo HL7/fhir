@@ -16,14 +16,18 @@
   -->
   <name value="Importance"/>
   <publisher value="CIMI"/>
-  <telecom>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://cimi.org/valueset/importance"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://www.cimi.org/"/>
   </telecom>
+  </contact>
  
   <description value="Importance Value Set for Patient"/>
   <status value="active"/>

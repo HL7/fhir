@@ -6,10 +6,12 @@
   <version value="0.01"/>
   <name value="Ordinal Assessment or Interpretation"/>
   <publisher value="HSPC"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.clinicaleleement.com"/>
   </telecom>
+  </contact>
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
   <copyright value="IHC"/>
   <status value="draft"/>

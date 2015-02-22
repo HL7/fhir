@@ -7,14 +7,18 @@
   -->
   <name value="Action Method"/>
   <publisher value="CIMI"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://cimi.org/valueset/attribution/action-method"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.cimi.org/"/>
   </telecom>
+  </contact>
   
   <description value="Type codes for HSPC Attribution action method"/>
   <status value="active"/>

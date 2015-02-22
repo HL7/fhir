@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
+// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -135,7 +135,7 @@ public class NamingSystem extends DomainResource {
         /**
          * System has been submitted but not yet approved.
          */
-        PROPOSED, 
+        DRAFT, 
         /**
          * System is valid for use.
          */
@@ -151,8 +151,8 @@ public class NamingSystem extends DomainResource {
         public static NamingsystemStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
+        if ("draft".equals(codeString))
+          return DRAFT;
         if ("active".equals(codeString))
           return ACTIVE;
         if ("retired".equals(codeString))
@@ -161,7 +161,7 @@ public class NamingSystem extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case PROPOSED: return "proposed";
+            case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
             default: return "?";
@@ -169,7 +169,7 @@ public class NamingSystem extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "";
+            case DRAFT: return "";
             case ACTIVE: return "";
             case RETIRED: return "";
             default: return "?";
@@ -177,7 +177,7 @@ public class NamingSystem extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSED: return "System has been submitted but not yet approved.";
+            case DRAFT: return "System has been submitted but not yet approved.";
             case ACTIVE: return "System is valid for use.";
             case RETIRED: return "System should no longer be used.";
             default: return "?";
@@ -185,7 +185,7 @@ public class NamingSystem extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PROPOSED: return "proposed";
+            case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
             default: return "?";
@@ -198,8 +198,8 @@ public class NamingSystem extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("proposed".equals(codeString))
-          return NamingsystemStatus.PROPOSED;
+        if ("draft".equals(codeString))
+          return NamingsystemStatus.DRAFT;
         if ("active".equals(codeString))
           return NamingsystemStatus.ACTIVE;
         if ("retired".equals(codeString))
@@ -207,8 +207,8 @@ public class NamingSystem extends DomainResource {
         throw new IllegalArgumentException("Unknown NamingsystemStatus code '"+codeString+"'");
         }
     public String toCode(NamingsystemStatus code) {
-      if (code == NamingsystemStatus.PROPOSED)
-        return "proposed";
+      if (code == NamingsystemStatus.DRAFT)
+        return "draft";
       if (code == NamingsystemStatus.ACTIVE)
         return "active";
       if (code == NamingsystemStatus.RETIRED)
@@ -568,35 +568,39 @@ public class NamingSystem extends DomainResource {
     @Block()
     public static class NamingSystemContactComponent extends BackboneElement {
         /**
-         * Names of the person who can be contacted.
+         * The name of an individual to contact regarding the naming system.
          */
-        @Child(name="name", type={HumanName.class}, order=1, min=0, max=1)
-        @Description(shortDefinition="Name of person", formalDefinition="Names of the person who can be contacted." )
-        protected HumanName name;
+        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the naming system." )
+        protected StringType name;
 
         /**
-         * Identifies the mechanism(s) by which they can be contacted.
+         * Contact details for individual (if a name was provided) or the publisher.
          */
         @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
-        @Description(shortDefinition="Phone, email, etc.", formalDefinition="Identifies the mechanism(s) by which they can be contacted." )
+        @Description(shortDefinition="Contact details for individual or publisher", formalDefinition="Contact details for individual (if a name was provided) or the publisher." )
         protected List<ContactPoint> telecom;
 
-        private static final long serialVersionUID = -888464692L;
+        private static final long serialVersionUID = -1179697803L;
 
       public NamingSystemContactComponent() {
         super();
       }
 
         /**
-         * @return {@link #name} (Names of the person who can be contacted.)
+         * @return {@link #name} (The name of an individual to contact regarding the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public HumanName getName() { 
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemContactComponent.name");
             else if (Configuration.doAutoCreate())
-              this.name = new HumanName(); // cc
+              this.name = new StringType(); // bb
           return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
         }
 
         public boolean hasName() { 
@@ -604,15 +608,36 @@ public class NamingSystem extends DomainResource {
         }
 
         /**
-         * @param value {@link #name} (Names of the person who can be contacted.)
+         * @param value {@link #name} (The name of an individual to contact regarding the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public NamingSystemContactComponent setName(HumanName value) { 
+        public NamingSystemContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
 
         /**
-         * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
+         * @return The name of an individual to contact regarding the naming system.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of an individual to contact regarding the naming system.
+         */
+        public NamingSystemContactComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
         public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
@@ -630,7 +655,7 @@ public class NamingSystem extends DomainResource {
         }
 
         /**
-         * @return {@link #telecom} (Identifies the mechanism(s) by which they can be contacted.)
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
     // syntactic sugar
         public ContactPoint addTelecom() { //3
@@ -643,8 +668,8 @@ public class NamingSystem extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "HumanName", "Names of the person who can be contacted.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("telecom", "ContactPoint", "Identifies the mechanism(s) by which they can be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the naming system.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
 
       public NamingSystemContactComponent copy() {
@@ -676,7 +701,7 @@ public class NamingSystem extends DomainResource {
         if (!(other instanceof NamingSystemContactComponent))
           return false;
         NamingSystemContactComponent o = (NamingSystemContactComponent) other;
-        return true;
+        return compareValues(name, o.name, true);
       }
 
       public boolean isEmpty() {
@@ -701,65 +726,79 @@ public class NamingSystem extends DomainResource {
     protected StringType name;
 
     /**
+     * The date  (and optionally time) when the system was registered or published.
+     */
+    @Child(name="date", type={DateTimeType.class}, order=2, min=1, max=1)
+    @Description(shortDefinition="Publication Date(/time)", formalDefinition="The date  (and optionally time) when the system was registered or published." )
+    protected DateTimeType date;
+
+    /**
      * Indicates whether the namingsystem is "ready for use" or not.
      */
-    @Child(name="status", type={CodeType.class}, order=2, min=1, max=1)
-    @Description(shortDefinition="proposed | active | retired", formalDefinition="Indicates whether the namingsystem is 'ready for use' or not." )
+    @Child(name="status", type={CodeType.class}, order=3, min=1, max=1)
+    @Description(shortDefinition="draft | active | retired", formalDefinition="Indicates whether the namingsystem is 'ready for use' or not." )
     protected Enumeration<NamingsystemStatus> status;
 
     /**
      * If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.
      */
-    @Child(name="country", type={CodeType.class}, order=3, min=0, max=1)
+    @Child(name="country", type={CodeType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="ISO 3-char country code", formalDefinition="If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system." )
     protected CodeType country;
 
     /**
      * Categorizes a namingsystem for easier search by grouping related namingsystems.
      */
-    @Child(name="category", type={CodeableConcept.class}, order=4, min=0, max=1)
+    @Child(name="category", type={CodeableConcept.class}, order=5, min=0, max=1)
     @Description(shortDefinition="driver | provider | patient | bank", formalDefinition="Categorizes a namingsystem for easier search by grouping related namingsystems." )
     protected CodeableConcept category;
 
     /**
      * The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    @Child(name="responsible", type={StringType.class}, order=5, min=0, max=1)
+    @Child(name="responsible", type={StringType.class}, order=6, min=0, max=1)
     @Description(shortDefinition="Who maintains system namespace?", formalDefinition="The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision." )
     protected StringType responsible;
 
     /**
      * Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    @Child(name="description", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="What does namingsystem identify?", formalDefinition="Details about what the namespace identifies including scope, granularity, version labeling, etc." )
     protected StringType description;
 
     /**
      * Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    @Child(name="usage", type={StringType.class}, order=7, min=0, max=1)
+    @Child(name="usage", type={StringType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="How/where is it used", formalDefinition="Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc." )
     protected StringType usage;
 
     /**
      * Indicates how the system may be identified when referenced in electronic exchange.
      */
-    @Child(name="uniqueId", type={}, order=8, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="uniqueId", type={}, order=9, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Unique identifiers used for system", formalDefinition="Indicates how the system may be identified when referenced in electronic exchange." )
     protected List<NamingSystemUniqueIdComponent> uniqueId;
 
     /**
-     * The person who can be contacted about this system registration entry.
+     * The name of the individual or organization that published the naming system.
      */
-    @Child(name="contact", type={}, order=9, min=0, max=1)
-    @Description(shortDefinition="Who should be contacted for questions about namingsystem", formalDefinition="The person who can be contacted about this system registration entry." )
-    protected NamingSystemContactComponent contact;
+    @Child(name="publisher", type={StringType.class}, order=10, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the naming system." )
+    protected StringType publisher;
+
+    /**
+     * Contacts to assist a user in finding and communicating with the publisher.
+     */
+    @Child(name="contact", type={}, order=11, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<NamingSystemContactComponent> contact;
 
     /**
      * For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any).
      */
-    @Child(name="replacedBy", type={NamingSystem.class}, order=10, min=0, max=1)
+    @Child(name="replacedBy", type={NamingSystem.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Use this instead", formalDefinition="For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any)." )
     protected Reference replacedBy;
 
@@ -768,16 +807,17 @@ public class NamingSystem extends DomainResource {
      */
     protected NamingSystem replacedByTarget;
 
-    private static final long serialVersionUID = -797915837L;
+    private static final long serialVersionUID = -1088011513L;
 
     public NamingSystem() {
       super();
     }
 
-    public NamingSystem(Enumeration<NamingsystemType> type, StringType name, Enumeration<NamingsystemStatus> status) {
+    public NamingSystem(Enumeration<NamingsystemType> type, StringType name, DateTimeType date, Enumeration<NamingsystemStatus> status) {
       super();
       this.type = type;
       this.name = name;
+      this.date = date;
       this.status = status;
     }
 
@@ -868,6 +908,51 @@ public class NamingSystem extends DomainResource {
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #date} (The date  (and optionally time) when the system was registered or published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create NamingSystem.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date  (and optionally time) when the system was registered or published.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public NamingSystem setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date  (and optionally time) when the system was registered or published.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date  (and optionally time) when the system was registered or published.
+     */
+    public NamingSystem setDate(Date value) { 
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
       return this;
     }
 
@@ -1167,27 +1252,82 @@ public class NamingSystem extends DomainResource {
     }
 
     /**
-     * @return {@link #contact} (The person who can be contacted about this system registration entry.)
+     * @return {@link #publisher} (The name of the individual or organization that published the naming system.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public NamingSystemContactComponent getContact() { 
-      if (this.contact == null)
+    public StringType getPublisherElement() { 
+      if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create NamingSystem.contact");
+          throw new Error("Attempt to auto-create NamingSystem.publisher");
         else if (Configuration.doAutoCreate())
-          this.contact = new NamingSystemContactComponent(); // cc
+          this.publisher = new StringType(); // bb
+      return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    /**
+     * @param value {@link #publisher} (The name of the individual or organization that published the naming system.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public NamingSystem setPublisherElement(StringType value) { 
+      this.publisher = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the individual or organization that published the naming system.
+     */
+    public String getPublisher() { 
+      return this.publisher == null ? null : this.publisher.getValue();
+    }
+
+    /**
+     * @param value The name of the individual or organization that published the naming system.
+     */
+    public NamingSystem setPublisher(String value) { 
+      if (Utilities.noString(value))
+        this.publisher = null;
+      else {
+        if (this.publisher == null)
+          this.publisher = new StringType();
+        this.publisher.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
+     */
+    public List<NamingSystemContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<NamingSystemContactComponent>();
       return this.contact;
     }
 
     public boolean hasContact() { 
-      return this.contact != null && !this.contact.isEmpty();
+      if (this.contact == null)
+        return false;
+      for (NamingSystemContactComponent item : this.contact)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #contact} (The person who can be contacted about this system registration entry.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public NamingSystem setContact(NamingSystemContactComponent value) { 
-      this.contact = value;
-      return this;
+    // syntactic sugar
+    public NamingSystemContactComponent addContact() { //3
+      NamingSystemContactComponent t = new NamingSystemContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<NamingSystemContactComponent>();
+      this.contact.add(t);
+      return t;
     }
 
     /**
@@ -1238,6 +1378,7 @@ public class NamingSystem extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose for the namingsystem - what kinds of things does it make unique?.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("name", "string", "The descriptive name of this particular identifier type or code system.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the system was registered or published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("status", "code", "Indicates whether the namingsystem is 'ready for use' or not.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("country", "code", "If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("category", "CodeableConcept", "Categorizes a namingsystem for easier search by grouping related namingsystems.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -1245,7 +1386,8 @@ public class NamingSystem extends DomainResource {
         childrenList.add(new Property("description", "string", "Details about what the namespace identifies including scope, granularity, version labeling, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("usage", "string", "Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.", 0, java.lang.Integer.MAX_VALUE, usage));
         childrenList.add(new Property("uniqueId", "", "Indicates how the system may be identified when referenced in electronic exchange.", 0, java.lang.Integer.MAX_VALUE, uniqueId));
-        childrenList.add(new Property("contact", "", "The person who can be contacted about this system registration entry.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the naming system.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("replacedBy", "Reference(NamingSystem)", "For namingsystems that are retired, indicates the namingsystem that should be used in their place (if any).", 0, java.lang.Integer.MAX_VALUE, replacedBy));
       }
 
@@ -1254,6 +1396,7 @@ public class NamingSystem extends DomainResource {
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.name = name == null ? null : name.copy();
+        dst.date = date == null ? null : date.copy();
         dst.status = status == null ? null : status.copy();
         dst.country = country == null ? null : country.copy();
         dst.category = category == null ? null : category.copy();
@@ -1265,7 +1408,12 @@ public class NamingSystem extends DomainResource {
           for (NamingSystemUniqueIdComponent i : uniqueId)
             dst.uniqueId.add(i.copy());
         };
-        dst.contact = contact == null ? null : contact.copy();
+        dst.publisher = publisher == null ? null : publisher.copy();
+        if (contact != null) {
+          dst.contact = new ArrayList<NamingSystemContactComponent>();
+          for (NamingSystemContactComponent i : contact)
+            dst.contact.add(i.copy());
+        };
         dst.replacedBy = replacedBy == null ? null : replacedBy.copy();
         return dst;
       }
@@ -1281,9 +1429,10 @@ public class NamingSystem extends DomainResource {
         if (!(other instanceof NamingSystem))
           return false;
         NamingSystem o = (NamingSystem) other;
-        return compareDeep(type, o.type, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
-           && compareDeep(country, o.country, true) && compareDeep(category, o.category, true) && compareDeep(responsible, o.responsible, true)
-           && compareDeep(description, o.description, true) && compareDeep(usage, o.usage, true) && compareDeep(uniqueId, o.uniqueId, true)
+        return compareDeep(type, o.type, true) && compareDeep(name, o.name, true) && compareDeep(date, o.date, true)
+           && compareDeep(status, o.status, true) && compareDeep(country, o.country, true) && compareDeep(category, o.category, true)
+           && compareDeep(responsible, o.responsible, true) && compareDeep(description, o.description, true)
+           && compareDeep(usage, o.usage, true) && compareDeep(uniqueId, o.uniqueId, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(replacedBy, o.replacedBy, true);
       }
 
@@ -1294,17 +1443,19 @@ public class NamingSystem extends DomainResource {
         if (!(other instanceof NamingSystem))
           return false;
         NamingSystem o = (NamingSystem) other;
-        return compareValues(type, o.type, true) && compareValues(name, o.name, true) && compareValues(status, o.status, true)
-           && compareValues(country, o.country, true) && compareValues(responsible, o.responsible, true) && compareValues(description, o.description, true)
-           && compareValues(usage, o.usage, true);
+        return compareValues(type, o.type, true) && compareValues(name, o.name, true) && compareValues(date, o.date, true)
+           && compareValues(status, o.status, true) && compareValues(country, o.country, true) && compareValues(responsible, o.responsible, true)
+           && compareValues(description, o.description, true) && compareValues(usage, o.usage, true) && compareValues(publisher, o.publisher, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (name == null || name.isEmpty())
-           && (status == null || status.isEmpty()) && (country == null || country.isEmpty()) && (category == null || category.isEmpty())
-           && (responsible == null || responsible.isEmpty()) && (description == null || description.isEmpty())
-           && (usage == null || usage.isEmpty()) && (uniqueId == null || uniqueId.isEmpty()) && (contact == null || contact.isEmpty())
-           && (replacedBy == null || replacedBy.isEmpty());
+           && (date == null || date.isEmpty()) && (status == null || status.isEmpty()) && (country == null || country.isEmpty())
+           && (category == null || category.isEmpty()) && (responsible == null || responsible.isEmpty())
+           && (description == null || description.isEmpty()) && (usage == null || usage.isEmpty()) && (uniqueId == null || uniqueId.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (replacedBy == null || replacedBy.isEmpty())
+          ;
       }
 
   @Override

@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-country"/>
   <name value="Country Value Set"/>
   <publisher value="HL7 FHIR"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="A value set of codes for the representation of names of countries, territories and areas of geographical interest"/>
   <status value="active"/>
   <compose>

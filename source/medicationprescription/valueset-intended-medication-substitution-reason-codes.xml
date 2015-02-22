@@ -14,10 +14,12 @@
   </text>
   <name value="Substitution Reason Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes some introduction (procedure) codes from SNOMED CT - provided as an exemplar"/>
   <status value="draft"/>
   <compose>

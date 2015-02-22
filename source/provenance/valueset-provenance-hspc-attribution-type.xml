@@ -7,14 +7,18 @@
   -->
   <name value="Attribution Code"/>
   <publisher value="CIMI"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://cimi.org/valueset/attribution"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.cimi.org/"/>
   </telecom>
+  </contact>
   
   <description value="Type codes for HSPC Attribution provenance construct"/>
   <status value="active"/>

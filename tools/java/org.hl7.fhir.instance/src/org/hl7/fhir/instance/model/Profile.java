@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
+// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -130,6 +130,152 @@ public class Profile extends DomainResource {
       return "?";
       }
     }
+
+    @Block()
+    public static class ProfileContactComponent extends BackboneElement {
+        /**
+         * The name of an individual to contact regarding the profile.
+         */
+        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the profile." )
+        protected StringType name;
+
+        /**
+         * Contact details for individual (if a name was provided) or the publisher.
+         */
+        @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Contact details for individual or publisher", formalDefinition="Contact details for individual (if a name was provided) or the publisher." )
+        protected List<ContactPoint> telecom;
+
+        private static final long serialVersionUID = -1179697803L;
+
+      public ProfileContactComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #name} (The name of an individual to contact regarding the profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProfileContactComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of an individual to contact regarding the profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ProfileContactComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of an individual to contact regarding the profile.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of an individual to contact regarding the profile.
+         */
+        public ProfileContactComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+        public List<ContactPoint> getTelecom() { 
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          return this.telecom;
+        }
+
+        public boolean hasTelecom() { 
+          if (this.telecom == null)
+            return false;
+          for (ContactPoint item : this.telecom)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+    // syntactic sugar
+        public ContactPoint addTelecom() { //3
+          ContactPoint t = new ContactPoint();
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the profile.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        }
+
+      public ProfileContactComponent copy() {
+        ProfileContactComponent dst = new ProfileContactComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ProfileContactComponent))
+          return false;
+        ProfileContactComponent o = (ProfileContactComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ProfileContactComponent))
+          return false;
+        ProfileContactComponent o = (ProfileContactComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
+          ;
+      }
+
+  }
 
     @Block()
     public static class ProfileMappingComponent extends BackboneElement {
@@ -527,18 +673,18 @@ public class Profile extends DomainResource {
     protected StringType name;
 
     /**
-     * Details of the individual or organization who accepts responsibility for publishing the profile.
+     * The name of the individual or organization that published the profile.
      */
     @Child(name="publisher", type={StringType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the profile." )
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the profile." )
     protected StringType publisher;
 
     /**
-     * Contact details to assist a user in finding and communicating with the publisher.
+     * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
-    protected List<ContactPoint> telecom;
+    @Child(name="contact", type={}, order=5, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<ProfileContactComponent> contact;
 
     /**
      * A free text natural language description of the profile and its use.
@@ -624,7 +770,7 @@ public class Profile extends DomainResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base profile - a statement of differences that it applies." )
     protected ConstraintComponent differential;
 
-    private static final long serialVersionUID = 147963653L;
+    private static final long serialVersionUID = -1722384068L;
 
     public Profile() {
       super();
@@ -802,7 +948,7 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -822,7 +968,7 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public Profile setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -830,14 +976,14 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @return Details of the individual or organization who accepts responsibility for publishing the profile.
+     * @return The name of the individual or organization that published the profile.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value Details of the individual or organization who accepts responsibility for publishing the profile.
+     * @param value The name of the individual or organization that published the profile.
      */
     public Profile setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -851,32 +997,32 @@ public class Profile extends DomainResource {
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ContactPoint> getTelecom() { 
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      return this.telecom;
+    public List<ProfileContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<ProfileContactComponent>();
+      return this.contact;
     }
 
-    public boolean hasTelecom() { 
-      if (this.telecom == null)
+    public boolean hasContact() { 
+      if (this.contact == null)
         return false;
-      for (ContactPoint item : this.telecom)
+      for (ProfileContactComponent item : this.contact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { //3
-      ContactPoint t = new ContactPoint();
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      this.telecom.add(t);
+    public ProfileContactComponent addContact() { //3
+      ProfileContactComponent t = new ProfileContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<ProfileContactComponent>();
+      this.contact.add(t);
       return t;
     }
 
@@ -1374,8 +1520,8 @@ public class Profile extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique uri).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the profile and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("code", "Coding", "A set of terms from external terminologies that may be used to assist with indexing and searching of templates.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("status", "code", "The status of the profile.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -1398,10 +1544,10 @@ public class Profile extends DomainResource {
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        if (telecom != null) {
-          dst.telecom = new ArrayList<ContactPoint>();
-          for (ContactPoint i : telecom)
-            dst.telecom.add(i.copy());
+        if (contact != null) {
+          dst.contact = new ArrayList<ProfileContactComponent>();
+          for (ProfileContactComponent i : contact)
+            dst.contact.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
         if (code != null) {
@@ -1438,7 +1584,7 @@ public class Profile extends DomainResource {
           return false;
         Profile o = (Profile) other;
         return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
-           && compareDeep(name, o.name, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(name, o.name, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
            && compareDeep(description, o.description, true) && compareDeep(code, o.code, true) && compareDeep(status, o.status, true)
            && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(mapping, o.mapping, true) && compareDeep(type, o.type, true)
@@ -1463,7 +1609,7 @@ public class Profile extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (description == null || description.isEmpty())
+           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (code == null || code.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (requirements == null || requirements.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
            && (mapping == null || mapping.isEmpty()) && (type == null || type.isEmpty()) && (base == null || base.isEmpty())

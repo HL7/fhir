@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-product-form"/>
   <name value="Medication Product Form Value Set"/>
   <publisher value="PHIN VADS"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?id=74FDBFB5-A277-DE11-9B52-0015173D1785"/>
   </telecom>
+  </contact>
   <description value="This is the physical form of the product as presented to the individual. For example: tablet, capsule, liquid or ointment. NCI concept code for pharmaceutical dosage form: C42636"/>
   <status value="active"/>
   <compose>

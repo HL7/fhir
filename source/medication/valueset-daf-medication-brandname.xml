@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-medication-brandname"/>
   <name value="Medication Brand Name Value Set"/>
   <publisher value="PHIN VADS"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?id=229BEF3E-971C-DF11-B334-0015173D1785"/>
   </telecom>
+  </contact>
   <description value="This identifies the product brand name of drugs, such as Tylenol, Claritin, etc. Shall contain RxNorm normal forms for concepts type of “Brand Name” or Brand Name Packs."/>
   <status value="active"/>
   <compose>

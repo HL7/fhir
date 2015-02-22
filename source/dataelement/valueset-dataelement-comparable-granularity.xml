@@ -2,10 +2,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="DataElement SDC Concept"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://healthit.gov"/>
   </telecom>
+  </contact>
   <description value="Includes any data element granularity that supports comparison of the data elements - possibly after automated normalization."/>
   <status value="draft"/>
   <compose>

@@ -8,10 +8,12 @@
   </text>
   <name value="Surface Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes the Patient to subscriber relationship codes."/>
   <status value="draft"/>
     <define>

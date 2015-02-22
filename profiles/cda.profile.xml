@@ -55,10 +55,12 @@
         <url value="http://hl7.org/fhir/Profile/cda-clinicaldocument"/>
         <name value="ClinicalDocument"/>
         <publisher value="HL7 FHIR Project"/>
-        <telecom>
-          <system value="url"/>
-          <value value="http://hl7.org/fhir"/>
-        </telecom>
+        <contact>
+          <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org/fhir"/>
+          </telecom>
+        </contact>
         <description value="Standard Profile for CDA R2 on FHIR"/>
         <status value="draft"/>
         <date value="2014-07-28"/>
@@ -708,10 +710,12 @@
         <url value="http://hl7.org/fhir/Profile/cda-patient-role"/>
         <name value="PatientRole"/>
         <publisher value="HL7 FHIR Project"/>
-        <telecom>
-          <system value="url"/>
-          <value value="http://hl7.org/fhir"/>
-        </telecom>
+        <contact>
+          <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org/fhir"/>
+          </telecom>
+        </contact>
         <description value="Standard Profile for CDA R2 on FHIR"/>
         <status value="draft"/>
         <date value="2014-07-28"/>
@@ -1137,10 +1141,12 @@
         <url value="http://hl7.org/fhir/Profile/cda-organization"/>
         <name value="Organization"/>
         <publisher value="HL7 FHIR Project"/>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="url"/>
           <value value="http://hl7.org/fhir"/>
-        </telecom>
+          </telecom>
+  </contact>
         <description value="Standard Profile for CDA R2 on FHIR"/>
         <status value="draft"/>
         <date value="2014-07-28"/>
@@ -1322,10 +1328,12 @@
         <url value="http://hl7.org/fhir/Profile/cda-location"/>
         <name value="Location"/>
         <publisher value="HL7 FHIR Project"/>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="url"/>
           <value value="http://hl7.org/fhir"/>
-        </telecom>
+          </telecom>
+  </contact>
         <description value="Standard Profile for CDA R2 on FHIR"/>
         <status value="draft"/>
         <date value="2014-07-28"/>
@@ -1437,10 +1445,12 @@
         <url value="http://hl7.org/fhir/Profile/cda-inFulFillmentOf"/>
         <name value="inFulFillmentOfDiagnosticOrder"/>
         <publisher value="HL7 FHIR Project"/>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="url"/>
           <value value="http://hl7.org/fhir"/>
-        </telecom>
+          </telecom>
+  </contact>
         <description value="Standard Profile for CDA R2 on FHIR"/>
         <status value="draft"/>
         <date value="2014-07-28"/>
@@ -1609,10 +1619,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-preference"/>
       <name value="CDA Language Preference"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1650,10 +1662,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-proficiency"/>
       <name value="CDA Language Proficiency"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1696,10 +1710,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-language-mode"/>
       <name value="CDA Language Mode"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1742,10 +1758,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-guardian-id"/>
       <name value="CDA Guardian Identifier"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1783,10 +1801,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-birthplace"/>
       <name value="CDA Birthplace"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1825,10 +1845,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-effectivetime"/>
       <name value="CDA Organization Relationship Effective time"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1866,10 +1888,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-statuscode"/>
       <name value="CDA Organization Relationship Status"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1912,10 +1936,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-org-partof-code"/>
       <name value="CDA Organization Relationship Type"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1958,10 +1984,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-whole-organization"/>
       <name value="CDA Organizational Parent"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>
@@ -1996,10 +2024,12 @@
       <url value="http://hl7.org/fhir/ExtensionDefinition/cda-inFulFillmentOf"/>
       <name value="CDA In Fulfillment of"/>
       <publisher value="HL7 FHIR Project"/>
-      <telecom>
+      <contact>
+    <telecom>
         <system value="url"/>
         <value value="http://hl7.org/fhir"/>
-      </telecom>
+        </telecom>
+  </contact>
       <description value="Standard Profile for CDA R2 on FHIR"/>
       <status value="draft"/>
       <date value="2014-11-05"/>

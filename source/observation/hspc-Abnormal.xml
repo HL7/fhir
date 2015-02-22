@@ -6,10 +6,12 @@
   <version value="0.01"/>
   <name value="AbnormalInterpretation"/>
   <publisher value="Intermountain Healthcare"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.clinicaleleement.com"/>
   </telecom>
+  </contact>
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83"/>
   <copyright value="IHC"/>
   <status value="draft"/>

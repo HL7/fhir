@@ -3,10 +3,12 @@
  <name value="PractitionerSpecialty"/>
  
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This example value set defines a set of codes that can be used to indicate the specialty of a Practitioner"/>
   <status value="draft"/>
   <define>

@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-medication-route"/>
   <name value="Medication Route FDA Value Set"/>
   <publisher value="PHIN VADS"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.113883.3.88.12.3221.8.7"/>
   </telecom>
+  </contact>
   <description value="Route of Administration value set is based upon FDA Drug Registration and Listing Database (FDA Orange Book) which are used in FDA structured product and labelling (SPL)"/>
   <status value="active"/>
   <compose>

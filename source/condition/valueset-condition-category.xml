@@ -3,10 +3,12 @@
   <url value="http://hl7.org/fhir/vs/condition-category"/>
   <name value="Condition/Problem/Diagnosis Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Example value set for Condition (Problem/Diagnosis) Categories"/>
   <status value="draft"/>
   <define>

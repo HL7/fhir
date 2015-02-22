@@ -136,10 +136,12 @@
   
   <name value="Record Lifecycle-conformant Electronic Health Record System"/>
   <publisher value="Health Level Seven, Int'l - Electronic Health Record work group"/>
-  <telecom>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://hl7.org/special/committees/ehr.htm"/>
   </telecom>
+  </contact>
   <description value="This profile defines the expected capabilities of an ''Electronic Health Record System'' when conforming to the EHRS functional model's Record Lifecycle specification."/>
   <status value="draft"/>
   <date value="2014-12-06"/>

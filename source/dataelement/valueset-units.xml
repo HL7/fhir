@@ -8,10 +8,12 @@
   </text>
   <name value="UCUM Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes all UCUM codes"/>
   <status value="draft"/>
   <compose>

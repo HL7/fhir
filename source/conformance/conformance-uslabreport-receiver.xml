@@ -299,10 +299,12 @@
 	<!-- EH:   this is the SDC  template for conformance examples which I will run to generate the text-->
 	<name value="USLabReport Receiver"/>
 	<publisher value="Published by: HL7 Orders and Observation Workgroup. Primary Author: Eric Haas  Health eData Inc"/>
-	<telecom>
+	<contact>
+    <telecom>
 		<system value="url"/>
 		<value value="http://www.hl7.org/"/>
 	</telecom>
+  </contact>
 	<description value="This profile defines the expected capabilities of the USLabReport Receiver actor when conforming to the [[uslabreport.html|The US Receiver Report Implementation (USLabReport)]].  This actor is the receiver of a laboratory test report and declares conformance to RESTful FHIR and FHIR profiles defined in this guide.  The order reference one or more FHIR resources conforming to profiles outlined in the USLabReport guide."/>
 	<status value="draft"/>
 	<date value="2014-12-02"/>

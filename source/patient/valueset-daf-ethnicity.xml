@@ -4,14 +4,18 @@
   </extension>
   <name value="Ethnicity group"/>
   <publisher value="CDC via PHIN VADS"/>
-  <telecom>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?id=35D34BBC-617F-DD11-B38D-00188B398520"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://www.cdc.gov/"/>
   </telecom>
+  </contact>
  
   <description value="Whether the patient is hispanic or not"/>
   <status value="active"/>

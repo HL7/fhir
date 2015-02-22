@@ -13,6 +13,7 @@ import org.hl7.fhir.instance.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.DataElement;
 import org.hl7.fhir.instance.model.DataElement.DataElementBindingComponent;
+import org.hl7.fhir.instance.model.DataElement.DataElementContactComponent;
 import org.hl7.fhir.instance.model.DomainResource;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
@@ -274,7 +275,7 @@ public class ResourceUtilities {
     DataElement meta = new DataElement();
     DataElement prototype = (DataElement) bundle.getEntry().get(0).getResource();
     meta.setPublisher(prototype.getPublisher());
-    meta.getTelecom().addAll(prototype.getTelecom());
+    meta.getContact().addAll(prototype.getContact());
     meta.setStatus(prototype.getStatus());
     meta.setDate(prototype.getDate());
     meta.setType(prototype.getType());
@@ -283,8 +284,8 @@ public class ResourceUtilities {
       DataElement de = (DataElement) e.getResource();
       if (!Base.compareDeep(de.getPublisherElement(), meta.getPublisherElement(), false))
         meta.setPublisherElement(null);
-      if (!Base.compareDeep(de.getTelecom(), meta.getTelecom(), false))
-        meta.getTelecom().clear();
+      if (!Base.compareDeep(de.getContact(), meta.getContact(), false))
+        meta.getContact().clear();
       if (!Base.compareDeep(de.getStatusElement(), meta.getStatusElement(), false))
         meta.setStatusElement(null);
       if (!Base.compareDeep(de.getDateElement(), meta.getDateElement(), false))
@@ -292,19 +293,28 @@ public class ResourceUtilities {
       if (!Base.compareDeep(de.getTypeElement(), meta.getTypeElement(), false))
         meta.setTypeElement(null);
     }
-    if (meta.hasPublisher() || meta.hasTelecom() || meta.hasStatus() || meta.hasDate() || meta.hasType()) {
+    if (meta.hasPublisher() || meta.hasContact() || meta.hasStatus() || meta.hasDate() || meta.hasType()) {
       b.append("<table class=\"grid\">\r\n"); 
       if (meta.hasPublisher())
         b.append("<tr><td>Publisher:</td><td>"+meta.getPublisher()+"</td></tr>\r\n");
-      if (meta.hasTelecom()) {
+      if (meta.hasContact()) {
         b.append("<tr><td>Contacts:</td><td>");
+        boolean firsti = true;
+        for (DataElementContactComponent c : meta.getContact()) {
+          if (firsti)
+            firsti = false;
+          else
+            b.append("<br/>");
+          if (c.hasName())
+            b.append(Utilities.escapeXml(c.getName())+": ");
         boolean first = true;
-        for (ContactPoint cp : meta.getTelecom()) {
+          for (ContactPoint cp : c.getTelecom()) {
           if (first)
             first = false;
           else
             b.append(", ");
           renderContactPoint(b, cp);
+          }
         }
         b.append("</td></tr>\r\n");
       }

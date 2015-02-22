@@ -75,10 +75,12 @@
   <version value="2013-10-12"/>
   <name value="Explicitly Named systems list for FHIR"/>
   <publisher value="FHIR project team"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This is a list of the explicitly named systems in the FHIR Specification"/>
   <status value="draft"/>
   <date value="2013-10-12"/>

@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-medication-clinicalname"/>
   <name value="Medication Clinical Drug Name Value Set"/>
   <publisher value="PHIN VADS"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://phinvads.cdc.gov/vads/ViewValueSet.action?id=239BEF3E-971C-DF11-B334-0015173D1785"/>
   </telecom>
+  </contact>
   <description value="Shall contain RxNorm normal forms for concepts type of “Ingredient Name” or Generic Packs. The ingredient name concepts can be found in the RxNORM file RXCONSO.RRF selecting all terms where SAB=RXNORM (selecting the normal forms), and TTY=SCD (selecting the ingredient names) or TTY=GPCK (selecting the generic packs)"/>
   <status value="active"/>
   <compose>

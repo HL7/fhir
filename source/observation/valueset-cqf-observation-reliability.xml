@@ -44,14 +44,18 @@
   <url value="http://hl7.org/fhir/vs/cqf-observation-reliability"/>
   <name value="CQFObservationReliability"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org"/>
   </telecom>
+  </contact>
   <description value="Codes that provide an estimate of the degree to which quality issues have impacted on the value of a CQF observation"/>
   <status value="draft"/>	
   <date value="2014-12-23T15:47:22.903-05:00"/>

@@ -7,10 +7,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-cvx"/>
   <name value="Vaccine Administered Value Set"/>
   <publisher value="HL7 FHIR"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This identifies the vaccine substance administered - CVX codes"/>
   <status value="active"/>
   <compose>

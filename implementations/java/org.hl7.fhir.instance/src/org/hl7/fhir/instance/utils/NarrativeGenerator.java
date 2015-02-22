@@ -50,6 +50,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
@@ -988,15 +989,25 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else
       p.addText(Utilities.capitalize(cm.getStatus().toString())+". ");
     p.addText("Published on "+cm.getDateElement().toHumanDisplay()+" by "+cm.getPublisher());
-    if (!cm.getTelecom().isEmpty()) {
+    if (!cm.getContact().isEmpty()) {
       p.addText(" (");
+      boolean firsti = true;
+      for (ConceptMapContactComponent ci : cm.getContact()) {
+        if (firsti) 
+          firsti = false;
+        else
+          p.addText(", ");
+        if (ci.hasName())
+          p.addText(ci.getName()+": ");
       boolean first = true;
-      for (ContactPoint c : cm.getTelecom()) {
+        for (ContactPoint c : ci.getTelecom()) {
         if (first) 
           first = false;
         else
           p.addText(", ");
         addTelecom(p, c);
+        }
+        p.addText("; ");
       }
       p.addText(")");
     }
@@ -1891,7 +1902,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	public void generate(OperationDefinition opd) throws Exception {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
-    x.addTag("h2").addText(opd.getTitle());
+    x.addTag("h2").addText(opd.getName());
     x.addTag("p").addText(Utilities.capitalize(opd.getKind().toString())+": "+opd.getName());
     addMarkdown(x, opd.getDescription());
     

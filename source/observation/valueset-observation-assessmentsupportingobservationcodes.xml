@@ -1,10 +1,12 @@
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<name value="AssessmentSupportingObservationCodes"/>
 	<publisher value="HL7 International - Orders and Observations WG"/>
-	<telecom>
+	<contact>
+    <telecom>
 		<system value="url"/>
 		<value value="http://hl7.org/fhir"/>
 	</telecom>
+  </contact>
 	<!--5. SHALL contain exactly one [1..1] code with @xsi:type="CE" (CONF:16717).
 a. This code SHALL contain exactly one [1..1] @code (CONF:16738).
 i. Such that observation/code SHALL be from LOINC (CodeSystem: 2.16.840.1.113883.6.1) or SNOMED CT (CodeSystem: 2.16.840.1.113883.6.96) and represents components of the scale (CONF:14458) (CONF:16739).-->

@@ -510,7 +510,7 @@ public class QuestionnaireBuilder {
           vs.setText(null);
           vs.setDefine(null);
           vs.setCompose(null);
-          vs.getTelecom().clear();
+          vs.getContact().clear();
           vs.setPublisherElement(null);
           vs.setCopyrightElement(null);
         }

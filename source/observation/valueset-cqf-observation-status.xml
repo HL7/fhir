@@ -43,14 +43,18 @@
 	<url value="http://hl7.org/fhir/vs/cqf-observation-status"/>
 	<name value="CQFObservationStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org"/>
   </telecom>
+  </contact>
   <description value="Codes providing the status of a CQF observation"/>
   <status value="draft"/>
   <date value="2014-12-18T15:13:01.056-05:00"/>

@@ -353,11 +353,13 @@
           <family value="Everywoman1"/>
           <given value="Eve"/>
         </name>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="phone"/>
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
+  </contact>
         <gender value="female" />
         <birthDate value="1955-01-06"/>
         <address>
@@ -397,11 +399,13 @@
           <family value="Betterhalf"/>
           <given value="Boris"/>
         </name>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="phone"/>
           <value value="555-555-2008"/>
           <use value="work"/>
         </telecom>
+  </contact>
         <gender value="male" />
         <address>
           <use value="home"/>
@@ -784,11 +788,13 @@
           <family value="Relative"/>
           <given value="Ralph"/>
         </name>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="phone"/>
           <value value="555-555-2009"/>
           <use value="work"/>
         </telecom>
+  </contact>
         <gender value="male" />
         <address>
           <use value="home"/>
@@ -1197,11 +1203,13 @@
           <family value="Contact"/>
           <given value="Carrie"/>
         </name>
-        <telecom>
+        <contact>
+    <telecom>
           <system value="phone"/>
           <value value="555-555-2010"/>
           <use value="work"/>
         </telecom>
+  </contact>
         <gender value="female" />
         <address>
           <use value="home"/>

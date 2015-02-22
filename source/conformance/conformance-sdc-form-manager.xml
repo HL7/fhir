@@ -461,10 +461,12 @@
   
   <name value="SDC Form Manager"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
-  <telecom>
+  <contact>
+    <telecom>
       <system value="url"/>
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
+  </contact>
   <description value="This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."/>
   <status value="draft"/>
   <date value="2014-07-06"/>

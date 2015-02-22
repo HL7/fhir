@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
+// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -230,6 +230,152 @@ public class ExtensionDefinition extends DomainResource {
       return "?";
       }
     }
+
+    @Block()
+    public static class ExtensionDefinitionContactComponent extends BackboneElement {
+        /**
+         * The name of an individual to contact regarding the extension definition.
+         */
+        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the extension definition." )
+        protected StringType name;
+
+        /**
+         * Contact details for individual (if a name was provided) or the publisher.
+         */
+        @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Contact details for individual or publisher", formalDefinition="Contact details for individual (if a name was provided) or the publisher." )
+        protected List<ContactPoint> telecom;
+
+        private static final long serialVersionUID = -1179697803L;
+
+      public ExtensionDefinitionContactComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #name} (The name of an individual to contact regarding the extension definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExtensionDefinitionContactComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of an individual to contact regarding the extension definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public ExtensionDefinitionContactComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of an individual to contact regarding the extension definition.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of an individual to contact regarding the extension definition.
+         */
+        public ExtensionDefinitionContactComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+        public List<ContactPoint> getTelecom() { 
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          return this.telecom;
+        }
+
+        public boolean hasTelecom() { 
+          if (this.telecom == null)
+            return false;
+          for (ContactPoint item : this.telecom)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+    // syntactic sugar
+        public ContactPoint addTelecom() { //3
+          ContactPoint t = new ContactPoint();
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the extension definition.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        }
+
+      public ExtensionDefinitionContactComponent copy() {
+        ExtensionDefinitionContactComponent dst = new ExtensionDefinitionContactComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExtensionDefinitionContactComponent))
+          return false;
+        ExtensionDefinitionContactComponent o = (ExtensionDefinitionContactComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExtensionDefinitionContactComponent))
+          return false;
+        ExtensionDefinitionContactComponent o = (ExtensionDefinitionContactComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
+          ;
+      }
+
+  }
 
     @Block()
     public static class ExtensionDefinitionMappingComponent extends BackboneElement {
@@ -526,104 +672,111 @@ public class ExtensionDefinition extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.
+     */
+    @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
+    @Description(shortDefinition="Logical id for this version of the extension", formalDefinition="The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually." )
+    protected StringType version;
+
+    /**
      * A free text natural language name identifying the extension.
      */
-    @Child(name="name", type={StringType.class}, order=2, min=1, max=1)
+    @Child(name="name", type={StringType.class}, order=3, min=1, max=1)
     @Description(shortDefinition="Descriptional name for this profile", formalDefinition="A free text natural language name identifying the extension." )
     protected StringType name;
 
     /**
      * Defined so that applications can use this name when displaying the value of the extension to the user.
      */
-    @Child(name="display", type={StringType.class}, order=3, min=0, max=1)
+    @Child(name="display", type={StringType.class}, order=4, min=0, max=1)
     @Description(shortDefinition="Use this name when displaying the value", formalDefinition="Defined so that applications can use this name when displaying the value of the extension to the user." )
     protected StringType display;
 
     /**
-     * Details of the individual or organization who accepts responsibility for publishing the extension definition.
+     * The name of the individual or organization that published the extension definition.
      */
-    @Child(name="publisher", type={StringType.class}, order=4, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the extension definition." )
+    @Child(name="publisher", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the extension definition." )
     protected StringType publisher;
 
     /**
-     * Contact details to assist a user in finding and communicating with the publisher.
+     * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
-    protected List<ContactPoint> telecom;
+    @Child(name="contact", type={}, order=6, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<ExtensionDefinitionContactComponent> contact;
 
     /**
      * A free text natural language description of the extension and its use.
      */
-    @Child(name="description", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Natural language description of the extension", formalDefinition="A free text natural language description of the extension and its use." )
     protected StringType description;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of extension definitions.
      */
-    @Child(name="code", type={Coding.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="code", type={Coding.class}, order=8, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of extension definitions." )
     protected List<Coding> code;
 
     /**
      * The status of the extension.
      */
-    @Child(name="status", type={CodeType.class}, order=8, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=9, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the extension." )
     protected Enumeration<ResourceProfileStatus> status;
 
     /**
      * This extension definition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    @Child(name="experimental", type={BooleanType.class}, order=9, min=0, max=1)
+    @Child(name="experimental", type={BooleanType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="This extension definition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
     protected BooleanType experimental;
 
     /**
      * The date that this version of the extension was published.
      */
-    @Child(name="date", type={DateTimeType.class}, order=10, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=11, min=0, max=1)
     @Description(shortDefinition="Date for this version of the extension", formalDefinition="The date that this version of the extension was published." )
     protected DateTimeType date;
 
     /**
      * The Scope and Usage that this extension was created to meet.
      */
-    @Child(name="requirements", type={StringType.class}, order=11, min=0, max=1)
+    @Child(name="requirements", type={StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Scope and Usage this extesion is for", formalDefinition="The Scope and Usage that this extension was created to meet." )
     protected StringType requirements;
 
     /**
      * An external specification that the content is mapped to.
      */
-    @Child(name="mapping", type={}, order=12, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="mapping", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="External specification that the content is mapped to", formalDefinition="An external specification that the content is mapped to." )
     protected List<ExtensionDefinitionMappingComponent> mapping;
 
     /**
      * Identifies the type of context to which the extension applies.
      */
-    @Child(name="contextType", type={CodeType.class}, order=13, min=1, max=1)
+    @Child(name="contextType", type={CodeType.class}, order=14, min=1, max=1)
     @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="Identifies the type of context to which the extension applies." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name="context", type={StringType.class}, order=14, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="context", type={StringType.class}, order=15, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
     /**
      * Definition of the elements that are defined to be in the extension.
      */
-    @Child(name="element", type={ElementDefinition.class}, order=15, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="element", type={ElementDefinition.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Definition of the elements in the extension", formalDefinition="Definition of the elements that are defined to be in the extension." )
     protected List<ElementDefinition> element;
 
-    private static final long serialVersionUID = -989216686L;
+    private static final long serialVersionUID = 166008529L;
 
     public ExtensionDefinition() {
       super();
@@ -710,6 +863,55 @@ public class ExtensionDefinition extends DomainResource {
         this.identifier = new ArrayList<Identifier>();
       this.identifier.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #version} (The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     */
+    public StringType getVersionElement() { 
+      if (this.version == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ExtensionDefinition.version");
+        else if (Configuration.doAutoCreate())
+          this.version = new StringType(); // bb
+      return this.version;
+    }
+
+    public boolean hasVersionElement() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    public boolean hasVersion() { 
+      return this.version != null && !this.version.isEmpty();
+    }
+
+    /**
+     * @param value {@link #version} (The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     */
+    public ExtensionDefinition setVersionElement(StringType value) { 
+      this.version = value;
+      return this;
+    }
+
+    /**
+     * @return The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.
+     */
+    public String getVersion() { 
+      return this.version == null ? null : this.version.getValue();
+    }
+
+    /**
+     * @param value The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.
+     */
+    public ExtensionDefinition setVersion(String value) { 
+      if (Utilities.noString(value))
+        this.version = null;
+      else {
+        if (this.version == null)
+          this.version = new StringType();
+        this.version.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -807,7 +1009,7 @@ public class ExtensionDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the extension definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the extension definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -827,7 +1029,7 @@ public class ExtensionDefinition extends DomainResource {
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the extension definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the extension definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public ExtensionDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -835,14 +1037,14 @@ public class ExtensionDefinition extends DomainResource {
     }
 
     /**
-     * @return Details of the individual or organization who accepts responsibility for publishing the extension definition.
+     * @return The name of the individual or organization that published the extension definition.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value Details of the individual or organization who accepts responsibility for publishing the extension definition.
+     * @param value The name of the individual or organization that published the extension definition.
      */
     public ExtensionDefinition setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -856,32 +1058,32 @@ public class ExtensionDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ContactPoint> getTelecom() { 
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      return this.telecom;
+    public List<ExtensionDefinitionContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<ExtensionDefinitionContactComponent>();
+      return this.contact;
     }
 
-    public boolean hasTelecom() { 
-      if (this.telecom == null)
+    public boolean hasContact() { 
+      if (this.contact == null)
         return false;
-      for (ContactPoint item : this.telecom)
+      for (ExtensionDefinitionContactComponent item : this.contact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { //3
-      ContactPoint t = new ContactPoint();
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      this.telecom.add(t);
+    public ExtensionDefinitionContactComponent addContact() { //3
+      ExtensionDefinitionContactComponent t = new ExtensionDefinitionContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<ExtensionDefinitionContactComponent>();
+      this.contact.add(t);
       return t;
     }
 
@@ -1315,10 +1517,11 @@ public class ExtensionDefinition extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this definition is (or will be) published, and which is used to reference this profile in extension urls in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this profile when it is represented in other formats (e.g. ISO 11179(, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the extension definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the author manually.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the extension.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("display", "string", "Defined so that applications can use this name when displaying the value of the extension to the user.", 0, java.lang.Integer.MAX_VALUE, display));
-        childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the extension definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the extension definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the extension and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("code", "Coding", "A set of terms from external terminologies that may be used to assist with indexing and searching of extension definitions.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("status", "code", "The status of the extension.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -1340,13 +1543,14 @@ public class ExtensionDefinition extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.display = display == null ? null : display.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        if (telecom != null) {
-          dst.telecom = new ArrayList<ContactPoint>();
-          for (ContactPoint i : telecom)
-            dst.telecom.add(i.copy());
+        if (contact != null) {
+          dst.contact = new ArrayList<ExtensionDefinitionContactComponent>();
+          for (ExtensionDefinitionContactComponent i : contact)
+            dst.contact.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
         if (code != null) {
@@ -1388,12 +1592,12 @@ public class ExtensionDefinition extends DomainResource {
         if (!(other instanceof ExtensionDefinition))
           return false;
         ExtensionDefinition o = (ExtensionDefinition) other;
-        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true)
-           && compareDeep(display, o.display, true) && compareDeep(publisher, o.publisher, true) && compareDeep(telecom, o.telecom, true)
-           && compareDeep(description, o.description, true) && compareDeep(code, o.code, true) && compareDeep(status, o.status, true)
-           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(mapping, o.mapping, true) && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true)
-           && compareDeep(element, o.element, true);
+        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
+           && compareDeep(name, o.name, true) && compareDeep(display, o.display, true) && compareDeep(publisher, o.publisher, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true) && compareDeep(code, o.code, true)
+           && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(mapping, o.mapping, true) && compareDeep(contextType, o.contextType, true)
+           && compareDeep(context, o.context, true) && compareDeep(element, o.element, true);
       }
 
       @Override
@@ -1403,16 +1607,17 @@ public class ExtensionDefinition extends DomainResource {
         if (!(other instanceof ExtensionDefinition))
           return false;
         ExtensionDefinition o = (ExtensionDefinition) other;
-        return compareValues(url, o.url, true) && compareValues(name, o.name, true) && compareValues(display, o.display, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true) && compareValues(status, o.status, true)
-           && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true);
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
+           && compareValues(display, o.display, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
+           && compareValues(requirements, o.requirements, true) && compareValues(contextType, o.contextType, true)
+           && compareValues(context, o.context, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (name == null || name.isEmpty()) && (display == null || display.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (description == null || description.isEmpty())
+           && (version == null || version.isEmpty()) && (name == null || name.isEmpty()) && (display == null || display.isEmpty())
+           && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (code == null || code.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (requirements == null || requirements.isEmpty()) && (mapping == null || mapping.isEmpty())
            && (contextType == null || contextType.isEmpty()) && (context == null || context.isEmpty())

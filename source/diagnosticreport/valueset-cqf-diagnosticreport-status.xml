@@ -47,10 +47,12 @@
   <url value="http://hl7.org/fhir/vs/diagnostic-report-status"/>
   <name value="CQFDiagnosticReportStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
+  </contact>
   <description value="The status of the diagnostic report as a whole"/>
   <status value="draft"/>
   <date value="2015-01-21T15:40:10-06:00"/>

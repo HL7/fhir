@@ -8,10 +8,12 @@
   </text>
   <name value="Substance Quantity Mode"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Substance Quantity Mode"/>
   <status value="draft"/>
   <define>

@@ -4,10 +4,12 @@
     </extension>
     <name value="Observation Precondition"/>
     <publisher value="Health Services Platform Consortium (HSPC)"/>
+    <contact>
     <telecom>
         <system value="url"/>
         <value value="http://www.hspc.gov/"/>
     </telecom>
+  </contact>
     
     <description value="The condition, state, or problem that the patient is in or has prior to a therapy or procedure. This captures temporal (temporary circumstances) that 
         have bearing on the data that it qualifies but will not necessarily modify its meaning. Things like 'after activity', 'at rest', or 'post-op'. "/>

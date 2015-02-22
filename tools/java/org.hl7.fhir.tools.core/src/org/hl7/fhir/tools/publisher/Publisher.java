@@ -622,7 +622,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate(), "core"));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r.getConformancePack(), r, "core"));
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -631,7 +631,7 @@ public class Publisher implements URIResolver {
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(r.getConformancePack(), r, page.getGenDate(), "core"));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(r.getConformancePack(), r, "core"));
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
@@ -716,14 +716,14 @@ public class Publisher implements URIResolver {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(pt, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(pt);
     page.getProfiles().put(profile.getUrl(), profile);
     pt.setProfile(profile);
     // todo: what to do in the narrative?
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
     t.setProfile(profile);
 
@@ -735,7 +735,7 @@ public class Publisher implements URIResolver {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
+    Profile profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
     page.getProfiles().put(profile.getUrl(), profile);
     t.setProfile(profile);
     //    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getCode(), true);
@@ -748,7 +748,7 @@ public class Publisher implements URIResolver {
   private void genTypeProfile(TypeDefn t) throws Exception {
     Profile profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(t, page.getGenDate());
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(t);
       page.getProfiles().put(profile.getUrl(), profile);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -764,7 +764,7 @@ public class Publisher implements URIResolver {
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).generate(ap, profile, profile.getDefn(), profile.getId(), page.getGenDate(), profile.getUsage());
+      Profile p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage());
       profile.setResource(p);
       page.getProfiles().put(p.getUrl(), p);
     } else {
@@ -977,7 +977,7 @@ public class Publisher implements URIResolver {
     conf.setVersion(page.getVersion() + "-" + page.getSvnRevision());
     conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
     conf.setPublisher("FHIR Project Team");
-    conf.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     conf.setStatus(ConformanceStatementStatus.DRAFT);
     conf.setDate(page.getGenDate().getTime());
     conf.setFhirVersion(page.getVersion());
@@ -1904,7 +1904,7 @@ public class Publisher implements URIResolver {
   }
 
   private void minifyProfile(Profile p) {
-    p.getTelecom().clear();
+    p.getContact().clear();
     p.setDescriptionElement(null);
     p.getCode().clear();
     p.setRequirementsElement(null);
@@ -1922,7 +1922,7 @@ public class Publisher implements URIResolver {
   }
 
   private void minifyValueSet(ValueSet vs) {
-    vs.getTelecom().clear();
+    vs.getContact().clear();
     vs.setDescriptionElement(null);
     vs.setCopyrightElement(null);
     if (vs.hasDefine()) 
@@ -1984,8 +1984,8 @@ public class Publisher implements URIResolver {
         Profile p = new Profile();
         p.setPublisher("HL7 FHIR Project");
         p.setName(rd.getName());
-        p.addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page).makeSearchParam(p, rd.getName(), spd);
+        p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
+        SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate()).makeSearchParam(p, rd.getName(), spd);
         bundle.addEntry().setResource(sp);
       }
     } else
@@ -2224,7 +2224,7 @@ public class Publisher implements URIResolver {
     vs.setUrl("http://hl7.org/fhir/v3/vs/" + id);
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
@@ -2423,7 +2423,7 @@ public class Publisher implements URIResolver {
       vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisher("HL7 v3");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
     vs.setExperimental(false);
 
@@ -2469,7 +2469,7 @@ public class Publisher implements URIResolver {
       vs.setDescription("?? (OID = " + e.getAttribute("id") + ")");
     }
     vs.setPublisher("HL7 v3");
-    vs.getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
+    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://www.hl7.org"));
     vs.setStatus(ValuesetStatus.ACTIVE);
     vs.setExperimental(false);
 
@@ -2970,10 +2970,10 @@ public class Publisher implements URIResolver {
     OperationDefinition opd = new OperationDefinition();
     opd.setId(FormatUtilities.makeId(r.getName()+"-"+op.getName()));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+r.getName()+"-"+op.getName());
-    opd.setTitle(op.getTitle());
+    opd.setName(op.getTitle());
     opd.setPublisher("HL7 (FHIR Project)");
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
-    opd.getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
+    opd.addContact().getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    opd.getContact().get(0).getTelecom().add(org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, "fhir@lists.hl7.org"));
     opd.setDescription(op.getDoco());
     opd.setStatus(ResourceProfileStatus.DRAFT);
     opd.setDate(page.getGenDate().getTime());
@@ -2984,7 +2984,7 @@ public class Publisher implements URIResolver {
     else {
       throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
     }
-    opd.setName(op.getName());
+    opd.setCode(op.getName());
     opd.setNotes(op.getFooter());
     opd.setSystem(op.isSystem());
     if (op.isType())
@@ -4453,9 +4453,9 @@ public class Publisher implements URIResolver {
     vs.setExperimental(false);
     vs.setName(cd.getName());
     vs.setPublisher("HL7 (FHIR Project)");
-    vs.getTelecom().add(
+    vs.addContact().getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    vs.getTelecom().add(
+    vs.getContact().get(0).getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     vs.setDescription(Utilities.noString(cd.getDescription()) ? cd.getDefinition() : cd.getDefinition() + "\r\n\r\n" + cd.getDescription());
     if (!Utilities.noString(cd.getCopyright()))
@@ -4517,9 +4517,9 @@ public class Publisher implements URIResolver {
     // no version?? vs.setVersion(...
     cm.setName("v2 map for " + cd.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    cm.getTelecom().add(
+    cm.addContact().getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    cm.getTelecom().add(
+    cm.getContact().get(0).getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
       cm.setCopyright(cd.getCopyright());
@@ -4605,9 +4605,9 @@ public class Publisher implements URIResolver {
     // no version?? vs.setVersion(...
     cm.setName("v3 map for " + cd.getName());
     cm.setPublisher("HL7 (FHIR Project)");
-    cm.getTelecom().add(
+    cm.addContact().getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.URL, Utilities.noString(cd.getWebSite()) ? "http://hl7.org/fhir" : cd.getWebSite()));
-    cm.getTelecom().add(
+    cm.getContact().get(0).getTelecom().add(
         org.hl7.fhir.instance.model.Factory.newContactPoint(ContactPointSystem.EMAIL, Utilities.noString(cd.getEmail()) ? "fhir@lists.hl7.org" : cd.getEmail()));
     if (!Utilities.noString(cd.getCopyright()))
       cm.setCopyright(cd.getCopyright());

@@ -218,10 +218,12 @@
   </text>
   <name value="Example Lipid Profile"/>
   <publisher value="Grahame Grieve"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="grahame@healthintersections.com.au"/>
   </telecom>
+  </contact>
   <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
   <status value="draft"/>
   <date value="2012-05-12"/>

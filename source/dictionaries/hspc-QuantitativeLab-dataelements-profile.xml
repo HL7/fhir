@@ -6,10 +6,12 @@
   <url value="http://hl7.org/fhir/Profile/$de_id$"/>
   <name value="HSPC Standard Quantitative Lab: $de_name$"/>
   <publisher value="HSPC"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://healthcaresoa.org"/>
   </telecom>
+  </contact>
   <description value="$de_definition$"/>
   <status value="draft"/>
   <date value="2015-02-18"/>

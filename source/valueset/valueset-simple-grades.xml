@@ -12,10 +12,12 @@
   <!-- set of loinc codes for cholesterol for LONC 2.36 -->
   <name value="Simple grading codes"/>
   <publisher value="HL7"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Clinistix Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

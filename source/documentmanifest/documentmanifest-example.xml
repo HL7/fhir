@@ -21,7 +21,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
         <telecom>
           <system value="email"/>
           <value value="john.doe@healthcare.example.org"/>
-        </telecom>
+      </telecom>
 			<practitionerRole>
       <managingOrganization>
         <display value="Cleveland Clinic"/>

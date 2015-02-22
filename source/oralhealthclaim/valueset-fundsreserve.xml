@@ -10,10 +10,12 @@
   <publisher value="Financial Management"/>
   <copyright value="This is an example set"/>
   <status value="draft"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes sample funds reservation type codes."/>
   <status value="draft"/>
     <define>

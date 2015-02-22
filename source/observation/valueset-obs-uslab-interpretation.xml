@@ -2,10 +2,12 @@
   <name value="US Laboratory Observation Profile Interpretation Codes"/>
   <!--USLabObsInterpretation-->
   <publisher value="HL7 International - Orders and Observations WG"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set defines the set of Codes identifying interpretations of observations"/>
   <status value="draft"/>
   <compose>

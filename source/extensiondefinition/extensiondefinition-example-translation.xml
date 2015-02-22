@@ -63,10 +63,12 @@
     </extension>
   </display>
   <publisher value="FHIR Project"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7,org/fhir"/>
   </telecom>
+  </contact>
   <description value="This is the standard extension for translating content from one language to another within a resource"/>
   <status value="draft"/>
   <date value="2014-12-04"/>

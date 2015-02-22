@@ -6,10 +6,12 @@
   <url value="http://hl7.org/fhir/SearchParameter/example"/>
   <name value="Example Search Parameter"/>
   <publisher value="HL7 FHIR Project"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <!-- this is the canonical definition for the _id search parameter -->
   <base value="Resource"/>
   <type value="token"/>

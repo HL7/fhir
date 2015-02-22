@@ -55,10 +55,12 @@
 	<url value="http://hl7.org/fhir/vs/nutrition-order-status-notcanceled"/>
 	<name value="NutritionOrderStatusNotCanceled"/>
 	<publisher value="Health Level Seven, Inc. - CQI WG"/>
-	<telecom>
+	<contact>
+    <telecom>
 	  <system value="url"/>
 	  <value value="http://hl7.org/special/committees/CQI"/>
 	</telecom>
+  </contact>
 	<description value="TODO"/>
 	<status value="draft"/>
 	<date value="2014-12-10T16:17:24.861-05:00"/>

@@ -2,10 +2,12 @@
   <name value="US Laboratory Observation Specimen Rejection Codes"/>
   <!--USLabObsInterpretation-->
   <publisher value="HL7 International - Orders and Observations WG"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set defines the set of code for identifying the reason why the specimen condition prevented the test form being completed.
 "/>
   <status value="draft"/>

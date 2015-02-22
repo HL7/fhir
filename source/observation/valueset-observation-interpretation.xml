@@ -2,10 +2,12 @@
   <name value="Observation Interpretation Codes"/>
   <name value="Observation Interpretation Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set defines the set of codes that can be used to indicate the meaning/use of a reference range"/>
   <status value="draft"/>
   <compose>

@@ -2,10 +2,12 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <name value="Example Use Codes for List"/>
   <publisher value="FHIR Project"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="Example use codes for the List resource - typical kinds of use. TODO: Does LOINC define useful codes?"/>
   <status value="draft"/>
   <define>

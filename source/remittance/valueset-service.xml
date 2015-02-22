@@ -7,10 +7,12 @@
   </text>
   <name value="USCLS Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes a smattering of  USCLS codes"/>
   <status value="draft"/>
   <define>

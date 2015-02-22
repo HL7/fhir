@@ -6,10 +6,12 @@
   <version value="0.01"/>
   <name value="DeltaFlag"/>
   <publisher value="Intermountain Healthcare"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.clinicaleleement.com"/>
   </telecom>
+  </contact>
   <description value="SNOMED CT* SELECT SNOMED CT code system values descending from &#39;change values&#39; (288533004)."/>
   <copyright value="IHC"/>
   <status value="draft"/>

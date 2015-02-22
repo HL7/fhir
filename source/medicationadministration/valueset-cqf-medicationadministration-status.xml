@@ -51,14 +51,18 @@
   <url value="http://hl7.org/fhir/vs/cqf-medication-admin-status"/>
   <name value="CQFMedicationAdministrationStatus"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org/Special/committees/cqi/"/>
   </telecom>
-  <telecom>
+  </contact>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.hl7.org"/>
   </telecom>
+  </contact>
   <description value="A set of codes indicating the current status of a CQF MedicationAdministration"/>
   <status value="draft"/>
   <date value="2014-12-22T11:59:17.053-05:00"/>

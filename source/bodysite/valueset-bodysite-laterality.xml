@@ -2,10 +2,12 @@
 	<name value="Laterality"/>
 	<publisher value="Order and Observation Workgroup"/>
 	<!-- author Eric Haas, Health eData Inc.-->
-	<telecom>
+	<contact>
+    <telecom>
 		<system value="url"/>
 		<value value="http://hl7.org/fhir"/>
 	</telecom>
+  </contact>
 	<description value="Laterality: SNOMED-CT concepts for 'left', 'right', and 'bilateral'"/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
 	<status value="draft"/>

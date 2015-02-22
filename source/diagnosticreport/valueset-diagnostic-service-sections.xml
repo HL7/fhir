@@ -8,10 +8,12 @@
   </text>
   <name value="LOINC Diagnostic Report Codes"/>
   <publisher value="FHIR Project team"/>
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="This value set includes all the codes in HL7 v2 table 0074"/>
   <status value="draft"/>
   <compose>

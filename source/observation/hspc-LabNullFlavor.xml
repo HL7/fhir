@@ -5,10 +5,12 @@
   <version value="0.01"/>
   <name value="LabNullFlavor"/>
   <publisher value="Intermountain Healthcare"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://www.clinicaleleement.com"/>
   </telecom>
+  </contact>
   <description value="A list of reasons why a lab result may have no value"/>
   <copyright value="IHC"/>
   <status value="draft"/>

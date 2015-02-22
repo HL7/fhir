@@ -10,7 +10,7 @@
   <LastAuthor>Claude Nanjo</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2014-12-04T19:22:58Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -86,7 +86,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="57" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="58" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="314.25"/>
@@ -451,7 +451,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem.status</Data></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
@@ -581,6 +581,12 @@
     <Cell ss:Index="26"><Data ss:Type="String">on</Data></Cell>
     <Cell><Data ss:Type="String">off</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SearchParameter.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -596,12 +602,10 @@
    </Print>
    <Selected/>
    <TopRowVisible>24</TopRowVisible>
-   <LeftColumnVisible>11</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>58</ActiveRow>
-     <ActiveCol>20</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

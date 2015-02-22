@@ -3,10 +3,12 @@
   <name value="USLabSpecimenType"/>
   <publisher value="Published by:  HL7 Orders and Observations Workgroup"/>
  <!--Primary Author/Editor:  Eric M Haas, Health eData Inc"-->
-  <telecom>  
+  <contact>
+    <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
+  </contact>
   <description value="USLab Specimen Collection Source Site: all SNOMED CT descendents of Specimen Heirarchy (123038009)"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>

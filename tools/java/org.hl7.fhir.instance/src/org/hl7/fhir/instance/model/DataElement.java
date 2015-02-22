@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 21, 2015 16:12+1100 for FHIR v0.4.0
+// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -344,6 +344,152 @@ public class DataElement extends DomainResource {
       return "?";
       }
     }
+
+    @Block()
+    public static class DataElementContactComponent extends BackboneElement {
+        /**
+         * The name of an individual to contact regarding the data element.
+         */
+        @Child(name="name", type={StringType.class}, order=1, min=0, max=1)
+        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the data element." )
+        protected StringType name;
+
+        /**
+         * Contact details for individual (if a name was provided) or the publisher.
+         */
+        @Child(name="telecom", type={ContactPoint.class}, order=2, min=0, max=Child.MAX_UNLIMITED)
+        @Description(shortDefinition="Contact details for individual or publisher", formalDefinition="Contact details for individual (if a name was provided) or the publisher." )
+        protected List<ContactPoint> telecom;
+
+        private static final long serialVersionUID = -1179697803L;
+
+      public DataElementContactComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #name} (The name of an individual to contact regarding the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DataElementContactComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of an individual to contact regarding the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public DataElementContactComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of an individual to contact regarding the data element.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of an individual to contact regarding the data element.
+         */
+        public DataElementContactComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+        public List<ContactPoint> getTelecom() { 
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          return this.telecom;
+        }
+
+        public boolean hasTelecom() { 
+          if (this.telecom == null)
+            return false;
+          for (ContactPoint item : this.telecom)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
+         */
+    // syntactic sugar
+        public ContactPoint addTelecom() { //3
+          ContactPoint t = new ContactPoint();
+          if (this.telecom == null)
+            this.telecom = new ArrayList<ContactPoint>();
+          this.telecom.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of an individual to contact regarding the data element.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("telecom", "ContactPoint", "Contact details for individual (if a name was provided) or the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        }
+
+      public DataElementContactComponent copy() {
+        DataElementContactComponent dst = new DataElementContactComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DataElementContactComponent))
+          return false;
+        DataElementContactComponent o = (DataElementContactComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DataElementContactComponent))
+          return false;
+        DataElementContactComponent o = (DataElementContactComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty())
+          ;
+      }
+
+  }
 
     @Block()
     public static class DataElementBindingComponent extends BackboneElement {
@@ -962,160 +1108,181 @@ public class DataElement extends DomainResource {
   }
 
     /**
-     * The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.
+     * The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
      */
-    @Child(name="identifier", type={Identifier.class}, order=0, min=0, max=1)
-    @Description(shortDefinition="Logical id to reference this data element", formalDefinition="The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance." )
+    @Child(name="url", type={UriType.class}, order=0, min=0, max=1)
+    @Description(shortDefinition="Globally unique logical id for data element", formalDefinition="The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:)." )
+    protected UriType url;
+
+    /**
+     * Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     */
+    @Child(name="identifier", type={Identifier.class}, order=1, min=0, max=1)
+    @Description(shortDefinition="Logical id to reference this data element", formalDefinition="Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected Identifier identifier;
 
     /**
      * The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    @Child(name="version", type={StringType.class}, order=1, min=0, max=1)
+    @Child(name="version", type={StringType.class}, order=2, min=0, max=1)
     @Description(shortDefinition="Logical id for this version of the data element", formalDefinition="The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually." )
     protected StringType version;
 
     /**
-     * Details of the individual or organization who accepts responsibility for publishing the data element.
+     * The name of the individual or organization that published the data element.
      */
-    @Child(name="publisher", type={StringType.class}, order=2, min=0, max=1)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="Details of the individual or organization who accepts responsibility for publishing the data element." )
+    @Child(name="publisher", type={StringType.class}, order=3, min=0, max=1)
+    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the data element." )
     protected StringType publisher;
 
     /**
-     * Contact details to assist a user in finding and communicating with the publisher.
+     * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name="telecom", type={ContactPoint.class}, order=3, min=0, max=Child.MAX_UNLIMITED)
-    @Description(shortDefinition="Contact information of the publisher", formalDefinition="Contact details to assist a user in finding and communicating with the publisher." )
-    protected List<ContactPoint> telecom;
+    @Child(name="contact", type={}, order=4, min=0, max=Child.MAX_UNLIMITED)
+    @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
+    protected List<DataElementContactComponent> contact;
 
     /**
      * The status of the data element.
      */
-    @Child(name="status", type={CodeType.class}, order=4, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=5, min=1, max=1)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of the data element." )
     protected Enumeration<ResourceObservationDefStatus> status;
 
     /**
+     * A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    @Child(name="experimental", type={BooleanType.class}, order=6, min=0, max=1)
+    @Description(shortDefinition="If for testing purposes, not real usage", formalDefinition="A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage." )
+    protected BooleanType experimental;
+
+    /**
      * The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).
      */
-    @Child(name="date", type={DateTimeType.class}, order=5, min=0, max=1)
+    @Child(name="date", type={DateTimeType.class}, order=7, min=0, max=1)
     @Description(shortDefinition="Date for this version of the data element", formalDefinition="The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired)." )
     protected DateTimeType date;
 
     /**
      * The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    @Child(name="name", type={StringType.class}, order=6, min=0, max=1)
+    @Child(name="name", type={StringType.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Descriptive label for this element definition", formalDefinition="The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used." )
     protected StringType name;
 
     /**
      * A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.
      */
-    @Child(name="category", type={CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="category", type={CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions." )
     protected List<CodeableConcept> category;
 
     /**
      * Identifies how precise the data element is in its definition.
      */
-    @Child(name="granularity", type={CodeType.class}, order=8, min=0, max=1)
+    @Child(name="granularity", type={CodeType.class}, order=10, min=0, max=1)
     @Description(shortDefinition="comparable | fully-specified | equivalent | convertable | scaleable | flexible", formalDefinition="Identifies how precise the data element is in its definition." )
     protected Enumeration<DataelementGranularity> granularity;
 
     /**
      * A code that provides the meaning for a data element according to a particular terminology.
      */
-    @Child(name="code", type={Coding.class}, order=9, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="code", type={Coding.class}, order=11, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Identifying concept", formalDefinition="A code that provides the meaning for a data element according to a particular terminology." )
     protected List<Coding> code;
 
     /**
      * The default/suggested phrasing to use when prompting a human to capture the data element in question form (e.g. In a survey).
      */
-    @Child(name="question", type={StringType.class}, order=10, min=0, max=1)
+    @Child(name="question", type={StringType.class}, order=12, min=0, max=1)
     @Description(shortDefinition="Prompt for element phrased as question", formalDefinition="The default/suggested phrasing to use when prompting a human to capture the data element in question form (e.g. In a survey)." )
     protected StringType question;
 
     /**
      * The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
      */
-    @Child(name="label", type={StringType.class}, order=11, min=0, max=1)
+    @Child(name="label", type={StringType.class}, order=13, min=0, max=1)
     @Description(shortDefinition="Name for element to display with or prompt for element", formalDefinition="The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form." )
     protected StringType label;
 
     /**
      * Provides a complete explanation of the meaning of the data element for human readability.
      */
-    @Child(name="definition", type={StringType.class}, order=12, min=0, max=1)
+    @Child(name="definition", type={StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Definition/description as narrative text", formalDefinition="Provides a complete explanation of the meaning of the data element for human readability." )
     protected StringType definition;
 
     /**
+     * A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
+     */
+    @Child(name="copyright", type={StringType.class}, order=15, min=0, max=1)
+    @Description(shortDefinition="Use and/or Publishing restrictions", formalDefinition="A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element." )
+    protected StringType copyright;
+
+    /**
      * Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    @Child(name="comments", type={StringType.class}, order=13, min=0, max=1)
+    @Child(name="comments", type={StringType.class}, order=16, min=0, max=1)
     @Description(shortDefinition="Comments about the use of this element", formalDefinition="Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc." )
     protected StringType comments;
 
     /**
      * Explains why this element is needed and why it's been constrained as it has.
      */
-    @Child(name="requirements", type={StringType.class}, order=14, min=0, max=1)
+    @Child(name="requirements", type={StringType.class}, order=17, min=0, max=1)
     @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this element is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * Identifies additional names by which this element might also be known.
      */
-    @Child(name="synonym", type={StringType.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="synonym", type={StringType.class}, order=18, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Other names", formalDefinition="Identifies additional names by which this element might also be known." )
     protected List<StringType> synonym;
 
     /**
      * The FHIR data type that is the type for data that corresponds to this data element.
      */
-    @Child(name="type", type={CodeType.class}, order=16, min=0, max=1)
+    @Child(name="type", type={CodeType.class}, order=19, min=0, max=1)
     @Description(shortDefinition="Name of Data type", formalDefinition="The FHIR data type that is the type for data that corresponds to this data element." )
     protected CodeType type;
 
     /**
      * A sample value for this element demonstrating the type of information that would typically be captured.
      */
-    @Child(name="example", type={}, order=17, min=0, max=1)
+    @Child(name="example", type={}, order=20, min=0, max=1)
     @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="A sample value for this element demonstrating the type of information that would typically be captured." )
     protected org.hl7.fhir.instance.model.Type example;
 
     /**
      * Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
-    @Child(name="maxLength", type={IntegerType.class}, order=18, min=0, max=1)
+    @Child(name="maxLength", type={IntegerType.class}, order=21, min=0, max=1)
     @Description(shortDefinition="Length for strings", formalDefinition="Indicates the shortest length that SHALL be supported by conformant instances without truncation." )
     protected IntegerType maxLength;
 
     /**
      * Identifies the units of measure in which the data element should be captured or expressed.
      */
-    @Child(name="units", type={CodeableConcept.class, ValueSet.class}, order=19, min=0, max=1)
+    @Child(name="units", type={CodeableConcept.class, ValueSet.class}, order=22, min=0, max=1)
     @Description(shortDefinition="Units to use for measured value", formalDefinition="Identifies the units of measure in which the data element should be captured or expressed." )
     protected Type units;
 
     /**
      * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
      */
-    @Child(name="binding", type={}, order=20, min=0, max=1)
+    @Child(name="binding", type={}, order=23, min=0, max=1)
     @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept)." )
     protected DataElementBindingComponent binding;
 
     /**
      * Identifies a concept from an external specification that roughly corresponds to this element.
      */
-    @Child(name="mapping", type={}, order=21, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="mapping", type={}, order=24, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<DataElementMappingComponent> mapping;
 
-    private static final long serialVersionUID = 1810868955L;
+    private static final long serialVersionUID = -714667578L;
 
     public DataElement() {
       super();
@@ -1127,7 +1294,56 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.)
+     * @return {@link #url} (The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     */
+    public UriType getUrlElement() { 
+      if (this.url == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.url");
+        else if (Configuration.doAutoCreate())
+          this.url = new UriType(); // bb
+      return this.url;
+    }
+
+    public boolean hasUrlElement() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    public boolean hasUrl() { 
+      return this.url != null && !this.url.isEmpty();
+    }
+
+    /**
+     * @param value {@link #url} (The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     */
+    public DataElement setUrlElement(UriType value) { 
+      this.url = value;
+      return this;
+    }
+
+    /**
+     * @return The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     */
+    public String getUrl() { 
+      return this.url == null ? null : this.url.getValue();
+    }
+
+    /**
+     * @param value The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).
+     */
+    public DataElement setUrl(String value) { 
+      if (Utilities.noString(value))
+        this.url = null;
+      else {
+        if (this.url == null)
+          this.url = new UriType();
+        this.url.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #identifier} (Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public Identifier getIdentifier() { 
       if (this.identifier == null)
@@ -1143,7 +1359,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.)
+     * @param value {@link #identifier} (Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public DataElement setIdentifier(Identifier value) { 
       this.identifier = value;
@@ -1200,7 +1416,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -1220,7 +1436,7 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public DataElement setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -1228,14 +1444,14 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return Details of the individual or organization who accepts responsibility for publishing the data element.
+     * @return The name of the individual or organization that published the data element.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value Details of the individual or organization who accepts responsibility for publishing the data element.
+     * @param value The name of the individual or organization that published the data element.
      */
     public DataElement setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -1249,32 +1465,32 @@ public class DataElement extends DomainResource {
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ContactPoint> getTelecom() { 
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      return this.telecom;
+    public List<DataElementContactComponent> getContact() { 
+      if (this.contact == null)
+        this.contact = new ArrayList<DataElementContactComponent>();
+      return this.contact;
     }
 
-    public boolean hasTelecom() { 
-      if (this.telecom == null)
+    public boolean hasContact() { 
+      if (this.contact == null)
         return false;
-      for (ContactPoint item : this.telecom)
+      for (DataElementContactComponent item : this.contact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #telecom} (Contact details to assist a user in finding and communicating with the publisher.)
+     * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
     // syntactic sugar
-    public ContactPoint addTelecom() { //3
-      ContactPoint t = new ContactPoint();
-      if (this.telecom == null)
-        this.telecom = new ArrayList<ContactPoint>();
-      this.telecom.add(t);
+    public DataElementContactComponent addContact() { //3
+      DataElementContactComponent t = new DataElementContactComponent();
+      if (this.contact == null)
+        this.contact = new ArrayList<DataElementContactComponent>();
+      this.contact.add(t);
       return t;
     }
 
@@ -1320,6 +1536,51 @@ public class DataElement extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ResourceObservationDefStatus>(new ResourceObservationDefStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #experimental} (A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public BooleanType getExperimentalElement() { 
+      if (this.experimental == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.experimental");
+        else if (Configuration.doAutoCreate())
+          this.experimental = new BooleanType(); // bb
+      return this.experimental;
+    }
+
+    public boolean hasExperimentalElement() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    public boolean hasExperimental() { 
+      return this.experimental != null && !this.experimental.isEmpty();
+    }
+
+    /**
+     * @param value {@link #experimental} (A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     */
+    public DataElement setExperimentalElement(BooleanType value) { 
+      this.experimental = value;
+      return this;
+    }
+
+    /**
+     * @return A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public boolean getExperimental() { 
+      return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
+    }
+
+    /**
+     * @param value A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
+    public DataElement setExperimental(boolean value) { 
+        if (this.experimental == null)
+          this.experimental = new BooleanType();
+        this.experimental.setValue(value);
       return this;
     }
 
@@ -1673,6 +1934,55 @@ public class DataElement extends DomainResource {
         if (this.definition == null)
           this.definition = new StringType();
         this.definition.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public StringType getCopyrightElement() { 
+      if (this.copyright == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.copyright");
+        else if (Configuration.doAutoCreate())
+          this.copyright = new StringType(); // bb
+      return this.copyright;
+    }
+
+    public boolean hasCopyrightElement() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    public boolean hasCopyright() { 
+      return this.copyright != null && !this.copyright.isEmpty();
+    }
+
+    /**
+     * @param value {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     */
+    public DataElement setCopyrightElement(StringType value) { 
+      this.copyright = value;
+      return this;
+    }
+
+    /**
+     * @return A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
+     */
+    public String getCopyright() { 
+      return this.copyright == null ? null : this.copyright.getValue();
+    }
+
+    /**
+     * @param value A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
+     */
+    public DataElement setCopyright(String value) { 
+      if (Utilities.noString(value))
+        this.copyright = null;
+      else {
+        if (this.copyright == null)
+          this.copyright = new StringType();
+        this.copyright.setValue(value);
       }
       return this;
     }
@@ -2035,11 +2345,13 @@ public class DataElement extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("url", "uri", "The uri that is used to identify this element when it is referenced in a specification, model, design or an instance (should be globally unique URI, and an be urn:uuid: or urn:oid:).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("telecom", "ContactPoint", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("status", "code", "The status of the data element.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this search data elemnt definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that the status for this business version of the data element became effective.  (I.e. Date the draft was created, date element became active or date element became retired).", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("category", "CodeableConcept", "A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -2048,6 +2360,7 @@ public class DataElement extends DomainResource {
         childrenList.add(new Property("question", "string", "The default/suggested phrasing to use when prompting a human to capture the data element in question form (e.g. In a survey).", 0, java.lang.Integer.MAX_VALUE, question));
         childrenList.add(new Property("label", "string", "The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.", 0, java.lang.Integer.MAX_VALUE, label));
         childrenList.add(new Property("definition", "string", "Provides a complete explanation of the meaning of the data element for human readability.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("synonym", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, synonym));
@@ -2062,15 +2375,17 @@ public class DataElement extends DomainResource {
       public DataElement copy() {
         DataElement dst = new DataElement();
         copyValues(dst);
+        dst.url = url == null ? null : url.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        if (telecom != null) {
-          dst.telecom = new ArrayList<ContactPoint>();
-          for (ContactPoint i : telecom)
-            dst.telecom.add(i.copy());
+        if (contact != null) {
+          dst.contact = new ArrayList<DataElementContactComponent>();
+          for (DataElementContactComponent i : contact)
+            dst.contact.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.name = name == null ? null : name.copy();
         if (category != null) {
@@ -2087,6 +2402,7 @@ public class DataElement extends DomainResource {
         dst.question = question == null ? null : question.copy();
         dst.label = label == null ? null : label.copy();
         dst.definition = definition == null ? null : definition.copy();
+        dst.copyright = copyright == null ? null : copyright.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         if (synonym != null) {
@@ -2118,11 +2434,12 @@ public class DataElement extends DomainResource {
         if (!(other instanceof DataElement))
           return false;
         DataElement o = (DataElement) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(publisher, o.publisher, true)
-           && compareDeep(telecom, o.telecom, true) && compareDeep(status, o.status, true) && compareDeep(date, o.date, true)
-           && compareDeep(name, o.name, true) && compareDeep(category, o.category, true) && compareDeep(granularity, o.granularity, true)
-           && compareDeep(code, o.code, true) && compareDeep(question, o.question, true) && compareDeep(label, o.label, true)
-           && compareDeep(definition, o.definition, true) && compareDeep(comments, o.comments, true) && compareDeep(requirements, o.requirements, true)
+        return compareDeep(url, o.url, true) && compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true)
+           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(status, o.status, true)
+           && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true) && compareDeep(name, o.name, true)
+           && compareDeep(category, o.category, true) && compareDeep(granularity, o.granularity, true) && compareDeep(code, o.code, true)
+           && compareDeep(question, o.question, true) && compareDeep(label, o.label, true) && compareDeep(definition, o.definition, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(comments, o.comments, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(synonym, o.synonym, true) && compareDeep(type, o.type, true) && compareDeep(example, o.example, true)
            && compareDeep(maxLength, o.maxLength, true) && compareDeep(units, o.units, true) && compareDeep(binding, o.binding, true)
            && compareDeep(mapping, o.mapping, true);
@@ -2135,23 +2452,25 @@ public class DataElement extends DomainResource {
         if (!(other instanceof DataElement))
           return false;
         DataElement o = (DataElement) other;
-        return compareValues(version, o.version, true) && compareValues(publisher, o.publisher, true) && compareValues(status, o.status, true)
-           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(granularity, o.granularity, true)
-           && compareValues(question, o.question, true) && compareValues(label, o.label, true) && compareValues(definition, o.definition, true)
+        return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(publisher, o.publisher, true)
+           && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(date, o.date, true)
+           && compareValues(name, o.name, true) && compareValues(granularity, o.granularity, true) && compareValues(question, o.question, true)
+           && compareValues(label, o.label, true) && compareValues(definition, o.definition, true) && compareValues(copyright, o.copyright, true)
            && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(synonym, o.synonym, true)
            && compareValues(type, o.type, true) && compareValues(maxLength, o.maxLength, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty()) && (status == null || status.isEmpty())
+        return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (version == null || version.isEmpty()) && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty())
+           && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (name == null || name.isEmpty()) && (category == null || category.isEmpty())
            && (granularity == null || granularity.isEmpty()) && (code == null || code.isEmpty()) && (question == null || question.isEmpty())
-           && (label == null || label.isEmpty()) && (definition == null || definition.isEmpty()) && (comments == null || comments.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (synonym == null || synonym.isEmpty())
-           && (type == null || type.isEmpty()) && (example == null || example.isEmpty()) && (maxLength == null || maxLength.isEmpty())
-           && (units == null || units.isEmpty()) && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty())
-          ;
+           && (label == null || label.isEmpty()) && (definition == null || definition.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
+           && (synonym == null || synonym.isEmpty()) && (type == null || type.isEmpty()) && (example == null || example.isEmpty())
+           && (maxLength == null || maxLength.isEmpty()) && (units == null || units.isEmpty()) && (binding == null || binding.isEmpty())
+           && (mapping == null || mapping.isEmpty());
       }
 
   @Override

@@ -2,15 +2,17 @@
 <OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/operationdefinition.xsd">
   <title value="Populate Questionnaire (SDC)"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
-  <telecom>
+  <contact>
+    <telecom>
     <system value="url"/>
     <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
   </telecom>
+  </contact>
   <description value="This operation defines a constrained version of the 'populate' operation that reflects the expectations for conformance with the Structured Data Capture implementation guide."/>
   <status value="draft"/>
   <date value="2014-08-04"/>
   <kind value="operation"/>
-  <name value="populate"/>
+  <code value="populate"/>
   <notes value="The constraints reflected here are not intended to prevent implementers from supporting additional parameters or capabilities of the operation, merely to establish a minimum baseline expectation."/>
   <system value="true"/>
   <type value="Questionnaire"/>
