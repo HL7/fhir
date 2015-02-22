@@ -5215,7 +5215,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return src;
   }
 
-  private String getPackageContent(ConformancePackage pack) {
+  private String getPackageContent(ConformancePackage pack) throws Exception {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"lines\">");
     if (pack.getProfiles().size() > 0) {
@@ -5227,8 +5227,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (pack.getExtensions().size() > 0) {
       s.append("<tr><td colspan=\"2\"><b>Extensions</b>: </td></tr>");
       for (ExtensionDefinition ed : pack.getExtensions())
-        s.append("<tr><td><a href=\"extension-").append(ed.getId()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
-                .append("</a></td><td><b>").append(Utilities.escapeXml(ed.getName())).append("</b> : ").append(Utilities.escapeXml(ed.getDescription())).append("</td></tr>");
+        s.append("<tr><td><a name=\"extension-").append(ed.getId()).append("\"/><a href=\"extension-").append(ed.getId()).append(".html\">").append(Utilities.escapeXml(ed.getId()))
+                .append("</a></td><td><b>").append(Utilities.escapeXml(ed.getName())).append("</b> : ").append(processMarkdown(ed.getDescription())).append("</td></tr>");
     }
     s.append("</table>");
     
