@@ -22,6 +22,10 @@ set of structure definitions</a> for all resources and data types is published.
 <ul>
  <li>StructureDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are used</li>
  <li>StructureDefinitions use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
+ <li>StructureDefinitions define concrete elements and structures for use with FHIR alone and that have defined wire representations (XML, JSON, etc.).
+ This is distinct from <a href="datadelement.html">DataElement</a> which defines abstract elements that might appear anywhere - FHIR,
+ questionnaire questions, CDA, v2, X12, OpenEHR, a proprietary database, etc.  DataElements may map to FHIR resources, data types and/or extensions
+ but do not have any defined wire format of their own.</li>
 </ul>
 
 </div> 
