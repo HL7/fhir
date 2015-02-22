@@ -67,4 +67,16 @@ Linking to formal definitions of a question allows data captured by distinct que
 formal definition, linkages to formal definitions may also be used to automatically pre-populate or extract data from a corresponding 
 <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.
 </p>
+<p>
+NOTE: Even if standard question definitions are referenced using <code>code</code> or the <code>deReference</code> extension, information such as the question text,
+data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire may not have access to or support the ability to look
+up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems may not be able to to render
+or use the Questionnaire.
+</p>
+<p>
+If an external reference (<code>code</code> or <code>deReference</code> extension) is included along with question information such as question text, data type or
+value set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of
+alignment is required.  E.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
+These rules will need to be established within implementation environments.
+</p>
 </div>
