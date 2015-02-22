@@ -83,6 +83,36 @@ alignment is required.  E.g. Does the question text need to match exactly?  Is i
 These rules will need to be established within implementation environments.
 </p>
 
+<h3>Question types</h3>
+<p>
+The codes for the data type for each question is slightly different than the data types allowed in the <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.
+Where the names are the same (ignoring case), the "answer" must use the specified type.  Where the names are different, the mappings are as follows:
+</p>
+<table>
+  <tbody>
+    <tr>
+      <th>Questionnaire AnswerFormat code</th>
+      <th>QuestionnaireAnswers data type</th>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>uri</td>
+    </tr>
+    <tr>
+      <td>choice</td>
+      <td>Coding</td>
+    </tr>
+    <tr>
+      <td>open-choice</td>
+      <td>Coding</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3>Extensions for Additional capabilities</h3>
 <p>
 The core elements defined in the questionnaire resource are sufficient for simple questionnaires.  For more sophisticated capabilities, a number of "common" extensions
