@@ -18,11 +18,13 @@ and as such the Questionnaire is a separately identifiable Resource, whereas the
 Examples of Questionnaires include:
 </p>
 <ul>
-  <li>Past medical history (PMH)</li>
-  <li>Family diseases</li>
-  <li>Social history</li>
-  <li>Research questionnaires</li>
-  <li>Quality and evaluation forms</li>
+<li>Past medical history (PMH)</li>
+<li>Family diseases</li>
+<li>Social history</li>
+<li>Research questionnaires/Clinical research forms (CRFs)</li>
+<li>Quality and evaluation forms</li>
+<li>Patient intake form (e.g. clipboard)</li>
+<li>Insurance claim form</li>
 </ul>
 <p>
 <b>QuestionnaireAnswers</b> can be validated against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
