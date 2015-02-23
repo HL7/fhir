@@ -82,7 +82,7 @@ From this table, we can build a formal extension definition. In this case, it lo
   &lt;element>
     &lt;path value="participation-agreement"/>
     &lt;short value="Agreed agreement/policy" /&gt;
-    &lt;formal value="A URI that identifies a participation agreement/policy 
+    &lt;definition value="A URI that identifies a participation agreement/policy 
       to which the patient has agreed" /&gt;
     &lt;comments value="URI is a literal reference to agreement text (html). 
       Systems SHALL conform to the policies as indicated. 
@@ -176,7 +176,7 @@ will use this resource, a profile on the patient resource is used:
       &lt;!-- clone information from the extension definition. 
         duplicative, but this duplication makes it over all simpler --&gt;
       &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
-      &lt;formal value=&quot;A URI that identifies a participation agreement/policy 
+      &lt;definition value=&quot;A URI that identifies a participation agreement/policy 
       to which the patient has agreed&quot;/&gt;
       &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
       &lt;min value=&quot;1&quot;/&gt;
@@ -277,7 +277,7 @@ and their associated bindings. In this case, the profile looks like this:
   &lt;element>
     &lt;path value="name-qualifier"/>
     &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
-    &lt;formal value="A set of codes each of which specifies a certain subcategory
+    &lt;definition value="A set of codes each of which specifies a certain subcategory
         of the name part in addition to the main name part type" /&gt;
     &lt;comments value="Used to indicate additional information about the
            name part and how it should be used" /&gt;

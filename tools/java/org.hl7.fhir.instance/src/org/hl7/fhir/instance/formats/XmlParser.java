@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -707,8 +707,8 @@ public class XmlParser extends XmlParserBase {
         res.setSlicing(parseElementDefinitionElementDefinitionSlicingComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("short")) {
         res.setShortElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("formal")) {
-        res.setFormalElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
+        res.setDefinitionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comments")) {
         res.setCommentsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
@@ -6974,6 +6974,8 @@ public class XmlParser extends XmlParserBase {
         res.setGenderElement(parseEnumeration(xpp, Patient.AdministrativeGender.NULL, new Patient.AdministrativeGenderEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("birthDate")) {
         res.setBirthDateElement(parseDate(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("birthTime")) {
+        res.setBirthTimeElement(parseTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "deceased")) {
         res.setDeceased(parseType("deceased", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("address")) {
@@ -11546,8 +11548,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasShortElement()) {
         composeString("short", element.getShortElement());
       }
-      if (element.hasFormalElement()) {
-        composeString("formal", element.getFormalElement());
+      if (element.hasDefinitionElement()) {
+        composeString("definition", element.getDefinitionElement());
       }
       if (element.hasCommentsElement()) {
         composeString("comments", element.getCommentsElement());
@@ -18437,6 +18439,9 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("gender", element.getGenderElement(), new Patient.AdministrativeGenderEnumFactory());
       if (element.hasBirthDateElement()) {
         composeDate("birthDate", element.getBirthDateElement());
+      }
+      if (element.hasBirthTimeElement()) {
+        composeTime("birthTime", element.getBirthTimeElement());
       }
       if (element.hasDeceased()) {
         composeType("deceased", element.getDeceased());

@@ -250,7 +250,7 @@ public class QuestionnaireBuilder {
 	  group.setLinkId(element.getPath()); // todo: this will be wrong when we start slicing
 	  group.setTitle(element.getShort()); // todo - may need to prepend the name tail... 
 	  group.setText(element.getComments());
-	  ToolingExtensions.addFlyOver(group, element.getFormal());
+	  ToolingExtensions.addFlyOver(group, element.getDefinition());
     group.setRequired(element.getMin() > 0);
     group.setRepeats(!element.getMax().equals("1"));
 
@@ -334,9 +334,9 @@ public class QuestionnaireBuilder {
       }
 
       if (!Utilities.noString(element.getComments())) 
-        ToolingExtensions.addFlyOver(group, element.getFormal()+" "+element.getComments());
+        ToolingExtensions.addFlyOver(group, element.getDefinition()+" "+element.getComments());
 		  else
-        ToolingExtensions.addFlyOver(group, element.getFormal());
+        ToolingExtensions.addFlyOver(group, element.getDefinition());
 
       if (element.getType().size() > 1 || element.getType().get(0).getCode().equals("*")) {
         List<TypeRefComponent> types = expandTypeList(element.getType());

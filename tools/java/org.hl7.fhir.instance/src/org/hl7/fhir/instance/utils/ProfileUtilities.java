@@ -574,15 +574,15 @@ public class ProfileUtilities {
           derived.getShortElement().setUserData(DERIVATION_EQUALS, true);
       }
       
-      if (derived.hasFormalElement()) {
-        if (derived.getFormal().startsWith("..."))
-          base.setFormal(base.getFormal()+"\r\n"+derived.getFormal().substring(3));
-        else if (!Base.compareDeep(derived.getFormalElement(), base.getFormalElement(), false))
-          base.setFormalElement(derived.getFormalElement().copy());
+      if (derived.hasDefinitionElement()) {
+        if (derived.getDefinition().startsWith("..."))
+          base.setDefinition(base.getDefinition()+"\r\n"+derived.getDefinition().substring(3));
+        else if (!Base.compareDeep(derived.getDefinitionElement(), base.getDefinitionElement(), false))
+          base.setDefinitionElement(derived.getDefinitionElement().copy());
         else if (trimDifferential)
-          derived.setFormalElement(null);
-        else if (derived.hasFormalElement()) 
-          derived.getFormalElement().setUserData(DERIVATION_EQUALS, true);
+          derived.setDefinitionElement(null);
+        else if (derived.hasDefinitionElement()) 
+          derived.getDefinitionElement().setUserData(DERIVATION_EQUALS, true);
       }
       
       if (derived.hasCommentsElement()) {
@@ -802,7 +802,7 @@ public class ProfileUtilities {
     else
       name = "value[x]";
     
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension.value[x]", name, e.getFormal(), null));
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension.value[x]", name, e.getDefinition(), null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
     genTypes(gen, pkp, r, e, null, null);
@@ -816,7 +816,7 @@ public class ProfileUtilities {
 //    rows.add(r);
 //    r.setAnchor(ext.getName());
 //    ElementDefinition e = ext.getElement().get(0);
-//    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getFormal(), null));
+//    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"#extension."+ext.getName(), ext.getName(), e.getDefinition(), null));
 //    r.getCells().add(gen.new Cell());
 //    r.getCells().add(gen.new Cell(null, null, describeCardinality(e, null, new UnusedTracker()), null, null));
 //    if (ext.getElement().size() == 1) {
@@ -978,7 +978,7 @@ public class ProfileUtilities {
     String ref = defPath == null ? null : defPath + makePathLink(element);
     UnusedTracker used = new UnusedTracker();
     used.used = true;
-    Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getFormal(), null);
+    Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition(), null);
     row.getCells().add(left);
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
@@ -1185,7 +1185,7 @@ public class ProfileUtilities {
   }
 
   private boolean onlyInformationIsMapping(ElementDefinition d) {
-    return !d.hasShort() && !d.hasFormal() && 
+    return !d.hasShort() && !d.hasDefinition() && 
         !d.hasRequirements() && !d.getSynonym().isEmpty() && !d.hasMinElement() &&
         !d.hasMax() && !d.getType().isEmpty() && !d.hasNameReference() && 
         !d.hasExample() && !d.hasFixed() && !d.hasMaxLengthElement() &&

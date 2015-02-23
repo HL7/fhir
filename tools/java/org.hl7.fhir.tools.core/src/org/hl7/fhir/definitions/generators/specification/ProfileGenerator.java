@@ -144,7 +144,7 @@ public class ProfileGenerator {
     p.getDifferential().getElement().add(ec);
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
-    ec.setFormal(type.getDefinition());
+    ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
     ec.setMin(0);
     ec.setMax("*");
@@ -155,7 +155,7 @@ public class ProfileGenerator {
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     ec.setShort("Primitive value for " +type.getCode());
-    ec.setFormal("Primitive value for " +type.getCode());
+    ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
     ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getSchemaType()));
@@ -167,7 +167,7 @@ public class ProfileGenerator {
     p.getSnapshot().getElement().add(ec);
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
-    ec.setFormal(type.getDefinition());
+    ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec.setMin(0);
@@ -179,7 +179,7 @@ public class ProfileGenerator {
     p.getSnapshot().getElement().add(ec);
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
-    ec.setFormal("The actual value");
+    ec.setDefinition("The actual value");
     ec.setMin(0);
     ec.setMax("1");
     ec.setShort("Primitive value for " +type.getCode());
@@ -218,7 +218,7 @@ public class ProfileGenerator {
     ec.setPath(type.getCode());
     
     ec.setShort("Primitive Type " +type.getCode());
-    ec.setFormal(type.getDefinition());
+    ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
     ec.setMin(0);
     ec.setMax("*");
@@ -230,7 +230,7 @@ public class ProfileGenerator {
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
     ec.setShort("Primitive value for " +type.getCode());
-    ec.setFormal("Primitive value for " +type.getCode());
+    ec.setDefinition("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
     ec.getType().add(new TypeRefComponent().setCode("xsd:"+type.getBase()));
@@ -243,7 +243,7 @@ public class ProfileGenerator {
     ec.setPath(type.getCode());
     
     ec.setShort("Primitive Type " +type.getCode());
-    ec.setFormal(type.getDefinition());
+    ec.setDefinition(type.getDefinition());
     ec.setComments(type.getComment());
     ec.getType().add(new TypeRefComponent().setCode("Element"));
     ec.setMin(0);
@@ -257,7 +257,7 @@ public class ProfileGenerator {
     ec.setPath("value");
     ec.addRepresentation(PropertyRepresentation.XMLATTR);
     
-    ec.setFormal("Primitive value for " +type.getCode());
+    ec.setDefinition("Primitive value for " +type.getCode());
     ec.setShort("Primitive value for " +type.getCode());
     ec.setMin(0);
     ec.setMax("1");
@@ -330,7 +330,7 @@ public class ProfileGenerator {
     e.setPath(pt.getBaseType());
     e.setName(pt.getName());
     e.setShort(pt.getDefinition());
-    e.setFormal(pt.getDescription());
+    e.setDefinition(pt.getDescription());
     e.setMin(1);
     e.setMax("1");
     e.setIsModifier(false);
@@ -724,7 +724,7 @@ public class ProfileGenerator {
     if (!"".equals(e.getShortDefn()))
       ce.setShort(e.getShortDefn());
     if (!"".equals(e.getDefinition())) {
-      ce.setFormal(e.getDefinition());
+      ce.setDefinition(e.getDefinition());
       if ("".equals(e.getShortDefn()))
         ce.setShort(e.getDefinition());
     }
@@ -1022,7 +1022,7 @@ public class ProfileGenerator {
     ElementDefinition ce = new ElementDefinition();
     ce.setPath(path+"."+src.getName());
     ce.setShort(src.getShortDefn());
-    ce.setFormal(src.getDefinition());
+    ce.setDefinition(src.getDefinition());
     ce.setComments(src.getComments());
     ce.setRequirements(src.getRequirements());
     for (String a : src.getAliases())
@@ -1056,7 +1056,7 @@ public class ProfileGenerator {
     dst.setPath(thisPath);
 
     dst.setShort(src.getShortDefn());
-    dst.setFormal(src.getDefinition());
+    dst.setDefinition(src.getDefinition());
     dst.setComments(src.getComments());
     if (src.getMaxCardinality() == Integer.MAX_VALUE)
       dst.setMax("*");

@@ -98,11 +98,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
     write("\r\n&lt;");
     if (defPage == null)
-      write("<span title=\"" + Utilities.escapeXml(root.getFormal())
+      write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
           + "\"><b>");
     else
       write("<a href=\"" + (defPage + "#" + root.getName()).replace("[", "_").replace("]", "_") + "\" title=\""
-          + Utilities.escapeXml(root.getFormal())
+          + Utilities.escapeXml(root.getDefinition())
           + "\" class=\"dict\"><b>");
     write(rn);
     if ((defPage == null))
@@ -626,7 +626,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             + "\" class=\"dict\"><span style=\"text-decoration: underline\">");
       closeOut = "</b></span></a>";
     } else {
-      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_") + "\" title=\"" + Utilities.escapeXml(elem.getFormal()) + "\" class=\"dict\">");
+      write("&lt;<a href=\"" + (defPage + "#" + pathName + "." + en).replace("[", "_").replace("]", "_") + "\" title=\"" + Utilities.escapeXml(elem.getDefinition()) + "\" class=\"dict\">");
       closeOut = "</b></a>";
     }
     if (isExtension) {
@@ -827,13 +827,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   private String getEnhancedDefinition(ElementDefinition elem) {
     if (elem.getIsModifier() && elem.getMustSupport())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element modifies the meaning of other elements, and must be supported)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements, and must be supported)";
     else if (elem.getIsModifier())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element modifies the meaning of other elements)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements)";
     else if (elem.getMustSupport())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element must be supported)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element must be supported)";
     else
-      return Utilities.removePeriod(elem.getFormal());
+      return Utilities.removePeriod(elem.getDefinition());
   }
 
   private String docPrefix(int widthSoFar, int indent, ElementDefn elem) {

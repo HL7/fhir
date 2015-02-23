@@ -20,7 +20,7 @@
       <path value="DiagnosticReport"/>
       <name value="LipidProfile"/>
         <short value="Lipid Lab Report"/>
-        <formal value="The findings and interpretation of a general lipd lab profile."/>
+        <definition value="The findings and interpretation of a general lipd lab profile."/>
         <comments value="In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems."/>
         <min value="1"/>
         <max value="1"/>
@@ -37,7 +37,7 @@
         <rules value="open"/>
       </slicing>
         <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+        <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
         <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
         <min value="0"/>
         <max value="*"/>
@@ -49,7 +49,7 @@
     <element>
       <path value="DiagnosticReport.text"/>
         <short value="Text summary of the resource, for human interpretation"/>
-        <formal value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+        <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
         <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
         <synonym value="narrative"/>
         <synonym value="html"/>
@@ -65,7 +65,7 @@
     <element>
       <path value="DiagnosticReport.contained"/>
         <short value="Contained, inline Resources"/>
-        <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
+        <definition value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope."/>
         <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again."/>
         <synonym value="inline resources"/>
         <synonym value="anonymous resources"/>
@@ -80,7 +80,7 @@
     <element>
       <path value="DiagnosticReport.status"/>
         <short value="registered|interim|final|amended|cancelled|withdrawn"/>
-        <formal value="The status of the diagnostic report as a whole."/>
+        <definition value="The status of the diagnostic report as a whole."/>
         <comments value="This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn."/>
         <min value="1"/>
         <max value="1"/>
@@ -100,7 +100,7 @@
     <element>
       <path value="DiagnosticReport.issued"/>
         <short value="Date this version was released"/>
-        <formal value="The date and/or time that this version of the report was released from the source diagnostic service."/>
+        <definition value="The date and/or time that this version of the report was released from the source diagnostic service."/>
         <comments value="May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report."/>
         <min value="1"/>
         <max value="1"/>
@@ -112,7 +112,7 @@
     <element>
       <path value="DiagnosticReport.subject"/>
         <short value="The subject of the report"/>
-        <formal value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
+        <definition value="The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
         <min value="1"/>
         <max value="1"/>
         <type>
@@ -123,7 +123,7 @@
     <element>
       <path value="DiagnosticReport.performer"/>
         <short value="Responsible Diagnostic Service"/>
-        <formal value="The diagnostic service that is responsible for issuing the report."/>
+        <definition value="The diagnostic service that is responsible for issuing the report."/>
         <comments value="This is not necessarily the source of the atomic data items - it&#39;s the entity that takes responsibility for the clinical report."/>
         <min value="1"/>
         <max value="1"/>
@@ -135,7 +135,7 @@
     <element>
       <path value="DiagnosticReport.reportId"/>
         <short value="Id for external references to this report"/>
-        <formal value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
+        <definition value="The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -146,7 +146,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail"/>
         <short value="What was requested"/>
-        <formal value="Details concerning a single pathology test requested."/>
+        <definition value="Details concerning a single pathology test requested."/>
         <comments value="Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single Pathology test result resource. Note that there are also cases where one request leads to multiple reports."/>
         <min value="0"/>
         <max value="*"/>
@@ -155,7 +155,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.encounter"/>
         <short value="Context where request was made"/>
-        <formal value="The encounter that this diagnostic investigation is associated with."/>
+        <definition value="The encounter that this diagnostic investigation is associated with."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -166,7 +166,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.requestOrderId"/>
         <short value="Id assigned by requester"/>
-        <formal value="The local ID assigned to the order by the order requester."/>
+        <definition value="The local ID assigned to the order by the order requester."/>
         <comments value="Equivalent to the Placer Order Identifier."/>
         <min value="0"/>
         <max value="1"/>
@@ -178,7 +178,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.receiverOrderId"/>
         <short value="Receiver&#39;s Id for the request"/>
-        <formal value="The local ID assigned to the test order by the diagnostic service provider."/>
+        <definition value="The local ID assigned to the test order by the diagnostic service provider."/>
         <comments value="Usually equivalent to the DICOM Accession Number and the Filler Order Identifier."/>
         <min value="0"/>
         <max value="1"/>
@@ -190,7 +190,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.requestTest"/>
         <short value="Test Requested"/>
-        <formal value="Identification of pathology test requested,."/>
+        <definition value="Identification of pathology test requested,."/>
         <comments value="Useful where the test requested differs from the test actually performed."/>
         <min value="0"/>
         <max value="*"/>
@@ -210,7 +210,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.bodySite"/>
         <short value="Location of requested test (if applicable)"/>
-        <formal value="Anatomical location where the request test should be performed."/>
+        <definition value="Anatomical location where the request test should be performed."/>
         <comments value="This is often implicit or explicit in the requested test, and doesn&#39;t need to be specified if so."/>
         <min value="0"/>
         <max value="1"/>
@@ -230,7 +230,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.requester"/>
         <short value="Responsible for request"/>
-        <formal value="Details of the clinician or organization requesting the diagnostic service."/>
+        <definition value="Details of the clinician or organization requesting the diagnostic service."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -241,7 +241,7 @@
     <element>
       <path value="DiagnosticReport.requestDetail.clinicalInfo"/>
         <short value="Clinical information provided"/>
-        <formal value="Details of the clinical information provided to the diagnostic service along with the original request."/>
+        <definition value="Details of the clinical information provided to the diagnostic service along with the original request."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -252,7 +252,7 @@
     <element>
       <path value="DiagnosticReport.serviceCategory"/>
         <short value="Biochemistry, Haematology etc."/>
-        <formal value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
+        <definition value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -271,7 +271,7 @@
     <element>
       <path value="DiagnosticReport.diagnostic[x]"/>
         <short value="Diagnostically relevant time of diagnostic report"/>
-        <formal value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
+        <definition value="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."/>
         <comments value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there is specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
         <min value="1"/>
         <max value="1"/>
@@ -286,7 +286,7 @@
     <element>
       <path value="DiagnosticReport.results"/>
         <short value="Lipid Lab Results"/>
-        <formal value="Lipid Lab Results."/>
+        <definition value="Lipid Lab Results."/>
         <min value="1"/>
         <max value="1"/>
         <isModifier value="false"/>
@@ -294,7 +294,7 @@
     <element>
       <path value="DiagnosticReport.results.name"/>
         <short value="LOINC Code for Lipid Panel with LDL"/>
-        <formal value="LOINC Code for Lipid Panel with LDL."/>
+        <definition value="LOINC Code for Lipid Panel with LDL."/>
         <comments value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
         <min value="1"/>
         <max value="1"/>
@@ -314,7 +314,7 @@
     <element>
       <path value="DiagnosticReport.results.specimen"/>
         <short value="Specimen details for this group"/>
-        <formal value="Details about the individual specimen to which these &#39;Result group&#39; test results refer."/>
+        <definition value="Details about the individual specimen to which these &#39;Result group&#39; test results refer."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -325,7 +325,7 @@
     <element>
       <path value="DiagnosticReport.results.group"/>
         <short value="No subgroups allowed"/>
-        <formal value="No subgroups allowed."/>
+        <definition value="No subgroups allowed."/>
         <comments value="Nested report groups beyond the first level are not used often, but arise in structured pathology reports, and where there is more than one sensitivity assessment per discovered organism."/>
         <min value="0"/>
         <max value="0"/>
@@ -340,7 +340,7 @@
         <rules value="open"/>
       </slicing>
         <short value="Cholesterol Result"/>
-        <formal value="Reference to Cholesterol Result."/>
+        <definition value="Reference to Cholesterol Result."/>
         <min value="1"/>
         <max value="1"/>
         <type>
@@ -353,7 +353,7 @@
       <path value="DiagnosticReport.results.result"/>
       <name value="Triglyceride"/>
         <short value="Triglyceride Result"/>
-        <formal value="Group of elements for Triglyceride result."/>
+        <definition value="Group of elements for Triglyceride result."/>
         <min value="1"/>
         <max value="1"/>
         <type>
@@ -366,7 +366,7 @@
       <path value="DiagnosticReport.results.result"/>
       <name value="HDL Cholesterol"/>
         <short value="HDL Cholesterol Result"/>
-        <formal value="Group of elements for HDL Cholesterol result."/>
+        <definition value="Group of elements for HDL Cholesterol result."/>
         <min value="1"/>
         <max value="1"/>
         <type>
@@ -379,7 +379,7 @@
       <path value="DiagnosticReport.results.result"/>
       <name value="LDL Cholesterol"/>
         <short value="LDL Cholesterol result, if reported"/>
-        <formal value="LDL Cholesterol result, if reported."/>
+        <definition value="LDL Cholesterol result, if reported."/>
         <min value="0"/>
         <max value="1"/>
         <type>
@@ -391,7 +391,7 @@
     <element>
       <path value="DiagnosticReport.image"/>
         <short value="Key images associated with this report"/>
-        <formal value="A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)."/>
+        <definition value="A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)."/>
         <comments value="An imaging study is a list of images following a DICOM specification - only list one of these, or multiple images."/>
         <min value="0"/>
         <max value="*"/>
@@ -403,7 +403,7 @@
     <element>
       <path value="DiagnosticReport.conclusion"/>
         <short value="Clinical Interpretation of Lipid Panel"/>
-        <formal value="May include diagnosis or suggestions for follow up testing."/>
+        <definition value="May include diagnosis or suggestions for follow up testing."/>
         <comments value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
         <min value="0"/>
         <max value="1"/>
@@ -415,7 +415,7 @@
     <element>
       <path value="DiagnosticReport.codedDiagnosis"/>
         <short value="No codes for a lipid panel"/>
-        <formal value="No codes for a lipid panel."/>
+        <definition value="No codes for a lipid panel."/>
         <comments value="Not used in this context."/>
         <min value="0"/>
         <max value="0"/>
@@ -435,7 +435,7 @@
     <element>
       <path value="DiagnosticReport.representation"/>
         <short value="Entire Report as issued"/>
-        <formal value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
+        <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
         <comments value="Possible formats: text/html, text/plain, text/rtf, application/msword, application/pdf, application/rtf, application/vnd.oasis.opendocument.text, application/vnd.openxmlformats-officedocument.wordprocessingml.document. Application/pdf is recommended as the most reliable and interoperable in this context."/>
         <min value="0"/>
         <max value="*"/>

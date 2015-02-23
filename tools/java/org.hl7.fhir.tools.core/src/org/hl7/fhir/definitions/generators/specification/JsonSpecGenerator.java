@@ -525,13 +525,13 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   private String getEnhancedDefinition(ElementDefinition elem) {
     if (elem.getIsModifier() && elem.getMustSupport())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element modifies the meaning of other elements, and must be supported)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements, and must be supported)";
     else if (elem.getIsModifier())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element modifies the meaning of other elements)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements)";
     else if (elem.getMustSupport())
-      return Utilities.removePeriod(elem.getFormal()) + " (this element must be supported)";
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element must be supported)";
     else
-      return Utilities.removePeriod(elem.getFormal());
+      return Utilities.removePeriod(elem.getDefinition());
   }
 
   private String docPrefix(int widthSoFar, int indent, ElementDefn elem) {

@@ -79,7 +79,7 @@
   <element>
     <path value="Extension"/>
     <short value="Alternate Language"/>
-    <formal value="A translation to an alternative language"/>
+    <definition value="A translation to an alternative language"/>
     <min value="0"/>
     <max value="*"/>
     <isModifier value="false"/>
@@ -87,7 +87,7 @@
   <element>
     <path value="Extension.lang"/>
     <short value="Language of Translation"/>
-    <formal value="The language that the translation is for"/>
+    <definition value="The language that the translation is for"/>
     <min value="1"/>
     <max value="1"/>
     <type>
@@ -105,7 +105,7 @@
   <element>
     <path value="Extension.content"/>
     <short value="Value of Translation"/>
-    <formal value="The content of the translation"/>
+    <definition value="The content of the translation"/>
     <min value="1"/>
     <max value="1"/>
     <type>

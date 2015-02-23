@@ -1912,7 +1912,7 @@ public class Publisher implements URIResolver {
     p.setDifferential(null);
     for (ElementDefinition ed : p.getSnapshot().getElement()) {
       ed.setShortElement(null);
-      ed.setFormalElement(null);
+      ed.setDefinitionElement(null);
       ed.setCommentsElement(null);
       ed.setRequirementsElement(null);
       ed.getSynonym().clear();

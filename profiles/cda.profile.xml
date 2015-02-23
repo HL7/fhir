@@ -118,7 +118,7 @@
           <element>
             <path value="Composition.identifier"/>
             <short value="Clinical Document setId"/>
-            <formal value="Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time."/>
+            <definition value="Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time."/>
             <comments value="See discussion in resource definition for how these relate."/>
             <min value="0"/>
             <max value="1"/>
@@ -186,7 +186,7 @@
           <element>
             <path value="Composition.status"/>
             <short value="final"/>
-            <formal value="CDA: all documents are final"/>
+            <definition value="CDA: all documents are final"/>
             <min value="1"/>
             <max value="1"/>
             <fixedCode value="final"/>
@@ -228,7 +228,7 @@
           <element>
             <path value="Composition.author"/>
             <short value="Who and/or what authored the composition"/>
-            <formal value="Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)."/>
+            <definition value="Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)."/>
             <min value="1"/>
             <max value="*"/>
             <type>
@@ -260,7 +260,7 @@
           <element>
             <path value="Composition.attester"/>
             <short value="Attests to accuracy of composition"/>
-            <formal value="A participant who has attested to the accuracy of the composition/document."/>
+            <definition value="A participant who has attested to the accuracy of the composition/document."/>
             <comments value="Only list each attester once."/>
             <min value="0"/>
             <max value="*"/>
@@ -277,7 +277,7 @@
           <element>
             <path value="Composition.attester.extension"/>
             <short value="Additional Content defined by implementations"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -290,7 +290,7 @@
           <element>
             <path value="Composition.attester.modifierExtension"/>
             <short value="Extensions that cannot be ignored"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -303,7 +303,7 @@
           <element>
             <path value="Composition.attester.mode"/>
             <short value="personal | professional | legal | official"/>
-            <formal value="The type of attestation the authenticator offers."/>
+            <definition value="The type of attestation the authenticator offers."/>
             <comments value="Use more than one code where a single attester has more than one mode (professional and legal are often paired)."/>
             <min value="1"/>
             <max value="*"/>
@@ -331,7 +331,7 @@
           <element>
             <path value="Composition.attester.time"/>
             <short value="When composition attested"/>
-            <formal value="When composition was attested by the party."/>
+            <definition value="When composition was attested by the party."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -350,7 +350,7 @@
           <element>
             <path value="Composition.attester.party"/>
             <short value="Who attested the composition"/>
-            <formal value="Who attested the composition in the specified way."/>
+            <definition value="Who attested the composition in the specified way."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -380,7 +380,7 @@
           <element>
             <path value="Composition.custodian"/>
             <short value="Org which maintains the composition"/>
-            <formal value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information."/>
+            <definition value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information."/>
             <comments value="This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because knowing this is sometimes not known by the authoring system, and can be inferred by context. However it&#39;s important that this information be known when working with a derived document, so providing a custodian is encouraged."/>
             <min value="0"/>
             <max value="1"/>
@@ -401,7 +401,7 @@
           <element>
             <path value="Composition.event"/>
             <short value="The clinical event/act/item being documented"/>
-            <formal value="The main event/act/item, such as a colonoscopy or an appendectomy, being documented."/>
+            <definition value="The main event/act/item, such as a colonoscopy or an appendectomy, being documented."/>
             <comments value="The event needs to be consistent with the type element, though can provide further information if desired."/>
             <min value="0"/>
             <max value="1"/>
@@ -418,7 +418,7 @@
           <element>
             <path value="Composition.event.extension"/>
             <short value="Additional Content defined by implementations"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -431,7 +431,7 @@
           <element>
             <path value="Composition.event.modifierExtension"/>
             <short value="Extensions that cannot be ignored"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -444,7 +444,7 @@
           <element>
             <path value="Composition.event.code"/>
             <short value="Code(s) that apply to the event being documented"/>
-            <formal value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
+            <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
             <comments value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries."/>
             <min value="0"/>
             <max value="*"/>
@@ -472,7 +472,7 @@
           <element>
             <path value="Composition.event.period"/>
             <short value="The period covered by the documentation"/>
-            <formal value="The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time."/>
+            <definition value="The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -491,7 +491,7 @@
           <element>
             <path value="Composition.event.detail"/>
             <short value="Full details for the event(s) the composition consents"/>
-            <formal value="Full details for the event(s) the composition/documentation consents."/>
+            <definition value="Full details for the event(s) the composition/documentation consents."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -511,7 +511,7 @@
           <element>
             <path value="Composition.encounter"/>
             <short value="Context of the conposition"/>
-            <formal value="Describes the clinical encounter or type of care this documentation is associated with."/>
+            <definition value="Describes the clinical encounter or type of care this documentation is associated with."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -532,7 +532,7 @@
             <path value="Composition.section"/>
             <name value="section"/>
             <short value="Composition is broken into sections"/>
-            <formal value="The root of the sections that make up the composition."/>
+            <definition value="The root of the sections that make up the composition."/>
             <min value="0"/>
             <max value="*"/>
             <constraint>
@@ -555,7 +555,7 @@
           <element>
             <path value="Composition.section.extension"/>
             <short value="Additional Content defined by implementations"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -568,7 +568,7 @@
           <element>
             <path value="Composition.section.modifierExtension"/>
             <short value="Extensions that cannot be ignored"/>
-            <formal value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
+            <definition value="May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions."/>
             <comments value="there can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
             <synonym value="extensions"/>
             <synonym value="user content"/>
@@ -581,7 +581,7 @@
           <element>
             <path value="Composition.section.title"/>
             <short value="Label for section"/>
-            <formal value="The heading for this particular section.  This will be part of the rendered content for the document."/>
+            <definition value="The heading for this particular section.  This will be part of the rendered content for the document."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -600,7 +600,7 @@
           <element>
             <path value="Composition.section.code"/>
             <short value="Classification of section (recommended)"/>
-            <formal value="A code identifying the kind of content contained within the section."/>
+            <definition value="A code identifying the kind of content contained within the section."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -627,7 +627,7 @@
           <element>
             <path value="Composition.section.subject"/>
             <short value="If section different to composition"/>
-            <formal value="Identifies the primary subject of the section."/>
+            <definition value="Identifies the primary subject of the section."/>
             <comments value="This is labeled as &quot;Is Modifier&quot; because applications SHALL be aware if the subject changes for a particular section."/>
             <min value="0"/>
             <max value="1"/>
@@ -658,7 +658,7 @@
           <element>
             <path value="Composition.section.content"/>
             <short value="The actual data for the section"/>
-            <formal value="Identifies the discrete data that provides the content for the section."/>
+            <definition value="Identifies the discrete data that provides the content for the section."/>
             <comments value="Because composition represent point-in-time snapshots, resource references should either be to a specific version, or made against resources on the same server with full version tracking, so that the correct versions can easily be assembled."/>
             <min value="0"/>
             <max value="1"/>
@@ -679,7 +679,7 @@
           <element>
             <path value="Composition.section.section"/>
             <short value="Nested Section"/>
-            <formal value="A nested sub-section within this section."/>
+            <definition value="A nested sub-section within this section."/>
             <min value="0"/>
             <max value="*"/>
             <nameReference value="section"/>
@@ -1002,7 +1002,7 @@
           <element>
             <path value="Patient.contact.address"/>
             <short value="Address for the guardian"/>
-            <formal value="Address for the contact person."/>
+            <definition value="Address for the contact person."/>
             <min value="0"/>
             <max value="1"/>
             <mapping>
@@ -1242,7 +1242,7 @@
           <element>
             <path value="Organization.partOf"/>
             <short value="The organization of which this organization forms a part"/>
-            <formal value="The organization of which this organization forms a part."/>
+            <definition value="The organization of which this organization forms a part."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -1497,7 +1497,7 @@
           <element>
             <path value="DiagnosticOrder.identifier"/>
             <short value="Identifiers assigned to this order"/>
-            <formal value="Identifiers assigned to this order by the order or by the receiver."/>
+            <definition value="Identifiers assigned to this order by the order or by the receiver."/>
             <min value="0"/>
             <max value="*"/>
             <type>

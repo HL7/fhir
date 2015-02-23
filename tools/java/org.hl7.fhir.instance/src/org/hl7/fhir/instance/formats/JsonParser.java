@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -574,10 +574,10 @@ public class JsonParser extends JsonParserBase {
       res.setShortElement(parseString(json.get("short").getAsString()));
     if (json.has("_short"))
       parseElementProperties(json.getAsJsonObject("_short"), res.getShortElement());
-    if (json.has("formal"))
-      res.setFormalElement(parseString(json.get("formal").getAsString()));
-    if (json.has("_formal"))
-      parseElementProperties(json.getAsJsonObject("_formal"), res.getFormalElement());
+    if (json.has("definition"))
+      res.setDefinitionElement(parseString(json.get("definition").getAsString()));
+    if (json.has("_definition"))
+      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinitionElement());
     if (json.has("comments"))
       res.setCommentsElement(parseString(json.get("comments").getAsString()));
     if (json.has("_comments"))
@@ -7940,6 +7940,10 @@ public class JsonParser extends JsonParserBase {
       res.setBirthDateElement(parseDate(json.get("birthDate").getAsString()));
     if (json.has("_birthDate"))
       parseElementProperties(json.getAsJsonObject("_birthDate"), res.getBirthDateElement());
+    if (json.has("birthTime"))
+      res.setBirthTimeElement(parseTime(json.get("birthTime").getAsString()));
+    if (json.has("_birthTime"))
+      parseElementProperties(json.getAsJsonObject("_birthTime"), res.getBirthTimeElement());
     Type deceased = parseType("deceased", json);
     if (deceased != null)
       res.setDeceased(deceased);
@@ -13036,9 +13040,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("short", element.getShortElement(), false);
         composeStringExtras("short", element.getShortElement(), false);
       }
-      if (element.hasFormalElement()) {
-        composeStringCore("formal", element.getFormalElement(), false);
-        composeStringExtras("formal", element.getFormalElement(), false);
+      if (element.hasDefinitionElement()) {
+        composeStringCore("definition", element.getDefinitionElement(), false);
+        composeStringExtras("definition", element.getDefinitionElement(), false);
       }
       if (element.hasCommentsElement()) {
         composeStringCore("comments", element.getCommentsElement(), false);
@@ -22162,6 +22166,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasBirthDateElement()) {
         composeDateCore("birthDate", element.getBirthDateElement(), false);
         composeDateExtras("birthDate", element.getBirthDateElement(), false);
+      }
+      if (element.hasBirthTimeElement()) {
+        composeTimeCore("birthTime", element.getBirthTimeElement(), false);
+        composeTimeExtras("birthTime", element.getBirthTimeElement(), false);
       }
       if (element.hasDeceased()) {
         composeType("deceased", element.getDeceased());

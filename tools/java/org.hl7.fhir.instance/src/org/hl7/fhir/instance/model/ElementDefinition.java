@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -1791,11 +1791,11 @@ public class ElementDefinition extends Type {
     protected StringType short_;
 
     /**
-     * The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
+     * A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
      */
-    @Child(name="formal", type={StringType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="Full formal definition in human language", formalDefinition="The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource." )
-    protected StringType formal;
+    @Child(name="definition", type={StringType.class}, order=5, min=0, max=1)
+    @Description(shortDefinition="Full formal definition in human language", formalDefinition="A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource." )
+    protected StringType definition;
 
     /**
      * Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
@@ -1937,7 +1937,7 @@ public class ElementDefinition extends Type {
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = 2094512467L;
+    private static final long serialVersionUID = -259600657L;
 
     public ElementDefinition() {
       super();
@@ -2170,50 +2170,50 @@ public class ElementDefinition extends Type {
     }
 
     /**
-     * @return {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getFormal" gives direct access to the value
+     * @return {@link #definition} (A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
-    public StringType getFormalElement() { 
-      if (this.formal == null)
+    public StringType getDefinitionElement() { 
+      if (this.definition == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ElementDefinition.formal");
+          throw new Error("Attempt to auto-create ElementDefinition.definition");
         else if (Configuration.doAutoCreate())
-          this.formal = new StringType(); // bb
-      return this.formal;
+          this.definition = new StringType(); // bb
+      return this.definition;
     }
 
-    public boolean hasFormalElement() { 
-      return this.formal != null && !this.formal.isEmpty();
+    public boolean hasDefinitionElement() { 
+      return this.definition != null && !this.definition.isEmpty();
     }
 
-    public boolean hasFormal() { 
-      return this.formal != null && !this.formal.isEmpty();
+    public boolean hasDefinition() { 
+      return this.definition != null && !this.definition.isEmpty();
     }
 
     /**
-     * @param value {@link #formal} (The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getFormal" gives direct access to the value
+     * @param value {@link #definition} (A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
-    public ElementDefinition setFormalElement(StringType value) { 
-      this.formal = value;
+    public ElementDefinition setDefinitionElement(StringType value) { 
+      this.definition = value;
       return this;
     }
 
     /**
-     * @return The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
+     * @return A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
      */
-    public String getFormal() { 
-      return this.formal == null ? null : this.formal.getValue();
+    public String getDefinition() { 
+      return this.definition == null ? null : this.definition.getValue();
     }
 
     /**
-     * @param value The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
+     * @param value A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
      */
-    public ElementDefinition setFormal(String value) { 
+    public ElementDefinition setDefinition(String value) { 
       if (Utilities.noString(value))
-        this.formal = null;
+        this.definition = null;
       else {
-        if (this.formal == null)
-          this.formal = new StringType();
-        this.formal.setValue(value);
+        if (this.definition == null)
+          this.definition = new StringType();
+        this.definition.setValue(value);
       }
       return this;
     }
@@ -2993,7 +2993,7 @@ public class ElementDefinition extends Type {
         childrenList.add(new Property("name", "string", "The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
         childrenList.add(new Property("short", "string", "A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).", 0, java.lang.Integer.MAX_VALUE, short_));
-        childrenList.add(new Property("formal", "string", "The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, formal));
+        childrenList.add(new Property("definition", "string", "A full formal definition of the meaning of the data element. In human readable language.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("synonym", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, synonym));
@@ -3028,7 +3028,7 @@ public class ElementDefinition extends Type {
         dst.name = name == null ? null : name.copy();
         dst.slicing = slicing == null ? null : slicing.copy();
         dst.short_ = short_ == null ? null : short_.copy();
-        dst.formal = formal == null ? null : formal.copy();
+        dst.definition = definition == null ? null : definition.copy();
         dst.comments = comments == null ? null : comments.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         if (synonym != null) {
@@ -3084,7 +3084,7 @@ public class ElementDefinition extends Type {
           return false;
         ElementDefinition o = (ElementDefinition) other;
         return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(name, o.name, true)
-           && compareDeep(slicing, o.slicing, true) && compareDeep(short_, o.short_, true) && compareDeep(formal, o.formal, true)
+           && compareDeep(slicing, o.slicing, true) && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true)
            && compareDeep(comments, o.comments, true) && compareDeep(requirements, o.requirements, true) && compareDeep(synonym, o.synonym, true)
            && compareDeep(min, o.min, true) && compareDeep(max, o.max, true) && compareDeep(type, o.type, true)
            && compareDeep(nameReference, o.nameReference, true) && compareDeep(defaultValue, o.defaultValue, true)
@@ -3103,7 +3103,7 @@ public class ElementDefinition extends Type {
           return false;
         ElementDefinition o = (ElementDefinition) other;
         return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(name, o.name, true)
-           && compareValues(short_, o.short_, true) && compareValues(formal, o.formal, true) && compareValues(comments, o.comments, true)
+           && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true) && compareValues(comments, o.comments, true)
            && compareValues(requirements, o.requirements, true) && compareValues(synonym, o.synonym, true) && compareValues(min, o.min, true)
            && compareValues(max, o.max, true) && compareValues(nameReference, o.nameReference, true) && compareValues(meaningWhenMissing, o.meaningWhenMissing, true)
            && compareValues(maxLength, o.maxLength, true) && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true)
@@ -3113,15 +3113,16 @@ public class ElementDefinition extends Type {
       public boolean isEmpty() {
         return super.isEmpty() && (path == null || path.isEmpty()) && (representation == null || representation.isEmpty())
            && (name == null || name.isEmpty()) && (slicing == null || slicing.isEmpty()) && (short_ == null || short_.isEmpty())
-           && (formal == null || formal.isEmpty()) && (comments == null || comments.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (synonym == null || synonym.isEmpty()) && (min == null || min.isEmpty()) && (max == null || max.isEmpty())
-           && (type == null || type.isEmpty()) && (nameReference == null || nameReference.isEmpty())
-           && (defaultValue == null || defaultValue.isEmpty()) && (meaningWhenMissing == null || meaningWhenMissing.isEmpty())
-           && (fixed == null || fixed.isEmpty()) && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty())
-           && (maxLength == null || maxLength.isEmpty()) && (condition == null || condition.isEmpty())
-           && (constraint == null || constraint.isEmpty()) && (mustSupport == null || mustSupport.isEmpty())
-           && (isModifier == null || isModifier.isEmpty()) && (isSummary == null || isSummary.isEmpty())
-           && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty());
+           && (definition == null || definition.isEmpty()) && (comments == null || comments.isEmpty())
+           && (requirements == null || requirements.isEmpty()) && (synonym == null || synonym.isEmpty())
+           && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (type == null || type.isEmpty())
+           && (nameReference == null || nameReference.isEmpty()) && (defaultValue == null || defaultValue.isEmpty())
+           && (meaningWhenMissing == null || meaningWhenMissing.isEmpty()) && (fixed == null || fixed.isEmpty())
+           && (pattern == null || pattern.isEmpty()) && (example == null || example.isEmpty()) && (maxLength == null || maxLength.isEmpty())
+           && (condition == null || condition.isEmpty()) && (constraint == null || constraint.isEmpty())
+           && (mustSupport == null || mustSupport.isEmpty()) && (isModifier == null || isModifier.isEmpty())
+           && (isSummary == null || isSummary.isEmpty()) && (binding == null || binding.isEmpty()) && (mapping == null || mapping.isEmpty())
+          ;
       }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Feb 22, 2015 19:55+1100 for FHIR v0.4.0
+// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -752,10 +752,10 @@ public class Practitioner extends DomainResource {
     protected Enumeration<AdministrativeGender> gender;
 
     /**
-     * The date and time of birth for the practitioner.
+     * The date of birth for the practitioner.
      */
     @Child(name="birthDate", type={DateType.class}, order=5, min=0, max=1)
-    @Description(shortDefinition="The date and time of birth for the practitioner", formalDefinition="The date and time of birth for the practitioner." )
+    @Description(shortDefinition="The date  of birth for the practitioner", formalDefinition="The date of birth for the practitioner." )
     protected DateType birthDate;
 
     /**
@@ -956,7 +956,7 @@ public class Practitioner extends DomainResource {
     }
 
     /**
-     * @return {@link #birthDate} (The date and time of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
+     * @return {@link #birthDate} (The date of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
     public DateType getBirthDateElement() { 
       if (this.birthDate == null)
@@ -976,7 +976,7 @@ public class Practitioner extends DomainResource {
     }
 
     /**
-     * @param value {@link #birthDate} (The date and time of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
+     * @param value {@link #birthDate} (The date of birth for the practitioner.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
     public Practitioner setBirthDateElement(DateType value) { 
       this.birthDate = value;
@@ -984,14 +984,14 @@ public class Practitioner extends DomainResource {
     }
 
     /**
-     * @return The date and time of birth for the practitioner.
+     * @return The date of birth for the practitioner.
      */
     public Date getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
-     * @param value The date and time of birth for the practitioner.
+     * @param value The date of birth for the practitioner.
      */
     public Practitioner setBirthDate(Date value) { 
       if (value == null)
@@ -1131,7 +1131,7 @@ public class Practitioner extends DomainResource {
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the practitioner, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "The postal address where the practitioner can be found or visited or to which mail can be delivered.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
-        childrenList.add(new Property("birthDate", "date", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
+        childrenList.add(new Property("birthDate", "date", "The date of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("practitionerRole", "", "The list of Roles/Organizations that the Practitioner is associated with.", 0, java.lang.Integer.MAX_VALUE, practitionerRole));
         childrenList.add(new Property("qualification", "", "Qualifications obtained by training and certification.", 0, java.lang.Integer.MAX_VALUE, qualification));
