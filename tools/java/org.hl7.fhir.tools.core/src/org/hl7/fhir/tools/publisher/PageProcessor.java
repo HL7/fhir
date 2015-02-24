@@ -4226,7 +4226,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String profileDictionaryLink(ProfileDefn profile) {
     String uri = ToolingExtensions.readStringExtension(profile.getResource(), "http://hl7.org/fhir/ExtensionDefinition/datadictionary");
     if (Utilities.noString(uri))
-      return "";
+      return "<!-- no uri -->";
     String dict = definitions.getDictionaries().get(uri);
     if (Utilities.noString(dict))
       return "<p>This profile specifies that the value of the "+profile.getResource().getSnapshot().getElement().get(0).getPath()+
