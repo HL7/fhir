@@ -442,7 +442,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">DeviceMetricColor</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s72"><Data ss:Type="String">Describes the typical color of representation</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s72"><Data ss:Type="String">black | red | green | yellow | blue | magenta | cyan | white</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Describes the typical color of the representation of observations that have been generated for this DeviceMetric.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75" ss:StyleID="s69">
@@ -510,7 +510,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -523,12 +523,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1132,7 +1131,7 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="5" ss:Width="63"/>
    <Column ss:Width="170.25"/>
-   <Row ss:Height="30.75">
+   <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s88"><Data ss:Type="String">Code</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font></ss:Data></Comment></Cell>
@@ -1161,7 +1160,7 @@
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font></ss:Data></Comment></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"><Data ss:Type="String">black</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s79"/>
@@ -1172,7 +1171,7 @@
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s95"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">red</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1183,7 +1182,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">green</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1194,7 +1193,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">yellow</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1205,7 +1204,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">blue</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1216,7 +1215,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">magenta</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1227,7 +1226,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">cyan</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s85"/>
@@ -1238,7 +1237,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s99"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">white</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s104"><Data ss:Type="String">col-white</Data></Cell>
@@ -1251,11 +1250,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <RangeSelection>R2C1:R9C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
