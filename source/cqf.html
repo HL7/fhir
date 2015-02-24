@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle U.S. Clinical Quality Framework (CQF) Implementation Guide%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="CQF"> </a> 
+<h2>U.S. Clinical Quality Framework (CQF) Implementation Guide</h2>
+<p>
+This implementation guide is prepared as a U.S. Realm Specification on behalf of the 
+Centers for Medicare & Medicaid Services and the U.S. Office of the National Coordinator (ONC).
+Much of the content is likely to be usable in other jurisdictions.
+</p>
+
+<h3>Draft Standard for Trial Use (DSTU)</h3>
+<p>
+This FHIR Implementation Guide is undergoing a DSTU ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets and conformance statements it defines, although comments on the underlying resources will also be accepted.  This guide will be balloted separately from the FHIR specification itself. 
+</p>
+
+<h3>Background</h3>
+<ul>
+  <li><a href="CQF-intro.html">Introduction</a> - How this project came to be and what it is trying to achieve</li>
+  <li><a href="CQF-outstandingissues.html">Outstanding Issues</a> - Issues that need to be resolved</li>
+  <li><a href="http://wiki.siframework.org/Clinical+Quality+Framework+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
+</ul>
+
+<h3>Specification</h3>
+<p>
+The <i>CQF FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard. The CQF FHIR IG implements the Quality Information and Clinical Knowledge (QUICK) logical model, balloted separately. Each CQF profile implements a class in the QUICK model. The background of the QUICK model and its relationship to existing quality data standards, such as the Quality Data Model (QDM), is explained elsewhere. The table below provides a top-level mapping QUICK classes to CQF profiles, along with the identification of the base FHIR resource. 
+</p>
+<div>
+<h4>Mapping of QUICK Classes to CQF profiles and FHIR resources</h4>
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>QUICK Class</th>
+            <th>CQF FHIR Profile</th>
+			<th>Base FHIR Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>AllergyIntolerance</td>
+			<td><a href="allergyintolerance-CQF.html">CQFAllergyIntolerance</a></td>
+			<td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+		  </tr>
+		  <tr>
+			<td>Diagnostic Order</td>
+			<td><a href="diagnosticorder-CQF.html">CQFDiagnosticOrder</a></td>
+			<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
+		  </tr>
+		  <tr>
+			<td>Diagnostic Report</td>
+			<td><a href="diagnosticreport-CQF.html">CQFDiagnosticReport</a></td>
+			<td><a href="diagnosticreport.html">DiagnosticReport</a></td>
+		  </tr>		  
+		  <tr>
+			<td>Encounters</td>
+			<td><a href="encounter-CQF.html">CQFEncounter</a></td>
+			<td><a href="encounter.html">Encounter</a></td>
+		  </tr>
+		  <tr>
+			<td>FamilyHistory</td>
+			<td><a href="familyhistory-CQF.html">CQFFamilyHistory</a></td>
+			<td><a href="familyhistory.html">FamilyHistory</a></td>
+		  </tr>
+		  <tr>
+			<td>Immunizations</td>
+			<td><a href="immunization-CQF.html">CQFImmunization</a></td>
+			<td><a href="immunization.html">Immunization</a></td>
+		  </tr>
+		  <tr>
+			<td>LabResults</td>
+			<td><a href="observation-CQF-results.html">CQFLabResults</a></td>
+			<td><a href="observation.html">Observation</a></td>
+		  </tr>
+		  <tr>
+			<td>Medications</td>
+			<td><a href="CQF-medicationusage.html">CQF profiles for medications</a></td>
+			<td>FHIR medication resources</td>
+		  </tr>
+		  <tr>
+			<td>Patient Demographics</td>
+			<td><a href="patient-CQF.html">CQFPatient</a></td>
+			<td><a href="patient.html">Patient</a></td>
+		  </tr>
+		  <tr>
+			<td>Problems</td>
+			<td><a href="condition-CQF.html">CQFCondition (Problem)</a></td>
+			<td><a href="condition.html">Condition</a></td>
+		  </tr>
+		  <tr>
+			<td>Procedures</td>
+			<td><a href="procedure-CQF.html">CQFProcedure</a></td>
+			<td><a href="procedure.html">Procedure</a></td>
+		  </tr>  
+		</tbody>
+	</table>
+</div>
+
+
+
+<h3>Conformance Requirements</h3>
+<p>
+TBD
+</p>
+
+
+<h3>Author Information</h3>
+
+	<table class="grid">
+        <thead>
+          <tr>
+            <th>Author Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+			<td>Claude Nanjo (Primary)</td>
+		  </tr>
+		  <tr>
+			<td>Jason Mathews (Primary)</td>
+		  </tr>
+		  <tr>
+			<td>Mark Kramer (Primary)</td>
+		  </tr>
+		  <tr>
+			<td>Marc Hadley (Supporting)</td>
+		  </tr>
+		  <tr>
+			<td>Lloyd McKenzie (Supporting)</td>
+		  </tr>
+		</tbody>
+	</table>
+	
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>
