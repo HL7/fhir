@@ -27,7 +27,7 @@
             </tbody>
          </table>
          <h2>REST  behavior</h2>
-         <p>Conformant systems must record <a href="provenance.html">Provenance</a> records on all Create, Update and Delete actions on any resource other than Provenance or SecurityEvent.       Conformant systems must record <a href="securityevent.html">SecurityEvent</a> records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)</p>
+         <p>Conformant systems must record <a href="provenance.html">Provenance</a> records on all Create, Update and Delete actions on any resource other than Provenance or AuditEvent.       Conformant systems must record <a href="auditevent.html">AuditEvent</a> records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)</p>
          <p>
             <b>Security:</b>
          </p>
@@ -65,7 +65,7 @@
                   <td/>
                </tr>
                <tr>
-                  <th>SecurityEvent</th>
+                  <th>AuditEvent</th>
                   <td/>
                   <td/>
                   <td/>
@@ -74,7 +74,7 @@
                   <td/>
                   <td>
                      <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'."
-                        href="#SecurityEvent-create">Yes</a>
+                        href="#AuditEvent-create">Yes</a>
                   </td>
                   <td/>
                   <td/>
@@ -109,7 +109,7 @@
          <br/>
          <br/>
          <h3>
-            <a href="securityevent.html">SecurityEvent</a>
+            <a href="auditevent.html">AuditEvent</a>
          </h3>
          <h4>Interactions</h4>
          <table class="list">
@@ -122,7 +122,7 @@
             <tbody>
                <tr>
                   <th>
-                     <a name="SecurityEvent-create"> </a>
+                     <a name="AuditEvent-create"> </a>
                      <span>create</span>
                   </th>
                   <td>
@@ -151,7 +151,7 @@
   <format value="json"/>
   <rest>
       <mode value="client"/>
-      <documentation value="Conformant systems must record [[Provenance]] records on all Create, Update and Delete actions on any resource other than Provenance or SecurityEvent.       Conformant systems must record [[SecurityEvent]] records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)"/>
+      <documentation value="Conformant systems must record [[Provenance]] records on all Create, Update and Delete actions on any resource other than Provenance or AuditEvent.       Conformant systems must record [[AuditEvent]] records on all Create, Update and Delete actions as well as all GET operations (read, search, etc.)"/>
       <security>
          <description value="Any security rules??"/>
       </security>
@@ -169,9 +169,9 @@
          </interaction>
       </resource>
       <resource>
-         <type value="SecurityEvent"/>
+         <type value="AuditEvent"/>
          <profile>
-            <reference value="http://hl7.org/fhir/Profile/securityevent-ehr-rle"/>
+            <reference value="http://hl7.org/fhir/Profile/auditevent-ehr-rle"/>
          </profile>
          <interaction>
             <extension url="http://hl7.org/fhir/ExtensionDefinition/conformance-common-expectation">

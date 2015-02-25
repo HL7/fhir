@@ -212,7 +212,7 @@ todo: compartments
 			<page type="resource" resource="Basic"/>
 			<page type="resource" resource="Other"/>
 			<page type="resource" resource="Provenance"/>
-			<page type="resource" resource="SecurityEvent"/>
+			<page type="resource" resource="AuditEvent"/>
 			<page type="resource" resource="Binary"/>
 			<page type="resource" resource="Bundle"/>
 			<page type="resource" resource="Composition"/>

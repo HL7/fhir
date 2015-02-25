@@ -2,7 +2,7 @@
 
 <h3>Using Coded Values</h3>
 <p>
-The security event resource and the ATNA Audit record are used in many contexts through healthcare. 
+The audit event resource and the ATNA Audit record are used in many contexts through healthcare. 
 The coded values defined in the "extensible" bindings above are those widely used and/or defined by
 DICOM, IHE or ISO, who all defined these codes to meet very specific use cases. These codes should be 
 used when the are suitable, or other codes can be defined. 
@@ -19,18 +19,18 @@ This table summarizes common event scenarios, and the codes that should be used 
 </p>
 <table class="grid">
   <tr><td><b>Scenario</b></td><td><b>type</b></td><td><b>subtype</b></td><td><b>action</b></td><td><b></b>Other</td></tr>
-  <tr><td>User Login (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110122">110122</a> User Authentication</td>
-     <td><a href="security-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged in user</td></tr>
+  <tr><td>User Login (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110122">110122</a> User Authentication</td>
+     <td><a href="audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged in user</td></tr>
   <tr><td>OAuth based User Login </td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110122">110122</a> User Authentication</td>
-     <td><a href="security-event-action.html">E</a> Execute</td><td>todo</td></tr>
-  <tr><td>User Logout (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110123">110123</a> User Logout</td>
-     <td><a href="security-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged out user</td></tr>
-  <tr><td>REST operation logged on server (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-security-event-type.html">rest</a> RESTful Operation</td><td><a href="type-restful-interaction.html">[code]</a> defined for operation</td>
-     <td><a href="security-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference if at least the type is known as part of the operation. Reference.url should be provided to the granularity known</td></tr>
+     <td><a href="audit-event-action.html">E</a> Execute</td><td>todo</td></tr>
+  <tr><td>User Logout (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110123">110123</a> User Logout</td>
+     <td><a href="audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged out user</td></tr>
+  <tr><td>REST operation logged on server (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="type-restful-interaction.html">[code]</a> defined for operation</td>
+     <td><a href="audit-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference if at least the type is known as part of the operation. Reference.url should be provided to the granularity known</td></tr>
 </table>
 
 <p>
-Security Event Actions for RESTful operations:
+Audit Event Actions for RESTful operations:
 </p>
 <table class="grid">
  <tr><td><b>Operation</b></td><td><b>Action</b></td></tr>
@@ -41,7 +41,7 @@ Security Event Actions for RESTful operations:
  <tr><td>search, validate, transaction, conformance, mailbox </td><td>E</td></tr>
 </table>
 <!-- 
-<h3>Referring to FHIR Resources in Security Events</h3>
+<h3>Referring to FHIR Resources in Audit Events</h3>
 
 <p>
 Because the Audit resource is typically used for auditing many things beyond events

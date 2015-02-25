@@ -21,7 +21,7 @@ or to provision and administer either users or security on system that use FHIR.
 FHIR defines a number of security related resources:
 </p>
 <table class="grid">
- <tr> <td><a href="securityevent.html">SecurityEvent</a></td> <td>A record of an event made for purposes of maintaining a security log</td> </tr>
+ <tr> <td><a href="auditevent.html">AuditEvent</a></td> <td>A record of an event made for purposes of maintaining a security log</td> </tr>
  <tr> <td><a href="securityprincipal.html">SecurityPrincipal</a></td> <td>Tracks a human or software device that uses the system</td> </tr>
  <tr> <td><a href="securitygroup.html">SecurityGroup</a></td> <td>A group of rights for security principals</td> </tr>
  <tr> <td><a href="securityclaim.html">SecurityClaim</a></td> <td>A definition of a claim that can be made about a user</td> </tr>

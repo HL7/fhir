@@ -24,7 +24,7 @@ in one section. A summary:
  <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
  <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
  <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
- <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="securityevent.html">security event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
+ <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
  <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
  <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect that way resources are handled</li>
@@ -174,17 +174,17 @@ The rules behind the Access Control decision are often very complex, and potenti
 <a name="audit"> </a>
 <h2>Audit Logging</h2>
 <p>
-FHIR provides a <a href="securityevent.html">SecurityEvent</a> resource suitable for use by 
+FHIR provides a <a href="auditevent.html">AuditEvent</a> resource suitable for use by 
 FHIR clients and servers to record when a security or privacy relevant event has occurred. 
 This form of audit logging records as much detail as reasonable at the time the event happened. 
 </p>
 <p>
-The SecurityEvent when used to record security and privacy relevant events can then be 
+The AuditEvent when used to record security and privacy relevant events can then be 
 used by properly authorized applications to support audit reporting, alerting, filtering, 
 and forwarding. This model has been developed and used in healthcare for a decade as 
 <a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">IHE-ATNA profile</a>. 
-ATNA log events can be automatically converted to SecurityEvent resources, and from there,
-client applications are able to search the security events, or subscribe to them.
+ATNA log events can be automatically converted to AuditEvent resources, and from there,
+client applications are able to search the audit events, or subscribe to them.
 </p>
 
 

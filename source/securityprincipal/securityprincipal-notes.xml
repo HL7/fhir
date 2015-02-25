@@ -21,7 +21,7 @@ The SecurityPrincipal resource is used to:
  <li>identify the user/device</li>
  <li>connect that user to their associated resources</li>
  <li>relate the user to a set of claims that are used by the access control system to grant specific requests</li>
- <li>identify the target of a <a href="securityevent.html">security event</a></li>
+ <li>identify the target of a <a href="auditevent.html">audit event</a></li>
 </ul>
 <p>
 The user may be authenticated by a variety of methods, including by delegation to

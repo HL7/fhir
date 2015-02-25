@@ -1,4 +1,4 @@
-<SecurityEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/securityevent.xsd">
+<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="john"/>
   <text>
     <status value="generated"/>
@@ -71,4 +71,4 @@
     <lifecycle value="11"/>
     <name value="What"/>
     </object>
-</SecurityEvent>
+</AuditEvent>

@@ -466,7 +466,7 @@
     <Cell><Data ss:Type="String">SearchParameter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SecurityEvent</Data></Cell>
+    <Cell><Data ss:Type="String">AuditEvent</Data></Cell>
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

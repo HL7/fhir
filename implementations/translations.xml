@@ -520,8 +520,8 @@ NOTE: while translations on Resources are possible they should be used for rende
     <item id="SearchParameter">
         <translation lang="en">SearchParameter</translation>
     </item>
-    <item id="SecurityEvent">
-        <translation lang="en">SecurityEvent</translation>
+    <item id="AuditEvent">
+        <translation lang="en">AuditEvent</translation>
         <translation lang="zh">安全事件</translation>
         <translation lang="es">EventoSeguridad</translation>
         <translation lang="fr">ÉvènementSécurité</translation>

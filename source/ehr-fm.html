@@ -37,7 +37,7 @@ By default, underlying web frameworks such as SAML would be used. See <a href="s
 <tr><td>IN.1.9</td><td>Patient Privacy and Confidentiality</td><td>FHIR does not include functionality related to this requirement, though implementations would be expected to provide this</td></tr>
 <tr><td>IN.2</td><td>Health Record Information and Management</td><td>This is a core application of the FHIR capabilities</td></tr>
 <tr><td>IN.2.1</td><td>Data Retention, Availability and Destruction</td><td>A FHIR RESTful server gives precise and fine-grained control of retention, availability and destruction of resources, all clearly described by the conformance statement</td></tr>
-<tr><td>IN.2.2</td><td>Auditable Records</td><td>FHIR provides the <a href="securityevent.html">SecurityEvent</a> resource for auditable records.</td></tr>
+<tr><td>IN.2.2</td><td>Auditable Records</td><td>FHIR provides the <a href="auditevent.html">AuditEvent</a> resource for auditable records.</td></tr>
 <tr><td>IN.2.3</td><td>Synchronization</td><td>FHIR supports synchronization using standard web publication/subscription methods via <a href="extras.html#bundle">Bundles</a> (i.e. Atom feeds). Atom-based pub/sub may be push or pull based, and can include all resources of a particular type, or selected subsets of the resources. In addition, groups of resources can be exchanged in bundles, keeping a set of related resources in synchronization</td></tr>
 <tr><td>IN.2.4</td><td>Extraction of Health Record Information</td><td>FHIR does not provide report formats, but does provide extensive search and retrieval functions to assist with building such reports</td></tr>
 <tr><td>IN.2.5</td><td>Store and Manage Health Record Information</td><td>A FHIR RESTful server can store and manage health information persistently - see below for further information. </td></tr>
@@ -64,7 +64,7 @@ The EHR functional model describes several modes for interaction between systems
 <tr><td>Structured / Unstructured clinical document, e.g., dictated surgical note </td><td>See the <a href="documents.html">Documents</a></td></tr>
 </table>
 <p>
-The combination of a properly secured and managed FHIR server, along with enforced use of the <a href="securityevent.html">SecurityEvent</a> and <a href="provenance.html">Provenance</a> resources
+The combination of a properly secured and managed FHIR server, along with enforced use of the <a href="auditevent.html">AuditEvent</a> and <a href="provenance.html">Provenance</a> resources
 ensures that the core record management functions defined in the EHR-FM are met:
 </p>
 <ul>

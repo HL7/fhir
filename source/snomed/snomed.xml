@@ -1519,6 +1519,40 @@
     <display value="Baby food"/>
     <display value="Baby food (substance)"/>
   </concept>
+  <concept id="228049004" display="Chopped food (substance)">
+    <display value="Chopped food"/>
+    <display value="Chopped food (substance)"/>
+  </concept>
+  <concept id="228053002" display="Cut-up food (substance)">
+    <display value="Cut-up food"/>
+    <display value="Cut-up food (substance)"/>
+  </concept>
+  <concept id="228055009" display="Liquidized food (substance)">
+    <display value="Liquidized food"/>
+    <display value="Pureed food"/>
+    <display value="Liquidised food"/>
+    <display value="Liquidized food (substance)"/>
+  </concept>
+  <concept id="228056005" display="Lumpy food (substance)">
+    <display value="Lumpy food"/>
+    <display value="Lumpy food (substance)"/>
+  </concept>
+  <concept id="228057001" display="Semi-solid food (substance)">
+    <display value="Semi-solid food"/>
+    <display value="Semi-solid food (substance)"/>
+  </concept>
+  <concept id="228058006" display="Single texture food (substance)">
+    <display value="Single texture food"/>
+    <display value="Single texture food (substance)"/>
+  </concept>
+  <concept id="228059003" display="Soft food (substance)">
+    <display value="Soft food"/>
+    <display value="Soft food (substance)"/>
+  </concept>
+  <concept id="228060008" display="Solid food (substance)">
+    <display value="Solid food"/>
+    <display value="Solid food (substance)"/>
+  </concept>
   <concept id="22836000" display="Vegetable (substance)">
     <display value="Vegetable"/>
     <display value="Vegetable (substance)"/>

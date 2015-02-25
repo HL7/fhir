@@ -72,7 +72,7 @@ Digital signatures will no longer be valid.  Any change to submitted data will b
 Workflows can be made more complex.  A system that sends a create and then sends an update presuming that it has seen the most "current" version, could accidentally overwrite information set by the server as part of the create process.  (This can be mitigated by not returning an up-to-date <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag</a>.)
 </li>
 <li>
-Audit becomes more complicated.  The <a href="securityevent.html">SecurityEvent</a> resource points to a specific resource version when tracking what data was returned by a query.  If the record is modified when it is returned, then the audit record will likely need to be supplemented with information about what elements were filtered.
+Audit becomes more complicated.  The <a href="auditevent.html">AuditEvent</a> resource points to a specific resource version when tracking what data was returned by a query.  If the record is modified when it is returned, then the audit record will likely need to be supplemented with information about what elements were filtered.
 </li>
 <li>
 Multiple views of the same information by different people (or even by the same people in different contexts) may cause confusion, particularly when attempting to coordinate care across a team.  Providing OperationOutcome instances containing warnings if information has been suppressed may be helpful, though doing this may not be possible, depending on security policy rules.

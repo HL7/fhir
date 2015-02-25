@@ -9,8 +9,8 @@ This information can be used to form assessments about its quality, reliability 
 <p>
 <a href="provenance.html">Provenance resources</a> are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
-A <a href="securityevent.html">Security Event</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
-Security Event resources are often (though not exclusively) created by the application responding to the read/query/create/update etc. event. 
+A <a href="auditevent.html">Audit Event</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
+Audit Event resources are often (though not exclusively) created by the application responding to the read/query/create/update etc. event. 
 </p>
 </div>
 
