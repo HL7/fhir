@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-      
+
 [%settitle Resource References%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -22,7 +22,7 @@
 
 <p>
 Many of the defined elements in a resource are references to other resources. Using these
-references, the resources combine to build a web of information about healthcare. 
+references, the resources combine to build a web of information about healthcare.
 </p>
 <p>
 Resources contain two types of references:
@@ -36,20 +36,20 @@ References are always defined and represented in one particular direction - from
 References are provided as a URL, which may either be absolute or relative. Resolving the references is discussed below.
 </p>
 <p>
-The corresponding reverse relationship from the target to the source exists in a logical sense, but is 
-not represented explicitly in the resource. For external references, navigating these reverse relationships requires some 
-external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such 
-infrastructure by providing the ability to <a href="http.html#search">search</a> the reverse relationship by naming 
+The corresponding reverse relationship from the target to the source exists in a logical sense, but is
+not represented explicitly in the resource. For external references, navigating these reverse relationships requires some
+external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such
+infrastructure by providing the ability to <a href="http.html#search">search</a> the reverse relationship by naming
 search parameters for the references).
 </p>
 <p>
-Because resources are processed independently, relationships are not considered to be transitive. 
-For example, if a <a href="condition.html">Condition</a> resource references a particular 
+Because resources are processed independently, relationships are not considered to be transitive.
+For example, if a <a href="condition.html">Condition</a> resource references a particular
 <a href="patient.html">Patient</a> as its subject, and it links to a <a href="procedure.html">Procedure</a>
-resource as its cause, there is no automatic rule or implication that the procedure 
-has the same patient for its subject. Instead, the subject of the procedure must be established 
+resource as its cause, there is no automatic rule or implication that the procedure
+has the same patient for its subject. Instead, the subject of the procedure must be established
 directly in the procedure itself. Another way to state this is that the context of the subject
-is not "inherited", nor does it "conduct" along the relationship to procedure. 
+is not "inherited", nor does it "conduct" along the relationship to procedure.
 The only exception to this in the case of contained resources (see below). Note that in
 practice, the relationships do need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
@@ -57,7 +57,7 @@ the same patient for their subjects.
 </p>
 
 <p>
-In a resource, references are represented with a reference and a text description. 
+In a resource, references are represented with a reference and a text description.
 The <i>reference</i> is the key element - resources are identified and addressed by their URL.
 The actual reference looks like this:
 </p>
@@ -68,19 +68,19 @@ The actual reference looks like this:
 
 <p>Notes:</p>
 <ul>
- <li>The <i>reference</i> element contains a url that is either 
+ <li>The <i>reference</i> element contains a url that is either
    <ul>
      <li>an absolute URL</li>
      <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle, <a href="#atom-refs">the bundle context</a></li>
      <li>an internal fragment reference (see "Contained Resources" below)</li>
    </ul>
  </li>
- <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a 
+ <li>Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="implementation.html#identity">implementation issues for further discussion</a>)</li>
- <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.  
+ <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification</li>
  <li>URLs are always considered to be case-sensitive</li>
- <li>The <i>display</i>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to 
+ <li>The <i>display</i>, if populated, does generally not have identical content to the Resource.text of the referenced resource.  The purpose is to
    identify what's being referenced, not to more fully describe it</li>
 </ul>
 
@@ -115,8 +115,8 @@ This text can be used by a system that is unable to resolve the reference to an 
 <a name="contained"> </a>
 <h3>Contained Resources</h3>
 <p>
-In some circumstances, the content referred to in the resource reference does not have an independent 
-existence apart from the resource that contains it - it cannot be identified independently, and nor 
+In some circumstances, the content referred to in the resource reference does not have an independent
+existence apart from the resource that contains it - it cannot be identified independently, and nor
 can it have its own independent transaction scope. Typically, such circumstances arise where the resource
 is being assembled by a secondary user of the source data, such as a middleware engine. If the data available
 when the resource is constructed does not include record keys or absolute identification information, then
@@ -126,14 +126,14 @@ refers to it.
 </p>
 <p>
 For example, consider a situation where an interface engine is creating a <a href="condition.html">Condition</a>
-record on a patient from an HL7 v2 message, and the only information about the primary surgeon is her 
-first name and lastname (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory, 
-this is not enough information to create an identified <a href="practitioner.html">Practitioner</a> 
-resource - more than one practitioner might have the same name. 
+record on a patient from an HL7 v2 message, and the only information about the primary surgeon is her
+first name and lastname (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory,
+this is not enough information to create an identified <a href="practitioner.html">Practitioner</a>
+resource - more than one practitioner might have the same name.
 </p>
 <p>
-In these circumstances, the resource is placed directly in line in the resource. <b>This SHOULD NOT be 
-done when the content can be identified properly, as once the identification is lost, it is extremely difficult 
+In these circumstances, the resource is placed directly in line in the resource. <b>This SHOULD NOT be
+done when the content can be identified properly, as once the identification is lost, it is extremely difficult
 (and context dependent) to restore it again.</b>
 </p>
 <div class="example">
@@ -162,7 +162,7 @@ An example of a contained resource:
 <p>
 The same example in JSON:
 </p>
-<pre class="json"> 
+<pre class="json">
 { "resourceType" : "Composition",
   "extension" : { ... },
   "text" : { .. },
@@ -185,13 +185,13 @@ The same example in JSON:
 <blockquote>
 <div class="design-note">
 <p>
-Design Note: Contained resources are still a reference rather than being inlined directly 
+Design Note: Contained resources are still a reference rather than being inlined directly
 into the element that is the reference (e.g. "custodian" above) to ensure that a
 single approach to resolving resource references can be used. Though direct containment
-would seem simpler, it would still be necessary to support internal references where the 
+would seem simpler, it would still be necessary to support internal references where the
 same contained resource is referenced more than once. In the end, all that it would achieve
 is creating additional options in the syntax. For users using XPath to process the resource,
-the following XPath fragment resolves the internal reference: 
+the following XPath fragment resolves the internal reference:
 </p>
 <pre>
 ancestor::f:*[not(parent::f:*)]/f:contained/*[@id=substring-after(<b>current()</b>/f:reference/@value, '#')]
@@ -206,11 +206,11 @@ Some notes about use and interpretation of contained resources:
   <li>The "contained" element SHALL NOT have extensions on it (though contained resources can still contain extensions)</li>
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
   <li>Contained resources SHALL NOT contain additional contained resources</li>
-  <li>Contained resources SHOULD not contain any narrative</li>
-  <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if 
-    the parent resource contains a "subject", and the contained resource also has a subject element defined, 
+  <li>Contained resources SHALL NOT contain any narrative</li>
+  <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if
+    the parent resource contains a "subject", and the contained resource also has a subject element defined,
     but does not specify any subject, a processing application may infer that the subject is the same. Note,
-    however, that such inferences are specific to a particular circumstance. There is no rule, for instance, 
+    however, that such inferences are specific to a particular circumstance. There is no rule, for instance,
 	that the meaning of the "subject" element is the same in both parent and contained resources</li>
   <li>A contained resource can only be included in another resource if something in the resource actually refers to it:</li>
 </ul>
@@ -225,8 +225,8 @@ Some notes about use and interpretation of contained resources:
 <a name="bundle-refs"> </a>
 <h3>Resolving references to Resources in Bundles</h3>
 <p>
-When processing bundles, applications should always search the resources in the 
-bundle first when a <a href="#Resource">resource reference</a> is encountered. 
+When processing bundles, applications should always search the resources in the
+bundle first when a <a href="#Resource">resource reference</a> is encountered.
 </p>
 <div class="example">
 <pre class="xml" fragment="Reference">
@@ -239,7 +239,7 @@ bundle first when a <a href="#Resource">resource reference</a> is encountered.
 </pre>
 </div>
 <p>
-then the application should look for any entry in the bundle where either the 
+then the application should look for any entry in the bundle where either the
 entry.id or the entry.link[self] matches the reference URL exactly:
 </p>
 <div class="example">
@@ -265,40 +265,40 @@ entry.id or the entry.link[self] matches the reference URL exactly:
 </pre>
 </div>
 <p>
-In the second case, the match is based on a specific version of the 
+In the second case, the match is based on a specific version of the
 resource. If the resource reference cannot be resolved
-in the bundle, the application SHOULD be able to retrieve the resource by 
-following the provided URL directly. If it can't, it will have to use some 
+in the bundle, the application SHOULD be able to retrieve the resource by
+following the provided URL directly. If it can't, it will have to use some
 other implementation-specific method for resolving how to find the resource.
 </p>
 <p>
-If the resource reference is a absolute URL, the same basic principle 
+If the resource reference is a absolute URL, the same basic principle
 applies: attempt to resolve the reference in the bundle first, and then
-look outside. However, before this can be done, the absolute URL must 
+look outside. However, before this can be done, the absolute URL must
 be compared to the stated based URL, in <a href="bundle-definitions.html#Bundle.base">Bundle.base</a>;
 if these do not match, the resource is not in the bundle. <i>todo-bundle: how to mix content?</i>
 </p>
 <!--
 <p>
 Note that the application SHOULD not assume that the base
-service root is actually resolvable. In some circumstances, it will. 
-If the bundle has just been received from a server as a result of 
+service root is actually resolvable. In some circumstances, it will.
+If the bundle has just been received from a server as a result of
 a search or a history operation, the service root URL SHOULD match
-the URL that the client used (it is allowed not to in order to 
-cater for proxies of various kinds). However in other 
+the URL that the client used (it is allowed not to in order to
+cater for proxies of various kinds). However in other
 circumstances, where the bundle itself has been exchanged onwards
-from the point of origin, and/or stored as an entity in its own 
-right (e.g. a <a href="documents.html">clinical document</a>) the 
-service root URL is merely a logical construct that holds within the 
-bundle when resolving resources, and will have no meaning outside 
-the bundle. 
+from the point of origin, and/or stored as an entity in its own
+right (e.g. a <a href="documents.html">clinical document</a>) the
+service root URL is merely a logical construct that holds within the
+bundle when resolving resources, and will have no meaning outside
+the bundle.
 </p>
 -->
 
 <p>
-Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference". 
-URIs may point to either resources, elements inside a resource by their "id" property, or (most often) 
-some other content that is not a resource. The Reference type is only used to refer to resources 
+Note that some elements have the type "<a href="datatypes.html#uri">uri</a>" instead of "Reference".
+URIs may point to either resources, elements inside a resource by their "id" property, or (most often)
+some other content that is not a resource. The Reference type is only used to refer to resources
 directly, by their logical id.
 </p>
 
@@ -306,8 +306,8 @@ directly, by their logical id.
 <!--
 <li>
 <a name="Ids"> </a>
-FHIR resources make use of id attributes as targets for <a href="references.html#id">internal references with resources</a>. 
-These id attributes are unique and resolved within the context of a single resource. When resources are 
+FHIR resources make use of id attributes as targets for <a href="references.html#id">internal references with resources</a>.
+These id attributes are unique and resolved within the context of a single resource. When resources are
 combined into a bundle, different resources may contain duplicate id attributes. Thus it is important to limit
 the scope of resolution of an id attribute to the resource in which the <i>id</i> attribute is declared.
 </li>
@@ -322,7 +322,7 @@ the scope of resolution of an id attribute to the resource in which the <i>id</i
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
   if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
     alert(exception);
  }
@@ -330,17 +330,17 @@ the scope of resolution of an id attribute to the resource in which the <i>id</i
    currentTabIndex = '0';
 
 $( '#tabs-Reference' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
+
+
 function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   if (navigator.userAgent.toLowerCase().indexof('msie') == -1)
     alert(exception);
   }
   $( '#tabs-Reference' ).tabs('option', 'active', currentTab);
-}     
+}
 </script>
 
 

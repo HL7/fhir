@@ -330,7 +330,7 @@ the note on <a href="#transactional-integrity">transactional integrity</a> for d
 <p>
 If the interaction is successful, the server SHALL return either a 200 OK HTTP status code if the resource was updated, or a 201 Created status code if the resource was created,
 with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. A <code>Content-Location</code> header
-that refers to the specific version created by the update interaction SHOULD also be returned. If the resource was created (i.e. the interaction resulted in a 201 Created), the server SHOULD 
+that refers to the specific version created by the update interaction SHOULD also be returned. If the resource was created (i.e. the interaction resulted in a 201 Created), the server SHOULD
 return a <code>Location</code> header.</p>
 <p>The server MAY include a response body containing an <a href="operationoutcome.html">OperationOutcome</a>
 resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.</p>
@@ -343,7 +343,7 @@ rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this,
   PUT [base]/[type]/?[search parameters]
 </pre>
 <p>
-When the server processes this update, it performs a search using the it's standard
+When the server processes this update, it performs a search using its standard
 <a href="search.html">search facilities</a> for the resource type, with the goal of resolving a single logical id for this request. The action it takes depends
 on how many matches are found:
 </p>
@@ -659,7 +659,7 @@ All servers are required to support the conformance operation, but servers may c
 <a name="transaction"> </a>
 <h3>transaction</h3>
 <p>
-The transaction interaction submits a set of actions to perform on a server as a single atomic action. 
+The transaction interaction submits a set of actions to perform on a server as a single atomic action.
 Multiple actions on multiple resources of the same or different types may be submitted, and they may be a mix of other operations defined on this page (e.g. read, search, create, update, delete, etc).
 </p>
 <p>
@@ -676,13 +676,13 @@ The transaction interaction is performed by an HTTP <code>POST</code> command as
 </pre>
 <p>
 The content of the post submission is a <a href="bundle.html">Bundle</a> with type set to <code>transaction</code>.
-Each entry carries a <code>transaction</code> (<a href="bundle-definitions.html#Bundle.entry.transaction">Bundle.entry.transaction</a>) 
-that provides the HTTP details of the operation in order to inform the system processing the transaction 
+Each entry carries a <code>transaction</code> (<a href="bundle-definitions.html#Bundle.entry.transaction">Bundle.entry.transaction</a>)
+that provides the HTTP details of the operation in order to inform the system processing the transaction
 what to do for the entry. If the HTTP operation is a <code>PUT</code> or <code>POST</code>, then the entry SHALL contain a resource for the body of the operation.
 The resources in the bundle are each processed separately as if they were an individual
-operation as otherwise described on this page, or for <a href="operations.html">Extended 
-Operations</a>. The operations are subject to the the normal processing for each, 
-including the <a href="resource.html#meta">meta element</a>, verification and version aware updates, 
+operation as otherwise described on this page, or for <a href="operations.html">Extended
+Operations</a>. The operations are subject to the the normal processing for each,
+including the <a href="resource.html#meta">meta element</a>, verification and version aware updates,
 and <a href="#transactional-integrity">transactional integrity</a>.
 </p>
 <p>
@@ -695,7 +695,7 @@ once (by identity).
 </p>
 <p><b>Processing Bundle Entries</b></p>
 <p>
-Because of the rules that a transaction is atomic, that all operations pass or fail 
+Because of the rules that a transaction is atomic, that all operations pass or fail
 together, and that order of the entries doesn't matter, there is a particular order in which to process the operations:
 </p>
 <ol>
@@ -707,7 +707,7 @@ together, and that order of the entries doesn't matter, there is a particular or
 <p>
 If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3, then the transaction SHALL fail.
 </p>
- 
+
 <p>
 A transaction may include references from one resource to another in the bundle, including
 circular references where resources refer to each other. If the server assigns
@@ -732,10 +732,10 @@ transaction, in the same order, with the outcome of processing the entry.
 </p>
 
 <p>
-Each entry element SHALL contain a <code>transactionResponse</code> element which 
+Each entry element SHALL contain a <code>transactionResponse</code> element which
 details the outcome of processing the entry - the HTTP status code, and the location
 and <code>ETag</code> header values, which are used for identifying and versioning the resources.
-In addition, a resource may be included in the entry. 
+In addition, a resource may be included in the entry.
 </p>
 
 <a name="other-bundles"> </a>
@@ -745,20 +745,20 @@ In addition, a resource may be included in the entry.
 A server may choose to accept bundle types other than <code>transaction</code> as transactions.
 </p>
 <p>
-Bundles of type <code>history</code> inherently have the same structure as a transaction, and 
+Bundles of type <code>history</code> inherently have the same structure as a transaction, and
 can be treated as one, so servers SHOULD accept a history bundle - this makes it
-possible to replicate data from one server to another easily. Not, however, that 
+possible to replicate data from one server to another easily. Not, however, that
 existing transaction boundaries are not represented in a history list, and
 a resource may occur more than once in a history list, so
-servers processing history bundles must have some strategy to manage this. 
+servers processing history bundles must have some strategy to manage this.
 </p>
 <p>
-For other bundle types, should the server choose to accept them, there will be 
-no <code>transaction</code> element (note that every entry will have a resource). 
-In this case, the server treats the entry as either a create or an update operation, 
-depending on whether it recognises the identity of the resource - if the identity 
-of the resource refers to a valid location on the server, it should treat it 
-as an update to that location. Note: this option allows a client to delegate 
+For other bundle types, should the server choose to accept them, there will be
+no <code>transaction</code> element (note that every entry will have a resource).
+In this case, the server treats the entry as either a create or an update operation,
+depending on whether it recognises the identity of the resource - if the identity
+of the resource refers to a valid location on the server, it should treat it
+as an update to that location. Note: this option allows a client to delegate
 the matching process to the server.
 </p>
 
@@ -780,11 +780,11 @@ The return content is a <a href="extras.html#bundle">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the specified version history,
 sorted with oldest versions last, and including deleted resources.
 Each entry SHALL contain a <code>transaction</code>, and, if the <code>entry.transaction.method</code> is a <code>PUT</code> or a <code>POST</code>, a resource.
-The entry SHALL contain the resource state at the conclusion of the operation. 
+The entry SHALL contain the resource state at the conclusion of the operation.
 </p>
 <p>
 The operations <a href="#create">create</a>, <a href="#update">update</a>, and <a href="#delete">delete</a>
-create history entries. Other operations do not (note that these operations may produce side-effects 
+create history entries. Other operations do not (note that these operations may produce side-effects
 such as new AuditEvent resources; these are represented as create operations in their own right).
 
 A create operation is represented in a history operation in the following way:
@@ -806,8 +806,8 @@ A create operation is represented in a history operation in the following way:
   &lt;/entry&gt;
 </pre>
 <p>
-Note that conditional creates, updates and deletes are converted to direct 
-updates and deletes in a history list. 
+Note that conditional creates, updates and deletes are converted to direct
+updates and deletes in a history list.
 </p>
 <p>
 In addition to the standard <code>_format</code> parameter, the parameters to this interaction may also include:
@@ -1010,7 +1010,7 @@ This RESTful specification described here is based on the <a href="http://www.om
 In this regard, FHIR functions as a Record Format Profile as described in that specification. Note the following significant factors to be aware of:
 </p>
 <ul>
- <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections, 
+ <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections,
  though <a href="extras.html#compartments">compartments</a> behave somewhat like sections</li>
  <li>Because clients cannot submit new sections (<code>POST</code> to service URL), <code>POST</code> to the service URL has been re-used for <a href="#transaction">the transaction
  interaction</a> (difference under review)</li>
@@ -1043,7 +1043,7 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr><td>history</td>                    <td>/[type]/[id]/_history</td>          <td>GET</td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
 <tr><td>history-type</td>               <td>/[type]/_history</td>               <td>GET</td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
 <tr><td>history-all</td>                <td>/_history</td>                      <td>GET</td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
-<tr><td rowspan="3">(operation)</td>    <td rowspan="3">/$[name], /[type]/$[name] 
+<tr><td rowspan="3">(operation)</td>    <td rowspan="3">/$[name], /[type]/$[name]
 										or /[type]/[id]/$[name]</td> 		  	<td>POST</td>           <td>R</td>         		<td>Parameters</td><td>N/A</td>			<td>N/A</td></tr>
 																		<tr>    <td>GET</td>           	<td>N/A</td>         	<td>N/A</td> 	   <td>N/A</td>  		<td>N/A</td></tr>
 																		<tr>    <td>POST</td>          	<td>application/x-www-form-urlencoded</td>         	<td>form data</td> 	   <td>N/A</td>  		<td>N/A</td></tr>

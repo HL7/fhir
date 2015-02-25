@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="id"> </a>
 <h3>Resource Identity</h3>
@@ -27,7 +27,7 @@ see <a href="managing.html">Managing Resource Identity</a>.
 <p>
 Logical ids are case sensitive. Ids are always opaque, and external systems need not and should not 
 attempt to determine their internal structure. An id SHALL always be represented in the same way in 
-resource references and URLs. Ids can be up to 36 characters long, and contain any combination of 
+resource references and URLs. Ids can be up to 64 characters long, and contain any combination of 
 upper and lowercase ASCII letters, numerals, "-" and ".". 
 </p>
 
