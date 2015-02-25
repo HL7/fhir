@@ -21,10 +21,11 @@
    <SheetName>Invariants</SheetName>
   </SupBook>
   <WindowHeight>11415</WindowHeight>
-  <WindowWidth>21600</WindowWidth>
+  <WindowWidth>20730</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>240</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1304,7 +1305,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">DocumentManifest.supercedes</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!DocumentManifest.supercedes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1373,7 +1374,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">DocumentManifest.confidentiality</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!DocumentManifest.confidentiality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3664,13 +3665,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3678,7 +3678,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3686,8 +3685,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4422,7 +4421,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="87.75"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="57"/>
@@ -4500,24 +4499,10 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">supersedes</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">DocumentManifest.supercedes</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">DocumentManifest.description</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">confidentiality</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">DocumentManifest.confidentiality</Data></Cell>
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4681,15 +4666,16 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R30C2</Range>
+   <Range>R2C2:R28C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>
@@ -4697,59 +4683,66 @@
   <AutoFilter x:Range="R1C1:R1C5" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C5</Range>
+   <Range>R2C1:R28C5</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C1</Range>
+   <Range>R11C1:R28C1,R2C1:R8C1</Range>
    <Condition>
     <Value1>AND(R[-1]C=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R30C2</Range>
+   <Range>R2C2:R28C2</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C3:R30C3</Range>
+   <Range>R2C3:R28C3</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;reference&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R2C4:R28C4</Range>
    <Condition>
     <Value1>AND(RC2=&quot;reference&quot;,RC3=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C4:R30C4</Range>
+   <Range>R2C4:R28C4</Range>
    <Condition>
     <Value1>AND(RC2=&quot;reference&quot;,RC3&lt;&gt;&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C5:R30C5</Range>
+   <Range>R2C5:R28C5</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC=&quot;&quot;,RC4=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C1:R30C5</Range>
+   <Range>R2C1:R28C5</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C1:R10C1</Range>
+   <Condition>
+    <Value1>AND(#REF!=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -7308,12 +7301,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">superceded</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">deprecated</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This reference has been deprecated</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7844,6 +7837,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7863,6 +7857,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
