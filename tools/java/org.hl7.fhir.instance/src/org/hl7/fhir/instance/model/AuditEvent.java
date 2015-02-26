@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -42,10 +42,10 @@ import org.hl7.fhir.instance.model.annotations.Description;
 /**
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
  */
-@ResourceDef(name="SecurityEvent", profile="http://hl7.org/fhir/Profile/SecurityEvent")
-public class SecurityEvent extends DomainResource {
+@ResourceDef(name="AuditEvent", profile="http://hl7.org/fhir/Profile/AuditEvent")
+public class AuditEvent extends DomainResource {
 
-    public enum SecurityEventAction {
+    public enum AuditEventAction {
         /**
          * Create a new database object, such as Placing an Order.
          */
@@ -70,7 +70,7 @@ public class SecurityEvent extends DomainResource {
          * added to help the parsers
          */
         NULL;
-        public static SecurityEventAction fromCode(String codeString) throws Exception {
+        public static AuditEventAction fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("C".equals(codeString))
@@ -83,7 +83,7 @@ public class SecurityEvent extends DomainResource {
           return D;
         if ("E".equals(codeString))
           return E;
-        throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
+        throw new Exception("Unknown AuditEventAction code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -127,39 +127,39 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class SecurityEventActionEnumFactory implements EnumFactory<SecurityEventAction> {
-    public SecurityEventAction fromCode(String codeString) throws IllegalArgumentException {
+  public static class AuditEventActionEnumFactory implements EnumFactory<AuditEventAction> {
+    public AuditEventAction fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("C".equals(codeString))
-          return SecurityEventAction.C;
+          return AuditEventAction.C;
         if ("R".equals(codeString))
-          return SecurityEventAction.R;
+          return AuditEventAction.R;
         if ("U".equals(codeString))
-          return SecurityEventAction.U;
+          return AuditEventAction.U;
         if ("D".equals(codeString))
-          return SecurityEventAction.D;
+          return AuditEventAction.D;
         if ("E".equals(codeString))
-          return SecurityEventAction.E;
-        throw new IllegalArgumentException("Unknown SecurityEventAction code '"+codeString+"'");
+          return AuditEventAction.E;
+        throw new IllegalArgumentException("Unknown AuditEventAction code '"+codeString+"'");
         }
-    public String toCode(SecurityEventAction code) {
-      if (code == SecurityEventAction.C)
+    public String toCode(AuditEventAction code) {
+      if (code == AuditEventAction.C)
         return "C";
-      if (code == SecurityEventAction.R)
+      if (code == AuditEventAction.R)
         return "R";
-      if (code == SecurityEventAction.U)
+      if (code == AuditEventAction.U)
         return "U";
-      if (code == SecurityEventAction.D)
+      if (code == AuditEventAction.D)
         return "D";
-      if (code == SecurityEventAction.E)
+      if (code == AuditEventAction.E)
         return "E";
       return "?";
       }
     }
 
-    public enum SecurityEventOutcome {
+    public enum AuditEventOutcome {
         /**
          * The operation completed successfully (whether with warnings or not).
          */
@@ -180,7 +180,7 @@ public class SecurityEvent extends DomainResource {
          * added to help the parsers
          */
         NULL;
-        public static SecurityEventOutcome fromCode(String codeString) throws Exception {
+        public static AuditEventOutcome fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("0".equals(codeString))
@@ -191,7 +191,7 @@ public class SecurityEvent extends DomainResource {
           return _8;
         if ("12".equals(codeString))
           return _12;
-        throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
+        throw new Exception("Unknown AuditEventOutcome code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -231,29 +231,29 @@ public class SecurityEvent extends DomainResource {
         }
     }
 
-  public static class SecurityEventOutcomeEnumFactory implements EnumFactory<SecurityEventOutcome> {
-    public SecurityEventOutcome fromCode(String codeString) throws IllegalArgumentException {
+  public static class AuditEventOutcomeEnumFactory implements EnumFactory<AuditEventOutcome> {
+    public AuditEventOutcome fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("0".equals(codeString))
-          return SecurityEventOutcome._0;
+          return AuditEventOutcome._0;
         if ("4".equals(codeString))
-          return SecurityEventOutcome._4;
+          return AuditEventOutcome._4;
         if ("8".equals(codeString))
-          return SecurityEventOutcome._8;
+          return AuditEventOutcome._8;
         if ("12".equals(codeString))
-          return SecurityEventOutcome._12;
-        throw new IllegalArgumentException("Unknown SecurityEventOutcome code '"+codeString+"'");
+          return AuditEventOutcome._12;
+        throw new IllegalArgumentException("Unknown AuditEventOutcome code '"+codeString+"'");
         }
-    public String toCode(SecurityEventOutcome code) {
-      if (code == SecurityEventOutcome._0)
+    public String toCode(AuditEventOutcome code) {
+      if (code == AuditEventOutcome._0)
         return "0";
-      if (code == SecurityEventOutcome._4)
+      if (code == AuditEventOutcome._4)
         return "4";
-      if (code == SecurityEventOutcome._8)
+      if (code == AuditEventOutcome._8)
         return "8";
-      if (code == SecurityEventOutcome._12)
+      if (code == AuditEventOutcome._12)
         return "12";
       return "?";
       }
@@ -1108,7 +1108,7 @@ public class SecurityEvent extends DomainResource {
     }
 
     @Block()
-    public static class SecurityEventEventComponent extends BackboneElement {
+    public static class AuditEventEventComponent extends BackboneElement {
         /**
          * Identifier for a family of the event.
          */
@@ -1128,7 +1128,7 @@ public class SecurityEvent extends DomainResource {
          */
         @Child(name="action", type={CodeType.class}, order=3, min=0, max=1)
         @Description(shortDefinition="Type of action performed during the event", formalDefinition="Indicator for type of action performed during the event that generated the audit." )
-        protected Enumeration<SecurityEventAction> action;
+        protected Enumeration<AuditEventAction> action;
 
         /**
          * The time when the event occurred on the source.
@@ -1142,7 +1142,7 @@ public class SecurityEvent extends DomainResource {
          */
         @Child(name="outcome", type={CodeType.class}, order=5, min=0, max=1)
         @Description(shortDefinition="Whether the event succeeded or failed", formalDefinition="Indicates whether the event succeeded or failed." )
-        protected Enumeration<SecurityEventOutcome> outcome;
+        protected Enumeration<AuditEventOutcome> outcome;
 
         /**
          * A free text description of the outcome of the event.
@@ -1151,13 +1151,13 @@ public class SecurityEvent extends DomainResource {
         @Description(shortDefinition="Description of the event outcome", formalDefinition="A free text description of the outcome of the event." )
         protected StringType outcomeDesc;
 
-        private static final long serialVersionUID = 1351587588L;
+        private static final long serialVersionUID = 2099108136L;
 
-      public SecurityEventEventComponent() {
+      public AuditEventEventComponent() {
         super();
       }
 
-      public SecurityEventEventComponent(CodeableConcept type, InstantType dateTime) {
+      public AuditEventEventComponent(CodeableConcept type, InstantType dateTime) {
         super();
         this.type = type;
         this.dateTime = dateTime;
@@ -1169,7 +1169,7 @@ public class SecurityEvent extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventEventComponent.type");
+              throw new Error("Attempt to auto-create AuditEventEventComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -1182,7 +1182,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #type} (Identifier for a family of the event.)
          */
-        public SecurityEventEventComponent setType(CodeableConcept value) { 
+        public AuditEventEventComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1220,12 +1220,12 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public Enumeration<SecurityEventAction> getActionElement() { 
+        public Enumeration<AuditEventAction> getActionElement() { 
           if (this.action == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventEventComponent.action");
+              throw new Error("Attempt to auto-create AuditEventEventComponent.action");
             else if (Configuration.doAutoCreate())
-              this.action = new Enumeration<SecurityEventAction>(new SecurityEventActionEnumFactory()); // bb
+              this.action = new Enumeration<AuditEventAction>(new AuditEventActionEnumFactory()); // bb
           return this.action;
         }
 
@@ -1240,7 +1240,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #action} (Indicator for type of action performed during the event that generated the audit.). This is the underlying object with id, value and extensions. The accessor "getAction" gives direct access to the value
          */
-        public SecurityEventEventComponent setActionElement(Enumeration<SecurityEventAction> value) { 
+        public AuditEventEventComponent setActionElement(Enumeration<AuditEventAction> value) { 
           this.action = value;
           return this;
         }
@@ -1248,19 +1248,19 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return Indicator for type of action performed during the event that generated the audit.
          */
-        public SecurityEventAction getAction() { 
+        public AuditEventAction getAction() { 
           return this.action == null ? null : this.action.getValue();
         }
 
         /**
          * @param value Indicator for type of action performed during the event that generated the audit.
          */
-        public SecurityEventEventComponent setAction(SecurityEventAction value) { 
+        public AuditEventEventComponent setAction(AuditEventAction value) { 
           if (value == null)
             this.action = null;
           else {
             if (this.action == null)
-              this.action = new Enumeration<SecurityEventAction>(new SecurityEventActionEnumFactory());
+              this.action = new Enumeration<AuditEventAction>(new AuditEventActionEnumFactory());
             this.action.setValue(value);
           }
           return this;
@@ -1272,7 +1272,7 @@ public class SecurityEvent extends DomainResource {
         public InstantType getDateTimeElement() { 
           if (this.dateTime == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventEventComponent.dateTime");
+              throw new Error("Attempt to auto-create AuditEventEventComponent.dateTime");
             else if (Configuration.doAutoCreate())
               this.dateTime = new InstantType(); // bb
           return this.dateTime;
@@ -1289,7 +1289,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #dateTime} (The time when the event occurred on the source.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public SecurityEventEventComponent setDateTimeElement(InstantType value) { 
+        public AuditEventEventComponent setDateTimeElement(InstantType value) { 
           this.dateTime = value;
           return this;
         }
@@ -1304,7 +1304,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value The time when the event occurred on the source.
          */
-        public SecurityEventEventComponent setDateTime(Date value) { 
+        public AuditEventEventComponent setDateTime(Date value) { 
             if (this.dateTime == null)
               this.dateTime = new InstantType();
             this.dateTime.setValue(value);
@@ -1314,12 +1314,12 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public Enumeration<SecurityEventOutcome> getOutcomeElement() { 
+        public Enumeration<AuditEventOutcome> getOutcomeElement() { 
           if (this.outcome == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventEventComponent.outcome");
+              throw new Error("Attempt to auto-create AuditEventEventComponent.outcome");
             else if (Configuration.doAutoCreate())
-              this.outcome = new Enumeration<SecurityEventOutcome>(new SecurityEventOutcomeEnumFactory()); // bb
+              this.outcome = new Enumeration<AuditEventOutcome>(new AuditEventOutcomeEnumFactory()); // bb
           return this.outcome;
         }
 
@@ -1334,7 +1334,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #outcome} (Indicates whether the event succeeded or failed.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
          */
-        public SecurityEventEventComponent setOutcomeElement(Enumeration<SecurityEventOutcome> value) { 
+        public AuditEventEventComponent setOutcomeElement(Enumeration<AuditEventOutcome> value) { 
           this.outcome = value;
           return this;
         }
@@ -1342,19 +1342,19 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return Indicates whether the event succeeded or failed.
          */
-        public SecurityEventOutcome getOutcome() { 
+        public AuditEventOutcome getOutcome() { 
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
         /**
          * @param value Indicates whether the event succeeded or failed.
          */
-        public SecurityEventEventComponent setOutcome(SecurityEventOutcome value) { 
+        public AuditEventEventComponent setOutcome(AuditEventOutcome value) { 
           if (value == null)
             this.outcome = null;
           else {
             if (this.outcome == null)
-              this.outcome = new Enumeration<SecurityEventOutcome>(new SecurityEventOutcomeEnumFactory());
+              this.outcome = new Enumeration<AuditEventOutcome>(new AuditEventOutcomeEnumFactory());
             this.outcome.setValue(value);
           }
           return this;
@@ -1366,7 +1366,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getOutcomeDescElement() { 
           if (this.outcomeDesc == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventEventComponent.outcomeDesc");
+              throw new Error("Attempt to auto-create AuditEventEventComponent.outcomeDesc");
             else if (Configuration.doAutoCreate())
               this.outcomeDesc = new StringType(); // bb
           return this.outcomeDesc;
@@ -1383,7 +1383,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #outcomeDesc} (A free text description of the outcome of the event.). This is the underlying object with id, value and extensions. The accessor "getOutcomeDesc" gives direct access to the value
          */
-        public SecurityEventEventComponent setOutcomeDescElement(StringType value) { 
+        public AuditEventEventComponent setOutcomeDescElement(StringType value) { 
           this.outcomeDesc = value;
           return this;
         }
@@ -1398,7 +1398,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value A free text description of the outcome of the event.
          */
-        public SecurityEventEventComponent setOutcomeDesc(String value) { 
+        public AuditEventEventComponent setOutcomeDesc(String value) { 
           if (Utilities.noString(value))
             this.outcomeDesc = null;
           else {
@@ -1419,8 +1419,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
         }
 
-      public SecurityEventEventComponent copy() {
-        SecurityEventEventComponent dst = new SecurityEventEventComponent();
+      public AuditEventEventComponent copy() {
+        AuditEventEventComponent dst = new AuditEventEventComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         if (subtype != null) {
@@ -1439,9 +1439,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventEventComponent))
+        if (!(other instanceof AuditEventEventComponent))
           return false;
-        SecurityEventEventComponent o = (SecurityEventEventComponent) other;
+        AuditEventEventComponent o = (AuditEventEventComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true) && compareDeep(action, o.action, true)
            && compareDeep(dateTime, o.dateTime, true) && compareDeep(outcome, o.outcome, true) && compareDeep(outcomeDesc, o.outcomeDesc, true)
           ;
@@ -1451,9 +1451,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventEventComponent))
+        if (!(other instanceof AuditEventEventComponent))
           return false;
-        SecurityEventEventComponent o = (SecurityEventEventComponent) other;
+        AuditEventEventComponent o = (AuditEventEventComponent) other;
         return compareValues(action, o.action, true) && compareValues(dateTime, o.dateTime, true) && compareValues(outcome, o.outcome, true)
            && compareValues(outcomeDesc, o.outcomeDesc, true);
       }
@@ -1467,7 +1467,7 @@ public class SecurityEvent extends DomainResource {
   }
 
     @Block()
-    public static class SecurityEventParticipantComponent extends BackboneElement {
+    public static class AuditEventParticipantComponent extends BackboneElement {
         /**
          * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.
          */
@@ -1527,15 +1527,15 @@ public class SecurityEvent extends DomainResource {
          */
         @Child(name="network", type={}, order=8, min=0, max=1)
         @Description(shortDefinition="Logical network location for application activity", formalDefinition="Logical network location for application activity, if the activity has a network location." )
-        protected SecurityEventParticipantNetworkComponent network;
+        protected AuditEventParticipantNetworkComponent network;
 
-        private static final long serialVersionUID = 594416195L;
+        private static final long serialVersionUID = 339756070L;
 
-      public SecurityEventParticipantComponent() {
+      public AuditEventParticipantComponent() {
         super();
       }
 
-      public SecurityEventParticipantComponent(BooleanType requestor) {
+      public AuditEventParticipantComponent(BooleanType requestor) {
         super();
         this.requestor = requestor;
       }
@@ -1576,7 +1576,7 @@ public class SecurityEvent extends DomainResource {
         public Reference getReference() { 
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.reference");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.reference");
             else if (Configuration.doAutoCreate())
               this.reference = new Reference(); // cc
           return this.reference;
@@ -1589,7 +1589,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #reference} (Direct reference to a resource that identifies the participant.)
          */
-        public SecurityEventParticipantComponent setReference(Reference value) { 
+        public AuditEventParticipantComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -1604,7 +1604,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Direct reference to a resource that identifies the participant.)
          */
-        public SecurityEventParticipantComponent setReferenceTarget(Resource value) { 
+        public AuditEventParticipantComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
           return this;
         }
@@ -1615,7 +1615,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getUserIdElement() { 
           if (this.userId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.userId");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.userId");
             else if (Configuration.doAutoCreate())
               this.userId = new StringType(); // bb
           return this.userId;
@@ -1632,7 +1632,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #userId} (Unique identifier for the user actively participating in the event.). This is the underlying object with id, value and extensions. The accessor "getUserId" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setUserIdElement(StringType value) { 
+        public AuditEventParticipantComponent setUserIdElement(StringType value) { 
           this.userId = value;
           return this;
         }
@@ -1647,7 +1647,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Unique identifier for the user actively participating in the event.
          */
-        public SecurityEventParticipantComponent setUserId(String value) { 
+        public AuditEventParticipantComponent setUserId(String value) { 
           if (Utilities.noString(value))
             this.userId = null;
           else {
@@ -1664,7 +1664,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getAltIdElement() { 
           if (this.altId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.altId");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.altId");
             else if (Configuration.doAutoCreate())
               this.altId = new StringType(); // bb
           return this.altId;
@@ -1681,7 +1681,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.). This is the underlying object with id, value and extensions. The accessor "getAltId" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setAltIdElement(StringType value) { 
+        public AuditEventParticipantComponent setAltIdElement(StringType value) { 
           this.altId = value;
           return this;
         }
@@ -1696,7 +1696,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
-        public SecurityEventParticipantComponent setAltId(String value) { 
+        public AuditEventParticipantComponent setAltId(String value) { 
           if (Utilities.noString(value))
             this.altId = null;
           else {
@@ -1713,7 +1713,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.name");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -1730,7 +1730,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setNameElement(StringType value) { 
+        public AuditEventParticipantComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1745,7 +1745,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Human-meaningful name for the user.
          */
-        public SecurityEventParticipantComponent setName(String value) { 
+        public AuditEventParticipantComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -1762,7 +1762,7 @@ public class SecurityEvent extends DomainResource {
         public BooleanType getRequestorElement() { 
           if (this.requestor == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.requestor");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.requestor");
             else if (Configuration.doAutoCreate())
               this.requestor = new BooleanType(); // bb
           return this.requestor;
@@ -1779,7 +1779,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #requestor} (Indicator that the user is or is not the requestor, or initiator, for the event being audited.). This is the underlying object with id, value and extensions. The accessor "getRequestor" gives direct access to the value
          */
-        public SecurityEventParticipantComponent setRequestorElement(BooleanType value) { 
+        public AuditEventParticipantComponent setRequestorElement(BooleanType value) { 
           this.requestor = value;
           return this;
         }
@@ -1794,7 +1794,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        public SecurityEventParticipantComponent setRequestor(boolean value) { 
+        public AuditEventParticipantComponent setRequestor(boolean value) { 
             if (this.requestor == null)
               this.requestor = new BooleanType();
             this.requestor.setValue(value);
@@ -1807,7 +1807,7 @@ public class SecurityEvent extends DomainResource {
         public Coding getMedia() { 
           if (this.media == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.media");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.media");
             else if (Configuration.doAutoCreate())
               this.media = new Coding(); // cc
           return this.media;
@@ -1820,7 +1820,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #media} (Type of media involved. Used when the event is about exporting/importing onto media.)
          */
-        public SecurityEventParticipantComponent setMedia(Coding value) { 
+        public AuditEventParticipantComponent setMedia(Coding value) { 
           this.media = value;
           return this;
         }
@@ -1828,12 +1828,12 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return {@link #network} (Logical network location for application activity, if the activity has a network location.)
          */
-        public SecurityEventParticipantNetworkComponent getNetwork() { 
+        public AuditEventParticipantNetworkComponent getNetwork() { 
           if (this.network == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantComponent.network");
+              throw new Error("Attempt to auto-create AuditEventParticipantComponent.network");
             else if (Configuration.doAutoCreate())
-              this.network = new SecurityEventParticipantNetworkComponent(); // cc
+              this.network = new AuditEventParticipantNetworkComponent(); // cc
           return this.network;
         }
 
@@ -1844,7 +1844,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #network} (Logical network location for application activity, if the activity has a network location.)
          */
-        public SecurityEventParticipantComponent setNetwork(SecurityEventParticipantNetworkComponent value) { 
+        public AuditEventParticipantComponent setNetwork(AuditEventParticipantNetworkComponent value) { 
           this.network = value;
           return this;
         }
@@ -1861,8 +1861,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("network", "", "Logical network location for application activity, if the activity has a network location.", 0, java.lang.Integer.MAX_VALUE, network));
         }
 
-      public SecurityEventParticipantComponent copy() {
-        SecurityEventParticipantComponent dst = new SecurityEventParticipantComponent();
+      public AuditEventParticipantComponent copy() {
+        AuditEventParticipantComponent dst = new AuditEventParticipantComponent();
         copyValues(dst);
         if (role != null) {
           dst.role = new ArrayList<CodeableConcept>();
@@ -1883,9 +1883,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventParticipantComponent))
+        if (!(other instanceof AuditEventParticipantComponent))
           return false;
-        SecurityEventParticipantComponent o = (SecurityEventParticipantComponent) other;
+        AuditEventParticipantComponent o = (AuditEventParticipantComponent) other;
         return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true) && compareDeep(userId, o.userId, true)
            && compareDeep(altId, o.altId, true) && compareDeep(name, o.name, true) && compareDeep(requestor, o.requestor, true)
            && compareDeep(media, o.media, true) && compareDeep(network, o.network, true);
@@ -1895,9 +1895,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventParticipantComponent))
+        if (!(other instanceof AuditEventParticipantComponent))
           return false;
-        SecurityEventParticipantComponent o = (SecurityEventParticipantComponent) other;
+        AuditEventParticipantComponent o = (AuditEventParticipantComponent) other;
         return compareValues(userId, o.userId, true) && compareValues(altId, o.altId, true) && compareValues(name, o.name, true)
            && compareValues(requestor, o.requestor, true);
       }
@@ -1912,7 +1912,7 @@ public class SecurityEvent extends DomainResource {
   }
 
     @Block()
-    public static class SecurityEventParticipantNetworkComponent extends BackboneElement {
+    public static class AuditEventParticipantNetworkComponent extends BackboneElement {
         /**
          * An identifier for the network access point of the user device for the audit event.
          */
@@ -1929,7 +1929,7 @@ public class SecurityEvent extends DomainResource {
 
         private static final long serialVersionUID = -1946856025L;
 
-      public SecurityEventParticipantNetworkComponent() {
+      public AuditEventParticipantNetworkComponent() {
         super();
       }
 
@@ -1939,7 +1939,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantNetworkComponent.identifier");
+              throw new Error("Attempt to auto-create AuditEventParticipantNetworkComponent.identifier");
             else if (Configuration.doAutoCreate())
               this.identifier = new StringType(); // bb
           return this.identifier;
@@ -1956,7 +1956,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #identifier} (An identifier for the network access point of the user device for the audit event.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public SecurityEventParticipantNetworkComponent setIdentifierElement(StringType value) { 
+        public AuditEventParticipantNetworkComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -1971,7 +1971,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value An identifier for the network access point of the user device for the audit event.
          */
-        public SecurityEventParticipantNetworkComponent setIdentifier(String value) { 
+        public AuditEventParticipantNetworkComponent setIdentifier(String value) { 
           if (Utilities.noString(value))
             this.identifier = null;
           else {
@@ -1988,7 +1988,7 @@ public class SecurityEvent extends DomainResource {
         public Enumeration<NetworkType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventParticipantNetworkComponent.type");
+              throw new Error("Attempt to auto-create AuditEventParticipantNetworkComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new Enumeration<NetworkType>(new NetworkTypeEnumFactory()); // bb
           return this.type;
@@ -2005,7 +2005,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #type} (An identifier for the type of network access point that originated the audit event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventParticipantNetworkComponent setTypeElement(Enumeration<NetworkType> value) { 
+        public AuditEventParticipantNetworkComponent setTypeElement(Enumeration<NetworkType> value) { 
           this.type = value;
           return this;
         }
@@ -2020,7 +2020,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value An identifier for the type of network access point that originated the audit event.
          */
-        public SecurityEventParticipantNetworkComponent setType(NetworkType value) { 
+        public AuditEventParticipantNetworkComponent setType(NetworkType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -2037,8 +2037,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("type", "code", "An identifier for the type of network access point that originated the audit event.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
-      public SecurityEventParticipantNetworkComponent copy() {
-        SecurityEventParticipantNetworkComponent dst = new SecurityEventParticipantNetworkComponent();
+      public AuditEventParticipantNetworkComponent copy() {
+        AuditEventParticipantNetworkComponent dst = new AuditEventParticipantNetworkComponent();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
@@ -2049,9 +2049,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventParticipantNetworkComponent))
+        if (!(other instanceof AuditEventParticipantNetworkComponent))
           return false;
-        SecurityEventParticipantNetworkComponent o = (SecurityEventParticipantNetworkComponent) other;
+        AuditEventParticipantNetworkComponent o = (AuditEventParticipantNetworkComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true);
       }
 
@@ -2059,9 +2059,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventParticipantNetworkComponent))
+        if (!(other instanceof AuditEventParticipantNetworkComponent))
           return false;
-        SecurityEventParticipantNetworkComponent o = (SecurityEventParticipantNetworkComponent) other;
+        AuditEventParticipantNetworkComponent o = (AuditEventParticipantNetworkComponent) other;
         return compareValues(identifier, o.identifier, true) && compareValues(type, o.type, true);
       }
 
@@ -2073,7 +2073,7 @@ public class SecurityEvent extends DomainResource {
   }
 
     @Block()
-    public static class SecurityEventSourceComponent extends BackboneElement {
+    public static class AuditEventSourceComponent extends BackboneElement {
         /**
          * Logical source location within the healthcare enterprise network.
          */
@@ -2097,11 +2097,11 @@ public class SecurityEvent extends DomainResource {
 
         private static final long serialVersionUID = -382040480L;
 
-      public SecurityEventSourceComponent() {
+      public AuditEventSourceComponent() {
         super();
       }
 
-      public SecurityEventSourceComponent(StringType identifier) {
+      public AuditEventSourceComponent(StringType identifier) {
         super();
         this.identifier = identifier;
       }
@@ -2112,7 +2112,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getSiteElement() { 
           if (this.site == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventSourceComponent.site");
+              throw new Error("Attempt to auto-create AuditEventSourceComponent.site");
             else if (Configuration.doAutoCreate())
               this.site = new StringType(); // bb
           return this.site;
@@ -2129,7 +2129,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #site} (Logical source location within the healthcare enterprise network.). This is the underlying object with id, value and extensions. The accessor "getSite" gives direct access to the value
          */
-        public SecurityEventSourceComponent setSiteElement(StringType value) { 
+        public AuditEventSourceComponent setSiteElement(StringType value) { 
           this.site = value;
           return this;
         }
@@ -2144,7 +2144,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Logical source location within the healthcare enterprise network.
          */
-        public SecurityEventSourceComponent setSite(String value) { 
+        public AuditEventSourceComponent setSite(String value) { 
           if (Utilities.noString(value))
             this.site = null;
           else {
@@ -2161,7 +2161,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventSourceComponent.identifier");
+              throw new Error("Attempt to auto-create AuditEventSourceComponent.identifier");
             else if (Configuration.doAutoCreate())
               this.identifier = new StringType(); // bb
           return this.identifier;
@@ -2178,7 +2178,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #identifier} (Identifier of the source where the event originated.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public SecurityEventSourceComponent setIdentifierElement(StringType value) { 
+        public AuditEventSourceComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -2193,7 +2193,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Identifier of the source where the event originated.
          */
-        public SecurityEventSourceComponent setIdentifier(String value) { 
+        public AuditEventSourceComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new StringType();
             this.identifier.setValue(value);
@@ -2237,8 +2237,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("type", "Coding", "Code specifying the type of source where event originated.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
-      public SecurityEventSourceComponent copy() {
-        SecurityEventSourceComponent dst = new SecurityEventSourceComponent();
+      public AuditEventSourceComponent copy() {
+        AuditEventSourceComponent dst = new AuditEventSourceComponent();
         copyValues(dst);
         dst.site = site == null ? null : site.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -2254,9 +2254,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventSourceComponent))
+        if (!(other instanceof AuditEventSourceComponent))
           return false;
-        SecurityEventSourceComponent o = (SecurityEventSourceComponent) other;
+        AuditEventSourceComponent o = (AuditEventSourceComponent) other;
         return compareDeep(site, o.site, true) && compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true)
           ;
       }
@@ -2265,9 +2265,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventSourceComponent))
+        if (!(other instanceof AuditEventSourceComponent))
           return false;
-        SecurityEventSourceComponent o = (SecurityEventSourceComponent) other;
+        AuditEventSourceComponent o = (AuditEventSourceComponent) other;
         return compareValues(site, o.site, true) && compareValues(identifier, o.identifier, true);
       }
 
@@ -2279,7 +2279,7 @@ public class SecurityEvent extends DomainResource {
   }
 
     @Block()
-    public static class SecurityEventObjectComponent extends BackboneElement {
+    public static class AuditEventObjectComponent extends BackboneElement {
         /**
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
@@ -2353,11 +2353,11 @@ public class SecurityEvent extends DomainResource {
          */
         @Child(name="detail", type={}, order=10, min=0, max=Child.MAX_UNLIMITED)
         @Description(shortDefinition="Additional Information about the Object", formalDefinition="Additional Information about the Object." )
-        protected List<SecurityEventObjectDetailComponent> detail;
+        protected List<AuditEventObjectDetailComponent> detail;
 
-        private static final long serialVersionUID = -268126947L;
+        private static final long serialVersionUID = 618775596L;
 
-      public SecurityEventObjectComponent() {
+      public AuditEventObjectComponent() {
         super();
       }
 
@@ -2367,7 +2367,7 @@ public class SecurityEvent extends DomainResource {
         public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.identifier");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.identifier");
             else if (Configuration.doAutoCreate())
               this.identifier = new Identifier(); // cc
           return this.identifier;
@@ -2380,7 +2380,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #identifier} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public SecurityEventObjectComponent setIdentifier(Identifier value) { 
+        public AuditEventObjectComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -2391,7 +2391,7 @@ public class SecurityEvent extends DomainResource {
         public Reference getReference() { 
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.reference");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.reference");
             else if (Configuration.doAutoCreate())
               this.reference = new Reference(); // cc
           return this.reference;
@@ -2404,7 +2404,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #reference} (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public SecurityEventObjectComponent setReference(Reference value) { 
+        public AuditEventObjectComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -2419,7 +2419,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies a specific instance of the participant object. The reference should always be version specific.)
          */
-        public SecurityEventObjectComponent setReferenceTarget(Resource value) { 
+        public AuditEventObjectComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
           return this;
         }
@@ -2430,7 +2430,7 @@ public class SecurityEvent extends DomainResource {
         public Enumeration<ObjectType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.type");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new Enumeration<ObjectType>(new ObjectTypeEnumFactory()); // bb
           return this.type;
@@ -2447,7 +2447,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #type} (Object type being audited.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventObjectComponent setTypeElement(Enumeration<ObjectType> value) { 
+        public AuditEventObjectComponent setTypeElement(Enumeration<ObjectType> value) { 
           this.type = value;
           return this;
         }
@@ -2462,7 +2462,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Object type being audited.
          */
-        public SecurityEventObjectComponent setType(ObjectType value) { 
+        public AuditEventObjectComponent setType(ObjectType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -2479,7 +2479,7 @@ public class SecurityEvent extends DomainResource {
         public Enumeration<ObjectRole> getRoleElement() { 
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.role");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.role");
             else if (Configuration.doAutoCreate())
               this.role = new Enumeration<ObjectRole>(new ObjectRoleEnumFactory()); // bb
           return this.role;
@@ -2496,7 +2496,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #role} (Code representing the functional application role of Participant Object being audited.). This is the underlying object with id, value and extensions. The accessor "getRole" gives direct access to the value
          */
-        public SecurityEventObjectComponent setRoleElement(Enumeration<ObjectRole> value) { 
+        public AuditEventObjectComponent setRoleElement(Enumeration<ObjectRole> value) { 
           this.role = value;
           return this;
         }
@@ -2511,7 +2511,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Code representing the functional application role of Participant Object being audited.
          */
-        public SecurityEventObjectComponent setRole(ObjectRole value) { 
+        public AuditEventObjectComponent setRole(ObjectRole value) { 
           if (value == null)
             this.role = null;
           else {
@@ -2528,7 +2528,7 @@ public class SecurityEvent extends DomainResource {
         public Enumeration<ObjectLifecycle> getLifecycleElement() { 
           if (this.lifecycle == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.lifecycle");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.lifecycle");
             else if (Configuration.doAutoCreate())
               this.lifecycle = new Enumeration<ObjectLifecycle>(new ObjectLifecycleEnumFactory()); // bb
           return this.lifecycle;
@@ -2545,7 +2545,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #lifecycle} (Identifier for the data life-cycle stage for the participant object.). This is the underlying object with id, value and extensions. The accessor "getLifecycle" gives direct access to the value
          */
-        public SecurityEventObjectComponent setLifecycleElement(Enumeration<ObjectLifecycle> value) { 
+        public AuditEventObjectComponent setLifecycleElement(Enumeration<ObjectLifecycle> value) { 
           this.lifecycle = value;
           return this;
         }
@@ -2560,7 +2560,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Identifier for the data life-cycle stage for the participant object.
          */
-        public SecurityEventObjectComponent setLifecycle(ObjectLifecycle value) { 
+        public AuditEventObjectComponent setLifecycle(ObjectLifecycle value) { 
           if (value == null)
             this.lifecycle = null;
           else {
@@ -2577,7 +2577,7 @@ public class SecurityEvent extends DomainResource {
         public CodeableConcept getSensitivity() { 
           if (this.sensitivity == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.sensitivity");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.sensitivity");
             else if (Configuration.doAutoCreate())
               this.sensitivity = new CodeableConcept(); // cc
           return this.sensitivity;
@@ -2590,7 +2590,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #sensitivity} (Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics.)
          */
-        public SecurityEventObjectComponent setSensitivity(CodeableConcept value) { 
+        public AuditEventObjectComponent setSensitivity(CodeableConcept value) { 
           this.sensitivity = value;
           return this;
         }
@@ -2601,7 +2601,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.name");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -2618,7 +2618,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #name} (An instance-specific descriptor of the Participant Object ID audited, such as a person's name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SecurityEventObjectComponent setNameElement(StringType value) { 
+        public AuditEventObjectComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2633,7 +2633,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value An instance-specific descriptor of the Participant Object ID audited, such as a person's name.
          */
-        public SecurityEventObjectComponent setName(String value) { 
+        public AuditEventObjectComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -2650,7 +2650,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.description");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -2667,7 +2667,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #description} (Text that describes the object in more detail.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SecurityEventObjectComponent setDescriptionElement(StringType value) { 
+        public AuditEventObjectComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -2682,7 +2682,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Text that describes the object in more detail.
          */
-        public SecurityEventObjectComponent setDescription(String value) { 
+        public AuditEventObjectComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -2699,7 +2699,7 @@ public class SecurityEvent extends DomainResource {
         public Base64BinaryType getQueryElement() { 
           if (this.query == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectComponent.query");
+              throw new Error("Attempt to auto-create AuditEventObjectComponent.query");
             else if (Configuration.doAutoCreate())
               this.query = new Base64BinaryType(); // bb
           return this.query;
@@ -2716,7 +2716,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #query} (The actual query for a query-type participant object.). This is the underlying object with id, value and extensions. The accessor "getQuery" gives direct access to the value
          */
-        public SecurityEventObjectComponent setQueryElement(Base64BinaryType value) { 
+        public AuditEventObjectComponent setQueryElement(Base64BinaryType value) { 
           this.query = value;
           return this;
         }
@@ -2731,7 +2731,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value The actual query for a query-type participant object.
          */
-        public SecurityEventObjectComponent setQuery(byte[] value) { 
+        public AuditEventObjectComponent setQuery(byte[] value) { 
           if (value == null)
             this.query = null;
           else {
@@ -2745,16 +2745,16 @@ public class SecurityEvent extends DomainResource {
         /**
          * @return {@link #detail} (Additional Information about the Object.)
          */
-        public List<SecurityEventObjectDetailComponent> getDetail() { 
+        public List<AuditEventObjectDetailComponent> getDetail() { 
           if (this.detail == null)
-            this.detail = new ArrayList<SecurityEventObjectDetailComponent>();
+            this.detail = new ArrayList<AuditEventObjectDetailComponent>();
           return this.detail;
         }
 
         public boolean hasDetail() { 
           if (this.detail == null)
             return false;
-          for (SecurityEventObjectDetailComponent item : this.detail)
+          for (AuditEventObjectDetailComponent item : this.detail)
             if (!item.isEmpty())
               return true;
           return false;
@@ -2764,10 +2764,10 @@ public class SecurityEvent extends DomainResource {
          * @return {@link #detail} (Additional Information about the Object.)
          */
     // syntactic sugar
-        public SecurityEventObjectDetailComponent addDetail() { //3
-          SecurityEventObjectDetailComponent t = new SecurityEventObjectDetailComponent();
+        public AuditEventObjectDetailComponent addDetail() { //3
+          AuditEventObjectDetailComponent t = new AuditEventObjectDetailComponent();
           if (this.detail == null)
-            this.detail = new ArrayList<SecurityEventObjectDetailComponent>();
+            this.detail = new ArrayList<AuditEventObjectDetailComponent>();
           this.detail.add(t);
           return t;
         }
@@ -2786,8 +2786,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("detail", "", "Additional Information about the Object.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
-      public SecurityEventObjectComponent copy() {
-        SecurityEventObjectComponent dst = new SecurityEventObjectComponent();
+      public AuditEventObjectComponent copy() {
+        AuditEventObjectComponent dst = new AuditEventObjectComponent();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -2799,8 +2799,8 @@ public class SecurityEvent extends DomainResource {
         dst.description = description == null ? null : description.copy();
         dst.query = query == null ? null : query.copy();
         if (detail != null) {
-          dst.detail = new ArrayList<SecurityEventObjectDetailComponent>();
-          for (SecurityEventObjectDetailComponent i : detail)
+          dst.detail = new ArrayList<AuditEventObjectDetailComponent>();
+          for (AuditEventObjectDetailComponent i : detail)
             dst.detail.add(i.copy());
         };
         return dst;
@@ -2810,9 +2810,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventObjectComponent))
+        if (!(other instanceof AuditEventObjectComponent))
           return false;
-        SecurityEventObjectComponent o = (SecurityEventObjectComponent) other;
+        AuditEventObjectComponent o = (AuditEventObjectComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(reference, o.reference, true)
            && compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(lifecycle, o.lifecycle, true)
            && compareDeep(sensitivity, o.sensitivity, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
@@ -2823,9 +2823,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventObjectComponent))
+        if (!(other instanceof AuditEventObjectComponent))
           return false;
-        SecurityEventObjectComponent o = (SecurityEventObjectComponent) other;
+        AuditEventObjectComponent o = (AuditEventObjectComponent) other;
         return compareValues(type, o.type, true) && compareValues(role, o.role, true) && compareValues(lifecycle, o.lifecycle, true)
            && compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(query, o.query, true)
           ;
@@ -2841,7 +2841,7 @@ public class SecurityEvent extends DomainResource {
   }
 
     @Block()
-    public static class SecurityEventObjectDetailComponent extends BackboneElement {
+    public static class AuditEventObjectDetailComponent extends BackboneElement {
         /**
          * Name of the property.
          */
@@ -2858,11 +2858,11 @@ public class SecurityEvent extends DomainResource {
 
         private static final long serialVersionUID = 11139504L;
 
-      public SecurityEventObjectDetailComponent() {
+      public AuditEventObjectDetailComponent() {
         super();
       }
 
-      public SecurityEventObjectDetailComponent(StringType type, Base64BinaryType value) {
+      public AuditEventObjectDetailComponent(StringType type, Base64BinaryType value) {
         super();
         this.type = type;
         this.value = value;
@@ -2874,7 +2874,7 @@ public class SecurityEvent extends DomainResource {
         public StringType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectDetailComponent.type");
+              throw new Error("Attempt to auto-create AuditEventObjectDetailComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new StringType(); // bb
           return this.type;
@@ -2891,7 +2891,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #type} (Name of the property.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SecurityEventObjectDetailComponent setTypeElement(StringType value) { 
+        public AuditEventObjectDetailComponent setTypeElement(StringType value) { 
           this.type = value;
           return this;
         }
@@ -2906,7 +2906,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Name of the property.
          */
-        public SecurityEventObjectDetailComponent setType(String value) { 
+        public AuditEventObjectDetailComponent setType(String value) { 
             if (this.type == null)
               this.type = new StringType();
             this.type.setValue(value);
@@ -2919,7 +2919,7 @@ public class SecurityEvent extends DomainResource {
         public Base64BinaryType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SecurityEventObjectDetailComponent.value");
+              throw new Error("Attempt to auto-create AuditEventObjectDetailComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new Base64BinaryType(); // bb
           return this.value;
@@ -2936,7 +2936,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value {@link #value} (Property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public SecurityEventObjectDetailComponent setValueElement(Base64BinaryType value) { 
+        public AuditEventObjectDetailComponent setValueElement(Base64BinaryType value) { 
           this.value = value;
           return this;
         }
@@ -2951,7 +2951,7 @@ public class SecurityEvent extends DomainResource {
         /**
          * @param value Property value.
          */
-        public SecurityEventObjectDetailComponent setValue(byte[] value) { 
+        public AuditEventObjectDetailComponent setValue(byte[] value) { 
             if (this.value == null)
               this.value = new Base64BinaryType();
             this.value.setValue(value);
@@ -2964,8 +2964,8 @@ public class SecurityEvent extends DomainResource {
           childrenList.add(new Property("value", "base64Binary", "Property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public SecurityEventObjectDetailComponent copy() {
-        SecurityEventObjectDetailComponent dst = new SecurityEventObjectDetailComponent();
+      public AuditEventObjectDetailComponent copy() {
+        AuditEventObjectDetailComponent dst = new AuditEventObjectDetailComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
@@ -2976,9 +2976,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEventObjectDetailComponent))
+        if (!(other instanceof AuditEventObjectDetailComponent))
           return false;
-        SecurityEventObjectDetailComponent o = (SecurityEventObjectDetailComponent) other;
+        AuditEventObjectDetailComponent o = (AuditEventObjectDetailComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
@@ -2986,9 +2986,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEventObjectDetailComponent))
+        if (!(other instanceof AuditEventObjectDetailComponent))
           return false;
-        SecurityEventObjectDetailComponent o = (SecurityEventObjectDetailComponent) other;
+        AuditEventObjectDetailComponent o = (AuditEventObjectDetailComponent) other;
         return compareValues(type, o.type, true) && compareValues(value, o.value, true);
       }
 
@@ -3004,36 +3004,36 @@ public class SecurityEvent extends DomainResource {
      */
     @Child(name="event", type={}, order=0, min=1, max=1)
     @Description(shortDefinition="What was done", formalDefinition="Identifies the name, action type, time, and disposition of the audited event." )
-    protected SecurityEventEventComponent event;
+    protected AuditEventEventComponent event;
 
     /**
      * A person, a hardware device or software process.
      */
     @Child(name="participant", type={}, order=1, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="A person, a hardware device or software process", formalDefinition="A person, a hardware device or software process." )
-    protected List<SecurityEventParticipantComponent> participant;
+    protected List<AuditEventParticipantComponent> participant;
 
     /**
      * Application systems and processes.
      */
     @Child(name="source", type={}, order=2, min=1, max=1)
     @Description(shortDefinition="Application systems and processes", formalDefinition="Application systems and processes." )
-    protected SecurityEventSourceComponent source;
+    protected AuditEventSourceComponent source;
 
     /**
      * Specific instances of data or objects that have been accessed.
      */
     @Child(name="object", type={}, order=3, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Specific instances of data or objects that have been accessed", formalDefinition="Specific instances of data or objects that have been accessed." )
-    protected List<SecurityEventObjectComponent> object;
+    protected List<AuditEventObjectComponent> object;
 
-    private static final long serialVersionUID = -1695871760L;
+    private static final long serialVersionUID = -1495151000L;
 
-    public SecurityEvent() {
+    public AuditEvent() {
       super();
     }
 
-    public SecurityEvent(SecurityEventEventComponent event, SecurityEventSourceComponent source) {
+    public AuditEvent(AuditEventEventComponent event, AuditEventSourceComponent source) {
       super();
       this.event = event;
       this.source = source;
@@ -3042,12 +3042,12 @@ public class SecurityEvent extends DomainResource {
     /**
      * @return {@link #event} (Identifies the name, action type, time, and disposition of the audited event.)
      */
-    public SecurityEventEventComponent getEvent() { 
+    public AuditEventEventComponent getEvent() { 
       if (this.event == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SecurityEvent.event");
+          throw new Error("Attempt to auto-create AuditEvent.event");
         else if (Configuration.doAutoCreate())
-          this.event = new SecurityEventEventComponent(); // cc
+          this.event = new AuditEventEventComponent(); // cc
       return this.event;
     }
 
@@ -3058,7 +3058,7 @@ public class SecurityEvent extends DomainResource {
     /**
      * @param value {@link #event} (Identifies the name, action type, time, and disposition of the audited event.)
      */
-    public SecurityEvent setEvent(SecurityEventEventComponent value) { 
+    public AuditEvent setEvent(AuditEventEventComponent value) { 
       this.event = value;
       return this;
     }
@@ -3066,16 +3066,16 @@ public class SecurityEvent extends DomainResource {
     /**
      * @return {@link #participant} (A person, a hardware device or software process.)
      */
-    public List<SecurityEventParticipantComponent> getParticipant() { 
+    public List<AuditEventParticipantComponent> getParticipant() { 
       if (this.participant == null)
-        this.participant = new ArrayList<SecurityEventParticipantComponent>();
+        this.participant = new ArrayList<AuditEventParticipantComponent>();
       return this.participant;
     }
 
     public boolean hasParticipant() { 
       if (this.participant == null)
         return false;
-      for (SecurityEventParticipantComponent item : this.participant)
+      for (AuditEventParticipantComponent item : this.participant)
         if (!item.isEmpty())
           return true;
       return false;
@@ -3085,10 +3085,10 @@ public class SecurityEvent extends DomainResource {
      * @return {@link #participant} (A person, a hardware device or software process.)
      */
     // syntactic sugar
-    public SecurityEventParticipantComponent addParticipant() { //3
-      SecurityEventParticipantComponent t = new SecurityEventParticipantComponent();
+    public AuditEventParticipantComponent addParticipant() { //3
+      AuditEventParticipantComponent t = new AuditEventParticipantComponent();
       if (this.participant == null)
-        this.participant = new ArrayList<SecurityEventParticipantComponent>();
+        this.participant = new ArrayList<AuditEventParticipantComponent>();
       this.participant.add(t);
       return t;
     }
@@ -3096,12 +3096,12 @@ public class SecurityEvent extends DomainResource {
     /**
      * @return {@link #source} (Application systems and processes.)
      */
-    public SecurityEventSourceComponent getSource() { 
+    public AuditEventSourceComponent getSource() { 
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create SecurityEvent.source");
+          throw new Error("Attempt to auto-create AuditEvent.source");
         else if (Configuration.doAutoCreate())
-          this.source = new SecurityEventSourceComponent(); // cc
+          this.source = new AuditEventSourceComponent(); // cc
       return this.source;
     }
 
@@ -3112,7 +3112,7 @@ public class SecurityEvent extends DomainResource {
     /**
      * @param value {@link #source} (Application systems and processes.)
      */
-    public SecurityEvent setSource(SecurityEventSourceComponent value) { 
+    public AuditEvent setSource(AuditEventSourceComponent value) { 
       this.source = value;
       return this;
     }
@@ -3120,16 +3120,16 @@ public class SecurityEvent extends DomainResource {
     /**
      * @return {@link #object} (Specific instances of data or objects that have been accessed.)
      */
-    public List<SecurityEventObjectComponent> getObject() { 
+    public List<AuditEventObjectComponent> getObject() { 
       if (this.object == null)
-        this.object = new ArrayList<SecurityEventObjectComponent>();
+        this.object = new ArrayList<AuditEventObjectComponent>();
       return this.object;
     }
 
     public boolean hasObject() { 
       if (this.object == null)
         return false;
-      for (SecurityEventObjectComponent item : this.object)
+      for (AuditEventObjectComponent item : this.object)
         if (!item.isEmpty())
           return true;
       return false;
@@ -3139,10 +3139,10 @@ public class SecurityEvent extends DomainResource {
      * @return {@link #object} (Specific instances of data or objects that have been accessed.)
      */
     // syntactic sugar
-    public SecurityEventObjectComponent addObject() { //3
-      SecurityEventObjectComponent t = new SecurityEventObjectComponent();
+    public AuditEventObjectComponent addObject() { //3
+      AuditEventObjectComponent t = new AuditEventObjectComponent();
       if (this.object == null)
-        this.object = new ArrayList<SecurityEventObjectComponent>();
+        this.object = new ArrayList<AuditEventObjectComponent>();
       this.object.add(t);
       return t;
     }
@@ -3155,25 +3155,25 @@ public class SecurityEvent extends DomainResource {
         childrenList.add(new Property("object", "", "Specific instances of data or objects that have been accessed.", 0, java.lang.Integer.MAX_VALUE, object));
       }
 
-      public SecurityEvent copy() {
-        SecurityEvent dst = new SecurityEvent();
+      public AuditEvent copy() {
+        AuditEvent dst = new AuditEvent();
         copyValues(dst);
         dst.event = event == null ? null : event.copy();
         if (participant != null) {
-          dst.participant = new ArrayList<SecurityEventParticipantComponent>();
-          for (SecurityEventParticipantComponent i : participant)
+          dst.participant = new ArrayList<AuditEventParticipantComponent>();
+          for (AuditEventParticipantComponent i : participant)
             dst.participant.add(i.copy());
         };
         dst.source = source == null ? null : source.copy();
         if (object != null) {
-          dst.object = new ArrayList<SecurityEventObjectComponent>();
-          for (SecurityEventObjectComponent i : object)
+          dst.object = new ArrayList<AuditEventObjectComponent>();
+          for (AuditEventObjectComponent i : object)
             dst.object.add(i.copy());
         };
         return dst;
       }
 
-      protected SecurityEvent typedCopy() {
+      protected AuditEvent typedCopy() {
         return copy();
       }
 
@@ -3181,9 +3181,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SecurityEvent))
+        if (!(other instanceof AuditEvent))
           return false;
-        SecurityEvent o = (SecurityEvent) other;
+        AuditEvent o = (AuditEvent) other;
         return compareDeep(event, o.event, true) && compareDeep(participant, o.participant, true) && compareDeep(source, o.source, true)
            && compareDeep(object, o.object, true);
       }
@@ -3192,9 +3192,9 @@ public class SecurityEvent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SecurityEvent))
+        if (!(other instanceof AuditEvent))
           return false;
-        SecurityEvent o = (SecurityEvent) other;
+        AuditEvent o = (AuditEvent) other;
         return true;
       }
 
@@ -3205,40 +3205,40 @@ public class SecurityEvent extends DomainResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.SecurityEvent;
+    return ResourceType.AuditEvent;
    }
 
-  @SearchParamDefinition(name="site", path="SecurityEvent.source.site", description="Logical source location within the enterprise", type="token" )
+  @SearchParamDefinition(name="site", path="AuditEvent.source.site", description="Logical source location within the enterprise", type="token" )
   public static final String SP_SITE = "site";
-  @SearchParamDefinition(name="desc", path="SecurityEvent.object.name", description="Instance-specific descriptor for Object", type="string" )
+  @SearchParamDefinition(name="desc", path="AuditEvent.object.name", description="Instance-specific descriptor for Object", type="string" )
   public static final String SP_DESC = "desc";
-  @SearchParamDefinition(name="type", path="SecurityEvent.event.type", description="Type/identifier of event", type="token" )
+  @SearchParamDefinition(name="type", path="AuditEvent.event.type", description="Type/identifier of event", type="token" )
   public static final String SP_TYPE = "type";
-  @SearchParamDefinition(name="date", path="SecurityEvent.event.dateTime", description="Time when the event occurred on source", type="date" )
+  @SearchParamDefinition(name="date", path="AuditEvent.event.dateTime", description="Time when the event occurred on source", type="date" )
   public static final String SP_DATE = "date";
-  @SearchParamDefinition(name="reference", path="SecurityEvent.object.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
+  @SearchParamDefinition(name="reference", path="AuditEvent.object.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
   public static final String SP_REFERENCE = "reference";
-  @SearchParamDefinition(name="identity", path="SecurityEvent.object.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
+  @SearchParamDefinition(name="identity", path="AuditEvent.object.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
   public static final String SP_IDENTITY = "identity";
   @SearchParamDefinition(name="patient", path="", description="A patient that the .object.reference refers to", type="reference" )
   public static final String SP_PATIENT = "patient";
-  @SearchParamDefinition(name="altid", path="SecurityEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
+  @SearchParamDefinition(name="altid", path="AuditEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
   public static final String SP_ALTID = "altid";
   @SearchParamDefinition(name="patientid", path="", description="The id of the patient (one of multiple kinds of participations)", type="token" )
   public static final String SP_PATIENTID = "patientid";
-  @SearchParamDefinition(name="source", path="SecurityEvent.source.identifier", description="The id of source where event originated", type="token" )
+  @SearchParamDefinition(name="source", path="AuditEvent.source.identifier", description="The id of source where event originated", type="token" )
   public static final String SP_SOURCE = "source";
-  @SearchParamDefinition(name="address", path="SecurityEvent.participant.network.identifier", description="Identifier for the network access point of the user device", type="token" )
+  @SearchParamDefinition(name="address", path="AuditEvent.participant.network.identifier", description="Identifier for the network access point of the user device", type="token" )
   public static final String SP_ADDRESS = "address";
-  @SearchParamDefinition(name="subtype", path="SecurityEvent.event.subtype", description="More specific type/id for the event", type="token" )
+  @SearchParamDefinition(name="subtype", path="AuditEvent.event.subtype", description="More specific type/id for the event", type="token" )
   public static final String SP_SUBTYPE = "subtype";
-  @SearchParamDefinition(name="name", path="SecurityEvent.participant.name", description="Human-meaningful name for the user", type="string" )
+  @SearchParamDefinition(name="name", path="AuditEvent.participant.name", description="Human-meaningful name for the user", type="string" )
   public static final String SP_NAME = "name";
-  @SearchParamDefinition(name="action", path="SecurityEvent.event.action", description="Type of action performed during the event", type="token" )
+  @SearchParamDefinition(name="action", path="AuditEvent.event.action", description="Type of action performed during the event", type="token" )
   public static final String SP_ACTION = "action";
-  @SearchParamDefinition(name="object-type", path="SecurityEvent.object.type", description="Object type being audited", type="token" )
+  @SearchParamDefinition(name="object-type", path="AuditEvent.object.type", description="Object type being audited", type="token" )
   public static final String SP_OBJECTTYPE = "object-type";
-  @SearchParamDefinition(name="user", path="SecurityEvent.participant.userId", description="Unique identifier for the user", type="token" )
+  @SearchParamDefinition(name="user", path="AuditEvent.participant.userId", description="Unique identifier for the user", type="token" )
   public static final String SP_USER = "user";
 
 }
