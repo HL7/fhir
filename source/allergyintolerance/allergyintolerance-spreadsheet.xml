@@ -5918,7 +5918,7 @@
     <Cell><Data ss:Type="String">openehr</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">cqf-allergyintolerance</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">!cqf-allergyintolerance</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">cqf-allergyintolerance.xml</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String"> allergyintolerance-cqf-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">spreadsheet</Data></Cell>
