@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
 
 import org.hl7.fhir.instance.model.IntegerType;
 import org.hl7.fhir.instance.model.DateTimeType;
@@ -1372,6 +1372,182 @@ public class JsonParser extends JsonParserBase {
       res.setLastModifiedElement(parseDateTime(json.get("lastModified").getAsString()));
     if (json.has("_lastModified"))
       parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModifiedElement());
+    return res;
+  }
+
+  protected AuditEvent parseAuditEvent(JsonObject json) throws Exception {
+    AuditEvent res = new AuditEvent();
+    parseDomainResourceProperties(json, res);
+    if (json.has("event"))
+      res.setEvent(parseAuditEventAuditEventEventComponent(json.getAsJsonObject("event"), res));
+    if (json.has("participant")) {
+      JsonArray array = json.getAsJsonArray("participant");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParticipant().add(parseAuditEventAuditEventParticipantComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("source"))
+      res.setSource(parseAuditEventAuditEventSourceComponent(json.getAsJsonObject("source"), res));
+    if (json.has("object")) {
+      JsonArray array = json.getAsJsonArray("object");
+      for (int i = 0; i < array.size(); i++) {
+        res.getObject().add(parseAuditEventAuditEventObjectComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    return res;
+  }
+
+  protected AuditEvent.AuditEventEventComponent parseAuditEventAuditEventEventComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventEventComponent res = new AuditEvent.AuditEventEventComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("subtype")) {
+      JsonArray array = json.getAsJsonArray("subtype");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubtype().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("action"))
+      res.setActionElement(parseEnumeration(json.get("action").getAsString(), AuditEvent.AuditEventAction.NULL, new AuditEvent.AuditEventActionEnumFactory()));
+    if (json.has("_action"))
+      parseElementProperties(json.getAsJsonObject("_action"), res.getActionElement());
+    if (json.has("dateTime"))
+      res.setDateTimeElement(parseInstant(json.get("dateTime").getAsString()));
+    if (json.has("_dateTime"))
+      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeElement());
+    if (json.has("outcome"))
+      res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), AuditEvent.AuditEventOutcome.NULL, new AuditEvent.AuditEventOutcomeEnumFactory()));
+    if (json.has("_outcome"))
+      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeElement());
+    if (json.has("outcomeDesc"))
+      res.setOutcomeDescElement(parseString(json.get("outcomeDesc").getAsString()));
+    if (json.has("_outcomeDesc"))
+      parseElementProperties(json.getAsJsonObject("_outcomeDesc"), res.getOutcomeDescElement());
+    return res;
+  }
+
+  protected AuditEvent.AuditEventParticipantComponent parseAuditEventAuditEventParticipantComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventParticipantComponent res = new AuditEvent.AuditEventParticipantComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("role")) {
+      JsonArray array = json.getAsJsonArray("role");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRole().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("reference"))
+      res.setReference(parseReference(json.getAsJsonObject("reference")));
+    if (json.has("userId"))
+      res.setUserIdElement(parseString(json.get("userId").getAsString()));
+    if (json.has("_userId"))
+      parseElementProperties(json.getAsJsonObject("_userId"), res.getUserIdElement());
+    if (json.has("altId"))
+      res.setAltIdElement(parseString(json.get("altId").getAsString()));
+    if (json.has("_altId"))
+      parseElementProperties(json.getAsJsonObject("_altId"), res.getAltIdElement());
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("requestor"))
+      res.setRequestorElement(parseBoolean(json.get("requestor").getAsBoolean()));
+    if (json.has("_requestor"))
+      parseElementProperties(json.getAsJsonObject("_requestor"), res.getRequestorElement());
+    if (json.has("media"))
+      res.setMedia(parseCoding(json.getAsJsonObject("media")));
+    if (json.has("network"))
+      res.setNetwork(parseAuditEventAuditEventParticipantNetworkComponent(json.getAsJsonObject("network"), owner));
+    return res;
+  }
+
+  protected AuditEvent.AuditEventParticipantNetworkComponent parseAuditEventAuditEventParticipantNetworkComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventParticipantNetworkComponent res = new AuditEvent.AuditEventParticipantNetworkComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
+    if (json.has("_identifier"))
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), AuditEvent.NetworkType.NULL, new AuditEvent.NetworkTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    return res;
+  }
+
+  protected AuditEvent.AuditEventSourceComponent parseAuditEventAuditEventSourceComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventSourceComponent res = new AuditEvent.AuditEventSourceComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("site"))
+      res.setSiteElement(parseString(json.get("site").getAsString()));
+    if (json.has("_site"))
+      parseElementProperties(json.getAsJsonObject("_site"), res.getSiteElement());
+    if (json.has("identifier"))
+      res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
+    if (json.has("_identifier"))
+      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
+    if (json.has("type")) {
+      JsonArray array = json.getAsJsonArray("type");
+      for (int i = 0; i < array.size(); i++) {
+        res.getType().add(parseCoding(array.get(i).getAsJsonObject()));
+      }
+    };
+    return res;
+  }
+
+  protected AuditEvent.AuditEventObjectComponent parseAuditEventAuditEventObjectComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventObjectComponent res = new AuditEvent.AuditEventObjectComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("reference"))
+      res.setReference(parseReference(json.getAsJsonObject("reference")));
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), AuditEvent.ObjectType.NULL, new AuditEvent.ObjectTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("role"))
+      res.setRoleElement(parseEnumeration(json.get("role").getAsString(), AuditEvent.ObjectRole.NULL, new AuditEvent.ObjectRoleEnumFactory()));
+    if (json.has("_role"))
+      parseElementProperties(json.getAsJsonObject("_role"), res.getRoleElement());
+    if (json.has("lifecycle"))
+      res.setLifecycleElement(parseEnumeration(json.get("lifecycle").getAsString(), AuditEvent.ObjectLifecycle.NULL, new AuditEvent.ObjectLifecycleEnumFactory()));
+    if (json.has("_lifecycle"))
+      parseElementProperties(json.getAsJsonObject("_lifecycle"), res.getLifecycleElement());
+    if (json.has("sensitivity"))
+      res.setSensitivity(parseCodeableConcept(json.getAsJsonObject("sensitivity")));
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("query"))
+      res.setQueryElement(parseBase64Binary(json.get("query").getAsString()));
+    if (json.has("_query"))
+      parseElementProperties(json.getAsJsonObject("_query"), res.getQueryElement());
+    if (json.has("detail")) {
+      JsonArray array = json.getAsJsonArray("detail");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDetail().add(parseAuditEventAuditEventObjectDetailComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  protected AuditEvent.AuditEventObjectDetailComponent parseAuditEventAuditEventObjectDetailComponent(JsonObject json, AuditEvent owner) throws Exception {
+    AuditEvent.AuditEventObjectDetailComponent res = new AuditEvent.AuditEventObjectDetailComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseString(json.get("type").getAsString()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("value"))
+      res.setValueElement(parseBase64Binary(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
     return res;
   }
 
@@ -3884,27 +4060,27 @@ public class JsonParser extends JsonParserBase {
       res.setOperationalStatusElement(parseEnumeration(json.get("operationalStatus").getAsString(), DeviceMetric.MetricOperationalStatus.NULL, new DeviceMetric.MetricOperationalStatusEnumFactory()));
     if (json.has("_operationalStatus"))
       parseElementProperties(json.getAsJsonObject("_operationalStatus"), res.getOperationalStatusElement());
-    if (json.has("measurementMode"))
-      res.setMeasurementMode(parseIdentifier(json.getAsJsonObject("measurementMode")));
     if (json.has("color"))
-      res.setColor(parseIdentifier(json.getAsJsonObject("color")));
+      res.setColorElement(parseEnumeration(json.get("color").getAsString(), DeviceMetric.MetricColor.NULL, new DeviceMetric.MetricColorEnumFactory()));
+    if (json.has("_color"))
+      parseElementProperties(json.getAsJsonObject("_color"), res.getColorElement());
     if (json.has("category"))
       res.setCategoryElement(parseEnumeration(json.get("category").getAsString(), DeviceMetric.MetricCategory.NULL, new DeviceMetric.MetricCategoryEnumFactory()));
     if (json.has("_category"))
       parseElementProperties(json.getAsJsonObject("_category"), res.getCategoryElement());
     if (json.has("measurementPeriod"))
       res.setMeasurementPeriod(parseTiming(json.getAsJsonObject("measurementPeriod")));
-    if (json.has("calibrationInfo")) {
-      JsonArray array = json.getAsJsonArray("calibrationInfo");
+    if (json.has("calibration")) {
+      JsonArray array = json.getAsJsonArray("calibration");
       for (int i = 0; i < array.size(); i++) {
-        res.getCalibrationInfo().add(parseDeviceMetricDeviceMetricCalibrationInfoComponent(array.get(i).getAsJsonObject(), res));
+        res.getCalibration().add(parseDeviceMetricDeviceMetricCalibrationComponent(array.get(i).getAsJsonObject(), res));
       }
     };
     return res;
   }
 
-  protected DeviceMetric.DeviceMetricCalibrationInfoComponent parseDeviceMetricDeviceMetricCalibrationInfoComponent(JsonObject json, DeviceMetric owner) throws Exception {
-    DeviceMetric.DeviceMetricCalibrationInfoComponent res = new DeviceMetric.DeviceMetricCalibrationInfoComponent();
+  protected DeviceMetric.DeviceMetricCalibrationComponent parseDeviceMetricDeviceMetricCalibrationComponent(JsonObject json, DeviceMetric owner) throws Exception {
+    DeviceMetric.DeviceMetricCalibrationComponent res = new DeviceMetric.DeviceMetricCalibrationComponent();
     parseBackboneProperties(json, res);
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), DeviceMetric.MetricCalibrationType.NULL, new DeviceMetric.MetricCalibrationTypeEnumFactory()));
@@ -4262,14 +4438,10 @@ public class JsonParser extends JsonParserBase {
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), DocumentManifest.DocumentReferenceStatus.NULL, new DocumentManifest.DocumentReferenceStatusEnumFactory()));
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("supercedes"))
-      res.setSupercedes(parseReference(json.getAsJsonObject("supercedes")));
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("confidentiality"))
-      res.setConfidentiality(parseCodeableConcept(json.getAsJsonObject("confidentiality")));
     if (json.has("content")) {
       JsonArray array = json.getAsJsonArray("content");
       for (int i = 0; i < array.size(); i++) {
@@ -4319,10 +4491,6 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("custodian"))
       res.setCustodian(parseReference(json.getAsJsonObject("custodian")));
-    if (json.has("policyManager"))
-      res.setPolicyManagerElement(parseUri(json.get("policyManager").getAsString()));
-    if (json.has("_policyManager"))
-      parseElementProperties(json.getAsJsonObject("_policyManager"), res.getPolicyManagerElement());
     if (json.has("authenticator"))
       res.setAuthenticator(parseReference(json.getAsJsonObject("authenticator")));
     if (json.has("created"))
@@ -9992,182 +10160,6 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  protected SecurityEvent parseSecurityEvent(JsonObject json) throws Exception {
-    SecurityEvent res = new SecurityEvent();
-    parseDomainResourceProperties(json, res);
-    if (json.has("event"))
-      res.setEvent(parseSecurityEventSecurityEventEventComponent(json.getAsJsonObject("event"), res));
-    if (json.has("participant")) {
-      JsonArray array = json.getAsJsonArray("participant");
-      for (int i = 0; i < array.size(); i++) {
-        res.getParticipant().add(parseSecurityEventSecurityEventParticipantComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("source"))
-      res.setSource(parseSecurityEventSecurityEventSourceComponent(json.getAsJsonObject("source"), res));
-    if (json.has("object")) {
-      JsonArray array = json.getAsJsonArray("object");
-      for (int i = 0; i < array.size(); i++) {
-        res.getObject().add(parseSecurityEventSecurityEventObjectComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventEventComponent parseSecurityEventSecurityEventEventComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventEventComponent res = new SecurityEvent.SecurityEventEventComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("subtype")) {
-      JsonArray array = json.getAsJsonArray("subtype");
-      for (int i = 0; i < array.size(); i++) {
-        res.getSubtype().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("action"))
-      res.setActionElement(parseEnumeration(json.get("action").getAsString(), SecurityEvent.SecurityEventAction.NULL, new SecurityEvent.SecurityEventActionEnumFactory()));
-    if (json.has("_action"))
-      parseElementProperties(json.getAsJsonObject("_action"), res.getActionElement());
-    if (json.has("dateTime"))
-      res.setDateTimeElement(parseInstant(json.get("dateTime").getAsString()));
-    if (json.has("_dateTime"))
-      parseElementProperties(json.getAsJsonObject("_dateTime"), res.getDateTimeElement());
-    if (json.has("outcome"))
-      res.setOutcomeElement(parseEnumeration(json.get("outcome").getAsString(), SecurityEvent.SecurityEventOutcome.NULL, new SecurityEvent.SecurityEventOutcomeEnumFactory()));
-    if (json.has("_outcome"))
-      parseElementProperties(json.getAsJsonObject("_outcome"), res.getOutcomeElement());
-    if (json.has("outcomeDesc"))
-      res.setOutcomeDescElement(parseString(json.get("outcomeDesc").getAsString()));
-    if (json.has("_outcomeDesc"))
-      parseElementProperties(json.getAsJsonObject("_outcomeDesc"), res.getOutcomeDescElement());
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventParticipantComponent parseSecurityEventSecurityEventParticipantComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventParticipantComponent res = new SecurityEvent.SecurityEventParticipantComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("role")) {
-      JsonArray array = json.getAsJsonArray("role");
-      for (int i = 0; i < array.size(); i++) {
-        res.getRole().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
-    if (json.has("userId"))
-      res.setUserIdElement(parseString(json.get("userId").getAsString()));
-    if (json.has("_userId"))
-      parseElementProperties(json.getAsJsonObject("_userId"), res.getUserIdElement());
-    if (json.has("altId"))
-      res.setAltIdElement(parseString(json.get("altId").getAsString()));
-    if (json.has("_altId"))
-      parseElementProperties(json.getAsJsonObject("_altId"), res.getAltIdElement());
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("requestor"))
-      res.setRequestorElement(parseBoolean(json.get("requestor").getAsBoolean()));
-    if (json.has("_requestor"))
-      parseElementProperties(json.getAsJsonObject("_requestor"), res.getRequestorElement());
-    if (json.has("media"))
-      res.setMedia(parseCoding(json.getAsJsonObject("media")));
-    if (json.has("network"))
-      res.setNetwork(parseSecurityEventSecurityEventParticipantNetworkComponent(json.getAsJsonObject("network"), owner));
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventParticipantNetworkComponent parseSecurityEventSecurityEventParticipantNetworkComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventParticipantNetworkComponent res = new SecurityEvent.SecurityEventParticipantNetworkComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
-    if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
-    if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), SecurityEvent.NetworkType.NULL, new SecurityEvent.NetworkTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventSourceComponent parseSecurityEventSecurityEventSourceComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventSourceComponent res = new SecurityEvent.SecurityEventSourceComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("site"))
-      res.setSiteElement(parseString(json.get("site").getAsString()));
-    if (json.has("_site"))
-      parseElementProperties(json.getAsJsonObject("_site"), res.getSiteElement());
-    if (json.has("identifier"))
-      res.setIdentifierElement(parseString(json.get("identifier").getAsString()));
-    if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifierElement());
-    if (json.has("type")) {
-      JsonArray array = json.getAsJsonArray("type");
-      for (int i = 0; i < array.size(); i++) {
-        res.getType().add(parseCoding(array.get(i).getAsJsonObject()));
-      }
-    };
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventObjectComponent parseSecurityEventSecurityEventObjectComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventObjectComponent res = new SecurityEvent.SecurityEventObjectComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
-    if (json.has("type"))
-      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), SecurityEvent.ObjectType.NULL, new SecurityEvent.ObjectTypeEnumFactory()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("role"))
-      res.setRoleElement(parseEnumeration(json.get("role").getAsString(), SecurityEvent.ObjectRole.NULL, new SecurityEvent.ObjectRoleEnumFactory()));
-    if (json.has("_role"))
-      parseElementProperties(json.getAsJsonObject("_role"), res.getRoleElement());
-    if (json.has("lifecycle"))
-      res.setLifecycleElement(parseEnumeration(json.get("lifecycle").getAsString(), SecurityEvent.ObjectLifecycle.NULL, new SecurityEvent.ObjectLifecycleEnumFactory()));
-    if (json.has("_lifecycle"))
-      parseElementProperties(json.getAsJsonObject("_lifecycle"), res.getLifecycleElement());
-    if (json.has("sensitivity"))
-      res.setSensitivity(parseCodeableConcept(json.getAsJsonObject("sensitivity")));
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("query"))
-      res.setQueryElement(parseBase64Binary(json.get("query").getAsString()));
-    if (json.has("_query"))
-      parseElementProperties(json.getAsJsonObject("_query"), res.getQueryElement());
-    if (json.has("detail")) {
-      JsonArray array = json.getAsJsonArray("detail");
-      for (int i = 0; i < array.size(); i++) {
-        res.getDetail().add(parseSecurityEventSecurityEventObjectDetailComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    return res;
-  }
-
-  protected SecurityEvent.SecurityEventObjectDetailComponent parseSecurityEventSecurityEventObjectDetailComponent(JsonObject json, SecurityEvent owner) throws Exception {
-    SecurityEvent.SecurityEventObjectDetailComponent res = new SecurityEvent.SecurityEventObjectDetailComponent();
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseString(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("value"))
-      res.setValueElement(parseBase64Binary(json.get("value").getAsString()));
-    if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
-    return res;
-  }
-
   protected Slot parseSlot(JsonObject json) throws Exception {
     Slot res = new Slot();
     parseDomainResourceProperties(json, res);
@@ -11545,6 +11537,8 @@ public class JsonParser extends JsonParserBase {
       return parseAppointment(json);
     else if (t.equals("AppointmentResponse"))
       return parseAppointmentResponse(json);
+    else if (t.equals("AuditEvent"))
+      return parseAuditEvent(json);
     else if (t.equals("Basic"))
       return parseBasic(json);
     else if (t.equals("Binary"))
@@ -11713,8 +11707,6 @@ public class JsonParser extends JsonParserBase {
       return parseSchedule(json);
     else if (t.equals("SearchParameter"))
       return parseSearchParameter(json);
-    else if (t.equals("SecurityEvent"))
-      return parseSecurityEvent(json);
     else if (t.equals("Slot"))
       return parseSlot(json);
     else if (t.equals("Specimen"))
@@ -11979,6 +11971,8 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"AppointmentResponse"))
       return true;
+    if (json.has(prefix+"AuditEvent"))
+      return true;
     if (json.has(prefix+"Basic"))
       return true;
     if (json.has(prefix+"Binary"))
@@ -12146,8 +12140,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Schedule"))
       return true;
     if (json.has(prefix+"SearchParameter"))
-      return true;
-    if (json.has(prefix+"SecurityEvent"))
       return true;
     if (json.has(prefix+"Slot"))
       return true;
@@ -13953,6 +13945,232 @@ public class JsonParser extends JsonParserBase {
       if (element.hasLastModifiedElement()) {
         composeDateTimeCore("lastModified", element.getLastModifiedElement(), false);
         composeDateTimeExtras("lastModified", element.getLastModifiedElement(), false);
+      }
+  }
+
+  protected void composeAuditEvent(String name, AuditEvent element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeAuditEventInner(element);
+    }
+  }
+
+  protected void composeAuditEventInner(AuditEvent element) throws Exception {
+      composeDomainResourceElements(element);
+      if (element.hasEvent()) {
+        composeAuditEventAuditEventEventComponent("event", element.getEvent());
+      }
+      if (element.hasParticipant()) {
+        openArray("participant");
+        for (AuditEvent.AuditEventParticipantComponent e : element.getParticipant()) 
+          composeAuditEventAuditEventParticipantComponent(null, e);
+        closeArray();
+      };
+      if (element.hasSource()) {
+        composeAuditEventAuditEventSourceComponent("source", element.getSource());
+      }
+      if (element.hasObject()) {
+        openArray("object");
+        for (AuditEvent.AuditEventObjectComponent e : element.getObject()) 
+          composeAuditEventAuditEventObjectComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeAuditEventAuditEventEventComponent(String name, AuditEvent.AuditEventEventComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventEventComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventEventComponentInner(AuditEvent.AuditEventEventComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasSubtype()) {
+        openArray("subtype");
+        for (CodeableConcept e : element.getSubtype()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasActionElement()) {
+        composeEnumerationCore("action", element.getActionElement(), new AuditEvent.AuditEventActionEnumFactory(), false);
+        composeEnumerationExtras("action", element.getActionElement(), new AuditEvent.AuditEventActionEnumFactory(), false);
+      }
+      if (element.hasDateTimeElement()) {
+        composeInstantCore("dateTime", element.getDateTimeElement(), false);
+        composeInstantExtras("dateTime", element.getDateTimeElement(), false);
+      }
+      if (element.hasOutcomeElement()) {
+        composeEnumerationCore("outcome", element.getOutcomeElement(), new AuditEvent.AuditEventOutcomeEnumFactory(), false);
+        composeEnumerationExtras("outcome", element.getOutcomeElement(), new AuditEvent.AuditEventOutcomeEnumFactory(), false);
+      }
+      if (element.hasOutcomeDescElement()) {
+        composeStringCore("outcomeDesc", element.getOutcomeDescElement(), false);
+        composeStringExtras("outcomeDesc", element.getOutcomeDescElement(), false);
+      }
+  }
+
+  protected void composeAuditEventAuditEventParticipantComponent(String name, AuditEvent.AuditEventParticipantComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventParticipantComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventParticipantComponentInner(AuditEvent.AuditEventParticipantComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasRole()) {
+        openArray("role");
+        for (CodeableConcept e : element.getRole()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
+      }
+      if (element.hasUserIdElement()) {
+        composeStringCore("userId", element.getUserIdElement(), false);
+        composeStringExtras("userId", element.getUserIdElement(), false);
+      }
+      if (element.hasAltIdElement()) {
+        composeStringCore("altId", element.getAltIdElement(), false);
+        composeStringExtras("altId", element.getAltIdElement(), false);
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasRequestorElement()) {
+        composeBooleanCore("requestor", element.getRequestorElement(), false);
+        composeBooleanExtras("requestor", element.getRequestorElement(), false);
+      }
+      if (element.hasMedia()) {
+        composeCoding("media", element.getMedia());
+      }
+      if (element.hasNetwork()) {
+        composeAuditEventAuditEventParticipantNetworkComponent("network", element.getNetwork());
+      }
+  }
+
+  protected void composeAuditEventAuditEventParticipantNetworkComponent(String name, AuditEvent.AuditEventParticipantNetworkComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventParticipantNetworkComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventParticipantNetworkComponentInner(AuditEvent.AuditEventParticipantNetworkComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasIdentifierElement()) {
+        composeStringCore("identifier", element.getIdentifierElement(), false);
+        composeStringExtras("identifier", element.getIdentifierElement(), false);
+      }
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new AuditEvent.NetworkTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new AuditEvent.NetworkTypeEnumFactory(), false);
+      }
+  }
+
+  protected void composeAuditEventAuditEventSourceComponent(String name, AuditEvent.AuditEventSourceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventSourceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventSourceComponentInner(AuditEvent.AuditEventSourceComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasSiteElement()) {
+        composeStringCore("site", element.getSiteElement(), false);
+        composeStringExtras("site", element.getSiteElement(), false);
+      }
+      if (element.hasIdentifierElement()) {
+        composeStringCore("identifier", element.getIdentifierElement(), false);
+        composeStringExtras("identifier", element.getIdentifierElement(), false);
+      }
+      if (element.hasType()) {
+        openArray("type");
+        for (Coding e : element.getType()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeAuditEventAuditEventObjectComponent(String name, AuditEvent.AuditEventObjectComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventObjectComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventObjectComponentInner(AuditEvent.AuditEventObjectComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasReference()) {
+        composeReference("reference", element.getReference());
+      }
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new AuditEvent.ObjectTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new AuditEvent.ObjectTypeEnumFactory(), false);
+      }
+      if (element.hasRoleElement()) {
+        composeEnumerationCore("role", element.getRoleElement(), new AuditEvent.ObjectRoleEnumFactory(), false);
+        composeEnumerationExtras("role", element.getRoleElement(), new AuditEvent.ObjectRoleEnumFactory(), false);
+      }
+      if (element.hasLifecycleElement()) {
+        composeEnumerationCore("lifecycle", element.getLifecycleElement(), new AuditEvent.ObjectLifecycleEnumFactory(), false);
+        composeEnumerationExtras("lifecycle", element.getLifecycleElement(), new AuditEvent.ObjectLifecycleEnumFactory(), false);
+      }
+      if (element.hasSensitivity()) {
+        composeCodeableConcept("sensitivity", element.getSensitivity());
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasQueryElement()) {
+        composeBase64BinaryCore("query", element.getQueryElement(), false);
+        composeBase64BinaryExtras("query", element.getQueryElement(), false);
+      }
+      if (element.hasDetail()) {
+        openArray("detail");
+        for (AuditEvent.AuditEventObjectDetailComponent e : element.getDetail()) 
+          composeAuditEventAuditEventObjectDetailComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeAuditEventAuditEventObjectDetailComponent(String name, AuditEvent.AuditEventObjectDetailComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeAuditEventAuditEventObjectDetailComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeAuditEventAuditEventObjectDetailComponentInner(AuditEvent.AuditEventObjectDetailComponent element) throws Exception {
+      composeBackbone(element);
+      if (element.hasTypeElement()) {
+        composeStringCore("type", element.getTypeElement(), false);
+        composeStringExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasValueElement()) {
+        composeBase64BinaryCore("value", element.getValueElement(), false);
+        composeBase64BinaryExtras("value", element.getValueElement(), false);
       }
   }
 
@@ -17073,11 +17291,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("operationalStatus", element.getOperationalStatusElement(), new DeviceMetric.MetricOperationalStatusEnumFactory(), false);
         composeEnumerationExtras("operationalStatus", element.getOperationalStatusElement(), new DeviceMetric.MetricOperationalStatusEnumFactory(), false);
       }
-      if (element.hasMeasurementMode()) {
-        composeIdentifier("measurementMode", element.getMeasurementMode());
-      }
-      if (element.hasColor()) {
-        composeIdentifier("color", element.getColor());
+      if (element.hasColorElement()) {
+        composeEnumerationCore("color", element.getColorElement(), new DeviceMetric.MetricColorEnumFactory(), false);
+        composeEnumerationExtras("color", element.getColorElement(), new DeviceMetric.MetricColorEnumFactory(), false);
       }
       if (element.hasCategoryElement()) {
         composeEnumerationCore("category", element.getCategoryElement(), new DeviceMetric.MetricCategoryEnumFactory(), false);
@@ -17086,23 +17302,23 @@ public class JsonParser extends JsonParserBase {
       if (element.hasMeasurementPeriod()) {
         composeTiming("measurementPeriod", element.getMeasurementPeriod());
       }
-      if (element.hasCalibrationInfo()) {
-        openArray("calibrationInfo");
-        for (DeviceMetric.DeviceMetricCalibrationInfoComponent e : element.getCalibrationInfo()) 
-          composeDeviceMetricDeviceMetricCalibrationInfoComponent(null, e);
+      if (element.hasCalibration()) {
+        openArray("calibration");
+        for (DeviceMetric.DeviceMetricCalibrationComponent e : element.getCalibration()) 
+          composeDeviceMetricDeviceMetricCalibrationComponent(null, e);
         closeArray();
       };
   }
 
-  protected void composeDeviceMetricDeviceMetricCalibrationInfoComponent(String name, DeviceMetric.DeviceMetricCalibrationInfoComponent element) throws Exception {
+  protected void composeDeviceMetricDeviceMetricCalibrationComponent(String name, DeviceMetric.DeviceMetricCalibrationComponent element) throws Exception {
     if (element != null) {
       open(name);
-      composeDeviceMetricDeviceMetricCalibrationInfoComponentInner(element);
+      composeDeviceMetricDeviceMetricCalibrationComponentInner(element);
       close();
     }
   }
 
-  protected void composeDeviceMetricDeviceMetricCalibrationInfoComponentInner(DeviceMetric.DeviceMetricCalibrationInfoComponent element) throws Exception {
+  protected void composeDeviceMetricDeviceMetricCalibrationComponentInner(DeviceMetric.DeviceMetricCalibrationComponent element) throws Exception {
       composeBackbone(element);
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new DeviceMetric.MetricCalibrationTypeEnumFactory(), false);
@@ -17519,15 +17735,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("status", element.getStatusElement(), new DocumentManifest.DocumentReferenceStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatusElement(), new DocumentManifest.DocumentReferenceStatusEnumFactory(), false);
       }
-      if (element.hasSupercedes()) {
-        composeReference("supercedes", element.getSupercedes());
-      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasConfidentiality()) {
-        composeCodeableConcept("confidentiality", element.getConfidentiality());
       }
       if (element.hasContent()) {
         openArray("content");
@@ -17584,10 +17794,6 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasCustodian()) {
         composeReference("custodian", element.getCustodian());
-      }
-      if (element.hasPolicyManagerElement()) {
-        composeUriCore("policyManager", element.getPolicyManagerElement(), false);
-        composeUriExtras("policyManager", element.getPolicyManagerElement(), false);
       }
       if (element.hasAuthenticator()) {
         composeReference("authenticator", element.getAuthenticator());
@@ -24726,232 +24932,6 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeSecurityEvent(String name, SecurityEvent element) throws Exception {
-    if (element != null) {
-      prop("resourceType", name);
-      composeSecurityEventInner(element);
-    }
-  }
-
-  protected void composeSecurityEventInner(SecurityEvent element) throws Exception {
-      composeDomainResourceElements(element);
-      if (element.hasEvent()) {
-        composeSecurityEventSecurityEventEventComponent("event", element.getEvent());
-      }
-      if (element.hasParticipant()) {
-        openArray("participant");
-        for (SecurityEvent.SecurityEventParticipantComponent e : element.getParticipant()) 
-          composeSecurityEventSecurityEventParticipantComponent(null, e);
-        closeArray();
-      };
-      if (element.hasSource()) {
-        composeSecurityEventSecurityEventSourceComponent("source", element.getSource());
-      }
-      if (element.hasObject()) {
-        openArray("object");
-        for (SecurityEvent.SecurityEventObjectComponent e : element.getObject()) 
-          composeSecurityEventSecurityEventObjectComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeSecurityEventSecurityEventEventComponent(String name, SecurityEvent.SecurityEventEventComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventEventComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventEventComponentInner(SecurityEvent.SecurityEventEventComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasSubtype()) {
-        openArray("subtype");
-        for (CodeableConcept e : element.getSubtype()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasActionElement()) {
-        composeEnumerationCore("action", element.getActionElement(), new SecurityEvent.SecurityEventActionEnumFactory(), false);
-        composeEnumerationExtras("action", element.getActionElement(), new SecurityEvent.SecurityEventActionEnumFactory(), false);
-      }
-      if (element.hasDateTimeElement()) {
-        composeInstantCore("dateTime", element.getDateTimeElement(), false);
-        composeInstantExtras("dateTime", element.getDateTimeElement(), false);
-      }
-      if (element.hasOutcomeElement()) {
-        composeEnumerationCore("outcome", element.getOutcomeElement(), new SecurityEvent.SecurityEventOutcomeEnumFactory(), false);
-        composeEnumerationExtras("outcome", element.getOutcomeElement(), new SecurityEvent.SecurityEventOutcomeEnumFactory(), false);
-      }
-      if (element.hasOutcomeDescElement()) {
-        composeStringCore("outcomeDesc", element.getOutcomeDescElement(), false);
-        composeStringExtras("outcomeDesc", element.getOutcomeDescElement(), false);
-      }
-  }
-
-  protected void composeSecurityEventSecurityEventParticipantComponent(String name, SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventParticipantComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventParticipantComponentInner(SecurityEvent.SecurityEventParticipantComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasRole()) {
-        openArray("role");
-        for (CodeableConcept e : element.getRole()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-      if (element.hasUserIdElement()) {
-        composeStringCore("userId", element.getUserIdElement(), false);
-        composeStringExtras("userId", element.getUserIdElement(), false);
-      }
-      if (element.hasAltIdElement()) {
-        composeStringCore("altId", element.getAltIdElement(), false);
-        composeStringExtras("altId", element.getAltIdElement(), false);
-      }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasRequestorElement()) {
-        composeBooleanCore("requestor", element.getRequestorElement(), false);
-        composeBooleanExtras("requestor", element.getRequestorElement(), false);
-      }
-      if (element.hasMedia()) {
-        composeCoding("media", element.getMedia());
-      }
-      if (element.hasNetwork()) {
-        composeSecurityEventSecurityEventParticipantNetworkComponent("network", element.getNetwork());
-      }
-  }
-
-  protected void composeSecurityEventSecurityEventParticipantNetworkComponent(String name, SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventParticipantNetworkComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventParticipantNetworkComponentInner(SecurityEvent.SecurityEventParticipantNetworkComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasIdentifierElement()) {
-        composeStringCore("identifier", element.getIdentifierElement(), false);
-        composeStringExtras("identifier", element.getIdentifierElement(), false);
-      }
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new SecurityEvent.NetworkTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new SecurityEvent.NetworkTypeEnumFactory(), false);
-      }
-  }
-
-  protected void composeSecurityEventSecurityEventSourceComponent(String name, SecurityEvent.SecurityEventSourceComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventSourceComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventSourceComponentInner(SecurityEvent.SecurityEventSourceComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasSiteElement()) {
-        composeStringCore("site", element.getSiteElement(), false);
-        composeStringExtras("site", element.getSiteElement(), false);
-      }
-      if (element.hasIdentifierElement()) {
-        composeStringCore("identifier", element.getIdentifierElement(), false);
-        composeStringExtras("identifier", element.getIdentifierElement(), false);
-      }
-      if (element.hasType()) {
-        openArray("type");
-        for (Coding e : element.getType()) 
-          composeCoding(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeSecurityEventSecurityEventObjectComponent(String name, SecurityEvent.SecurityEventObjectComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventObjectComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventObjectComponentInner(SecurityEvent.SecurityEventObjectComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-      if (element.hasTypeElement()) {
-        composeEnumerationCore("type", element.getTypeElement(), new SecurityEvent.ObjectTypeEnumFactory(), false);
-        composeEnumerationExtras("type", element.getTypeElement(), new SecurityEvent.ObjectTypeEnumFactory(), false);
-      }
-      if (element.hasRoleElement()) {
-        composeEnumerationCore("role", element.getRoleElement(), new SecurityEvent.ObjectRoleEnumFactory(), false);
-        composeEnumerationExtras("role", element.getRoleElement(), new SecurityEvent.ObjectRoleEnumFactory(), false);
-      }
-      if (element.hasLifecycleElement()) {
-        composeEnumerationCore("lifecycle", element.getLifecycleElement(), new SecurityEvent.ObjectLifecycleEnumFactory(), false);
-        composeEnumerationExtras("lifecycle", element.getLifecycleElement(), new SecurityEvent.ObjectLifecycleEnumFactory(), false);
-      }
-      if (element.hasSensitivity()) {
-        composeCodeableConcept("sensitivity", element.getSensitivity());
-      }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasQueryElement()) {
-        composeBase64BinaryCore("query", element.getQueryElement(), false);
-        composeBase64BinaryExtras("query", element.getQueryElement(), false);
-      }
-      if (element.hasDetail()) {
-        openArray("detail");
-        for (SecurityEvent.SecurityEventObjectDetailComponent e : element.getDetail()) 
-          composeSecurityEventSecurityEventObjectDetailComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeSecurityEventSecurityEventObjectDetailComponent(String name, SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
-    if (element != null) {
-      open(name);
-      composeSecurityEventSecurityEventObjectDetailComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeSecurityEventSecurityEventObjectDetailComponentInner(SecurityEvent.SecurityEventObjectDetailComponent element) throws Exception {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeStringCore("type", element.getTypeElement(), false);
-        composeStringExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasValueElement()) {
-        composeBase64BinaryCore("value", element.getValueElement(), false);
-        composeBase64BinaryExtras("value", element.getValueElement(), false);
-      }
-  }
-
   protected void composeSlot(String name, Slot element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -26669,6 +26649,8 @@ public class JsonParser extends JsonParserBase {
       composeAppointment("Appointment", (Appointment)resource);
     else if (resource instanceof AppointmentResponse)
       composeAppointmentResponse("AppointmentResponse", (AppointmentResponse)resource);
+    else if (resource instanceof AuditEvent)
+      composeAuditEvent("AuditEvent", (AuditEvent)resource);
     else if (resource instanceof Basic)
       composeBasic("Basic", (Basic)resource);
     else if (resource instanceof Binary)
@@ -26837,8 +26819,6 @@ public class JsonParser extends JsonParserBase {
       composeSchedule("Schedule", (Schedule)resource);
     else if (resource instanceof SearchParameter)
       composeSearchParameter("SearchParameter", (SearchParameter)resource);
-    else if (resource instanceof SecurityEvent)
-      composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
     else if (resource instanceof Slot)
       composeSlot("Slot", (Slot)resource);
     else if (resource instanceof Specimen)
@@ -26880,6 +26860,8 @@ public class JsonParser extends JsonParserBase {
       composeAppointment(name, (Appointment)resource);
     else if (resource instanceof AppointmentResponse)
       composeAppointmentResponse(name, (AppointmentResponse)resource);
+    else if (resource instanceof AuditEvent)
+      composeAuditEvent(name, (AuditEvent)resource);
     else if (resource instanceof Basic)
       composeBasic(name, (Basic)resource);
     else if (resource instanceof Binary)
@@ -27048,8 +27030,6 @@ public class JsonParser extends JsonParserBase {
       composeSchedule(name, (Schedule)resource);
     else if (resource instanceof SearchParameter)
       composeSearchParameter(name, (SearchParameter)resource);
-    else if (resource instanceof SecurityEvent)
-      composeSecurityEvent(name, (SecurityEvent)resource);
     else if (resource instanceof Slot)
       composeSlot(name, (Slot)resource);
     else if (resource instanceof Specimen)

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Feb 23, 2015 08:50+1100 for FHIR v0.4.0
+// Generated on Thu, Feb 26, 2015 14:07-0500 for FHIR v0.4.0
 
 import java.util.*;
 
@@ -621,16 +621,9 @@ public class DocumentReference extends DomainResource {
     protected Organization custodianTarget;
 
     /**
-     * A reference to a domain or server that manages policies under which the document is accessed and/or made available.
-     */
-    @Child(name="policyManager", type={UriType.class}, order=8, min=0, max=1)
-    @Description(shortDefinition="Manages access policies for the document", formalDefinition="A reference to a domain or server that manages policies under which the document is accessed and/or made available." )
-    protected UriType policyManager;
-
-    /**
      * Which person or organization authenticates that this document is valid.
      */
-    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=9, min=0, max=1)
+    @Child(name="authenticator", type={Practitioner.class, Organization.class}, order=8, min=0, max=1)
     @Description(shortDefinition="Who/What authenticated the document", formalDefinition="Which person or organization authenticates that this document is valid." )
     protected Reference authenticator;
 
@@ -642,67 +635,67 @@ public class DocumentReference extends DomainResource {
     /**
      * When the document was created.
      */
-    @Child(name="created", type={DateTimeType.class}, order=10, min=0, max=1)
+    @Child(name="created", type={DateTimeType.class}, order=9, min=0, max=1)
     @Description(shortDefinition="Document creation time", formalDefinition="When the document was created." )
     protected DateTimeType created;
 
     /**
      * When the document reference was created.
      */
-    @Child(name="indexed", type={InstantType.class}, order=11, min=1, max=1)
+    @Child(name="indexed", type={InstantType.class}, order=10, min=1, max=1)
     @Description(shortDefinition="When this document reference created", formalDefinition="When the document reference was created." )
     protected InstantType indexed;
 
     /**
      * The status of this document reference.
      */
-    @Child(name="status", type={CodeType.class}, order=12, min=1, max=1)
+    @Child(name="status", type={CodeType.class}, order=11, min=1, max=1)
     @Description(shortDefinition="current | superceded | entered-in-error", formalDefinition="The status of this document reference." )
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * The status of the underlying document.
      */
-    @Child(name="docStatus", type={CodeableConcept.class}, order=13, min=0, max=1)
+    @Child(name="docStatus", type={CodeableConcept.class}, order=12, min=0, max=1)
     @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The status of the underlying document." )
     protected CodeableConcept docStatus;
 
     /**
      * Relationships that this document has with other document references that already exist.
      */
-    @Child(name="relatesTo", type={}, order=14, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="relatesTo", type={}, order=13, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Relationships to other documents", formalDefinition="Relationships that this document has with other document references that already exist." )
     protected List<DocumentReferenceRelatesToComponent> relatesTo;
 
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
      */
-    @Child(name="description", type={StringType.class}, order=15, min=0, max=1)
+    @Child(name="description", type={StringType.class}, order=14, min=0, max=1)
     @Description(shortDefinition="Human-readable description (title)", formalDefinition="Human-readable description of the source document. This is sometimes known as the 'title'." )
     protected StringType description;
 
     /**
      * A set of Security-Tag codes specifying the level of privacy/security of the Document.
      */
-    @Child(name="confidentiality", type={CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED)
+    @Child(name="confidentiality", type={CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Sensitivity of source document", formalDefinition="A set of Security-Tag codes specifying the level of privacy/security of the Document." )
     protected List<CodeableConcept> confidentiality;
 
     /**
      * The document or url to the document along with critical metadata to prove content has integrity.
      */
-    @Child(name="content", type={Attachment.class}, order=17, min=1, max=Child.MAX_UNLIMITED)
+    @Child(name="content", type={Attachment.class}, order=16, min=1, max=Child.MAX_UNLIMITED)
     @Description(shortDefinition="Where to access the document", formalDefinition="The document or url to the document along with critical metadata to prove content has integrity." )
     protected List<Attachment> content;
 
     /**
      * The clinical context in which the document was prepared.
      */
-    @Child(name="context", type={}, order=18, min=0, max=1)
+    @Child(name="context", type={}, order=17, min=0, max=1)
     @Description(shortDefinition="Clinical context of document", formalDefinition="The clinical context in which the document was prepared." )
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = -392974585L;
+    private static final long serialVersionUID = 1440270142L;
 
     public DocumentReference() {
       super();
@@ -990,55 +983,6 @@ public class DocumentReference extends DomainResource {
      */
     public DocumentReference setCustodianTarget(Organization value) { 
       this.custodianTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.). This is the underlying object with id, value and extensions. The accessor "getPolicyManager" gives direct access to the value
-     */
-    public UriType getPolicyManagerElement() { 
-      if (this.policyManager == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentReference.policyManager");
-        else if (Configuration.doAutoCreate())
-          this.policyManager = new UriType(); // bb
-      return this.policyManager;
-    }
-
-    public boolean hasPolicyManagerElement() { 
-      return this.policyManager != null && !this.policyManager.isEmpty();
-    }
-
-    public boolean hasPolicyManager() { 
-      return this.policyManager != null && !this.policyManager.isEmpty();
-    }
-
-    /**
-     * @param value {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.). This is the underlying object with id, value and extensions. The accessor "getPolicyManager" gives direct access to the value
-     */
-    public DocumentReference setPolicyManagerElement(UriType value) { 
-      this.policyManager = value;
-      return this;
-    }
-
-    /**
-     * @return A reference to a domain or server that manages policies under which the document is accessed and/or made available.
-     */
-    public String getPolicyManager() { 
-      return this.policyManager == null ? null : this.policyManager.getValue();
-    }
-
-    /**
-     * @param value A reference to a domain or server that manages policies under which the document is accessed and/or made available.
-     */
-    public DocumentReference setPolicyManager(String value) { 
-      if (Utilities.noString(value))
-        this.policyManager = null;
-      else {
-        if (this.policyManager == null)
-          this.policyManager = new UriType();
-        this.policyManager.setValue(value);
-      }
       return this;
     }
 
@@ -1417,7 +1361,6 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("format", "uri", "An identifier that identifies the the document encoding, structure and template that the document conforms to beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.", 0, java.lang.Integer.MAX_VALUE, custodian));
-        childrenList.add(new Property("policyManager", "uri", "A reference to a domain or server that manages policies under which the document is accessed and/or made available.", 0, java.lang.Integer.MAX_VALUE, policyManager));
         childrenList.add(new Property("authenticator", "Reference(Practitioner|Organization)", "Which person or organization authenticates that this document is valid.", 0, java.lang.Integer.MAX_VALUE, authenticator));
         childrenList.add(new Property("created", "dateTime", "When the document was created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("indexed", "instant", "When the document reference was created.", 0, java.lang.Integer.MAX_VALUE, indexed));
@@ -1453,7 +1396,6 @@ public class DocumentReference extends DomainResource {
             dst.author.add(i.copy());
         };
         dst.custodian = custodian == null ? null : custodian.copy();
-        dst.policyManager = policyManager == null ? null : policyManager.copy();
         dst.authenticator = authenticator == null ? null : authenticator.copy();
         dst.created = created == null ? null : created.copy();
         dst.indexed = indexed == null ? null : indexed.copy();
@@ -1493,11 +1435,10 @@ public class DocumentReference extends DomainResource {
         return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(subject, o.subject, true) && compareDeep(type, o.type, true) && compareDeep(class_, o.class_, true)
            && compareDeep(format, o.format, true) && compareDeep(author, o.author, true) && compareDeep(custodian, o.custodian, true)
-           && compareDeep(policyManager, o.policyManager, true) && compareDeep(authenticator, o.authenticator, true)
-           && compareDeep(created, o.created, true) && compareDeep(indexed, o.indexed, true) && compareDeep(status, o.status, true)
-           && compareDeep(docStatus, o.docStatus, true) && compareDeep(relatesTo, o.relatesTo, true) && compareDeep(description, o.description, true)
-           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(content, o.content, true)
-           && compareDeep(context, o.context, true);
+           && compareDeep(authenticator, o.authenticator, true) && compareDeep(created, o.created, true) && compareDeep(indexed, o.indexed, true)
+           && compareDeep(status, o.status, true) && compareDeep(docStatus, o.docStatus, true) && compareDeep(relatesTo, o.relatesTo, true)
+           && compareDeep(description, o.description, true) && compareDeep(confidentiality, o.confidentiality, true)
+           && compareDeep(content, o.content, true) && compareDeep(context, o.context, true);
       }
 
       @Override
@@ -1507,20 +1448,19 @@ public class DocumentReference extends DomainResource {
         if (!(other instanceof DocumentReference))
           return false;
         DocumentReference o = (DocumentReference) other;
-        return compareValues(format, o.format, true) && compareValues(policyManager, o.policyManager, true)
-           && compareValues(created, o.created, true) && compareValues(indexed, o.indexed, true) && compareValues(status, o.status, true)
-           && compareValues(description, o.description, true);
+        return compareValues(format, o.format, true) && compareValues(created, o.created, true) && compareValues(indexed, o.indexed, true)
+           && compareValues(status, o.status, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (masterIdentifier == null || masterIdentifier.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (subject == null || subject.isEmpty()) && (type == null || type.isEmpty()) && (class_ == null || class_.isEmpty())
            && (format == null || format.isEmpty()) && (author == null || author.isEmpty()) && (custodian == null || custodian.isEmpty())
-           && (policyManager == null || policyManager.isEmpty()) && (authenticator == null || authenticator.isEmpty())
-           && (created == null || created.isEmpty()) && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty())
-           && (docStatus == null || docStatus.isEmpty()) && (relatesTo == null || relatesTo.isEmpty())
-           && (description == null || description.isEmpty()) && (confidentiality == null || confidentiality.isEmpty())
-           && (content == null || content.isEmpty()) && (context == null || context.isEmpty());
+           && (authenticator == null || authenticator.isEmpty()) && (created == null || created.isEmpty())
+           && (indexed == null || indexed.isEmpty()) && (status == null || status.isEmpty()) && (docStatus == null || docStatus.isEmpty())
+           && (relatesTo == null || relatesTo.isEmpty()) && (description == null || description.isEmpty())
+           && (confidentiality == null || confidentiality.isEmpty()) && (content == null || content.isEmpty())
+           && (context == null || context.isEmpty());
       }
 
   @Override
