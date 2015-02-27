@@ -1,0 +1,50 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Observation Value Absent Reason"/>
+	<!--Eric Haas Health eData Inc - editor-->
+	<publisher value="HL7 International - Orders and Observations WG"/>
+	 <contact>
+    <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  </contact>
+	<description value="This value set defines the set of code for identifying the reason why the expected result in Observation.value[x] is missing.
+"/>
+	<status value="draft"/>
+	<define>
+		<system value="http://hl7.org/fhir/data-absent-reason"/>
+		<caseSensitive value="true"/>
+		<concept>
+			<code value="unknown"/>
+			<definition value="The value is not known"/>
+		</concept>
+		<concept>
+			<code value="asked"/>
+			<definition value="The source human does not know the value"/>
+		</concept>
+		<concept>
+			<code value="temp"/>
+			<definition value="There is reason to expect (from the workflow) that the value may become known"/>
+		</concept>
+		<concept>
+			<code value="notasked"/>
+			<definition value="The workflow didn&#39;t lead to this value being known"/>
+		</concept>
+		<concept>
+			<code value="masked"/>
+			<definition value="The information is not available due to security, privacy or related reasons"/>
+		</concept>
+		<concept>
+			<code value="unsupported"/>
+			<definition value="The source system wasn&#39;t capable of supporting this element"/>
+		</concept>
+		<concept>
+			<code value="astext"/>
+			<definition value="The content of the data is represented in the resource narrative"/>
+		</concept>
+		<concept>
+			<code value="error"/>
+			<definition value="Some system or workflow process error means that the information is not available"/>
+		</concept>
+	</define>
+</ValueSet>
