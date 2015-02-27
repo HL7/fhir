@@ -40,7 +40,7 @@ import org.w3c.dom.Node;
 
 public class Navigation {
   
-  public class Entry {
+  public static class Entry {
     private String name;    
     private String link;   
     private String index;
@@ -68,7 +68,7 @@ public class Navigation {
     }
     
   }
-  public class Category {
+  public static class Category {
     private String name;
     private String link;
     private String mode;

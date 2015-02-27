@@ -45,11 +45,12 @@ import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class SpecificationTerminologyServices  implements ITerminologyServices {
+public class SpecificationTerminologyServices implements ITerminologyServices {
 
-  public class Concept {
+  public static class Concept {
     private String display; // preferred
     private List<String> displays = new ArrayList<String>();
+
     public boolean has(String d) {
       if (display.equalsIgnoreCase(d))
         return true;
@@ -58,6 +59,7 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
           return true;
       return false;
     }
+
     public String summary() {
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       b.append(display);
@@ -66,8 +68,8 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
           b.append(s);
       return b.toString();
     }
-    
   }
+
   private Map<String, Concept> snomedCodes = new HashMap<String, Concept>();
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
   private boolean triedServer = false;
@@ -127,7 +129,7 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
       return new ValidationResult(IssueSeverity.WARNING, "Unknown Snomed Code "+code);
   }
 
-  private class SnomedServerResponse  {
+  private static class SnomedServerResponse  {
     String correctExpression;
     String display;
   }
@@ -269,7 +271,6 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
     }
     xml.close("snomed");
     xml.close();
-    
   }
   
   public void loadLoinc(String filename) throws Exception {
@@ -306,7 +307,6 @@ public class SpecificationTerminologyServices  implements ITerminologyServices {
         return ((ValueSet) ((Bundle)r).getEntry().get(0).getResource()).getExpansion().getContains();
     }
     vs.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
-    
         
     if (!triedServer || serverOk) {
       try {

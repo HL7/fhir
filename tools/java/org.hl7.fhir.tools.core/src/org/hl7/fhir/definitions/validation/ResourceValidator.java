@@ -64,29 +64,25 @@ import org.hl7.fhir.utilities.Utilities;
  *
  */
 public class ResourceValidator extends BaseValidator {
-  
-  
-  public class Usage {
-    public Set<SearchParameterDefn.SearchType> usage= new HashSet<SearchParameterDefn.SearchType>();
+
+  public static class Usage {
+    public Set<SearchParameterDefn.SearchType> usage = new HashSet<SearchParameterDefn.SearchType>();
   }
-  public class UsageT {
-    public Set<String> usage= new HashSet<String>();
+
+  public static class UsageT {
+    public Set<String> usage = new HashSet<String>();
   }
-  
- 
 
   private Definitions definitions;
-  private Map<String, Usage> usages = new HashMap<String, Usage>();
-  private Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
+  private final Map<String, Usage> usages = new HashMap<String, Usage>();
+  private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
-  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+  private final Map<String, ValueSet> codeSystems;
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
-  
-  
 
 	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map) {
 		super();
-    source = Source.ResourceValidator;
+		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
 		this.codeSystems = map;
@@ -110,7 +106,6 @@ public class ResourceValidator extends BaseValidator {
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) {
     rule(errors, "structure", structure.getName(), name.toLowerCase().substring(0, 1) != name.substring(0, 1), "Resource Name must start with an uppercase alpha character");
     checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure));
-    
   }
   
   private boolean hasSummary(ElementDefn structure) {
@@ -127,7 +122,6 @@ public class ResourceValidator extends BaseValidator {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     checkStucture(errors, name, structure);
     return errors;
-  
   }
   
   public void check(List<ValidationMessage> errors, String name, ResourceDefn parent) {
@@ -316,11 +310,10 @@ public class ResourceValidator extends BaseValidator {
 			    if (sd.contains("|")) {
 			      StringBuilder b = new StringBuilder();
             for (DefinedCode c : cd.getCodes()) {
-              b.append(" | "+c.getCode());
+              b.append(" | ").append(c.getCode());
             }
             String esd = b.substring(3);
             rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
-			      
 			    } else
 			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()), "The short description of an element with a code list should have the format code | code | etc");
 			  }
@@ -350,7 +343,6 @@ public class ResourceValidator extends BaseValidator {
 		for (ElementDefn c : e.getElements()) {
 			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary);
 		}
-
 	}
 
 
@@ -398,7 +390,7 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private boolean grammarWord(String w) {
-    return w.equals("and") || w.equals("or") || w.equals("a") || w.equals("the") || w.equals("for") || w.equals("this") || w.equals("of") || w.equals("and") || w.equals("and");
+    return w.equals("and") || w.equals("or") || w.equals("a") || w.equals("the") || w.equals("for") || w.equals("this") || w.equals("of");
   }
 
   private String stripPunctuation(String s) {
@@ -486,7 +478,6 @@ public class ResourceValidator extends BaseValidator {
         }
       }
     }
-
 	}
 
 	private boolean typeExists(String name, ResourceDefn parent) {
@@ -526,7 +517,6 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", "Binding "+n, cd.getElementType() != ElementType.Simple || cd.getBinding() != Binding.Unbound, "Need to provide a binding for code elements");
     rule(errors, "structure", "Binding "+n, (cd.getElementType() == ElementType.Complex || cd.getElementType() == ElementType.Unknown) || !cd.isExample(), "Can only be an example binding if bound to Coding/CodeableConcept");
     rule(errors, "structure", "Binding "+n, Utilities.noString(cd.getDefinition())  || (cd.getDefinition().charAt(0) == cd.getDefinition().toUpperCase().charAt(0)), "Definition cannot start with a lowercase letter");
-    
 
     // set these for when the profiles are generated
     if (cd.getElementType() == ElementType.Simple) {

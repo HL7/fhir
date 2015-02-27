@@ -346,8 +346,6 @@ public class SpreadsheetParser {
               OperationParameter param = params.get(parts[1]);
               if (param == null)
                 throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' not found at "+getLocation(row));
-              if (param == null)
-                throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' not found at "+getLocation(row));
               if (!param.getType().equals("Tuple"))
                 throw new Exception("Tuple parameter '"+parts[0]+"."+parts[1]+"' type must be Tuple at "+getLocation(row));
               String profile = sheet.getColumn(row, "Profile");
@@ -454,8 +452,7 @@ public class SpreadsheetParser {
 			  if (!Utilities.noString(sheet.getColumn(row,  "Schematron")))
 			    log.log("Value found for schematron "+getLocation(row), LogMessageType.Hint);  
 			  inv.setOcl(sheet.getColumn(row, "OCL"));
-			  if (s == null || s.equals("")
-			      || result.containsKey(s))
+			  if (s.equals("") || result.containsKey(s))
 			    throw new Exception("duplicate or missing invariant id "
 			        + getLocation(row));
 			  result.put(s, inv);
@@ -680,10 +677,10 @@ public class SpreadsheetParser {
 	}
 
 	private Boolean parseFullBoolean(String s, int row, boolean b) throws Exception {
+        if (s == null || s.isEmpty())
+            return null;
     s = s.toLowerCase();
-    if (s == null || s.equals(""))
-      return null;
-    else if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
+    if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
         || s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
       return true;
     else if (s.equals("false") || s.equals("0") || s.equals("f")
@@ -1397,6 +1394,7 @@ public class SpreadsheetParser {
 	    }
 	    return res;
 	  }
+
   private ElementDefn makeFromPath(ElementDefn root, String pathname,
 			int row, String profileName, boolean allowMake) throws Exception {
 		String[] path = pathname.split("\\.");
@@ -1470,13 +1468,13 @@ public class SpreadsheetParser {
 	}
 
 	protected Boolean parseBoolean(String s, int row, Boolean def) throws Exception {
+        if (s == null || s.isEmpty())
+            return def;
 		s = s.toLowerCase();
-		if (s == null || s.equals(""))
-			return def;
-		else if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
+		if (s.equalsIgnoreCase("y") || s.equalsIgnoreCase("yes")
 				|| s.equalsIgnoreCase("true") || s.equalsIgnoreCase("1"))
 			return true;
-		else if (s.equals("false") || s.equals("0") || s.equals("f")
+        else if (s.equals("false") || s.equals("0") || s.equals("f")
 				|| s.equals("n") || s.equals("no"))
 			return false;
 		else
@@ -1492,16 +1490,12 @@ public class SpreadsheetParser {
 		return events;
 	}
 
-
   public String getFolder() {
     return folder;
   }
 
-
   public void setFolder(String folder) {
     this.folder = folder;
   }
-
-	
 
 }
