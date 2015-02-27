@@ -45,6 +45,7 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
@@ -360,11 +361,13 @@ public class SourceParser {
 
 
   private void loadMappingSpaces() throws Exception {
+    FileInputStream is = null;
     try {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       factory.setNamespaceAware(true);
       DocumentBuilder builder = factory.newDocumentBuilder();
-      Document doc = builder.parse(new FileInputStream(Utilities.path(srcDir, "mappingSpaces.xml")));
+      is = new FileInputStream(Utilities.path(srcDir, "mappingSpaces.xml"));
+      Document doc = builder.parse(is);
       Element e = XMLUtil.getFirstChild(doc.getDocumentElement());
       while (e != null) {
         MappingSpace m = new MappingSpace(XMLUtil.getNamedChild(e, "columnName").getTextContent(), XMLUtil.getNamedChild(e, "title").getTextContent(), 
@@ -377,6 +380,8 @@ public class SourceParser {
       }
     } catch (Exception e) {
       throw new Exception("Error processing mappingSpaces.xml: "+e.getMessage(), e);
+    } finally {
+        IOUtils.closeQuietly(is);
     }
   }
 
@@ -535,7 +540,11 @@ public class SourceParser {
 		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".xml").exists()) {
 		      XmlParser p = new XmlParser();
 		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".xml");
-		      cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+              try {
+		        cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+              } finally {
+                IOUtils.closeQuietly(input);
+              }
 		      if (!cd.getReferredValueSet().hasExperimental())
 		        cd.getReferredValueSet().setExperimental(true);
           if (!cd.getReferredValueSet().hasVersion())
@@ -543,7 +552,11 @@ public class SourceParser {
 		    } else if (new File(Utilities.appendSlash(termDir)+cd.getReference()+".json").exists()) {
 		      JsonParser p = new JsonParser();
 		      FileInputStream input = new FileInputStream(Utilities.appendSlash(termDir)+cd.getReference()+".json");
-		      cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+                try {
+                    cd.setReferredValueSet(ValueSetUtilities.makeShareable((ValueSet) p.parse(input)));
+                } finally {
+                    IOUtils.closeQuietly(input);
+                }
           cd.getReferredValueSet().setExperimental(true);
           if (!cd.getReferredValueSet().hasExperimental())
             cd.getReferredValueSet().setExperimental(true);
