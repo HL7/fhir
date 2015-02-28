@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir">
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="cardiacdiet"/>
 	<!-- id = cardiacdiet  file name = nutritionorder-example-cardiacdiet.xml  Name= Cardiac Diet  Description = Nutrition Order Cardiac Diet Canonical Example
 edited by Eric Haas Health eData Inc-->
@@ -31,7 +31,7 @@ edited by Eric Haas Health eData Inc-->
 					</ol>
 				</li>
 				<li>
-					<b>Schedule: </b>three times a day starting on 2/10 ***!need input on how diets are typically scheduled ***</li>
+					<b>Instructions: </b>Starting on 2/10 breakfast, maximum 400 ml fluids per meal</li>
 			</ul>
 		</div>
 	</text>
@@ -105,7 +105,7 @@ edited by Eric Haas Health eData Inc-->
 			</coding>
 			<text value="Fluid restricted diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
+<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled 
 		<scheduled>
 			<event>
 				<start value="2015-02-10"/>
@@ -116,6 +116,7 @@ edited by Eric Haas Health eData Inc-->
 				<units value="d"/>
 			</repeat>
 		</scheduled>
+-->
 		<nutrients>
 			<modifier>
 				<coding>
@@ -143,9 +144,10 @@ edited by Eric Haas Health eData Inc-->
 				<value value="1500"/>
 				<units value="milliliter"/>
 				<system value="http://unitsofmeasure.org"/>
-				<code value="ml"/>
+				<code value="mL"/>
 			</amount>
 		</nutrients>
+		<instruction value="Starting on 2/10 breakfast, maximum 400 ml fluids per meal"></instruction>
 	</oralDiet>
 	<status value="active"/>
 </NutritionOrder>

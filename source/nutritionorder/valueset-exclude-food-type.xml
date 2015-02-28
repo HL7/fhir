@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="ExcludeFoodModifier"/>
+  <name value="Exclude Food Modifier Codes"/>
 <publisher value="FHIR NutritionOrder team"/>
 	<contact>
     <telecom>

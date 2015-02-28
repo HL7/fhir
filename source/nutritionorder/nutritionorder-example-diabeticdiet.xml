@@ -27,7 +27,7 @@ edited by Eric Haas Health eData Inc-->
 					</ol>
 				</li>
 				<li>
-					<b>Schedule: </b>three times a day starting on 2/10 ***!need input on how diets are typically scheduled ***</li>
+					<b>Schedule: </b>three times a day starting at breakfast on 2/10</li>
 			</ul>
 		</div>
 	</text>
@@ -79,8 +79,7 @@ edited by Eric Haas Health eData Inc-->
 				<code value="160670007"/>
 				<display value="Diabetic diet"/>
 			</coding>
-		</type>
-		<type>
+	
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1030"/>

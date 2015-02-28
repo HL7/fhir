@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="TextureModifier"/>
+  <name value="Texture Modifier Codes"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>  
@@ -9,7 +9,7 @@
   </telecom>
   </contact>
   <!-- Set of SNOMED CT - Children of SCTID: food consistency types "229961002" --> 
-  <description value="TextureModifier: This value set represents SNOMED CT codes for food consistency types or texture modifications to apply to foods."/>
+  <description value="TextureModifier: Codes for food consistency types or texture modifications to apply to foods. This value set is composed of SNOMED CT (US Extension and Core) Concepts from SCTID 229961002 Food consistency types (substance) heirarchy and is provided as a suggestive example"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>

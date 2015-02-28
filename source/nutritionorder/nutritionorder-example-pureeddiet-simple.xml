@@ -45,8 +45,7 @@ edited by Eric Haas Health eData Inc-->
 				<code value="226211001"/>
 				<display value="Pureed diet"/>
 			</coding>
-		</type>
-		<type>
+
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1010"/>

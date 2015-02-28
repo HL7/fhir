@@ -1,19 +1,36 @@
-<ValueSet xmlns="http://hl7.org/fhir" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="NutrientModifier"/>
-  <publisher value="FHIR NutritionOrder team"/>
-  <contact>
-    <telecom>  
-    <system value="url"/>
-    <value value="http://hl7.org/fhir"/>
-  </telecom>
-  </contact>
-  <description value="NutrientModifier :  all SNOMED CT codes for now.  This is  a placeholder until code set defined"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
-  <status value="draft"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-    </include>
-  </compose>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+	<name value="Nutrient Modifier Codes"/>
+	<publisher value="FHIR NutritionOrder team"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="NutrientModifier :  Codes for types of nutrient that is being modified such as carbohydrate or sodium.  This value set includes all the children of SNOMED CT Concepts from SCTID 226355009 Nutrients (substance), Sodium, Potassium and Fluid and is provided as a suggestive example"/>
+	<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+	<status value="draft"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="33463005"/>
+				<display value="Fluid"/>
+			</concept>
+			<concept>
+				<code value="39972003"/>
+				<display value="Sodium"/>
+			</concept>
+			<concept>
+				<code value="88480006"/>
+				<display value="Potassium"/>
+			</concept>
+			<filter>
+				<!--SNOMED CT - Children of SCTID: 226355009 "Nutrients (substance)"-->
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="226355009"/>
+			</filter>
+		</include>
+	</compose>
 </ValueSet>

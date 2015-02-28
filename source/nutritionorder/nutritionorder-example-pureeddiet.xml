@@ -25,7 +25,7 @@ edited by Eric Haas Health eData Inc-->
 				<li>
 					<b>Fluid Consistency: </b>Nectar thick liquids</li>
 				<li>
-					<b>Schedule: </b>three times a day starting on 2/10 ***!need input on how diets are typically scheduled ***</li>
+					<b>Schedule: </b>three times a day starting at breakfast on 2/10</li>
 			</ul>
 		</div>
 	</text>
@@ -77,8 +77,7 @@ edited by Eric Haas Health eData Inc-->
 				<code value="226211001"/>
 				<display value="Pureed diet"/>
 			</coding>
-		</type>
-		<type>
+	
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1010"/>

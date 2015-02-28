@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir">
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
 	<id value="fiberrestricteddiet"/>
-	<!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Fiber Restricted Diet Description = Nutrition Order Fiber Restricted Diet Canonical Example
+	<!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted adn Low Fat Diet l Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>Nutrition Order Fiber Restricted Diet Canonical Example</h3>
+			<h3>Nutrition Order Fiber Restricted adn Low Fat Diet l Example</h3>
 			<ul>
 				<li>
 					<b>Patient: </b>Peter Chalmers</li>
@@ -19,7 +19,10 @@ edited by Eric Haas Health eData Inc-->
 				<li>
 					<b>Food Preferences: </b>dairy-free:  Excludes dairy products</li>
 				<li>
-					<b>Oral Diet Type: </b>Fiber restricted diet</li>
+					<b>Oral Diet Type: </b><ol>
+						<li>Fiber restricted diet</li>
+						<li>Low Fat diet</li>
+					</ol></li>
 				<li>
 					<b>Nutrients Requirements: </b>
 					<ol>
@@ -79,14 +82,25 @@ edited by Eric Haas Health eData Inc-->
 				<code value="15108003"/>
 				<display value="Restricted fiber diet"/>
 			</coding>
-		</type>
-		<type>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1000"/>
 				<display value="Fiber restricted"/>
 			</coding>
 			<text value="Fiber restricted diet"/>
+		</type>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="16208003"/>
+				<display value="Low fat diet"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/diet-type-codes"/>
+				<code value="1100"/>
+				<display value="Low Fat"/>
+			</coding>
+			<text value="Low fat diet"/>
 		</type>
 		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
 		<scheduled>

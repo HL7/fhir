@@ -1,6 +1,6 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="FluidConsistencyType"/>
+  <name value="Fluid Consistency Type Codes"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>  
@@ -8,7 +8,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   </contact>
-  <description value="FluidConsistencyType :  SNOMED CT - Children of SCTID(US Extension): 435681000124103  Dietary liquid consistency diet (regime/therapy)"/>
+  <description value="FluidConsistencyType :  Codes used to represent the consistency of fluids and liquids provided to the patient. This value set includes all the children of  SNOMED CT Concepts from SCTID(US Extension): 435681000124103  Dietary liquid consistency diet (regime/therapy) and is provided as a suggestive example"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>  
   <status value="draft"/>
   <compose>

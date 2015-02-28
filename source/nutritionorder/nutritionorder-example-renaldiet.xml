@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionOrder xmlns="http://hl7.org/fhir">
-	<id value="mineralrestricteddiet"/>
-	<!-- id = mineralrestricteddiet  file name = nutritionorder-example-mineralrestricteddiet.xml Name= Miineral Restricted Diet  Description = Nutrition Order Mineral Restricted Diet Canonical Example
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd">
+	<id value="renaldiet"/>
+	<!-- id = renaldiet  file name = nutritionorder-example-renaldiet.xml Name= Renal Diet  Description = Nutrition Order Renal Diet Example
 edited by Eric Haas Health eData Inc-->
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>Nutrition Order Mineral Restricted Diet Canonical Example</h3>
+			<h3>Nutrition Order Renal Diet Example</h3>
 			<ul>
 				<li>
 					<b>Patient: </b>Peter Chalmers</li>
@@ -19,7 +19,7 @@ edited by Eric Haas Health eData Inc-->
 				<li>
 					<b>Food Preferences: </b>dairy-free:  Excludes dairy products</li>
 				<li>
-					<b>Oral Diet Type: </b>Mineral Restricted Diet</li>
+					<b>Oral Diet Type: </b>Renal Diet</li>
 				<li>
 					<b>Nutrients Requirements: </b>
 					<ol>
@@ -29,7 +29,7 @@ edited by Eric Haas Health eData Inc-->
 					</ol>
 				</li>
 				<li>
-					<b>Schedule: </b>three times a day starting on 2/10 ***!need input on how diets are typically scheduled ***</li>
+					<b>Schedule: </b>three times a day starting on  breakfast 2/10</li>
 			</ul>
 		</div>
 	</text>
@@ -77,17 +77,15 @@ edited by Eric Haas Health eData Inc-->
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="226163001"/>
-				<display value="Mineral restricted diet"/>
+				<code value="33489005"/>
+				<display value="Renal diet"/>
 			</coding>
-		</type>
-		<type>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
 				<code value="1050"/>
-				<display value="Mineral restricted"/>
+				<display value="Renal"/>
 			</coding>
-			<text value="Mineral Restricted Diet"/>
+			<text value="Renal Diet"/>
 		</type>
 		<!-- EH example of three times a day starting on 2/10 !!need input on how diets are typically scheduled -->
 		<scheduled>
