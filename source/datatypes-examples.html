@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-      
+
 [%settitle Data Type Examples%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -27,8 +27,8 @@
 	<p>A negative integer value:</p><pre class="xml" fragment="integer">&lt;score value="-14" /&gt;</pre>
 	<p>A high-precision decimal value:</p><pre class="xml" fragment="decimal">&lt;pi value="3.14159265358979323846264338327950288419716939937510" /&gt;</pre>
 	<p>A stream of bytes, base64 encoded:</p><pre class="xml" fragment="base64Binary">&lt;data value="/9j/4...KAP//Z" /&gt; &lt;!-- covers many lines --&gt;</pre>
-	<p>A unicode string:</p><pre class="xml" fragment="string">&lt;caption value="Noodles are called 面条 in Chinese" /&gt;</pre>
-	<p>A uri that points to a website:</p><pre class="xml" fragment="uri">&lt;reference value="http://www.hl7.org/fhir" /&gt;</pre>
+	<p>A unicode string:</p><pre class="xml" fragment="string">&lt;caption value="Noodles are called ?? in Chinese" /&gt;</pre>
+	<p>A uri that points to a website:</p><pre class="xml" fragment="uri">&lt;reference value="http://hl7.org/fhir" /&gt;</pre>
 	<p>A uri that is a urn:</p><pre class="xml" fragment="uri">&lt;id value="urn:isbn:0451450523" /&gt;</pre>
 	<p>A date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06-04" /&gt;</pre>
 	<p>An approximate date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06" /&gt;</pre>
@@ -149,7 +149,7 @@ to some organization to further sub-allocate):</p>
     &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
 </pre>
-<p>Notes:</p> 
+<p>Notes:</p>
 <ul>
  <li>US SSNs are often presented like this: 000-11-1111, the dashes are for presentation and should be removed, as specified in the <a href="terminologies-systems.html#identifiersystems">definition of ssn-us</a></li>
  <li>The use of "usual" means that this institution prefers to use SSN when identifying the patient</li>
@@ -288,22 +288,22 @@ And where the value set would be something like this:
       &lt;system value=&quot;http://hl7.org/fhir/clinistix&quot;/&gt;
       &lt;caseSensitive value=&quot;false&quot;/&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;neg&quot;/&gt;     
+        &lt;code value=&quot;neg&quot;/&gt;
       &lt;/concept&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;trace&quot;/&gt;     
+        &lt;code value=&quot;trace&quot;/&gt;
       &lt;/concept&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;+&quot;/&gt;     
+        &lt;code value=&quot;+&quot;/&gt;
       &lt;/concept&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;+&quot;/&gt;     
+        &lt;code value=&quot;+&quot;/&gt;
       &lt;/concept&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;++&quot;/&gt;     
+        &lt;code value=&quot;++&quot;/&gt;
       &lt;/concept&gt;
       &lt;concept&gt;
-        &lt;code value=&quot;+++&quot;/&gt;     
+        &lt;code value=&quot;+++&quot;/&gt;
       &lt;/concept&gt;
     &lt;/define&gt;
   &lt;/ValueSet&gt;
@@ -409,7 +409,7 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
    &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
-<p>Unit cost (Ratio of 
+<p>Unit cost (Ratio of
 Money:Quantity):</p>
 <pre class="xml" fragment="Ratio">
   &lt;charge&gt;
@@ -465,7 +465,7 @@ See also <a href="datatypes.html#SampledData">Base Definition</a>, <a href="data
    &lt;value value="0"/&gt;
    &lt;units value="&mu;V"/&gt;
    &lt;system value="http://unitsofmeasure.org"/&gt;
-   &lt;code value="uV"/&gt;   
+   &lt;code value="uV"/&gt;
   &lt;/origin&gt;
   &lt;period value="2"/&gt;
   &lt;factor value="2.5"/&gt;
@@ -501,12 +501,12 @@ See also <a href="datatypes.html#HumanName">Base Definition</a>, <a href="dataty
 &lt;/name&gt;
 </pre>
 <p>
-These cases can be quite ambiguous - is "Mary Jane" one name, or two? Different systems, 
+These cases can be quite ambiguous - is "Mary Jane" one name, or two? Different systems,
 and data enterers may treat this differently, and the person themselves may not know.
 Parts are allowed to contain spaces, but systems should consider how to treat
 these cases. Composite names separated by "-" should be treated as a single name part.
 </p>
-   
+
 <p>A common pattern: a person is called by a name other than that expected from their official name (first given name in most cultures).</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
@@ -545,7 +545,7 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;van&quot;&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/ExtensionDefinition/iso21090-EN-qualifier&quot; &gt;
 	   &lt;valueCode value=&quot;VV&quot; /&gt;
@@ -556,8 +556,8 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 &lt;/name&gt;
 </pre>
 <p>
-See <a href="extensibility-examples.html">the Extensibility Example for more information</a>. 
-Note that this name has multiple family name parts. Systems that do not support as many name parts 
+See <a href="extensibility-examples.html">the Extensibility Example for more information</a>.
+Note that this name has multiple family name parts. Systems that do not support as many name parts
 as are provided in an instance they are processing may wish to append parts together using spaces,
 so that this becomes "van Hentenryck".
 </p>
@@ -565,12 +565,12 @@ so that this becomes "van Hentenryck".
 
 
 <div class="example">
-<p>Complex example from Germany: Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of 
+<p>Complex example from Germany: Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of
 multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;Hochheim-Weilenfels&quot; /&gt;
   &lt;given value=&quot;Regina&quot; /&gt;
   &lt;given value=&quot;Johanna&quot; /&gt;
@@ -588,7 +588,7 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
   &lt;suffix value=&quot;NCFSA&quot; /&gt;
 &lt;/name&gt;
 &lt;name&gt;
-  &lt;use value=&quot;maiden&quot; /&gt;  
+  &lt;use value=&quot;maiden&quot; /&gt;
   &lt;family value=&quot;Hochheim&quot; /&gt;
 &lt;/name&gt;
 </pre>
@@ -601,12 +601,12 @@ This example makes use of the ISO 21090 extensions to carry the rare ISO 21090 q
 <p>Japanese example in the three forms: ideographic (Kanji), syllabic (Hiragana) and alphabetic (Romaji).</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="木村" /&gt;
-  &lt;given value="通男" /&gt;
+  &lt;family value="??" /&gt;
+  &lt;given value="??" /&gt;
   &lt;/name&gt;
 &lt;name&gt;
- &lt;family value="きむら" /&gt; 
- &lt;given value="みちお" /&gt; 
+ &lt;family value="???" /&gt;
+ &lt;given value="???" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
   &lt;family value="KIMURA" /&gt;
@@ -622,9 +622,9 @@ The three forms are differentiated by the character subset each contains.
 <p>Russian example in the two forms: cyrillic, and latin:</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="ЕМЕЛИН" /&gt;
-  &lt;given value="ИВАН" /&gt;
-  &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
+  &lt;family value="??????" /&gt;
+  &lt;given value="????" /&gt;
+  &lt;given value="????????????" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
   &lt;family value="EMELIN" /&gt;
@@ -633,7 +633,7 @@ The three forms are differentiated by the character subset each contains.
 &lt;/name&gt;
 </pre>
 <p>
-In  Russian  usage, these names are known as 
+In  Russian  usage, these names are known as
 the domestic and foreign names respectively. The two forms are differentiated by the character subset each contains.
 </p>
 </div>
@@ -644,7 +644,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;Erikson&quot; /&gt;
   &lt;given value=&quot;Jan&quot; /&gt;
   &lt;given value=&quot;Erik&quot; /&gt;
@@ -662,26 +662,26 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
 This example makes use of the ISO 21090 extension to carry the culture specific ISO 21090 qualifier attribute "MID" for the Mellannamn.
 </p>
 <p>
-Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born 
-name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the given name (Karin). The 
-father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of 
+Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born
+name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the given name (Karin). The
+father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of
 the child.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value="temp" /&gt;  
+  &lt;use value="temp" /&gt;
   &lt;!-- use could be OR+OLD, depends how record keeping is done --&gt;
   &lt;family value="Hansen" /&gt;
   &lt;given value="Margrete Jente" /&gt;
 &lt;/name&gt;
 </pre>
 <p>
-The baby's name is subsequently changed to the fathers' family name, and to use the mother's name as 
+The baby's name is subsequently changed to the fathers' family name, and to use the mother's name as
 mellomnamn.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;Erikson&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
@@ -695,13 +695,13 @@ mellomnamn.
 &lt;/name&gt;
 </pre>
 <p>
-Later, Karin gets married to Per Berg, and decides to adopts Berg as her family name, and also decides to use 
-Erikson as the mellom navn. (Note: Karin could have chosen to use another mellom navn, e.g. the family name of 
+Later, Karin gets married to Per Berg, and decides to adopts Berg as her family name, and also decides to use
+Erikson as the mellom navn. (Note: Karin could have chosen to use another mellom navn, e.g. the family name of
 her mother, her father or other family names as specified by naming laws of the country in question).
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;old&quot; /&gt;  
+  &lt;use value=&quot;old&quot; /&gt;
   &lt;family value=&quot;Erikson&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Hansen&quot;&gt;
@@ -714,7 +714,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;/given&gt;
 &lt;/name&gt;
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;  
+  &lt;use value=&quot;official&quot; /&gt;
   &lt;family value=&quot;Berg&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
   &lt;given value=&quot;Erikson&quot;&gt;
@@ -727,7 +727,7 @@ her mother, her father or other family names as specified by naming laws of the 
   &lt;/given&gt;
 &lt;/name&gt;
 &lt;name&gt;
-  &lt;use value=&quot;usual&quot; /&gt;  
+  &lt;use value=&quot;usual&quot; /&gt;
   &lt;family value=&quot;Berg&quot; /&gt;
   &lt;given value=&quot;Karin&quot; /&gt;
 &lt;/name&gt;
@@ -736,8 +736,8 @@ her mother, her father or other family names as specified by naming laws of the 
 
 <h4>W3C International Examples</h4>
 <p>
-These examples are taken from the <a href="http://www.w3.org/International/questions/qa-personal-names">W3C International Examples</a>, 
-which should be consulted for further information. 
+These examples are taken from the <a href="http://www.w3.org/International/questions/qa-personal-names">W3C International Examples</a>,
+which should be consulted for further information.
 </p>
 
 <p>
@@ -749,7 +749,7 @@ A patronymic is "The part of a name that links to the genealogy":
   &lt;family value=&quot;Guðmundsdóttir&quot;/&gt;
   &lt;given value=&quot;Björk&quot;/&gt;
 &lt;/name&gt;
-</pre>  
+</pre>
 
 <p>
 A patronymic with a "son/daughter of" appellation:
@@ -760,9 +760,9 @@ A patronymic with a "son/daughter of" appellation:
   &lt;family value=&quot;bin Osman&quot;/&gt;
   &lt;given value=&quot;Isa&quot;/&gt;
 &lt;/name&gt;
-</pre>  
+</pre>
 <p>
-Note: The family name may also be given as two different family names. 
+Note: The family name may also be given as two different family names.
 </p>
 
 <p>
@@ -770,10 +770,10 @@ A Chinese name with a generational name:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;text value=&quot;毛泽东&quot;/&gt; &lt;!-- left to right --&gt;
-  &lt;family value=&quot;毛&quot;/&gt;
-  &lt;given value=&quot;泽&quot;/&gt;
-  &lt;given value=&quot;东&quot;/&gt;
+  &lt;text value=&quot;???&quot;/&gt; &lt;!-- left to right --&gt;
+  &lt;family value=&quot;?&quot;/&gt;
+  &lt;given value=&quot;?&quot;/&gt;
+  &lt;given value=&quot;?&quot;/&gt;
 &lt;/name&gt;
 &lt;name&gt;
   &lt;text value=&quot;Mao Ze Dong&quot;/&gt; &lt;!-- left to right --&gt;
@@ -781,7 +781,7 @@ A Chinese name with a generational name:
   &lt;given value=&quot;Ze&quot;/&gt;
   &lt;given value=&quot;Dong&quot;/&gt;
 &lt;/name&gt;
-</pre>  
+</pre>
 <p>
 <i>Todo: is there a need to identify the given name that is the generational name</i>.
 </p>
@@ -831,14 +831,14 @@ Russian Examples (using Cyrillic):
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;family value="Николаевич" /&gt;
-  &lt;family value="Ельцин" /&gt;
-  &lt;given value="Борис" /&gt;
+  &lt;family value="??????????" /&gt;
+  &lt;family value="??????" /&gt;
+  &lt;given value="?????" /&gt;
 &lt;/name&gt;
 &lt;name&gt;
-  &lt;family value="Иосифовна" /&gt;
-  &lt;family value="Ельцина" /&gt;
-  &lt;given value="Наина" /&gt;
+  &lt;family value="?????????" /&gt;
+  &lt;family value="???????" /&gt;
+  &lt;given value="?????" /&gt;
 &lt;/name&gt;
 </pre>
 
@@ -895,8 +895,8 @@ Other Examples:
 </pre>
 <p>
 <i>Todo: need to discuss this with Indian / Arabic implementers</i>.
-Note that collecting and storing the <i>text</i> element makes the 
-primary purpose of the structured parts for index/searching, and 
+Note that collecting and storing the <i>text</i> element makes the
+primary purpose of the structured parts for index/searching, and
 fidelity of the name parts is not critical.
 </p>
 
@@ -918,7 +918,7 @@ See also <a href="datatypes.html#Address">Base Definition</a>, <a href="datatype
 <pre class="xml" fragment="Address">
   &lt;address&gt;
    &lt;use value="work" /&gt;
-   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG 
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
          5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
    &lt;line value="1050 W Wishard Blvd" /&gt;
    &lt;line value="RG 5th floor" /&gt;
