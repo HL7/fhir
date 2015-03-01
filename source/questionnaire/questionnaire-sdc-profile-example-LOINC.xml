@@ -1,12 +1,5 @@
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
- <id value="sdc-loinc"/>
-   <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
-    <valueCodeableConcept>
-      <coding>
-        <code value="Acute Care Hospitals"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
+  <id value="sdc-loinc"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
@@ -20,7 +13,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2655-0"/>
-        <caseSensitive value="true"/>          
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20278-0"/>
           <display value="Prescription or over-the- counter (including herbal supplements)"/>
@@ -49,7 +42,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2657-6"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20283-0"/>
           <display value="Vaccines"/>
@@ -70,7 +63,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2659-2"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20273-1"/>
           <display value="Dietary supplements (other than vitamins or minerals)"/>
@@ -103,7 +96,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2660-0"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20275-6"/>
           <display value="Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect
@@ -134,7 +127,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2661-8"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20276-4"/>
           <display value="Incorrect patient"/>
@@ -208,7 +201,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2662-6"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20277-2"/>
           <display value="Overdose"/>
@@ -241,7 +234,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2663-4"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20280-6"/>
           <display value="Too early"/>
@@ -251,7 +244,7 @@
           <display value="Too late"/>
         </concept>
         <concept>
-          <code value="LA20290-5"/>
+          <code value="LA4489-6"/>
           <display value="Unknown"/>
         </concept>
       </define>
@@ -266,7 +259,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2664-2"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20282-2"/>
           <display value="Too quickly"/>
@@ -291,7 +284,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2665-9"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20281-4"/>
           <display value="Too high"/>
@@ -316,7 +309,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2817-6"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA33-6"/>
           <display value="Yes"/>
@@ -341,7 +334,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2668-3"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20274-9"/>
           <display value="Drug-drug"/>
@@ -370,7 +363,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2669-1"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA20279-8"/>
           <display value="Purchasing"/>
@@ -423,7 +416,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2828-3"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="LA33-6"/>
           <display value="Yes"/>
@@ -444,7 +437,7 @@
       <status value="active"/>
       <define>
         <system value="http://loinc.org/vs/LL2682-4"/>
-        <caseSensitive value="true"/>  
+        <caseSensitive value="true"/>
         <concept>
           <code value="	LA20272-3	"/>
           <display value="Cutaneous, topical application, including ointment, spray, patch"/>
@@ -512,6 +505,13 @@
       </define>
     </ValueSet>
   </contained>
+  <extension url="http://hl7.org/fhir/ExtensionDefinition/questionnaire-category">
+    <valueCodeableConcept>
+      <coding>
+        <code value="Acute Care Hospitals"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
   <identifier>
     <system value="http://loinc.org/vs"/>
     <value value="74080-3"/>
